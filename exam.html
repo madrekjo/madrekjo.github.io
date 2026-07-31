@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اختبار — مدارك جو</title>
+<link rel="icon" type="image/jpeg" href="https://d.top4top.io/p_3816yfhp01.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root { --a: #FFD700; --a-dim: rgba(255,215,0,0.1); --a-border: rgba(255,215,0,0.25); --deep: #0a0a0f; --surface: #111118; --surface2: #1a1a24; --text: #f0f0f5; --muted: #888899; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--deep);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.exam-wrap {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.exam-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.exam-subject {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--a), #FFF3B0, #B8860B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.exam-semester {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--surface2);
+  border-radius: 4px;
+  margin: 20px 0 0;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--a), #FFF3B0);
+  border-radius: 4px;
+  transition: width 0.4s ease;
+  width: 0%;
+}
+.progress-text {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 8px;
+  text-align: left;
+}
+.question-card {
+  background: var(--surface);
+  border: 1px solid var(--a-border);
+  border-radius: 20px;
+  padding: 32px 28px 24px;
+  animation: qFade 0.35s ease both;
+}
+@keyframes qFade {
+  from { opacity:0; transform: translateY(16px); }
+  to { opacity:1; transform: translateY(0); }
+}
+.question-num {
+  font-size: 0.78rem;
+  color: var(--a);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.question-text {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  min-height: 3em;
+}
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--surface2);
+  border: 2px solid transparent;
+  border-radius: 14px;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1);
+  font-family: 'Cairo', sans-serif;
+  font-size: 1rem;
+  color: var(--text);
+  text-align: right;
+  width: 100%;
+  position: relative;
+}
+.option-btn:hover {
+  border-color: rgba(255,215,0,0.3);
+  background: rgba(255,215,0,0.05);
+  transform: translateX(-4px);
+}
+.option-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--muted);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s;
+  position: relative;
+}
+.option-circle::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--a);
+  transform: scale(0);
+  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+}
+.option-btn.selected {
+  border-color: var(--a);
+  background: var(--a-dim);
+  color: var(--a);
+}
+.option-btn.selected .option-circle {
+  border-color: var(--a);
+}
+.option-btn.selected .option-circle::after {
+  transform: scale(1);
+}
+.option-btn.correct {
+  border-color: #4caf50;
+  background: rgba(76,175,80,0.1);
+  color: #81c784;
+}
+.option-btn.correct .option-circle { border-color: #4caf50; }
+.option-btn.correct .option-circle::after { background: #4caf50; transform: scale(1); }
+.option-btn.wrong {
+  border-color: #f44336;
+  background: rgba(244,67,54,0.1);
+  color: #ef9a9a;
+}
+.option-btn.wrong .option-circle { border-color: #f44336; }
+.option-btn.wrong .option-circle::after { background: #f44336; transform: scale(1); }
+.option-btn.disabled { pointer-events: none; }
+.option-label {
+  font-weight: 700;
+  color: var(--muted);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  width: 20px;
+}
+.result-card {
+  display: none;
+  background: var(--surface);
+  border: 1px solid var(--a-border);
+  border-radius: 20px;
+  padding: 40px 28px;
+  text-align: center;
+  animation: qFade 0.5s ease both;
+}
+.result-icon { font-size: 4rem; margin-bottom: 12px; }
+.result-score {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--a), #FFF3B0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.result-label {
+  font-size: 1rem;
+  color: var(--muted);
+  margin: 8px 0 20px;
+}
+.result-detail {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.result-again {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  background: var(--a-dim);
+  border: 1px solid var(--a-border);
+  color: var(--a);
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.result-again:hover { background: rgba(255,215,0,0.2); }
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+.empty-state .icon { font-size: 4rem; margin-bottom: 16px; }
+.empty-state h3 { font-family: 'Tajawal', sans-serif; font-size: 1.4rem; color: var(--text); margin-bottom: 8px; }
+.empty-state p { color: var(--muted); font-size: 0.9rem; }
+@media (max-width: 500px) {
+  .question-card { padding: 24px 16px 20px; }
+  .question-text { font-size: 1.05rem; }
+  .option-btn { padding: 12px 14px; font-size: 0.9rem; }
+  .exam-subject { font-size: 1.3rem; }
+}
+</style>
+</head>
+<body>
+<div class="exam-wrap">
+  <div class="exam-header">
+    <div class="exam-subject" id="examSubject"></div>
+    <div class="exam-semester" id="examSemester"></div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-text" id="progressText"></div>
+  </div>
+  <div id="examContent"></div>
+</div>
+<script>
+const QUESTIONS = {
+  'الرياضيات': [
+    { q: 'ما ناتج 5 + 3 × 2؟', options: ['11', '16', '13', '10'], answer: 0 },
+    { q: 'ما الجذر التربيعي للعدد 144؟', options: ['14', '12', '10', '16'], answer: 1 },
+    { q: 'إذا كان قطر دائرة 10 سم، فما طول نصف القطر؟', options: ['5 سم', '20 سم', '15 سم', '10 سم'], answer: 0 },
+    { q: 'كم زاوية في المثلث؟', options: ['3', '4', '5', '6'], answer: 0 }
+  ],
+  'الفيزياء': [
+    { q: 'ما وحدة قياس القوة؟', options: ['نيوتن', 'جول', 'واط', 'أمبير'], answer: 0 },
+    { q: 'ما سرعة الضوء في الفراغ تقريباً؟', options: ['3×10⁸ م/ث', '3×10⁶ م/ث', '3×10⁵ م/ث', '3×10⁷ م/ث'], answer: 0 },
+    { q: 'أي من التالي ليس من حالات المادة؟', options: ['الطاقة', 'الصلبة', 'السائلة', 'الغازية'], answer: 0 },
+    { q: 'ما وحدة قياس الجهد الكهربائي؟', options: ['فولت', 'أمبير', 'أوم', 'واط'], answer: 0 }
+  ],
+  'الكيمياء': [
+    { q: 'ما الرمز الكيميائي للماء؟', options: ['H₂O', 'CO₂', 'NaCl', 'HCl'], answer: 0 },
+    { q: 'ما عدد البروتونات في ذرة الهيدروجين؟', options: ['1', '2', '3', '0'], answer: 0 },
+    { q: 'ما العنصر الذي رمزه Fe؟', options: ['الحديد', 'الفضة', 'الذهب', 'النحاس'], answer: 0 },
+    { q: 'ما الرقم الهيدروجيني للماء النقي؟', options: ['7', '5', '9', '3'], answer: 0 }
+  ],
+  'العلوم الحياتية': [
+    { q: 'ما أكبر عضو في جسم الإنسان؟', options: ['الجلد', 'الكبد', 'الدماغ', 'القلب'], answer: 0 },
+    { q: 'كم عدد الكروموسومات في الخلية البشرية؟', options: ['46', '44', '48', '23'], answer: 0 },
+    { q: 'أي جهاز في الجسم مسؤول عن ضخ الدم؟', options: ['القلب', 'الكبد', 'الرئتين', 'الدماغ'], answer: 0 },
+    { q: 'ما الوحدة الأساسية للحياة؟', options: ['الخلية', 'الذرة', 'النسيج', 'العضو'], answer: 0 }
+  ],
+  'اللغة الانجليزية متقدم': [
+    { q: 'What is the past tense of "go"?', options: ['went', 'gone', 'going', 'goes'], answer: 0 },
+    { q: 'She ___ to school every day.', options: ['goes', 'go', 'going', 'went'], answer: 0 },
+    { q: 'Choose the correct: "I ___ a student."', options: ['am', 'is', 'are', 'be'], answer: 0 },
+    { q: 'What is the opposite of "hot"?', options: ['cold', 'warm', 'cool', 'heat'], answer: 0 }
+  ],
+  'اللغة العربية تخصص': [
+    { q: 'ما الفعل الماضي من "يكتب"؟', options: ['كتب', 'يكتب', 'اكتب', 'كتابة'], answer: 0 },
+    { q: 'ما جمع كلمة "كتاب"؟', options: ['كتب', 'كتابات', 'كتّاب', 'مكتبة'], answer: 0 },
+    { q: 'ما إعراب "الطالب مجتهد" كلمة "مجتهد"؟', options: ['خبر مرفوع', 'فاعل مرفوع', 'مفعول به منصوب', 'نعت مرفوع'], answer: 0 },
+    { q: 'كم حروف اللغة العربية؟', options: ['28', '26', '30', '24'], answer: 0 }
+  ],
+  'التربية الإسلامية تخصص': [
+    { q: 'كم عدد أركان الإسلام؟', options: ['5', '6', '4', '7'], answer: 0 },
+    { q: 'ما أول سورة في القرآن الكريم؟', options: ['الفاتحة', 'البقرة', 'الإخلاص', 'الناس'], answer: 0 },
+    { q: 'ما اسم ناقة النبي صالح عليه السلام؟', options: ['الناقة', 'القصواء', 'حمراء', 'الجدعاء'], answer: 0 },
+    { q: 'كم عدد أركان الإيمان؟', options: ['6', '5', '7', '4'], answer: 0 }
+  ],
+  'التاريخ': [
+    { q: 'في أي عام وقعت معركة حطين؟', options: ['1187 م', '1192 م', '1099 م', '1258 م'], answer: 0 },
+    { q: 'من مؤسس الدولة الأموية؟', options: ['معاوية بن أبي سفيان', 'عمر بن الخطاب', 'أبو بكر الصديق', 'علي بن أبي طالب'], answer: 0 },
+    { q: 'ما عاصمة الدولة العباسية؟', options: ['بغداد', 'دمشق', 'القاهرة', 'المدينة'], answer: 0 },
+    { q: 'من قائد معركة اليرموك؟', options: ['خالد بن الوليد', 'أبو عبيدة', 'سعد بن أبي وقاص', 'عمرو بن العاص'], answer: 0 }
+  ],
+  'رياضيات الأعمال': [
+    { q: 'ما معنى NPV في الإدارة المالية؟', options: ['صافي القيمة الحالية', 'صافي الربح', 'القيمة السوقية', 'سعر الفائدة'], answer: 0 },
+    { q: 'إذا كان سعر سلعة 100 دينار وعليها خصم 20%، فما السعر بعد الخصم؟', options: ['80 دينار', '20 دينار', '120 دينار', '60 دينار'], answer: 0 },
+    { q: 'ما الفائدة البسيطة على 1000 دينار لمدة سنة بسعر 5%؟', options: ['50 دينار', '100 دينار', '500 دينار', '5 دنانير'], answer: 0 },
+    { q: 'أي من التالي ليس من البيانات المالية؟', options: ['كشف الحساب البنكي', 'الميزانية العمومية', 'قائمة الدخل', 'قائمة التدفقات النقدية'], answer: 0 }
+  ],
+  'ثقافة مالية': [
+    { q: 'ما المقصود بالفائدة المركبة؟', options: ['فائدة على أصل القرض والفوائد السابقة', 'فائدة بسيطة', 'ضريبة', 'رسوم بنكية'], answer: 0 },
+    { q: 'ما هي العملة الرسمية في اليابان؟', options: ['الين', 'اليورو', 'الدولار', 'الجنيه'], answer: 0 },
+    { q: 'ما معنى التضخم؟', options: ['ارتفاع عام في الأسعار', 'انخفاض الأسعار', 'زيادة الإنتاج', 'انخفاض البطالة'], answer: 0 },
+    { q: 'ما نوع الضريبة المفروضة على الدخل؟', options: ['ضريبة دخل', 'ضريبة مبيعات', 'ضريبة جمركية', 'رسوم'], answer: 0 }
+  ],
+  'علوم الأرض والبيئة': [
+    { q: 'ما طبقة الغلاف الجوي الأقرب إلى سطح الأرض؟', options: ['التروبوسفير', 'الستراتوسفير', 'الميزوسفير', 'الثرموسفير'], answer: 0 },
+    { q: 'ما سبب حدوث الزلازل؟', options: ['حركة الصفائح التكتونية', 'البراكين', 'الرياح', 'المد والجزر'], answer: 0 },
+    { q: 'كم نسبة الماء على سطح الأرض؟', options: ['71%', '50%', '80%', '60%'], answer: 0 },
+    { q: 'ما الغاز الأكثر وفرة في الغلاف الجوي؟', options: ['النيتروجين', 'الأكسجين', 'ثاني أكسيد الكربون', 'الأرجون'], answer: 0 }
+  ],
+  'الدين': [
+    { q: 'كم عدد أركان الإسلام؟', options: ['5', '6', '4', '7'], answer: 0 },
+    { q: 'ما السورة التي تسمى سورة البقرة؟', options: ['الثانية في القرآن', 'الأولى', 'الثالثة', 'الرابعة'], answer: 0 },
+    { q: 'ما معنى الإيمان بالله؟', options: ['التصديق الجازم بوجود الله', 'الصلاة', 'الصوم', 'الحج'], answer: 0 },
+    { q: 'كم مرة ورد اسم "محمد" في القرآن؟', options: ['4 مرات', 'مرة واحدة', 'مرتين', '5 مرات'], answer: 0 }
+  ],
+  'العربي': [
+    { q: 'ما إعراب "السماء صافية" كلمة "صافية"؟', options: ['خبر مرفوع', 'فاعل مرفوع', 'مبتدأ مرفوع', 'نعت'], answer: 0 },
+    { q: 'ما جمع كلمة "مدرسة"؟', options: ['مدارس', 'مدرسات', 'مدارسة', 'مدرسين'], answer: 0 },
+    { q: 'الفعل "درس" من أي باب؟', options: ['فعل يفعل', 'فعل يفعل', 'فعل يفعل', 'فعلل'], answer: 0 },
+    { q: 'ما الحرف الناسخ في "إن الطالب مجتهد"؟', options: ['إن', 'الطالب', 'مجتهد', 'ال'], answer: 0 }
+  ],
+  'تاريخ الاردن': [
+    { q: 'متى استقلت المملكة الأردنية الهاشمية؟', options: ['25 مايس 1946', '25 مايس 1921', '11 أذار 1921', '25 أيار 1950'], answer: 0 },
+    { q: 'من هو أول ملك للمملكة الأردنية الهاشمية؟', options: ['الملك عبد الله الأول', 'الملك حسين بن طلال', 'الملك طلال بن عبد الله', 'الملك عبد الله الثاني'], answer: 0 },
+    { q: 'في أي عام تأسست إمارة شرق الأردن؟', options: ['1921', '1946', '1955', '1967'], answer: 0 },
+    { q: 'ما عاصمة المملكة الأردنية الهاشمية؟', options: ['عمان', 'إربد', 'السلط', 'الكرك'], answer: 0 }
+  ],
+  'علم الاجتماع وعلم النفس': [
+    { q: 'ما أبو علم النفس؟', options: ['فرويد', 'سكينر', 'بافلوف', 'بياجيه'], answer: 0 },
+    { q: 'ما مفهوم التنشئة الاجتماعية؟', options: ['عملية تعلم الفرد لقيم المجتمع', 'عملية بيولوجية', 'عملية اقتصادية', 'عملية سياسية'], answer: 0 },
+    { q: 'أي مما يلي ليس من مراحل النمو؟', options: ['مرحلة الكهولة المبكرة', 'الطفولة', 'المراهقة', 'الرشد'], answer: 0 },
+    { q: 'ما المقصود باللاوعي في نظرية فرويد؟', options: ['جزء من العقل خارج الوعي', 'الأحلام', 'الذاكرة', 'الانتباه'], answer: 0 }
+  ],
+  'الفلسفة': [
+    { q: 'ما أصل كلمة "فلسفة"؟', options: ['محبة الحكمة', 'حب المعرفة', 'طلب العلم', 'التفكر'], answer: 0 },
+    { q: 'من الفيلسوف اليوناني معلم أرسطو؟', options: ['أفلاطون', 'سقراط', 'ديمقريطس', 'فيثاغورس'], answer: 0 },
+    { q: 'ما السؤال الأساسي في الميتافيزيقا؟', options: ['ما طبيعة الوجود؟', 'ما الجمال؟', 'ما الحق؟', 'ما العدل؟'], answer: 0 },
+    { q: 'من صاحب نظرية المثل؟', options: ['أفلاطون', 'أرسطو', 'ديكارت', 'كانط'], answer: 0 }
+  ],
+  'الجغرافيا': [
+    { q: 'ما أكبر قارة من حيث المساحة؟', options: ['آسيا', 'أفريقيا', 'أمريكا الشمالية', 'أوروبا'], answer: 0 },
+    { q: 'ما خط الطول الذي يمر عبر غرينتش؟', options: ['خط الطول الرئيسي', 'خط الاستواء', 'مدار السرطان', 'مدار الجدي'], answer: 0 },
+    { q: 'ما أكبر محيط في العالم؟', options: ['المحيط الهادئ', 'المحيط الأطلسي', 'المحيط الهندي', 'المحيط المتجمد'], answer: 0 },
+    { q: 'كم عدد القارات؟', options: ['7', '5', '6', '8'], answer: 0 }
+  ],
+  'تاريخ': [
+    { q: 'في أي عام وقعت معركة حطين؟', options: ['1187 م', '1192 م', '1099 م', '1258 م'], answer: 0 },
+    { q: 'من مؤسس الدولة الأموية؟', options: ['معاوية بن أبي سفيان', 'عمر بن الخطاب', 'أبو بكر الصديق', 'علي بن أبي طالب'], answer: 0 },
+    { q: 'ما عاصمة الدولة العباسية؟', options: ['بغداد', 'دمشق', 'القاهرة', 'المدينة'], answer: 0 },
+    { q: 'من قائد معركة اليرموك؟', options: ['خالد بن الوليد', 'أبو عبيدة', 'سعد بن أبي وقاص', 'عمرو بن العاص'], answer: 0 }
+  ]
+};
+
+const p = new URLSearchParams(window.location.search);
+const subject = p.get('subject');
+const semester = p.get('semester');
+const isReview = p.get('review') === 'true';
+
+if (isReview) {
+  document.getElementById('examSubject').textContent = '🎯 المراجعه الختاميه — الأسئلة الخطأ';
+  document.getElementById('examSemester').textContent = 'مراجعة الأسئلة السابقة التي أخطأت فيها';
+  
+  let wrongList = [];
+  try { wrongList = JSON.parse(localStorage.getItem('madrekjo_wrong_questions') || '[]'); } catch(e) {}
+
+  if (wrongList.length === 0) {
+    document.getElementById('examContent').innerHTML = '<div class="empty-state"><div class="icon">✨</div><h3>لا توجد أسئلة خاطئة للمراجعة</h3><p>أنت ممتاز! لم تقم بالإجابة على أي سؤال بشكل خاطئ بعد، أو تم مسح السجل.</p></div>';
+  } else {
+    let idx = 0, score = 0, answered = false;
+    const qs = wrongList;
+
+    function showReviewQ() {
+      const item = qs[idx];
+      const q = item.qObj;
+      const labels = ['أ', 'ب', 'ج', 'د'];
+      const total = qs.length;
+      const pct = ((idx + 1) / total) * 100;
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('progressText').textContent = (idx + 1) + ' / ' + total + ' (' + item.subject + ' - ' + item.semester + ')';
+      answered = false;
+
+      let html = '<div class="question-card" id="qCard">';
+      html += '<div class="question-num">سؤال ' + (idx + 1) + ' من مادة: ' + item.subject + ' (' + item.semester + ')</div>';
+      html += '<div class="question-text">' + q.q + '</div>';
+      html += '<div class="options-list">';
+      q.options.forEach((opt, oi) => {
+        html += '<button class="option-btn" data-oi="' + oi + '" onclick="pickReview(' + oi + ')">';
+        html += '<span class="option-circle"></span>';
+        html += '<span class="option-label">' + labels[oi] + '</span>';
+        html += '<span>' + opt + '</span>';
+        html += '</button>';
+      });
+      html += '</div></div>';
+      document.getElementById('examContent').innerHTML = html;
+    }
+
+    window.pickReview = function(oi) {
+      if (answered) return;
+      answered = true;
+      const item = qs[idx];
+      const btns = document.querySelectorAll('.option-btn');
+      btns.forEach((b, bi) => {
+        b.classList.add('disabled');
+        if (bi === item.answer) b.classList.add('correct');
+        else if (bi === oi && oi !== item.answer) b.classList.add('wrong');
+        if (bi === oi) b.classList.add('selected');
+      });
+      if (oi === item.answer) {
+        score++;
+        // Remove from wrong list if answered correctly
+        try {
+          let list = JSON.parse(localStorage.getItem('madrekjo_wrong_questions') || '[]');
+          list = list.filter(x => !(x.subject === item.subject && x.qObj.q === item.qObj.q));
+          localStorage.setItem('madrekjo_wrong_questions', JSON.stringify(list));
+        } catch(e) {}
+      }
+      setTimeout(() => {
+        idx++;
+        if (idx < qs.length) showReviewQ();
+        else showReviewResult();
+      }, 900);
+    };
+
+    function showReviewResult() {
+      const total = qs.length;
+      document.getElementById('examContent').innerHTML =
+        '<div class="result-card" style="display:block">' +
+        '<div class="result-icon">🏆</div>' +
+        '<div class="result-score">انتهت المراجعة</div>' +
+        '<div class="result-label">لقد قمت بمراجعة الأسئلة الخاطئة بنجاح!</div>' +
+        '<div class="result-detail">تم إزالة الأسئلة التي أجبت عليها بشكل صحيح من قائمة المراجعة.</div>' +
+        '<button class="result-again" onclick="window.location.reload()">🔄 تحديث المراجعة</button>' +
+        '</div>';
+    }
+
+    showReviewQ();
+  }
+
+} else if (!subject || !QUESTIONS[subject]) {
+  document.getElementById('examSubject').textContent = '📖 ' + (subject || '');
+  document.getElementById('examSemester').textContent = semester ? '— ' + semester : '';
+  document.getElementById('examContent').innerHTML = '<div class="empty-state"><div class="icon">📝</div><h3>لا توجد أسئلة بعد</h3><p>سيتم إضافة أسئلة لهذه المادة قريباً</p></div>';
+} else {
+  document.getElementById('examSubject').textContent = '📖 ' + (subject || '');
+  document.getElementById('examSemester').textContent = semester ? '— ' + semester : '';
+  const qs = QUESTIONS[subject];
+  let idx = 0, score = 0, answered = false;
+
+  function showQ() {
+    const q = qs[idx];
+    const labels = ['أ', 'ب', 'ج', 'د'];
+    const total = qs.length;
+    const pct = ((idx + 1) / total) * 100;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressText').textContent = idx + 1 + ' / ' + total;
+    answered = false;
+
+    let html = '<div class="question-card" id="qCard">';
+    html += '<div class="question-num">سؤال ' + (idx + 1) + '</div>';
+    html += '<div class="question-text">' + q.q + '</div>';
+    html += '<div class="options-list">';
+    q.options.forEach((opt, oi) => {
+      html += '<button class="option-btn" data-oi="' + oi + '" onclick="pick(' + oi + ')">';
+      html += '<span class="option-circle"></span>';
+      html += '<span class="option-label">' + labels[oi] + '</span>';
+      html += '<span>' + opt + '</span>';
+      html += '</button>';
+    });
+    html += '</div></div>';
+    document.getElementById('examContent').innerHTML = html;
+  }
+
+  window.pick = function(oi) {
+    if (answered) return;
+    answered = true;
+    const qItem = qs[idx];
+    const btns = document.querySelectorAll('.option-btn');
+    btns.forEach((b, bi) => {
+      b.classList.add('disabled');
+      if (bi === qItem.answer) b.classList.add('correct');
+      else if (bi === oi && oi !== qItem.answer) b.classList.add('wrong');
+      if (bi === oi) b.classList.add('selected');
+    });
+
+    if (oi === qItem.answer) {
+      score++;
+      // Also remove from wrong questions if answered correctly now
+      try {
+        let list = JSON.parse(localStorage.getItem('madrekjo_wrong_questions') || '[]');
+        list = list.filter(x => !(x.subject === subject && x.qObj.q === qItem.q));
+        localStorage.setItem('madrekjo_wrong_questions', JSON.stringify(list));
+      } catch(e) {}
+    } else {
+      // Save to wrong questions
+      try {
+        let list = JSON.parse(localStorage.getItem('madrekjo_wrong_questions') || '[]');
+        const exists = list.some(x => x.subject === subject && x.qObj.q === qItem.q);
+        if (!exists) {
+          list.push({ subject: subject, semester: semester || 'ف1', qObj: qItem, answer: qItem.answer });
+          localStorage.setItem('madrekjo_wrong_questions', JSON.stringify(list));
+        }
+      } catch(e) {}
+    }
+
+    setTimeout(() => {
+      idx++;
+      if (idx < qs.length) showQ();
+      else showResult();
+    }, 800);
+  };
+
+  function showResult() {
+    const total = qs.length;
+    document.getElementById('examContent').innerHTML =
+      '<div class="result-card" style="display:block">' +
+      '<div class="result-icon">' + (score === total ? '🏆' : score >= total * 0.5 ? '🎉' : '💪') + '</div>' +
+      '<div class="result-score">' + score + '/' + total + '</div>' +
+      '<div class="result-label">' + (score === total ? 'ممتاز! إجابة كاملة' : score >= total * 0.5 ? 'أحسنت! استمر' : 'ركّز أكثر في المرة القادمة') + '</div>' +
+      '<div class="result-detail">لقد أجبت على ' + score + ' من ' + total + ' أسئلة بشكل صحيح</div>' +
+      '<button class="result-again" onclick="restart()">🔄 إعادة الاختبار</button>' +
+      '</div>';
+  }
+
+  window.restart = function() {
+    idx = 0; score = 0;
+    showQ();
+  };
+
+  showQ();
+}
+</script>
+</body>
+</html>
