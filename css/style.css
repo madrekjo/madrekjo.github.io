@@ -1285,26 +1285,29 @@ body {
 .ig-floating .ig-glyph {
   width: 60%;
   height: 60%;
-  border: 2px solid #fff;
-  border-radius: 24%;
   position: relative;
   box-sizing: border-box;
+  border: 2px solid #fff;
+  border-radius: 26%;
 }
 .ig-floating .ig-glyph::before {
   content: '';
   position: absolute;
-  inset: 24%;
+  top: 50%;
+  left: 50%;
+  width: 54%;
+  height: 54%;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: conic-gradient(from 200deg, #FB5E2A 0%, #EC137C 55%, #FB5E2A 100%);
-  border: 1.5px solid #fff;
+  background: linear-gradient(135deg, #FB5E2A 0%, #F83600 35%, #EC137C 100%);
 }
 .ig-floating .ig-glyph::after {
   content: '';
   position: absolute;
-  top: 8%;
-  right: 8%;
-  width: 15%;
-  height: 15%;
+  top: 10%;
+  right: 10%;
+  width: 11%;
+  height: 11%;
   border-radius: 50%;
   background: #fff;
 }
@@ -1378,7 +1381,6 @@ body {
   height: 26px;
   fill: #fff;
   display: block;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));
 }
 
 /* ========= FIELD INFO ========= */
