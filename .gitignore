@@ -34,3 +34,7 @@ lerna-debug.log*
 # Tests
 coverage/
 playwright-report/
+
+# Email credentials (NEVER commit)
+tools/email-config.json
+tools/result-message.txt
