@@ -1,1 +1,0 @@
-ALTER TABLE public.tasks ADD COLUMN is_stopwatch boolean NOT NULL DEFAULT false;

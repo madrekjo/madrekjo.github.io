@@ -259,67 +259,6 @@ document.addEventListener('click', function(e) {
   }
 });
 
-// ========== DRAGGABLE PROFILE BADGE ==========
-(function() {
-  var badge = document.getElementById('profileBadge');
-  if (!badge) return;
-
-  try {
-    var saved = localStorage.getItem('madrekjo_badge_pos');
-    if (saved) {
-      var pos = JSON.parse(saved);
-      badge.style.left = pos.x + 'px';
-      badge.style.top = pos.y + 'px';
-    }
-  } catch(e) {}
-
-  var isDragging = false, startX, startY, origX, origY;
-
-  function onStart(e) {
-    if (e.button !== undefined && e.button !== 0) return;
-    isDragging = true;
-    var rect = badge.getBoundingClientRect();
-    var touch = e.touches ? e.touches[0] : e;
-    startX = touch.clientX;
-    startY = touch.clientY;
-    origX = rect.left;
-    origY = rect.top;
-    badge.style.cursor = 'grabbing';
-    badge.style.transition = 'none';
-    e.preventDefault();
-  }
-
-  function onMove(e) {
-    if (!isDragging) return;
-    var touch = e.touches ? e.touches[0] : e;
-    var dx = touch.clientX - startX;
-    var dy = touch.clientY - startY;
-    badge.style.left = (origX + dx) + 'px';
-    badge.style.top = (origY + dy) + 'px';
-    e.preventDefault();
-  }
-
-  function onEnd() {
-    if (!isDragging) return;
-    isDragging = false;
-    badge.style.cursor = '';
-    badge.style.transition = '';
-    try {
-      localStorage.setItem('madrekjo_badge_pos', JSON.stringify({
-        x: parseInt(badge.style.left),
-        y: parseInt(badge.style.top)
-      }));
-    } catch(e) {}
-  }
-
-  badge.addEventListener('mousedown', onStart);
-  document.addEventListener('mousemove', onMove);
-  document.addEventListener('mouseup', onEnd);
-  badge.addEventListener('touchstart', onStart, { passive: false });
-  document.addEventListener('touchmove', onMove, { passive: false });
-  document.addEventListener('touchend', onEnd);
-})();
-
 // ========== TOAST NOTIFICATIONS ==========
 function ensureToastContainer() {
   let c = document.getElementById('toastContainer');
