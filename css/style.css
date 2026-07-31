@@ -1283,8 +1283,10 @@ body {
   transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s;
 }
 .ig-floating .ig-icon {
-  width: 68%;
-  height: 68%;
+  width: 32px;
+  height: 32px;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
   display: block;
 }
@@ -1354,8 +1356,10 @@ body {
 }
 .dc-floating:hover::after { opacity: 1; transform: translateY(-50%) translateX(0); }
 .dc-floating .dc-icon {
-  width: 62%;
-  height: 62%;
+  width: 30px;
+  height: 30px;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
   display: block;
 }
@@ -1457,9 +1461,9 @@ body {
   .info-section { padding: 16px; }
   .info-section h3 { font-size: 0.9rem; }
   .ig-floating { width: 48px; height: 48px; bottom: 76px; left: 16px; border-radius: 50%; border-width: 1.5px; }
-  .ig-floating .ig-icon { width: 68%; height: 68%; }
+  .ig-floating .ig-icon { width: 28px; height: 28px; }
   .dc-floating { width: 48px; height: 48px; bottom: 16px; left: 16px; border-radius: 50%; border-width: 1.5px; }
-  .dc-floating .dc-icon { width: 62%; height: 62%; }
+  .dc-floating .dc-icon { width: 26px; height: 26px; }
   .corner-logo { width: 54px; height: 54px; top: 12px; right: 12px; }
   .section-card { padding: 20px; }
   .field-greeting { font-size: 0.82rem; padding: 5px 14px; }
@@ -1498,9 +1502,9 @@ body {
   .subjects-list, .majors-list, .electives-grid { gap: 6px; }
   .subject-badge, .major-badge, .elective-btn { font-size: 0.78rem; padding: 6px 12px; }
   .ig-floating { width: 42px; height: 42px; bottom: 64px; left: 12px; border-radius: 50%; border-width: 1.5px; }
-  .ig-floating .ig-icon { width: 68%; height: 68%; }
+  .ig-floating .ig-icon { width: 24px; height: 24px; }
   .dc-floating { width: 42px; height: 42px; bottom: 12px; left: 12px; border-radius: 50%; border-width: 1.5px; }
-  .dc-floating .dc-icon { width: 62%; height: 62%; }
+  .dc-floating .dc-icon { width: 22px; height: 22px; }
   .corner-logo { width: 48px; height: 48px; top: 8px; right: 8px; }
   .logo-text { font-size: clamp(2rem, 12vw, 3.5rem); }
   .year-card { width: 130px; height: 170px; }
