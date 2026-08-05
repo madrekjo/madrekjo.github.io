@@ -23,7 +23,6 @@
   background: #0f0f16;
   box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4), 0 4px 14px rgba(0, 0, 0, 0.5);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  animation: mkPulse 2.4s ease-in-out infinite;
 }
 .mk-fab-logo {
   width: 100%;
@@ -33,11 +32,6 @@
 }
 .mk-fab:hover { transform: scale(1.12) rotate(-6deg); }
 .mk-fab.hidden { display: none; }
-
-@keyframes mkPulse {
-  0%, 100% { box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4); }
-  50% { box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4), 0 0 0 10px rgba(255, 215, 0, 0.08); }
-}
 
 /* لوحة المحادثة */
 .mk-panel {
