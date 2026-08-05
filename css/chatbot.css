@@ -1,0 +1,435 @@
+/* ========================================
+   مساعد مدارك جو الذكي — الأنماط
+   ======================================== */
+
+.mk-assistant { font-family: 'Cairo', 'Tajawal', sans-serif; }
+
+/* زر عائم */
+.mk-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 215, 0, 0.55);
+  cursor: pointer;
+  z-index: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  overflow: hidden;
+  background: #0f0f16;
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4), 0 4px 14px rgba(0, 0, 0, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: mkPulse 2.4s ease-in-out infinite;
+}
+.mk-fab-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.mk-fab:hover { transform: scale(1.12) rotate(-6deg); }
+.mk-fab.hidden { display: none; }
+
+@keyframes mkPulse {
+  0%, 100% { box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4); }
+  50% { box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4), 0 0 0 10px rgba(255, 215, 0, 0.08); }
+}
+
+/* لوحة المحادثة */
+.mk-panel {
+  position: fixed;
+  bottom: 96px;
+  right: 24px;
+  width: 380px;
+  max-width: calc(100vw - 32px);
+  height: 600px;
+  max-height: 72vh;
+  background: #0f0f16;
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  border-radius: 18px;
+  z-index: 801;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 215, 0, 0.05);
+  opacity: 0;
+  transform: translateY(24px) scale(0.96);
+  transform-origin: bottom right;
+  pointer-events: none;
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+.mk-panel.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* الرأس */
+.mk-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: linear-gradient(180deg, #1a1a24, #14141d);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+  flex-shrink: 0;
+}
+.mk-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 215, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: #0f0f16;
+  box-shadow: 0 0 18px rgba(255, 215, 0, 0.35);
+}
+.mk-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.mk-meta { flex: 1; min-width: 0; }
+.mk-name {
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 800;
+  font-size: 1.02rem;
+  color: #FFD700;
+}
+.mk-status { font-size: 0.72rem; color: #7a7a8f; margin-top: 2px; }
+.mk-close {
+  background: rgba(255, 255, 255, 0.06);
+  border: none;
+  color: #aaa;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+}
+.mk-close:hover { background: rgba(255, 80, 80, 0.2); color: #fff; }
+
+/* منطقة الرسائل */
+.mk-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 215, 0, 0.3) transparent;
+}
+.mk-body::-webkit-scrollbar { width: 6px; }
+.mk-body::-webkit-scrollbar-thumb { background: rgba(255, 215, 0, 0.3); border-radius: 4px; }
+
+/* الرسائل */
+.mk-msg { display: flex; }
+.mk-bot { justify-content: flex-start; }
+.mk-user { justify-content: flex-end; }
+
+.mk-bubble {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  word-break: break-word;
+}
+.mk-bot .mk-bubble {
+  background: #1c1c28;
+  color: #e8e8f0;
+  border: 1px solid rgba(255, 215, 0, 0.12);
+  border-bottom-right-radius: 4px;
+}
+.mk-user .mk-bubble {
+  background: linear-gradient(135deg, #FFD700, #e6b800);
+  color: #16160a;
+  font-weight: 600;
+  border-bottom-left-radius: 4px;
+}
+.mk-bubble a { color: #FFD700; text-decoration: underline; }
+.mk-bubble a:hover { color: #fff; }
+
+/* مؤشر الكتابة */
+.mk-typing .mk-bubble {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 16px;
+}
+.mk-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #FFD700;
+  animation: mkBlink 1.2s infinite ease-in-out;
+}
+.mk-dot:nth-child(2) { animation-delay: 0.2s; }
+.mk-dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes mkBlink { 0%, 80%, 100% { opacity: 0.25; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-3px); } }
+
+/* الأسئلة المقترحة */
+.mk-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 2px 0 4px;
+}
+.mk-chip {
+  background: rgba(255, 215, 0, 0.08);
+  border: 1px solid rgba(255, 215, 0, 0.35);
+  color: #FFD700;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-family: 'Cairo', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.mk-chip:hover {
+  background: rgba(255, 215, 0, 0.18);
+  transform: translateY(-1px);
+}
+
+/* صف الإدخال */
+.mk-input-row {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  background: #14141d;
+  border-top: 1px solid rgba(255, 215, 0, 0.12);
+  flex-shrink: 0;
+}
+.mk-input {
+  flex: 1;
+  background: #1c1c28;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #fff;
+  padding: 11px 14px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.mk-input::placeholder { color: #6b6b80; }
+.mk-input:focus { border-color: rgba(255, 215, 0, 0.5); }
+.mk-send {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #FFD700, #B8860B);
+  color: #16160a;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: transform 0.15s;
+}
+.mk-send:hover { transform: scale(1.06); }
+
+/* شاشات صغيرة */
+@media (max-width: 640px) {
+  .mk-fab { bottom: 80px; right: 14px; width: 56px; height: 56px; font-size: 1.5rem; }
+  .mk-panel {
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    height: 74vh;
+    max-height: 74vh;
+  }
+}
+
+/* ========================================
+   شاشة الترحيب
+   ======================================== */
+.mk-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px 4px 6px;
+  animation: mkIntroIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes mkIntroIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.mk-intro-avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 215, 0, 0.6);
+  overflow: hidden;
+  background: #0f0f16;
+  box-shadow: 0 0 34px rgba(255, 215, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mk-intro-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mk-intro-name {
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 900;
+  font-size: 1.7rem;
+  margin-top: 12px;
+  background: linear-gradient(135deg, #FFD700, #FFF3B0, #B8860B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.mk-intro-tag {
+  font-size: 0.82rem;
+  color: #8a8a9f;
+  margin-top: 2px;
+  margin-bottom: 16px;
+}
+.mk-intro-feats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 300px;
+}
+.mk-intro-feat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 215, 0, 0.06);
+  border: 1px solid rgba(255, 215, 0, 0.14);
+  border-radius: 12px;
+  padding: 9px 14px;
+  font-size: 0.88rem;
+  color: #e8e8f0;
+  text-align: right;
+}
+.mk-intro-feat span { font-size: 1rem; flex-shrink: 0; }
+.mk-intro-start {
+  margin-top: 18px;
+  background: linear-gradient(135deg, #FFD700, #B8860B);
+  color: #16160a;
+  border: none;
+  border-radius: 999px;
+  padding: 11px 28px;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+}
+.mk-intro-start:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(255, 215, 0, 0.45);
+}
+
+/* ========================================
+   شارة "فهمت من سؤالك"
+   ======================================== */
+.mk-intent {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin-bottom: 8px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.16), rgba(255, 215, 0, 0.07));
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  color: #FFD700;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  box-shadow: 0 0 14px rgba(255, 215, 0, 0.12);
+  animation: mkTagIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes mkTagIn {
+  from { opacity: 0; transform: translateY(-6px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ========================================
+   أزرار التنقل (نفس التبويب)
+   ======================================== */
+.mk-bubble a.mk-nav-btn,
+.mk-nav-row a.mk-nav-btn {
+  display: inline-block;
+  margin: 6px 0 2px;
+  padding: 9px 18px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #FFD700, #B8860B);
+  color: #16160a !important;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 800;
+  font-size: 0.86rem;
+  text-decoration: none !important;
+  box-shadow: 0 4px 16px rgba(255, 215, 0, 0.35);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  cursor: pointer;
+}
+.mk-bubble a.mk-nav-btn:hover,
+.mk-nav-row a.mk-nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(255, 215, 0, 0.55);
+  color: #000 !important;
+}
+.mk-nav-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+.mk-bubble a.mk-ext {
+  color: #FFD700;
+  text-decoration: underline;
+}
+.mk-bubble a.mk-ext:hover { color: #fff; }
+
+/* ========================================
+   سطر القسم + أزرار الأقسام داخل الرسالة
+   ======================================== */
+.mk-sec-line {
+  margin: 10px 0 6px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(255, 215, 0, 0.2);
+  font-size: 0.72rem;
+  color: #8a8a9f;
+  font-weight: 700;
+}
+.mk-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+.mk-action {
+  background: rgba(255, 215, 0, 0.07);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: #e8e8f0;
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 0.74rem;
+  font-family: 'Cairo', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, color 0.2s;
+}
+.mk-action:hover {
+  background: rgba(255, 215, 0, 0.2);
+  color: #FFD700;
+  transform: translateY(-1px);
+}
