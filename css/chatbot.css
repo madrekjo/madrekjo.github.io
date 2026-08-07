@@ -7,8 +7,9 @@
 /* زر عائم */
 .mk-fab {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: 172px;
+  left: 24px;
+  right: auto;
   width: 62px;
   height: 62px;
   border-radius: 50%;
@@ -23,6 +24,9 @@
   background: #0f0f16;
   box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4), 0 4px 14px rgba(0, 0, 0, 0.5);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 .mk-fab-logo {
   width: 100%;
@@ -36,12 +40,13 @@
 /* لوحة المحادثة */
 .mk-panel {
   position: fixed;
-  bottom: 96px;
-  right: 24px;
+  bottom: 172px;
+  left: 24px;
+  right: auto;
   width: 380px;
   max-width: calc(100vw - 32px);
   height: 600px;
-  max-height: 72vh;
+  max-height: calc(100vh - 190px);
   background: #0f0f16;
   border: 1px solid rgba(255, 215, 0, 0.25);
   border-radius: 18px;
@@ -52,7 +57,7 @@
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 215, 0, 0.05);
   opacity: 0;
   transform: translateY(24px) scale(0.96);
-  transform-origin: bottom right;
+  transform-origin: bottom left;
   pointer-events: none;
   transition: opacity 0.28s ease, transform 0.28s ease;
 }
@@ -235,7 +240,7 @@
 
 /* شاشات صغيرة */
 @media (max-width: 640px) {
-  .mk-fab { bottom: 80px; right: 14px; width: 56px; height: 56px; font-size: 1.5rem; }
+  .mk-fab { bottom: 124px; left: 16px; right: auto; width: 56px; height: 56px; font-size: 1.5rem; }
   .mk-panel {
     bottom: 10px;
     right: 10px;
@@ -244,6 +249,9 @@
     height: 74vh;
     max-height: 74vh;
   }
+}
+@media (max-width: 420px) {
+  .mk-fab { bottom: 116px; left: 12px; }
 }
 
 /* ========================================

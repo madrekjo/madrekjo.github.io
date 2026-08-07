@@ -1165,7 +1165,7 @@
     el.id = 'mkAssistant';
     el.className = 'mk-assistant';
     el.innerHTML =
-      '<button class="mk-fab" id="mkFab" aria-label="' + BOT.name + '">' +
+      '<button class="mk-fab" id="mkFab" aria-label="' + BOT.name + '" title="اسحب الزر لتغيير مكانه">' +
         '<img class="mk-fab-logo" src="' + BOT.logo + '" alt="' + BOT.name + '">' +
       '</button>' +
       '<div class="mk-panel" id="mkPanel">' +

@@ -1460,7 +1460,7 @@ body {
   .field-modal-box { padding: 28px 16px; }
   .info-section { padding: 16px; }
   .info-section h3 { font-size: 0.9rem; }
-  .ig-floating { width: 48px; height: 48px; bottom: 76px; left: 16px; border-radius: 50%; border-width: 1.5px; }
+  .ig-floating { width: 48px; height: 48px; bottom: 70px; left: 16px; border-radius: 50%; border-width: 1.5px; }
   .ig-floating .ig-icon { width: 32px; height: 32px; }
   .dc-floating { width: 48px; height: 48px; bottom: 16px; left: 16px; border-radius: 50%; border-width: 1.5px; }
   .dc-floating .dc-icon { width: 30px; height: 30px; }
@@ -1501,7 +1501,7 @@ body {
   .info-section { padding: 12px 14px; border-radius: 12px; }
   .subjects-list, .majors-list, .electives-grid { gap: 6px; }
   .subject-badge, .major-badge, .elective-btn { font-size: 0.78rem; padding: 6px 12px; }
-  .ig-floating { width: 42px; height: 42px; bottom: 64px; left: 12px; border-radius: 50%; border-width: 1.5px; }
+  .ig-floating { width: 42px; height: 42px; bottom: 60px; left: 12px; border-radius: 50%; border-width: 1.5px; }
   .ig-floating .ig-icon { width: 27px; height: 27px; }
   .dc-floating { width: 42px; height: 42px; bottom: 12px; left: 12px; border-radius: 50%; border-width: 1.5px; }
   .dc-floating .dc-icon { width: 25px; height: 25px; }
@@ -1691,6 +1691,78 @@ body {
 .onb-tooltip[data-arrow="left"] .onb-tooltip-arrow { right: -8px; top: 50%; margin-top: -7px; transform: rotate(135deg); }
 .onb-tooltip[data-arrow="right"] .onb-tooltip-arrow { left: -8px; top: 50%; margin-top: -7px; transform: rotate(-45deg); border-left: none; border-top: none; }
 
+.ig-floating, .dc-floating { touch-action: none; user-select: none; -webkit-user-select: none; }
+
+/* ========= TOP NAVBAR (professional) ========= */
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 300;
+  background: rgba(10,10,15,0.82);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,215,0,0.12);
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 24px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--gold);
+  cursor: pointer;
+}
+.nav-logo img { width: 38px; height: 38px; border-radius: 10px; }
+.nav-jo {
+  background: linear-gradient(135deg, #a78bfa, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.nav-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+.nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+.nav-cta {
+  background: linear-gradient(135deg, #FFD700, #B8860B);
+  color: #16160a;
+  text-decoration: none;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 800;
+  font-size: 0.82rem;
+  padding: 9px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(255,215,0,0.25);
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(255,215,0,0.35); }
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-inner { padding: 10px 16px; }
+  .nav-logo { font-size: 1.05rem; }
+  .nav-logo img { width: 34px; height: 34px; }
+}
+
 /* ========= MOBILE FIXES & PERFORMANCE ========= */
 html, body { max-width: 100%; overflow-x: hidden; }
 
@@ -1715,12 +1787,13 @@ html, body { max-width: 100%; overflow-x: hidden; }
 
 @media (max-width: 640px) {
   /* إيقاف الضبابية الباهظة على الموبايل (أداء) */
-  .topbar-shared, .sidebar-overlay, .entry-modal, .info-modal, .chat-disabled-modal, #fieldModal {
+  .topbar-shared, .sidebar-overlay, .entry-modal, .info-modal, .chat-disabled-modal, #fieldModal, .site-nav {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
   .topbar-shared { background: rgba(10,10,15,0.98); }
   .entry-modal { background: rgba(0,0,0,0.9); }
+  .site-nav { background: rgba(10,10,15,0.98); }
 
   /* شبكة الحقول: عمود واحد دائماً على الموبايل */
   .field-select-grid { grid-template-columns: 1fr; max-width: 340px; }

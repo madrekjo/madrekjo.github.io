@@ -541,3 +541,69 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
+
+// ========== أزرار عائمة قابلة للسحب ==========
+function makeDraggable(el, key) {
+  if (!el || el._mkDrag) return;
+  el._mkDrag = true;
+  var dragging = false, moved = false, wasDrag = false, sx = 0, sy = 0;
+  var saved = null;
+  try { saved = JSON.parse(localStorage.getItem(key)); } catch (e) { saved = null; }
+  if (saved && typeof saved.x === 'number' && typeof saved.y === 'number') {
+    el.style.left = saved.x + 'px';
+    el.style.top = saved.y + 'px';
+    el.style.right = 'auto';
+    el.style.bottom = 'auto';
+  }
+  function start(e) {
+    var t = e.touches ? e.touches[0] : e;
+    sx = t.clientX; sy = t.clientY;
+    dragging = true; moved = false;
+  }
+  function move(e) {
+    if (!dragging) return;
+    var t = e.touches ? e.touches[0] : e;
+    var dx = t.clientX - sx, dy = t.clientY - sy;
+    if (!moved && Math.abs(dx) + Math.abs(dy) < 6) return;
+    if (!moved) moved = true;
+    if (e.cancelable) e.preventDefault();
+    var r = el.getBoundingClientRect();
+    var nx = Math.min(Math.max(r.left + dx, 8), window.innerWidth - r.width - 8);
+    var ny = Math.min(Math.max(r.top + dy, 8), window.innerHeight - r.height - 8);
+    el.style.left = nx + 'px';
+    el.style.top = ny + 'px';
+    el.style.right = 'auto';
+    el.style.bottom = 'auto';
+    sx = t.clientX; sy = t.clientY;
+  }
+  function end() {
+    if (!dragging) return;
+    dragging = false;
+    if (moved) {
+      wasDrag = true;
+      try {
+        localStorage.setItem(key, JSON.stringify({
+          x: Math.round(el.getBoundingClientRect().left),
+          y: Math.round(el.getBoundingClientRect().top)
+        }));
+      } catch (err) {}
+    }
+  }
+  function clickGuard(e) {
+    if (wasDrag) { e.preventDefault(); e.stopPropagation(); wasDrag = false; }
+  }
+  el.addEventListener('mousedown', start);
+  el.addEventListener('touchstart', start, { passive: true });
+  window.addEventListener('mousemove', move);
+  window.addEventListener('touchmove', move, { passive: false });
+  window.addEventListener('mouseup', end);
+  window.addEventListener('touchend', end);
+  el.addEventListener('click', clickGuard);
+  el.addEventListener('dragstart', function(e) { e.preventDefault(); });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  makeDraggable(document.querySelector('.ig-floating'), 'madrekjo_drag_ig');
+  makeDraggable(document.querySelector('.dc-floating'), 'madrekjo_drag_dc');
+  makeDraggable(document.getElementById('mkFab'), 'madrekjo_drag_ai');
+});
