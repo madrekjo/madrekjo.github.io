@@ -6,7 +6,8 @@
 (function() {
   const c = document.getElementById('starsContainer');
   if (!c) return;
-  for (let i = 0; i < 80; i++) {
+  const count = window.matchMedia && window.matchMedia('(max-width: 640px)').matches ? 25 : 60;
+  for (let i = 0; i < count; i++) {
     const s = document.createElement('div');
     s.className = 'star';
     const sz = Math.random() * 2.5 + 0.5;
@@ -485,20 +486,17 @@ document.addEventListener('DOMContentLoaded', function() {
   if (IS_LANDING) {
     if (localStorage.getItem('madrekjo_guide_landing')) return;
     setTimeout(function() {
-      showToast('أهلاً بك في مدارك جو! 🎓 منصة تعليمية مجانية بالكامل', 'info', 5000);
-    }, 1200);
-    setTimeout(function() {
       startOnboarding([
         {
           icon: '👋',
           title: 'أهلاً بك في مدارك جو!',
-          desc: 'منصة تعليمية مجانية بالكامل — بدون حصص، بدون رسوم. كل ما تحتاجه في مكان واحد.',
+          desc: 'منصة تعليمية مجانية بالكامل — بدون حصص وبدون رسوم.',
           tooltipPos: 'center'
         },
         {
           icon: '🎯',
           title: 'اختر جيلك',
-          desc: 'انزل للأسفل واختر جيلك (2009 أو 2010) لتدخل إلى منصتك الخاصة.',
+          desc: 'اختر جيلك (2009 أو 2010) لتدخل إلى منصتك.',
           target: '.year-section',
           tooltipPos: 'top',
           light: true

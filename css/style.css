@@ -1690,3 +1690,54 @@ body {
 .onb-tooltip[data-arrow="top"] .onb-tooltip-arrow { bottom: -8px; left: 50%; margin-left: -7px; transform: rotate(-45deg); }
 .onb-tooltip[data-arrow="left"] .onb-tooltip-arrow { right: -8px; top: 50%; margin-top: -7px; transform: rotate(135deg); }
 .onb-tooltip[data-arrow="right"] .onb-tooltip-arrow { left: -8px; top: 50%; margin-top: -7px; transform: rotate(-45deg); border-left: none; border-top: none; }
+
+/* ========= MOBILE FIXES & PERFORMANCE ========= */
+html, body { max-width: 100%; overflow-x: hidden; }
+
+/* النوافذ تصبح قابلة للتمرير حتى لا تُقصّ الأزرار على الشاشات الصغيرة */
+.entry-modal, .info-modal, .chat-disabled-modal, #fieldModal, #constructionModal {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.entry-modal-content, .info-modal-content, .chat-disabled-card, .field-modal-box, .modal-box {
+  margin: auto;
+}
+
+/* تحسين اللمس على الموبايل */
+.field-select-card, .entry-opt, .year-card, .back-btn, .hamburger, .mk-chip, .elective-btn, .faq-q {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+@media (max-width: 640px) {
+  /* إيقاف الضبابية الباهظة على الموبايل (أداء) */
+  .topbar-shared, .sidebar-overlay, .entry-modal, .info-modal, .chat-disabled-modal, #fieldModal {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .topbar-shared { background: rgba(10,10,15,0.98); }
+  .entry-modal { background: rgba(0,0,0,0.9); }
+
+  /* شبكة الحقول: عمود واحد دائماً على الموبايل */
+  .field-select-grid { grid-template-columns: 1fr; max-width: 340px; }
+  .field-select-card { padding: 20px 14px 16px; }
+  .field-select-card .icon { font-size: 2.2rem; margin-bottom: 6px; }
+  .field-select-title { font-size: 1.7rem; }
+  .field-select-sub { font-size: 0.9rem; margin-bottom: 26px; }
+
+  /* تقليص المسافات ليظهر اختيار الجيل أسرع */
+  .hero { padding-top: 28px; }
+  .stats-row { margin-bottom: 26px; }
+  .notice { margin-bottom: 26px; }
+  .year-section { padding-bottom: 48px; }
+  .field-select-page { padding: 56px 16px 32px; }
+
+  /* منع تجاوز عنوان الصفحة للشاشة */
+  .topbar-right { min-width: 0; gap: 8px; }
+  .topbar-title { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .topbar-title .topbar-title-emoji { flex-shrink: 0; }
+}
