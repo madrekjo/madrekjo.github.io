@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>التصميم 2 — الليلي | مدارك جو</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #070b16; --panel: rgba(255,255,255,0.045); --line: rgba(255,255,255,0.09);
+  --text: #eef0ff; --muted: #9aa1bd; --purple: #a855f7; --blue: #60a5fa; --gold: #f5c542;
+}
+body { font-family: 'Tajawal', sans-serif; background: var(--bg); color: var(--text); }
+body::before {
+  content: ''; position: fixed; inset: 0; z-index: -1;
+  background:
+    radial-gradient(700px 400px at 80% -10%, rgba(168,85,247,0.22), transparent 60%),
+    radial-gradient(600px 380px at 5% 30%, rgba(96,165,250,0.14), transparent 60%),
+    radial-gradient(500px 300px at 50% 110%, rgba(245,197,66,0.08), transparent 60%);
+}
+
+.design-pick {
+  position: fixed; top: 14px; right: 50%; transform: translateX(50%); z-index: 999;
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(13,18,36,0.9); border: 1px solid var(--line); color: #fff;
+  border-radius: 999px; padding: 7px 12px; font-size: 0.78rem; font-weight: 700;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.design-pick a { color: #c4b5fd; text-decoration: none; }
+.design-pick button {
+  border: none; cursor: pointer; border-radius: 999px; padding: 6px 14px;
+  font-family: inherit; font-weight: 800; font-size: 0.78rem;
+  background: linear-gradient(135deg, #a855f7, #7c3aed); color: #fff;
+}
+
+/* ===== الشريط العلوي (زجاجي عائم) ===== */
+.topbar {
+  position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
+  z-index: 200; width: min(700px, calc(100% - 32px));
+  background: var(--panel); border: 1px solid var(--line);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  border-radius: 999px; padding: 8px 14px;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+}
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1rem; }
+.logo img { width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(168,85,247,0.5); }
+.logo .grad { background: linear-gradient(90deg, #a855f7, #60a5fa); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.links { display: flex; gap: 2px; }
+.links a {
+  color: var(--muted); text-decoration: none; font-size: 0.8rem; font-weight: 600;
+  padding: 7px 13px; border-radius: 999px; cursor: pointer;
+}
+.links a:hover { color: #fff; background: rgba(168,85,247,0.15); }
+.btn-neon {
+  border: none; cursor: pointer; border-radius: 999px; padding: 8px 20px;
+  font-family: inherit; font-weight: 800; font-size: 0.8rem; color: #fff;
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  box-shadow: 0 0 20px rgba(168,85,247,0.45);
+}
+.hamburger {
+  display: none; border: 1px solid var(--line); background: var(--panel); color: #fff;
+  width: 38px; height: 38px; border-radius: 50%; font-size: 1.05rem; cursor: pointer;
+}
+
+/* ===== القائمة الجانبية (حاوية زجاجية دائمة على اليمين) ===== */
+.dock {
+  position: fixed; top: 50%; transform: translateY(-50%); right: 16px; z-index: 250;
+  background: var(--panel); border: 1px solid var(--line);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  border-radius: 20px; padding: 10px 8px;
+  display: flex; flex-direction: column; gap: 6px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+}
+.dock button {
+  border: none; background: transparent; color: var(--muted); cursor: pointer;
+  width: 46px; height: 46px; border-radius: 14px; font-size: 1.25rem;
+  display: flex; align-items: center; justify-content: center; transition: all .2s;
+}
+.dock button:hover { background: rgba(168,85,247,0.18); color: #fff; transform: translateY(-2px); }
+.dock .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin: 2px auto; box-shadow: 0 0 10px var(--gold); }
+
+/* ===== المحتوى ===== */
+main { max-width: 960px; margin: 0 auto; padding: 120px 70px 40px; }
+.hero { text-align: center; padding: 20px 0 30px; }
+.badge {
+  display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; font-weight: 700;
+  color: #d8b4fe; border: 1px solid rgba(168,85,247,0.4); background: rgba(168,85,247,0.1);
+  padding: 6px 18px; border-radius: 999px; margin-bottom: 20px;
+  box-shadow: 0 0 24px rgba(168,85,247,0.2);
+}
+.hero h1 { font-size: clamp(1.9rem, 5.2vw, 3rem); font-weight: 900; line-height: 1.3; margin-bottom: 14px; }
+.hero h1 .g {
+  background: linear-gradient(90deg, #a855f7, #60a5fa, #f5c542);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero p { color: var(--muted); font-size: 1rem; max-width: 600px; margin: 0 auto 28px; line-height: 2; }
+.stats { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.stat {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 18px;
+  padding: 18px 32px; min-width: 140px;
+}
+.stat b { display: block; font-size: 1.4rem; background: linear-gradient(90deg, #a855f7, #60a5fa); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.stat span { font-size: 0.78rem; color: var(--muted); }
+.notice {
+  margin: 28px auto 0; max-width: 620px; display: flex; gap: 10px; align-items: flex-start;
+  background: rgba(245,197,66,0.07); border: 1px solid rgba(245,197,66,0.25);
+  border-radius: 14px; padding: 12px 16px; font-size: 0.82rem; color: #e9d9a0;
+}
+.glass {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 24px;
+  padding: 30px 28px; margin: 26px 0;
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.glass h2 { font-size: 1.3rem; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+.glass h2 .bar { width: 4px; height: 22px; border-radius: 4px; background: linear-gradient(180deg, #a855f7, #60a5fa); }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px; }
+.tile {
+  background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: 18px;
+  padding: 20px; text-align: center; font-weight: 700; font-size: 0.88rem; transition: all .2s;
+}
+.tile:hover { border-color: rgba(168,85,247,0.5); box-shadow: 0 0 22px rgba(168,85,247,0.12); }
+.tile .ic {
+  width: 48px; height: 48px; margin: 0 auto 10px; border-radius: 14px; font-size: 1.4rem;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, rgba(168,85,247,0.25), rgba(96,165,250,0.25));
+}
+.year-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 20px; }
+.year-card { border-radius: 22px; padding: 32px 20px; text-align: center; cursor: pointer; position: relative; overflow: hidden; }
+.year-card::after { content: ''; position: absolute; inset: 0; background: radial-gradient(300px 120px at 50% 0%, rgba(255,255,255,0.18), transparent 70%); }
+.y2009 { background: linear-gradient(135deg, rgba(168,85,247,0.9), rgba(124,58,237,0.95)); border: 1px solid rgba(216,180,254,0.4); box-shadow: 0 0 40px rgba(168,85,247,0.25); }
+.y2010 { background: linear-gradient(135deg, rgba(96,165,250,0.9), rgba(59,130,246,0.95)); border: 1px solid rgba(147,197,253,0.4); box-shadow: 0 0 40px rgba(96,165,250,0.25); }
+.year-card .c { font-size: 1.7rem; display: block; margin-bottom: 8px; position: relative; }
+.year-card .n { font-size: 1.9rem; font-weight: 900; position: relative; }
+.year-card .s { font-size: 0.85rem; opacity: 0.9; margin-top: 6px; position: relative; }
+footer { text-align: center; padding: 30px 20px; font-size: 0.82rem; color: var(--muted); line-height: 2; border-top: 1px solid var(--line); }
+footer b { color: #d8b4fe; }
+
+@media (max-width: 640px) {
+  .links { display: none; }
+  .hamburger { display: block; }
+  .dock { display: none; }
+  main { padding: 110px 20px 30px; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .design-pick { top: 12px; width: 94%; justify-content: center; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<div class="design-pick">
+  <span>تصميم</span>
+  <a href="design-3.html">2/3 · الليلي</a>
+  <button onclick="pick()">أعجبني، اختره</button>
+</div>
+
+<header class="topbar">
+  <div class="logo"><img src="https://d.top4top.io/p_3816yfhp01.jpg" alt=""><span class="grad">مدارك جو</span></div>
+  <nav class="links">
+    <a>عن المنصة</a><a>الأقسام</a><a>الأسئلة الشائعة</a><a>الخصوصية</a>
+  </nav>
+  <button class="btn-neon">ابدأ الآن</button>
+  <button class="hamburger" onclick="document.getElementById('dr').classList.add('show')">☰</button>
+</header>
+
+<!-- حاوية جانبية دائمة (ديسكتوب) -->
+<aside class="dock">
+  <button title="الرئيسية">🏠</button>
+  <button title="الأقسام">📚</button>
+  <button title="المواد">📖</button>
+  <button title="الامتحانات">📝</button>
+  <button title="السرعة">⚡</button>
+  <button title="الدردشة">💬</button>
+  <div class="dot"></div>
+</aside>
+
+<div class="overlay" id="ov" onclick="closeD()"></div>
+<aside class="drawer" id="dr">
+  <div class="drawer-head">
+    <span class="grad" style="font-weight:800">مدارك جو</span>
+    <button class="drawer-close" onclick="closeD()">✕</button>
+  </div>
+  <a>🏠 الرئيسية</a><a>📚 الأقسام</a><a>📖 المواد الدراسية</a>
+  <a>📝 الامتحانات الوزارية</a><a>⚡ تحديات السرعة</a><a>💬 الدردشة الدراسية</a>
+  <div class="mini">مدارك جو — منصة تعليمية مجانية من طلاب جيل 2009</div>
+</aside>
+<style>
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 400; }
+.overlay.show { opacity: 1; pointer-events: auto; }
+.drawer { position: fixed; top: 0; bottom: 0; right: 0; width: 280px; z-index: 410; background: #0c1122; border-left: 1px solid var(--line); transform: translateX(100%); transition: transform .3s ease; padding: 22px 18px; }
+.drawer.show { transform: translateX(0); }
+.drawer-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.drawer-close { border: 1px solid var(--line); background: transparent; color: #fff; width: 36px; height: 36px; border-radius: 10px; cursor: pointer; }
+.drawer a { display: block; padding: 13px 14px; border-radius: 12px; color: var(--muted); text-decoration: none; font-weight: 700; font-size: 0.92rem; margin-bottom: 4px; }
+.drawer a:hover { background: rgba(168,85,247,0.15); color: #fff; }
+.drawer .mini { margin-top: auto; font-size: 0.75rem; color: var(--muted); text-align: center; line-height: 1.9; padding-top: 20px; }
+</style>
+
+<main>
+  <section class="hero">
+    <div class="badge">⚡ أول منصة من صنع طالب · جيل 2009</div>
+    <h1>دراستك كلها بضغطة واحدة<br>مع <span class="g">مدارك جو</span></h1>
+    <p>منصة تعليمية مجانية وُلدت بجهد طالب من جيل 2009 — مواد، امتحانات وزارية، كتب، وتحديات سرعة في مكان واحد.</p>
+    <div class="stats">
+      <div class="stat"><b>+500</b><span>طالب دخل المنصة</span></div>
+      <div class="stat"><b>2009</b><span>جيل المؤسس</span></div>
+      <div class="stat"><b>100%</b><span>مجاناً</span></div>
+    </div>
+    <div class="notice"><span>🚫</span><span><strong>تنبيه مهم:</strong> منصة موارد دراسية مجانية فقط — ليست حصصاً مسجلة ولا دروساً خصوصية.</span></div>
+  </section>
+
+  <section class="glass">
+    <h2><span class="bar"></span> نبذة عن المنصة</h2>
+    <p style="color:var(--muted);line-height:2">بدأت من طالب واحد أراد أن يجمع كل ما يحتاجه زملاؤه في مكان واحد سهل الوصول: مواد، امتحانات وزارية، كتب، وتحديات سرعة — لتوفير الوقت ورفع الإنجاز.</p>
+    <div class="grid">
+      <div class="tile"><span class="ic">📚</span>مواد دراسية</div>
+      <div class="tile"><span class="ic">📝</span>امتحانات وزارية</div>
+      <div class="tile"><span class="ic">⚡</span>تحديات السرعة</div>
+      <div class="tile"><span class="ic">💬</span>دردشة دراسية</div>
+      <div class="tile"><span class="ic">📖</span>كتب وزارية</div>
+      <div class="tile"><span class="ic">🎯</span>مؤشر الإنجاز</div>
+    </div>
+  </section>
+
+  <section class="glass">
+    <h2><span class="bar"></span> اختر جيلك للدخول إلى منصتك</h2>
+    <div class="year-grid">
+      <div class="year-card y2009"><span class="c">👑</span><div class="n">جيل 2009</div><div class="s">ادخل الآن ←</div></div>
+      <div class="year-card y2010"><span class="c">🎓</span><div class="n">جيل 2010</div><div class="s">ادخل الآن ←</div></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <b>مدارك جو</b> — أول منصة تعليمية مجانية من صنع طالب<br>
+  روابط مختارة · مصممة لرفع الإنجاز · © 2026 كل الحقوق محفوظة
+</footer>
+
+<script>
+function closeD(){ document.getElementById('dr').classList.remove('show'); document.getElementById('ov').classList.remove('show'); }
+document.getElementById('ov').addEventListener('click', closeD);
+function pick(){ localStorage.setItem('madrekjo_design_choice','2'); alert('تم حفظ اختيارك: التصميم 2 — الليلي ✓'); }
+</script>
+</body>
+</html>
