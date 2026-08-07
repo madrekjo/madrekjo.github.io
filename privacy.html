@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>سياسة الخصوصية — مدارك جو</title>
 <meta name="google-adsense-account" content="ca-pub-3351421535309022">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a0a0f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="مدارك جو">
 <meta name="description" content="سياسة الخصوصية لمنصة مدارك جو: المنصة لا تجمع بياناتك أساساً، بياناتك تُخزن على جهازك فقط، ومحادثات مساعد مُدرك تُعالج ولا تُخزن.">
 <meta name="keywords" content="سياسة الخصوصية, مدارك جو, خصوصية الطلاب, حماية البيانات">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
@@ -123,5 +129,12 @@ td{color:#d5d5de}
   <p style="color:#888899">نحن نقرأ كل رسالة — خصوصيتك أمانة عندنا.</p>
 </div>
 <div class="foot">© 2026 مدارك جو — كل الحقوق محفوظة.</div>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').catch(function(e) { console.log('SW failed:', e); });
+  });
+}
+</script>
 </body>
 </html>

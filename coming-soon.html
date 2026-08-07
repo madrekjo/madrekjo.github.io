@@ -4,6 +4,20 @@
 <meta name="google-adsense-account" content="ca-pub-3351421535309022">
 <meta name="description" content="قسم قيد التطوير في منصة مدارك جو — سنضيف المحتوى قريباً.">
 <meta name="keywords" content="مدارك جو, قريباً, منصة تعليمية">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a0a0f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="مدارك جو">
 <style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Cairo',sans-serif;background:#0a0a0f;color:#f0f0f5;display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:20px}.box{max-width:400px}.icon{font-size:5rem;margin-bottom:20px}h2{color:#FFD700;font-size:1.8rem;margin-bottom:12px}p{color:#888899;line-height:1.8;font-size:0.95rem}</style></head>
-<body><div class="box"><div class="icon">🚧</div><h2>قريباً</h2><p>هذا القسم لا يزال تحت التطوير.<br>سيتم إضافة المحتوى قريباً إن شاء الله!</p></div></body>
+<body><div class="box"><div class="icon">🚧</div><h2>قريباً</h2><p>هذا القسم لا يزال تحت التطوير.<br>سيتم إضافة المحتوى قريباً إن شاء الله!</p></div>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').catch(function(e) { console.log('SW failed:', e); });
+  });
+}
+</script>
+</body>
 </html>
