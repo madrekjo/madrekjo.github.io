@@ -114,6 +114,7 @@ function closeChatDisabledModal() {
 let currentLink = null, currentTimeout = null;
 let viewerOpen = false;
 let pendingFrameLoad = false;
+let viewerHistoryLen = 0;
 function loadFrame(linkEl) {
   const url = linkEl.getAttribute('data-url');
   if (!url) return;
@@ -136,6 +137,8 @@ function loadFrame(linkEl) {
   if (currentTimeout) clearTimeout(currentTimeout);
   iframe.onload = null;
   pendingFrameLoad = true;
+  // نسجّل عدد إدخالات السجل قبل أي تنقّل للإطار، لنعرف لاحقاً كم أضاف العارض.
+  viewerHistoryLen = history.length;
   iframe.src = 'about:blank';
   setTimeout(() => { iframe.src = url; }, 10);
   viewer.style.display = 'flex';
@@ -192,17 +195,26 @@ function closeViewer() {
   const viewer = document.getElementById('fullViewer');
   const iframe = document.getElementById('mainIframe');
   if (viewer) viewer.style.display = 'none';
-  if (iframe) { iframe.src = 'about:blank'; iframe.style.opacity = '0'; iframe.onload = null; }
+  if (iframe) { iframe.style.opacity = '0'; iframe.onload = null; }
   const err = document.getElementById('iframeError');
   if (err) err.style.display = 'none';
   document.body.style.overflow = '';
   if (currentLink) { currentLink.classList.remove('active'); currentLink = null; }
-  // يُزال الحاجز من السجل عبر back() بدل replaceState()، لأن replaceState يبقي
-  // إدخالاً "شبحاً" في السجل فيتراكم، ويصبح زر الرجوع يحتاج ضغطات أكثر.
-  // back() هنا آمن: viewerOpen=false قبل استدعائه، فيتجاهله معالج popstate،
-  // والضغط من المتصفح نفسه يُسقط الحاجز قبل وصول الحدث فلا يحدث تراجع مزدوج.
-  if (history.state && history.state.mdv === 'viewer') {
-    history.back();
+
+  // تنظيف سجل المتصفح: كل إدخال أضافه العارض (تنقلات الإطار بين about:blank
+  // والعنوان + حاجز الرجوع) له نفس عنوان الصفحة الحالية، فلولا إزالته كان زر
+  // الرجوع يعيد المرور على هذه الإدخالات فيعيد تحميل الإطار، ويبدو الزر
+  // "معلقاً بالتحميل" دون أن يرجعك فعلاً. نزيلها كلها بدفعة واحدة عبر go()،
+  // والعودة تعيد الإطار لحالته الأصلية تلقائياً.
+  // go() آمن هنا: viewerOpen=false أولاً، فيتجاهل معالج popstate كل حدثاته،
+  // والإدخالات المستهدفة كلها بنفس عنوان الصفحة فلا يتجاوزها أبداً.
+  if (viewerHistoryLen > 0) {
+    const added = history.length - viewerHistoryLen;
+    if (added > 0) {
+      history.go(-added);
+    } else if (iframe) {
+      iframe.src = 'about:blank';
+    }
   }
 }
 
