@@ -197,8 +197,12 @@ function closeViewer() {
   if (err) err.style.display = 'none';
   document.body.style.overflow = '';
   if (currentLink) { currentLink.classList.remove('active'); currentLink = null; }
+  // يُزال الحاجز من السجل عبر back() بدل replaceState()، لأن replaceState يبقي
+  // إدخالاً "شبحاً" في السجل فيتراكم، ويصبح زر الرجوع يحتاج ضغطات أكثر.
+  // back() هنا آمن: viewerOpen=false قبل استدعائه، فيتجاهله معالج popstate،
+  // والضغط من المتصفح نفسه يُسقط الحاجز قبل وصول الحدث فلا يحدث تراجع مزدوج.
   if (history.state && history.state.mdv === 'viewer') {
-    history.replaceState({}, '');
+    history.back();
   }
 }
 
