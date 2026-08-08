@@ -1,7 +1,7 @@
 /* ========================================
    مدارك جو — Service Worker
    ======================================== */
-const CACHE = 'madrekjo-v1';
+const CACHE = 'madrekjo-v2';
 const CORE = [
   '/',
   '/index.html',
@@ -50,9 +50,41 @@ self.addEventListener('fetch', function(e) {
   var url = new URL(req.url);
 
   if (url.origin === location.origin) {
-    // تنقلات الدردشة (/chat): شبكة أولاً حتى لا تُقدَّم نسخة قديمة من index.html
-    // بعد أي تحديث للدردشة، مع بقاء العمل دون اتصال كاحتياط.
-    if (req.mode === 'navigate' && (url.pathname === '/chat' || url.pathname.indexOf('/chat/') === 0)) {
+    // تنقلات الصفحات (HTML): شبكة أولاً — تعرض أحدث نسخة دائماً بعد أي تحديث،
+    // مع بقاء النسخة المخزنة كاحتياط عند انقطاع الإنترنت.
+    if (req.mode === 'navigate') {
+      e.respondWith(
+        fetch(req).then(function(res) {
+          var copy = res.clone();
+          caches.open(CACHE).then(function(c) { c.put(req, copy); });
+          return res;
+        }).catch(function() {
+          return caches.match(req).then(function(hit) {
+            return hit || caches.match('/');
+          });
+        })
+      );
+      return;
+    }
+    // طلب /chat/index.html القادم من حاجز 404.html (طلب عادي وليس تنقلاً):
+    // شبكة أولاً حتى لا تُخدَّم نسخة قديمة من تطبيق الدردشة.
+    if (url.pathname === '/chat/index.html') {
+      e.respondWith(
+        fetch(req).then(function(res) {
+          var copy = res.clone();
+          caches.open(CACHE).then(function(c) { c.put(req, copy); });
+          return res;
+        }).catch(function() {
+          return caches.match(req).then(function(hit) {
+            return hit || caches.match('/');
+          });
+        })
+      );
+      return;
+    }
+    // طلب /achievement/index.html القادم من حاجز 404.html (طلب عادي وليس تنقلاً):
+    // شبكة أولاً حتى لا تُخدَّم نسخة قديمة من تطبيق الإنجاز.
+    if (url.pathname === '/achievement/index.html') {
       e.respondWith(
         fetch(req).then(function(res) {
           var copy = res.clone();

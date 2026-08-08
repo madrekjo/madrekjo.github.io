@@ -112,6 +112,8 @@ function closeChatDisabledModal() {
 
 // ---------- Viewer ----------
 let currentLink = null, currentTimeout = null;
+let viewerOpen = false;
+let pendingFrameLoad = false;
 function loadFrame(linkEl) {
   const url = linkEl.getAttribute('data-url');
   if (!url) return;
@@ -133,10 +135,21 @@ function loadFrame(linkEl) {
   errorBox.style.display = 'none';
   if (currentTimeout) clearTimeout(currentTimeout);
   iframe.onload = null;
+  pendingFrameLoad = true;
   iframe.src = 'about:blank';
   setTimeout(() => { iframe.src = url; }, 10);
   viewer.style.display = 'flex';
   document.body.style.overflow = 'hidden';
+  viewerOpen = true;
+
+  // يُضاف حاجز الرجوع بعد اكتمال تحميل الإطار، حتى يكون هو الإدخال الأخير في السجل.
+  // لو أُضيف قبل التحميل، يسبقه إدخال تنقّل الإطار نفسه، ويضغط زر الرجوع على إدخال
+  // الإطار بدل الحاجز، فلا يغلق العارض.
+  function pushViewerTrap() {
+    if (viewerOpen && (!history.state || history.state.mdv !== 'viewer')) {
+      history.pushState({ mdv: 'viewer' }, '');
+    }
+  }
 
   currentTimeout = setTimeout(() => {
     if (iframe.style.opacity !== '1') {
@@ -145,6 +158,8 @@ function loadFrame(linkEl) {
       errorBox.dataset.url = url;
       errorBox.dataset.title = title;
       currentTimeout = null;
+      pendingFrameLoad = false;
+      pushViewerTrap();
     }
   }, 5000);
 
@@ -154,6 +169,8 @@ function loadFrame(linkEl) {
     spinner.style.display = 'none';
     iframe.style.opacity = '1';
     errorBox.style.display = 'none';
+    pendingFrameLoad = false;
+    pushViewerTrap();
   };
 }
 
@@ -164,10 +181,13 @@ function openInNewTabFromError() {
 
 // ---------- Back Button ----------
 function goBack() {
+  if (viewerOpen) { closeViewer(); return; }
   window.history.back();
 }
 
 function closeViewer() {
+  if (!viewerOpen) return;
+  viewerOpen = false;
   if (currentTimeout) clearTimeout(currentTimeout);
   const viewer = document.getElementById('fullViewer');
   const iframe = document.getElementById('mainIframe');
@@ -177,7 +197,29 @@ function closeViewer() {
   if (err) err.style.display = 'none';
   document.body.style.overflow = '';
   if (currentLink) { currentLink.classList.remove('active'); currentLink = null; }
+  if (history.state && history.state.mdv === 'viewer') {
+    history.replaceState({}, '');
+  }
 }
+
+// زر الرجوع في المتصفح (وخصوصاً على الموبايل): يغلق العارض بدل مغادرة الصفحة
+window.addEventListener('popstate', function() {
+  if (viewerOpen) closeViewer();
+});
+
+// زر الرجوع قد "يبتلعه" سجل الإطار الداخلي (مثل تطبيق الشات الذي يضيف إدخالات سجل خاصة به)،
+// فيعود الإطار إلى about:blank بينما العارض ما زال مفتوحاً. نكشف ذلك ونغلق العارض.
+(function() {
+  const iframe = document.getElementById('mainIframe');
+  if (!iframe) return;
+  iframe.addEventListener('load', function() {
+    if (!viewerOpen || pendingFrameLoad) return;
+    try {
+      const cw = iframe.contentWindow;
+      if (cw && cw.location && cw.location.href === 'about:blank') closeViewer();
+    } catch (e) { /* cross-origin: لا نستطيع قراءة الوجهة — يعتمد على حاجز popstate */ }
+  });
+})();
 
 function openNewTabExternal(linkEl) {
   const url = linkEl.getAttribute('data-url');

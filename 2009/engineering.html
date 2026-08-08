@@ -159,7 +159,7 @@ const FIELD_DATA = {
 
 const SHARED = [
   { icon: '💬', text: 'الدردشة الدراسية', url: '/chat/', type: 'iframe', title: 'الدردشة الدراسية' },
-  { icon: '🏆', text: 'الإنجاز', url: '../coming-soon.html', type: 'iframe', title: 'الإنجاز' },
+  { icon: '🏆', text: 'الإنجاز', url: '/achievement/', type: 'iframe', title: 'الإنجاز' },
   { icon: '🕵️', text: 'أنا مجهول', url: '../coming-soon.html', type: 'iframe', title: 'أنا مجهول' },
   { icon: '📖', text: 'تلاوات', url: 'https://spiritual-boost.lovable.app/recitations', type: 'external' },
   { icon: '🌙', text: 'أجر وثواب', url: 'https://spiritual-boost.lovable.app', type: 'iframe', title: 'أجر وثواب' },
@@ -222,12 +222,14 @@ if (preselectedElective || preselectedMajor) {
   }
 }
 
-createFieldParticles({
-  anim: 'fpEngineer', count: 25,
-  items: ['var x = 42;','function() {}','console.log()','if(true){}','return x;','const y;','import React','</html>','<div>','{ data }','=> {}','class App','npm start','git push','while(){}','for(i=0;i)','void main','print()','#include','<body>','</>','System.out','cout <<','def func','true&&false','0x00FF','&&','||','===','>=','<='],
-  minSize: 10, maxSize: 16, minDur: 12, maxDur: 24, maxDelay: 10,
-  color: 'rgba(38,198,218,0.35)', driftRange: 80
-});
+setTimeout(function() {
+  if (typeof createFieldParticles === 'function') createFieldParticles({
+    anim: 'fpEngineer', count: 25,
+    items: ['var x = 42;','function() {}','console.log()','if(true){}','return x;','const y;','import React','</html>','<div>','{ data }','=> {}','class App','npm start','git push','while(){}','for(i=0;i)','void main','print()','#include','<body>','</>','System.out','cout <<','def func','true&&false','0x00FF','&&','||','===','>=','<='],
+    minSize: 10, maxSize: 16, minDur: 12, maxDur: 24, maxDelay: 10,
+    color: 'rgba(38,198,218,0.35)', driftRange: 80
+  });
+}, 0);
 </script>
 <script src="../js/main.js"></script>
 <script src="../js/chatbot.js"></script>

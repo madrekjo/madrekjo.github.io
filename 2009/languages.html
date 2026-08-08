@@ -152,7 +152,7 @@ body::before {
 <script>
 const SHARED = [
   { icon: '💬', text: 'الدردشة الدراسية', url: '/chat/', type: 'iframe', title: 'الدردشة الدراسية' },
-  { icon: '🏆', text: 'الإنجاز', url: '../coming-soon.html', type: 'iframe', title: 'الإنجاز' },
+  { icon: '🏆', text: 'الإنجاز', url: '/achievement/', type: 'iframe', title: 'الإنجاز' },
   { icon: '🕵️', text: 'أنا مجهول', url: '../coming-soon.html', type: 'iframe', title: 'أنا مجهول' },
   { icon: '📖', text: 'تلاوات', url: 'https://spiritual-boost.lovable.app/recitations', type: 'external' },
   { icon: '🌙', text: 'أجر وثواب', url: 'https://spiritual-boost.lovable.app', type: 'iframe', title: 'أجر وثواب' },
@@ -212,12 +212,14 @@ if (preselectedElective || preselectedMajor) {
   }
 }
 
-createFieldParticles({
-  anim: 'fpHumanities', count: 18,
-  items: ['💬','🗣️','📖','✍️','📝','🎭','📜','⚖️','🌍','💭','🤝','📚'],
-  minSize: 16, maxSize: 30, minDur: 14, maxDur: 26, maxDelay: 10,
-  color: 'rgba(212,175,55,0.35)', driftRange: 100
-});
+setTimeout(function() {
+  if (typeof createFieldParticles === 'function') createFieldParticles({
+    anim: 'fpHumanities', count: 18,
+    items: ['💬','🗣️','📖','✍️','📝','🎭','📜','⚖️','🌍','💭','🤝','📚'],
+    minSize: 16, maxSize: 30, minDur: 14, maxDur: 26, maxDelay: 10,
+    color: 'rgba(212,175,55,0.35)', driftRange: 100
+  });
+}, 0);
 </script>
 <script src="../js/main.js"></script>
 <script src="../js/chatbot.js"></script>
