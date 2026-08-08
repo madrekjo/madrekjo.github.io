@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مدارك جو</title>
+    <meta name="robots" content="noindex,nofollow">
+    <script>
+      /* ============================================================
+         404.html — حاجز (fallback) لصفحة غير موجودة على GitHub Pages
+         ------------------------------------------------------------
+         - إذا بدأ المسار بـ /chat  -> يشغّل تطبيق الدردشة (SPA)
+         - غير ذلك                  -> يرجع للصفحة الرئيسية
+           (بما أن صفحات الموقع الأم الحقيقية لا تصل لهذا الملف أبداً)
+         ============================================================ */
+      (function () {
+        try {
+          var p = window.location.pathname;
+          if (p.indexOf('/chat') !== 0) {
+            window.location.replace('/');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      /* تحميل أصول الدردشة ديناميكياً من /chat/index.html
+         حتى لا يحتاج هذا الملف تحديثاً يدوياً بعد كل build
+         (أسماء الأصول تتغير بسبب الـ hash). */
+      (function () {
+        function inject(urls) {
+          for (var i = 0; i < urls.length; i++) {
+            var u = urls[i];
+            if (/\.css(\?|$)/.test(u)) {
+              var l = document.createElement('link');
+              l.rel = 'stylesheet';
+              l.href = u;
+              document.head.appendChild(l);
+            } else if (/\.js(\?|$)/.test(u)) {
+              var s = document.createElement('script');
+              s.type = 'module';
+              s.src = u;
+              s.crossOrigin = 'anonymous';
+              document.head.appendChild(s);
+            }
+          }
+        }
+        function fallback() {
+          inject(['/chat/assets/index-hYfKa4wJ.js', '/chat/assets/index-DMLvx4zo.css']);
+        }
+        var x = new XMLHttpRequest();
+        x.open('GET', '/chat/index.html');
+        x.onload = function () {
+          try {
+            var html = x.responseText || '';
+            var urls = [];
+            var re = /(?:src|href)="([^"]+\.(?:js|css)[^"]*)"/g;
+            var m;
+            while ((m = re.exec(html))) urls.push(m[1]);
+            var good = [];
+            for (var j = 0; j < urls.length; j++) {
+              if (urls[j].indexOf('/chat/assets/') === 0) good.push(urls[j]);
+            }
+            if (good.length > 0) inject(good); else fallback();
+          } catch (e) { fallback(); }
+        };
+        x.onerror = function () { fallback(); };
+        x.send();
+      })();
+    </script>
+  </body>
+</html>

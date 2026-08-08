@@ -1,0 +1,1 @@
+const a={medical:"Dr.",engineering:"Eng.",languages:"Lang.",business:"Bus."},u={medical:"صحي",engineering:"هندسي",languages:"لغات",business:"أعمال"};function c(n,e="مستخدم"){var s;if(!n)return e;const i=((s=n.full_name)==null?void 0:s.trim())||e,t=n.field&&a[n.field]?`${a[n.field]} `:"",g=n.generation?` ${n.generation}`:"";return`${t}${i}${g}`}export{u as F,a,c as f};

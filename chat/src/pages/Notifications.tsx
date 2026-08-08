@@ -1,0 +1,110 @@
+import { useEffect, useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
+import { supabase } from "@/integrations/supabase/client";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Bell, Heart, MessageCircle, CornerDownLeft, Loader2 } from "lucide-react";
+import { formatDistanceToNow } from "date-fns";
+import { ar } from "date-fns/locale";
+import { useNavigate } from "react-router-dom";
+
+interface Notification {
+  id: string;
+  user_id: string;
+  actor_id: string;
+  type: string;
+  post_id: string | null;
+  comment_id: string | null;
+  is_read: boolean;
+  created_at: string;
+  actor_profile?: { full_name: string; avatar_url: string | null } | null;
+}
+
+const Notifications = () => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const [notifications, setNotifications] = useState<Notification[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!user) return;
+    (async () => {
+      const { data } = await supabase
+        .from("notifications")
+        .select("*")
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: false });
+      if (!data) { setLoading(false); return; }
+      const actorIds = [...new Set(data.map(n => n.actor_id))];
+      const { data: profiles } = await supabase
+        .from("profiles")
+        .select("user_id, full_name, avatar_url")
+        .in("user_id", actorIds);
+      const map = new Map(profiles?.map(p => [p.user_id, p]) || []);
+      setNotifications(data.map(n => ({ ...n, actor_profile: map.get(n.actor_id) || null })));
+      // Mark all as read
+      await supabase.from("notifications").update({ is_read: true }).eq("user_id", user.id).eq("is_read", false);
+      setLoading(false);
+    })();
+  }, [user]);
+
+  const getIcon = (type: string) => {
+    switch (type) {
+      case "like": return <Heart className="w-4 h-4 text-destructive fill-current" />;
+      case "comment": return <MessageCircle className="w-4 h-4 text-primary" />;
+      case "reply": return <CornerDownLeft className="w-4 h-4 text-primary" />;
+      default: return <Bell className="w-4 h-4" />;
+    }
+  };
+
+  const getText = (type: string, name: string) => {
+    switch (type) {
+      case "like": return `${name} أعجب بمنشورك`;
+      case "comment": return `${name} علّق على منشورك`;
+      case "reply": return `${name} رد على تعليقك`;
+      default: return `${name} تفاعل معك`;
+    }
+  };
+
+  return (
+    <div className="container mx-auto px-4 py-6 max-w-2xl">
+      <div className="flex items-center gap-2 mb-6">
+        <Bell className="w-6 h-6 text-primary" />
+        <h1 className="text-2xl font-bold">جميع الإشعارات</h1>
+      </div>
+
+      {loading ? (
+        <div className="text-center py-12"><Loader2 className="w-8 h-8 animate-spin mx-auto text-primary" /></div>
+      ) : notifications.length === 0 ? (
+        <div className="text-center py-12 text-muted-foreground">لا توجد إشعارات</div>
+      ) : (
+        <div className="bg-card border rounded-xl divide-y">
+          {notifications.map(n => (
+            <div
+              key={n.id}
+              onClick={() => n.post_id && navigate(`/?post=${n.post_id}`)}
+              className="flex items-start gap-3 p-4 hover:bg-muted/50 cursor-pointer transition-colors"
+            >
+              <Avatar className="w-10 h-10 shrink-0">
+                <AvatarImage src={n.actor_profile?.avatar_url || ""} />
+                <AvatarFallback className="bg-primary/10 text-primary">
+                  {n.actor_profile?.full_name?.charAt(0) || "م"}
+                </AvatarFallback>
+              </Avatar>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2">
+                  {getIcon(n.type)}
+                  <p className="text-sm">{getText(n.type, n.actor_profile?.full_name || "مستخدم")}</p>
+                </div>
+                <p className="text-xs text-muted-foreground mt-1">
+                  {formatDistanceToNow(new Date(n.created_at), { addSuffix: true, locale: ar })}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Notifications;
