@@ -1,0 +1,32 @@
+# Cloudflare Worker config for the unified SSO endpoint (https://madrekjo-sso.abdalrhmanmaaith1.workers.dev)
+#
+# 1) Create the KV namespace and copy the returned id below:
+#      wrangler kv namespace create SSO_KV
+#    -> output contains:  id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+#    -> paste that id in the [[kv_namespaces]] block below (REPLACE_WITH_YOUR_KV_NAMESPACE_ID)
+#
+# 2) Set secrets (interactive, values are NOT stored in any file):
+#      wrangler secret put GOOGLE_CLIENT_ID
+#      wrangler secret put GOOGLE_CLIENT_SECRET
+#      wrangler secret put SSO_HMAC_KEY
+#      wrangler secret put CHAT_SUPABASE_URL
+#      wrangler secret put CHAT_ANON_KEY
+#      wrangler secret put ACHIEVEMENT_SUPABASE_URL
+#      wrangler secret put ACHIEVEMENT_ANON_KEY
+#
+# 3) Deploy:
+#      wrangler deploy
+#
+# The worker derives its Google redirect_uri from the request origin, so it becomes:
+#   https://madrekjo-sso.abdalrhmanmaaith1.workers.dev/callback
+# which must be registered in Google Cloud Console (no code change needed).
+#
+# CORS defaults to https://madrekjo.github.io (APP_ORIGIN / ALLOWED_ORIGINS below are optional overrides).
+
+name = "madrekjo-sso"
+main = "sso-worker.js"
+compatibility_date = "2024-12-01"
+
+[[kv_namespaces]]
+binding = "SSO_KV"
+id = "f7b76ca5ef8746b4a4e0e897b3027da4"

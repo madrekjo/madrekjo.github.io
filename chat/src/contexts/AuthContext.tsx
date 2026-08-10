@@ -1,7 +1,11 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
-import { Session, User } from "@supabase/supabase-js";
+import { Session, User, createClient } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import { checkDeviceBanned, registerDeviceForUser } from "@/lib/deviceId";
+import {
+  SIBLING_SUPABASE_URL,
+  SIBLING_SUPABASE_ANON_KEY,
+} from "@/config/sso-config";
 
 interface Profile {
   id: string;
@@ -200,7 +204,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signOut = async () => {
-    await supabase.auth.signOut();
+    const achievementSupabase = createClient(
+      SIBLING_SUPABASE_URL,
+      SIBLING_SUPABASE_ANON_KEY
+    );
+    await Promise.allSettled([
+      supabase.auth.signOut(),
+      achievementSupabase.auth.signOut(),
+    ]);
+    try { localStorage.removeItem("sb-cwqzhwunpivvdliytalw-auth-token"); } catch { /* ignore */ }
+    try { localStorage.removeItem("sb-ofltanaffcxoobfvlkii-auth-token"); } catch { /* ignore */ }
     setSession(null);
     setUser(null);
     setProfile(null);

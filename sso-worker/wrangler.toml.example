@@ -1,0 +1,31 @@
+# Cloudflare Worker config for the unified SSO endpoint.
+# Copy to wrangler.toml and fill in real values. Secrets must NOT live in this file:
+# set them with:  wrangler secret put GOOGLE_CLIENT_SECRET   (and the other secrets)
+#
+# Required secrets (wrangler secret put):
+#   GOOGLE_CLIENT_ID
+#   GOOGLE_CLIENT_SECRET
+#   SSO_HMAC_KEY
+#   CHAT_SUPABASE_URL
+#   CHAT_ANON_KEY
+#   ACHIEVEMENT_SUPABASE_URL
+#   ACHIEVEMENT_ANON_KEY
+#
+# Optional vars:
+#   ALLOWED_ORIGINS  (default: https://madrekjo.github.io)
+#   APP_ORIGIN       (default: https://madrekjo.github.io)
+#   REDIRECT_URI     (default: <this worker's origin>/callback, derived from the request)
+#
+# The worker's own public origin is derived from the incoming request, so it works on
+# any *.workers.dev domain: https://<worker-name>.<account-subdomain>.workers.dev
+# That worker URL is the "SSO Worker URL" that must also be set as
+# SSO_AUTH_BASE_URL in chat/src/config/sso-config.ts and achievement/src/config/sso-config.ts,
+# and as the Google Authorized Redirect URI: <SSO Worker URL>/callback
+
+name = "madrekjo-sso"
+main = "sso-worker.js"
+compatibility_date = "2024-12-01"
+
+[[kv_namespaces]]
+binding = "SSO_KV"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"

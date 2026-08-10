@@ -1,58 +1,29 @@
 import { useState } from "react";
-import { supabase } from "@/integrations/supabase/client"; // استيراد العميل الرسمي
 import { checkDeviceBanned } from "@/lib/deviceId";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 import { MessageCircle } from "lucide-react";
+import { SSO_AUTH_BASE_URL, SSO_TARGET } from "@/config/sso-config";
 
 const Auth = () => {
-  const [loading, setLoading] = useState<null | "google" | "apple">(null);
+  const [loading, setLoading] = useState(false);
 
-  const handleOAuth = async (provider: "google" | "apple") => {
-    setLoading(provider);
+  const startGoogleLogin = async () => {
+    setLoading(true);
     try {
       // التحقق من الحظر قبل المتابعة
       const banned = await checkDeviceBanned();
       if (banned) {
         toast.error("جهازك تم حظره من المنصة نهائياً");
-        setLoading(null);
+        setLoading(false);
         return;
       }
 
-      const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: provider,
-        options: {
-          redirectTo: window.location.origin + import.meta.env.BASE_URL + "auth/callback",
-          skipBrowserRedirect: true,
-        },
-      });
-
-      if (error) {
-        console.error(error);
-        toast.error("فشل الاتصال بخدمة Google");
-        setLoading(null);
-        return;
-      }
-
-      const width = 500;
-      const height = 600;
-      const left = window.screenX + (window.outerWidth - width) / 2;
-      const top = window.screenY + (window.outerHeight - height) / 2;
-
-      const popup = window.open(
-        data.url,
-        "google-login",
-        `width=${width},height=${height},left=${left},top=${top}`
-      );
-
-      if (!popup) {
-        toast.error("الرجاء السماح للنوافذ المنبثقة (popups)");
-        setLoading(null);
-      }
-    } catch (error: any) {
-      toast.error(error.message || "فشل تسجيل الدخول");
-      setLoading(null);
+      window.location.href = `${SSO_AUTH_BASE_URL}/login?target=${encodeURIComponent(SSO_TARGET)}`;
+    } catch (error: unknown) {
+      toast.error(error instanceof Error ? error.message : "فشل تسجيل الدخول");
+      setLoading(false);
     }
   };
 
@@ -66,13 +37,13 @@ const Auth = () => {
           <CardTitle className="text-2xl font-bold">تسجيل الدخول</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <Button 
-            className="w-full flex items-center justify-center gap-2" 
+          <Button
+            className="w-full flex items-center justify-center gap-2"
             variant="outline"
-            onClick={() => handleOAuth("google")}
-            disabled={loading !== null}
+            onClick={startGoogleLogin}
+            disabled={loading}
           >
-            {loading === "google" ? "جاري التحويل..." : "تسجيل الدخول باستخدام Google"}
+            {loading ? "جاري التحويل..." : "تسجيل الدخول باستخدام Google"}
           </Button>
         </CardContent>
       </Card>

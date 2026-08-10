@@ -1,82 +1,79 @@
 import { useEffect, useState } from "react";
+import { createClient } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
+import {
+  SSO_AUTH_BASE_URL,
+  SIBLING_SUPABASE_URL,
+  SIBLING_SUPABASE_ANON_KEY,
+} from "@/config/sso-config";
 
 const AuthCallback = () => {
   const [status, setStatus] = useState("جاري التحقق من تسجيل الدخول...");
 
   useEffect(() => {
     let cancelled = false;
-    let attempts = 0;
-    let subscription: any = null;
 
-    const sendSuccess = (session: any) => {
-      console.log("[AuthCallback] ✅ session ready, sending to opener", {
-        hasAccessToken: !!session.access_token,
-        hasRefreshToken: !!session.refresh_token,
-        expiresAt: session.expires_at,
-      });
+    const applySsoSession = async () => {
+      const params = new URLSearchParams(window.location.search);
+      const ticket = params.get("ticket");
+
+      if (!ticket) {
+        console.error("[AuthCallback] no ticket in URL");
+        if (!cancelled) setStatus("انتهت مهلة تسجيل الدخول، حاول مرة أخرى");
+        return;
+      }
 
       try {
-        if (window.opener && !window.opener.closed) {
-          window.opener.postMessage(
-            {
-              type: "GOOGLE_LOGIN_SUCCESS",
-              access_token: session.access_token,
-              refresh_token: session.refresh_token,
-            },
-            window.opener.origin
-          );
-          console.log("[AuthCallback] ✅ postMessage sent to opener");
-        } else {
-          console.warn("[AuthCallback] ⚠️ opener not available");
+        const res = await fetch(
+          `${SSO_AUTH_BASE_URL}/session?ticket=${encodeURIComponent(ticket)}`
+        );
+        if (!res.ok) throw new Error(`ticket غير صالح (${res.status})`);
+        const data = await res.json();
+
+        const chatSession = data?.chat;
+        const achievementSession = data?.achievement;
+        if (
+          !chatSession?.access_token ||
+          !chatSession?.refresh_token ||
+          !achievementSession?.access_token ||
+          !achievementSession?.refresh_token
+        ) {
+          throw new Error("بيانات الجلسة ناقصة");
         }
+
+        await supabase.auth.setSession({
+          access_token: chatSession.access_token,
+          refresh_token: chatSession.refresh_token,
+        });
+
+        const achievementSupabase = createClient(
+          SIBLING_SUPABASE_URL,
+          SIBLING_SUPABASE_ANON_KEY
+        );
+        await achievementSupabase.auth.setSession({
+          access_token: achievementSession.access_token,
+          refresh_token: achievementSession.refresh_token,
+        });
+
+        const url = new URL(window.location.href);
+        url.searchParams.delete("ticket");
+        window.history.replaceState({}, document.title, url.toString());
+
+        if (cancelled) return;
+        setStatus("تم تسجيل الدخول بنجاح");
+        setTimeout(() => {
+          if (!cancelled) window.location.href = "/chat/";
+        }, 600);
       } catch (err) {
-        console.error("[AuthCallback] ❌ postMessage failed", err);
-      }
-
-      setStatus("تم تسجيل الدخول بنجاح");
-      setTimeout(() => {
-        if (!cancelled) window.close();
-      }, 500);
-    };
-
-    const check = async () => {
-      const { data, error } = await supabase.auth.getSession();
-      if (cancelled) return;
-
-      console.log("[AuthCallback] getSession attempt", attempts, {
-        hasSession: !!data?.session,
-        error: error?.message,
-      });
-
-      if (data?.session) {
-        sendSuccess(data.session);
-      } else if (attempts < 20) {
-        attempts++;
-        setTimeout(check, 300);
-      } else {
-        console.error("[AuthCallback] ❌ timeout waiting for session");
-        setStatus("انتهت مهلة تسجيل الدخول، حاول مرة أخرى");
+        console.error("[AuthCallback] SSO failed", err);
+        if (!cancelled) setStatus("فشل تسجيل الدخول، حاول مرة أخرى");
       }
     };
 
-    check();
-
-    const { data: { subscription: sub } } = supabase.auth.onAuthStateChange((event, session) => {
-      console.log("[AuthCallback] onAuthStateChange", event, {
-        hasSession: !!session,
-      });
-      if (cancelled) return;
-      if (event === "SIGNED_IN" && session) {
-        sendSuccess(session);
-      }
-    });
-
-    subscription = sub;
+    applySsoSession();
 
     return () => {
       cancelled = true;
-      if (subscription) subscription.unsubscribe();
     };
   }, []);
 
