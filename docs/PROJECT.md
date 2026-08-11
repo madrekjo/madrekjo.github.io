@@ -49,7 +49,7 @@ node serve.js
 
 - البريد: `madrekjo@gmail.com`
 - إنستغرام: `@madrekjo`
-- ديسكورد: `discord.gg/ps3MZRTGP`
+- ديسكورد: `discord.gg/JMK38hQNf`
 
 ## ملاحظات
 

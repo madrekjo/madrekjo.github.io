@@ -29,7 +29,9 @@ function showTeamModal() { const m = document.getElementById('teamModal'); if (m
 function closeTeamModal() { const m = document.getElementById('teamModal'); if (m) m.classList.remove('show'); }
 
 // ---------- Scroll ----------
-function scrollTo(id) {
+// باسم فريد (scrollToSection) لأن window.scrollTo دالة أصلية في المتصفح،
+// فالتسمية scrollTo تتصادم معها وقد لا تعمل الأزرار.
+function scrollToSection(id) {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: 'smooth' });
 }
