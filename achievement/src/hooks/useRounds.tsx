@@ -1,13 +1,13 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 import { useAuth } from "./useAuth";
 
 // Tables are added in a pending migration; types regenerate after approval.
 // Until then, use a loose client alias for the new tables.
-const db = supabase as unknown as {
-  from: (table: string) => ReturnType<typeof supabase.from>;
-  storage: typeof supabase.storage;
-  functions: typeof supabase.functions;
+const db = achievementSupabase as unknown as {
+  from: (table: string) => ReturnType<typeof achievementSupabase.from>;
+  storage: typeof achievementSupabase.storage;
+  functions: typeof achievementSupabase.functions;
 };
 
 export interface Round {
@@ -67,7 +67,7 @@ export const useRounds = () => {
     queryFn: async () => {
       if (!user) return false;
       const [roleRes, creatorRes] = await Promise.all([
-        supabase.from("user_roles").select("role").eq("user_id", user.id).eq("role", "admin").maybeSingle(),
+        achievementSupabase.from("user_roles").select("role").eq("user_id", user.id).eq("role", "admin").maybeSingle(),
         db.from("round_creators").select("user_id" as never).eq("user_id" as never, user.id).maybeSingle(),
       ]);
       return !!roleRes.data || !!creatorRes.data;
@@ -109,7 +109,7 @@ export const useRounds = () => {
         if (!ext) throw new Error("صيغة الصورة غير مدعومة");
         if (payload.imageFile.size > 5 * 1024 * 1024) throw new Error("حجم الصورة يتجاوز 5 ميغابايت");
         const path = `${user.id}/${crypto.randomUUID()}.${ext}`;
-        const { error: upErr } = await supabase.storage
+        const { error: upErr } = await achievementSupabase.storage
           .from("round-images")
           .upload(path, payload.imageFile, { contentType: payload.imageFile.type, upsert: false });
         if (upErr) throw upErr;
@@ -158,7 +158,7 @@ export const useRounds = () => {
 
   const finalizeRound = useMutation({
     mutationFn: async (roundId: string) => {
-      const { error } = await supabase.functions.invoke("finalize-round", { body: { roundId } });
+      const { error } = await achievementSupabase.functions.invoke("finalize-round", { body: { roundId } });
       if (error) throw error;
     },
     onSuccess: () => {
@@ -186,7 +186,7 @@ export async function getRoundImageUrl(path: string | null): Promise<string | nu
   if (!path) return null;
   const cached = signedUrlCache.get(path);
   if (cached && cached.expires > Date.now()) return cached.url;
-  const { data, error } = await supabase.storage.from("round-images").createSignedUrl(path, 3600);
+  const { data, error } = await achievementSupabase.storage.from("round-images").createSignedUrl(path, 3600);
   if (error || !data) return null;
   signedUrlCache.set(path, { url: data.signedUrl, expires: Date.now() + 3000 * 1000 });
   return data.signedUrl;

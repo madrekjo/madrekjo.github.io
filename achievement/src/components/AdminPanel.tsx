@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAdmin } from "@/hooks/useAdmin";
 import { useAuth } from "@/hooks/useAuth";
-import { supabase } from "@/integrations/supabase/client";
+import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -29,7 +29,7 @@ export const AdminPanel = () => {
   const { data: adminIds = [] } = useQuery({
     queryKey: ["all-admin-ids"],
     queryFn: async () => {
-      const { data, error } = await supabase
+      const { data, error } = await achievementSupabase
         .from("user_roles")
         .select("user_id")
         .eq("role", "admin");
@@ -43,7 +43,7 @@ export const AdminPanel = () => {
   const { data: roundCreatorIds = [] } = useQuery({
     queryKey: ["all-round-creator-ids"],
     queryFn: async () => {
-      const { data, error } = await (supabase as unknown as { from: (t: string) => ReturnType<typeof supabase.from> })
+      const { data, error } = await (achievementSupabase as unknown as { from: (t: string) => ReturnType<typeof achievementSupabase.from> })
         .from("round_creators")
         .select("user_id" as never);
       if (error) throw error;
@@ -55,7 +55,7 @@ export const AdminPanel = () => {
   const toggleRoundCreator = async (userId: string, makeCreator: boolean) => {
     setTogglingRoundId(userId);
     try {
-      const db = supabase as unknown as { from: (t: string) => ReturnType<typeof supabase.from> };
+      const db = achievementSupabase as unknown as { from: (t: string) => ReturnType<typeof achievementSupabase.from> };
       if (makeCreator) {
         const { error } = await db.from("round_creators").insert({ user_id: userId } as never);
         if (error) throw error;
@@ -79,13 +79,13 @@ export const AdminPanel = () => {
     setTogglingId(userId);
     try {
       if (makeAdmin) {
-        const { error } = await supabase
+        const { error } = await achievementSupabase
           .from("user_roles")
           .insert({ user_id: userId, role: "admin" });
         if (error) throw error;
         toast.success("تم تعيين المستخدم كمسؤول");
       } else {
-        const { error } = await supabase
+        const { error } = await achievementSupabase
           .from("user_roles")
           .delete()
           .eq("user_id", userId)
@@ -140,7 +140,7 @@ export const AdminPanel = () => {
     }
     setRenaming(true);
     try {
-      const { error } = await supabase
+      const { error } = await achievementSupabase
         .from("profiles")
         .update({ display_name: trimmed })
         .eq("user_id", renameTarget.id);

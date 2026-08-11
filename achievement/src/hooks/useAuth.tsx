@@ -1,10 +1,7 @@
 import { useState, useEffect, createContext, useContext, ReactNode } from "react";
-import { User, Session, createClient } from "@supabase/supabase-js";
+import { User, Session } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
-import {
-  SIBLING_SUPABASE_URL,
-  SIBLING_SUPABASE_ANON_KEY,
-} from "@/config/sso-config";
+import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 
 interface AuthContextType {
   user: User | null;
@@ -44,15 +41,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const signOut = async () => {
-    const chatSupabase = createClient(
-      SIBLING_SUPABASE_URL,
-      SIBLING_SUPABASE_ANON_KEY
-    );
     await Promise.allSettled([
       supabase.auth.signOut(),
-      chatSupabase.auth.signOut(),
+      achievementSupabase.auth.signOut(),
     ]);
     try { localStorage.removeItem("sb-ofltanaffcxoobfvlkii-auth-token"); } catch { /* ignore */ }
+    try { localStorage.removeItem("sb-itflhfhsfzrdfpxvlzrv-auth-token"); } catch { /* ignore */ }
   };
 
   return (

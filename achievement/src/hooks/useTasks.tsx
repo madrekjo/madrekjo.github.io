@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 import { useAuth } from "./useAuth";
 import type { Database } from "@/integrations/supabase/types";
 
@@ -48,7 +48,7 @@ export const useTasks = () => {
     queryFn: async () => {
       if (!user) return [];
       return fetchAll<Task>(async (from, to) => {
-        const r = await supabase
+        const r = await achievementSupabase
           .from("tasks")
           .select("*")
           .eq("user_id", user.id)
@@ -65,7 +65,7 @@ export const useTasks = () => {
     queryFn: async () => {
       if (!user) return [];
 
-      const { data: rpcData, error: rpcError } = await (supabase.rpc as any)(
+      const { data: rpcData, error: rpcError } = await (achievementSupabase.rpc as any)(
         "get_public_successful_tasks",
       );
       if (rpcError) throw rpcError;
@@ -73,7 +73,7 @@ export const useTasks = () => {
       if (tasks.length === 0) return [];
 
       const userIds = Array.from(new Set(tasks.map((task) => task.user_id)));
-      const { data: profiles, error: profilesError } = await supabase
+      const { data: profiles, error: profilesError } = await achievementSupabase
         .from("profiles")
         .select("user_id, display_name, avatar_url")
         .in("user_id", userIds);
@@ -110,7 +110,7 @@ export const useTasks = () => {
         endsAt = new Date(now.getTime() + task.duration * 7 * 24 * 60 * 60 * 1000);
       }
 
-      const { error } = await supabase.from("tasks").insert({
+      const { error } = await achievementSupabase.from("tasks").insert({
         user_id: user.id,
         title: task.title,
         category: task.category,
@@ -140,20 +140,20 @@ export const useTasks = () => {
       elapsedMinutes?: number;
     }) => {
       if (earlyFinish && elapsedMinutes != null) {
-        const { error } = await supabase
+        const { error } = await achievementSupabase
           .from("tasks")
           .update({ completed: true, is_success: true, duration: Math.max(1, elapsedMinutes) })
           .eq("id", taskId);
         if (error) throw error;
       } else if (isHalf && originalDuration != null) {
         const halfDuration = Math.max(1, Math.round(originalDuration / 2));
-        const { error } = await supabase
+        const { error } = await achievementSupabase
           .from("tasks")
           .update({ completed: true, is_success: true, duration: halfDuration })
           .eq("id", taskId);
         if (error) throw error;
       } else {
-        const { error } = await supabase
+        const { error } = await achievementSupabase
           .from("tasks")
           .update({ completed: true, is_success: isSuccess })
           .eq("id", taskId);
@@ -199,7 +199,7 @@ export const useTasks = () => {
         updates.duration = params.duration;
       }
 
-      const { error } = await supabase
+      const { error } = await achievementSupabase
         .from("tasks")
         .update(updates)
         .eq("id", params.taskId)
@@ -215,7 +215,7 @@ export const useTasks = () => {
   const pauseTask = useMutation({
     mutationFn: async (taskId: string) => {
       if (!user) throw new Error("Not authenticated");
-      const { error } = await supabase
+      const { error } = await achievementSupabase
         .from("tasks")
         .update({ paused_at: new Date().toISOString() })
         .eq("id", taskId)
@@ -231,7 +231,7 @@ export const useTasks = () => {
       if (!user) throw new Error("Not authenticated");
       const pausedFor = Date.now() - new Date(params.pausedAt).getTime();
       const newEndsAt = new Date(new Date(params.endsAt).getTime() + pausedFor);
-      const { error } = await supabase
+      const { error } = await achievementSupabase
         .from("tasks")
         .update({
           paused_at: null,
@@ -248,7 +248,7 @@ export const useTasks = () => {
   const deleteTask = useMutation({
     mutationFn: async (taskId: string) => {
       if (!user) throw new Error("Not authenticated");
-      const { error } = await supabase
+      const { error } = await achievementSupabase
         .from("tasks")
         .delete()
         .eq("id", taskId)
@@ -263,7 +263,7 @@ export const useTasks = () => {
   /** Heartbeat: update heartbeat_at so we can detect offline gaps for stopwatch tasks. */
   const heartbeat = async (taskId: string) => {
     if (!user) return;
-    await supabase
+    await achievementSupabase
       .from("tasks")
       .update({ heartbeat_at: new Date().toISOString() } as never)
       .eq("id", taskId)
@@ -283,7 +283,7 @@ export const useTasks = () => {
     if (!user) return;
     const gap = Date.now() - new Date(params.lastHeartbeat).getTime();
     const newEndsAt = new Date(new Date(params.endsAt).getTime() + gap).toISOString();
-    await supabase
+    await achievementSupabase
       .from("tasks")
       .update({
         paused_at: params.lastHeartbeat,

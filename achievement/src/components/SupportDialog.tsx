@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
-import { supabase } from "@/integrations/supabase/client";
+import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 import { useAuth } from "@/hooks/useAuth";
 import { useMessages } from "@/hooks/useMessages";
 import { useQueryClient } from "@tanstack/react-query";
@@ -48,7 +48,7 @@ export const SupportDialog = ({ open, onOpenChange }: SupportDialogProps) => {
     const hasUnread = messages.some((m) => m.receiver_id === user.id && !m.is_read);
     if (!hasUnread) return;
     (async () => {
-      await supabase
+      await achievementSupabase
         .from("messages")
         .update({ is_read: true })
         .eq("receiver_id", user.id)
@@ -66,7 +66,7 @@ export const SupportDialog = ({ open, onOpenChange }: SupportDialogProps) => {
     if (!trimmed || !user) return;
 
     setSending(true);
-    const { error } = await supabase.functions.invoke("send-support-message", {
+    const { error } = await achievementSupabase.functions.invoke("send-support-message", {
       body: { content: trimmed },
     });
     setSending(false);
@@ -81,7 +81,7 @@ export const SupportDialog = ({ open, onOpenChange }: SupportDialogProps) => {
 
 
   const handleDelete = async (id: string) => {
-    const { error } = await supabase.from("messages").delete().eq("id", id);
+    const { error } = await achievementSupabase.from("messages").delete().eq("id", id);
     if (error) {
       toast.error("تعذّر حذف الرسالة");
       return;

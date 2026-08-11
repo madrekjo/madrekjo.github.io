@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useTasks } from "@/hooks/useTasks";
-import { supabase } from "@/integrations/supabase/client";
+import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Trophy, Loader2, Flame } from "lucide-react";
@@ -10,7 +10,7 @@ const useCompletedRoundCounts = () => {
   return useQuery({
     queryKey: ["completed-round-counts"],
     queryFn: async () => {
-      const { data, error } = await (supabase.rpc as any)("get_completed_round_counts");
+      const { data, error } = await (achievementSupabase.rpc as any)("get_completed_round_counts");
       if (error) throw error;
       const map = new Map<string, number>();
       ((data ?? []) as { user_id: string; completed_rounds: number }[]).forEach((r) =>

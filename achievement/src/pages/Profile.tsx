@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { supabase } from "@/integrations/supabase/client";
+import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 import { toast } from "sonner";
 import { Loader2, Camera, Save, KeyRound } from "lucide-react";
 
@@ -54,13 +54,13 @@ const Profile = () => {
     try {
       const path = `${user.id}/avatar.${ext}`;
 
-      const { error: uploadError } = await supabase.storage
+      const { error: uploadError } = await achievementSupabase.storage
         .from("avatars")
         .upload(path, file, { upsert: true, contentType: file.type });
 
       if (uploadError) throw uploadError;
 
-      const { data } = supabase.storage.from("avatars").getPublicUrl(path);
+      const { data } = achievementSupabase.storage.from("avatars").getPublicUrl(path);
       await updateProfile.mutateAsync({ avatar_url: `${data.publicUrl}?t=${Date.now()}` });
       toast.success("تم تحديث الصورة بنجاح");
     } catch {
@@ -96,7 +96,7 @@ const Profile = () => {
       return;
     }
     try {
-      const { error } = await supabase.auth.updateUser({ password: newPassword });
+      const { error } = await achievementSupabase.auth.updateUser({ password: newPassword });
       if (error) throw error;
       setNewPassword("");
       toast.success("تم تغيير كلمة المرور بنجاح");

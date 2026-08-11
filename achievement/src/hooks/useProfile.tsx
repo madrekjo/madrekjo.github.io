@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 import { useAuth } from "./useAuth";
 
 export const useProfile = () => {
@@ -10,7 +10,7 @@ export const useProfile = () => {
     queryKey: ["profile", user?.id],
     queryFn: async () => {
       if (!user) return null;
-      const { data, error } = await supabase
+      const { data, error } = await achievementSupabase
         .from("profiles")
         .select("*")
         .eq("user_id", user.id)
@@ -24,7 +24,7 @@ export const useProfile = () => {
   const updateProfile = useMutation({
     mutationFn: async (updates: { display_name?: string; avatar_url?: string }) => {
       if (!user) throw new Error("Not authenticated");
-      const { error } = await supabase
+      const { error } = await achievementSupabase
         .from("profiles")
         .update(updates)
         .eq("user_id", user.id);

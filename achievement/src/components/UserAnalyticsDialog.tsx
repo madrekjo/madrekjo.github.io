@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Card } from "./ui/card";
 import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
 import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 import { Loader2, BarChart3, Trophy, Clock, CheckCircle2 } from "lucide-react";
 import {
   LineChart,
@@ -43,7 +43,7 @@ export const UserAnalyticsDialog = ({ open, onOpenChange, userId, userName, cate
   const { data: tasks = [], isLoading } = useQuery({
     queryKey: ["user-analytics", userId, filter],
     queryFn: async () => {
-      const { data, error } = await (supabase.rpc as any)("get_user_successful_tasks", {
+      const { data, error } = await (achievementSupabase.rpc as any)("get_user_successful_tasks", {
         _user_id: userId,
       });
       if (error) throw error;

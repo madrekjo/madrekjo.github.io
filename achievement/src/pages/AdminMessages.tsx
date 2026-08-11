@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { useAdmin } from "@/hooks/useAdmin";
-import { supabase } from "@/integrations/supabase/client";
+import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Header } from "@/components/Header";
 import { Button } from "@/components/ui/button";
@@ -89,7 +89,7 @@ const AdminMessages = () => {
   const { data: adminIds = [], isLoading: loadingAdminIds } = useQuery({
     queryKey: ["all-admin-ids"],
     queryFn: async () => {
-      const { data, error } = await supabase
+      const { data, error } = await achievementSupabase
         .from("user_roles")
         .select("user_id")
         .eq("role", "admin");
@@ -107,7 +107,7 @@ const AdminMessages = () => {
       const out: Msg[] = [];
       let from = 0;
       while (true) {
-        const { data, error } = await supabase
+        const { data, error } = await achievementSupabase
           .from("messages")
           .select("*")
           .order("created_at", { ascending: false })
@@ -130,7 +130,7 @@ const AdminMessages = () => {
   const { data: profiles = [] } = useQuery({
     queryKey: ["admin-msg-profiles"],
     queryFn: async () => {
-      const { data, error } = await supabase
+      const { data, error } = await achievementSupabase
         .from("profiles")
         .select("user_id, display_name, avatar_url");
       if (error) throw error;
@@ -184,14 +184,14 @@ const AdminMessages = () => {
   // Realtime
   useEffect(() => {
     if (!user || !isAdmin) return;
-    const ch = supabase
+    const ch = achievementSupabase
       .channel(`admin-msgs-${user.id}-${crypto.randomUUID()}`)
       .on("postgres_changes", { event: "*", schema: "public", table: "messages" }, () => {
         refreshSupportMessages();
       })
       .subscribe();
     return () => {
-      void supabase.removeChannel(ch);
+      void achievementSupabase.removeChannel(ch);
     };
   }, [user?.id, isAdmin, refreshSupportMessages]);
 
@@ -207,7 +207,7 @@ const AdminMessages = () => {
         (m) => m.sender_id === activeUserId && m.receiver_id === user.id && !m.is_read
       );
       if (!hasUnread) return;
-      await supabase
+      await achievementSupabase
         .from("messages")
         .update({ is_read: true })
         .eq("sender_id", activeUserId)
@@ -222,7 +222,7 @@ const AdminMessages = () => {
     const trimmed = text.trim();
     if (!trimmed || !activeUserId || !user) return;
     setSending(true);
-    const { error } = await supabase.from("messages").insert({
+    const { error } = await achievementSupabase.from("messages").insert({
       sender_id: user.id,
       receiver_id: activeUserId,
       content: trimmed,
@@ -244,7 +244,7 @@ const AdminMessages = () => {
     }
     setActiveEmail(null);
     (async () => {
-      const { data, error } = await supabase.functions.invoke("admin-user-actions", {
+      const { data, error } = await achievementSupabase.functions.invoke("admin-user-actions", {
         body: { action: "get_user_email", userId: activeUserId },
       });
       if (!error && data?.email) setActiveEmail(data.email);
@@ -254,7 +254,7 @@ const AdminMessages = () => {
   const handleDeleteConversation = async () => {
     if (!user || !activeUserId) return;
     setDeleting(true);
-    const { error } = await supabase
+    const { error } = await achievementSupabase
       .from("messages")
       .delete()
       .or(
@@ -272,7 +272,7 @@ const AdminMessages = () => {
   };
 
   const handleDeleteMessage = async (id: string) => {
-    const { error } = await supabase.from("messages").delete().eq("id", id);
+    const { error } = await achievementSupabase.from("messages").delete().eq("id", id);
     if (error) {
       toast.error("تعذّر حذف الرسالة");
       return;

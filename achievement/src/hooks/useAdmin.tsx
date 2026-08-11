@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 import { useAuth } from "./useAuth";
 
 export const useAdmin = () => {
@@ -9,7 +9,7 @@ export const useAdmin = () => {
     queryKey: ["is-admin", user?.id],
     queryFn: async () => {
       if (!user) return false;
-      const { data, error } = await supabase
+      const { data, error } = await achievementSupabase
         .from("user_roles")
         .select("role")
         .eq("user_id", user.id)
@@ -25,7 +25,7 @@ export const useAdmin = () => {
     queryKey: ["admin-all-users"],
     queryFn: async () => {
       // Get all profiles
-      const { data: profiles, error } = await supabase
+      const { data: profiles, error } = await achievementSupabase
         .from("profiles")
         .select("*")
         .order("created_at", { ascending: false });
@@ -38,7 +38,7 @@ export const useAdmin = () => {
   const { data: allTasks = [], isLoading: loadingTasks, refetch: refetchTasks } = useQuery({
     queryKey: ["admin-all-tasks"],
     queryFn: async () => {
-      const { data, error } = await supabase
+      const { data, error } = await achievementSupabase
         .from("tasks")
         .select("*")
         .order("created_at", { ascending: false });
@@ -49,10 +49,10 @@ export const useAdmin = () => {
   });
 
   const deleteUser = async (userId: string) => {
-    const { data: { session } } = await supabase.auth.getSession();
+    const { data: { session } } = await achievementSupabase.auth.getSession();
     if (!session) throw new Error("Not authenticated");
 
-    const res = await supabase.functions.invoke("admin-delete-user", {
+    const res = await achievementSupabase.functions.invoke("admin-delete-user", {
       body: { userId },
     });
     if (res.error) throw res.error;
@@ -61,10 +61,10 @@ export const useAdmin = () => {
   };
 
   const updateTaskDuration = async (taskId: string, duration: number) => {
-    const { data: { session } } = await supabase.auth.getSession();
+    const { data: { session } } = await achievementSupabase.auth.getSession();
     if (!session) throw new Error("Not authenticated");
 
-    const res = await supabase.functions.invoke("admin-update-task", {
+    const res = await achievementSupabase.functions.invoke("admin-update-task", {
       body: { taskId, duration },
     });
     if (res.error) throw res.error;
@@ -72,16 +72,16 @@ export const useAdmin = () => {
   };
 
   const resetAllTasks = async () => {
-    const { data: { session } } = await supabase.auth.getSession();
+    const { data: { session } } = await achievementSupabase.auth.getSession();
     if (!session) throw new Error("Not authenticated");
 
-    const res = await supabase.functions.invoke("admin-reset-all-tasks");
+    const res = await achievementSupabase.functions.invoke("admin-reset-all-tasks");
     if (res.error) throw res.error;
     await refetchTasks();
   };
 
   const adminUserAction = async (body: Record<string, unknown>) => {
-    const res = await supabase.functions.invoke("admin-user-actions", { body });
+    const res = await achievementSupabase.functions.invoke("admin-user-actions", { body });
     if (res.error) throw res.error;
     await refetchTasks();
   };

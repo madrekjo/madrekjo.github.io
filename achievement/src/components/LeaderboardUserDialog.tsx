@@ -9,7 +9,7 @@ import { AdminMessageDialog } from "./AdminMessageDialog";
 import { UserAnalyticsDialog } from "./UserAnalyticsDialog";
 import { useAdmin } from "@/hooks/useAdmin";
 import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 import { toast } from "sonner";
 import {
   MessageCircle,
@@ -63,7 +63,7 @@ export const LeaderboardUserDialog = ({ open, onOpenChange, userId, userName }: 
     }
     setUserEmail(null);
     (async () => {
-      const { data, error } = await supabase.functions.invoke("admin-user-actions", {
+      const { data, error } = await achievementSupabase.functions.invoke("admin-user-actions", {
         body: { action: "get_user_email", userId },
       });
       if (!error && data?.email) setUserEmail(data.email);
@@ -78,7 +78,7 @@ export const LeaderboardUserDialog = ({ open, onOpenChange, userId, userName }: 
     queryKey: ["leaderboard-user-tasks", userId, isAdmin],
     queryFn: async () => {
       if (isAdmin) {
-        const { data, error } = await supabase
+        const { data, error } = await achievementSupabase
           .from("tasks")
           .select("*")
           .eq("user_id", userId)
@@ -86,7 +86,7 @@ export const LeaderboardUserDialog = ({ open, onOpenChange, userId, userName }: 
         if (error) throw error;
         return (data ?? []) as any[];
       }
-      const { data, error } = await (supabase.rpc as any)("get_user_successful_tasks", {
+      const { data, error } = await (achievementSupabase.rpc as any)("get_user_successful_tasks", {
         _user_id: userId,
       });
       if (error) throw error;

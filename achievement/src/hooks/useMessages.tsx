@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 import { useAuth } from "./useAuth";
 import { useCallback, useEffect, useRef } from "react";
 
@@ -51,7 +51,7 @@ export const useMessages = (chatWithUserId?: string) => {
       if (chatWithUserId) {
         // Get conversation between current user and the other user
         const data = await fetchMessagePages(async (from, to) =>
-          await supabase
+          await achievementSupabase
             .from("messages")
             .select("*")
             .or(
@@ -64,7 +64,7 @@ export const useMessages = (chatWithUserId?: string) => {
       }
       // Get all messages for user
       return fetchMessagePages(async (from, to) =>
-        await supabase
+        await achievementSupabase
           .from("messages")
           .select("*")
           .or(`sender_id.eq.${user.id},receiver_id.eq.${user.id}`)
@@ -92,7 +92,7 @@ export const useMessages = (chatWithUserId?: string) => {
   const sendMessage = useMutation({
     mutationFn: async ({ receiverId, content }: { receiverId: string; content: string }) => {
       if (!user) throw new Error("Not authenticated");
-      const { error } = await supabase.from("messages").insert({
+      const { error } = await achievementSupabase.from("messages").insert({
         sender_id: user.id,
         receiver_id: receiverId,
         content,
@@ -108,7 +108,7 @@ export const useMessages = (chatWithUserId?: string) => {
   const markAsRead = useMutation({
     mutationFn: async (senderId: string) => {
       if (!user) return;
-      const { error } = await supabase
+      const { error } = await achievementSupabase
         .from("messages")
         .update({ is_read: true })
         .eq("sender_id", senderId)
@@ -126,7 +126,7 @@ export const useMessages = (chatWithUserId?: string) => {
     if (!user) return;
 
     const channelName = `messages-${user.id}-${chatWithUserId ?? "all"}-${channelInstanceId.current}`;
-    const channel = supabase.channel(channelName);
+    const channel = achievementSupabase.channel(channelName);
 
     channel.on(
       "postgres_changes",
@@ -139,7 +139,7 @@ export const useMessages = (chatWithUserId?: string) => {
     channel.subscribe();
 
     return () => {
-      void supabase.removeChannel(channel);
+      void achievementSupabase.removeChannel(channel);
     };
   }, [user?.id, chatWithUserId, refreshSupportMessages]);
 

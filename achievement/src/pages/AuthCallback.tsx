@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
-import {
-  SSO_AUTH_BASE_URL,
-  SIBLING_SUPABASE_URL,
-  SIBLING_SUPABASE_ANON_KEY,
-} from "@/config/sso-config";
+import { achievementSupabase } from "@/integrations/supabase/achievementClient";
+import { SSO_AUTH_BASE_URL } from "@/config/sso-config";
 
 const AuthCallback = () => {
   const [status, setStatus] = useState("جاري التحقق من تسجيل الدخول...");
@@ -42,17 +38,13 @@ const AuthCallback = () => {
         }
 
         await supabase.auth.setSession({
-          access_token: achievementSession.access_token,
-          refresh_token: achievementSession.refresh_token,
-        });
-
-        const chatSupabase = createClient(
-          SIBLING_SUPABASE_URL,
-          SIBLING_SUPABASE_ANON_KEY
-        );
-        await chatSupabase.auth.setSession({
           access_token: chatSession.access_token,
           refresh_token: chatSession.refresh_token,
+        });
+
+        await achievementSupabase.auth.setSession({
+          access_token: achievementSession.access_token,
+          refresh_token: achievementSession.refresh_token,
         });
 
         const url = new URL(window.location.href);

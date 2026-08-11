@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Round, Participant, useRounds, getRoundImageUrl } from "@/hooks/useRounds";
 import { useAuth } from "@/hooks/useAuth";
 import { useAdmin } from "@/hooks/useAdmin";
-import { supabase } from "@/integrations/supabase/client";
+import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 import { useQuery } from "@tanstack/react-query";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
 import { Button } from "./ui/button";
@@ -50,7 +50,7 @@ export const RoundView = ({ round, participants, open, onOpenChange }: Props) =>
     queryKey: ["round-profiles", userIds.sort().join(",")],
     queryFn: async () => {
       if (userIds.length === 0) return [];
-      const { data, error } = await supabase
+      const { data, error } = await achievementSupabase
         .from("profiles")
         .select("user_id, display_name, avatar_url")
         .in("user_id", userIds);
@@ -64,7 +64,7 @@ export const RoundView = ({ round, participants, open, onOpenChange }: Props) =>
     queryKey: ["round-creator-profile", round?.creator_id],
     queryFn: async () => {
       if (!round?.creator_id) return null;
-      const { data, error } = await supabase
+      const { data, error } = await achievementSupabase
         .from("profiles")
         .select("user_id, display_name, avatar_url")
         .eq("user_id", round.creator_id)

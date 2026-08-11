@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { achievementSupabase } from "@/integrations/supabase/achievementClient";
+import { SIBLING_SUPABASE_URL, SIBLING_SUPABASE_ANON_KEY } from "@/config/sso-config";
 import { useAuth } from "./useAuth";
 
 /**
@@ -14,11 +15,11 @@ export const useUnloadCleanup = () => {
   useEffect(() => {
     if (!user) return;
 
-    const url = import.meta.env.VITE_SUPABASE_URL as string;
-    const apikey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
+    const url = SIBLING_SUPABASE_URL;
+    const apikey = SIBLING_SUPABASE_ANON_KEY;
 
     const cleanup = async () => {
-      const { data } = await supabase.auth.getSession();
+      const { data } = await achievementSupabase.auth.getSession();
       const token = data.session?.access_token;
       if (!token) return;
       const headers = {

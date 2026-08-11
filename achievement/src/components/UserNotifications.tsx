@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useMessages } from "@/hooks/useMessages";
 import { useAuth } from "@/hooks/useAuth";
-import { supabase } from "@/integrations/supabase/client";
+import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 import { Bell, Send, Loader2, MessageCircle } from "lucide-react";
 import { Button } from "./ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
@@ -34,7 +34,7 @@ export const UserNotifications = ({ isAdmin = false }: Props) => {
   const { data: profiles = [] } = useQuery({
     queryKey: ["notif-profiles"],
     queryFn: async () => {
-      const { data } = await supabase
+      const { data } = await achievementSupabase
         .from("profiles")
         .select("user_id, display_name, avatar_url");
       return (data as Profile[]) ?? [];
