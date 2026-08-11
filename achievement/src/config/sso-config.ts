@@ -7,5 +7,5 @@ export const SSO_AUTH_BASE_URL = "https://madrekjo-sso.abdalrhmanmaaith1.workers
 
 export const SSO_TARGET = "/achievement/";
 
-export const SIBLING_SUPABASE_URL = "https://cwqzhwunpivvdliytalw.supabase.co";
-export const SIBLING_SUPABASE_ANON_KEY = "sb_publishable_yiP3-9qpPwBJKUrJkKCUoQ_o0BCkOk3";
+export const SIBLING_SUPABASE_URL = "https://ofltanaffcxoobfvlkii.supabase.co";
+export const SIBLING_SUPABASE_ANON_KEY = "sb_publishable_eNMdPREe3YoUG32FDxsW7Q_HXTX2rJK";

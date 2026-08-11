@@ -212,7 +212,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       supabase.auth.signOut(),
       achievementSupabase.auth.signOut(),
     ]);
-    try { localStorage.removeItem("sb-cwqzhwunpivvdliytalw-auth-token"); } catch { /* ignore */ }
     try { localStorage.removeItem("sb-ofltanaffcxoobfvlkii-auth-token"); } catch { /* ignore */ }
     setSession(null);
     setUser(null);
