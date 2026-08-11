@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import { achievementSupabase } from "@/integrations/supabase/achievementClient";
-import { SSO_AUTH_BASE_URL } from "@/config/sso-config";
+import { exchangeTicket } from "@/lib/ssoSession";
 
 const AuthCallback = () => {
   const [status, setStatus] = useState("جاري التحقق من تسجيل الدخول...");
@@ -9,107 +7,85 @@ const AuthCallback = () => {
   useEffect(() => {
     let cancelled = false;
 
-    const applySsoSession = async () => {
+    const run = async () => {
       const params = new URLSearchParams(window.location.search);
       const ticket = params.get("ticket");
+
+      const isPopup = Boolean(window.opener && !window.opener.closed);
 
       if (!ticket) {
         console.error("[AuthCallback] no ticket in URL");
         if (!cancelled) setStatus("انتهت مهلة تسجيل الدخول، حاول مرة أخرى");
+        if (isPopup) window.setTimeout(() => window.close(), 3000);
         return;
       }
 
-      try {
-        const res = await fetch(
-          `${SSO_AUTH_BASE_URL}/session?ticket=${encodeURIComponent(ticket)}`
+      /**
+       * وضع النافذة المنبثقة (Popup):
+       *
+       * النافذة فتحت عبر window.open() من تطبيق الإنجاز، لذلك window.opener
+       * هو نافذة التطبيق نفسها. لا ننقل أي access/refresh token عبر postMessage —
+       * نرسل فقط الـticket المؤقت، والتطبيق يجلبه مرة واحدة عبر /session
+       * ثم يرد بـ GOOGLE_LOGIN_POPUP_CLOSE لإغلاق هذه النافذة.
+       */
+      if (isPopup) {
+        const targetOrigin = window.location.origin;
+
+        window.opener.postMessage(
+          { type: "GOOGLE_LOGIN_SUCCESS", ticket },
+          targetOrigin
         );
-        if (!res.ok) throw new Error(`ticket غير صالح (${res.status})`);
-        const data = await res.json();
 
-        const achievementSession = data?.achievement;
-        const chatSession = data?.chat;
-        if (
-          !achievementSession?.access_token ||
-          !achievementSession?.refresh_token ||
-          !chatSession?.access_token ||
-          !chatSession?.refresh_token
-        ) {
-          throw new Error("بيانات الجلسة ناقصة");
+        if (!cancelled) {
+          setStatus("تم تسجيل الدخول بنجاح، جاري الإغلاق...");
         }
 
-        await supabase.auth.setSession({
-          access_token: chatSession.access_token,
-          refresh_token: chatSession.refresh_token,
-        });
+        const closePopup = () => {
+          if (!cancelled) window.close();
+        };
 
-        await achievementSupabase.auth.setSession({
-          access_token: achievementSession.access_token,
-          refresh_token: achievementSession.refresh_token,
-        });
+        const handleCloseMessage = (event: MessageEvent) => {
+          if (event.origin !== targetOrigin) return;
+          if (event.source !== window.opener) return;
+          if (event.data?.type !== "GOOGLE_LOGIN_POPUP_CLOSE") return;
 
-        // التأكد أن المستخدم موجود فعلًا في Auth مشروع الإنجاز.
-        // إذا كانت جلسة الإنجاز صالحة نكمل مباشرة، وإلا نزامن الحساب عبر Edge Function
-        // (تتحقق الدالة من جلسة الدردشة ثم تُنشئ/تستعيد حساب الإنجاز بنفس البريد).
-        const { data: achCheck, error: achCheckErr } =
-          await achievementSupabase.auth.getUser();
+          window.removeEventListener("message", handleCloseMessage);
+          closePopup();
+        };
 
-        if (achCheckErr || !achCheck?.user) {
-          const {
-            data: { user: chatUser },
-          } = await supabase.auth.getUser();
+        window.addEventListener("message", handleCloseMessage);
 
-          if (!chatUser?.email) {
-            throw new Error("جلسة الدردشة لا تحتوي بريد إلكتروني");
-          }
+        // إغلاق احتياطي إذا تعذر وصول رسالة الإغلاق
+        window.setTimeout(closePopup, 8000);
 
-          const { data: syncRes, error: syncErr } =
-            await achievementSupabase.functions.invoke("sync-achievement-user", {
-              body: {
-                email: chatUser.email,
-                chat_access_token: chatSession.access_token,
-                chat_user_id: chatUser.id,
-                name:
-                  chatUser.user_metadata?.full_name ??
-                  chatUser.user_metadata?.name ??
-                  "",
-                avatar_url: chatUser.user_metadata?.avatar_url ?? "",
-              },
-            });
+        return;
+      }
 
-          if (syncErr) {
-            throw new Error(
-              `تعذرت مزامنة حساب الإنجاز: ${syncErr.message ?? "خطأ غير معروف"}`
-            );
-          }
+      /**
+       * وضع الصفحة الكاملة: نستبدل الـticket مباشرة وننتقل للإنجاز.
+       */
+      const res = await exchangeTicket(ticket);
+      if (cancelled) return;
 
-          if (syncRes?.password) {
-            const { error: pErr } =
-              await achievementSupabase.auth.signInWithPassword({
-                email: syncRes.email ?? chatUser.email,
-                password: syncRes.password,
-              });
-            if (pErr) {
-              throw new Error(`تعذر فتح جلسة الإنجاز: ${pErr.message}`);
-            }
-          }
-        }
+      const url = new URL(window.location.href);
+      url.searchParams.delete("ticket");
+      window.history.replaceState({}, document.title, url.toString());
 
-        const url = new URL(window.location.href);
-        url.searchParams.delete("ticket");
-        window.history.replaceState({}, document.title, url.toString());
-
-        if (cancelled) return;
+      if (res.ok) {
         setStatus("تم تسجيل الدخول بنجاح");
-        setTimeout(() => {
-          if (!cancelled) window.location.href = "/achievement/";
-        }, 600);
-      } catch (err) {
-        console.error("[AuthCallback] SSO failed", err);
-        if (!cancelled) setStatus("فشل تسجيل الدخول، حاول مرة أخرى");
+        console.log("[AuthCallback] SSO session fully established");
+        window.location.replace("/achievement/");
+      } else {
+        console.error("[AuthCallback] SSO failed", res.error);
+        setStatus(
+          res.error
+            ? `فشل تسجيل الدخول: ${res.error}`
+            : "فشل تسجيل الدخول، حاول مرة أخرى"
+        );
       }
     };
 
-    applySsoSession();
+    void run();
 
     return () => {
       cancelled = true;

@@ -11,6 +11,7 @@ import Onboarding from "@/components/Onboarding";
 import GenerationOnboardingDialog from "@/components/GenerationOnboardingDialog";
 import SectionGate from "@/components/SectionGate";
 import WarningNotice from "@/components/WarningNotice";
+import SsoSyncDialog from "@/components/SsoSyncDialog";
 
 const Landing = lazy(() => import("@/pages/Landing"));
 const Auth = lazy(() => import("@/pages/Auth"));
@@ -72,6 +73,7 @@ function AppRoutes() {
       {user && <GenerationOnboardingDialog />}
       {user && <Onboarding />}
       {user && <WarningNotice />}
+      <SsoSyncDialog />
       <Suspense fallback={<PageFallback />}>
         <Routes>
           <Route path="/" element={

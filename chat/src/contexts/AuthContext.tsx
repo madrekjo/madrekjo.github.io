@@ -31,6 +31,11 @@ type Permission =
   | "can_lock_sections"
   | "can_manage_words";
 
+interface SiblingAccount {
+  user: User;
+  sourceSection: "achievement";
+}
+
 interface AuthContextType {
   session: Session | null;
   user: User | null;
@@ -45,6 +50,9 @@ interface AuthContextType {
   loading: boolean;
   signOut: () => Promise<void>;
   refreshProfile: () => Promise<void>;
+  siblingSync: SiblingAccount | null;
+  dismissSiblingSync: () => void;
+  syncWithAchievement: () => Promise<{ ok: boolean; error?: string }>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -81,6 +89,95 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     Record<string, Record<string, boolean>>
   >({});
   const [loading, setLoading] = useState(true);
+  const [siblingSync, setSiblingSync] =
+    useState<SiblingAccount | null>(null);
+
+  const dismissSiblingSync = () => setSiblingSync(null);
+
+  /**
+   * مزامنة صامتة: حساب موجود في الإنجاز يُستعاد/يُتواصل في الدردشة
+   * بنفس البريد دون طلب تسجيل دخول Google جديد. تستخدم Edge Function
+   * sync-chat-user التي تتحقق من جلسة الإنجاز وتُنشئ/تستعيد مستخدم
+   * الدردشة ثم تعيد كلمة مرور مؤقتة للدخول الصامت.
+   *
+   * عند النجاح يطلق signInWithPassword حدث SIGNED_IN فيحرّك onAuthStateChange
+   * تلقائياً فيُطبَّق البروفايل والجلسة ويُمسح siblingSync.
+   */
+  const syncWithAchievement = async (): Promise<{
+    ok: boolean;
+    error?: string;
+  }> => {
+    try {
+      const achievementClient = createClient(
+        SIBLING_SUPABASE_URL,
+        SIBLING_SUPABASE_ANON_KEY
+      );
+
+      const {
+        data: { session: achSession },
+      } = await achievementClient.auth.getSession();
+
+      const achUser = achSession?.user;
+
+      if (!achUser?.email) {
+        return { ok: false, error: "لا توجد جلسة إنجاز صالحة للمزامنة" };
+      }
+
+      const { data, error } = await supabase.functions.invoke(
+        "sync-chat-user",
+        {
+          body: {
+            email: achUser.email,
+            achievement_access_token: achSession.access_token,
+            achievement_user_id: achUser.id,
+            name:
+              achUser.user_metadata?.full_name ??
+              achUser.user_metadata?.name ??
+              "",
+            avatar_url: achUser.user_metadata?.avatar_url ?? "",
+          },
+        }
+      );
+
+      if (error) {
+        return {
+          ok: false,
+          error: `تعذرت مزامنة حساب الدردشة: ${error.message ?? "خطأ غير معروف"}`,
+        };
+      }
+
+      if (data?.password) {
+        const { error: pErr } = await supabase.auth.signInWithPassword({
+          email: data.email ?? achUser.email,
+          password: data.password,
+        });
+        if (pErr) {
+          return {
+            ok: false,
+            error: `تعذر فتح جلسة الدردشة: ${pErr.message}`,
+          };
+        }
+      }
+
+      const {
+        data: { session: checkSession },
+      } = await supabase.auth.getSession();
+
+      if (!checkSession) {
+        return {
+          ok: false,
+          error: "تعذر تأكيد جلسة الدردشة بعد المزامنة",
+        };
+      }
+
+      return { ok: true };
+    } catch (e) {
+      return {
+        ok: false,
+        error: e instanceof Error ? e.message : "خطأ غير معروف",
+      };
+    }
+  };
 
   const fetchProfile = async (userId: string) => {
     try {
@@ -181,6 +278,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         return;
       }
 
+      // عند وجود جلسة صحيحة لا نحتاج لمزامنة من القسم الشقيق.
+      setSiblingSync(null);
+
       try {
         const banned = await checkDeviceBanned();
 
@@ -249,14 +349,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     /**
      * Receive the postMessage login flow from the OAuth popup.
      *
-     * Primary (secure) flow:
+     * Secure (ticket-only) flow:
      * - The popup sends only a short-lived SSO ticket.
      * - We consume the ticket once via /session, exactly like
      *   the existing AuthCallback flow, and we never touch
      *   access/refresh tokens coming over postMessage.
-     *
-     * Legacy fallback remains for any old caller that still
-     * sends tokens directly.
      */
     const handleMessage = async (event: MessageEvent) => {
       const allowedOrigins = [
@@ -385,99 +482,55 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
         return;
       }
+    };
 
-      /**
-       * Legacy flow: tokens supplied directly in the message.
-       */
-      if (
-        typeof event.data.access_token === "string" &&
-        typeof event.data.refresh_token === "string" &&
-        event.data.access_token.trim().length > 0 &&
-        event.data.refresh_token.trim().length > 0
-      ) {
-        try {
-          const {
-            data: sessionData,
-            error,
-          } = await supabase.auth.setSession({
-            access_token: event.data.access_token,
-            refresh_token: event.data.refresh_token,
-          });
+    window.addEventListener("message", handleMessage);
 
-          console.log("[AuthContext] setSession result", {
-            success: !!sessionData.session,
-            error: error?.message ?? null,
-          });
+    /**
+     * تحقق من وجود جلسة صحيحة في قسم الإنجاز (المشروع الشقيق) عبر
+     * localStorage المشترك بين القسمين، لنعرض Dialog المزامنة بدلاً من
+     * شاشة تسجيل الدخول مباشرة.
+     */
+    const detectSiblingSync = async () => {
+      if (cancelled) return;
 
-          if (error) {
-            console.error(
-              "[AuthContext] setSession failed",
-              error
-            );
-            return;
-          }
-
-          if (!sessionData.session) {
-            console.error(
-              "[AuthContext] setSession returned no session"
-            );
-            return;
-          }
-
-          await applySession(
-            sessionData.session,
-            "postMessage:setSession"
-          );
-
-          finishInitialLoading();
-        } catch (error) {
-          console.error(
-            "[AuthContext] Failed to process GOOGLE_LOGIN_SUCCESS",
-            error
-          );
-        }
-
-        return;
-      }
-
-      /**
-       * Fallback when no ticket or tokens are supplied in the message.
-       */
       try {
+        const achievementClient = createClient(
+          SIBLING_SUPABASE_URL,
+          SIBLING_SUPABASE_ANON_KEY
+        );
+
         const {
-          data: { session: storedSession },
-          error,
-        } = await supabase.auth.getSession();
+          data: { session: siblingSession },
+        } = await achievementClient.auth.getSession();
 
-        console.log("[AuthContext] fallback getSession", {
-          found: !!storedSession,
-          error: error?.message ?? null,
-        });
+        if (!siblingSession?.user) return;
 
-        if (error) {
-          console.error(
-            "[AuthContext] fallback getSession failed",
-            error
+        const { data: siblingUser } =
+          await achievementClient.auth.getUser();
+
+        if (cancelled) return;
+
+        if (siblingUser?.user) {
+          console.log(
+            "[AuthContext] achievement session detected for sync",
+            {
+              email: siblingUser.user.email,
+            }
           );
-          return;
-        }
 
-        if (storedSession) {
-          await applySession(
-            storedSession,
-            "postMessage:getSession"
-          );
-          finishInitialLoading();
+          setSiblingSync({
+            user: siblingUser.user,
+            sourceSection: "achievement",
+          });
         }
       } catch (error) {
         console.error(
-          "[AuthContext] fallback session error",
+          "[AuthContext] sibling session detection failed",
           error
         );
       }
     };
-
-    window.addEventListener("message", handleMessage);
 
     /**
      * Initial session lookup.
@@ -541,6 +594,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         );
 
         finishInitialLoading();
+
+        if (!initialSession?.user) {
+          await detectSiblingSync();
+        }
       } catch (error) {
         if (cancelled) return;
 
@@ -586,6 +643,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       localStorage.removeItem(
         "sb-ofltanaffcxoobfvlkii-auth-token"
       );
+      localStorage.removeItem(
+        "sb-itflhfhsfzrdfpxvlzrv-auth-token"
+      );
     } catch {
       /* ignore */
     }
@@ -595,6 +655,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setProfile(null);
     setRoles([]);
     setPermMatrix({});
+    setSiblingSync(null);
   };
 
   const isAdmin = roles.includes("admin");
@@ -633,6 +694,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         loading,
         signOut,
         refreshProfile,
+        siblingSync,
+        dismissSiblingSync,
+        syncWithAchievement,
       }}
     >
       {children}

@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/hooks/useAuth";
 import { useUnloadCleanup } from "@/hooks/useUnloadCleanup";
+import SsoSyncDialog from "@/components/SsoSyncDialog";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -40,6 +41,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
 
           </Routes>
+          <SsoSyncDialog />
         </BrowserRouter>
       </TooltipProvider>
     </AuthProvider>
