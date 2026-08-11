@@ -24,8 +24,15 @@ for (const name of readdirSync(dist)) {
   if (name === "entry.html") {
     // مخرجات البناء تُسمى entry.html (نسبة لمدخل Vite).
     // نضعها كـ index.html الجاهز للعرض على GitHub Pages.
-    copyFile(src, path.join(root, "index.html"));
+    const indexDest = path.join(root, "index.html");
+    copyFile(src, indexDest);
     console.log("[build-fix] entry.html -> index.html");
+
+    const callbackDir = path.join(root, "auth", "callback");
+    if (existsSync(callbackDir)) {
+      copyFile(src, path.join(callbackDir, "index.html"));
+      console.log("[build-fix] entry.html -> auth/callback/index.html");
+    }
     continue;
   }
 

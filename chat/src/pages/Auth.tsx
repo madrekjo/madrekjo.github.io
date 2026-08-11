@@ -11,19 +11,55 @@ const Auth = () => {
 
   const startGoogleLogin = async () => {
     setLoading(true);
+
+    // فتح نافذة Popup صغيرة متمركزة في الشاشة.
+    // مهم: يتم فتحها فوراً ضمن ضغطة المستخدم (قبل أي await)
+    // وإلا ستحجبها المتصفحات كـ Popup blocker.
+    const width = 500;
+    const height = 650;
+    const left = window.screenX + (window.outerWidth - width) / 2;
+    const top = window.screenY + (window.outerHeight - height) / 2;
+
+    const url = `${SSO_AUTH_BASE_URL}/login?target=${encodeURIComponent(SSO_TARGET)}`;
+
+    let popup: Window | null = null;
     try {
-      // التحقق من الحظر قبل المتابعة
+      popup = window.open(
+        url,
+        "GoogleAuthPopup",
+        `width=${width},height=${height},left=${left},top=${top},status=no,resizable=yes,scrollbars=yes`
+      );
+    } catch {
+      popup = null;
+    }
+
+    if (!popup) {
+      toast.error("تم منع النافذة المنبثقة، يرجى السماح بالنوافذ المنبثقة للموقع.");
+      setLoading(false);
+      return;
+    }
+
+    // مراقبة إغلاق النافذة المنبثقة
+    const timer = setInterval(() => {
+      if (popup!.closed) {
+        clearInterval(timer);
+        setLoading(false);
+      }
+    }, 500);
+
+    // التحقق من الحظر بعد فتح النافذة
+    try {
       const banned = await checkDeviceBanned();
       if (banned) {
+        clearInterval(timer);
+        try { popup.close(); } catch { /* ignore */ }
         toast.error("جهازك تم حظره من المنصة نهائياً");
         setLoading(false);
         return;
       }
-
-      window.location.href = `${SSO_AUTH_BASE_URL}/login?target=${encodeURIComponent(SSO_TARGET)}`;
     } catch (error: unknown) {
-      toast.error(error instanceof Error ? error.message : "فشل تسجيل الدخول");
-      setLoading(false);
+      // لا نكسر تدفق تسجيل الدخول إن فشل فحص الحظر
+      console.error("[Auth] device ban check failed", error);
     }
   };
 
@@ -43,7 +79,7 @@ const Auth = () => {
             onClick={startGoogleLogin}
             disabled={loading}
           >
-            {loading ? "جاري التحويل..." : "تسجيل الدخول باستخدام Google"}
+            {loading ? "جاري فتح نافذة تسجيل الدخول..." : "تسجيل الدخول باستخدام Google"}
           </Button>
         </CardContent>
       </Card>

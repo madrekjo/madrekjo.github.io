@@ -3,6 +3,7 @@ import { Session, User, createClient } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import { checkDeviceBanned, registerDeviceForUser } from "@/lib/deviceId";
 import {
+  SSO_AUTH_BASE_URL,
   SIBLING_SUPABASE_URL,
   SIBLING_SUPABASE_ANON_KEY,
 } from "@/config/sso-config";
@@ -246,22 +247,153 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
 
     /**
-     * Receive the legacy/postMessage login flow if it is still used
-     * somewhere in the application.
+     * Receive the postMessage login flow from the OAuth popup.
+     *
+     * Primary (secure) flow:
+     * - The popup sends only a short-lived SSO ticket.
+     * - We consume the ticket once via /session, exactly like
+     *   the existing AuthCallback flow, and we never touch
+     *   access/refresh tokens coming over postMessage.
+     *
+     * Legacy fallback remains for any old caller that still
+     * sends tokens directly.
      */
     const handleMessage = async (event: MessageEvent) => {
-      if (event.origin !== window.location.origin) return;
+      const allowedOrigins = [
+        window.location.origin,
+        "https://madrekjo.github.io",
+      ];
+      if (!allowedOrigins.includes(event.origin)) return;
 
       if (event.data?.type !== "GOOGLE_LOGIN_SUCCESS") return;
 
-      console.log("[AuthContext] 📩 received GOOGLE_LOGIN_SUCCESS", {
-        hasAccessToken: !!event.data.access_token,
-        hasRefreshToken: !!event.data.refresh_token,
+      console.log("[AuthContext] received GOOGLE_LOGIN_SUCCESS", {
+        hasTicket: typeof event.data?.ticket === "string",
       });
 
+      const ackPopup = (success: boolean) => {
+        try {
+          const source = event.source as Window | null;
+          if (source && typeof source.postMessage === "function") {
+            source.postMessage(
+              { type: "GOOGLE_LOGIN_POPUP_CLOSE", success },
+              event.origin
+            );
+          }
+        } catch {
+          /* ignore */
+        }
+      };
+
+      const ticket = event.data?.ticket;
+
+      /**
+       * SSO ticket flow — لا ننقل أي توكن عبر postMessage.
+       */
+      if (typeof ticket === "string" && ticket.trim().length > 0) {
+        try {
+          const res = await fetch(
+            `${SSO_AUTH_BASE_URL}/session?ticket=${encodeURIComponent(
+              ticket
+            )}`
+          );
+
+          if (!res.ok) {
+            throw new Error(
+              `ticket غير صالح (${res.status})`
+            );
+          }
+
+          const data = await res.json();
+
+          const chatSession = data?.chat;
+          const achievementSession = data?.achievement;
+
+          if (
+            !chatSession?.access_token ||
+            !chatSession?.refresh_token
+          ) {
+            throw new Error(
+              "بيانات جلسة الدردشة ناقصة"
+            );
+          }
+
+          if (
+            !achievementSession?.access_token ||
+            !achievementSession?.refresh_token
+          ) {
+            throw new Error(
+              "بيانات جلسة الإنجاز ناقصة"
+            );
+          }
+
+          const {
+            data: chatSessionData,
+            error: chatSessionError,
+          } = await supabase.auth.setSession({
+            access_token: chatSession.access_token,
+            refresh_token: chatSession.refresh_token,
+          });
+
+          if (chatSessionError) {
+            throw chatSessionError;
+          }
+
+          if (!chatSessionData.session) {
+            throw new Error(
+              "لم يتم إنشاء جلسة الدردشة"
+            );
+          }
+
+          const achievementSupabase = createClient(
+            SIBLING_SUPABASE_URL,
+            SIBLING_SUPABASE_ANON_KEY
+          );
+
+          const {
+            data: achievementSessionData,
+            error: achievementSessionError,
+          } = await achievementSupabase.auth.setSession({
+            access_token: achievementSession.access_token,
+            refresh_token: achievementSession.refresh_token,
+          });
+
+          if (achievementSessionError) {
+            throw achievementSessionError;
+          }
+
+          if (!achievementSessionData.session) {
+            throw new Error(
+              "لم يتم إنشاء جلسة الإنجاز"
+            );
+          }
+
+          await applySession(
+            chatSessionData.session,
+            "sso:ticket"
+          );
+
+          finishInitialLoading();
+          ackPopup(true);
+        } catch (error) {
+          console.error(
+            "[AuthContext] SSO ticket processing failed",
+            error
+          );
+          ackPopup(false);
+        }
+
+        return;
+      }
+
+      /**
+       * Legacy flow: tokens supplied directly in the message.
+       */
       if (
-        event.data.access_token &&
-        event.data.refresh_token
+        typeof event.data.access_token === "string" &&
+        typeof event.data.refresh_token === "string" &&
+        event.data.access_token.trim().length > 0 &&
+        event.data.refresh_token.trim().length > 0
       ) {
         try {
           const {
@@ -309,7 +441,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
 
       /**
-       * Fallback when no tokens are supplied in the message.
+       * Fallback when no ticket or tokens are supplied in the message.
        */
       try {
         const {
