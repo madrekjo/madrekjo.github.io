@@ -23,21 +23,41 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (_event, session) => {
-        setSession(session);
-        setUser(session?.user ?? null);
-        setLoading(false);
-      }
-    );
+    let active = true;
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
+    const sync = (chatSession: Session | null, achievementSession: Session | null) => {
+      if (!active) return;
+      // هذا التطبيق يقرأ بياناته من مشروع الإنجاز، لذا user هنا يجب أن يمثل
+      // حساب مستخدم الإنجاز (id الإنجاز) وليس حساب الدردشة.
+      const resolvedUser = achievementSession?.user ?? chatSession?.user ?? null;
+      const resolvedSession = achievementSession ?? chatSession ?? null;
+      setSession(resolvedSession);
+      setUser(resolvedUser);
       setLoading(false);
+    };
+
+    const refresh = async () => {
+      const [{ data: chat }, { data: ach }] = await Promise.all([
+        supabase.auth.getSession(),
+        achievementSupabase.auth.getSession(),
+      ]);
+      sync(chat.session, ach.session);
+    };
+
+    void refresh();
+
+    const { data: { subscription: sub1 } } = supabase.auth.onAuthStateChange(() => {
+      void refresh();
+    });
+    const { data: { subscription: sub2 } } = achievementSupabase.auth.onAuthStateChange(() => {
+      void refresh();
     });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      active = false;
+      sub1.unsubscribe();
+      sub2.unsubscribe();
+    };
   }, []);
 
   const signOut = async () => {
