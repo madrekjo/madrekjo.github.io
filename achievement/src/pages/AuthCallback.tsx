@@ -47,6 +47,53 @@ const AuthCallback = () => {
           refresh_token: achievementSession.refresh_token,
         });
 
+        // التأكد أن المستخدم موجود فعلًا في Auth مشروع الإنجاز.
+        // إذا كانت جلسة الإنجاز صالحة نكمل مباشرة، وإلا نزامن الحساب عبر Edge Function
+        // (تتحقق الدالة من جلسة الدردشة ثم تُنشئ/تستعيد حساب الإنجاز بنفس البريد).
+        const { data: achCheck, error: achCheckErr } =
+          await achievementSupabase.auth.getUser();
+
+        if (achCheckErr || !achCheck?.user) {
+          const {
+            data: { user: chatUser },
+          } = await supabase.auth.getUser();
+
+          if (!chatUser?.email) {
+            throw new Error("جلسة الدردشة لا تحتوي بريد إلكتروني");
+          }
+
+          const { data: syncRes, error: syncErr } =
+            await achievementSupabase.functions.invoke("sync-achievement-user", {
+              body: {
+                email: chatUser.email,
+                chat_access_token: chatSession.access_token,
+                chat_user_id: chatUser.id,
+                name:
+                  chatUser.user_metadata?.full_name ??
+                  chatUser.user_metadata?.name ??
+                  "",
+                avatar_url: chatUser.user_metadata?.avatar_url ?? "",
+              },
+            });
+
+          if (syncErr) {
+            throw new Error(
+              `تعذرت مزامنة حساب الإنجاز: ${syncErr.message ?? "خطأ غير معروف"}`
+            );
+          }
+
+          if (syncRes?.password) {
+            const { error: pErr } =
+              await achievementSupabase.auth.signInWithPassword({
+                email: syncRes.email ?? chatUser.email,
+                password: syncRes.password,
+              });
+            if (pErr) {
+              throw new Error(`تعذر فتح جلسة الإنجاز: ${pErr.message}`);
+            }
+          }
+        }
+
         const url = new URL(window.location.href);
         url.searchParams.delete("ticket");
         window.history.replaceState({}, document.title, url.toString());
