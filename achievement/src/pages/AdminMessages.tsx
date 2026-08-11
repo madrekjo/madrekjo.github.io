@@ -68,6 +68,7 @@ const AdminMessages = () => {
   const [deleting, setDeleting] = useState(false);
   const [activeEmail, setActiveEmail] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const channelNameRef = useRef(crypto.randomUUID());
 
   const refreshSupportMessages = useCallback(() => {
     queryClient.invalidateQueries({ predicate: (q) => isSupportMessagesQuery(q.queryKey) });
@@ -185,7 +186,7 @@ const AdminMessages = () => {
   useEffect(() => {
     if (!user || !isAdmin) return;
     const ch = achievementSupabase
-      .channel(`admin-msgs-${user.id}-${crypto.randomUUID()}`)
+      .channel(`admin-msgs-${user.id}-${channelNameRef.current}`)
       .on("postgres_changes", { event: "*", schema: "public", table: "messages" }, () => {
         refreshSupportMessages();
       })

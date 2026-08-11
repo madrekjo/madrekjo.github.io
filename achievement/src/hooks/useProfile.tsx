@@ -14,9 +14,22 @@ export const useProfile = () => {
         .from("profiles")
         .select("*")
         .eq("user_id", user.id)
-        .single();
+        .maybeSingle();
       if (error) throw error;
-      return data;
+      if (data) return data;
+
+      // لا يوجد بروفايل بعد (مثلاً trigger handle_new_user لم يُنشئه في مشروع الإنجاز).
+      // نحاول إنشاءه الآن؛ إن فشل (قيد المفتاح الأجنبي أو RLS) نعيد null ولا نكسر الواجهة.
+      const { data: created, error: createError } = await achievementSupabase
+        .from("profiles")
+        .insert({ user_id: user.id })
+        .select("*")
+        .single();
+      if (createError) {
+        console.error("[useProfile] auto-create failed:", createError.message);
+        return null;
+      }
+      return created;
     },
     enabled: !!user,
   });

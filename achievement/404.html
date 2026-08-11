@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الإنجاز</title>
+    <meta name="robots" content="noindex,nofollow">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      /* 404.html — حاجز (fallback) لمسارات /achievement/ غير المباشرة على GitHub Pages.
+         يحمّل أصول تطبيق الإنجاز ديناميكياً من /achievement/index.html حتى لا يحتاج
+         هذا الملف تحديثاً يدوياً بعد كل build (أسماء الأصول تتغير بسبب الـ hash). */
+      (function () {
+        function inject(urls) {
+          for (var i = 0; i < urls.length; i++) {
+            var u = urls[i];
+            if (/\.css(\?|$)/.test(u)) {
+              var l = document.createElement('link');
+              l.rel = 'stylesheet';
+              l.href = u;
+              document.head.appendChild(l);
+            } else if (/\.js(\?|$)/.test(u)) {
+              var s = document.createElement('script');
+              s.type = 'module';
+              s.src = u;
+              s.crossOrigin = 'anonymous';
+              document.head.appendChild(s);
+            }
+          }
+        }
+        var x = new XMLHttpRequest();
+        x.open('GET', '/achievement/index.html');
+        x.onload = function () {
+          try {
+            var html = x.responseText || '';
+            var urls = [];
+            var re = /(?:src|href)="([^"]+\.(?:js|css)[^"]*)"/g;
+            var m;
+            while ((m = re.exec(html))) urls.push(m[1]);
+            var good = [];
+            var prefix = '/achievement/assets/';
+            for (var j = 0; j < urls.length; j++) {
+              if (urls[j].indexOf(prefix) === 0) good.push(urls[j]);
+            }
+            if (good.length > 0) inject(good);
+          } catch (e) {}
+        };
+        x.send();
+      })();
+    </script>
+  </body>
+</html>

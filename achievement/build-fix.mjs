@@ -42,5 +42,20 @@ for (const name of readdirSync(dist)) {
   }
 }
 
+// ============================================================
+// نسخ index.html الجاهز إلى مسارات SPA المباشرة داخل /achievement/
+// حتى يفتح المستخدم /achievement/dashboard مثلاً مباشرة دون 404
+// (نفس نمط achievement/auth/callback/index.html). 404.html الداخلي
+// يبقى ثابتاً ويُدار يدوياً لأنه لا يعتمد على هاشات البناء.
+// ============================================================
+const builtIndex = path.join(root, "index.html");
+const routeDirs = ["auth/callback", "dashboard", "login", "profile", "rounds", "admin/messages"];
+for (const dir of routeDirs) {
+  const dirPath = path.join(root, dir);
+  if (!existsSync(dirPath)) mkdirSync(dirPath, { recursive: true });
+  copyFile(builtIndex, path.join(dirPath, "index.html"));
+  console.log("[build-fix] index.html -> " + dir + "/index.html");
+}
+
 rmSync(dist, { recursive: true, force: true });
 console.log("[build-fix] done (dist removed)");
