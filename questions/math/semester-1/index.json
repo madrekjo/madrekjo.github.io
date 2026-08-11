@@ -1,0 +1,31 @@
+{
+  "subject": "الرياضيات",
+  "semester": 1,
+  "semester_label": "ف1",
+  "units": [
+    {
+      "id": "U01",
+      "number": 1,
+      "name": "الاقترانات والمقادير الجبرية",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "نظريتا الباقي والعوامل",
+          "file": "unit-01/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "الكسور الجزئية",
+          "file": "unit-01/lesson-02.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-01/review.json"
+      }
+    }
+  ]
+}

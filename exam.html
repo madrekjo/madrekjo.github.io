@@ -232,6 +232,136 @@ body {
 .empty-state .icon { font-size: 4rem; margin-bottom: 16px; }
 .empty-state h3 { font-family: 'Tajawal', sans-serif; font-size: 1.4rem; color: var(--text); margin-bottom: 8px; }
 .empty-state p { color: var(--muted); font-size: 0.9rem; }
+.units-grid { display: flex; flex-direction: column; gap: 14px; }
+.unit-card {
+  background: var(--surface);
+  border: 1px solid var(--a-border);
+  border-radius: 18px;
+  padding: 20px 22px;
+  text-align: right;
+  cursor: pointer;
+  font-family: 'Cairo', sans-serif;
+  color: var(--text);
+  transition: all 0.25s;
+  width: 100%;
+}
+.unit-card:hover { border-color: var(--a); background: var(--a-dim); transform: translateY(-2px); }
+.unit-num { font-size: 0.75rem; color: var(--a); font-weight: 700; margin-bottom: 6px; }
+.unit-name { font-family: 'Tajawal', sans-serif; font-size: 1.15rem; font-weight: 700; }
+.unit-meta { font-size: 0.78rem; color: var(--muted); margin-top: 6px; }
+.section-title { font-family: 'Tajawal', sans-serif; font-size: 1.3rem; font-weight: 800; text-align: center; margin: 8px 0 20px; }
+.lesson-list { display: flex; flex-direction: column; gap: 12px; }
+.lesson-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface);
+  border: 1px solid var(--a-border);
+  border-radius: 16px;
+  padding: 16px 18px;
+  cursor: pointer;
+  width: 100%;
+  font-family: 'Cairo', sans-serif;
+  color: var(--text);
+  text-align: right;
+  transition: all 0.25s;
+}
+.lesson-card:hover { border-color: var(--a); background: var(--a-dim); transform: translateX(-4px); }
+.lesson-card.review-card { border-color: rgba(255,215,0,0.4); background: linear-gradient(135deg, rgba(255,215,0,0.08), var(--surface)); }
+.lesson-num { font-size: 0.72rem; font-weight: 700; color: var(--a); flex-shrink: 0; min-width: 44px; }
+.lesson-name { font-family: 'Tajawal', sans-serif; font-weight: 700; flex: 1; }
+.lesson-go { font-size: 0.8rem; color: var(--muted); flex-shrink: 0; }
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid var(--a-border);
+  color: var(--muted);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: all 0.2s;
+}
+.back-btn:hover { color: var(--a); border-color: var(--a); }
+.back-btn.center { display: block; margin: 20px auto 0; }
+.result-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+.result-again.secondary { background: var(--surface2); border-color: var(--a-border); color: var(--text); }
+.answers-title { font-family: 'Tajawal', sans-serif; font-size: 1.2rem; font-weight: 800; text-align: center; margin-bottom: 18px; }
+.answer-card {
+  background: var(--surface);
+  border: 1px solid var(--a-border);
+  border-left: 4px solid var(--a-border);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 14px;
+  animation: qFade 0.3s ease both;
+}
+.answer-card.ok { border-left-color: #4caf50; }
+.answer-card.no { border-left-color: #f44336; }
+.answer-q { font-family: 'Tajawal', sans-serif; font-weight: 700; line-height: 1.7; margin-bottom: 10px; }
+.answer-line { font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; }
+.answer-card.ok .answer-line { color: #81c784; }
+.answer-card.no .answer-line { color: #ef9a9a; }
+.answer-chosen { font-size: 0.88rem; color: #ef9a9a; margin-bottom: 4px; }
+.answer-correct { font-size: 0.92rem; color: #81c784; font-weight: 600; margin-bottom: 4px; }
+.answer-source { font-size: 0.75rem; color: var(--muted); margin-top: 8px; }
+.sol-toggle {
+  margin-top: 10px;
+  background: var(--a-dim);
+  border: 1px solid var(--a-border);
+  color: var(--a);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sol-toggle:hover { background: rgba(255,215,0,0.2); }
+.solution-box { display: none; margin-top: 12px; background: var(--surface2); border: 1px dashed var(--a-border); border-radius: 12px; padding: 14px; }
+.solution-box.show { display: block; }
+.sol-formula {
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 700;
+  color: var(--a);
+  background: var(--a-dim);
+  border: 1px solid var(--a-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  direction: ltr;
+  text-align: center;
+}
+.sol-steps { padding-right: 18px; font-size: 0.9rem; line-height: 1.9; }
+.sol-steps li { margin-bottom: 4px; }
+.sol-summary { margin-top: 10px; font-size: 0.88rem; color: var(--text); background: rgba(76,175,80,0.08); border: 1px solid rgba(76,175,80,0.3); border-radius: 8px; padding: 8px 12px; }
+.sol-explain { margin-top: 10px; font-size: 0.85rem; color: var(--muted); }
+.warning-banner {
+  background: rgba(255,152,0,0.12);
+  border: 1px solid rgba(255,152,0,0.4);
+  color: #ffb74d;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.error-box {
+  background: var(--surface);
+  border: 1px solid #f44336;
+  border-radius: 18px;
+  padding: 40px 24px;
+  text-align: center;
+}
+.error-box .icon { font-size: 3.5rem; margin-bottom: 14px; }
+.error-box h3 { font-family: 'Tajawal', sans-serif; font-size: 1.25rem; margin-bottom: 8px; }
+.error-box p { color: var(--muted); font-size: 0.88rem; line-height: 1.8; }
+.error-box .back-btn { margin-top: 18px; }
 @media (max-width: 500px) {
   .question-card { padding: 24px 16px 20px; }
   .question-text { font-size: 1.05rem; }
@@ -366,6 +496,14 @@ const p = new URLSearchParams(window.location.search);
 const subject = p.get('subject');
 const semester = p.get('semester');
 const isReview = p.get('review') === 'true';
+const SEM_DIRS = { 'ف1': 'semester-1', 'ف2': 'semester-2' };
+const KEYS = ['A', 'B', 'C', 'D'];
+const AR_LABELS = ['أ', 'ب', 'ج', 'د'];
+const state = {
+  slug: null, semDir: null, semIndex: null, semLabel: null,
+  unit: null, origin: 'legacy', title: '', expected: 0, warningMsg: '',
+  questions: [], idx: 0, score: 0, answered: false, answers: []
+};
 
 if (isReview) {
   document.getElementById('examSubject').textContent = '🎯 المراجعه الختاميه — الأسئلة الخطأ';
@@ -447,98 +585,303 @@ if (isReview) {
     showReviewQ();
   }
 
-} else if (!subject || !QUESTIONS[subject]) {
-  document.getElementById('examSubject').textContent = '📖 ' + (subject || '');
-  document.getElementById('examSemester').textContent = semester ? '— ' + semester : '';
-  document.getElementById('examContent').innerHTML = '<div class="empty-state"><div class="icon">📝</div><h3>لا توجد أسئلة بعد</h3><p>سيتم إضافة أسئلة لهذه المادة قريباً</p></div>';
 } else {
-  document.getElementById('examSubject').textContent = '📖 ' + (subject || '');
-  document.getElementById('examSemester').textContent = semester ? '— ' + semester : '';
-  const qs = QUESTIONS[subject];
-  let idx = 0, score = 0, answered = false;
+  initData();
+}
 
-  function showQ() {
-    const q = qs[idx];
-    const labels = ['أ', 'ب', 'ج', 'د'];
-    const total = qs.length;
-    const pct = ((idx + 1) / total) * 100;
-    document.getElementById('progressFill').style.width = pct + '%';
-    document.getElementById('progressText').textContent = idx + 1 + ' / ' + total;
-    answered = false;
+function showEmpty(title, msg) {
+  document.getElementById('examContent').innerHTML =
+    '<div class="empty-state"><div class="icon">📝</div><h3>' + title + '</h3><p>' + msg + '</p></div>';
+}
 
-    let html = '<div class="question-card" id="qCard">';
-    html += '<div class="question-num">سؤال ' + (idx + 1) + '</div>';
-    html += '<div class="question-text">' + q.q + '</div>';
-    html += '<div class="options-list">';
-    q.options.forEach((opt, oi) => {
-      html += '<button class="option-btn" data-oi="' + oi + '" onclick="pick(' + oi + ')">';
-      html += '<span class="option-circle"></span>';
-      html += '<span class="option-label">' + labels[oi] + '</span>';
-      html += '<span>' + opt + '</span>';
-      html += '</button>';
-    });
-    html += '</div></div>';
-    document.getElementById('examContent').innerHTML = html;
-  }
+function showError(title, msg) {
+  document.getElementById('examContent').innerHTML =
+    '<div class="error-box"><div class="icon">⚠️</div><h3>' + title + '</h3><p>' + msg + '</p>' +
+    '<button class="back-btn" onclick="window.location.reload()">🔄 إعادة المحاولة</button></div>';
+}
 
-  window.pick = function(oi) {
-    if (answered) return;
-    answered = true;
-    const qItem = qs[idx];
-    const btns = document.querySelectorAll('.option-btn');
-    btns.forEach((b, bi) => {
-      b.classList.add('disabled');
-      if (bi === qItem.answer) b.classList.add('correct');
-      else if (bi === oi && oi !== qItem.answer) b.classList.add('wrong');
-      if (bi === oi) b.classList.add('selected');
-    });
+function normalizeQuestions(data) {
+  if (Array.isArray(data)) return data;
+  if (data && Array.isArray(data.questions)) return data.questions;
+  if (data && data.lesson && Array.isArray(data.lesson.questions)) return data.lesson.questions;
+  return [];
+}
 
-    if (oi === qItem.answer) {
-      score++;
-      // Also remove from wrong questions if answered correctly now
-      try {
-        let list = JSON.parse(localStorage.getItem('madrekjo_wrong_questions') || '[]');
-        list = list.filter(x => !(x.subject === subject && x.qObj.q === qItem.q));
-        localStorage.setItem('madrekjo_wrong_questions', JSON.stringify(list));
-      } catch(e) {}
-    } else {
-      // Save to wrong questions
-      try {
-        let list = JSON.parse(localStorage.getItem('madrekjo_wrong_questions') || '[]');
-        const exists = list.some(x => x.subject === subject && x.qObj.q === qItem.q);
-        if (!exists) {
-          list.push({ subject: subject, semester: semester || 'ف1', qObj: qItem, answer: qItem.answer });
-          localStorage.setItem('madrekjo_wrong_questions', JSON.stringify(list));
-        }
-      } catch(e) {}
+function validateQuestions(list) {
+  const valid = [];
+  const bad = [];
+  list.forEach((q, i) => {
+    const ok = q && q.id && q.question &&
+      q.options && KEYS.every(k => typeof q.options[k] === 'string' && q.options[k].trim()) &&
+      KEYS.includes(q.correct_answer) && q.correct_answer_text;
+    if (ok) valid.push(q); else bad.push(i + 1);
+  });
+  return { valid: valid, bad: bad };
+}
+
+function toLegacyQ(q) {
+  return { q: q.question, options: KEYS.map(k => q.options[k]), answer: KEYS.indexOf(q.correct_answer) };
+}
+
+function addToWrong(qItem) {
+  try {
+    let list = JSON.parse(localStorage.getItem('madrekjo_wrong_questions') || '[]');
+    const qo = toLegacyQ(qItem);
+    const exists = list.some(x => x.subject === subject && x.qObj.q === qo.q);
+    if (!exists) {
+      list.push({ subject: subject, semester: semester || 'ف1', qObj: qo, answer: qo.answer });
+      localStorage.setItem('madrekjo_wrong_questions', JSON.stringify(list));
     }
+  } catch(e) {}
+}
 
-    setTimeout(() => {
-      idx++;
-      if (idx < qs.length) showQ();
-      else showResult();
-    }, 800);
-  };
+function removeFromWrong(qItem) {
+  try {
+    let list = JSON.parse(localStorage.getItem('madrekjo_wrong_questions') || '[]');
+    list = list.filter(x => !(x.subject === subject && x.qObj.q === qItem.question));
+    localStorage.setItem('madrekjo_wrong_questions', JSON.stringify(list));
+  } catch(e) {}
+}
 
-  function showResult() {
-    const total = qs.length;
-    document.getElementById('examContent').innerHTML =
-      '<div class="result-card" style="display:block">' +
-      '<div class="result-icon">' + (score === total ? '🏆' : score >= total * 0.5 ? '🎉' : '💪') + '</div>' +
-      '<div class="result-score">' + score + '/' + total + '</div>' +
-      '<div class="result-label">' + (score === total ? 'ممتاز! إجابة كاملة' : score >= total * 0.5 ? 'أحسنت! استمر' : 'ركّز أكثر في المرة القادمة') + '</div>' +
-      '<div class="result-detail">لقد أجبت على ' + score + ' من ' + total + ' أسئلة بشكل صحيح</div>' +
-      '<button class="result-again" onclick="restart()">🔄 إعادة الاختبار</button>' +
-      '</div>';
+function startLegacy() {
+  const qs = QUESTIONS[subject];
+  if (!qs) {
+    document.getElementById('examSubject').textContent = '📖 ' + (subject || '');
+    document.getElementById('examSemester').textContent = semester ? '— ' + semester : '';
+    showEmpty('لا توجد أسئلة بعد', 'سيتم إضافة أسئلة لهذه المادة قريباً');
+    return;
   }
-
-  window.restart = function() {
-    idx = 0; score = 0;
-    showQ();
-  };
-
+  document.getElementById('examSubject').textContent = '📖 ' + subject;
+  document.getElementById('examSemester').textContent = semester ? '— ' + semester : '';
+  state.origin = 'legacy';
+  state.title = subject;
+  state.expected = qs.length;
+  state.warningMsg = '';
+  state.questions = qs.map((q, i) => ({
+    id: 'legacy-' + (i + 1),
+    number: i + 1,
+    question: q.q,
+    options: { A: q.options[0], B: q.options[1], C: q.options[2], D: q.options[3] },
+    correct_answer: KEYS[q.answer],
+    correct_answer_text: q.options[q.answer]
+  }));
+  state.idx = 0; state.score = 0; state.answers = [];
   showQ();
 }
+
+function initData() {
+  fetch('questions/index.json')
+    .then(r => { if (!r.ok) throw new Error('index'); return r.json(); })
+    .then(idxData => {
+      const rec = (idxData.subjects || []).find(s => s.name === subject);
+      const semDir = SEM_DIRS[semester];
+      if (!rec || !rec.slug || !semDir) { startLegacy(); return; }
+      state.slug = rec.slug;
+      state.semDir = semDir;
+      fetch('questions/' + rec.slug + '/' + semDir + '/index.json')
+        .then(r => { if (!r.ok) throw new Error('sem'); return r.json(); })
+        .then(idx => {
+          state.semIndex = idx;
+          state.semLabel = idx.semester_label || semester;
+          document.getElementById('examSubject').textContent = '📖 ' + subject;
+          document.getElementById('examSemester').textContent = '— ' + state.semLabel;
+          renderUnits();
+        })
+        .catch(() => showError('لا توجد أسئلة لهذا الفصل بعد', 'لم يتم العثور على أسئلة للفصل الدراسي المحدد. جرّب فصلاً آخر أو عُد لاحقاً.'));
+    })
+    .catch(() => startLegacy());
+}
+
+function renderUnits() {
+  const units = state.semIndex.units || [];
+  if (!units.length) { showEmpty('لا توجد وحدات بعد', 'سيتم إضافة وحدات لهذه المادة قريباً'); return; }
+  let html = '<div class="units-grid">';
+  units.forEach((u, ui) => {
+    const lessonCount = (u.lessons || []).length;
+    const hasRev = !!u.review;
+    html += '<button class="unit-card" onclick="openUnit(' + ui + ')">' +
+      '<div class="unit-num">الوحدة ' + (u.number || ui + 1) + '</div>' +
+      '<div class="unit-name">' + u.name + '</div>' +
+      '<div class="unit-meta">' + lessonCount + (lessonCount === 1 ? ' درس' : ' دروس') + (hasRev ? ' · مراجعة' : '') + '</div>' +
+      '</button>';
+  });
+  html += '</div>';
+  document.getElementById('examContent').innerHTML = html;
+}
+
+function openUnit(ui) {
+  state.unit = state.semIndex.units[ui];
+  renderLessons();
+}
+
+function renderLessons() {
+  const u = state.unit;
+  let html = '<button class="back-btn" onclick="renderUnits()">→ رجوع للوحدات</button>';
+  html += '<div class="section-title">' + u.name + '</div>';
+  html += '<div class="lesson-list">';
+  (u.lessons || []).forEach((l, li) => {
+    html += '<button class="lesson-card" onclick="startLesson(' + li + ')">' +
+      '<div class="lesson-num">درس ' + (l.number || li + 1) + '</div>' +
+      '<div class="lesson-name">' + l.name + '</div>' +
+      '<div class="lesson-go">ابدأ الاختبار ▶</div>' +
+      '</button>';
+  });
+  if (u.review) {
+    html += '<button class="lesson-card review-card" onclick="startReview()">' +
+      '<div class="lesson-num">مراجعة</div>' +
+      '<div class="lesson-name">' + u.review.name + '</div>' +
+      '<div class="lesson-go">ابدأ الاختبار ▶</div>' +
+      '</button>';
+  }
+  html += '</div>';
+  document.getElementById('examContent').innerHTML = html;
+}
+
+function startLesson(li) {
+  const l = state.unit.lessons[li];
+  state.title = 'درس ' + (l.number || li + 1) + ' — ' + l.name;
+  loadQuiz('questions/' + state.slug + '/' + state.semDir + '/' + l.file, state.title, 40);
+}
+
+function startReview() {
+  const r = state.unit.review;
+  state.title = r.name;
+  loadQuiz('questions/' + state.slug + '/' + state.semDir + '/' + r.file, state.title, 50);
+}
+
+function loadQuiz(path, title, expected) {
+  fetch(path)
+    .then(r => { if (!r.ok) throw new Error('load'); return r.json(); })
+    .then(data => {
+      const { valid, bad } = validateQuestions(normalizeQuestions(data));
+      if (!valid.length) { showError('لا توجد أسئلة صالحة', 'تعذّر قراءة الأسئلة من الملف. تأكد من صحة البيانات.'); return; }
+      state.origin = 'data';
+      state.title = title;
+      state.expected = expected;
+      state.questions = valid;
+      state.idx = 0; state.score = 0; state.answers = [];
+      const warns = [];
+      if (valid.length !== expected) warns.push('تم تحميل ' + valid.length + ' من ' + expected + ' سؤالاً متوقعاً');
+      if (bad.length) warns.push('تم تجاهل ' + bad.length + ' سؤالاً ناقصاً');
+      state.warningMsg = warns.length ? warns.join(' · ') : '';
+      document.getElementById('examSubject').textContent = '📖 ' + subject;
+      document.getElementById('examSemester').textContent = '— ' + state.semLabel + ' · ' + title;
+      showQ();
+    })
+    .catch(() => showError('تعذّر تحميل الأسئلة', 'لم يتم العثور على ملف الأسئلة أو أنه غير قابل للقراءة.'));
+}
+
+function showQ() {
+  const q = state.questions[state.idx];
+  const total = state.questions.length;
+  const pct = ((state.idx + 1) / total) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressText').textContent = (state.idx + 1) + ' / ' + total;
+  state.answered = false;
+
+  let html = '';
+  if (state.warningMsg) html += '<div class="warning-banner">⚠️ ' + state.warningMsg + '</div>';
+  html += '<div class="question-card" id="qCard">';
+  html += '<div class="question-num">سؤال ' + (state.idx + 1) + ' من ' + total + '</div>';
+  html += '<div class="question-text">' + q.question + '</div>';
+  html += '<div class="options-list">';
+  KEYS.forEach(k => {
+    html += '<button class="option-btn" data-key="' + k + '" onclick="pick(\'' + k + '\')">';
+    html += '<span class="option-circle"></span>';
+    html += '<span class="option-label">' + AR_LABELS[KEYS.indexOf(k)] + '</span>';
+    html += '<span>' + q.options[k] + '</span>';
+    html += '</button>';
+  });
+  html += '</div></div>';
+  document.getElementById('examContent').innerHTML = html;
+}
+
+window.pick = function(key) {
+  if (state.answered) return;
+  state.answered = true;
+  const qItem = state.questions[state.idx];
+  const btns = document.querySelectorAll('.option-btn');
+  btns.forEach(b => {
+    b.classList.add('disabled');
+    if (b.dataset.key === qItem.correct_answer) b.classList.add('correct');
+    else if (b.dataset.key === key && key !== qItem.correct_answer) b.classList.add('wrong');
+    if (b.dataset.key === key) b.classList.add('selected');
+  });
+  const isCorrect = key === qItem.correct_answer;
+  state.answers.push({ q: qItem, chosen: key, correct: isCorrect });
+  if (isCorrect) { state.score++; removeFromWrong(qItem); }
+  else { addToWrong(qItem); }
+  setTimeout(() => {
+    state.idx++;
+    if (state.idx < state.questions.length) showQ();
+    else showResult();
+  }, 800);
+};
+
+function showResult() {
+  const total = state.questions.length;
+  const pct = total ? Math.round((state.score / total) * 100) : 0;
+  const icon = state.score === total ? '🏆' : state.score >= total * 0.5 ? '🎉' : '💪';
+  const label = state.score === total ? 'ممتاز! إجابة كاملة' : state.score >= total * 0.5 ? 'أحسنت! استمر' : 'ركّز أكثر في المرة القادمة';
+  let html = '<div class="result-card" style="display:block">' +
+    '<div class="result-icon">' + icon + '</div>' +
+    '<div class="result-score">' + state.score + '/' + total + '</div>' +
+    '<div class="result-label">' + label + '</div>' +
+    '<div class="result-detail">لقد أجبت على ' + state.score + ' من ' + total + ' أسئلة بشكل صحيح (' + pct + '%)</div>' +
+    '<div class="result-actions">' +
+    '<button class="result-again" onclick="restart()">🔄 إعادة الاختبار</button>' +
+    '<button class="result-again secondary" onclick="showAnswers()">📋 الإجابات النموذجية</button>' +
+    '</div>';
+  if (state.origin === 'data') html += '<button class="back-btn center" onclick="renderLessons()">→ رجوع للدروس</button>';
+  html += '</div>';
+  document.getElementById('examContent').innerHTML = html;
+}
+
+window.restart = function() {
+  state.idx = 0; state.score = 0; state.answers = [];
+  showQ();
+};
+
+window.showAnswers = function() {
+  let html = '<button class="back-btn" onclick="showResult()">→ رجوع للنتيجة</button>';
+  html += '<div class="answers-title">الإجابات النموذجية — ' + state.title + '</div>';
+  state.answers.forEach((a, i) => {
+    const q = a.q;
+    html += '<div class="answer-card' + (a.correct ? ' ok' : ' no') + '">';
+    html += '<div class="answer-q">' + (i + 1) + '. ' + q.question + '</div>';
+    html += '<div class="answer-line">' + (a.correct ? '✅ إجابتك صحيحة' : '❌ إجابتك خطأ') + '</div>';
+    if (!a.correct && a.chosen) {
+      const ci = KEYS.indexOf(a.chosen);
+      html += '<div class="answer-chosen">إجابتك: ' + AR_LABELS[ci] + ' — ' + q.options[a.chosen] + '</div>';
+    }
+    html += '<div class="answer-correct">الإجابة الصحيحة: ' + q.correct_answer + ' — ' + (q.correct_answer_text || q.options[q.correct_answer]) + '</div>';
+    const src = q.source;
+    if (src) {
+      let s = '📄';
+      if (src.page) s += ' صفحة ' + src.page;
+      if (src.reference) s += (src.page ? ' · ' : ' ') + src.reference;
+      if (src.lesson) s += ' · ' + src.lesson;
+      html += '<div class="answer-source">' + s + '</div>';
+    }
+    if ((q.solution && (q.solution.formula || q.solution.steps || q.solution.summary)) || q.explanation) {
+      html += '<button class="sol-toggle" onclick="this.classList.toggle(\'open\');this.nextElementSibling.classList.toggle(\'show\')">🔍 شرح الحل</button>';
+      html += '<div class="solution-box">';
+      if (q.solution) {
+        if (q.solution.formula) html += '<div class="sol-formula">' + q.solution.formula + '</div>';
+        if (q.solution.steps && q.solution.steps.length) {
+          html += '<ol class="sol-steps">';
+          q.solution.steps.forEach(s => { if (s) html += '<li>' + s + '</li>'; });
+          html += '</ol>';
+        }
+        if (q.solution.summary) html += '<div class="sol-summary">' + q.solution.summary + '</div>';
+      }
+      if (q.explanation) html += '<div class="sol-explain">💡 ' + q.explanation + '</div>';
+      html += '</div>';
+    }
+    html += '</div>';
+  });
+  document.getElementById('examContent').innerHTML = html;
+};
 </script>
 </body>
 </html>
