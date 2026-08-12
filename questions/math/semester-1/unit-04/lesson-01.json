@@ -1,0 +1,1123 @@
+{
+  "lesson": {
+    "lesson_number": "4.1",
+    "lesson_name": "الأعداد المركبة",
+    "unit_number": 4,
+    "unit_name": "الأعداد المركبة",
+    "page_start": 150,
+    "page_end": 164,
+    "questions": [
+      {
+        "id": "U04-L01-Q001",
+        "number": 1,
+        "question": "ما هو تعريف الوحدة التخيّلية $i$؟",
+        "options": {
+          "A": "$i=1$",
+          "B": "$i^2=1$",
+          "C": "$i^2=-1$",
+          "D": "$i=-1$"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "$i^2=-1$",
+        "difficulty": "easy",
+        "source": {
+          "page": 150,
+          "reference": "الوحدة التخيّلية والعدد التخيّلي"
+        },
+        "solution": {
+          "formula": "$i^2=-1$",
+          "steps": [
+            "تعريف الوحدة التخيّلية هو $i^2=-1$."
+          ],
+          "summary": "الوحدة التخيّلية $i$ هي القيمة التي تحقق المعادلة $i^2=-1$."
+        },
+        "explanation": "ابتكر علماء الرياضيات الوحدة التخيّلية $i$ لحل المعادلات التي لا تمتلك حلولًا حقيقية مثل $x^2=-1$."
+      },
+      {
+        "id": "U04-L01-Q002",
+        "number": 2,
+        "question": "أجد قيمة الجذر الرئيس للعدد $-16$ بدلالة $i$.",
+        "options": {
+          "A": "$4$",
+          "B": "$-4$",
+          "C": "$4i$",
+          "D": "$16i$"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "$4i$",
+        "difficulty": "easy",
+        "source": {
+          "page": 151,
+          "reference": "مثال 1 - الفرع 1"
+        },
+        "solution": {
+          "formula": "$\\sqrt{-k}=i\\sqrt{k}$",
+          "steps": [
+            "$\\sqrt{-16}=\\sqrt{16}\\sqrt{-1}$",
+            "$\\sqrt{16}=4$ و $\\sqrt{-1}=i$",
+            "$\\sqrt{-16}=4i$"
+          ],
+          "summary": "قيمة $\\sqrt{-16}$ تساوي $4i$."
+        },
+        "explanation": "باستخدام العلاقة $\\sqrt{-k}=i\\sqrt{k}$ نحصل على $\\sqrt{-16}=4i$."
+      },
+      {
+        "id": "U04-L01-Q003",
+        "number": 3,
+        "question": "ما ناتج الضرب $\\sqrt{-9}\\times\\sqrt{-4}$؟",
+        "options": {
+          "A": "$6$",
+          "B": "$-6$",
+          "C": "$6i$",
+          "D": "$-6i$"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "$-6$",
+        "difficulty": "medium",
+        "source": {
+          "page": 151,
+          "reference": "ضرب الأعداد التخيّلية"
+        },
+        "solution": {
+          "formula": "$\\sqrt{-a}\\times\\sqrt{-b}=(i\\sqrt{a})(i\\sqrt{b})$",
+          "steps": [
+            "$\\sqrt{-9}=3i$",
+            "$\\sqrt{-4}=2i$",
+            "$3i\\times2i=6i^2$",
+            "$6i^2=6(-1)=-6$"
+          ],
+          "summary": "الناتج هو $-6$."
+        },
+        "explanation": "نحوّل الجذور السالبة إلى أعداد تخيّلية أولًا، ثم نستخدم $i^2=-1$."
+      },
+      {
+        "id": "U04-L01-Q004",
+        "number": 4,
+        "question": "أجد قيمة $i^{15}$ في أبسط صورة.",
+        "options": {
+          "A": "$1$",
+          "B": "$-1$",
+          "C": "$i$",
+          "D": "$-i$"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "$-i$",
+        "difficulty": "medium",
+        "source": {
+          "page": 152,
+          "reference": "مثال 2 - الفرع 3"
+        },
+        "solution": {
+          "formula": "$i^{15}=(i^4)^3i^3$",
+          "steps": [
+            "$i^{15}=(i^4)^3i^3$",
+            "$=1^3(-i)$",
+            "$=-i$"
+          ],
+          "summary": "قيمة $i^{15}$ هي $-i$."
+        },
+        "explanation": "قوى $i$ تتكرر كل أربع قوى."
+      },
+      {
+        "id": "U04-L01-Q005",
+        "number": 5,
+        "question": "مِمَّ يتكوّن العدد المركب $z$ في صورته القياسية؟",
+        "options": {
+          "A": "جزأين حقيقيين",
+          "B": "جزأين تخيّليين",
+          "C": "جزء حقيقي $a$ وجزء تخيّلي $b$",
+          "D": "ثابت ومتغير"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "جزء حقيقي $a$ وجزء تخيّلي $b$",
+        "difficulty": "easy",
+        "source": {
+          "page": 153,
+          "reference": "الأعداد المركبة"
+        },
+        "solution": {
+          "formula": "$z=a+bi$",
+          "steps": [
+            "الصورة القياسية للعدد المركب هي $z=a+bi$."
+          ],
+          "summary": "يتكوّن العدد المركب من جزء حقيقي $a$ وجزء تخيّلي $b$."
+        },
+        "explanation": "في الصورة القياسية $z=a+bi$ يمثل $a$ الجزء الحقيقي ويمثل $b$ الجزء التخيّلي."
+      },
+      {
+        "id": "U04-L01-Q006",
+        "number": 6,
+        "question": "أجد قيمتي $x$ و$y$ الحقيقيتين اللتين تحققان المعادلة $2x-6+(3y+2)i=4x+8i$.",
+        "options": {
+          "A": "$x=3,\\ y=2$",
+          "B": "$x=-3,\\ y=2$",
+          "C": "$x=-3,\\ y=-2$",
+          "D": "$x=3,\\ y=-2$"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "$x=-3,\\ y=2$",
+        "difficulty": "medium",
+        "source": {
+          "page": 154,
+          "reference": "مثال 3"
+        },
+        "solution": {
+          "formula": "$a+bi=c+di\\iff a=c,\\ b=d$",
+          "steps": [
+            "مساواة الأجزاء الحقيقية: $2x-6=4x$",
+            "$-6=2x$ وبالتالي $x=-3$",
+            "مساواة الأجزاء التخيّلية: $3y+2=8$",
+            "$3y=6$ وبالتالي $y=2$"
+          ],
+          "summary": "$x=-3$ و$y=2$."
+        },
+        "explanation": "يتساوى عددان مركبان إذا وفقط إذا تساوى جزآهما الحقيقيان وتساوى جزآهما التخيّليان."
+      },
+      {
+        "id": "U04-L01-Q007",
+        "number": 7,
+        "question": "ما المحور الذي يمثّل الجزء التخيّلي في المستوى المركب؟",
+        "options": {
+          "A": "المحور الأفقي $\\mathrm{Re}$",
+          "B": "المحور الرأسي $\\mathrm{Im}$",
+          "C": "محور السينات",
+          "D": "محور التماثل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المحور الرأسي $\\mathrm{Im}$",
+        "difficulty": "easy",
+        "source": {
+          "page": 154,
+          "reference": "تمثيل العدد المركب ومرافقه بيانيًا"
+        },
+        "solution": {
+          "formula": "$\\mathrm{Im}$",
+          "steps": [
+            "المحور الرأسي في المستوى المركب هو المحور التخيّلي."
+          ],
+          "summary": "المحور الرأسي هو محور الجزء التخيّلي."
+        },
+        "explanation": "يمثل المحور الأفقي الجزء الحقيقي، بينما يمثل المحور الرأسي الجزء التخيّلي."
+      },
+      {
+        "id": "U04-L01-Q008",
+        "number": 8,
+        "question": "ما مرافق العدد المركب $z=a+bi$؟",
+        "options": {
+          "A": "$a+bi$",
+          "B": "$-a-bi$",
+          "C": "$a-bi$",
+          "D": "$-a+bi$"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "$a-bi$",
+        "difficulty": "easy",
+        "source": {
+          "page": 155,
+          "reference": "مرافق العدد المركب"
+        },
+        "solution": {
+          "formula": "$\\overline{z}=a-bi$",
+          "steps": [
+            "نغيّر إشارة الجزء التخيّلي فقط."
+          ],
+          "summary": "مرافق $z=a+bi$ هو $\\overline{z}=a-bi$."
+        },
+        "explanation": "مرافق العدد المركب ينتج من تغيير إشارة الجزء التخيّلي فقط."
+      },
+      {
+        "id": "U04-L01-Q009",
+        "number": 9,
+        "question": "أجد مقياس العدد المركب $z=3-4i$.",
+        "options": {
+          "A": "$7$",
+          "B": "$1$",
+          "C": "$5$",
+          "D": "$25$"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "$5$",
+        "difficulty": "medium",
+        "source": {
+          "page": 156,
+          "reference": "مثال 5 - الفرع 1"
+        },
+        "solution": {
+          "formula": "$|z|=\\sqrt{a^2+b^2}$",
+          "steps": [
+            "$a=3$ و$b=-4$",
+            "$|z|=\\sqrt{3^2+(-4)^2}$",
+            "$=\\sqrt{9+16}=\\sqrt{25}=5$"
+          ],
+          "summary": "مقياس العدد المركب هو $5$."
+        },
+        "explanation": "المقياس هو المسافة بين نقطة الأصل والنقطة التي تمثل العدد المركب في المستوى المركب."
+      },
+      {
+        "id": "U04-L01-Q010",
+        "number": 10,
+        "question": "ما الفترة التي تقع فيها السعة الرئيسة $\\operatorname{Arg}(z)$؟",
+        "options": {
+          "A": "$[0,2\\pi]$",
+          "B": "$(-\\pi,\\pi]$",
+          "C": "$\\left[-\\frac{\\pi}{2},\\frac{\\pi}{2}\\right]$",
+          "D": "$(0,\\pi]$"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "$(-\\pi,\\pi]$",
+        "difficulty": "easy",
+        "source": {
+          "page": 157,
+          "reference": "سعة العدد المركب"
+        },
+        "solution": {
+          "formula": "$-\\pi<\\operatorname{Arg}(z)\\leq\\pi$",
+          "steps": [
+            "السعة الرئيسة تقع ضمن الفترة $(-\\pi,\\pi]$."
+          ],
+          "summary": "السعة الرئيسة تقع في الفترة $(-\\pi,\\pi]$."
+        },
+        "explanation": "تُعرّف السعة الرئيسة ضمن الفترة $(-\\pi,\\pi]$."
+      },
+      {
+        "id": "U04-L01-Q011",
+        "number": 11,
+        "question": "أجد سعة العدد المركب $z=4+3i$ بالراديان، مقربة لأقرب منزلتين عشريتين.",
+        "options": {
+          "A": "$0.64$",
+          "B": "$0.93$",
+          "C": "$1.25$",
+          "D": "$0.75$"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "$0.64$",
+        "difficulty": "medium",
+        "source": {
+          "page": 159,
+          "reference": "مثال 6 - الفرع 1"
+        },
+        "solution": {
+          "formula": "$\\operatorname{Arg}(z)=\\tan^{-1}\\left(\\frac{b}{a}\\right)$",
+          "steps": [
+            "العدد يقع في الربع الأول.",
+            "$\\operatorname{Arg}(z)=\\tan^{-1}\\left(\\frac{3}{4}\\right)$",
+            "$\\operatorname{Arg}(z)\\approx0.64$"
+          ],
+          "summary": "السعة تساوي تقريبًا $0.64$ راديان."
+        },
+        "explanation": "بما أن العدد يقع في الربع الأول، نحسب السعة مباشرة باستخدام الظل العكسي."
+      },
+      {
+        "id": "U04-L01-Q012",
+        "number": 12,
+        "question": "إذا وقع العدد المركب $z$ في الربع الثاني، فكيف تُحسب سعته الرئيسة؟",
+        "options": {
+          "A": "$\\tan^{-1}\\left(\\frac{b}{a}\\right)$",
+          "B": "$\\pi+\\tan^{-1}\\left(\\frac{b}{|a|}\\right)$",
+          "C": "$\\pi-\\tan^{-1}\\left(\\frac{b}{|a|}\\right)$",
+          "D": "$-\\pi+\\tan^{-1}\\left(\\frac{b}{|a|}\\right)$"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "$\\pi-\\tan^{-1}\\left(\\frac{b}{|a|}\\right)$",
+        "difficulty": "medium",
+        "source": {
+          "page": 158,
+          "reference": "سعة العدد المركب - ملخص المفهوم"
+        },
+        "solution": {
+          "formula": "$\\operatorname{Arg}(z)=\\pi-\\tan^{-1}\\left(\\frac{b}{|a|}\\right)$",
+          "steps": [
+            "في الربع الثاني تكون السعة زاوية موجبة منفرجة.",
+            "نطرح الزاوية المرجعية من $\\pi$."
+          ],
+          "summary": "قاعدة الربع الثاني هي $\\pi-\\tan^{-1}\\left(\\frac{b}{|a|}\\right)$."
+        },
+        "explanation": "في الربع الثاني تكون السعة الرئيسة موجبة وأكبر من $\\frac{\\pi}{2}$."
+      },
+      {
+        "id": "U04-L01-Q013",
+        "number": 13,
+        "question": "أكتب العدد المركب الذي مقياسه $4$ وسعته $\\frac{\\pi}{6}$ بالصورة المثلثية.",
+        "options": {
+          "A": "$4\\left(\\sin\\frac{\\pi}{6}+i\\cos\\frac{\\pi}{6}\\right)$",
+          "B": "$4\\left(\\cos\\frac{\\pi}{6}+i\\sin\\frac{\\pi}{6}\\right)$",
+          "C": "$\\frac{1}{4}\\left(\\cos\\frac{\\pi}{6}+i\\sin\\frac{\\pi}{6}\\right)$",
+          "D": "$4\\left(\\cos\\frac{\\pi}{6}-i\\sin\\frac{\\pi}{6}\\right)$"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "$4\\left(\\cos\\frac{\\pi}{6}+i\\sin\\frac{\\pi}{6}\\right)$",
+        "difficulty": "easy",
+        "source": {
+          "page": 161,
+          "reference": "مثال 7 - الفرع 1"
+        },
+        "solution": {
+          "formula": "$z=r(\\cos\\theta+i\\sin\\theta)$",
+          "steps": [
+            "$r=4$ و$\\theta=\\frac{\\pi}{6}$",
+            "بالتعويض: $z=4\\left(\\cos\\frac{\\pi}{6}+i\\sin\\frac{\\pi}{6}\\right)$"
+          ],
+          "summary": "الصورة المثلثية هي $4\\left(\\cos\\frac{\\pi}{6}+i\\sin\\frac{\\pi}{6}\\right)$."
+        },
+        "explanation": "الصورة المثلثية للعدد المركب هي $z=r(\\cos\\theta+i\\sin\\theta)$."
+      },
+      {
+        "id": "U04-L01-Q014",
+        "number": 14,
+        "question": "ما الجزء التخيّلي للعدد المركب $z=-16-2i$؟",
+        "options": {
+          "A": "$-16$",
+          "B": "$2$",
+          "C": "$-2$",
+          "D": "$-2i$"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "$-2$",
+        "difficulty": "easy",
+        "source": {
+          "page": 163,
+          "reference": "أتدرب وأحل المسائل - 16"
+        },
+        "solution": {
+          "formula": "$\\operatorname{Im}(z)=b$",
+          "steps": [
+            "$z=-16+(-2)i$",
+            "إذن الجزء التخيّلي هو $-2$."
+          ],
+          "summary": "الجزء التخيّلي هو $-2$."
+        },
+        "explanation": "الجزء التخيّلي هو معامل $i$ وليس $-2i$."
+      },
+      {
+        "id": "U04-L01-Q015",
+        "number": 15,
+        "question": "أجد قيمة الجذر الرئيس $\\sqrt{-72}$ بدلالة $i$.",
+        "options": {
+          "A": "$6i\\sqrt{2}$",
+          "B": "$36i\\sqrt{2}$",
+          "C": "$12i$",
+          "D": "$6\\sqrt{2}$"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "$6i\\sqrt{2}$",
+        "difficulty": "medium",
+        "source": {
+          "page": 151,
+          "reference": "مثال 1 - الفرع 2"
+        },
+        "solution": {
+          "formula": "$\\sqrt{-k}=i\\sqrt{k}$",
+          "steps": [
+            "$\\sqrt{-72}=i\\sqrt{72}$",
+            "$=i\\sqrt{36\\times2}$",
+            "$=6i\\sqrt{2}$"
+          ],
+          "summary": "الناتج هو $6i\\sqrt{2}$."
+        },
+        "explanation": "نحلل العدد $72$ إلى $36\\times2$ ثم نستخدم $\\sqrt{-1}=i$."
+      },
+      {
+        "id": "U04-L01-Q016",
+        "number": 16,
+        "question": "ما ناتج $5i\\times\\sqrt{-4}$؟",
+        "options": {
+          "A": "$10$",
+          "B": "$-10$",
+          "C": "$10i$",
+          "D": "$20$"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "$-10$",
+        "difficulty": "medium",
+        "source": {
+          "page": 152,
+          "reference": "مثال 2 - الفرع 2"
+        },
+        "solution": {
+          "formula": "$i^2=-1$",
+          "steps": [
+            "$\\sqrt{-4}=2i$",
+            "$5i\\times2i=10i^2$",
+            "$10i^2=-10$"
+          ],
+          "summary": "الناتج هو $-10$."
+        },
+        "explanation": "نحوّل الجذر السالب إلى صورة تخيّلية ثم نستخدم $i^2=-1$."
+      },
+      {
+        "id": "U04-L01-Q017",
+        "number": 17,
+        "question": "أي مما يلي يمثّل $i^{2021}$ في أبسط صورة؟",
+        "options": {
+          "A": "$1$",
+          "B": "$-1$",
+          "C": "$i$",
+          "D": "$-i$"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "$i$",
+        "difficulty": "medium",
+        "source": {
+          "page": 152,
+          "reference": "أتحقق من فهمي - مثال 2"
+        },
+        "solution": {
+          "formula": "$i^n=i^{n\\bmod4}$",
+          "steps": [
+            "$2021=4(505)+1$",
+            "$i^{2021}=(i^4)^{505}i$",
+            "$=i$"
+          ],
+          "summary": "الناتج هو $i$."
+        },
+        "explanation": "قوى $i$ تتكرر كل أربع قوى."
+      },
+      {
+        "id": "U04-L01-Q018",
+        "number": 18,
+        "question": "أين يقع العدد المركب $z=-3-2i$ في المستوى المركب؟",
+        "options": {
+          "A": "الربع الأول",
+          "B": "الربع الثاني",
+          "C": "الربع الثالث",
+          "D": "الربع الرابع"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الربع الثالث",
+        "difficulty": "easy",
+        "source": {
+          "page": 155,
+          "reference": "أتحقق من فهمي - مثال 4"
+        },
+        "solution": {
+          "formula": "$z=a+bi$",
+          "steps": [
+            "$a=-3<0$",
+            "$b=-2<0$",
+            "إذن يقع العدد في الربع الثالث."
+          ],
+          "summary": "يقع العدد في الربع الثالث."
+        },
+        "explanation": "عندما يكون الجزء الحقيقي والجزء التخيّلي سالبين، تقع النقطة في الربع الثالث."
+      },
+      {
+        "id": "U04-L01-Q019",
+        "number": 19,
+        "question": "أجد مقياس العدد المركب $z=12i$.",
+        "options": {
+          "A": "$0$",
+          "B": "$12$",
+          "C": "$144$",
+          "D": "$12i$"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "$12$",
+        "difficulty": "easy",
+        "source": {
+          "page": 156,
+          "reference": "مثال 5 - الفرع 2"
+        },
+        "solution": {
+          "formula": "$|z|=\\sqrt{a^2+b^2}$",
+          "steps": [
+            "$a=0$ و$b=12$",
+            "$|z|=\\sqrt{0^2+12^2}$",
+            "$=12$"
+          ],
+          "summary": "المقياس هو $12$."
+        },
+        "explanation": "العدد $12i$ يقع على المحور التخيّلي، ومقياسه يساوي $12$."
+      },
+      {
+        "id": "U04-L01-Q020",
+        "number": 20,
+        "question": "أجد سعة العدد المركب $z=-1-6i$ مقربة لأقرب منزلتين عشريتين.",
+        "options": {
+          "A": "$-1.74$",
+          "B": "$1.74$",
+          "C": "$-1.40$",
+          "D": "$1.40$"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "$-1.74$",
+        "difficulty": "hard",
+        "source": {
+          "page": 160,
+          "reference": "مثال 6 - الفرع 3"
+        },
+        "solution": {
+          "formula": "$\\operatorname{Arg}(z)=-\\left(\\pi-\\tan^{-1}\\left(\\frac{6}{1}\\right)\\right)$",
+          "steps": [
+            "العدد يقع في الربع الثالث.",
+            "$\\operatorname{Arg}(z)=-\\left(\\pi-\\tan^{-1}(6)\\right)$",
+            "$\\operatorname{Arg}(z)\\approx-1.74$"
+          ],
+          "summary": "السعة هي تقريبًا $-1.74$ راديان."
+        },
+        "explanation": "نختار السعة الرئيسة الواقعة ضمن الفترة $(-\\pi,\\pi]$."
+      },
+      {
+        "id": "U04-L01-Q021",
+        "number": 21,
+        "question": "أكتب العدد المركب $z=-2-5i$ بالصورة المثلثية.",
+        "options": {
+          "A": "$\\sqrt{29}(\\cos1.95+i\\sin1.95)$",
+          "B": "$\\sqrt{29}(\\cos(-1.95)+i\\sin(-1.95))$",
+          "C": "$29(\\cos(-1.95)+i\\sin(-1.95))$",
+          "D": "$\\sqrt{29}(\\cos(-1.19)+i\\sin(-1.19))$"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "$\\sqrt{29}(\\cos(-1.95)+i\\sin(-1.95))$",
+        "difficulty": "hard",
+        "source": {
+          "page": 162,
+          "reference": "مثال 7 - الفرع 2"
+        },
+        "solution": {
+          "formula": "$z=r(\\cos\\theta+i\\sin\\theta)$",
+          "steps": [
+            "$r=\\sqrt{(-2)^2+(-5)^2}=\\sqrt{29}$",
+            "السعة الرئيسة تقريبًا $\\theta=-1.95$",
+            "$z\\approx\\sqrt{29}(\\cos(-1.95)+i\\sin(-1.95))$"
+          ],
+          "summary": "الصورة المثلثية هي $\\sqrt{29}(\\cos(-1.95)+i\\sin(-1.95))$ تقريبًا."
+        },
+        "explanation": "يجب حساب المقياس والسعة مع مراعاة الربع الذي يقع فيه العدد."
+      },
+      {
+        "id": "U04-L01-Q022",
+        "number": 22,
+        "question": "ما قيمة $\\operatorname{Arg}(z)$ للعدد الحقيقي الموجب $z=6$؟",
+        "options": {
+          "A": "$\\pi$",
+          "B": "$\\frac{\\pi}{2}$",
+          "C": "$0$",
+          "D": "$-\\pi$"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "$0$",
+        "difficulty": "medium",
+        "source": {
+          "page": 164,
+          "reference": "أتدرب وأحل المسائل - 43"
+        },
+        "solution": {
+          "formula": "$\\operatorname{Arg}(a)=0,\\ a>0$",
+          "steps": [
+            "العدد $6$ يقع على الجزء الموجب من المحور الحقيقي.",
+            "لذلك تكون السعة $0$."
+          ],
+          "summary": "السعة هي $0$."
+        },
+        "explanation": "أي عدد حقيقي موجب له سعة رئيسة تساوي صفرًا."
+      },
+      {
+        "id": "U04-L01-Q023",
+        "number": 23,
+        "question": "أجد قيمتي $x$ و$y$ الحقيقيتين من المعادلة $x+5+(4y-9)i=12-5i$.",
+        "options": {
+          "A": "$x=7,\\ y=1$",
+          "B": "$x=17,\\ y=1$",
+          "C": "$x=7,\\ y=3.5$",
+          "D": "$x=17,\\ y=3.5$"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "$x=7,\\ y=1$",
+        "difficulty": "medium",
+        "source": {
+          "page": 154,
+          "reference": "أتحقق من فهمي - مثال 3"
+        },
+        "solution": {
+          "formula": "$a+bi=c+di\\iff a=c,\\ b=d$",
+          "steps": [
+            "$x+5=12$",
+            "$x=7$",
+            "$4y-9=-5$",
+            "$4y=4$",
+            "$y=1$"
+          ],
+          "summary": "$x=7$ و$y=1$."
+        },
+        "explanation": "نساوي الأجزاء الحقيقية معًا والأجزاء التخيّلية معًا."
+      },
+      {
+        "id": "U04-L01-Q024",
+        "number": 24,
+        "question": "ما مقياس العدد المركب $z=-3-6\\sqrt{2}i$؟",
+        "options": {
+          "A": "$9$",
+          "B": "$\\sqrt{81}$",
+          "C": "$9$ و$\\sqrt{81}$ معًا",
+          "D": "$\\sqrt{15}$"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "$9$ و$\\sqrt{81}$ معًا",
+        "difficulty": "medium",
+        "source": {
+          "page": 156,
+          "reference": "أتحقق من فهمي - مثال 5"
+        },
+        "solution": {
+          "formula": "$|z|=\\sqrt{a^2+b^2}$",
+          "steps": [
+            "$|z|=\\sqrt{(-3)^2+(-6\\sqrt{2})^2}$",
+            "$=\\sqrt{9+72}$",
+            "$=\\sqrt{81}=9$"
+          ],
+          "summary": "المقياس هو $9$، وهو يساوي أيضًا $\\sqrt{81}$."
+        },
+        "explanation": "الخياران $9$ و$\\sqrt{81}$ متساويان، لذلك الإجابة الصحيحة هي الخيار ج."
+      },
+      {
+        "id": "U04-L01-Q025",
+        "number": 25,
+        "question": "أجد سعة العدد المركب $z=8-4i$ بالراديان، مقربة لأقرب منزلتين عشريتين.",
+        "options": {
+          "A": "$-0.46$",
+          "B": "$0.46$",
+          "C": "$-1.11$",
+          "D": "$-0.50$"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "$-0.46$",
+        "difficulty": "medium",
+        "source": {
+          "page": 160,
+          "reference": "مثال 6 - الفرع 4"
+        },
+        "solution": {
+          "formula": "$\\operatorname{Arg}(z)=-\\tan^{-1}\\left(\\frac{|b|}{a}\\right)$",
+          "steps": [
+            "العدد يقع في الربع الرابع.",
+            "$\\operatorname{Arg}(z)=-\\tan^{-1}\\left(\\frac{4}{8}\\right)$",
+            "$=-\\tan^{-1}(0.5)\\approx-0.46$"
+          ],
+          "summary": "السعة هي تقريبًا $-0.46$ راديان."
+        },
+        "explanation": "في الربع الرابع تكون السعة الرئيسة سالبة."
+      },
+      {
+        "id": "U04-L01-Q026",
+        "number": 26,
+        "question": "ما سعة العدد التخيّلي $z=-3i$؟",
+        "options": {
+          "A": "$\\frac{\\pi}{2}$",
+          "B": "$-\\frac{\\pi}{2}$",
+          "C": "$\\frac{3\\pi}{2}$",
+          "D": "$0$"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "$-\\frac{\\pi}{2}$",
+        "difficulty": "medium",
+        "source": {
+          "page": 160,
+          "reference": "إرشاد/أمثلة الكتاب"
+        },
+        "solution": {
+          "formula": "$\\operatorname{Arg}(-bi)=-\\frac{\\pi}{2},\\ b>0$",
+          "steps": [
+            "العدد يقع على الجزء السالب من المحور التخيّلي.",
+            "السعة الرئيسة هي $-\\frac{\\pi}{2}$."
+          ],
+          "summary": "السعة هي $-\\frac{\\pi}{2}$."
+        },
+        "explanation": "العدد $-3i$ يقع على المحور التخيّلي السالب."
+      },
+      {
+        "id": "U04-L01-Q027",
+        "number": 27,
+        "question": "إذا كان $\\operatorname{Arg}(5+2i)=\\alpha$، فما سعة العدد $5-2i$؟",
+        "options": {
+          "A": "$\\alpha$",
+          "B": "$-\\alpha$",
+          "C": "$\\pi-\\alpha$",
+          "D": "$\\pi+\\alpha$"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "$-\\alpha$",
+        "difficulty": "hard",
+        "source": {
+          "page": 164,
+          "reference": "مهارات التفكير العليا - 53"
+        },
+        "solution": {
+          "formula": "$\\operatorname{Arg}(\\overline{z})=-\\operatorname{Arg}(z)$",
+          "steps": [
+            "$5-2i$ هو مرافق $5+2i$.",
+            "سعة المرافق تساوي سالب سعة العدد الأصلي."
+          ],
+          "summary": "السعة هي $-\\alpha$."
+        },
+        "explanation": "العدد $5-2i$ هو انعكاس العدد $5+2i$ حول المحور الحقيقي."
+      },
+      {
+        "id": "U04-L01-Q028",
+        "number": 28,
+        "question": "أجد قيمتي $x$ و$y$ الحقيقيتين إذا كان $i(2x-5y)+3x+5y=7+3i$.",
+        "options": {
+          "A": "$x=2,\\ y=0.2$",
+          "B": "$x=1,\\ y=0.8$",
+          "C": "$x=1.6,\\ y=0.8$",
+          "D": "$x=2,\\ y=1$"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "$x=2,\\ y=0.2$",
+        "difficulty": "hard",
+        "source": {
+          "page": 163,
+          "reference": "أتدرب وأحل المسائل - 29"
+        },
+        "solution": {
+          "formula": "$3x+5y=7,\\quad 2x-5y=3$",
+          "steps": [
+            "بمساواة الأجزاء الحقيقية: $3x+5y=7$",
+            "بمساواة الأجزاء التخيّلية: $2x-5y=3$",
+            "بجمع المعادلتين: $5x=10$",
+            "$x=2$",
+            "بالتعويض: $3(2)+5y=7$",
+            "$6+5y=7$",
+            "$y=0.2$"
+          ],
+          "summary": "القيم الصحيحة هي $x=2$ و$y=0.2$."
+        },
+        "explanation": "بعد مساواة الجزأين الحقيقي والتخيّلي نحصل على نظام من معادلتين خطيتين. تم تصحيح الإجابة الأصلية؛ فالقيمة $x=1.6, y=0.8$ لا تحقق المعادلة."
+      },
+      {
+        "id": "U04-L01-Q029",
+        "number": 29,
+        "question": "أكتب العدد المركب $z=1+i$ بالصورة المثلثية.",
+        "options": {
+          "A": "$\\sqrt{2}\\left(\\cos\\frac{\\pi}{4}+i\\sin\\frac{\\pi}{4}\\right)$",
+          "B": "$2\\left(\\cos\\frac{\\pi}{4}+i\\sin\\frac{\\pi}{4}\\right)$",
+          "C": "$\\sqrt{2}\\left(\\cos\\frac{\\pi}{2}+i\\sin\\frac{\\pi}{2}\\right)$",
+          "D": "$\\cos\\frac{\\pi}{4}+i\\sin\\frac{\\pi}{4}$"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "$\\sqrt{2}\\left(\\cos\\frac{\\pi}{4}+i\\sin\\frac{\\pi}{4}\\right)$",
+        "difficulty": "hard",
+        "source": {
+          "page": 164,
+          "reference": "أتدرب وأحل المسائل - 44"
+        },
+        "solution": {
+          "formula": "$r=\\sqrt{a^2+b^2},\\quad \\theta=\\tan^{-1}\\left(\\frac{b}{a}\\right)$",
+          "steps": [
+            "$r=\\sqrt{1^2+1^2}=\\sqrt{2}$",
+            "$\\theta=\\tan^{-1}(1)=\\frac{\\pi}{4}$",
+            "$z=\\sqrt{2}\\left(\\cos\\frac{\\pi}{4}+i\\sin\\frac{\\pi}{4}\\right)$"
+          ],
+          "summary": "الصورة المثلثية هي $\\sqrt{2}\\left(\\cos\\frac{\\pi}{4}+i\\sin\\frac{\\pi}{4}\\right)$."
+        },
+        "explanation": "العدد $1+i$ يقع في الربع الأول، ومقياسه $\\sqrt{2}$ وسعته $\\frac{\\pi}{4}$."
+      },
+      {
+        "id": "U04-L01-Q030",
+        "number": 30,
+        "question": "ما سعة العدد المركب $z=-12+5i$ مقربة لأقرب منزلتين عشريتين؟",
+        "options": {
+          "A": "$2.75$",
+          "B": "$0.40$",
+          "C": "$-2.75$",
+          "D": "$2.36$"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "$2.75$",
+        "difficulty": "hard",
+        "source": {
+          "page": 163,
+          "reference": "أتدرب وأحل المسائل - 36"
+        },
+        "solution": {
+          "formula": "$\\operatorname{Arg}(z)=\\pi-\\tan^{-1}\\left(\\frac{5}{12}\\right)$",
+          "steps": [
+            "العدد يقع في الربع الثاني.",
+            "$\\tan^{-1}\\left(\\frac{5}{12}\\right)\\approx0.39$",
+            "$\\operatorname{Arg}(z)\\approx\\pi-0.39\\approx2.75$"
+          ],
+          "summary": "السعة هي تقريبًا $2.75$ راديان."
+        },
+        "explanation": "نستخدم قاعدة الربع الثاني لأن الجزء الحقيقي سالب والجزء التخيّلي موجب."
+      },
+      {
+        "id": "U04-L01-Q031",
+        "number": 31,
+        "question": "أجد مقياس العدد المركب $z=4+\\sqrt{-20}$.",
+        "options": {
+          "A": "$6$",
+          "B": "$\\sqrt{24}$",
+          "C": "$24$",
+          "D": "$\\sqrt{36}$"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "$6$",
+        "difficulty": "hard",
+        "source": {
+          "page": 156,
+          "reference": "أتحقق من فهمي - مثال 5"
+        },
+        "solution": {
+          "formula": "$|z|=\\sqrt{a^2+b^2}$",
+          "steps": [
+            "$\\sqrt{-20}=i\\sqrt{20}$",
+            "$z=4+i\\sqrt{20}$",
+            "$|z|=\\sqrt{4^2+(\\sqrt{20})^2}$",
+            "$=\\sqrt{16+20}=\\sqrt{36}=6$"
+          ],
+          "summary": "المقياس هو $6$."
+        },
+        "explanation": "نحوّل $\\sqrt{-20}$ إلى $i\\sqrt{20}$ ثم نستخدم قانون مقياس العدد المركب."
+      },
+      {
+        "id": "U04-L01-Q032",
+        "number": 32,
+        "question": "ماذا تمثّل الصيغة $z=r(\\cos\\theta+i\\sin\\theta)$؟",
+        "options": {
+          "A": "الصورة القياسية",
+          "B": "الصورة الديكارتية",
+          "C": "الصورة المثلثية",
+          "D": "الصورة اللوغاريتمية"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الصورة المثلثية",
+        "difficulty": "easy",
+        "source": {
+          "page": 161,
+          "reference": "الصورة المثلثية للعدد المركب"
+        },
+        "solution": {
+          "formula": "$z=r(\\cos\\theta+i\\sin\\theta)$",
+          "steps": [
+            "هذه هي الصيغة المثلثية للعدد المركب."
+          ],
+          "summary": "تمثّل الصورة المثلثية للعدد المركب."
+        },
+        "explanation": "تستخدم الصورة المثلثية المقياس $r$ والسعة $\\theta$."
+      },
+      {
+        "id": "U04-L01-Q033",
+        "number": 33,
+        "question": "أجد ناتج $(i)(2i)(-7i)$.",
+        "options": {
+          "A": "$-14i$",
+          "B": "$14i$",
+          "C": "$14$",
+          "D": "$-14$"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "$14i$",
+        "difficulty": "medium",
+        "source": {
+          "page": 162,
+          "reference": "أتدرب وأحل المسائل - 7"
+        },
+        "solution": {
+          "formula": "$i^3=-i$",
+          "steps": [
+            "$(i)(2i)(-7i)=-14i^3$",
+            "$=-14(-i)$",
+            "$=14i$"
+          ],
+          "summary": "الناتج هو $14i$."
+        },
+        "explanation": "نضرب المعاملات ثم نبسّط قوة $i$."
+      },
+      {
+        "id": "U04-L01-Q034",
+        "number": 34,
+        "question": "ما الجذر الرئيس للعدد $-49$؟",
+        "options": {
+          "A": "$7$",
+          "B": "$-7$",
+          "C": "$7i$",
+          "D": "$-7i$"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "$7i$",
+        "difficulty": "easy",
+        "source": {
+          "page": 151,
+          "reference": "أتحقق من فهمي - مثال 1"
+        },
+        "solution": {
+          "formula": "$\\sqrt{-k}=i\\sqrt{k}$",
+          "steps": [
+            "$\\sqrt{-49}=\\sqrt{49}\\sqrt{-1}$",
+            "$=7i$"
+          ],
+          "summary": "الجذر الرئيس هو $7i$."
+        },
+        "explanation": "نستخدم العلاقة $\\sqrt{-1}=i$."
+      },
+      {
+        "id": "U04-L01-Q035",
+        "number": 35,
+        "question": "أجد قيمة $i^{39}$.",
+        "options": {
+          "A": "$1$",
+          "B": "$-1$",
+          "C": "$i$",
+          "D": "$-i$"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "$-i$",
+        "difficulty": "medium",
+        "source": {
+          "page": 162,
+          "reference": "أتدرب وأحل المسائل - 6"
+        },
+        "solution": {
+          "formula": "$i^n=i^{n\\bmod4}$",
+          "steps": [
+            "$39=4(9)+3$",
+            "$i^{39}=i^3$",
+            "$i^3=-i$"
+          ],
+          "summary": "قيمة $i^{39}$ هي $-i$."
+        },
+        "explanation": "نعتمد على تكرار قوى $i$ كل أربع قوى."
+      },
+      {
+        "id": "U04-L01-Q036",
+        "number": 36,
+        "question": "ما سعة العدد المركب $z=-3+8i$ مقربة لأقرب منزلتين عشريتين؟",
+        "options": {
+          "A": "$1.93$",
+          "B": "$1.21$",
+          "C": "$2.10$",
+          "D": "$0.64$"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "$1.93$",
+        "difficulty": "hard",
+        "source": {
+          "page": 159,
+          "reference": "مثال 6 - الفرع 2"
+        },
+        "solution": {
+          "formula": "$\\operatorname{Arg}(z)=\\pi-\\tan^{-1}\\left(\\frac{8}{3}\\right)$",
+          "steps": [
+            "العدد يقع في الربع الثاني.",
+            "$\\tan^{-1}\\left(\\frac{8}{3}\\right)\\approx1.21$",
+            "$\\operatorname{Arg}(z)\\approx\\pi-1.21\\approx1.93$"
+          ],
+          "summary": "السعة هي تقريبًا $1.93$ راديان."
+        },
+        "explanation": "نستخدم قاعدة الربع الثاني لأن الجزء الحقيقي سالب والجزء التخيّلي موجب."
+      },
+      {
+        "id": "U04-L01-Q037",
+        "number": 37,
+        "question": "أكتب العدد المركب $z=\\frac{10-\\sqrt{-50}}{5}$ بالصورة القياسية.",
+        "options": {
+          "A": "$2-i\\sqrt{2}$",
+          "B": "$2+i\\sqrt{2}$",
+          "C": "$10-5i\\sqrt{2}$",
+          "D": "$2-5i\\sqrt{2}$"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "$2-i\\sqrt{2}$",
+        "difficulty": "hard",
+        "source": {
+          "page": 163,
+          "reference": "أتدرب وأحل المسائل - 13"
+        },
+        "solution": {
+          "formula": "$\\sqrt{-50}=5i\\sqrt{2}$",
+          "steps": [
+            "$\\sqrt{-50}=i\\sqrt{50}=5i\\sqrt{2}$",
+            "$z=\\frac{10-5i\\sqrt{2}}{5}$",
+            "$z=2-i\\sqrt{2}$"
+          ],
+          "summary": "الصورة القياسية هي $2-i\\sqrt{2}$."
+        },
+        "explanation": "نحوّل الجذر السالب إلى صورة تخيّلية ثم نقسم كل حد في البسط على $5$."
+      },
+      {
+        "id": "U04-L01-Q038",
+        "number": 38,
+        "question": "أجد مقياس العدد المركب $z=-5+5i$.",
+        "options": {
+          "A": "$0$",
+          "B": "$10$",
+          "C": "$5\\sqrt{2}$",
+          "D": "$50$"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "$5\\sqrt{2}$",
+        "difficulty": "medium",
+        "source": {
+          "page": 163,
+          "reference": "أتدرب وأحل المسائل - 23"
+        },
+        "solution": {
+          "formula": "$|z|=\\sqrt{a^2+b^2}$",
+          "steps": [
+            "$|z|=\\sqrt{(-5)^2+5^2}$",
+            "$=\\sqrt{25+25}$",
+            "$=\\sqrt{50}=5\\sqrt{2}$"
+          ],
+          "summary": "المقياس هو $5\\sqrt{2}$."
+        },
+        "explanation": "نطبّق قانون مقياس العدد المركب ثم نبسّط الجذر."
+      },
+      {
+        "id": "U04-L01-Q039",
+        "number": 39,
+        "question": "ما سعة العدد المركب $z=1-i\\sqrt{3}$؟",
+        "options": {
+          "A": "$\\frac{\\pi}{3}$",
+          "B": "$-\\frac{\\pi}{3}$",
+          "C": "$\\frac{2\\pi}{3}$",
+          "D": "$-\\frac{2\\pi}{3}$"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "$-\\frac{\\pi}{3}$",
+        "difficulty": "hard",
+        "source": {
+          "page": 163,
+          "reference": "أتدرب وأحل المسائل - 33"
+        },
+        "solution": {
+          "formula": "$\\operatorname{Arg}(z)=-\\tan^{-1}\\left(\\frac{|b|}{a}\\right)$",
+          "steps": [
+            "العدد يقع في الربع الرابع.",
+            "$\\operatorname{Arg}(z)=-\\tan^{-1}(\\sqrt{3})$",
+            "$\\operatorname{Arg}(z)=-\\frac{\\pi}{3}$"
+          ],
+          "summary": "السعة هي $-\\frac{\\pi}{3}$."
+        },
+        "explanation": "بما أن العدد يقع في الربع الرابع، تكون سعته الرئيسة سالبة."
+      },
+      {
+        "id": "U04-L01-Q040",
+        "number": 40,
+        "question": "ما مقياس وسعة العدد المركب $z=2i$؟",
+        "options": {
+          "A": "$|z|=2,\\ \\operatorname{Arg}(z)=0$",
+          "B": "$|z|=2,\\ \\operatorname{Arg}(z)=\\frac{\\pi}{2}$",
+          "C": "$|z|=4,\\ \\operatorname{Arg}(z)=\\frac{\\pi}{2}$",
+          "D": "$|z|=2,\\ \\operatorname{Arg}(z)=-\\frac{\\pi}{2}$"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "$|z|=2,\\ \\operatorname{Arg}(z)=\\frac{\\pi}{2}$",
+        "difficulty": "medium",
+        "source": {
+          "page": 162,
+          "reference": "مثال 7 - الفرع 3"
+        },
+        "solution": {
+          "formula": "$|z|=\\sqrt{a^2+b^2}$",
+          "steps": [
+            "$z=0+2i$",
+            "$|z|=\\sqrt{0^2+2^2}=2$",
+            "يقع العدد على المحور التخيّلي الموجب.",
+            "$\\operatorname{Arg}(z)=\\frac{\\pi}{2}$"
+          ],
+          "summary": "المقياس $2$ والسعة $\\frac{\\pi}{2}$."
+        },
+        "explanation": "العدد $2i$ يقع على المحور التخيّلي الموجب، لذلك مقياسه $2$ وسعته $\\frac{\\pi}{2}$."
+      }
+    ]
+  }
+}

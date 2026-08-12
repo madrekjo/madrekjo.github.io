@@ -26,6 +26,36 @@
         "name": "مراجعة الوحدة",
         "file": "unit-01/review.json"
       }
+    },
+    {
+      "id": "U04",
+      "number": 4,
+      "name": "الأعداد المركبة",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "الأعداد المركبة",
+          "file": "unit-04/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "العمليات على الأعداد المركبة",
+          "file": "unit-04/lesson-02.json"
+        },
+        {
+          "id": "L03",
+          "number": 3,
+          "name": "المحل الهندسي في المستوى المركب",
+          "file": "unit-04/lesson-03.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-04/review.json"
+      }
     }
   ]
 }
