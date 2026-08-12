@@ -179,6 +179,25 @@ body {
   flex-shrink: 0;
   width: 20px;
 }
+.qnav {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+.qnav-btn {
+  flex: 1;
+  background: var(--surface2);
+  border: 1px solid var(--a-border);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--a);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.qnav-btn:hover { background: var(--a-dim); }
 .result-card {
   display: none;
   background: var(--surface);
@@ -502,7 +521,7 @@ const AR_LABELS = ['أ', 'ب', 'ج', 'د'];
 const state = {
   slug: null, semDir: null, semIndex: null, semLabel: null,
   unit: null, origin: 'legacy', title: '', expected: 0, warningMsg: '',
-  questions: [], idx: 0, score: 0, answered: false, answers: []
+  questions: [], idx: 0, score: 0, answered: false, answers: [], timer: null
 };
 
 if (isReview) {
@@ -515,8 +534,9 @@ if (isReview) {
   if (wrongList.length === 0) {
     document.getElementById('examContent').innerHTML = '<div class="empty-state"><div class="icon">✨</div><h3>لا توجد أسئلة خاطئة للمراجعة</h3><p>أنت ممتاز! لم تقم بالإجابة على أي سؤال بشكل خاطئ بعد، أو تم مسح السجل.</p></div>';
   } else {
-    let idx = 0, score = 0, answered = false;
+    let idx = 0, score = 0, answered = false, timer = null;
     const qs = wrongList;
+    const rAns = [];
 
     function showReviewQ() {
       const item = qs[idx];
@@ -526,20 +546,34 @@ if (isReview) {
       const pct = ((idx + 1) / total) * 100;
       document.getElementById('progressFill').style.width = pct + '%';
       document.getElementById('progressText').textContent = (idx + 1) + ' / ' + total + ' (' + item.subject + ' - ' + item.semester + ')';
-      answered = false;
+      const prev = rAns[idx];
+      answered = !!prev;
 
       let html = '<div class="question-card" id="qCard">';
       html += '<div class="question-num">سؤال ' + (idx + 1) + ' من مادة: ' + item.subject + ' (' + item.semester + ')</div>';
       html += '<div class="question-text">' + q.q + '</div>';
       html += '<div class="options-list">';
       q.options.forEach((opt, oi) => {
-        html += '<button class="option-btn" data-oi="' + oi + '" onclick="pickReview(' + oi + ')">';
+        let cls = '';
+        if (prev) {
+          cls += ' disabled';
+          if (oi === item.answer) cls += ' correct';
+          if (oi === prev.chosen && oi !== item.answer) cls += ' wrong';
+          if (oi === prev.chosen) cls += ' selected';
+        }
+        html += '<button class="option-btn' + cls + '" data-oi="' + oi + '" onclick="pickReview(' + oi + ')">';
         html += '<span class="option-circle"></span>';
         html += '<span class="option-label">' + labels[oi] + '</span>';
         html += '<span>' + opt + '</span>';
         html += '</button>';
       });
-      html += '</div></div>';
+      html += '</div>';
+      html += '<div class="qnav">';
+      if (idx > 0) html += '<button class="qnav-btn" onclick="goPrevReview()">→ السابق</button>';
+      if (prev && idx < total - 1) html += '<button class="qnav-btn" onclick="goNextReview()">التالي ←</button>';
+      if (prev && idx === total - 1) html += '<button class="qnav-btn" onclick="showReviewResult()">🏁 عرض النتيجة</button>';
+      html += '</div>';
+      html += '</div>';
       document.getElementById('examContent').innerHTML = html;
     }
 
@@ -554,6 +588,7 @@ if (isReview) {
         else if (bi === oi && oi !== item.answer) b.classList.add('wrong');
         if (bi === oi) b.classList.add('selected');
       });
+      rAns[idx] = { chosen: oi, correct: oi === item.answer };
       if (oi === item.answer) {
         score++;
         // Remove from wrong list if answered correctly
@@ -563,11 +598,22 @@ if (isReview) {
           localStorage.setItem('madrekjo_wrong_questions', JSON.stringify(list));
         } catch(e) {}
       }
-      setTimeout(() => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
         idx++;
         if (idx < qs.length) showReviewQ();
         else showReviewResult();
       }, 900);
+    };
+
+    window.goPrevReview = function() {
+      clearTimeout(timer);
+      if (idx > 0) { idx--; showReviewQ(); }
+    };
+
+    window.goNextReview = function() {
+      clearTimeout(timer);
+      if (idx < qs.length - 1) { idx++; showReviewQ(); }
     };
 
     function showReviewResult() {
@@ -777,7 +823,8 @@ function showQ() {
   const pct = ((state.idx + 1) / total) * 100;
   document.getElementById('progressFill').style.width = pct + '%';
   document.getElementById('progressText').textContent = (state.idx + 1) + ' / ' + total;
-  state.answered = false;
+  const prevAnswer = state.answers[state.idx];
+  state.answered = !!prevAnswer;
 
   let html = '';
   if (state.warningMsg) html += '<div class="warning-banner">⚠️ ' + state.warningMsg + '</div>';
@@ -786,40 +833,52 @@ function showQ() {
   html += '<div class="question-text">' + q.question + '</div>';
   html += '<div class="options-list">';
   KEYS.forEach(k => {
-    html += '<button class="option-btn" data-key="' + k + '" onclick="pick(\'' + k + '\')">';
+    let cls = '';
+    if (prevAnswer && k === prevAnswer.chosen) cls += ' selected';
+    html += '<button class="option-btn' + cls + '" data-key="' + k + '" onclick="pick(\'' + k + '\')">';
     html += '<span class="option-circle"></span>';
     html += '<span class="option-label">' + AR_LABELS[KEYS.indexOf(k)] + '</span>';
     html += '<span>' + q.options[k] + '</span>';
     html += '</button>';
   });
-  html += '</div></div>';
+  html += '</div>';
+  html += '<div class="qnav">';
+  if (state.idx > 0) html += '<button class="qnav-btn" onclick="goPrev()">→ السابق</button>';
+  if (state.idx < total - 1) html += '<button class="qnav-btn" onclick="goNext()">التالي ←</button>';
+  else html += '<button class="qnav-btn" onclick="showResult()">🏁 عرض النتيجة</button>';
+  html += '</div>';
+  html += '</div>';
   document.getElementById('examContent').innerHTML = html;
 }
 
 window.pick = function(key) {
-  if (state.answered) return;
-  state.answered = true;
   const qItem = state.questions[state.idx];
-  const btns = document.querySelectorAll('.option-btn');
-  btns.forEach(b => {
-    b.classList.add('disabled');
-    if (b.dataset.key === qItem.correct_answer) b.classList.add('correct');
-    else if (b.dataset.key === key && key !== qItem.correct_answer) b.classList.add('wrong');
-    if (b.dataset.key === key) b.classList.add('selected');
+  state.answered = true;
+  state.answers[state.idx] = { q: qItem, chosen: key, correct: key === qItem.correct_answer };
+  document.querySelectorAll('.option-btn').forEach(b => {
+    b.classList.toggle('selected', b.dataset.key === key);
   });
-  const isCorrect = key === qItem.correct_answer;
-  state.answers.push({ q: qItem, chosen: key, correct: isCorrect });
-  if (isCorrect) { state.score++; removeFromWrong(qItem); }
-  else { addToWrong(qItem); }
-  setTimeout(() => {
-    state.idx++;
-    if (state.idx < state.questions.length) showQ();
-    else showResult();
-  }, 800);
+};
+
+window.goPrev = function() {
+  clearTimeout(state.timer);
+  if (state.idx > 0) { state.idx--; showQ(); }
+};
+
+window.goNext = function() {
+  clearTimeout(state.timer);
+  if (state.idx < state.questions.length - 1) { state.idx++; showQ(); }
 };
 
 function showResult() {
   const total = state.questions.length;
+  state.score = 0;
+  state.questions.forEach((q, i) => {
+    const a = state.answers[i];
+    const correct = a && a.correct;
+    if (correct) { state.score++; removeFromWrong(q); }
+    else { addToWrong(q); }
+  });
   const pct = total ? Math.round((state.score / total) * 100) : 0;
   const icon = state.score === total ? '🏆' : state.score >= total * 0.5 ? '🎉' : '💪';
   const label = state.score === total ? 'ممتاز! إجابة كاملة' : state.score >= total * 0.5 ? 'أحسنت! استمر' : 'ركّز أكثر في المرة القادمة';
@@ -845,8 +904,9 @@ window.restart = function() {
 window.showAnswers = function() {
   let html = '<button class="back-btn" onclick="showResult()">→ رجوع للنتيجة</button>';
   html += '<div class="answers-title">الإجابات النموذجية — ' + state.title + '</div>';
-  state.answers.forEach((a, i) => {
-    const q = a.q;
+  state.questions.forEach((q, i) => {
+    const a = state.answers[i];
+    if (!a) return;
     html += '<div class="answer-card' + (a.correct ? ' ok' : ' no') + '">';
     html += '<div class="answer-q">' + (i + 1) + '. ' + q.question + '</div>';
     html += '<div class="answer-line">' + (a.correct ? '✅ إجابتك صحيحة' : '❌ إجابتك خطأ') + '</div>';
