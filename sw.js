@@ -1,7 +1,7 @@
 /* ========================================
    مدارك جو — Service Worker
    ======================================== */
-const CACHE = 'madrekjo-v5';
+const CACHE = 'madrekjo-v6';
 const CORE = [
   '/',
   '/index.html',
@@ -94,6 +94,20 @@ self.addEventListener('fetch', function(e) {
           return caches.match(req).then(function(hit) {
             return hit || caches.match('/');
           });
+        })
+      );
+      return;
+    }
+    // ملفات الأسئلة (questions/): شبكة أولاً دائماً حتى تظهر أي تحديثات للمحتوى
+    // فوراً دون الحاجة إلى تحديث يدوي من المستخدم.
+    if (url.pathname.indexOf('/questions/') === 0) {
+      e.respondWith(
+        fetch(req).then(function(res) {
+          var copy = res.clone();
+          caches.open(CACHE).then(function(c) { c.put(req, copy); });
+          return res;
+        }).catch(function() {
+          return caches.match(req);
         })
       );
       return;
