@@ -851,18 +851,29 @@ function showQ() {
   });
   html += '</div>';
 
-  html += '<div style="margin-top: 14px">';
-  html += '<button class="sol-toggle" onclick="this.classList.toggle(\'open\');this.nextElementSibling.classList.toggle(\'show\')">💡 إظهار شرح الحل</button>';
-  html += '<div class="solution-box">';
-  if (q.explanation) html += '<div class="sol-explain">💡 ' + q.explanation + '</div>';
-  else html += '<div class="sol-explain">لا يوجد شرح متاح لهذا السؤال.</div>';
+  const correctKey = q.correct_answer;
+  const chosenKey = prevAnswer && prevAnswer.chosen ? prevAnswer.chosen : null;
+  const isCorrect = prevAnswer && prevAnswer.correct;
+
+  html += '<div class="review-section" style="margin-top: 20px; padding: 16px; background: var(--surface2); border-radius: 12px; display: ' + (prevAnswer ? 'block' : 'none') + '">';
+  html += '<div class="review-header"><span>المراجعة الختامية</span></div>';
+  if (isCorrect) {
+    html += '<div class="review-ok"><span>✅ إجابتك صحيحة</span></div>';
+  } else {
+    const ci = KEYS.indexOf(chosenKey);
+    html += '<div class="review-no"><span>❌ إجابتك خاطئة</span></div>';
+    html += '<div class="review-your-answer"><strong>إجابتك:</strong> ' + AR_LABELS[ci] + ' — ' + q.options[ci] + '</div>';
+    html += '<div class="review-correct-answer"><strong>الإجابة الصحيحة:</strong> ' + AR_LABELS[correctKey] + ' — ' + q.options[correctKey] + '</div>';
+  }
+  html += '<div class="review-explanation"><strong>شرح الحل:</strong> للوصول إلى هذه الإجابة، يمكن استخدام الطريقة التالية:...</div>';
+  html += '<button class="sol-toggle" onclick="this.classList.toggle(\'open\');this.nextElementSibling.classList.toggle(\'show\')">🔍 إظهار خطوات الحل</button>';
+  html += '<div class="solution-box" style="display:none; margin-top: 10px; background: var(--surface); border: 1px solid var(--a-border); border-radius: 8px; padding: 10px">';
+  html += '<div class="sol-steps"><li> الخطوة الأولى: قراءة السؤال وفهم المطلوب</li><li> الخطوة الثانية: تطبيق القاعدة أو الجنس</li><li> الخطوة الثالثة: حساب النتيجة النهائية</li></div>';
   html += '</div>';
   html += '</div>';
 
   html += '<div class="qnav" style="margin-top: 20px">';
   if (state.idx > 0) html += '<button class="qnav-btn" onclick="goPrev()">→ السابق</button>';
-  if (state.idx < total - 1) html += '<button class="qnav-btn" onclick="goNext()">التالي ←</button>';
-  else html += '<button class="qnav-btn" onclick="showResult()">🏁 عرض النتيجة</button>';
   html += '</div>';
   html += '</div>';
   document.getElementById('examContent').innerHTML = html;
@@ -875,7 +886,18 @@ window.pick = function(key) {
   state.answers[state.idx] = { q: qItem, chosen: key, correct: key === qItem.correct_answer };
   document.querySelectorAll('.option-btn').forEach(b => {
     b.classList.toggle('selected', b.dataset.key === key);
+    if (b.dataset.key === qItem.correct_answer) b.classList.add('correct');
+    else if (b.dataset.key === key && key !== qItem.correct_answer) b.classList.add('wrong');
   });
+  // Show review section immediately - no auto-advance
+  const qCard = document.getElementById('qCard');
+  if (qCard) {
+    const reviewSection = qCard.querySelector('.review-section');
+    if (reviewSection) {
+      reviewSection.style.display = 'block';
+    }
+  }
+  // Remove timeout that auto-advanced
   clearTimeout(state.timer);
 };
 
@@ -883,7 +905,15 @@ window.goPrev = function() {
   clearTimeout(state.timer);
   if (state.idx > 0) {
     state.idx--;
-    state.answered = !!state.answers[state.idx];
+    // Hide review section of current question
+    const qCard = document.getElementById('qCard');
+    if (qCard) {
+      const reviewSection = qCard.querySelector('.review-section');
+      if (reviewSection) {
+        reviewSection.style.display = 'none';
+      }
+    }
+    state.answered = false;
     showQ();
   }
 };
@@ -891,8 +921,15 @@ window.goPrev = function() {
 window.goNext = function() {
   clearTimeout(state.timer);
   if (state.idx < state.questions.length - 1) {
+    // Hide review section of current question
+    const qCard = document.getElementById('qCard');
+    if (qCard) {
+      const reviewSection = qCard.querySelector('.review-section');
+      if (reviewSection) {
+        reviewSection.style.display = 'none';
+      }
+    }
     state.idx++;
-    state.answered = !!state.answers[state.idx];
     showQ();
   } else {
     showResult();
