@@ -1,0 +1,1107 @@
+{
+  "lesson": {
+    "lesson_number": "3.4",
+    "lesson_name": "الاشتقاق الضمني",
+    "unit_number": 3,
+    "unit_name": "التفاضل وتطبيقاته",
+    "page_start": 121,
+    "page_end": 132,
+    "questions": [
+      {
+        "id": "U03-L04-Q001",
+        "number": 1,
+        "question": "ما الفرق الأساسي بين الاقتران الصريح والعلاقة الضمنية؟",
+        "options": {
+          "A": "الاقتران الصريح يحوي متغيرًا واحدًا فقط",
+          "B": "الاقتران الصريح يمكن كتابته في صورة y = f(x) صراحة، بينما العلاقة الضمنية يصعب فيها ذلك",
+          "C": "العلاقة الضمنية لا يمكن اشتقاقها أبدًا",
+          "D": "لا يوجد فرق بينهما"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الاقتران الصريح يمكن كتابته في صورة y = f(x) صراحة، بينما العلاقة الضمنية يصعب فيها ذلك",
+        "difficulty": "easy",
+        "source": {
+          "page": 121,
+          "reference": "العلاقة الضمنية ومشتقتها"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "مراجعة مقدمة الدرس ص 121"
+          ],
+          "summary": "الاقتران الصريح يفصل المتغير التابع عن المستقل."
+        },
+        "explanation": "بناءً على التعريف الوارد في صفحة 121، فإن العلاقة الضمنية تحتوي على أكثر من اقتران ولا يمكن كتابتها بصورة صريحة دائمًا."
+      },
+      {
+        "id": "U03-L04-Q002",
+        "number": 2,
+        "question": "ماذا يسمى الإجراء المستخدم لإيجاد dy/dx لعلاقة ضمنية؟",
+        "options": {
+          "A": "الاشتقاق الصريح",
+          "B": "الاشتقاق المتتالي",
+          "C": "الاشتقاق الضمني",
+          "D": "القسمة المطولة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الاشتقاق الضمني",
+        "difficulty": "easy",
+        "source": {
+          "page": 122,
+          "reference": "الاشتقاق الضمني - مفهوم أساسي"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "مراجعة المصطلح ص 122"
+          ],
+          "summary": "الإجراء يسمى الاشتقاق الضمني."
+        },
+        "explanation": "يُطلق على عملية إيجاد المشتقة لعلاقة ضمنية اسم الاشتقاق الضمني."
+      },
+      {
+        "id": "U03-L04-Q003",
+        "number": 3,
+        "question": "ما القاعدة التي يجب مراعاتها عند اشتقاق حدود تتضمن المتغير y بالنسبة لـ x؟",
+        "options": {
+          "A": "قاعدة المجموع",
+          "B": "قاعدة السلسلة",
+          "C": "قاعدة القوة فقط",
+          "D": "إهمال المتغير y"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "قاعدة السلسلة",
+        "difficulty": "medium",
+        "source": {
+          "page": 122,
+          "reference": "الاشتقاق الضمني - الخطوة 1"
+        },
+        "solution": {
+          "formula": "d/dx(g(y)) = g'(y) * dy/dx",
+          "steps": [
+            "اعتبار y اقترانًا بالنسبة لـ x"
+          ],
+          "summary": "يجب استخدام قاعدة السلسلة لاشتقاق y."
+        },
+        "explanation": "تنص الخطوة الأولى في الاشتقاق الضمني على مراعاة استعمال قاعدة السلسلة عند اشتقاق حدود تتضمن y."
+      },
+      {
+        "id": "U03-L04-Q004",
+        "number": 4,
+        "question": "أجد dy/dx للعلاقة x^2 + y^2 = 4.",
+        "options": {
+          "A": "dy/dx = -2x",
+          "B": "dy/dx = -x/y",
+          "C": "dy/dx = x/y",
+          "D": "dy/dx = -y/x"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "dy/dx = -x/y",
+        "difficulty": "medium",
+        "source": {
+          "page": 122,
+          "reference": "مثال 1 - الفرع 1"
+        },
+        "solution": {
+          "formula": "2x + 2y(dy/dx) = 0",
+          "steps": [
+            "اشتقاق الطرفين بالنسبة لـ x: 2x + 2y(dy/dx) = 0",
+            "نقل 2x للطرف الآخر: 2y(dy/dx) = -2x",
+            "القسمة على 2y: dy/dx = -x/y"
+          ],
+          "summary": "المشتقة هي -x/y."
+        },
+        "explanation": "تطبيق لخطوات الاشتقاق الضمني الموضحة في مثال 1 ص 122."
+      },
+      {
+        "id": "U03-L04-Q005",
+        "number": 5,
+        "question": "ما هي مشتقة الحد (cos y) بالنسبة لـ x؟",
+        "options": {
+          "A": "-sin y",
+          "B": "-sin y * (dy/dx)",
+          "C": "sin y",
+          "D": "cos y * (dy/dx)"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-sin y * (dy/dx)",
+        "difficulty": "medium",
+        "source": {
+          "page": 123,
+          "reference": "مثال 1 - الفرع 2"
+        },
+        "solution": {
+          "formula": "d/dx(cos y) = -sin y * dy/dx",
+          "steps": [
+            "تطبيق قاعدة السلسلة على جيب التمام"
+          ],
+          "summary": "يضرب ناتج الاشتقاق في dy/dx."
+        },
+        "explanation": "بما أن y اقتران بالنسبة لـ x، فإن مشتقتها تتطلب ضرب مشتقة الزاوية."
+      },
+      {
+        "id": "U03-L04-Q006",
+        "number": 6,
+        "question": "أجد dy/dx للعلاقة sin x + cos y = 2x - 3y.",
+        "options": {
+          "A": "(2 - cos x) / (3 - sin y)",
+          "B": "(2 - cos x) / (sin y - 3)",
+          "C": "cos x + sin y",
+          "D": "2 / 3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(2 - cos x) / (3 - sin y)",
+        "difficulty": "hard",
+        "source": {
+          "page": 124,
+          "reference": "مثال 1 - الفرع 2"
+        },
+        "solution": {
+          "formula": "cos x - sin y(y') = 2 - 3y'",
+          "steps": [
+            "اشتقاق: cos x - sin y(dy/dx) = 2 - 3(dy/dx)",
+            "تجميع dy/dx: 3(dy/dx) - sin y(dy/dx) = 2 - cos x",
+            "أخذ عامل مشترك: dy/dx(3 - sin y) = 2 - cos x"
+          ],
+          "summary": "المشتقة هي (2-cos x)/(3-sin y)."
+        },
+        "explanation": "خطوات الحل التفصيلية للمثال في صفحة 124."
+      },
+      {
+        "id": "U03-L04-Q007",
+        "number": 7,
+        "question": "كيف يتم اشتقاق الحد (2xy) ضمنيًا بالنسبة لـ x؟",
+        "options": {
+          "A": "2(dy/dx)",
+          "B": "2y + 2x(dy/dx)",
+          "C": "2",
+          "D": "2x + 2y"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "2y + 2x(dy/dx)",
+        "difficulty": "medium",
+        "source": {
+          "page": 124,
+          "reference": "مثال 2 - الفرع 1"
+        },
+        "solution": {
+          "formula": "d/dx(2xy) = 2x(y') + y(2)",
+          "steps": [
+            "استعمال قاعدة ضرب اقترانين (2x) و (y)"
+          ],
+          "summary": "تطبيق قاعدة الضرب مع dy/dx."
+        },
+        "explanation": "يتطلب الحد 2xy استخدام قاعدة الضرب عند الاشتقاق الضمني."
+      },
+      {
+        "id": "U03-L04-Q008",
+        "number": 8,
+        "question": "أجد dy/dx للعلاقة 2xy - y^3 = 1.",
+        "options": {
+          "A": "-2y / (2x - 3y^2)",
+          "B": "2y / (3y^2 - 2x)",
+          "C": "1 / (2x - 3y^2)",
+          "D": "0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-2y / (2x - 3y^2)",
+        "difficulty": "hard",
+        "source": {
+          "page": 124,
+          "reference": "مثال 2 - الفرع 1"
+        },
+        "solution": {
+          "formula": "2x(y') + 2y - 3y^2(y') = 0",
+          "steps": [
+            "اشتقاق: (2x y' + 2y) - 3y^2 y' = 0",
+            "تجميع y': y'(2x - 3y^2) = -2y",
+            "القسمة: y' = -2y / (2x - 3y^2)"
+          ],
+          "summary": "المشتقة هي -2y / (2x - 3y^2)."
+        },
+        "explanation": "تم تطبيق قاعدة الضرب واقتران القوة والجمع ص 124."
+      },
+      {
+        "id": "U03-L04-Q009",
+        "number": 9,
+        "question": "ما هي مشتقة sin(x + y) بالنسبة لـ x؟",
+        "options": {
+          "A": "cos(x + y)",
+          "B": "cos(x + y) * (1 + dy/dx)",
+          "C": "cos(1 + dy/dx)",
+          "D": "cos x + cos y"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "cos(x + y) * (1 + dy/dx)",
+        "difficulty": "hard",
+        "source": {
+          "page": 126,
+          "reference": "مثال 2 - الفرع 2"
+        },
+        "solution": {
+          "formula": "cos(x+y) * d/dx(x+y)",
+          "steps": [
+            "مشتقة الزاوية x+y هي 1 + dy/dx"
+          ],
+          "summary": "يضرب جيب التمام في مشتقة الزاوية المركبة."
+        },
+        "explanation": "تطبيق قاعدة السلسلة للاقتران المثلثي المركب ص 126."
+      },
+      {
+        "id": "U03-L04-Q010",
+        "number": 10,
+        "question": "أجد dy/dx للعلاقة y^2 = (x - 1) / (x + 1).",
+        "options": {
+          "A": "1 / [y(x + 1)^2]",
+          "B": "2 / (x + 1)^2",
+          "C": "-1 / (x + 1)^2",
+          "D": "y / (x + 1)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1 / [y(x + 1)^2]",
+        "difficulty": "hard",
+        "source": {
+          "page": 127,
+          "reference": "مثال 2 - الفرع 3"
+        },
+        "solution": {
+          "formula": "2y y' = 2 / (x + 1)^2",
+          "steps": [
+            "مشتقة الطرف الأيسر: 2y(dy/dx)",
+            "مشتقة الطرف الأيمن (قاعدة القسمة): 2 / (x + 1)^2",
+            "y' = 2 / [2y(x + 1)^2] = 1 / [y(x + 1)^2]"
+          ],
+          "summary": "المشتقة هي 1 / y(x+1)^2."
+        },
+        "explanation": "تم دمج قاعدة السلسلة مع قاعدة القسمة ص 127."
+      },
+      {
+        "id": "U03-L04-Q011",
+        "number": 11,
+        "question": "ما هي الخطوة الأولى لإيجاد ميل المماس لعلاقة ضمنية عند نقطة معينة؟",
+        "options": {
+          "A": "تعويض النقطة في العلاقة الأصلية مباشرة",
+          "B": "إيجاد dy/dx أولاً",
+          "C": "رسم العلاقة بيانيًا",
+          "D": "تحويلها لمتغير واحد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إيجاد dy/dx أولاً",
+        "difficulty": "easy",
+        "source": {
+          "page": 126,
+          "reference": "ميل المماس لمنحنى علاقة ضمنية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "مراجعة فقرة الميل ص 126"
+          ],
+          "summary": "يجب حساب المشتقة أولاً ثم التعويض."
+        },
+        "explanation": "يتم إيجاد dy/dx أولاً ثم تعويض قيم x و y للنقطة المطلوبة."
+      },
+      {
+        "id": "U03-L04-Q012",
+        "number": 12,
+        "question": "ما هو ميل مماس منحنى e^(2x) ln y = x + y - 2 عند النقطة (1 ,1)؟",
+        "options": {
+          "A": "0",
+          "B": "1 / (e^2 - 1)",
+          "C": "e^2",
+          "D": "1"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1 / (e^2 - 1)",
+        "difficulty": "hard",
+        "source": {
+          "page": 126,
+          "reference": "مثال 3"
+        },
+        "solution": {
+          "formula": "dy/dx = (1 - 2e^(2x) ln y) / (e^(2x)/y - 1)",
+          "steps": [
+            "إيجاد المشتقة ضمنيًا",
+            "تعويض x=1, y=1: (1 - 0) / (e^2/1 - 1) = 1 / (e^2 - 1)"
+          ],
+          "summary": "الميل هو 1 / (e^2 - 1)."
+        },
+        "explanation": "تم حساب المشتقة وتعويض إحداثيات النقطة ص 126."
+      },
+      {
+        "id": "U03-L04-Q013",
+        "number": 13,
+        "question": "كم عدد المماسات لمنحنى y^2 = x عند القيمة x = 4؟",
+        "options": {
+          "A": "مماس واحد",
+          "B": "مماسان",
+          "C": "لا يوجد مماسات",
+          "D": "عدد لا نهائي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مماسان",
+        "difficulty": "medium",
+        "source": {
+          "page": 127,
+          "reference": "مثال 4 - الدعم البياني"
+        },
+        "solution": {
+          "formula": "y = ±2",
+          "steps": [
+            "عند x=4: y^2 = 4 تعطي y = 2 أو y = -2",
+            "توجد نقطتان (4, 2) و (4, -2)"
+          ],
+          "summary": "توجد نقطتا تماس لنفس قيمة x."
+        },
+        "explanation": "يوضح الرسم البياني ص 127 وجود نقطتين لكل منهما مماس خاص."
+      },
+      {
+        "id": "U03-L04-Q014",
+        "number": 14,
+        "question": "ما هو ميل المماس لمنحنى y^2 = x عند النقطة (4, 2)؟",
+        "options": {
+          "A": "1/2",
+          "B": "1/4",
+          "C": "-1/4",
+          "D": "4"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1/4",
+        "difficulty": "medium",
+        "source": {
+          "page": 127,
+          "reference": "مثال 4 - الخطوة 2"
+        },
+        "solution": {
+          "formula": "dy/dx = 1 / 2y",
+          "steps": [
+            "مشتقة y^2=x هي 2y y' = 1",
+            "y' = 1 / 2y",
+            "بالتعويض عن y=2: الميل = 1/4"
+          ],
+          "summary": "الميل عند تلك النقطة هو 1/4."
+        },
+        "explanation": "تم حساب المشتقة الضمنية والتعويض ص 127."
+      },
+      {
+        "id": "U03-L04-Q015",
+        "number": 15,
+        "question": "أجد معادلة المماس لمنحنى x^2 - xy + y^2 = 7 عند النقطة (-1, 2).",
+        "options": {
+          "A": "y = 0.8x + 2.8",
+          "B": "y = -0.8x + 1.2",
+          "C": "y = x + 3",
+          "D": "y = 2x + 4"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "y = 0.8x + 2.8",
+        "difficulty": "hard",
+        "source": {
+          "page": 128,
+          "reference": "مثال 4 - الخطوة 3"
+        },
+        "solution": {
+          "formula": "dy/dx = (y - 2x) / (2y - x)",
+          "steps": [
+            "الميل عند (-1, 2): [2 - 2(-1)] / [2(2) - (-1)] = 4/5 = 0.8",
+            "المعادلة: y - 2 = 0.8(x + 1)",
+            "y = 0.8x + 0.8 + 2 = 0.8x + 2.8"
+          ],
+          "summary": "المعادلة هي y = 0.8x + 2.8."
+        },
+        "explanation": "تطبيق قانون معادلة المماس بعد حساب الميل ضمنيًا ص 128."
+      },
+      {
+        "id": "U03-L04-Q016",
+        "number": 16,
+        "question": "ماذا نفعل إذا احتوت المشتقة الأولى لـ dy/dx على المتغير y عند حساب المشتقة الثانية؟",
+        "options": {
+          "A": "نعتبر y ثابتًا",
+          "B": "نشتق ضمنيًا ونعوض قيمة dy/dx الناتجة سابقًا",
+          "C": "نتوقف عن الاشتقاق",
+          "D": "نحذف y من المعادلة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نشتق ضمنيًا ونعوض قيمة dy/dx الناتجة سابقًا",
+        "difficulty": "medium",
+        "source": {
+          "page": 129,
+          "reference": "المشتقة الثانية للعلاقات الضمنية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "مراجعة مقدمة فقرة المشتقة الثانية ص 129"
+          ],
+          "summary": "يجب حذف dy/dx بتعويض قيمتها."
+        },
+        "explanation": "يتم الاشتقاق مجددًا مع تعويض قيمة المشتقة الأولى في الناتج النهائي."
+      },
+      {
+        "id": "U03-L04-Q017",
+        "number": 17,
+        "question": "ما هي المشتقة الثانية d^2y/dx^2 للعلاقة 2x^3 - 3y^2 = 8؟",
+        "options": {
+          "A": "(2xy^2 - x^4) / y^3",
+          "B": "6x^2 / 6y",
+          "C": "x^2 / y",
+          "D": "(y - x^2) / y^2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(2xy^2 - x^4) / y^3",
+        "difficulty": "hard",
+        "source": {
+          "page": 129,
+          "reference": "مثال 5"
+        },
+        "solution": {
+          "formula": "y' = x^2/y",
+          "steps": [
+            "y'' = [y(2x) - x^2(y')] / y^2",
+            "بالتعويض عن y' بـ x^2/y: [2xy - x^2(x^2/y)] / y^2",
+            "توحيد مقامات: (2xy^2 - x^4) / y^3"
+          ],
+          "summary": "الناتج هو (2xy^2 - x^4) / y^3."
+        },
+        "explanation": "خطوات الاشتقاق الثاني الموضحة في مثال 5 ص 129."
+      },
+      {
+        "id": "U03-L04-Q018",
+        "number": 18,
+        "question": "ما هي صيغة المشتقة الثانية للمعادلة الوسيطية بدلالة t؟",
+        "options": {
+          "A": "d/dt (dy/dx)",
+          "B": "[d/dt (dy/dx)] / (dx/dt)",
+          "C": "d^2y/dt^2",
+          "D": "(dy/dt) / (dx/dt)"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "[d/dt (dy/dx)] / (dx/dt)",
+        "difficulty": "hard",
+        "source": {
+          "page": 130,
+          "reference": "المشتقة الثانية للمعادلة الوسيطية"
+        },
+        "solution": {
+          "formula": "d^2y/dx^2 = [d/dt (dy/dx)] / (dx/dt)",
+          "steps": [
+            "مراجعة القاعدة في ص 130"
+          ],
+          "summary": "يجب قسمة مشتقة dy/dx بالنسبة لـ t على مشتقة x بالنسبة لـ t."
+        },
+        "explanation": "القاعدة الأساسية المذكورة في مفهوم أساسي صفحة 130."
+      },
+      {
+        "id": "U03-L04-Q019",
+        "number": 19,
+        "question": "أجد المشتقة الثانية للمعادلة الوسيطية x=t^3+3t^2, y=t^4-8t^2 عند t=1.",
+        "options": {
+          "A": "4/3",
+          "B": "4/27",
+          "C": "0",
+          "D": "1"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "4/27",
+        "difficulty": "hard",
+        "source": {
+          "page": 130,
+          "reference": "مثال 6"
+        },
+        "solution": {
+          "formula": "d^2y/dx^2 | t=1",
+          "steps": [
+            "dy/dx = 4/3 (t - 2)",
+            "مشتقة dy/dx بالنسبة لـ t هي 4/3",
+            "dx/dt = 3t^2 + 6t",
+            "y'' = (4/3) / (3t^2 + 6t)",
+            "عند t=1: (4/3) / 9 = 4/27"
+          ],
+          "summary": "القيمة عند t=1 هي 4/27."
+        },
+        "explanation": "تطبيق لقاعدة المشتقة الثانية للوسيطية ص 130."
+      },
+      {
+        "id": "U03-L04-Q020",
+        "number": 20,
+        "question": "أجد dy/dx للعلاقة x = sec(1/y).",
+        "options": {
+          "A": "-y^2 / [sec(1/y) tan(1/y)]",
+          "B": "y^2 sec(1/y) tan(1/y)",
+          "C": "1 / sec y tan y",
+          "D": "y^2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-y^2 / [sec(1/y) tan(1/y)]",
+        "difficulty": "hard",
+        "source": {
+          "page": 131,
+          "reference": "أتدرب وأحل المسائل - 7"
+        },
+        "solution": {
+          "formula": "1 = sec(1/y) tan(1/y) * (-1/y^2) * y'",
+          "steps": [
+            "اشتقاق الطرفين بالنسبة لـ x",
+            "1 = sec(1/y) tan(1/y) * (-1/y^2) * (dy/dx)",
+            "بحل المعادلة لـ dy/dx"
+          ],
+          "summary": "الناتج هو -y^2 / [sec(1/y) tan(1/y)]."
+        },
+        "explanation": "تطبيق السلسلة الضمنية على اقتران القاطع ص 131."
+      },
+      {
+        "id": "U03-L04-Q021",
+        "number": 21,
+        "question": "ما قيمة y' للعلاقة 2y^2 + 2xy - 1 = 0 عندما x = 1/2؟",
+        "options": {
+          "A": "-1/2 أو 1/6",
+          "B": "1/2 أو -1/6",
+          "C": "0",
+          "D": "1"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1/2 أو -1/6",
+        "difficulty": "hard",
+        "source": {
+          "page": 131,
+          "reference": "أتدرب وأحل المسائل - 13"
+        },
+        "solution": {
+          "formula": "4y y' + 2x y' + 2y = 0",
+          "steps": [
+            "عند x=1/2: 2y^2 + y - 1 = 0 تعطي y=1/2 أو y=-1",
+            "المشتقة y' = -2y / (4y + 2x) = -y / (2y + x)",
+            "عند (1/2, 1/2): y' = -0.5 / (1 + 0.5) = -1/3"
+          ],
+          "summary": "تتطلب المسألة إيجاد قيم y المناظرة أولاً."
+        },
+        "explanation": "سؤال يتطلب التعويض في العلاقة الأصلية ثم المشتقة ص 131."
+      },
+      {
+        "id": "U03-L04-Q022",
+        "number": 22,
+        "question": "أجد ميل المماس لمنحنى x^2 + y^2 = 25 عند النقطة (3, -4).",
+        "options": {
+          "A": "3/4",
+          "B": "-3/4",
+          "C": "4/3",
+          "D": "-4/3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "3/4",
+        "difficulty": "medium",
+        "source": {
+          "page": 131,
+          "reference": "أتدرب وأحل المسائل - 15"
+        },
+        "solution": {
+          "formula": "dy/dx = -x/y",
+          "steps": [
+            "المشتقة هي -x/y",
+            "بالتعويض: -3 / -4 = 3/4"
+          ],
+          "summary": "الميل هو 3/4."
+        },
+        "explanation": "تطبيق مباشر لقانون مشتقة الدائرة ص 131."
+      },
+      {
+        "id": "U03-L04-Q023",
+        "number": 23,
+        "question": "ما هي المشتقة الثانية للعلاقة x + y = sin y؟",
+        "options": {
+          "A": "-cos y",
+          "B": "sin y / (cos y - 1)^3",
+          "C": "0",
+          "D": "1 / (1 - cos y)"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "sin y / (cos y - 1)^3",
+        "difficulty": "hard",
+        "source": {
+          "page": 132,
+          "reference": "أتدرب وأحل المسائل - 21"
+        },
+        "solution": {
+          "formula": "y' = 1 / (cos y - 1)",
+          "steps": [
+            "y' = 1 / (cos y - 1)",
+            "y'' = - [(-sin y * y')] / (cos y - 1)^2",
+            "بالتعويض عن y': y'' = (sin y * 1 / (cos y - 1)) / (cos y - 1)^2",
+            "y'' = sin y / (cos y - 1)^3"
+          ],
+          "summary": "يتطلب الحل تعويض y' في المشتقة الثانية."
+        },
+        "explanation": "إيجاد المشتقة الثانية ضمنيًا ص 132."
+      },
+      {
+        "id": "U03-L04-Q024",
+        "number": 24,
+        "question": "أثبت أن x^2 + y^2 = 25 تؤدي إلى y'' = -25/y^3.",
+        "options": {
+          "A": "بالاشتقاق الضمني مرتين",
+          "B": "باستخدام قاعدة السلسلة فقط",
+          "C": "بتحويلها لمعادلة صريحة",
+          "D": "من خلال الرسم البياني"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "بالاشتقاق الضمني مرتين",
+        "difficulty": "hard",
+        "source": {
+          "page": 132,
+          "reference": "أتدرب وأحل المسائل - 29"
+        },
+        "solution": {
+          "formula": "y'' = (-y + x y') / y^2",
+          "steps": [
+            "y' = -x/y",
+            "y'' = [y(-1) - (-x)y'] / y^2",
+            "y'' = (-y^2 - x^2) / y^3",
+            "بما أن x^2 + y^2 = 25، فإن y'' = -25/y^3"
+          ],
+          "summary": "تم استخدام العلاقة الأصلية للتبسيط."
+        },
+        "explanation": "إثبات مطلوب في تمارين ص 132."
+      },
+      {
+        "id": "U03-L04-Q025",
+        "number": 25,
+        "question": "ما هي معادلة المماس لمنحنى العلاقة (y+4)(x-6)=2 عند النقطة (7, -2)؟",
+        "options": {
+          "A": "y = -2x + 12",
+          "B": "y = -2x + 14",
+          "C": "y = -2x + 16",
+          "D": "y = x - 9"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "y = -2x + 12",
+        "difficulty": "hard",
+        "source": {
+          "page": 132,
+          "reference": "أتدرب وأحل المسائل - 25"
+        },
+        "solution": {
+          "formula": "y'(x-6) + (y+4) = 0",
+          "steps": [
+            "اشتقاق: y'(x-6) + (y+4)(1) = 0",
+            "عند (7, -2): y'(1) + (-2+4) = 0 تعطي y' = -2",
+            "المعادلة: y + 2 = -2(x - 7)",
+            "y = -2x + 12"
+          ],
+          "summary": "معادلة المماس هي y = -2x + 12."
+        },
+        "explanation": "إيجاد معادلة مستقيم من علاقة ضمنية ص 132."
+      },
+      {
+        "id": "U03-L04-Q026",
+        "number": 26,
+        "question": "أجد إحداثيات النقاط التي يكون عندها المماس أفقيًا لمنحنى 3x^2 + 2xy + y^2 = 6.",
+        "options": {
+          "A": "(1, -3) و (-1, 3)",
+          "B": "(0, √6) و (0, -√6)",
+          "C": "(2, 0) و (-2, 0)",
+          "D": "لا يوجد"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(1, -3) و (-1, 3)",
+        "difficulty": "hard",
+        "source": {
+          "page": 132,
+          "reference": "أتدرب وأحل المسائل - 26"
+        },
+        "solution": {
+          "formula": "y' = 0",
+          "steps": [
+            "6x + 2(x y' + y) + 2y y' = 0",
+            "وضع y' = 0: 6x + 2y = 0 تعطي y = -3x",
+            "التعويض في العلاقة الأصلية",
+            "3x^2 - 6x^2 + 9x^2 = 6",
+            "6x^2 = 6 ومنها x = ±1",
+            "النقاط هي (1, -3) و (-1, 3)"
+          ],
+          "summary": "النقاط هي (1, -3) و (-1, 3)."
+        },
+        "explanation": "يتطلب السؤال مساواة المشتقة بالصفر والحل جبريًا ص 132."
+      },
+      {
+        "id": "U03-L04-Q027",
+        "number": 27,
+        "question": "في تحدي تمرين 42، ما هو مجموع المقطعين x و y لأي مماس لمنحنى √x + √y = √k؟",
+        "options": {
+          "A": "√k",
+          "B": "k",
+          "C": "k^2",
+          "D": "2k"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "k",
+        "difficulty": "hard",
+        "source": {
+          "page": 132,
+          "reference": "مهارات التفكير العليا - 42"
+        },
+        "solution": {
+          "formula": "x_int + y_intercept = k",
+          "steps": [
+            "إيجاد معادلة المماس عند نقطة (x1, y1)",
+            "إيجاد نقاط التقاطع مع المحاور وإثبات أن مجموعها k"
+          ],
+          "summary": "المجموع يساوي الثابت k."
+        },
+        "explanation": "إثبات رياضي هام في تمارين التفكير العليا ص 132."
+      },
+      {
+        "id": "U03-L04-Q028",
+        "number": 28,
+        "question": "ما هو الموقع الابتدائي لجسيم يتحرك حسب العلاقة s(t) = ln(t^2 - 2t + 1.9)؟",
+        "options": {
+          "A": "0 m",
+          "B": "ln 1.9 m",
+          "C": "1.9 m",
+          "D": "غير موجود"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ln 1.9 m",
+        "difficulty": "easy",
+        "source": {
+          "page": 120,
+          "reference": "مهارات التفكير العليا - 58"
+        },
+        "solution": {
+          "formula": "s(0)",
+          "steps": [
+            "تعويض t=0 في الاقتران"
+          ],
+          "summary": "القيمة هي ln 1.9."
+        },
+        "explanation": "تطبيق مفاهيم الحركة على اقتران لوغاريتمي مركب ص 120."
+      },
+      {
+        "id": "U03-L04-Q029",
+        "number": 29,
+        "question": "أجد dy/dx للعلاقة tan(x - y) = 2xy^3 + 1.",
+        "options": {
+          "A": "[sec^2(x-y) - 2y^3] / [sec^2(x-y) + 6xy^2]",
+          "B": "1 / (1 + x^2)",
+          "C": "sec^2(x-y)",
+          "D": "6xy^2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "[sec^2(x-y) - 2y^3] / [sec^2(x-y) + 6xy^2]",
+        "difficulty": "hard",
+        "source": {
+          "page": 126,
+          "reference": "أتحقق من فهمي ص 126 - الفرع b"
+        },
+        "solution": {
+          "formula": "sec^2(x-y)(1 - y') = 2y^3 + 6xy^2 y'",
+          "steps": [
+            "تطبيق قاعدة السلسلة على الظل وقاعدة الضرب على الطرف الآخر",
+            "عزل dy/dx في طرف واحد"
+          ],
+          "summary": "المشتقة ناتجة عن تجميع حدود y'."
+        },
+        "explanation": "مثال على تعقيد الاشتقاق الضمني ص 126."
+      },
+      {
+        "id": "U03-L04-Q030",
+        "number": 30,
+        "question": "ما هي المشتقة الثانية d^2y/dx^2 للمعادلة الوسيطية x=sin t, y=cos t عند t=π/4؟",
+        "options": {
+          "A": "√2",
+          "B": "-2√2",
+          "C": "-2",
+          "D": "0"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-2√2",
+        "difficulty": "hard",
+        "source": {
+          "page": 132,
+          "reference": "أتدرب وأحل المسائل - 33"
+        },
+        "solution": {
+          "formula": "y'' = [d/dt(-tan t)] / cos t",
+          "steps": [
+            "dy/dx = (-sin t) / cos t = -tan t",
+            "d/dt(-tan t) = -sec^2 t",
+            "y'' = -sec^2 t / cos t = -sec^3 t",
+            "عند t=π/4: sec(π/4) = √2، لذا y'' = -(√2)^3 = -2√2"
+          ],
+          "summary": "المشتقة الثانية هي -2√2."
+        },
+        "explanation": "تطبيق قاعدة المشتقة الثانية للوسيطية ص 132."
+      },
+      {
+        "id": "U03-L04-Q031",
+        "number": 31,
+        "question": "بين أن dy/dx للعلاقة y = ln x هي 1/x باستخدام الاشتقاق الضمني.",
+        "options": {
+          "A": "بتحويلها لصورة أسية e^y = x",
+          "B": "باستخدام قاعدة الضرب",
+          "C": "باستخدام قاعدة القسمة",
+          "D": "لا يمكن إثباتها ضمنيًا"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "بتحويلها لصورة أسية e^y = x",
+        "difficulty": "medium",
+        "source": {
+          "page": 132,
+          "reference": "أتدرب وأحل المسائل - 32"
+        },
+        "solution": {
+          "formula": "e^y * y' = 1",
+          "steps": [
+            "y = ln x تعطي e^y = x",
+            "اشتقاق ضمني: e^y(dy/dx) = 1",
+            "dy/dx = 1/e^y",
+            "بما أن e^y = x، فإن المشتقة هي 1/x"
+          ],
+          "summary": "تم الإثبات باستخدام التحويل للصورة الأسية."
+        },
+        "explanation": "إثبات مطلوب في تمارين ص 132."
+      },
+      {
+        "id": "U03-L04-Q032",
+        "number": 32,
+        "question": "أجد إحداثيات النقاط التي يكون عندها ميل المماس لمنحنى x^2 - y^2 = 1 مساوياً لـ 2.",
+        "options": {
+          "A": "(2/√3, 1/√3) و (-2/√3, -1/√3)",
+          "B": "(1, 0)",
+          "C": "(2, 1)",
+          "D": "(0, 1)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(2/√3, 1/√3) و (-2/√3, -1/√3)",
+        "difficulty": "hard",
+        "source": {
+          "page": 132,
+          "reference": "أتدرب وأحل المسائل - 41"
+        },
+        "solution": {
+          "formula": "x/y = 2",
+          "steps": [
+            "2x - 2y y' = 0 تعطي y' = x/y",
+            "x/y = 2 تعطي x = 2y",
+            "التعويض: (2y)^2 - y^2 = 1 تعطي 3y^2 = 1",
+            "y = ±1/√3",
+            "النقاط هي (2/√3, 1/√3) و (-2/√3, -1/√3)"
+          ],
+          "summary": "النقاط المطلوبة هي المذكورة في الخيار A."
+        },
+        "explanation": "حل تمرين مهارات التفكير ص 132."
+      },
+      {
+        "id": "U03-L04-Q033",
+        "number": 33,
+        "question": "أجد معادلة العمودي على المماس لمنحنى x^2 + y^2 = 2 عند النقطة (1, 1) في الربع الأول.",
+        "options": {
+          "A": "y = x",
+          "B": "y = -x + 2",
+          "C": "y = x + 1",
+          "D": "y = 1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "y = x",
+        "difficulty": "hard",
+        "source": {
+          "page": 132,
+          "reference": "تمرين مشابه ص 132"
+        },
+        "solution": {
+          "formula": "m_normal = -1/m_tangent",
+          "steps": [
+            "y' = -x/y = -1/1 = -1",
+            "ميل العمودي = -1 / (-1) = 1",
+            "المعادلة: y - 1 = 1(x - 1) تعطي y = x"
+          ],
+          "summary": "معادلة العمودي هي y = x."
+        },
+        "explanation": "تطبيق لقواعد المماس والعمودي على الدائرة ص 132."
+      },
+      {
+        "id": "U03-L04-Q034",
+        "number": 34,
+        "question": "ماذا تمثل المشتقة dy/dx من الناحية الهندسية للعلاقة الضمنية؟",
+        "options": {
+          "A": "المساحة تحت المنحنى",
+          "B": "ميل المماس لمنحنى العلاقة عند نقطة",
+          "C": "طول القوس",
+          "D": "الإحداثي الصادي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ميل المماس لمنحنى العلاقة عند نقطة",
+        "difficulty": "easy",
+        "source": {
+          "page": 126,
+          "reference": "ميل المماس"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "مراجعة المفهوم الهندسي للمشتقة"
+          ],
+          "summary": "المشتقة تعبر عن ميل المماس."
+        },
+        "explanation": "كما ورد في صفحة 126، dy/dx تُستعمل لإيجاد ميل المماس."
+      },
+      {
+        "id": "U03-L04-Q035",
+        "number": 35,
+        "question": "أجد dy/dx للعلاقة x^2 = (x - y) / (x + y).",
+        "options": {
+          "A": "[x - (x+y)^2 x] / x",
+          "B": "[y - x(x+y)^2] / [x + (x+y)^2]",
+          "C": "بناءً على التبسيط الجبري المطلوب",
+          "D": "1"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "[y - x(x+y)^2] / [x + (x+y)^2]",
+        "difficulty": "hard",
+        "source": {
+          "page": 126,
+          "reference": "أتحقق من فهمي ص 126 - الفرع c"
+        },
+        "solution": {
+          "formula": "2x = [(x+y)(1-y') - (x-y)(1+y')] / (x+y)^2",
+          "steps": [
+            "اشتقاق باستخدام قاعدة القسمة",
+            "تبسيط البسط وعزل y'"
+          ],
+          "summary": "العملية تتطلب مهارات جبرية في التبسيط."
+        },
+        "explanation": "مثال متقدم في الاشتقاق الضمني ص 126."
+      },
+      {
+        "id": "U03-L04-Q036",
+        "number": 36,
+        "question": "متى يكون مماس منحنى العلاقة عموديًا على المحور x؟",
+        "options": {
+          "A": "عندما dy/dx = 0",
+          "B": "عندما مقام dy/dx يساوي صفراً",
+          "C": "عندما x = 0",
+          "D": "دائمًا"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عندما مقام dy/dx يساوي صفراً",
+        "difficulty": "medium",
+        "source": {
+          "page": 132,
+          "reference": "استنتاج من التمارين"
+        },
+        "solution": {
+          "formula": "ميل غير معرف",
+          "steps": [
+            "الميل العمودي يعني أن المشتقة غير معرفة"
+          ],
+          "summary": "تصفير المقام يجعل الميل رأسيًا."
+        },
+        "explanation": "بناءً على خصائص الميول الرأسية في مهارات التفكير ص 132."
+      },
+      {
+        "id": "U03-L04-Q037",
+        "number": 37,
+        "question": "ما قيمة x_1 + y_1 لأي مماس للمنحنى √x + √y = 10؟",
+        "options": {
+          "A": "10",
+          "B": "100",
+          "C": "10√2",
+          "D": "1"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "100",
+        "difficulty": "hard",
+        "source": {
+          "page": 132,
+          "reference": "تحدي 42 معدل"
+        },
+        "solution": {
+          "formula": "k = (√k)^2",
+          "steps": [
+            "بتطبيق قاعدة المجموع للمقاطع: k = 10^2 = 100"
+          ],
+          "summary": "المجموع هو مربع الثابت في الطرف الأيمن."
+        },
+        "explanation": "تطبيق لنتيجة تمرين 42 ص 132 حيث k هو الطرف الأيمن تربيع."
+      },
+      {
+        "id": "U03-L04-Q038",
+        "number": 38,
+        "question": "أجد dy/dx للعلاقة x^2 - 2y^2 = 4.",
+        "options": {
+          "A": "x / 2y",
+          "B": "2x / y",
+          "C": "-x / 2y",
+          "D": "x / y"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "x / 2y",
+        "difficulty": "medium",
+        "source": {
+          "page": 131,
+          "reference": "أتدرب وأحل المسائل - 1"
+        },
+        "solution": {
+          "formula": "2x - 4y y' = 0",
+          "steps": [
+            "2x = 4y y'",
+            "y' = 2x / 4y = x / 2y"
+          ],
+          "summary": "المشتقة هي x/2y."
+        },
+        "explanation": "حل التمرين الأول في صفحة 131."
+      },
+      {
+        "id": "U03-L04-Q039",
+        "number": 39,
+        "question": "ما هي مشتقة (x + y)^2 بالنسبة لـ x؟",
+        "options": {
+          "A": "2(x + y)",
+          "B": "2(x + y) * (1 + dy/dx)",
+          "C": "1 + dy/dx",
+          "D": "2x + 2y"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "2(x + y) * (1 + dy/dx)",
+        "difficulty": "medium",
+        "source": {
+          "page": 131,
+          "reference": "تمرين مشابه ص 131"
+        },
+        "solution": {
+          "formula": "n u^(n-1) * u'",
+          "steps": [
+            "استخدام قاعدة سلسلة القوة"
+          ],
+          "summary": "يضرب ناتج اشتقاق القوس في (1+y')."
+        },
+        "explanation": "تطبيق أساسي لقاعدة السلسلة في الاشتقاق الضمني."
+      },
+      {
+        "id": "U03-L04-Q040",
+        "number": 40,
+        "question": "في مسألة اليوم ص 121، ما هو المطلوب إيجاده؟",
+        "options": {
+          "A": "قيمة x",
+          "B": "معدل تغير زاوية الرؤية θ بالنسبة للمسافة x",
+          "C": "طول الحافة",
+          "D": "سرعة السائق"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "معدل تغير زاوية الرؤية θ بالنسبة للمسافة x",
+        "difficulty": "easy",
+        "source": {
+          "page": 121,
+          "reference": "مسألة اليوم"
+        },
+        "solution": {
+          "formula": "dθ/dx",
+          "steps": [
+            "مراجعة نص المسألة الافتتاحية"
+          ],
+          "summary": "المطلوب هو dθ/dx."
+        },
+        "explanation": "هذا هو التساؤل الوارد في بداية الدرس الرابع ص 121."
+      }
+    ]
+  }
+}

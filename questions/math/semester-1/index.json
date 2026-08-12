@@ -28,24 +28,66 @@
       }
     },
     {
-      "id": "U04",
+      "id": "U3",
+      "number": 3,
+      "name": "التفاضل وتطبيقاته",
+      "lessons": [
+        {
+          "id": "L1",
+          "number": 1,
+          "name": "مشتقة اقترانات خاصة",
+          "file": "unit-03/lesson-01.json"
+        },
+        {
+          "id": "L2",
+          "number": 2,
+          "name": "مشتقتا الضرب والقسمة والمشتقات العليا",
+          "file": "unit-03/lesson-02.json"
+        },
+        {
+          "id": "L3",
+          "number": 3,
+          "name": "قاعدة السلسلة",
+          "file": "unit-03/lesson-03.json"
+        },
+        {
+          "id": "L4",
+          "number": 4,
+          "name": "الاشتقاق الضمني",
+          "file": "unit-03/lesson-04.json"
+        },
+        {
+          "id": "L5",
+          "number": 5,
+          "name": "المعدلات المرتبطة",
+          "file": "unit-03/lesson-05.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-03/review.json"
+      }
+    },
+    {
+      "id": "U4",
       "number": 4,
       "name": "الأعداد المركبة",
       "lessons": [
         {
-          "id": "L01",
+          "id": "L1",
           "number": 1,
           "name": "الأعداد المركبة",
           "file": "unit-04/lesson-01.json"
         },
         {
-          "id": "L02",
+          "id": "L2",
           "number": 2,
-          "name": "العمليات على الأعداد المركبة",
+          "name": "العمليات على الأعداد المُركبة",
           "file": "unit-04/lesson-02.json"
         },
         {
-          "id": "L03",
+          "id": "L3",
           "number": 3,
           "name": "المحل الهندسي في المستوى المركب",
           "file": "unit-04/lesson-03.json"

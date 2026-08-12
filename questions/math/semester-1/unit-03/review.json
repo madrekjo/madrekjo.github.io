@@ -1,0 +1,1372 @@
+{
+  "lesson": {
+    "lesson_number": "Unit 3 Review",
+    "lesson_name": "مراجعة الوحدة الثالثة: التفاضل وتطبيقاته",
+    "unit_number": 3,
+    "unit_name": "التفاضل وتطبيقاته",
+    "page_start": 74,
+    "page_end": 147,
+    "question_count": 50,
+    "questions": [
+      {
+        "id": "U03-R-Q001",
+        "number": 1,
+        "question": "ما هي مشتقة الاقتران الأسي الطبيعي f(x) = e^x؟",
+        "options": {
+          "A": "e^x",
+          "B": "x e^(x-1)",
+          "C": "1/e^x",
+          "D": "ln x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "e^x",
+        "difficulty": "easy",
+        "source": {
+          "page": 77,
+          "reference": "مشتقة الاقتران الأسي الطبيعي"
+        },
+        "solution": {
+          "formula": "d/dx(e^x) = e^x",
+          "steps": [
+            "تطبيق نظرية مشتقة الاقتران الأسي الطبيعي."
+          ],
+          "summary": "المشتقة تساوي الاقتران نفسه."
+        },
+        "explanation": "بناءً على النظرية في صفحة 77، فإن مشتقة f(x) = e^x هي f'(x) = e^x."
+      },
+      {
+        "id": "U03-R-Q002",
+        "number": 2,
+        "question": "ما هي مشتقة الاقتران اللوغاريتمي الطبيعي f(x) = ln x حيث x > 0؟",
+        "options": {
+          "A": "e^x",
+          "B": "1/x",
+          "C": "x",
+          "D": "1/ln x"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1/x",
+        "difficulty": "easy",
+        "source": {
+          "page": 79,
+          "reference": "مشتقة الاقتران اللوغاريتمي الطبيعي"
+        },
+        "solution": {
+          "formula": "d/dx(ln x) = 1/x",
+          "steps": [
+            "تطبيق نظرية مشتقة الاقتران اللوغاريتمي الطبيعي."
+          ],
+          "summary": "المشتقة هي مقلوب x."
+        },
+        "explanation": "تنص النظرية في صفحة 79 على أن مشتقة f(x) = ln x هي f'(x) = 1/x."
+      },
+      {
+        "id": "U03-R-Q003",
+        "number": 3,
+        "question": "أجد مشتقة الاقتران f(x) = sin x.",
+        "options": {
+          "A": "cos x",
+          "B": "-cos x",
+          "C": "sin x",
+          "D": "sec^2 x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "cos x",
+        "difficulty": "easy",
+        "source": {
+          "page": 81,
+          "reference": "مشتقة اقتران الجيب"
+        },
+        "solution": {
+          "formula": "d/dx(sin x) = cos x",
+          "steps": [
+            "تطبيق نظرية مشتقات الاقترانات المثلثية."
+          ],
+          "summary": "مشتقة الجيب هي جيب التمام."
+        },
+        "explanation": "حسب النظرية في صفحة 81، فإن مشتقة f(x) = sin x هي f'(x) = cos x."
+      },
+      {
+        "id": "U03-R-Q004",
+        "number": 4,
+        "question": "أجد مشتقة الاقتران f(x) = cos x.",
+        "options": {
+          "A": "sin x",
+          "B": "-sin x",
+          "C": "-cos x",
+          "D": "csc^2 x"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-sin x",
+        "difficulty": "easy",
+        "source": {
+          "page": 81,
+          "reference": "مشتقة اقتران جيب التمام"
+        },
+        "solution": {
+          "formula": "d/dx(cos x) = -sin x",
+          "steps": [
+            "تطبيق نظرية مشتقات الاقترانات المثلثية."
+          ],
+          "summary": "مشتقة جيب التمام هي سالب الجيب."
+        },
+        "explanation": "حسب النظرية في صفحة 81، فإن مشتقة f(x) = cos x هي f'(x) = -sin x."
+      },
+      {
+        "id": "U03-R-Q005",
+        "number": 5,
+        "question": "ما هو ميل مماس منحنى الاقتران f(x) = e^x عند أي نقطة (x, y)؟",
+        "options": {
+          "A": "الإحداثي x للنقطة",
+          "B": "الإحداثي y للنقطة",
+          "C": "دائمًا 1",
+          "D": "دائمًا 0"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الإحداثي y للنقطة",
+        "difficulty": "medium",
+        "source": {
+          "page": 77,
+          "reference": "استنتاج ميل المماس للأسي الطبيعي"
+        },
+        "solution": {
+          "formula": "m = f'(x) = e^x = y",
+          "steps": [
+            "مشتقة f(x)=e^x هي e^x.",
+            "بما أن y=e^x، فإن الميل يساوي y."
+          ],
+          "summary": "الميل يساوي قيمة الإحداثي y."
+        },
+        "explanation": "ورد في صفحة 77 أن ميل المماس عند أي نقطة على منحنى الاقتران الأسي الطبيعي هو الإحداثي y لهذه النقطة."
+      },
+      {
+        "id": "U03-R-Q006",
+        "number": 6,
+        "question": "أجد مشتقة الاقتران f(x) = ln(x^4).",
+        "options": {
+          "A": "1/x^4",
+          "B": "4/x",
+          "C": "4x^3",
+          "D": "4 ln x"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "4/x",
+        "difficulty": "medium",
+        "source": {
+          "page": 80,
+          "reference": "مثال 2 - الفرع 1"
+        },
+        "solution": {
+          "formula": "f(x) = 4 ln x -> f'(x) = 4(1/x)",
+          "steps": [
+            "باستخدام قانون القوة في اللوغاريتمات: f(x) = 4 ln x.",
+            "الاشتقاق: f'(x) = 4 × (1/x) = 4/x."
+          ],
+          "summary": "المشتقة هي 4/x."
+        },
+        "explanation": "تم تطبيق قوانين اللوغاريتمات لتسهيل الاشتقاق كما في المثال 2 ص 80."
+      },
+      {
+        "id": "U03-R-Q007",
+        "number": 7,
+        "question": "أجد معادلة المماس لمنحنى f(x) = ln x عند النقطة (e, 1).",
+        "options": {
+          "A": "y = x/e",
+          "B": "y = ex",
+          "C": "y = x - e + 1",
+          "D": "y = 1/e (x)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "y = x/e",
+        "difficulty": "hard",
+        "source": {
+          "page": 87,
+          "reference": "تمرين 12"
+        },
+        "solution": {
+          "formula": "y - y1 = m(x - x1)",
+          "steps": [
+            "f'(x) = 1/x.",
+            "الميل m = f'(e) = 1/e.",
+            "المعادلة: y - 1 = (1/e)(x - e).",
+            "y = x/e - 1 + 1 = x/e."
+          ],
+          "summary": "المعادلة هي y = x/e."
+        },
+        "explanation": "تم حساب المشتقة لإيجاد الميل ثم التعويض في معادلة المستقيم."
+      },
+      {
+        "id": "U03-R-Q008",
+        "number": 8,
+        "question": "يتحرك جسيم حسب العلاقة s(t) = 4 sin t. أجد سرعة الجسيم المتجهة v(t).",
+        "options": {
+          "A": "-4 cos t",
+          "B": "4 cos t",
+          "C": "4 sin t",
+          "D": "cos t"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "4 cos t",
+        "difficulty": "medium",
+        "source": {
+          "page": 84,
+          "reference": "مثال 5 - سرعة الجسم"
+        },
+        "solution": {
+          "formula": "v(t) = s'(t)",
+          "steps": [
+            "v(t) = d/dt(4 sin t) = 4 cos t."
+          ],
+          "summary": "السرعة هي 4 cos t."
+        },
+        "explanation": "السرعة المتجهة هي المشتقة الأولى لاقتران الموقع s(t)."
+      },
+      {
+        "id": "U03-R-Q009",
+        "number": 9,
+        "question": "متى يكون الجسيم s(t) = 4 sin t في حالة سكون لحظي لأول مرة بعد انطلاقه (t > 0)؟",
+        "options": {
+          "A": "t = π",
+          "B": "t = π/2",
+          "C": "t = 2π",
+          "D": "t = 0"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "t = π/2",
+        "difficulty": "medium",
+        "source": {
+          "page": 85,
+          "reference": "مثال 5 - الفرع 2"
+        },
+        "solution": {
+          "formula": "v(t) = 0",
+          "steps": [
+            "4 cos t = 0.",
+            "cos t = 0.",
+            "أول قيمة موجبة لـ t هي π/2."
+          ],
+          "summary": "يكون في سكون عند t = π/2."
+        },
+        "explanation": "يكون الجسم في سكون لحظي عندما تساوي سرعته المتجهة صفرًا."
+      },
+      {
+        "id": "U03-R-Q010",
+        "number": 10,
+        "question": "ما هو تسارع الجسيم a(t) إذا كان موقعه s(t) = 4 sin t؟",
+        "options": {
+          "A": "4 cos t",
+          "B": "-4 sin t",
+          "C": "4 sin t",
+          "D": "-4 cos t"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-4 sin t",
+        "difficulty": "medium",
+        "source": {
+          "page": 84,
+          "reference": "مثال 5 - تسارع الجسم"
+        },
+        "solution": {
+          "formula": "a(t) = v'(t) = s''(t)",
+          "steps": [
+            "v(t) = 4 cos t.",
+            "a(t) = d/dt(4 cos t) = -4 sin t."
+          ],
+          "summary": "التسارع هو -4 sin t."
+        },
+        "explanation": "التسارع هو المشتقة الثانية لاقتران الموقع أو المشتقة الأولى للسرعة."
+      },
+      {
+        "id": "U03-R-Q011",
+        "number": 11,
+        "question": "ما هي قاعدة مشتقة ضرب اقترانين f(x) و g(x)؟",
+        "options": {
+          "A": "f'(x) g'(x)",
+          "B": "f(x) g'(x) + g(x) f'(x)",
+          "C": "f(x) g'(x) - g(x) f'(x)",
+          "D": "(f+g)'(x)"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "f(x) g'(x) + g(x) f'(x)",
+        "difficulty": "easy",
+        "source": {
+          "page": 90,
+          "reference": "مشتقة الضرب - نظرية"
+        },
+        "solution": {
+          "formula": "(fg)' = fg' + gf'",
+          "steps": [
+            "تطبيق نظرية مشتقة الضرب الواردة في الكتاب."
+          ],
+          "summary": "الأول في مشتقة الثاني + الثاني في مشتقة الأول."
+        },
+        "explanation": "تنص نظرية مشتقة الضرب في صفحة 90 على هذه الصيغة."
+      },
+      {
+        "id": "U03-R-Q012",
+        "number": 12,
+        "question": "أجد مشتقة الاقتران f(x) = x e^x.",
+        "options": {
+          "A": "e^x",
+          "B": "x e^x + e^x",
+          "C": "x e^x",
+          "D": "e^x + 1"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "x e^x + e^x",
+        "difficulty": "medium",
+        "source": {
+          "page": 91,
+          "reference": "مثال 1 - الفرع 2"
+        },
+        "solution": {
+          "formula": "f'(x) = x(d/dx e^x) + e^x(d/dx x)",
+          "steps": [
+            "تطبيق قاعدة الضرب.",
+            "f'(x) = x(e^x) + e^x(1) = x e^x + e^x."
+          ],
+          "summary": "المشتقة هي x e^x + e^x."
+        },
+        "explanation": "تطبيق مباشر لقاعدة الضرب على حاصل ضرب x و e^x."
+      },
+      {
+        "id": "U03-R-Q013",
+        "number": 13,
+        "question": "ما هي قاعدة مشتقة قسمة اقترانين f(x)/g(x)؟",
+        "options": {
+          "A": "(g f' - f g') / g^2",
+          "B": "(f g' - g f') / g^2",
+          "C": "f' / g'",
+          "D": "(g f' + f g') / g^2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(g f' - f g') / g^2",
+        "difficulty": "easy",
+        "source": {
+          "page": 92,
+          "reference": "مشتقة القسمة - نظرية"
+        },
+        "solution": {
+          "formula": "(f/g)' = (g f' - f g') / g^2",
+          "steps": [
+            "تطبيق نظرية مشتقة القسمة."
+          ],
+          "summary": "المقام في مشتقة البسط - البسط في مشتقة المقام على مربع المقام."
+        },
+        "explanation": "تنص نظرية مشتقة القسمة في صفحة 92 على هذه الصيغة."
+      },
+      {
+        "id": "U03-R-Q014",
+        "number": 14,
+        "question": "أجد مشتقة الاقتران f(x) = (1 - x^2) / (1 + x^2).",
+        "options": {
+          "A": "-4x / (1 + x^2)^2",
+          "B": "4x / (1 + x^2)^2",
+          "C": "-2x / (1 + x^2)",
+          "D": "0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-4x / (1 + x^2)^2",
+        "difficulty": "hard",
+        "source": {
+          "page": 93,
+          "reference": "مثال 2 - الفرع 1"
+        },
+        "solution": {
+          "formula": "f'(x) = [(1+x^2)(-2x) - (1-x^2)(2x)] / (1+x^2)^2",
+          "steps": [
+            "مشتقة البسط: -2x، مشتقة المقام: 2x.",
+            "f'(x) = [-2x - 2x^3 - 2x + 2x^3] / (1+x^2)^2.",
+            "f'(x) = -4x / (1+x^2)^2."
+          ],
+          "summary": "الناتج هو -4x / (1+x^2)^2."
+        },
+        "explanation": "تم استخدام قاعدة القسمة وتبسيط البسط."
+      },
+      {
+        "id": "U03-R-Q015",
+        "number": 15,
+        "question": "ما هي مشتقة اقتران الظل f(x) = tan x؟",
+        "options": {
+          "A": "sec x",
+          "B": "sec^2 x",
+          "C": "-sec^2 x",
+          "D": "tan^2 x"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "sec^2 x",
+        "difficulty": "easy",
+        "source": {
+          "page": 98,
+          "reference": "مشتقات الاقترانات المثلثية - نظرية"
+        },
+        "solution": {
+          "formula": "d/dx(tan x) = sec^2 x",
+          "steps": [
+            "تطبيق نظرية مشتقات الاقترانات المثلثية."
+          ],
+          "summary": "مشتقة التان هي قاطع تربيع."
+        },
+        "explanation": "تحدد النظرية في ص 98 مشتقات الاقترانات المثلثية ومنها الظل."
+      },
+      {
+        "id": "U03-R-Q016",
+        "number": 16,
+        "question": "أجد مشتقة اقتران القاطع f(x) = sec x.",
+        "options": {
+          "A": "sec x tan x",
+          "B": "sec^2 x",
+          "C": "tan^2 x",
+          "D": "-sec x tan x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "sec x tan x",
+        "difficulty": "easy",
+        "source": {
+          "page": 98,
+          "reference": "مشتقات الاقترانات المثلثية - نظرية"
+        },
+        "solution": {
+          "formula": "d/dx(sec x) = sec x tan x",
+          "steps": [
+            "تطبيق نظرية مشتقات الاقترانات المثلثية."
+          ],
+          "summary": "مشتقة القاطع هي قاطع في ظل."
+        },
+        "explanation": "تحدد النظرية في ص 98 مشتقة القاطع بأنها sec x tan x."
+      },
+      {
+        "id": "U03-R-Q017",
+        "number": 17,
+        "question": "أجد المشتقة الثانية للاقتران f(x) = x^2 - 1/x.",
+        "options": {
+          "A": "2 + 2/x^3",
+          "B": "2 - 2/x^3",
+          "C": "2x + 1/x^2",
+          "D": "2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "2 - 2/x^3",
+        "difficulty": "hard",
+        "source": {
+          "page": 99,
+          "reference": "مثال 6"
+        },
+        "solution": {
+          "formula": "f'(x) = 2x + 1/x^2 -> f''(x) = 2 - 2/x^3",
+          "steps": [
+            "f(x) = x^2 - x^-1.",
+            "f'(x) = 2x + 1/x^2.",
+            "f''(x) = 2 - 2/x^3."
+          ],
+          "summary": "المشتقة الثانية هي 2 - 2/x^3."
+        },
+        "explanation": "تم اشتقاق الاقتران مرتين متتاليتين."
+      },
+      {
+        "id": "U03-R-Q018",
+        "number": 18,
+        "question": "ماذا يسمى المقياس الذي يعبر عن سرعة انتشار الإنفلونزا في مسألة اليوم ص 103؟",
+        "options": {
+          "A": "التكامل",
+          "B": "المشتقة الأولى P'(t)",
+          "C": "الموقع الابتدائي",
+          "D": "عدد الطلاب المصابين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المشتقة الأولى P'(t)",
+        "difficulty": "easy",
+        "source": {
+          "page": 103,
+          "reference": "مسألة اليوم"
+        },
+        "solution": {
+          "formula": "P'(t)",
+          "steps": [
+            "مراجعة نص مسألة اليوم ص 103."
+          ],
+          "summary": "السرعة هي معدل التغير، أي المشتقة."
+        },
+        "explanation": "في المسألة الافتتاحية للدرس الثالث، تم تعريف سرعة الانتشار كمشتقة لاقتران عدد المصابين."
+      },
+      {
+        "id": "U03-R-Q019",
+        "number": 19,
+        "question": "ما هي قاعدة السلسلة لإيجاد مشتقة الاقتران المركب f(g(x))؟",
+        "options": {
+          "A": "f'(g(x)) * g'(x)",
+          "B": "f'(x) * g'(x)",
+          "C": "f(g'(x))",
+          "D": "f'(g'(x))"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "f'(g(x)) * g'(x)",
+        "difficulty": "easy",
+        "source": {
+          "page": 104,
+          "reference": "قاعدة السلسلة - نظرية"
+        },
+        "solution": {
+          "formula": "(f o g)'(x) = f'(g(x)) * g'(x)",
+          "steps": [
+            "تطبيق نظرية قاعدة السلسلة."
+          ],
+          "summary": "مشتقة الخارجي عند الداخلي مضروبة في مشتقة الداخلي."
+        },
+        "explanation": "هذا هو التعريف الأساسي لقاعدة السلسلة الوارد في ص 104."
+      },
+      {
+        "id": "U03-R-Q020",
+        "number": 20,
+        "question": "أجد مشتقة الاقتران f(x) = cos(2x).",
+        "options": {
+          "A": "-sin 2x",
+          "B": "-2 sin 2x",
+          "C": "2 sin 2x",
+          "D": "cos 2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-2 sin 2x",
+        "difficulty": "medium",
+        "source": {
+          "page": 105,
+          "reference": "مثال 1 - الفرع 1"
+        },
+        "solution": {
+          "formula": "f'(x) = -sin(2x) * 2",
+          "steps": [
+            "تطبيق قاعدة السلسلة.",
+            "مشتقة الكوساين هي -ساين.",
+            "مشتقة الزاوية 2x هي 2."
+          ],
+          "summary": "المشتقة هي -2 sin 2x."
+        },
+        "explanation": "تطبيق قاعدة السلسلة للاقترانات المثلثية المركبة."
+      },
+      {
+        "id": "U03-R-Q021",
+        "number": 21,
+        "question": "أجد مشتقة الاقتران f(x) = ln(sin x).",
+        "options": {
+          "A": "cos x",
+          "B": "cot x",
+          "C": "tan x",
+          "D": "1 / sin x"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "cot x",
+        "difficulty": "hard",
+        "source": {
+          "page": 105,
+          "reference": "مثال 1 - الفرع 3"
+        },
+        "solution": {
+          "formula": "f'(x) = (1/sin x) * cos x",
+          "steps": [
+            "مشتقة اللوغاريتم للداخلي: 1/sin x.",
+            "مشتقة الداخلي sin x هي cos x.",
+            "f'(x) = cos x/sin x = cot x."
+          ],
+          "summary": "الناتج هو cot x."
+        },
+        "explanation": "تم دمج قاعدة السلسلة مع الاقتران اللوغاريتمي والنسب المثلثية."
+      },
+      {
+        "id": "U03-R-Q022",
+        "number": 22,
+        "question": "ما هي قاعدة سلسلة القوة لاشتقاق [g(x)]^n؟",
+        "options": {
+          "A": "n [g(x)]^(n-1)",
+          "B": "n [g(x)]^(n-1) * g'(x)",
+          "C": "n g'(x)",
+          "D": "[g(x)]^n * ln g(x)"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "n [g(x)]^(n-1) * g'(x)",
+        "difficulty": "easy",
+        "source": {
+          "page": 105,
+          "reference": "قاعدة سلسلة القوة - مفهوم أساسي"
+        },
+        "solution": {
+          "formula": "d/dx[g(x)]^n = n[g(x)]^(n-1)g'(x)",
+          "steps": [
+            "تطبيق قاعدة سلسلة القوة."
+          ],
+          "summary": "اشتقاق القوة مع ضربها في مشتقة ما بداخل القوس."
+        },
+        "explanation": "هذه حالة خاصة من قاعدة السلسلة تسمى قاعدة سلسلة القوة."
+      },
+      {
+        "id": "U03-R-Q023",
+        "number": 23,
+        "question": "أجد مشتقة f(x) = tan^4(x).",
+        "options": {
+          "A": "4 tan^3 x",
+          "B": "4 tan^3 x sec^2 x",
+          "C": "sec^8 x",
+          "D": "4 sec^2 x"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "4 tan^3 x sec^2 x",
+        "difficulty": "medium",
+        "source": {
+          "page": 106,
+          "reference": "مثال 2 - الفرع 2"
+        },
+        "solution": {
+          "formula": "f'(x) = 4(tan x)^3 * sec^2 x",
+          "steps": [
+            "نعتبر f(x) = (tan x)^4.",
+            "نطبق قاعدة سلسلة القوة.",
+            "المشتقة = 4 tan^3 x × مشتقة tan x.",
+            "مشتقة tan x هي sec^2 x."
+          ],
+          "summary": "الناتج هو 4 tan^3 x sec^2 x."
+        },
+        "explanation": "تطبيق لقاعدة سلسلة القوة مع اقتران الظل."
+      },
+      {
+        "id": "U03-R-Q024",
+        "number": 24,
+        "question": "كيف نحسب مشتقة المعادلة الوسيطية dy/dx بدلالة t؟",
+        "options": {
+          "A": "(dy/dt) / (dx/dt)",
+          "B": "(dx/dt) / (dy/dt)",
+          "C": "(dy/dt) * (dx/dt)",
+          "D": "dy/dt + dx/dt"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(dy/dt) / (dx/dt)",
+        "difficulty": "easy",
+        "source": {
+          "page": 115,
+          "reference": "مشتقة المعادلة الوسيطية - مفهوم أساسي"
+        },
+        "solution": {
+          "formula": "dy/dx = (dy/dt) / (dx/dt)",
+          "steps": [
+            "مراجعة المفهوم الأساسي."
+          ],
+          "summary": "قسمة مشتقة y بالنسبة لـ t على مشتقة x بالنسبة لـ t."
+        },
+        "explanation": "هذا هو القانون المستخدم لإيجاد ميل المماس للمعادلات الوسيطية."
+      },
+      {
+        "id": "U03-R-Q025",
+        "number": 25,
+        "question": "أجد مشتقة الاقتران f(x) = a^x حيث a عدد حقيقي موجب و a ≠ 1.",
+        "options": {
+          "A": "a^x",
+          "B": "a^x ln a",
+          "C": "x a^(x-1)",
+          "D": "a^x / ln a"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "a^x ln a",
+        "difficulty": "medium",
+        "source": {
+          "page": 111,
+          "reference": "مشتقة a^g(x) - نظرية"
+        },
+        "solution": {
+          "formula": "d/dx(a^x) = a^x ln a",
+          "steps": [
+            "تطبيق نظرية مشتقة الاقتران الأسي العام."
+          ],
+          "summary": "الاقتران نفسه مضروبًا في لوغاريتم الأساس."
+        },
+        "explanation": "تم استنتاج هذه القاعدة باستخدام خصائص اللوغاريتمات وقاعدة السلسلة."
+      },
+      {
+        "id": "U03-R-Q026",
+        "number": 26,
+        "question": "ما الفرق الأساسي بين الاقتران الصريح والعلاقة الضمنية؟",
+        "options": {
+          "A": "لا يوجد فرق",
+          "B": "الصريح يمكن كتابته صراحة في صورة y = f(x)، بينما الضمني يصعب ذلك",
+          "C": "الضمني لا يمكن اشتقاقه",
+          "D": "الصريح يحوي متغيرًا واحدًا فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الصريح يمكن كتابته صراحة في صورة y = f(x)، بينما الضمني يصعب ذلك",
+        "difficulty": "easy",
+        "source": {
+          "page": 121,
+          "reference": "العلاقة الضمنية ومشتقتها"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "مراجعة مقدمة الدرس الرابع."
+          ],
+          "summary": "الفرق يكمن في إمكانية فصل المتغير التابع."
+        },
+        "explanation": "العلاقات الضمنية مثل x^2 + y^2 = 4 لا توضع دائمًا في صورة صريحة بسهولة."
+      },
+      {
+        "id": "U03-R-Q027",
+        "number": 27,
+        "question": "أجد dy/dx للعلاقة x^2 + y^2 = 4.",
+        "options": {
+          "A": "-x/y",
+          "B": "x/y",
+          "C": "-2x",
+          "D": "-2y"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-x/y",
+        "difficulty": "medium",
+        "source": {
+          "page": 122,
+          "reference": "مثال 1 - الفرع 1"
+        },
+        "solution": {
+          "formula": "2x + 2y(dy/dx) = 0",
+          "steps": [
+            "اشتقاق الطرفين بالنسبة لـ x.",
+            "2x + 2y(dy/dx) = 0.",
+            "2y(dy/dx) = -2x.",
+            "dy/dx = -x/y."
+          ],
+          "summary": "المشتقة الضمنية هي -x/y."
+        },
+        "explanation": "هذا تطبيق بسيط لخطوات الاشتقاق الضمني."
+      },
+      {
+        "id": "U03-R-Q028",
+        "number": 28,
+        "question": "ما هي مشتقة الحد (2xy) بالنسبة لـ x ضمنيًا؟",
+        "options": {
+          "A": "2(dy/dx)",
+          "B": "2x(dy/dx) + 2y",
+          "C": "2",
+          "D": "2x + 2y"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "2x(dy/dx) + 2y",
+        "difficulty": "medium",
+        "source": {
+          "page": 124,
+          "reference": "مثال 2 - الفرع 1"
+        },
+        "solution": {
+          "formula": "d/dx(2xy) = 2x(dy/dx) + 2y",
+          "steps": [
+            "استعمال قاعدة الضرب للاقترانين (2x) و y."
+          ],
+          "summary": "الناتج هو 2x y' + 2y."
+        },
+        "explanation": "يجب معاملة y كاقتران لـ x عند استخدام قاعدة الضرب في الاشتقاق الضمني."
+      },
+      {
+        "id": "U03-R-Q029",
+        "number": 29,
+        "question": "أجد ميل المماس للعلاقة e^(2x) ln y = x + y - 2 عند النقطة (1, 1).",
+        "options": {
+          "A": "1 / (e^2 - 1)",
+          "B": "e^2",
+          "C": "0",
+          "D": "1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1 / (e^2 - 1)",
+        "difficulty": "hard",
+        "source": {
+          "page": 126,
+          "reference": "مثال 3"
+        },
+        "solution": {
+          "formula": "dy/dx = (1 - 2e^(2x) ln y) / (e^(2x)/y - 1)",
+          "steps": [
+            "الاشتقاق الضمني للطرفين.",
+            "تعويض x=1 و y=1 في المشتقة الناتجة."
+          ],
+          "summary": "الميل هو 1 / (e^2 - 1)."
+        },
+        "explanation": "تم حساب المشتقة الضمنية ثم التعويض بإحداثيات النقطة المعطاة."
+      },
+      {
+        "id": "U03-R-Q030",
+        "number": 30,
+        "question": "ما هي المشتقة الثانية d^2y/dx^2 للعلاقة 2x^3 - 3y^2 = 8؟",
+        "options": {
+          "A": "(2xy^2 - x^4) / y^3",
+          "B": "x^2 / y",
+          "C": "(x^2 - y) / y^2",
+          "D": "6x^2 / 6y"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(2xy^2 - x^4) / y^3",
+        "difficulty": "hard",
+        "source": {
+          "page": 129,
+          "reference": "مثال 5"
+        },
+        "solution": {
+          "formula": "y'' = [2xy^2 - x^4] / y^3",
+          "steps": [
+            "المشتقة الأولى: y' = x^2 / y.",
+            "نشتق y' مرة أخرى باستخدام قاعدة القسمة.",
+            "نعوض قيمة y' في ناتج المشتقة الثانية."
+          ],
+          "summary": "المشتقة الثانية هي (2xy^2 - x^4) / y^3."
+        },
+        "explanation": "خطوات الاشتقاق الضمني الثاني تتضمن تعويض المشتقة الأولى في الناتج النهائي."
+      },
+      {
+        "id": "U03-R-Q031",
+        "number": 31,
+        "question": "ما هو المفهوم الأساسي لدرس المعدلات المرتبطة؟",
+        "options": {
+          "A": "اشتقاق العلاقات بالنسبة للزمن t",
+          "B": "إيجاد المساحة",
+          "C": "رسم الاقترانات",
+          "D": "حل المعادلات الجبرية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "اشتقاق العلاقات بالنسبة للزمن t",
+        "difficulty": "easy",
+        "source": {
+          "page": 133,
+          "reference": "مقدمة الدرس الخامس"
+        },
+        "solution": {
+          "formula": "dy/dt = (dy/dx)(dx/dt)",
+          "steps": [
+            "مراجعة المفهوم الأساسي."
+          ],
+          "summary": "استخدام قاعدة السلسلة لربط معدلات التغير بالزمن."
+        },
+        "explanation": "يعتمد الدرس على فكرة أن الكميات تتغير بمرور الزمن t."
+      },
+      {
+        "id": "U03-R-Q032",
+        "number": 32,
+        "question": "ما هي الخطوة الأولى في استراتيجية حل مسائل المعدلات المرتبطة؟",
+        "options": {
+          "A": "الاشتقاق",
+          "B": "فهم المسألة وتحديد المتغيرات والمعدلات",
+          "C": "التعويض بالقيم",
+          "D": "كتابة المعادلة النهائية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فهم المسألة وتحديد المتغيرات والمعدلات",
+        "difficulty": "easy",
+        "source": {
+          "page": 134,
+          "reference": "استراتيجية حل مسائل المعدلات المرتبطة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "مراجعة الخطوة الأولى."
+          ],
+          "summary": "تحديد المعطيات والمطلوب بدقة."
+        },
+        "explanation": "الفهم الجيد للمسألة وتحديد ما يتغير وما هو ثابت هو المفتاح للحل."
+      },
+      {
+        "id": "U03-R-Q033",
+        "number": 33,
+        "question": "في مسألة موجات الماء، إذا كان dr/dt = 3 cm/s، ما معدل تغير المحيط؟",
+        "options": {
+          "A": "3π cm/s",
+          "B": "6π cm/s",
+          "C": "9π cm/s",
+          "D": "6 cm/s"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "6π cm/s",
+        "difficulty": "medium",
+        "source": {
+          "page": 134,
+          "reference": "مثال 1 - الفرع 1"
+        },
+        "solution": {
+          "formula": "dC/dt = 2π(dr/dt)",
+          "steps": [
+            "C = 2πr.",
+            "dC/dt = 2π × 3 = 6π."
+          ],
+          "summary": "المعدل هو 6π cm/s."
+        },
+        "explanation": "اشتقاق علاقة المحيط والتعويض بمعدل زيادة نصف القطر."
+      },
+      {
+        "id": "U03-R-Q034",
+        "number": 34,
+        "question": "ماذا تعني إشارة معدل التغير السالبة في المسافات؟",
+        "options": {
+          "A": "المسافة تتناقص بمرور الزمن",
+          "B": "الجسم في حالة سكون",
+          "C": "المسافة تزداد",
+          "D": "السرعة صفر"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "المسافة تتناقص بمرور الزمن",
+        "difficulty": "easy",
+        "source": {
+          "page": 136,
+          "reference": "ملاحظة أتعلم ص 136"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "مراجعة الملاحظة."
+          ],
+          "summary": "السالب يدل على التناقص."
+        },
+        "explanation": "يكون معدل التغير سالبًا إذا كانت المسافات تتناقص."
+      },
+      {
+        "id": "U03-R-Q035",
+        "number": 35,
+        "question": "سيارة تتجه غربًا بسرعة 80 km/h وأخرى شمالًا بسرعة 100 km/h نحو تقاطع. ما معدل تغير البعد بينهما عندما تكونان على بعد 0.3 km و0.4 km من التقاطع؟",
+        "options": {
+          "A": "180 km/h",
+          "B": "-128 km/h",
+          "C": "128 km/h",
+          "D": "0 km/h"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-128 km/h",
+        "difficulty": "hard",
+        "source": {
+          "page": 136,
+          "reference": "مثال 2"
+        },
+        "solution": {
+          "formula": "z(dz/dt) = x(dx/dt) + y(dy/dt)",
+          "steps": [
+            "x=0.3 و y=0.4، إذن z=0.5.",
+            "dx/dt=-80 و dy/dt=-100.",
+            "0.5(dz/dt) = 0.3(-80) + 0.4(-100) = -64.",
+            "dz/dt = -128."
+          ],
+          "summary": "البعد يتناقص بمعدل 128 km/h."
+        },
+        "explanation": "تطبيق لنظرية فيثاغورس والاشتقاق الزمني."
+      },
+      {
+        "id": "U03-R-Q036",
+        "number": 36,
+        "question": "أجد معدل تغير زاوية ارتفاع صاروخ موقعه s(t) = 50t^2 بعد 10 ثوانٍ، إذا كانت الكاميرا تبعد 2000 ft عن المنصة.",
+        "options": {
+          "A": "2/29 rad/s",
+          "B": "1/10 rad/s",
+          "C": "29/2 rad/s",
+          "D": "0.1 rad/s"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2/29 rad/s",
+        "difficulty": "hard",
+        "source": {
+          "page": 138,
+          "reference": "مثال 3"
+        },
+        "solution": {
+          "formula": "sec^2(θ)(dθ/dt) = (1/2000)(ds/dt)",
+          "steps": [
+            "عند t=10: s=5000 و ds/dt=1000.",
+            "tan θ = 5000/2000 = 2.5.",
+            "sec^2 θ = 1 + (2.5)^2 = 7.25.",
+            "dθ/dt = (1000/2000) / 7.25 = 2/29."
+          ],
+          "summary": "المعدل هو 2/29 rad/s."
+        },
+        "explanation": "تم اشتقاق علاقة الظل والتعويض بالقيم اللحظية."
+      },
+      {
+        "id": "U03-R-Q037",
+        "number": 37,
+        "question": "مصباح يدور 3 دورات في الدقيقة. ما قيمة السرعة الزاوية dθ/dt بالراديان؟",
+        "options": {
+          "A": "3 rad/min",
+          "B": "3π rad/min",
+          "C": "6π rad/min",
+          "D": "2π rad/min"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "6π rad/min",
+        "difficulty": "medium",
+        "source": {
+          "page": 140,
+          "reference": "مثال 4 - الخطوة 1"
+        },
+        "solution": {
+          "formula": "ω = 2π × عدد الدورات",
+          "steps": [
+            "الدورة الواحدة هي 2π راديان.",
+            "3 دورات تعني 3 × 2π = 6π."
+          ],
+          "summary": "السرعة الزاوية 6π rad/min."
+        },
+        "explanation": "يجب تحويل الدورات إلى راديان لحل مسائل المعدلات الزاوية."
+      },
+      {
+        "id": "U03-R-Q038",
+        "number": 38,
+        "question": "ما هي العلاقة بين r و h للماء في خزان مخروطي ارتفاعه 5 m ونصف قطر قاعدته 2 m؟",
+        "options": {
+          "A": "r = 0.4 h",
+          "B": "r = 2.5 h",
+          "C": "r = h",
+          "D": "r = 2/5"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "r = 0.4 h",
+        "difficulty": "medium",
+        "source": {
+          "page": 142,
+          "reference": "مثال 5 - الخطوة 2"
+        },
+        "solution": {
+          "formula": "r/h = 2/5",
+          "steps": [
+            "باستخدام تشابه المثلثات: r/h = 2/5.",
+            "r = 0.4h."
+          ],
+          "summary": "العلاقة هي r = 0.4h."
+        },
+        "explanation": "تشابه المثلثات يربط أبعاد السائل بأبعاد الوعاء."
+      },
+      {
+        "id": "U03-R-Q039",
+        "number": 39,
+        "question": "أجد معدل تغير ارتفاع الوقود dh/dt في خزان أسطواني r=1 m إذا كان يملأ بمعدل 500 L/min.",
+        "options": {
+          "A": "0.5 / π m/min",
+          "B": "500 / π m/min",
+          "C": "1 / 2π m/min",
+          "D": "π / 2 m/min"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "0.5 / π m/min",
+        "difficulty": "hard",
+        "source": {
+          "page": 143,
+          "reference": "تمرين 7 ص 143"
+        },
+        "solution": {
+          "formula": "dV/dt = πr^2(dh/dt)",
+          "steps": [
+            "dV/dt = 500 L/min = 0.5 m^3/min.",
+            "r = 1 m.",
+            "0.5 = π(1)^2(dh/dt).",
+            "dh/dt = 0.5/π."
+          ],
+          "summary": "الناتج هو 0.5/π m/min."
+        },
+        "explanation": "يجب تحويل اللترات إلى أمتار مكعبة، حيث 1 m^3 = 1000 L."
+      },
+      {
+        "id": "U03-R-Q040",
+        "number": 40,
+        "question": "رجل طوله 2 m يسير نحو جدار بسرعة 1.6 m/s من جهة مصباح أرضي. إذا كان الجدار يبعد 12 m، أجد معدل تغير طول ظله عندما يكون على بعد 4 m من الجدار.",
+        "options": {
+          "A": "-0.6 m/s",
+          "B": "-0.4 m/s",
+          "C": "0.8 m/s",
+          "D": "1.6 m/s"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-0.6 m/s",
+        "difficulty": "hard",
+        "source": {
+          "page": 145,
+          "reference": "تمرين 21 ص 145"
+        },
+        "solution": {
+          "formula": "y = 24/x",
+          "steps": [
+            "تشابه المثلثات: y/12 = 2/x، إذن y = 24/x.",
+            "dy/dt = (-24/x^2)(dx/dt).",
+            "بعده عن الجدار 4 m، إذن بعده عن المصباح x = 12 - 4 = 8 m.",
+            "dy/dt = (-24/64)(1.6) = -0.6."
+          ],
+          "summary": "المعدل هو -0.6 m/s."
+        },
+        "explanation": "تطبيق لتشابه المثلثات والاشتقاق الزمني لمسائل الظلال."
+      },
+      {
+        "id": "U03-R-Q041",
+        "number": 41,
+        "question": "اختبار الوحدة: متى تكون سرعة الجسيم s(t) = 3 + sin t صفرًا؟",
+        "options": {
+          "A": "t = 0",
+          "B": "t = π",
+          "C": "t = π/2",
+          "D": "t = 2π"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "t = π/2",
+        "difficulty": "easy",
+        "source": {
+          "page": 146,
+          "reference": "اختبار نهاية الوحدة - السؤال 1"
+        },
+        "solution": {
+          "formula": "v(t) = s'(t) = cos t",
+          "steps": [
+            "v(t) = s'(t) = cos t.",
+            "cos t = 0 عند t = π/2."
+          ],
+          "summary": "السرعة صفر عند t = π/2."
+        },
+        "explanation": "تطبيق لمفاهيم الحركة الأساسية في اختبار الوحدة."
+      },
+      {
+        "id": "U03-R-Q042",
+        "number": 42,
+        "question": "إذا كان y = uv، ومعطى u(1)=2, u'(1)=3, v(1)=-1, v'(1)=1، أجد y'(1).",
+        "options": {
+          "A": "2",
+          "B": "-1",
+          "C": "1",
+          "D": "4"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-1",
+        "difficulty": "medium",
+        "source": {
+          "page": 146,
+          "reference": "اختبار نهاية الوحدة - السؤال 2"
+        },
+        "solution": {
+          "formula": "y' = uv' + vu'",
+          "steps": [
+            "y'(1) = u(1)v'(1) + v(1)u'(1).",
+            "y'(1) = (2)(1) + (-1)(3) = -1."
+          ],
+          "summary": "الناتج هو -1."
+        },
+        "explanation": "تطبيق لقاعدة الضرب بالقيم العددية."
+      },
+      {
+        "id": "U03-R-Q043",
+        "number": 43,
+        "question": "أجد المشتقة الثانية f''(x) للاقتران f(x) = x - 1/x.",
+        "options": {
+          "A": "2 / x^3",
+          "B": "-2 / x^3",
+          "C": "1 + 1/x^2",
+          "D": "2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-2 / x^3",
+        "difficulty": "medium",
+        "source": {
+          "page": 146,
+          "reference": "اختبار نهاية الوحدة - السؤال 3"
+        },
+        "solution": {
+          "formula": "f'(x) = 1 + 1/x^2 -> f''(x) = -2/x^3",
+          "steps": [
+            "f'(x) = 1 + 1/x^2.",
+            "f''(x) = -2/x^3."
+          ],
+          "summary": "المشتقة الثانية هي -2/x^3."
+        },
+        "explanation": "اشتقاق متتالي لاقتران القوة."
+      },
+      {
+        "id": "U03-R-Q044",
+        "number": 44,
+        "question": "أجد ميل مماس منحنى y^2 - x^2 = 1 عند النقطة (1, √2).",
+        "options": {
+          "A": "1/√2",
+          "B": "-1/√2",
+          "C": "√2",
+          "D": "1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1/√2",
+        "difficulty": "medium",
+        "source": {
+          "page": 146,
+          "reference": "اختبار نهاية الوحدة - السؤال 5"
+        },
+        "solution": {
+          "formula": "2y(dy/dx) - 2x = 0 -> dy/dx = x/y",
+          "steps": [
+            "اشتقاق ضمني: 2y(dy/dx) - 2x = 0.",
+            "dy/dx = x/y.",
+            "تعويض (1,√2): dy/dx = 1/√2."
+          ],
+          "summary": "الميل هو 1/√2."
+        },
+        "explanation": "إيجاد ميل المماس لعلاقة ضمنية."
+      },
+      {
+        "id": "U03-R-Q045",
+        "number": 45,
+        "question": "أجد f'(x) للاقتران f(x) = log(2x - 3).",
+        "options": {
+          "A": "2 / [(2x-3) ln 10]",
+          "B": "2 / (2x-3)",
+          "C": "1 / (2x-3)",
+          "D": "ln 10 / (2x-3)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2 / [(2x-3) ln 10]",
+        "difficulty": "hard",
+        "source": {
+          "page": 146,
+          "reference": "اختبار نهاية الوحدة - السؤال 6"
+        },
+        "solution": {
+          "formula": "d/dx(log_a u) = u'/(u ln a)",
+          "steps": [
+            "u = 2x - 3، و u' = 2.",
+            "a = 10.",
+            "المشتقة = 2 / [(2x-3)ln 10]."
+          ],
+          "summary": "الناتج هو 2 / [(2x-3) ln 10]."
+        },
+        "explanation": "تطبيق قاعدة اشتقاق اللوغاريتم العام."
+      },
+      {
+        "id": "U03-R-Q046",
+        "number": 46,
+        "question": "مكعب زاد حجمه بمعدل 24 cm^3/min وزادت مساحته بمعدل 12 cm^2/min. ما طول ضلعه؟",
+        "options": {
+          "A": "2 cm",
+          "B": "4 cm",
+          "C": "8 cm",
+          "D": "12 cm"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "8 cm",
+        "difficulty": "hard",
+        "source": {
+          "page": 146,
+          "reference": "اختبار نهاية الوحدة - السؤال 8"
+        },
+        "solution": {
+          "formula": "V'=3x^2x', A'=12xx'",
+          "steps": [
+            "24 = 3x^2x' -> x' = 8/x^2.",
+            "12 = 12xx' -> x' = 1/x.",
+            "بالمساواة: 8/x^2 = 1/x.",
+            "x = 8."
+          ],
+          "summary": "طول الضلع هو 8 cm."
+        },
+        "explanation": "ربط معدلات تغير الحجم والمساحة لإيجاد البعد."
+      },
+      {
+        "id": "U03-R-Q047",
+        "number": 47,
+        "question": "أجد معادلة المماس للاقتران y = x ln x عند النقطة (1, 0).",
+        "options": {
+          "A": "y = x - 1",
+          "B": "y = x",
+          "C": "y = 1",
+          "D": "y = x + 1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "y = x - 1",
+        "difficulty": "medium",
+        "source": {
+          "page": 147,
+          "reference": "اختبار نهاية الوحدة - السؤال 27"
+        },
+        "solution": {
+          "formula": "y' = ln x + 1",
+          "steps": [
+            "y' = x(1/x) + ln x(1) = 1 + ln x.",
+            "عند x=1: m = 1 + ln(1) = 1.",
+            "y - 0 = 1(x - 1).",
+            "y = x - 1."
+          ],
+          "summary": "المعادلة هي y = x - 1."
+        },
+        "explanation": "تطبيق قاعدة الضرب لإيجاد ميل المماس."
+      },
+      {
+        "id": "U03-R-Q048",
+        "number": 48,
+        "question": "أجد سرعة تغير المسافة بين بالون يرتفع بسرعة 1 ft/s ودراجة تمر أسفله بسرعة 17 ft/s بعد 3 ثوانٍ، إذا كان ارتفاع البالون الابتدائي 65 ft.",
+        "options": {
+          "A": "11 ft/s",
+          "B": "13 ft/s",
+          "C": "15 ft/s",
+          "D": "17 ft/s"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "11 ft/s",
+        "difficulty": "hard",
+        "source": {
+          "page": 147,
+          "reference": "اختبار نهاية الوحدة - السؤال 41"
+        },
+        "solution": {
+          "formula": "s^2 = x^2 + y^2",
+          "steps": [
+            "بعد 3 ثوانٍ: x = 51 و y = 68، ومنه s = 85.",
+            "dx/dt = 17 و dy/dt = 1.",
+            "85(ds/dt) = 51(17) + 68(1) = 935.",
+            "ds/dt = 935/85 = 11."
+          ],
+          "summary": "السرعة هي 11 ft/s."
+        },
+        "explanation": "تطبيق نظرية فيثاغورس والمعدلات المرتبطة."
+      },
+      {
+        "id": "U03-R-Q049",
+        "number": 49,
+        "question": "أجد مشتقة الاقتران f(x) = 5^(2-x).",
+        "options": {
+          "A": "-5^(2-x) ln 5",
+          "B": "5^(2-x) ln 5",
+          "C": "(2-x) 5^(1-x)",
+          "D": "-5 ln 5"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-5^(2-x) ln 5",
+        "difficulty": "medium",
+        "source": {
+          "page": 146,
+          "reference": "اختبار نهاية الوحدة - السؤال 14"
+        },
+        "solution": {
+          "formula": "d/dx(a^u) = a^u ln(a) × u'",
+          "steps": [
+            "a = 5، u = 2-x، u' = -1.",
+            "المشتقة = 5^(2-x) × ln 5 × (-1)."
+          ],
+          "summary": "المشتقة هي -5^(2-x) ln 5."
+        },
+        "explanation": "تطبيق قاعدة الاقتران الأسي العام مع قاعدة السلسلة."
+      },
+      {
+        "id": "U03-R-Q050",
+        "number": 50,
+        "question": "أجد مشتقة الاقتران f(x) = 10 sin(0.5x).",
+        "options": {
+          "A": "5 cos(0.5x)",
+          "B": "10 cos(0.5x)",
+          "C": "-5 cos(0.5x)",
+          "D": "5 sin(0.5x)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "5 cos(0.5x)",
+        "difficulty": "medium",
+        "source": {
+          "page": 146,
+          "reference": "اختبار نهاية الوحدة - السؤال 15"
+        },
+        "solution": {
+          "formula": "f'(x) = 10 × cos(0.5x) × 0.5",
+          "steps": [
+            "تطبيق قاعدة السلسلة.",
+            "10 × 0.5 = 5."
+          ],
+          "summary": "المشتقة هي 5 cos(0.5x)."
+        },
+        "explanation": "تطبيق قاعدة السلسلة للاقتران المثلثي."
+      }
+    ]
+  }
+}
