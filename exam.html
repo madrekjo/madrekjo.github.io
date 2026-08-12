@@ -15,6 +15,13 @@
 <meta name="keywords" content="اختبارات, امتحانات, مراجعة ختامية, مدارك جو">
 <link rel="icon" type="image/jpeg" href="https://d.top4top.io/p_3816yfhp01.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+  options: { processHtmlClass: 'tex2jax_process' }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
 <style>
 :root { --a: #FFD700; --a-dim: rgba(255,215,0,0.1); --a-border: rgba(255,215,0,0.25); --deep: #0a0a0f; --surface: #111118; --surface2: #1a1a24; --text: #f0f0f5; --muted: #888899; }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -575,6 +582,7 @@ if (isReview) {
       html += '</div>';
       html += '</div>';
       document.getElementById('examContent').innerHTML = html;
+      if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
     }
 
     window.pickReview = function(oi) {
@@ -716,15 +724,15 @@ function startLegacy() {
 }
 
 function initData() {
-  fetch('questions/index.json')
-    .then(r => { if (!r.ok) throw new Error('index'); return r.json(); })
+    fetch('questions/index.json', { cache: 'no-store' })
+      .then(r => { if (!r.ok) throw new Error('index'); return r.json(); })
     .then(idxData => {
       const rec = (idxData.subjects || []).find(s => s.name === subject);
       const semDir = SEM_DIRS[semester];
       if (!rec || !rec.slug || !semDir) { startLegacy(); return; }
       state.slug = rec.slug;
       state.semDir = semDir;
-      fetch('questions/' + rec.slug + '/' + semDir + '/index.json')
+      fetch('questions/' + rec.slug + '/' + semDir + '/index.json', { cache: 'no-store' })
         .then(r => { if (!r.ok) throw new Error('sem'); return r.json(); })
         .then(idx => {
           state.semIndex = idx;
@@ -796,7 +804,7 @@ function startReview() {
 }
 
 function loadQuiz(path, title, expected) {
-  fetch(path)
+  fetch(path, { cache: 'no-store' })
     .then(r => { if (!r.ok) throw new Error('load'); return r.json(); })
     .then(data => {
       const { valid, bad } = validateQuestions(normalizeQuestions(data));
@@ -842,13 +850,34 @@ function showQ() {
     html += '</button>';
   });
   html += '</div>';
-  html += '<div class="qnav">';
+
+  const correctKey = q.correct_answer;
+  const chosenKey = prevAnswer && prevAnswer.chosen ? prevAnswer.chosen : null;
+  const isCorrect = prevAnswer && prevAnswer.correct;
+
+  html += '<div class="review-section" style="margin-top: 20px; padding: 16px; background: var(--surface2); border-radius: 12px; display: ' + (prevAnswer ? 'block' : 'none') + '">';
+  html += '<div class="review-header"><span>المراجعة الختامية</span></div>';
+  if (isCorrect) {
+    html += '<div class="review-ok"><span>✅ إجابتك صحيحة</span></div>';
+  } else {
+    const ci = KEYS.indexOf(chosenKey);
+    html += '<div class="review-no"><span>❌ إجابتك خاطئة</span></div>';
+    html += '<div class="review-your-answer"><strong>إجابتك:</strong> ' + AR_LABELS[ci] + ' — ' + q.options[ci] + '</div>';
+    html += '<div class="review-correct-answer"><strong>الإجابة الصحيحة:</strong> ' + AR_LABELS[correctKey] + ' — ' + q.options[correctKey] + '</div>';
+  }
+  html += '<div class="review-explanation"><strong>شرح الحل:</strong> للوصول إلى هذه الإجابة، يمكن استخدام الطريقة التالية:...</div>';
+  html += '<button class="sol-toggle" onclick="this.classList.toggle(\'open\');this.nextElementSibling.classList.toggle(\'show\')">🔍 إظهار خطوات الحل</div>';
+  html += '<div class="solution-box" style="display:none; margin-top: 10px; background: var(--surface); border: 1px solid var(--a-border); border-radius: 8px; padding: 10px">';
+  html += '<div class="sol-steps"><li> الخطوة الأولى: قراءة السؤال وفهم المطلوب</li><li> الخطوة الثانية: تطبيق القاعدة أو الجنس</li><li> الخطوة الثالثة: حساب النتيجة النهائية</li></div>';
+  html += '</div>';
+  html += '</div>';
+
+  html += '<div class="qnav" style="margin-top: 20px">';
   if (state.idx > 0) html += '<button class="qnav-btn" onclick="goPrev()">→ السابق</button>';
-  if (state.idx < total - 1) html += '<button class="qnav-btn" onclick="goNext()">التالي ←</button>';
-  else html += '<button class="qnav-btn" onclick="showResult()">🏁 عرض النتيجة</button>';
   html += '</div>';
   html += '</div>';
   document.getElementById('examContent').innerHTML = html;
+  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
 }
 
 window.pick = function(key) {
@@ -857,17 +886,55 @@ window.pick = function(key) {
   state.answers[state.idx] = { q: qItem, chosen: key, correct: key === qItem.correct_answer };
   document.querySelectorAll('.option-btn').forEach(b => {
     b.classList.toggle('selected', b.dataset.key === key);
+    if (b.dataset.key === qItem.correct_answer) b.classList.add('correct');
+    else if (b.dataset.key === key && key !== qItem.correct_answer) b.classList.add('wrong');
   });
+  // Show review section immediately - no auto-advance
+  const qCard = document.getElementById('qCard');
+  if (qCard) {
+    const reviewSection = qCard.querySelector('.review-section');
+    if (reviewSection) {
+      reviewSection.style.display = 'block';
+    }
+  }
+  // Remove timeout that auto-advanced
+  clearTimeout(state.timer);
 };
 
 window.goPrev = function() {
   clearTimeout(state.timer);
-  if (state.idx > 0) { state.idx--; showQ(); }
+  if (state.idx > 0) {
+    state.idx--;
+    // Hide review section of current question
+    const qCard = document.getElementById('qCard');
+    if (qCard) {
+      const reviewSection = qCard.querySelector('.review-section');
+      if (reviewSection) {
+        reviewSection.style.display = 'none';
+      }
+    }
+    state.answers[state.idx] = undefined;
+    state.answered = false;
+    showQ();
+  }
 };
 
 window.goNext = function() {
   clearTimeout(state.timer);
-  if (state.idx < state.questions.length - 1) { state.idx++; showQ(); }
+  if (state.idx < state.questions.length - 1) {
+    // Hide review section of current question
+    const qCard = document.getElementById('qCard');
+    if (qCard) {
+      const reviewSection = qCard.querySelector('.review-section');
+      if (reviewSection) {
+        reviewSection.style.display = 'none';
+      }
+    }
+    state.idx++;
+    showQ();
+  } else {
+    showResult();
+  }
 };
 
 function showResult() {
@@ -892,7 +959,9 @@ function showResult() {
     '<button class="result-again secondary" onclick="showAnswers()">📋 الإجابات النموذجية</button>' +
     '</div>';
   if (state.origin === 'data') html += '<button class="back-btn center" onclick="renderLessons()">→ رجوع للدروس</button>';
+  if (state.origin === 'legacy') html += '<button class="back-btn center" onclick="window.location=\'index.html\'">→ العودة للقائمة</button>';
   html += '</div>';
+  html += '<p class="result-message" style="margin: 20px 0; font-size: 0.9rem; color: var(--muted);">يمكنك مراجعة الإجابات الخاطئة من خلال الزر "الإجابات النموذجية" أعلاه، أو إعادة الاختبار لتحسين درجاتك.</p>';
   document.getElementById('examContent').innerHTML = html;
 }
 
@@ -941,6 +1010,7 @@ window.showAnswers = function() {
     html += '</div>';
   });
   document.getElementById('examContent').innerHTML = html;
+  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
 };
 </script>
 </body>
