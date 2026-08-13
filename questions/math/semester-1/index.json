@@ -29,6 +29,36 @@
       }
     },
     {
+      "id": "U2",
+      "number": 2,
+      "name": "المتطابقات والمعادلات المثلثية",
+      "lessons": [
+        {
+          "id": "L1",
+          "number": 1,
+          "name": "المتطابقات المثلثية 1",
+          "file": "unit-02/lesson-01.json"
+        },
+        {
+          "id": "L2",
+          "number": 2,
+          "name": "المتطابقات المثلثية 2",
+          "file": "unit-02/lesson-02.json"
+        },
+        {
+          "id": "L3",
+          "number": 3,
+          "name": "حل المعادلات المثلثية",
+          "file": "unit-02/lesson-03.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-02/review.json"
+      }
+    },
+    {
       "id": "U3",
       "number": 3,
       "name": "التفاضل وتطبيقاته",

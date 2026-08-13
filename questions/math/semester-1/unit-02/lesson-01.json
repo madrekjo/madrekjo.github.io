@@ -1,0 +1,1000 @@
+{
+  "lesson": {
+    "lesson_number": "2.1",
+    "lesson_name": "المتطابقات المثلثية 1",
+    "unit_number": 2,
+    "unit_name": "المتطابقات والمعادلات المثلثية",
+    "page_start": 34,
+    "page_end": 45,
+    "questions": [
+      {
+        "id": "U02-L01-Q001",
+        "number": 1,
+        "question": "ماذا نطلق على المعادلة التي تكون صحيحة لجميع قيم المتغير التي يكون عندها طرفا المعادلة معرفين؟",
+        "options": {
+          "A": "المعادلة الخطية",
+          "B": "المتطابقة المثلثية",
+          "C": "المعادلة التربيعية",
+          "D": "الاقتران اللوغاريتمي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المتطابقة المثلثية",
+        "difficulty": "easy",
+        "source": {
+          "page": 35,
+          "reference": "تعريف المتطابقة المثلثية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بناءً على التعريف الوارد في الكتاب، المتطابقة هي معادلة صحيحة لجميع قيم المتغير المعرف عندها طرفاها."
+        },
+        "explanation": "المتطابقة المثلثية تختلف عن المعادلة العادية بأنها صحيحة لكل القيم الممكنة للمتغير."
+      },
+      {
+        "id": "U02-L01-Q002",
+        "number": 2,
+        "question": "أي من المتطابقات الآتية تسمى متطابقة فيثاغورس الأساسية؟",
+        "options": {
+          "A": "cos^2 θ + sin^2 θ = 1",
+          "B": "tan^2 θ + 1 = sec^2 θ",
+          "C": "cot^2 θ + 1 = csc^2 θ",
+          "D": "sin θ = cos(π/2 - θ)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "cos^2 θ + sin^2 θ = 1",
+        "difficulty": "easy",
+        "source": {
+          "page": 35,
+          "reference": "متطابقات فيثاغورس"
+        },
+        "solution": {
+          "formula": "cos^2 θ + sin^2 θ = 1",
+          "steps": [],
+          "summary": "هذه المتطابقة ناتجة مباشرة من معادلة دائرة الوحدة."
+        },
+        "explanation": "تنتج المتطابقة من إحداثيات النقطة على دائرة الوحدة حيث x=cosθ و y=sinθ و x^2+y^2=1."
+      },
+      {
+        "id": "U02-L01-Q003",
+        "number": 3,
+        "question": "بناءً على متطابقات المقلوب، ما هي قيمة csc θ؟",
+        "options": {
+          "A": "1/cos θ",
+          "B": "1/tan θ",
+          "C": "1/sin θ",
+          "D": "cos θ / sin θ"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "1/sin θ",
+        "difficulty": "easy",
+        "source": {
+          "page": 35,
+          "reference": "متطابقات المقلوب"
+        },
+        "solution": {
+          "formula": "csc θ = 1 / sin θ",
+          "steps": [],
+          "summary": "قاطع التمام هو مقلوب الجيب."
+        },
+        "explanation": "وفق تعريف الاقترانات المثلثية الستة، csc هو مقلوب sin."
+      },
+
+      {
+        "id": "U02-L01-Q004",
+        "number": 4,
+        "question": "أي مما يأتي يمثل قيمة sec θ وفق متطابقات المقلوب؟",
+        "options": {
+          "A": "1/sin θ",
+          "B": "1/cos θ",
+          "C": "sin θ / cos θ",
+          "D": "1/cot θ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1/cos θ",
+        "difficulty": "easy",
+        "source": {
+          "page": 35,
+          "reference": "متطابقات المقلوب"
+        },
+        "solution": {
+          "formula": "sec θ = 1 / cos θ",
+          "steps": [],
+          "summary": "القاطع هو مقلوب جيب التمام."
+        },
+        "explanation": "وفق تعريف الاقترانات المثلثية الستة، sec هو مقلوب cos."
+      },
+
+      {
+        "id": "U02-L01-Q005",
+        "number": 5,
+        "question": "ما هو التعبير المساوي لـ tan θ بناءً على المتطابقات النسبية؟",
+        "options": {
+          "A": "cos θ / sin θ",
+          "B": "1 / sin θ",
+          "C": "sin θ / cos θ",
+          "D": "sin θ + cos θ"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "sin θ / cos θ",
+        "difficulty": "easy",
+        "source": {
+          "page": 35,
+          "reference": "المتطابقات النسبية"
+        },
+        "solution": {
+          "formula": "tan θ = sin θ / cos θ",
+          "steps": [],
+          "summary": "الظل هو نسبة الجيب إلى جيب التمام."
+        },
+        "explanation": "يُعرّف الظل بأنه ناتج قسمة الإحداثي y على الإحداثي x في دائرة الوحدة."
+      },
+
+      {
+        "id": "U02-L01-Q006",
+        "number": 6,
+        "question": "وفق متطابقات الزاويتين المتتامتين، ما هي قيمة cos(π/2 - θ)؟",
+        "options": {
+          "A": "cos θ",
+          "B": "sin θ",
+          "C": "-sin θ",
+          "D": "sec θ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "sin θ",
+        "difficulty": "easy",
+        "source": {
+          "page": 35,
+          "reference": "متطابقات الزاويتين المتتامتين"
+        },
+        "solution": {
+          "formula": "cos(π/2 - θ) = sin θ",
+          "steps": [],
+          "summary": "جيب تمام الزاوية يساوي جيب متممتها."
+        },
+        "explanation": "هذه قاعدة أساسية للزوايا المتتامة في المثلث قائم الزاوية."
+      },
+
+      {
+        "id": "U02-L01-Q007",
+        "number": 7,
+        "question": "أي مما يأتي يمثل متطابقة الزاوية السالبة لاقتران الجيب؟",
+        "options": {
+          "A": "sin(-θ) = sin θ",
+          "B": "sin(-θ) = -sin θ",
+          "C": "sin(-θ) = cos θ",
+          "D": "sin(-θ) = -cos θ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-sin θ",
+        "difficulty": "easy",
+        "source": {
+          "page": 36,
+          "reference": "متطابقات الزاوية السالبة"
+        },
+        "solution": {
+          "formula": "sin(-θ) = -sin θ",
+          "steps": [],
+          "summary": "الجيب اقتران فردي."
+        },
+        "explanation": "بما أن الجيب اقتران فردي، فإن إشارة الزاوية السالبة تخرج خارج الاقتران."
+      },
+
+      {
+        "id": "U02-L01-Q008",
+        "number": 8,
+        "question": "ما هي قيمة cos(-θ) بناءً على متطابقات الزاوية السالبة؟",
+        "options": {
+          "A": "cos θ",
+          "B": "-cos θ",
+          "C": "sin θ",
+          "D": "-sin θ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "cos θ",
+        "difficulty": "easy",
+        "source": {
+          "page": 36,
+          "reference": "متطابقات الزاوية السالبة"
+        },
+        "solution": {
+          "formula": "cos(-θ) = cos θ",
+          "steps": [],
+          "summary": "جيب التمام اقتران زوجي."
+        },
+        "explanation": "في جيب التمام، الزاوية السالبة تعطي نفس قيمة الزاوية الموجبة المناظرة لها."
+      },
+
+      {
+        "id": "U02-L01-Q009",
+        "number": 9,
+        "question": "إذا كان sin θ = 3/5 وكان θ في الربع الثاني (π/2 < θ < π)، فما قيمة cos θ؟",
+        "options": {
+          "A": "4/5",
+          "B": "-4/5",
+          "C": "16/25",
+          "D": "-16/25"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-4/5",
+        "difficulty": "medium",
+        "source": {
+          "page": 36,
+          "reference": "مثال 1"
+        },
+        "solution": {
+          "formula": "sin^2 θ + cos^2 θ = 1",
+          "steps": [
+            "(3/5)^2 + cos^2 θ = 1",
+            "9/25 + cos^2 θ = 1",
+            "cos^2 θ = 16/25",
+            "cos θ = ±4/5",
+            "بما أن θ في الربع الثاني، cos يكون سالباً."
+          ],
+          "summary": "cos θ = -4/5"
+        },
+        "explanation": "في الربع الثاني، يكون الجيب موجباً وجيب التمام سالباً."
+      },
+
+      {
+        "id": "U02-L01-Q010",
+        "number": 10,
+        "question": "باستعمال المعطيات في السؤال السابق (sin θ = 3/5 في الربع الثاني)، ما قيمة sec θ؟",
+        "options": {
+          "A": "-5/4",
+          "B": "5/4",
+          "C": "-4/5",
+          "D": "5/3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-5/4",
+        "difficulty": "medium",
+        "source": {
+          "page": 36,
+          "reference": "مثال 1"
+        },
+        "solution": {
+          "formula": "sec θ = 1 / cos θ",
+          "steps": [
+            "من السؤال السابق cos θ = -4/5",
+            "sec θ = 1 / (-4/5) = -5/4"
+          ],
+          "summary": "sec θ = -5/4"
+        },
+        "explanation": "القاطع هو مقلوب جيب التمام، ويتبع نفس إشارته في الربع."
+      },
+
+      {
+        "id": "U02-L01-Q011",
+        "number": 11,
+        "question": "بسط المقدار المثلثي الآتي: sin x cos^2 x - sin x",
+        "options": {
+          "A": "sin^3 x",
+          "B": "-sin^3 x",
+          "C": "cos^3 x",
+          "D": "sin x"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-sin^3 x",
+        "difficulty": "medium",
+        "source": {
+          "page": 37,
+          "reference": "مثال 2"
+        },
+        "solution": {
+          "formula": "cos^2 x - 1 = -sin^2 x",
+          "steps": [
+            "إخراج sin x عاملاً مشتركاً: sin x (cos^2 x - 1)",
+            "استبدال (cos^2 x - 1) بـ (-sin^2 x)",
+            "الناتج: sin x * (-sin^2 x) = -sin^3 x"
+          ],
+          "summary": "التبسيط النهائي هو -sin^3 x"
+        },
+        "explanation": "تم استخدام خاصية إخراج العامل المشترك متبوعة بمتطابقة فيثاغورس الأساسية."
+      },
+
+      {
+        "id": "U02-L01-Q012",
+        "number": 12,
+        "question": "ما هو ناتج تبسيط المقدار: (sin x / cos x) + (cos x / (1 + sin x))؟",
+        "options": {
+          "A": "csc x",
+          "B": "sec x",
+          "C": "tan x",
+          "D": "1"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "sec x",
+        "difficulty": "hard",
+        "source": {
+          "page": 37,
+          "reference": "مثال 2"
+        },
+        "solution": {
+          "formula": "sin^2 x + cos^2 x = 1",
+          "steps": [
+            "توحيد المقامات: [sin x(1 + sin x) + cos^2 x] / [cos x(1 + sin x)]",
+            "البسط: sin x + sin^2 x + cos^2 x = sin x + 1",
+            "المقدار: (sin x + 1) / [cos x(1 + sin x)]",
+            "اختصار (1 + sin x) من البسط والمقام يبقى 1 / cos x"
+          ],
+          "summary": "1 / cos x = sec x"
+        },
+        "explanation": "تم توحيد المقامات واستخدام متطابقة فيثاغورس لتبسيط البسط ثم الاختصار."
+      },
+
+      {
+        "id": "U02-L01-Q013",
+        "number": 13,
+        "question": "بسط المقدار: cos(π/2 - x) cot x",
+        "options": {
+          "A": "cos x",
+          "B": "sin x",
+          "C": "tan x",
+          "D": "sec x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "cos x",
+        "difficulty": "medium",
+        "source": {
+          "page": 37,
+          "reference": "مثال 2"
+        },
+        "solution": {
+          "formula": "cos(π/2 - x) = sin x",
+          "steps": [
+            "استبدال cos(π/2 - x) بـ sin x",
+            "استبدال cot x بـ (cos x / sin x)",
+            "ضرب المقدارين: sin x * (cos x / sin x) = cos x"
+          ],
+          "summary": "الناتج هو cos x"
+        },
+        "explanation": "استخدام متطابقة التتام والمتطابقة النسبية لظل التمام."
+      },
+
+      {
+        "id": "U02-L01-Q014",
+        "number": 14,
+        "question": "عند إعادة كتابة المقدار 1 / (1 + sin x) بحيث لا يحوي كسراً، نضرب البسط والمقام في مرافق المقام وهو:",
+        "options": {
+          "A": "1 + sin x",
+          "B": "1 - sin x",
+          "C": "cos x",
+          "D": "sin x"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1 - sin x",
+        "difficulty": "easy",
+        "source": {
+          "page": 38,
+          "reference": "مثال 3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المرافق للمقدار (a + b) هو (a - b)."
+        },
+        "explanation": "الضرب في المرافق يستخدم للتخلص من الجذور أو لتبسيط المقامات الكسرية في المثلثات."
+      },
+
+      {
+        "id": "U02-L01-Q015",
+        "number": 15,
+        "question": "ما هو التعبير المكافئ للمقدار (1 - sin^2 x)؟",
+        "options": {
+          "A": "cos^2 x",
+          "B": "sin^2 x",
+          "C": "tan^2 x",
+          "D": "1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "cos^2 x",
+        "difficulty": "easy",
+        "source": {
+          "page": 38,
+          "reference": "أتذكر (متطابقات فيثاغورس)"
+        },
+        "solution": {
+          "formula": "sin^2 x + cos^2 x = 1",
+          "steps": [
+            "نقل sin^2 x للطرف الآخر"
+          ],
+          "summary": "cos^2 x = 1 - sin^2 x"
+        },
+        "explanation": "هذه صورة مشتقة من متطابقة فيثاغورس الأساسية."
+      },
+
+      {
+        "id": "U02-L01-Q016",
+        "number": 16,
+        "question": "أي من المبادئ الآتية تساعد في إثبات صحة متطابقة مثلثية؟",
+        "options": {
+          "A": "البدء بأحد طرفي المتطابقة (الأكثر تعقيداً عادة)",
+          "B": "تحويل جميع الاقترانات بدلالة الجيب وجيب التمام",
+          "C": "استعمال المهارات الجبرية مثل توحيد المقامات أو الضرب في المرافق",
+          "D": "كل ما ذكر صحيح"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "كل ما ذكر صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": 40,
+          "reference": "فقرة إثبات صحة متطابقة مثلثية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ذكر الكتاب عدة مبادئ منها البدء بالطرف الأكثر تعقيداً والتحويل لـ sin و cos."
+        },
+        "explanation": "هذه هي الاستراتيجيات القياسية المتبعة في إثبات المتطابقات المثلثية."
+      },
+
+      {
+        "id": "U02-L01-Q017",
+        "number": 17,
+        "question": "أثبت صحة المتطابقة: sin x tan x = sec x - cos x. الخطوة الأولى بالبدء بالطرف الأيسر هي:",
+        "options": {
+          "A": "sin x * (sin x / cos x)",
+          "B": "sin x * (cos x / sin x)",
+          "C": "cos x * (sin x / cos x)",
+          "D": "sin^2 x + cos^2 x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "sin x * (sin x / cos x)",
+        "difficulty": "easy",
+        "source": {
+          "page": 41,
+          "reference": "مثال 4"
+        },
+        "solution": {
+          "formula": "tan x = sin x / cos x",
+          "steps": [
+            "استبدال tan x بالمتطابقة النسبية"
+          ],
+          "summary": "sin x * tan x = sin^2 x / cos x"
+        },
+        "explanation": "تحويل الظل إلى جيب وجيب تمام هو الخطوة المنطقية الأولى."
+      },
+
+      {
+        "id": "U02-L01-Q018",
+        "number": 18,
+        "question": "ما هي متطابقة جيب مجموع زاويتين sin(α + β)؟",
+        "options": {
+          "A": "sin α cos β + cos α sin β",
+          "B": "sin α cos β - cos α sin β",
+          "C": "cos α cos β - sin α sin β",
+          "D": "cos α cos β + sin α sin β"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "sin α cos β + cos α sin β",
+        "difficulty": "easy",
+        "source": {
+          "page": 43,
+          "reference": "متطابقات المجموع والفرق"
+        },
+        "solution": {
+          "formula": "sin(α + β) = sin α cos β + cos α sin β",
+          "steps": [],
+          "summary": "قانون جيب المجموع."
+        },
+        "explanation": "في قانون الجيب للمجموع، نحتفظ بإشارة الجمع ونبادل بين sin و cos."
+      },
+
+      {
+        "id": "U02-L01-Q019",
+        "number": 19,
+        "question": "ما هي متطابقة جيب تمام مجموع زاويتين cos(α + β)؟",
+        "options": {
+          "A": "cos α cos β + sin α sin β",
+          "B": "cos α cos β - sin α sin β",
+          "C": "sin α cos β + cos α sin β",
+          "D": "sin α cos β - cos α sin β"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "cos α cos β - sin α sin β",
+        "difficulty": "easy",
+        "source": {
+          "page": 43,
+          "reference": "متطابقات المجموع والفرق"
+        },
+        "solution": {
+          "formula": "cos(α + β) = cos α cos β - sin α sin β",
+          "steps": [],
+          "summary": "قانون جيب تمام المجموع."
+        },
+        "explanation": "في جيب التمام للمجموع، نعكس الإشارة لتصبح سالبة."
+      },
+
+      {
+        "id": "U02-L01-Q020",
+        "number": 20,
+        "question": "باستعمال متطابقات الفرق، ما قيمة sin 15° بدون آلة حاسبة؟",
+        "options": {
+          "A": "(√6 - √2) / 4",
+          "B": "(√6 + √2) / 4",
+          "C": "(√3 - 1) / 2",
+          "D": "1/2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(√6 - √2) / 4",
+        "difficulty": "medium",
+        "source": {
+          "page": 43,
+          "reference": "مثال 6"
+        },
+        "solution": {
+          "formula": "sin(45° - 30°) = sin 45° cos 30° - cos 45° sin 30°",
+          "steps": [
+            "sin 15° = sin(45° - 30°)",
+            "= (1/√2)(√3/2) - (1/√2)(1/2)",
+            "= (√3 - 1) / 2√2",
+            "بعد إنطاق المقام: (√6 - √2) / 4"
+          ],
+          "summary": "الناتج هو (√6 - √2) / 4"
+        },
+        "explanation": "تم استخدام الزوايا الخاصة 45 و 30 لتمثيل الزاوية 15 كفرق بينهما."
+      },
+
+      {
+        "id": "U02-L01-Q021",
+        "number": 21,
+        "question": "أوجد قيمة tan(5π/12) باستعمال متطابقة المجموع للزاويتين π/4 و π/6.",
+        "options": {
+          "A": "(√3 + 1) / (√3 - 1)",
+          "B": "(√3 - 1) / (√3 + 1)",
+          "C": "√3 + 2",
+          "D": "2 - √3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(√3 + 1) / (√3 - 1)",
+        "difficulty": "hard",
+        "source": {
+          "page": 44,
+          "reference": "مثال 6"
+        },
+        "solution": {
+          "formula": "tan(α + β) = (tan α + tan β) / (1 - tan α tan β)",
+          "steps": [
+            "tan(π/4 + π/6) = (tan π/4 + tan π/6) / (1 - tan π/4 tan π/6)",
+            "= (1 + 1/√3) / (1 - 1/√3)",
+            "بتوحيد المقامات في البسط والمقام: (√3 + 1) / (√3 - 1)"
+          ],
+          "summary": "الناتج هو (√3 + 1) / (√3 - 1)"
+        },
+        "explanation": "الزاوية 5π/12 هي مجموع π/4 و π/6."
+      },
+
+      {
+        "id": "U02-L01-Q022",
+        "number": 22,
+        "question": "ما هي قيمة المقدار: cos 20° cos 40° - sin 20° sin 40°؟",
+        "options": {
+          "A": "1/2",
+          "B": "√3/2",
+          "C": "0",
+          "D": "1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1/2",
+        "difficulty": "medium",
+        "source": {
+          "page": 44,
+          "reference": "مثال 6"
+        },
+        "solution": {
+          "formula": "cos(α + β) = cos α cos β - sin α sin β",
+          "steps": [
+            "المقدار يطابق الطرف الأيمن لمتطابقة جيب تمام المجموع حيث α=20 و β=40",
+            "المقدار = cos(20° + 40°) = cos 60°",
+            "cos 60° = 1/2"
+          ],
+          "summary": "الناتج 1/2"
+        },
+        "explanation": "تم تطبيق متطابقة جيب تمام المجموع بشكل عكسي."
+      },
+
+      {
+        "id": "U02-L01-Q023",
+        "number": 23,
+        "question": "أوجد قيمة cos 75° دون استعمال الآلة الحاسبة.",
+        "options": {
+          "A": "(√6 - √2) / 4",
+          "B": "(√6 + √2) / 4",
+          "C": "(√3 - 1) / 2",
+          "D": "1/4"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(√6 - √2) / 4",
+        "difficulty": "medium",
+        "source": {
+          "page": 45,
+          "reference": "أتحقق من فهمي"
+        },
+        "solution": {
+          "formula": "cos(45° + 30°) = cos 45° cos 30° - sin 45° sin 30°",
+          "steps": [
+            "cos 75° = cos(45° + 30°)",
+            "= (1/√2)(√3/2) - (1/√2)(1/2)",
+            "= (√3 - 1) / 2√2 = (√6 - √2) / 4"
+          ],
+          "summary": "cos 75° = (√6 - √2) / 4"
+        },
+        "explanation": "استخدام متطابقة جيب تمام مجموع الزاويتين 45 و 30."
+      },
+
+      {
+        "id": "U02-L01-Q024",
+        "number": 24,
+        "question": "ما قيمة المقدار: sin 80° cos 20° - cos 80° sin 20°؟",
+        "options": {
+          "A": "√3/2",
+          "B": "1/2",
+          "C": "0",
+          "D": "1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "√3/2",
+        "difficulty": "medium",
+        "source": {
+          "page": 45,
+          "reference": "أتحقق من فهمي"
+        },
+        "solution": {
+          "formula": "sin(α - β) = sin α cos β - cos α sin β",
+          "steps": [
+            "المقدار يطابق متطابقة جيب الفرق لـ 80 و 20",
+            "المقدار = sin(80° - 20°) = sin 60°",
+            "sin 60° = √3/2"
+          ],
+          "summary": "الناتج √3/2"
+        },
+        "explanation": "تطبيق عكسي لمتطابقة جيب الفرق."
+      },
+
+      {
+        "id": "U02-L01-Q025",
+        "number": 25,
+        "question": "في المنشور الزجاجي، إذا كانت زاوية المنشور α=60°، فإن معادلة معامل الانكسار n تُكتب في صورة n = √3/2 + 1/2 cot(θ/2). ما المتطابقة التي تم استخدامها للوصول لهذا الاستنتاج؟",
+        "options": {
+          "A": "متطابقة جيب المجموع",
+          "B": "متطابقة فيثاغورس",
+          "C": "متطابقة الزاوية السالبة",
+          "D": "متطابقة جيب التمام للفرق"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "متطابقة جيب المجموع",
+        "difficulty": "hard",
+        "source": {
+          "page": 92,
+          "reference": "تمرين 28 (المنشور)"
+        },
+        "solution": {
+          "formula": "sin(θ/2 + α/2)",
+          "steps": [
+            "بالتعويض α=60 تصبح sin(θ/2 + 30°)",
+            "استخدام متطابقة الجيب للمجموع: sin(θ/2)cos(30) + cos(θ/2)sin(30)",
+            "بالقسمة على sin(θ/2) ينتج التعبير المطلوب."
+          ],
+          "summary": "استخدام متطابقة جيب المجموع."
+        },
+        "explanation": "المسألة تتطلب فك جيب مجموع زاويتين θ/2 و α/2."
+      },
+
+      {
+        "id": "U02-L01-Q026",
+        "number": 26,
+        "question": "إذا كان المستقيم يصنع زاوية θ مع المحور x الموجب، فإن ميل المستقيم m يعطى بالمعادلة:",
+        "options": {
+          "A": "m = sin θ",
+          "B": "m = tan θ",
+          "C": "m = cos θ",
+          "D": "m = cot θ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "m = tan θ",
+        "difficulty": "easy",
+        "source": {
+          "page": 94,
+          "reference": "تمرين 35 (زاوية الميل)"
+        },
+        "solution": {
+          "formula": "m = tan θ",
+          "steps": [],
+          "summary": "الميل هندسياً هو ظل زاوية الارتفاع."
+        },
+        "explanation": "تعريف ميل المستقيم في المستوى الإحداثي هو ظل الزاوية التي يصنعها مع الاتجاه الموجب لمحور x."
+      },
+
+      {
+        "id": "U02-L01-Q027",
+        "number": 27,
+        "question": "بسط المقدار: (sin x + cos x)^2 - 1",
+        "options": {
+          "A": "2 sin x cos x",
+          "B": "1",
+          "C": "0",
+          "D": "sin 2x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2 sin x cos x",
+        "difficulty": "medium",
+        "source": {
+          "page": 90,
+          "reference": "تمرين 9"
+        },
+        "solution": {
+          "formula": "sin^2 x + cos^2 x = 1",
+          "steps": [
+            "فك المربع الكامل: sin^2 x + 2 sin x cos x + cos^2 x - 1",
+            "(sin^2 x + cos^2 x) + 2 sin x cos x - 1",
+            "1 + 2 sin x cos x - 1 = 2 sin x cos x"
+          ],
+          "summary": "التبسيط هو 2 sin x cos x"
+        },
+        "explanation": "تم استخدام فك المربع ثم متطابقة فيثاغورس الأساسية لاختصار الرقم 1."
+      },
+
+      {
+        "id": "U02-L01-Q028",
+        "number": 28,
+        "question": "ما هو ناتج تبسيط: cos x tan x؟",
+        "options": {
+          "A": "sin x",
+          "B": "cos x",
+          "C": "1",
+          "D": "sec x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "sin x",
+        "difficulty": "easy",
+        "source": {
+          "page": 90,
+          "reference": "تمرين 5"
+        },
+        "solution": {
+          "formula": "tan x = sin x / cos x",
+          "steps": [
+            "cos x * (sin x / cos x) = sin x"
+          ],
+          "summary": "sin x"
+        },
+        "explanation": "استخدام المتطابقة النسبية لتبسيط المقدار."
+      },
+
+      {
+        "id": "U02-L01-Q029",
+        "number": 29,
+        "question": "أي من المقادير الآتية يكافئ sec x - cos x؟",
+        "options": {
+          "A": "sin x tan x",
+          "B": "sin x",
+          "C": "tan x",
+          "D": "cot x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "sin x tan x",
+        "difficulty": "medium",
+        "source": {
+          "page": 91,
+          "reference": "تمرين 10"
+        },
+        "solution": {
+          "formula": "sec x = 1 / cos x",
+          "steps": [
+            "1 / cos x - cos x",
+            "توحيد المقامات: (1 - cos^2 x) / cos x",
+            "sin^2 x / cos x = sin x * (sin x / cos x) = sin x tan x"
+          ],
+          "summary": "sin x tan x"
+        },
+        "explanation": "تم استخدام متطابقة المقلوب وتوحيد المقامات ثم متطابقة فيثاغورس."
+      },
+
+      {
+        "id": "U02-L01-Q030",
+        "number": 30,
+        "question": "ما الخطأ الذي وقعت فيه سهام عند فك sin(x - π/4)؟",
+        "options": {
+          "A": "بدأت بـ sin(π/4) بدلاً من sin x",
+          "B": "استخدمت إشارة موجبة بدلاً من سالبة",
+          "C": "نسيت معامل الـ √2",
+          "D": "لم تضع cos x في الحد الأول"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "بدأت بـ sin(π/4) بدلاً من sin x",
+        "difficulty": "medium",
+        "source": {
+          "page": 95,
+          "reference": "تمرين 40 (أكتشف الخطأ)"
+        },
+        "solution": {
+          "formula": "sin(α - β) = sin α cos β - cos α sin β",
+          "steps": [
+            "الحل الصحيح يبدأ بـ sin x cos(π/4) وليس sin(π/4) cos x"
+          ],
+          "summary": "أخطأت في ترتيب الزوايا في قانون جيب الفرق."
+        },
+        "explanation": "قانون جيب الفرق يتطلب البدء بجيب الزاوية الأولى."
+      },
+
+      {
+        "id": "U02-L01-Q031",
+        "number": 31,
+        "question": "أوجد قيمة tan(π/12) دون استخدام الحاسبة.",
+        "options": {
+          "A": "2 - √3",
+          "B": "2 + √3",
+          "C": "√3 - 1",
+          "D": "1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2 - √3",
+        "difficulty": "hard",
+        "source": {
+          "page": 88,
+          "reference": "أتحقق من فهمي (b)"
+        },
+        "solution": {
+          "formula": "tan(45 - 30)",
+          "steps": [
+            "tan(π/4 - π/6) = (1 - 1/√3) / (1 + 1/√3)",
+            "= (√3 - 1) / (√3 + 1)",
+            "بالضرب في المرافق: (√3 - 1)^2 / (3 - 1) = (3 + 1 - 2√3) / 2 = 2 - √3"
+          ],
+          "summary": "2 - √3"
+        },
+        "explanation": "تم استخدام متطابقة ظل الفرق ثم إنطاق المقام."
+      },
+
+      {
+        "id": "U02-L01-Q032",
+        "number": 32,
+        "question": "أي مما يأتي يمثل متطابقة فيثاغورس التي تربط بين cot و csc؟",
+        "options": {
+          "A": "1 + cot^2 θ = csc^2 θ",
+          "B": "1 + csc^2 θ = cot^2 θ",
+          "C": "cot^2 θ - 1 = csc^2 θ",
+          "D": "tan^2 θ + 1 = csc^2 θ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1 + cot^2 θ = csc^2 θ",
+        "difficulty": "easy",
+        "source": {
+          "page": 35,
+          "reference": "متطابقات فيثاغورس"
+        },
+        "solution": {
+          "formula": "1 + cot^2 θ = csc^2 θ",
+          "steps": [],
+          "summary": "إحدى الصور الثلاث لمتطابقة فيثاغورس."
+        },
+        "explanation": "تنتج هذه المتطابقة بقسمة المتطابقة الأساسية على sin^2 θ."
+      },
+
+      {
+        "id": "U02-L01-Q033",
+        "number": 33,
+        "question": "ما هي قيمة sin(-π/4)؟",
+        "options": {
+          "A": "1/√2",
+          "B": "-1/√2",
+          "C": "1/2",
+          "D": "-1/2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-1/√2",
+        "difficulty": "easy",
+        "source": {
+          "page": 36,
+          "reference": "متطابقات الزاوية السالبة"
+        },
+        "solution": {
+          "formula": "sin(-θ) = -sin θ",
+          "steps": [
+            "sin(-π/4) = -sin(π/4) = -1/√2"
+          ],
+          "summary": "-1/√2"
+        },
+        "explanation": "استخدام خاصية الاقتران الفردي للجيب."
+      },
+
+      {
+        "id": "U02-L01-Q034",
+        "number": 34,
+        "question": "إذا كان المستقيم ميلُه m=1، فما هي زاوية ميله θ بالراديان؟",
+        "options": {
+          "A": "π/2",
+          "B": "π/4",
+          "C": "π/6",
+          "D": "π/3"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "π/4",
+        "difficulty": "medium",
+        "source": {
+          "page": 94,
+          "reference": "تمرين 35"
+        },
+        "solution": {
+          "formula": "tan θ = m",
+          "steps": [
+            "tan θ = 1",
+            "θ = tan^-1(1) = π/4"
+          ],
+          "summary": "π/4"
+        },
+        "explanation": "الزاوية التي ظلها 1 هي 45 درجة أو π/4 راديان."
+      },
+
+      {
+        "id": "U02-L01-Q035",
+        "number": 35,
+        "question": "بسط المقدار المثلثي: (1 + tan^2 x) cos^2 x",
+        "options": {
+          "A": "1",
+          "B": "sin^2 x",
+          "C": "tan^2 x",
+          "D": "sec^2 x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1",
+        "difficulty": "medium",
+        "source": {
+          "page": 35,
+          "reference": "متطابقات فيثاغورس والمقلوب"
+        },
+        "solution": {
+          "formula": "1 + tan^2 x = sec^2 x",
+          "steps": [
+            "استبدال القوس بـ sec^2 x",
+            "sec^2 x * cos^2 x = (1/cos^2 x) * cos^2 x = 1"
+          ],
+          "summary": "1"
+        },
+        "explanation": "تم دمج متطابقة فيثاغورس مع متطابقة المقلوب."
+      },
+
+      {
+        "id": "U02-L01-Q036",
+        "number": 36,
+        "question": "ما هي قيمة tan(π/2 - x)؟",
+        "options": {
+          "A": "tan x",
+          "B": "cot x",
+          "C": "-tan x",
+          "D": "sec x"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "cot x",
+        "difficulty": "easy",
+        "source": {
+          "page": 35,
+          "reference": "متطابقات الزاويتين المتتامتين"
+        },
+        "solution": {
+          "formula": "tan(π/2 - x) = cot x",
+          "steps": [],
+          "summary": "ظل الزاوية يساوي ظل تمام متممتها."
+        },
+        "explanation": "قاعدة أساسية من قواعد التتام."
+      },
+
+      {
+        "id": "U02-L01-Q037",
+        "number": 37,
+        "question": "إذا كان sin θ = -1/3 و θ في الربع الثالث، فما قيمة cot θ؟",
+        "options": {
+          "A": "2√2",
+          "B": "-2√2",
+          "C": "√8",
+          "D": "1/(2√2)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2√2",
+        "difficulty": "hard"
+      }
+    ]
+  }
+}
+

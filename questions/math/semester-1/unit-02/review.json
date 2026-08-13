@@ -1,0 +1,1375 @@
+[
+      {
+        "id": "U02-REV-Q001",
+        "number": 1,
+        "question": "أي من المتطابقات الآتية صحيحة لجميع قيم θ؟",
+        "options": {
+          "A": "cos² θ + sin² θ = 1",
+          "B": "tan θ = cos θ / sin θ",
+          "C": "sec θ = sin θ",
+          "D": "sin 2θ = sin θ cos θ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "cos² θ + sin² θ = 1",
+        "difficulty": "easy",
+        "source": {
+          "page": 35,
+          "reference": "متطابقات فيثاغورس"
+        },
+        "solution": {
+          "formula": "sin² θ + cos² θ = 1",
+          "steps": [],
+          "summary": "هذه هي متطابقة فيثاغورس الأساسية."
+        },
+        "explanation": "المتطابقة صحيحة دائماً لجميع قيم الزاوية المعرفة عندها."
+      },
+      {
+        "id": "U02-REV-Q002",
+        "number": 2,
+        "question": "ما هي قيمة sec(-x)؟",
+        "options": {
+          "A": "sec x",
+          "B": "-sec x",
+          "C": "cos x",
+          "D": "-cos x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "sec x",
+        "difficulty": "easy",
+        "source": {
+          "page": 36,
+          "reference": "متطابقات الزاوية السالبة"
+        },
+        "solution": {
+          "formula": "sec(-x) = 1 / cos(-x)",
+          "steps": [
+            "بما أن جيب التمام اقتران زوجي، فإن cos(-x) = cos x",
+            "إذن 1/cos x = sec x"
+          ],
+          "summary": "sec x"
+        },
+        "explanation": "القاطع يتبع جيب التمام في كونه اقتراناً زوجياً، لذلك لا تتغير قيمته عند تغيير إشارة الزاوية."
+      },
+      {
+        "id": "U02-REV-Q003",
+        "number": 3,
+        "question": "بسط المقدار: tan x cos x.",
+        "options": {
+          "A": "sin x",
+          "B": "cos x",
+          "C": "sec x",
+          "D": "1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "sin x",
+        "difficulty": "easy",
+        "source": {
+          "page": 37,
+          "reference": "تبسيط المقادير"
+        },
+        "solution": {
+          "formula": "(sin x / cos x) × cos x",
+          "steps": [
+            "نعوض tan x = sin x / cos x",
+            "نختصر cos x من البسط والمقام"
+          ],
+          "summary": "sin x"
+        },
+        "explanation": "باستخدام تعريف الظل كنسبة بين الجيب وجيب التمام نحصل على sin x."
+      },
+      {
+        "id": "U02-REV-Q004",
+        "number": 4,
+        "question": "ما هي قيمة sin 75°؟",
+        "options": {
+          "A": "(√6 + √2) / 4",
+          "B": "(√6 - √2) / 4",
+          "C": "1/2",
+          "D": "√3/2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(√6 + √2) / 4",
+        "difficulty": "medium",
+        "source": {
+          "page": 43,
+          "reference": "متطابقات المجموع"
+        },
+        "solution": {
+          "formula": "sin(45° + 30°)",
+          "steps": [
+            "sin 45° cos 30° + cos 45° sin 30°",
+            "(1/√2)(√3/2) + (1/√2)(1/2)",
+            "=(√6 + √2) / 4"
+          ],
+          "summary": "(√6 + √2) / 4"
+        },
+        "explanation": "نطبق متطابقة جيب مجموع زاويتين خاصتين."
+      },
+      {
+        "id": "U02-REV-Q005",
+        "number": 5,
+        "question": "ما هي متطابقة cos 2θ التي لا تحتوي على اقتران الجيب؟",
+        "options": {
+          "A": "2 cos² θ - 1",
+          "B": "1 - 2 sin² θ",
+          "C": "cos² θ - sin² θ",
+          "D": "2 cos θ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2 cos² θ - 1",
+        "difficulty": "easy",
+        "source": {
+          "page": 47,
+          "reference": "ضعف الزاوية"
+        },
+        "solution": {
+          "formula": "cos 2θ = 2 cos² θ - 1",
+          "steps": [],
+          "summary": "هذه الصيغة تعتمد على جيب التمام فقط."
+        },
+        "explanation": "إحدى الصور الثلاث لمتطابقة ضعف الزاوية لجيب التمام."
+      },
+      {
+        "id": "U02-REV-Q006",
+        "number": 6,
+        "question": "أوجد قيمة sin 22.5° دون استخدام الحاسبة.",
+        "options": {
+          "A": "1/2 √(2 - √2)",
+          "B": "1/2 √(2 + √2)",
+          "C": "√2/4",
+          "D": "1/4"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1/2 √(2 - √2)",
+        "difficulty": "medium",
+        "source": {
+          "page": 51,
+          "reference": "نصف الزاوية"
+        },
+        "solution": {
+          "formula": "sin(θ/2) = √[(1 - cos θ) / 2]",
+          "steps": [
+            "نضع θ = 45°",
+            "sin 22.5° = √[(1 - cos 45°) / 2]",
+            "وبالتبسيط نحصل على 1/2 √(2 - √2)"
+          ],
+          "summary": "1/2 √(2 - √2)"
+        },
+        "explanation": "نطبق متطابقة جيب نصف الزاوية على الزاوية 45°."
+      },
+      {
+        "id": "U02-REV-Q007",
+        "number": 7,
+        "question": "أي مما يأتي يحول sin α + sin β إلى ضرب؟",
+        "options": {
+          "A": "2 sin[(α+β)/2] cos[(α-β)/2]",
+          "B": "2 cos[(α+β)/2] sin[(α-β)/2]",
+          "C": "2 cos[(α+β)/2] cos[(α-β)/2]",
+          "D": "sin(α+β)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2 sin[(α+β)/2] cos[(α-β)/2]",
+        "difficulty": "medium",
+        "source": {
+          "page": 53,
+          "reference": "تحويل المجموع إلى ضرب"
+        },
+        "solution": {
+          "formula": "sin α + sin β = 2 sin[(α+β)/2] cos[(α-β)/2]",
+          "steps": [],
+          "summary": "قانون تحويل مجموع الجيبين."
+        },
+        "explanation": "هذه هي المتطابقة الصحيحة لتحويل مجموع جيبين إلى حاصل ضرب."
+      },
+      {
+        "id": "U02-REV-Q008",
+        "number": 8,
+        "question": "حل المعادلة sin x = 1 في الفترة [0, 2π).",
+        "options": {
+          "A": "π/2",
+          "B": "3π/2",
+          "C": "0",
+          "D": "π"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "π/2",
+        "difficulty": "easy",
+        "source": {
+          "page": 58,
+          "reference": "حل المعادلات"
+        },
+        "solution": {
+          "formula": "sin x = 1",
+          "steps": [
+            "جيب الزاوية يساوي 1 عند π/2 ضمن الفترة المعطاة"
+          ],
+          "summary": "x = π/2"
+        },
+        "explanation": "π/2 هو الحل الوحيد في الفترة [0, 2π) الذي يحقق sin x = 1."
+      },
+      {
+        "id": "U02-REV-Q009",
+        "number": 9,
+        "question": "ما هو الحل العام للمعادلة tan x = 1؟",
+        "options": {
+          "A": "x = π/4 + kπ",
+          "B": "x = π/4 + 2kπ",
+          "C": "x = 5π/4 + 2kπ",
+          "D": "x = kπ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "x = π/4 + kπ",
+        "difficulty": "medium",
+        "source": {
+          "page": 60,
+          "reference": "الحل العام"
+        },
+        "solution": {
+          "formula": "x = θ + kπ",
+          "steps": [
+            "الزاوية الأساسية التي ظلها يساوي 1 هي π/4",
+            "دورة الظل تساوي π",
+            "إذن x = π/4 + kπ"
+          ],
+          "summary": "π/4 + kπ"
+        },
+        "explanation": "دورة دالة الظل هي π، لذلك نضيف kπ إلى الحل الأساسي."
+      },
+      {
+        "id": "U02-REV-Q010",
+        "number": 10,
+        "question": "بسط المقدار: (1 - sin² x) sec² x.",
+        "options": {
+          "A": "1",
+          "B": "cos² x",
+          "C": "tan² x",
+          "D": "0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1",
+        "difficulty": "medium",
+        "source": {
+          "page": 35,
+          "reference": "تبسيط"
+        },
+        "solution": {
+          "formula": "1 - sin² x = cos² x",
+          "steps": [
+            "باستخدام متطابقة فيثاغورس: 1 - sin² x = cos² x",
+            "إذن cos² x sec² x = 1"
+          ],
+          "summary": "1"
+        },
+        "explanation": "القوس يساوي cos² x، وsec² x هو مقلوبه، لذلك حاصل الضرب يساوي 1."
+      },
+      {
+        "id": "U02-REV-Q011",
+        "number": 11,
+        "question": "ما هي قيمة cos 105°؟",
+        "options": {
+          "A": "(√2 - √6) / 4",
+          "B": "(√6 - √2) / 4",
+          "C": "-1/2",
+          "D": "0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(√2 - √6) / 4",
+        "difficulty": "hard",
+        "source": {
+          "page": 41,
+          "reference": "متطابقات المجموع"
+        },
+        "solution": {
+          "formula": "cos(60° + 45°)",
+          "steps": [
+            "cos 60° cos 45° - sin 60° sin 45°",
+            "(1/2)(1/√2) - (√3/2)(1/√2)",
+            "=(√2 - √6) / 4"
+          ],
+          "summary": "(√2 - √6) / 4"
+        },
+        "explanation": "نستخدم متطابقة جيب تمام مجموع زاويتين خاصتين."
+      },
+      {
+        "id": "U02-REV-Q012",
+        "number": 12,
+        "question": "بسط المقدار: sin 2x / (2 sin x).",
+        "options": {
+          "A": "cos x",
+          "B": "sin x",
+          "C": "1",
+          "D": "1/2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "cos x",
+        "difficulty": "medium",
+        "source": {
+          "page": 47,
+          "reference": "ضعف الزاوية"
+        },
+        "solution": {
+          "formula": "sin 2x = 2 sin x cos x",
+          "steps": [
+            "نعوض sin 2x = 2 sin x cos x",
+            "نختصر 2 sin x"
+          ],
+          "summary": "cos x"
+        },
+        "explanation": "باستخدام متطابقة جيب ضعف الزاوية نحصل على cos x."
+      },
+      {
+        "id": "U02-REV-Q013",
+        "number": 13,
+        "question": "أوجد حلول 2 cos x + 1 = 0 في الفترة [0, 2π).",
+        "options": {
+          "A": "2π/3, 4π/3",
+          "B": "π/3, 5π/3",
+          "C": "π/6, 11π/6",
+          "D": "π/3, 2π/3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2π/3, 4π/3",
+        "difficulty": "medium",
+        "source": {
+          "page": 59,
+          "reference": "حل المعادلات"
+        },
+        "solution": {
+          "formula": "cos x = -1/2",
+          "steps": [
+            "جيب التمام يساوي -1/2",
+            "الزاوية المرجعية π/3",
+            "جيب التمام سالب في الربعين الثاني والثالث",
+            "إذن x = 2π/3, 4π/3"
+          ],
+          "summary": "2π/3 و 4π/3"
+        },
+        "explanation": "نحدد الزوايا التي يكون فيها جيب التمام مساوياً لـ -1/2."
+      },
+      {
+        "id": "U02-REV-Q014",
+        "number": 14,
+        "question": "ما هي متطابقة تقليص القوة لـ sin²(x/2)؟",
+        "options": {
+          "A": "(1 - cos x) / 2",
+          "B": "(1 + cos x) / 2",
+          "C": "1 - cos x",
+          "D": "sin x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(1 - cos x) / 2",
+        "difficulty": "hard",
+        "source": {
+          "page": 49,
+          "reference": "تقليص القوة"
+        },
+        "solution": {
+          "formula": "sin² θ = (1 - cos 2θ) / 2",
+          "steps": [
+            "نعوض θ = x/2",
+            "2(x/2) = x",
+            "إذن sin²(x/2) = (1 - cos x) / 2"
+          ],
+          "summary": "(1 - cos x) / 2"
+        },
+        "explanation": "تطبيق متطابقة تقليص القوة على نصف الزاوية."
+      },
+      {
+        "id": "U02-REV-Q015",
+        "number": 15,
+        "question": "أوجد قيمة المقدار: 2 sin 15° cos 15°.",
+        "options": {
+          "A": "1/2",
+          "B": "√3/2",
+          "C": "1",
+          "D": "√2/2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1/2",
+        "difficulty": "medium",
+        "source": {
+          "page": 47,
+          "reference": "ضعف الزاوية"
+        },
+        "solution": {
+          "formula": "2 sin θ cos θ = sin 2θ",
+          "steps": [
+            "2 sin 15° cos 15° = sin 30°",
+            "sin 30° = 1/2"
+          ],
+          "summary": "1/2"
+        },
+        "explanation": "نستخدم متطابقة جيب ضعف الزاوية بصورة عكسية."
+      },
+      {
+        "id": "U02-REV-Q016",
+        "number": 16,
+        "question": "بسط المقدار: cos(A-B) - cos(A+B).",
+        "options": {
+          "A": "2 sin A sin B",
+          "B": "2 cos A cos B",
+          "C": "0",
+          "D": "2 sin A"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2 sin A sin B",
+        "difficulty": "medium",
+        "source": {
+          "page": 41,
+          "reference": "متطابقات الفرق والمجموع"
+        },
+        "solution": {
+          "formula": "cos(A-B) - cos(A+B)",
+          "steps": [
+            "cos(A-B) = cos A cos B + sin A sin B",
+            "cos(A+B) = cos A cos B - sin A sin B",
+            "بالطرح نحصل على 2 sin A sin B"
+          ],
+          "summary": "2 sin A sin B"
+        },
+        "explanation": "نوسع متطابقتي جيب التمام للفرق والمجموع ثم نطرح."
+      },
+      {
+        "id": "U02-REV-Q017",
+        "number": 17,
+        "question": "ما هي حلول cos² x = 1 في الفترة [0, 2π)؟",
+        "options": {
+          "A": "0, π",
+          "B": "π/2, 3π/2",
+          "C": "0",
+          "D": "π"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "0, π",
+        "difficulty": "medium",
+        "source": {
+          "page": 63,
+          "reference": "حل المعادلات"
+        },
+        "solution": {
+          "formula": "cos² x = 1",
+          "steps": [
+            "cos x = ±1",
+            "في الفترة [0, 2π) يتحقق ذلك عند x = 0 و x = π"
+          ],
+          "summary": "0, π"
+        },
+        "explanation": "جيب التمام يساوي 1 أو -1 عند 0 وπ في الدورة المطلوبة."
+      },
+      {
+        "id": "U02-REV-Q018",
+        "number": 18,
+        "question": "بسط المقدار: (sec x - 1)(sec x + 1).",
+        "options": {
+          "A": "tan² x",
+          "B": "1",
+          "C": "sec² x",
+          "D": "sin² x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "tan² x",
+        "difficulty": "medium",
+        "source": {
+          "page": 35,
+          "reference": "متطابقات فيثاغورس"
+        },
+        "solution": {
+          "formula": "(sec x - 1)(sec x + 1) = sec² x - 1",
+          "steps": [
+            "نستخدم الفرق بين مربعين",
+            "باستخدام sec² x - 1 = tan² x"
+          ],
+          "summary": "tan² x"
+        },
+        "explanation": "نستخدم تحليل الفرق بين مربعين ثم متطابقة فيثاغورس للقاطع والظل."
+      },
+      {
+        "id": "U02-REV-Q019",
+        "number": 19,
+        "question": "أوجد قيمة tan 15°.",
+        "options": {
+          "A": "2 - √3",
+          "B": "2 + √3",
+          "C": "1",
+          "D": "√3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2 - √3",
+        "difficulty": "hard",
+        "source": {
+          "page": 43,
+          "reference": "متطابقات الفرق"
+        },
+        "solution": {
+          "formula": "tan(45° - 30°)",
+          "steps": [
+            "tan(45° - 30°) = (tan 45° - tan 30°) / (1 + tan 45° tan 30°)",
+            "=(1 - 1/√3) / (1 + 1/√3)",
+            "= 2 - √3"
+          ],
+          "summary": "2 - √3"
+        },
+        "explanation": "نطبق متطابقة ظل الفرق للزاويتين 45° و30°."
+      },
+      {
+        "id": "U02-REV-Q020",
+        "number": 20,
+        "question": "أي مما يأتي يكافئ csc² x - cot² x؟",
+        "options": {
+          "A": "1",
+          "B": "0",
+          "C": "-1",
+          "D": "sin² x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1",
+        "difficulty": "easy",
+        "source": {
+          "page": 35,
+          "reference": "متطابقات فيثاغورس"
+        },
+        "solution": {
+          "formula": "csc² x = 1 + cot² x",
+          "steps": [
+            "csc² x - cot² x = 1"
+          ],
+          "summary": "1"
+        },
+        "explanation": "هذه نتيجة مباشرة من متطابقة فيثاغورس لقاطع التمام وظل التمام."
+      },
+      {
+        "id": "U02-REV-Q021",
+        "number": 21,
+        "question": "ما هي حلول sin x = cos x في الفترة [0, 2π)؟",
+        "options": {
+          "A": "π/4, 5π/4",
+          "B": "π/4, 3π/4",
+          "C": "3π/4, 7π/4",
+          "D": "π/2, 3π/2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "π/4, 5π/4",
+        "difficulty": "medium",
+        "source": {
+          "page": 146,
+          "reference": "تمارين الوحدة"
+        },
+        "solution": {
+          "formula": "tan x = 1",
+          "steps": [
+            "نقسم الطرفين على cos x",
+            "نحصل على tan x = 1",
+            "الحلول في الفترة هي π/4 و5π/4"
+          ],
+          "summary": "π/4, 5π/4"
+        },
+        "explanation": "الظل يساوي 1 في الربعين الأول والثالث."
+      },
+      {
+        "id": "U02-REV-Q022",
+        "number": 22,
+        "question": "بسط المقدار: cos⁴ x - sin⁴ x.",
+        "options": {
+          "A": "cos 2x",
+          "B": "sin 2x",
+          "C": "1",
+          "D": "cos² x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "cos 2x",
+        "difficulty": "hard",
+        "source": {
+          "page": 91,
+          "reference": "ضعف الزاوية والتحليل"
+        },
+        "solution": {
+          "formula": "(cos² x - sin² x)(cos² x + sin² x)",
+          "steps": [
+            "نحلل الفرق بين مربعين",
+            "cos² x + sin² x = 1",
+            "cos² x - sin² x = cos 2x"
+          ],
+          "summary": "cos 2x"
+        },
+        "explanation": "نستخدم التحليل الجبري ومتطابقة فيثاغورس ومتطابقة جيب تمام ضعف الزاوية."
+      },
+      {
+        "id": "U02-REV-Q023",
+        "number": 23,
+        "question": "ما هي قيمة sin(π/2 + x)؟",
+        "options": {
+          "A": "cos x",
+          "B": "-cos x",
+          "C": "sin x",
+          "D": "-sin x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "cos x",
+        "difficulty": "medium",
+        "source": {
+          "page": 41,
+          "reference": "متطابقات المجموع"
+        },
+        "solution": {
+          "formula": "sin(π/2 + x) = sin(π/2)cos x + cos(π/2)sin x",
+          "steps": [
+            "sin(π/2) = 1",
+            "cos(π/2) = 0",
+            "إذن القيمة تساوي cos x"
+          ],
+          "summary": "cos x"
+        },
+        "explanation": "بتطبيق متطابقة جيب المجموع نحصل على cos x."
+      },
+      {
+        "id": "U02-REV-Q024",
+        "number": 24,
+        "question": "أوجد حلول 4 sin² x - 3 = 0 في الفترة [0, π].",
+        "options": {
+          "A": "π/3, 2π/3",
+          "B": "π/3",
+          "C": "π/6, 5π/6",
+          "D": "2π/3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "π/3, 2π/3",
+        "difficulty": "hard",
+        "source": {
+          "page": 63,
+          "reference": "حل المعادلات"
+        },
+        "solution": {
+          "formula": "sin² x = 3/4",
+          "steps": [
+            "sin x = ±√3/2",
+            "في الفترة [0, π] يكون sin x غير سالب",
+            "إذن sin x = √3/2",
+            "الحلان هما π/3 و2π/3"
+          ],
+          "summary": "π/3, 2π/3"
+        },
+        "explanation": "نحدد الزوايا في الربعين الأول والثاني التي يكون جيبها √3/2."
+      },
+      {
+        "id": "U02-REV-Q025",
+        "number": 25,
+        "question": "ما هو ناتج تحويل 2 sin 3x cos 2x إلى مجموع؟",
+        "options": {
+          "A": "sin 5x + sin x",
+          "B": "sin 5x - sin x",
+          "C": "cos 5x + cos x",
+          "D": "sin 3x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "sin 5x + sin x",
+        "difficulty": "medium",
+        "source": {
+          "page": 52,
+          "reference": "تحويل الضرب"
+        },
+        "solution": {
+          "formula": "2 sin α cos β = sin(α+β) + sin(α-β)",
+          "steps": [
+            "نعوض α = 3x وβ = 2x",
+            "sin(3x+2x) + sin(3x-2x)",
+            "= sin 5x + sin x"
+          ],
+          "summary": "sin 5x + sin x"
+        },
+        "explanation": "نطبق متطابقة تحويل حاصل ضرب الجيب وجيب التمام إلى مجموع."
+      },
+      {
+        "id": "U02-REV-Q026",
+        "number": 26,
+        "question": "بسط التعبير: sin(x - π).",
+        "options": {
+          "A": "-sin x",
+          "B": "sin x",
+          "C": "cos x",
+          "D": "-cos x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-sin x",
+        "difficulty": "medium",
+        "source": {
+          "page": 41,
+          "reference": "متطابقات الفرق"
+        },
+        "solution": {
+          "formula": "sin(x - π) = sin x cos π - cos x sin π",
+          "steps": [
+            "cos π = -1",
+            "sin π = 0",
+            "إذن sin(x - π) = -sin x"
+          ],
+          "summary": "-sin x"
+        },
+        "explanation": "نستخدم متطابقة جيب الفرق مع القيمتين الخاصتين للزاوية π."
+      },
+      {
+        "id": "U02-REV-Q027",
+        "number": 27,
+        "question": "ما هي قيمة cos² 15° - sin² 15°؟",
+        "options": {
+          "A": "√3/2",
+          "B": "1/2",
+          "C": "√2/2",
+          "D": "1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "√3/2",
+        "difficulty": "medium",
+        "source": {
+          "page": 47,
+          "reference": "ضعف الزاوية"
+        },
+        "solution": {
+          "formula": "cos² θ - sin² θ = cos 2θ",
+          "steps": [
+            "نعوض θ = 15°",
+            "cos 30° = √3/2"
+          ],
+          "summary": "√3/2"
+        },
+        "explanation": "نستخدم متطابقة جيب تمام ضعف الزاوية بصورة عكسية."
+      },
+      {
+        "id": "U02-REV-Q028",
+        "number": 28,
+        "question": "ما هي الخطوة الأولى الموصى بها لإثبات صحة متطابقة مثلثية معقدة؟",
+        "options": {
+          "A": "البدء بالطرف الأكثر تعقيداً",
+          "B": "البدء بالطرف الأبسط",
+          "C": "تعويض قيم عددية مكان المتغيرات",
+          "D": "تحويل جميع النسب إلى ظل"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "البدء بالطرف الأكثر تعقيداً",
+        "difficulty": "easy",
+        "source": {
+          "page": 39,
+          "reference": "إرشادات إثبات صحة المتطابقات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "نبدأ بالطرف الأكثر تعقيداً",
+            "نبسطه باستخدام المتطابقات المناسبة",
+            "نصل إلى الطرف الأبسط"
+          ],
+          "summary": "يُفضل تبسيط الطرف المعقد ليصل إلى الطرف الأبسط."
+        },
+        "explanation": "هذه استراتيجية أساسية لتسهيل إثبات صحة المتطابقات المثلثية."
+      },
+      {
+        "id": "U02-REV-Q029",
+        "number": 29,
+        "question": "حل المعادلة 2 sin x cos x = 1/2 في الفترة [0, π].",
+        "options": {
+          "A": "π/12, 5π/12",
+          "B": "π/6, 5π/6",
+          "C": "π/4",
+          "D": "π/3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "π/12, 5π/12",
+        "difficulty": "hard",
+        "source": {
+          "page": 141,
+          "reference": "ضعف الزاوية والمعادلات"
+        },
+        "solution": {
+          "formula": "sin 2x = 1/2",
+          "steps": [
+            "باستخدام 2 sin x cos x = sin 2x",
+            "نحصل على sin 2x = 1/2",
+            "2x = π/6 أو 5π/6",
+            "x = π/12 أو 5π/12"
+          ],
+          "summary": "π/12, 5π/12"
+        },
+        "explanation": "نحوّل الطرف الأيسر إلى متطابقة جيب ضعف الزاوية ثم نحل المعادلة."
+      },
+      {
+        "id": "U02-REV-Q030",
+        "number": 30,
+        "question": "بسط المقدار: (1 + cos 2x) / (1 - cos 2x).",
+        "options": {
+          "A": "cot² x",
+          "B": "tan² x",
+          "C": "1",
+          "D": "sin² x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "cot² x",
+        "difficulty": "hard",
+        "source": {
+          "page": 49,
+          "reference": "تقليص القوة"
+        },
+        "solution": {
+          "formula": "1 + cos 2x = 2 cos² x، و1 - cos 2x = 2 sin² x",
+          "steps": [
+            "نعوض متطابقات تقليص القوة",
+            "(2 cos² x) / (2 sin² x)",
+            "= cos² x / sin² x",
+            "= cot² x"
+          ],
+          "summary": "cot² x"
+        },
+        "explanation": "باستخدام متطابقات تقليص القوة يتحول المقدار إلى مربع ظل التمام."
+      },
+      {
+        "id": "U02-REV-Q031",
+        "number": 31,
+        "question": "ما هي قيمة cos(π/2)؟",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "-1",
+          "D": "غير معرف"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "0",
+        "difficulty": "easy",
+        "source": {
+          "page": 196,
+          "reference": "ملحق الزوايا الخاصة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جيب تمام 90° يساوي صفر."
+        },
+        "explanation": "من دائرة الوحدة، إحداثي x عند الزاوية π/2 يساوي صفر."
+      },
+      {
+        "id": "U02-REV-Q032",
+        "number": 32,
+        "question": "بسط المقدار: sin(x+y) cos y - cos(x+y) sin y.",
+        "options": {
+          "A": "sin x",
+          "B": "sin(x+2y)",
+          "C": "cos x",
+          "D": "1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "sin x",
+        "difficulty": "hard",
+        "source": {
+          "page": 41,
+          "reference": "متطابقات الفرق"
+        },
+        "solution": {
+          "formula": "sin α cos β - cos α sin β = sin(α-β)",
+          "steps": [
+            "نضع α = x+y وβ = y",
+            "sin((x+y)-y) = sin x"
+          ],
+          "summary": "sin x"
+        },
+        "explanation": "هذا تطبيق عكسي لمتطابقة جيب الفرق."
+      },
+      {
+        "id": "U02-REV-Q033",
+        "number": 33,
+        "question": "أوجد الحل العام للمعادلة cos x = 1.",
+        "options": {
+          "A": "x = 2kπ",
+          "B": "x = kπ",
+          "C": "x = π + 2kπ",
+          "D": "x = π/2 + kπ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "x = 2kπ",
+        "difficulty": "medium",
+        "source": {
+          "page": 59,
+          "reference": "الحل العام"
+        },
+        "solution": {
+          "formula": "x = 0 + 2kπ",
+          "steps": [
+            "cos x = 1 عند x = 0",
+            "دورة جيب التمام تساوي 2π",
+            "إذن x = 2kπ"
+          ],
+          "summary": "2kπ"
+        },
+        "explanation": "جيب التمام يساوي 1 عند الصفر وكل مضاعف صحيح للدورة الكاملة."
+      },
+      {
+        "id": "U02-REV-Q034",
+        "number": 34,
+        "question": "ما هو ناتج تبسيط: sec² x - tan² x؟",
+        "options": {
+          "A": "1",
+          "B": "0",
+          "C": "-1",
+          "D": "cos² x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1",
+        "difficulty": "easy",
+        "source": {
+          "page": 35,
+          "reference": "متطابقات فيثاغورس"
+        },
+        "solution": {
+          "formula": "sec² x = 1 + tan² x",
+          "steps": [
+            "نطرح tan² x من الطرفين",
+            "sec² x - tan² x = 1"
+          ],
+          "summary": "1"
+        },
+        "explanation": "هذه صورة مباشرة من متطابقة فيثاغورس للقاطع والظل."
+      },
+      {
+        "id": "U02-REV-Q035",
+        "number": 35,
+        "question": "أوجد قيمة sin 105° باستخدام المتطابقات.",
+        "options": {
+          "A": "(√6 + √2) / 4",
+          "B": "(√6 - √2) / 4",
+          "C": "√3/2",
+          "D": "1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(√6 + √2) / 4",
+        "difficulty": "medium",
+        "source": {
+          "page": 41,
+          "reference": "متطابقات المجموع"
+        },
+        "solution": {
+          "formula": "sin(60° + 45°)",
+          "steps": [
+            "sin 60° cos 45° + cos 60° sin 45°",
+            "=(√3/2)(1/√2) + (1/2)(1/√2)",
+            "=(√6 + √2) / 4"
+          ],
+          "summary": "(√6 + √2) / 4"
+        },
+        "explanation": "نطبق متطابقة جيب مجموع زاويتين خاصتين."
+      },
+      {
+        "id": "U02-REV-Q036",
+        "number": 36,
+        "question": "بسط المقدار: 1 / csc x.",
+        "options": {
+          "A": "sin x",
+          "B": "cos x",
+          "C": "tan x",
+          "D": "sec x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "sin x",
+        "difficulty": "easy",
+        "source": {
+          "page": 35,
+          "reference": "متطابقات المقلوب"
+        },
+        "solution": {
+          "formula": "csc x = 1 / sin x",
+          "steps": [
+            "1 / csc x = 1 / (1/sin x)",
+            "إذن الناتج = sin x"
+          ],
+          "summary": "sin x"
+        },
+        "explanation": "الجيب هو مقلوب قاطع التمام."
+      },
+      {
+        "id": "U02-REV-Q037",
+        "number": 37,
+        "question": "ما هو ناتج تحويل cos α - cos β إلى ضرب؟",
+        "options": {
+          "A": "-2 sin[(α+β)/2] sin[(α-β)/2]",
+          "B": "2 cos[(α+β)/2] cos[(α-β)/2]",
+          "C": "2 sin[(α+β)/2] sin[(α-β)/2]",
+          "D": "-2 cos[(α+β)/2] cos[(α-β)/2]"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-2 sin[(α+β)/2] sin[(α-β)/2]",
+        "difficulty": "medium",
+        "source": {
+          "page": 53,
+          "reference": "تحويل الفرق إلى ضرب"
+        },
+        "solution": {
+          "formula": "cos α - cos β = -2 sin[(α+β)/2] sin[(α-β)/2]",
+          "steps": [],
+          "summary": "قانون تحويل فرق جيبي التمام."
+        },
+        "explanation": "قاعدة تحويل فرق جيبي التمام إلى حاصل ضرب، وتتضمن إشارة سالبة."
+      },
+      {
+        "id": "U02-REV-Q038",
+        "number": 38,
+        "question": "بسط المقدار: tan² x / (sec x + 1).",
+        "options": {
+          "A": "sec x - 1",
+          "B": "sec x + 1",
+          "C": "tan x",
+          "D": "1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "sec x - 1",
+        "difficulty": "medium",
+        "source": {
+          "page": 40,
+          "reference": "تمارين التبسيط"
+        },
+        "solution": {
+          "formula": "tan² x = sec² x - 1",
+          "steps": [
+            "نحلل sec² x - 1 إلى (sec x - 1)(sec x + 1)",
+            "نقسم على sec x + 1",
+            "يبقى sec x - 1"
+          ],
+          "summary": "sec x - 1"
+        },
+        "explanation": "نستخدم الفرق بين مربعين مع متطابقة فيثاغورس للاختصار."
+      },
+      {
+        "id": "U02-REV-Q039",
+        "number": 39,
+        "question": "ما ميل منحدر التزلج للمبتدئين إذا كان ميل المحترفين هو tan θ = 5/3 وزاوية المبتدئين هي نصف قياس الزاوية θ؟",
+        "options": {
+          "A": "0.5",
+          "B": "0.8",
+          "C": "1",
+          "D": "0.3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "0.5",
+        "difficulty": "hard",
+        "source": {
+          "page": 46,
+          "reference": "مسألة اليوم"
+        },
+        "solution": {
+          "formula": "tan(θ/2)",
+          "steps": [
+            "لدينا tan θ = 5/3",
+            "باستخدام متطابقة نصف الزاوية نحسب tan(θ/2)",
+            "الناتج = 0.5"
+          ],
+          "summary": "0.5"
+        },
+        "explanation": "المسألة تتطلب استخدام متطابقة ظل نصف الزاوية لإيجاد ميل منحدر المبتدئين."
+      },
+      {
+        "id": "U02-REV-Q040",
+        "number": 40,
+        "question": "أي مما يأتي يمثل متطابقة ضعف الزاوية للظل tan 2θ؟",
+        "options": {
+          "A": "2 tan θ / (1 - tan² θ)",
+          "B": "2 tan θ / (1 + tan² θ)",
+          "C": "tan² θ / (1 - 2 tan θ)",
+          "D": "2 tan θ / (1 - sin² θ)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2 tan θ / (1 - tan² θ)",
+        "difficulty": "easy",
+        "source": {
+          "page": 47,
+          "reference": "متطابقات ضعف الزاوية"
+        },
+        "solution": {
+          "formula": "tan 2θ = 2 tan θ / (1 - tan² θ)",
+          "steps": [],
+          "summary": "صيغة ظل ضعف الزاوية."
+        },
+        "explanation": "الصيغة الصحيحة تحتوي على 2 tan θ في البسط و1 - tan² θ في المقام."
+      },
+      {
+        "id": "U02-REV-Q041",
+        "number": 41,
+        "question": "أوجد حلول المعادلة sin 2x = 3 cos 2x في الفترة [0, π).",
+        "options": {
+          "A": "0.62 rad, 2.19 rad",
+          "B": "0.32 rad, 1.89 rad",
+          "C": "π/3, 2π/3",
+          "D": "0, π/2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "0.62 rad, 2.19 rad",
+        "difficulty": "hard",
+        "source": {
+          "page": 146,
+          "reference": "تمارين حل المعادلات"
+        },
+        "solution": {
+          "formula": "tan 2x = 3",
+          "steps": [
+            "نقسم الطرفين على cos 2x",
+            "tan 2x = 3",
+            "2x = tan⁻¹(3) + kπ",
+            "في الفترة [0, π): x ≈ 0.62 و2.19"
+          ],
+          "summary": "0.62 rad, 2.19 rad"
+        },
+        "explanation": "نحوّل المعادلة إلى معادلة ظل ثم نحدد الحلول ضمن الفترة المعطاة."
+      },
+      {
+        "id": "U02-REV-Q042",
+        "number": 42,
+        "question": "ما هي القيمة الدقيقة لـ tan(7π/8)؟",
+        "options": {
+          "A": "1 - √2",
+          "B": "√2 - 1",
+          "C": "1 + √2",
+          "D": "√2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1 - √2",
+        "difficulty": "hard",
+        "source": {
+          "page": 112,
+          "reference": "تمرين 11"
+        },
+        "solution": {
+          "formula": "tan(7π/8)",
+          "steps": [
+            "7π/8 = π - π/8",
+            "tan(π - π/8) = -tan(π/8)",
+            "tan(π/8) = √2 - 1",
+            "إذن tan(7π/8) = 1 - √2"
+          ],
+          "summary": "1 - √2"
+        },
+        "explanation": "الزاوية تقع في الربع الثاني، لذلك تكون قيمة الظل سالبة."
+      },
+      {
+        "id": "U02-REV-Q043",
+        "number": 43,
+        "question": "ما هي مساحة المستطيل المرسوم في نصف دائرة قطرها 1 بدلالة θ؟",
+        "options": {
+          "A": "sin 2θ",
+          "B": "2 sin θ",
+          "C": "cos 2θ",
+          "D": "sin θ cos θ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "sin 2θ",
+        "difficulty": "hard",
+        "source": {
+          "page": 56,
+          "reference": "تمرين 36-37"
+        },
+        "solution": {
+          "formula": "A = base × height",
+          "steps": [
+            "الارتفاع = sin θ",
+            "القاعدة = 2 cos θ",
+            "A = 2 sin θ cos θ",
+            "A = sin 2θ"
+          ],
+          "summary": "sin 2θ"
+        },
+        "explanation": "نربط أبعاد المستطيل بإحداثيات الدائرة ثم نستخدم متطابقة ضعف الزاوية."
+      },
+      {
+        "id": "U02-REV-Q044",
+        "number": 44,
+        "question": "أوجد حلول المعادلة cos 2x = cos x في الفترة [0, 2π).",
+        "options": {
+          "A": "0, 2π/3, 4π/3",
+          "B": "0, π/3, 5π/3",
+          "C": "π, π/6, 11π/6",
+          "D": "0, π"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "0, 2π/3, 4π/3",
+        "difficulty": "hard",
+        "source": {
+          "page": 147,
+          "reference": "تمرين 29"
+        },
+        "solution": {
+          "formula": "2 cos² x - 1 = cos x",
+          "steps": [
+            "2 cos² x - cos x - 1 = 0",
+            "(2 cos x + 1)(cos x - 1) = 0",
+            "cos x = -1/2 أو cos x = 1",
+            "الحلول: 0, 2π/3, 4π/3"
+          ],
+          "summary": "0, 2π/3, 4π/3"
+        },
+        "explanation": "نستخدم متطابقة ضعف الزاوية لتحويل المعادلة إلى معادلة تربيعية ثم نحلها."
+      },
+      {
+        "id": "U02-REV-Q045",
+        "number": 45,
+        "question": "في مسألة أطوار القمر F = 1/2(1 - cos θ)، متى يكون مقياس الطور F = 0.25؟",
+        "options": {
+          "A": "60°",
+          "B": "90°",
+          "C": "120°",
+          "D": "45°"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "60°",
+        "difficulty": "medium",
+        "source": {
+          "page": 147,
+          "reference": "تمرين 22"
+        },
+        "solution": {
+          "formula": "0.25 = 1/2(1 - cos θ)",
+          "steps": [
+            "نضرب الطرفين في 2",
+            "0.5 = 1 - cos θ",
+            "cos θ = 0.5",
+            "إذن θ = 60°"
+          ],
+          "summary": "60°"
+        },
+        "explanation": "نحل المعادلة المثلثية الناتجة عن نموذج طور القمر."
+      },
+      {
+        "id": "U02-REV-Q046",
+        "number": 46,
+        "question": "أوجد قيمة sin 105° دون استخدام الحاسبة.",
+        "options": {
+          "A": "(√6 + √2) / 4",
+          "B": "(√6 - √2) / 4",
+          "C": "(√3 + 1) / 2",
+          "D": "1/2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(√6 + √2) / 4",
+        "difficulty": "medium",
+        "source": {
+          "page": 152,
+          "reference": "تمرين 27"
+        },
+        "solution": {
+          "formula": "sin(60° + 45°)",
+          "steps": [
+            "sin 60° cos 45° + cos 60° sin 45°",
+            "=(√3/2)(1/√2) + (1/2)(1/√2)",
+            "=(√6 + √2) / 4"
+          ],
+          "summary": "(√6 + √2) / 4"
+        },
+        "explanation": "نطبق متطابقة جيب مجموع زاويتين خاصتين."
+      },
+      {
+        "id": "U02-REV-Q047",
+        "number": 47,
+        "question": "أوجد حلول المعادلة 4 sin² x - 3 = 0 في الفترة [0, 2π).",
+        "options": {
+          "A": "π/3, 2π/3, 4π/3, 5π/3",
+          "B": "π/3, 2π/3",
+          "C": "π/6, 5π/6, 7π/6, 11π/6",
+          "D": "π/3, 5π/3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "π/3, 2π/3, 4π/3, 5π/3",
+        "difficulty": "hard",
+        "source": {
+          "page": 63,
+          "reference": "حل المعادلات"
+        },
+        "solution": {
+          "formula": "sin x = ±√3/2",
+          "steps": [
+            "4 sin² x = 3",
+            "sin² x = 3/4",
+            "sin x = ±√3/2",
+            "نحدد الزوايا المناسبة في الأرباع الأربعة"
+          ],
+          "summary": "أربعة حلول: π/3، 2π/3، 4π/3، 5π/3."
+        },
+        "explanation": "بأخذ الجذر التربيعي للطرفين نحصل على قيمتين للجيب، مما يعطي حلاً في كل ربع."
+      },
+      {
+        "id": "U02-REV-Q048",
+        "number": 48,
+        "question": "أعد كتابة sin 3x sin 5x في صورة مجموع أو فرق.",
+        "options": {
+          "A": "1/2 cos 2x - 1/2 cos 8x",
+          "B": "1/2 cos 8x - 1/2 cos 2x",
+          "C": "1/2 sin 8x + 1/2 sin 2x",
+          "D": "cos 2x - cos 8x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1/2 cos 2x - 1/2 cos 8x",
+        "difficulty": "medium",
+        "source": {
+          "page": 53,
+          "reference": "تحويل الضرب"
+        },
+        "solution": {
+          "formula": "sin α sin β = 1/2[cos(α-β) - cos(α+β)]",
+          "steps": [
+            "نعوض α = 3x وβ = 5x",
+            "1/2[cos(-2x) - cos 8x]",
+            "بما أن cos(-2x) = cos 2x",
+            "الناتج = 1/2 cos 2x - 1/2 cos 8x"
+          ],
+          "summary": "1/2 cos 2x - 1/2 cos 8x"
+        },
+        "explanation": "نستخدم قانون تحويل حاصل ضرب الجيبين إلى فرق جيبي التمام."
+      },
+      {
+        "id": "U02-REV-Q049",
+        "number": 49,
+        "question": "كيف يتم اختيار الإشارة المناسبة في متطابقات نصف الزاوية؟",
+        "options": {
+          "A": "بحسب الربع الذي يقع فيه ضلع انتهاء θ/2",
+          "B": "بحسب الربع الذي تقع فيه θ",
+          "C": "تكون دائماً موجبة",
+          "D": "بحسب إشارة cos θ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "بحسب الربع الذي يقع فيه ضلع انتهاء θ/2",
+        "difficulty": "easy",
+        "source": {
+          "page": 50,
+          "reference": "إرشادات نصف الزاوية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "نحدد موقع θ/2 على دائرة الوحدة",
+            "نحدد إشارة النسبة المثلثية في ذلك الربع",
+            "نختار الإشارة الموجبة أو السالبة وفقاً لذلك"
+          ],
+          "summary": "الإشارة تتبع موقع نصف الزاوية."
+        },
+        "explanation": "يتم تحديد الإشارة وفقاً للربع الذي يقع فيه ضلع انتهاء الزاوية θ/2."
+      },
+      {
+        "id": "U02-REV-Q050",
+        "number": 50,
+        "question": "ما هو ناتج تبسيط المقدار: (sin x + cos x)² - 1؟",
+        "options": {
+          "A": "sin 2x",
+          "B": "cos 2x",
+          "C": "1",
+          "D": "0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "sin 2x",
+        "difficulty": "medium",
+        "source": {
+          "page": 90,
+          "reference": "تمرين 9"
+        },
+        "solution": {
+          "formula": "(sin x + cos x)² - 1",
+          "steps": [
+            "sin² x + 2 sin x cos x + cos² x - 1",
+            "باستخدام sin² x + cos² x = 1",
+            "يبقى 2 sin x cos x",
+            "وبما أن 2 sin x cos x = sin 2x"
+          ],
+          "summary": "sin 2x"
+        },
+        "explanation": "نستخدم فك المربع الكامل، ومتطابقة فيثاغورس، ومتطابقة جيب ضعف الزاوية."
+      }
+]
