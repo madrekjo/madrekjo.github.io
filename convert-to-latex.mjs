@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const dir = 'questions/math/semester-1/unit-01/';
+const dir = 'questions/2009/semester-1/math/unit-01/';
 const files = ['lesson-01.json', 'lesson-02.json', 'review.json'];
 
 // Fields that should NEVER be math-wrapped

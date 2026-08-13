@@ -1,6 +1,9 @@
 {
+  "subject_id": "math",
   "subject": "الرياضيات",
+  "generation_id": "2009",
   "generation": "2009",
+  "semester_id": "semester-1",
   "semester": 1,
   "semester_label": "ف1",
   "units": [

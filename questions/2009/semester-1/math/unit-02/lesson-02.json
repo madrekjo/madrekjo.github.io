@@ -10,7 +10,7 @@
       {
         "id": "U02-L02-Q001",
         "number": 1,
-        "question": "ما هي المتطابقة الصحيحة لجيب ضعف الزاوية sin 2θ؟",
+        "question": "ما هي المتطابقة الصحيحة لجيب ضعف الزاوية $\\sin 2\\theta$؟",
         "options": {
           "A": "2 sin θ cos θ",
           "B": "sin² θ - cos² θ",
@@ -18,23 +18,23 @@
           "D": "sin θ cos θ"
         },
         "correct_answer": "A",
-        "correct_answer_text": "2 sin θ cos θ",
+        "correct_answer_text": "$2 \\sin \\theta \\cos \\theta$",
         "difficulty": "easy",
         "source": {
           "page": 47,
           "reference": "متطابقات ضعف الزاوية"
         },
         "solution": {
-          "formula": "sin 2θ = 2 sin θ cos θ",
+          "formula": "$\\sin 2\\theta = 2 \\sin \\theta \\cos \\theta$",
           "steps": [],
           "summary": "هذه هي صيغة جيب ضعف الزاوية."
         },
-        "explanation": "متطابقة ضعف الزاوية للجيب هي sin 2θ = 2 sin θ cos θ."
+        "explanation": "متطابقة ضعف الزاوية للجيب هي $\\sin 2\\theta = 2 \\sin \\theta \\cos \\theta$."
       },
       {
         "id": "U02-L02-Q002",
         "number": 2,
-        "question": "أي مما يأتي يمثل إحدى صيغ جيب تمام ضعف الزاوية cos 2θ؟",
+        "question": "أي مما يأتي يمثل إحدى صيغ جيب تمام ضعف الزاوية $\\cos 2\\theta$؟",
         "options": {
           "A": "cos² θ - sin² θ",
           "B": "cos² θ + sin² θ",
@@ -42,23 +42,23 @@
           "D": "2 cos² θ + 1"
         },
         "correct_answer": "A",
-        "correct_answer_text": "cos² θ - sin² θ",
+        "correct_answer_text": "$\\cos ^{2} \\theta - \\sin ^{2} \\theta$",
         "difficulty": "easy",
         "source": {
           "page": 47,
           "reference": "متطابقات ضعف الزاوية"
         },
         "solution": {
-          "formula": "cos 2θ = cos² θ - sin² θ",
+          "formula": "$\\cos 2\\theta = \\cos ^{2} \\theta - \\sin ^{2} \\theta$",
           "steps": [],
           "summary": "الصيغة الأساسية لجيب تمام ضعف الزاوية."
         },
-        "explanation": "من صيغ ضعف الزاوية: cos 2θ = cos² θ - sin² θ."
+        "explanation": "من صيغ ضعف الزاوية: $\\cos 2\\theta = \\cos ^{2} \\theta - \\sin ^{2} \\theta$."
       },
       {
         "id": "U02-L02-Q003",
         "number": 3,
-        "question": "ما هي صيغة cos 2θ التي تعتمد فقط على دالة الجيب؟",
+        "question": "ما هي صيغة $\\cos 2\\theta$التي تعتمد فقط على دالة الجيب؟",
         "options": {
           "A": "1 - 2 sin² θ",
           "B": "2 sin² θ - 1",
@@ -66,28 +66,28 @@
           "D": "2 cos² θ - 1"
         },
         "correct_answer": "A",
-        "correct_answer_text": "1 - 2 sin² θ",
+        "correct_answer_text": "$1 - 2 \\sin ^{2} \\theta$",
         "difficulty": "easy",
         "source": {
           "page": 47,
           "reference": "متطابقات ضعف الزاوية"
         },
         "solution": {
-          "formula": "cos 2θ = 1 - 2 sin² θ",
+          "formula": "$\\cos 2\\theta = 1 - 2 \\sin ^{2} \\theta$",
           "steps": [
-            "cos 2θ = cos² θ - sin² θ",
-            "باستخدام cos² θ = 1 - sin² θ",
-            "cos 2θ = 1 - sin² θ - sin² θ",
-            "cos 2θ = 1 - 2 sin² θ"
+            "$\\cos 2\\theta = \\cos ^{2} \\theta - \\sin ^{2} \\theta$",
+            "باستخدام $\\cos ^{2} \\theta = 1 - \\sin ^{2} \\theta$",
+            "$\\cos 2\\theta = 1 - \\sin ^{2} \\theta - \\sin ^{2} \\theta$",
+            "$\\cos 2\\theta = 1 - 2 \\sin ^{2} \\theta$"
           ],
-          "summary": "cos 2θ = 1 - 2 sin² θ."
+          "summary": "$\\cos 2\\theta = 1 - 2 \\sin ^{2} \\theta$."
         },
-        "explanation": "نستبدل cos² θ بالمتطابقة cos² θ = 1 - sin² θ."
+        "explanation": "نستبدل $\\cos ^{2} \\theta$بالمتطابقة $\\cos ^{2} \\theta = 1 - \\sin ^{2} \\theta$."
       },
       {
         "id": "U02-L02-Q004",
         "number": 4,
-        "question": "أي صيغ cos 2θ الآتية تعتمد فقط على دالة جيب التمام؟",
+        "question": "أي صيغ $\\cos 2\\theta$الآتية تعتمد فقط على دالة جيب التمام؟",
         "options": {
           "A": "2 cos² θ - 1",
           "B": "1 - 2 cos² θ",
@@ -95,28 +95,28 @@
           "D": "cos² θ - 1"
         },
         "correct_answer": "A",
-        "correct_answer_text": "2 cos² θ - 1",
+        "correct_answer_text": "$2 \\cos ^{2} \\theta - 1$",
         "difficulty": "easy",
         "source": {
           "page": 47,
           "reference": "متطابقات ضعف الزاوية"
         },
         "solution": {
-          "formula": "cos 2θ = 2 cos² θ - 1",
+          "formula": "$\\cos 2\\theta = 2 \\cos ^{2} \\theta - 1$",
           "steps": [
-            "cos 2θ = cos² θ - sin² θ",
-            "باستخدام sin² θ = 1 - cos² θ",
-            "cos 2θ = cos² θ - (1 - cos² θ)",
-            "cos 2θ = 2 cos² θ - 1"
+            "$\\cos 2\\theta = \\cos ^{2} \\theta - \\sin ^{2} \\theta$",
+            "باستخدام $\\sin ^{2} \\theta = 1 - \\cos ^{2} \\theta$",
+            "$\\cos 2\\theta = \\cos ^{2} \\theta - (1 - \\cos ^{2} \\theta )$",
+            "$\\cos 2\\theta = 2 \\cos ^{2} \\theta - 1$"
           ],
-          "summary": "cos 2θ = 2 cos² θ - 1."
+          "summary": "$\\cos 2\\theta = 2 \\cos ^{2} \\theta - 1$."
         },
-        "explanation": "نستبدل sin² θ بالمتطابقة sin² θ = 1 - cos² θ."
+        "explanation": "نستبدل $\\sin ^{2} \\theta$بالمتطابقة $\\sin ^{2} \\theta = 1 - \\cos ^{2} \\theta$."
       },
       {
         "id": "U02-L02-Q005",
         "number": 5,
-        "question": "ما هي متطابقة ظل ضعف الزاوية tan 2θ؟",
+        "question": "ما هي متطابقة ظل ضعف الزاوية $\\tan 2\\theta$؟",
         "options": {
           "A": "2 tan θ / (1 - tan² θ)",
           "B": "2 tan θ / (1 + tan² θ)",
@@ -124,14 +124,14 @@
           "D": "1 - tan² θ / (2 tan θ)"
         },
         "correct_answer": "A",
-        "correct_answer_text": "2 tan θ / (1 - tan² θ)",
+        "correct_answer_text": "$2 \\tan \\frac{\\theta }{1 - \\tan ^{2} \\theta }$",
         "difficulty": "easy",
         "source": {
           "page": 47,
           "reference": "متطابقات ضعف الزاوية"
         },
         "solution": {
-          "formula": "tan 2θ = (2 tan θ) / (1 - tan² θ)",
+          "formula": "$\\tan 2\\theta = \\frac{2 \\tan \\theta }{1 - \\tan ^{2} \\theta }$",
           "steps": [],
           "summary": "هذه هي متطابقة ظل ضعف الزاوية."
         },
@@ -140,7 +140,7 @@
       {
         "id": "U02-L02-Q006",
         "number": 6,
-        "question": "إذا كان sin θ = 3/5 وكانت θ في الربع الثاني، فما قيمة cos θ؟",
+        "question": "إذا كان $\\sin \\theta = \\frac{3}{5}$وكانت $\\theta$في الربع الثاني، فما قيمة $\\cos \\theta$؟",
         "options": {
           "A": "-4/5",
           "B": "4/5",
@@ -148,30 +148,30 @@
           "D": "-3/4"
         },
         "correct_answer": "A",
-        "correct_answer_text": "-4/5",
+        "correct_answer_text": "$\\frac{-4}{5}$",
         "difficulty": "medium",
         "source": {
           "page": 47,
           "reference": "مثال 1"
         },
         "solution": {
-          "formula": "sin² θ + cos² θ = 1",
+          "formula": "$\\sin ^{2} \\theta + \\cos ^{2} \\theta = 1$",
           "steps": [
-            "(3/5)² + cos² θ = 1",
-            "9/25 + cos² θ = 1",
-            "cos² θ = 16/25",
-            "cos θ = ±4/5",
-            "بما أن θ في الربع الثاني، فإن cos θ سالب",
-            "cos θ = -4/5"
+            "$(\\frac{3}{5})^{2} + \\cos ^{2} \\theta = 1$",
+            "$\\frac{9}{25} + \\cos ^{2} \\theta = 1$",
+            "$\\cos ^{2} \\theta = \\frac{16}{25}$",
+            "$\\cos \\theta = \\pm \\frac{4}{5}$",
+            "بما أن $\\theta$في الربع الثاني، فإن $\\cos \\theta$سالب",
+            "$\\cos \\theta = \\frac{-4}{5}$"
           ],
-          "summary": "cos θ = -4/5."
+          "summary": "$\\cos \\theta = \\frac{-4}{5}$."
         },
         "explanation": "في الربع الثاني يكون الجيب موجبًا وجيب التمام سالبًا."
       },
       {
         "id": "U02-L02-Q007",
         "number": 7,
-        "question": "بناءً على المعطيات sin θ = 3/5 وθ في الربع الثاني، ما قيمة sin 2θ؟",
+        "question": "بناءً على المعطيات $\\sin \\theta = \\frac{3}{5}$و$\\theta$في الربع الثاني، ما قيمة $\\sin 2\\theta$؟",
         "options": {
           "A": "-24/25",
           "B": "24/25",
@@ -179,28 +179,28 @@
           "D": "12/25"
         },
         "correct_answer": "A",
-        "correct_answer_text": "-24/25",
+        "correct_answer_text": "$\\frac{-24}{25}$",
         "difficulty": "medium",
         "source": {
           "page": 48,
           "reference": "مثال 1"
         },
         "solution": {
-          "formula": "sin 2θ = 2 sin θ cos θ",
+          "formula": "$\\sin 2\\theta = 2 \\sin \\theta \\cos \\theta$",
           "steps": [
-            "sin θ = 3/5",
-            "cos θ = -4/5",
-            "sin 2θ = 2 × (3/5) × (-4/5)",
-            "sin 2θ = -24/25"
+            "$\\sin \\theta = \\frac{3}{5}$",
+            "$\\cos \\theta = \\frac{-4}{5}$",
+            "$\\sin 2\\theta = 2 \\times (\\frac{3}{5}) \\times (\\frac{-4}{5})$",
+            "$\\sin 2\\theta = \\frac{-24}{25}$"
           ],
-          "summary": "sin 2θ = -24/25."
+          "summary": "$\\sin 2\\theta = \\frac{-24}{25}$."
         },
-        "explanation": "بما أن الجيب موجب وجيب التمام سالب في الربع الثاني، فإن sin 2θ تكون سالبة."
+        "explanation": "بما أن الجيب موجب وجيب التمام سالب في الربع الثاني، فإن $\\sin 2\\theta$تكون سالبة."
       },
       {
         "id": "U02-L02-Q008",
         "number": 8,
-        "question": "باستعمال نفس المعطيات sin θ = 3/5 وθ في الربع الثاني، أوجد قيمة cos 2θ.",
+        "question": "باستعمال نفس المعطيات $\\sin \\theta = \\frac{3}{5}$و$\\theta$في الربع الثاني، أوجد قيمة $\\cos 2\\theta$.",
         "options": {
           "A": "7/25",
           "B": "-7/25",
@@ -208,28 +208,28 @@
           "D": "24/25"
         },
         "correct_answer": "A",
-        "correct_answer_text": "7/25",
+        "correct_answer_text": "$\\frac{7}{25}$",
         "difficulty": "medium",
         "source": {
           "page": 48,
           "reference": "مثال 1"
         },
         "solution": {
-          "formula": "cos 2θ = 1 - 2 sin² θ",
+          "formula": "$\\cos 2\\theta = 1 - 2 \\sin ^{2} \\theta$",
           "steps": [
-            "cos 2θ = 1 - 2(3/5)²",
-            "cos 2θ = 1 - 2(9/25)",
-            "cos 2θ = 1 - 18/25",
-            "cos 2θ = 7/25"
+            "$\\cos 2\\theta = 1 - 2(\\frac{3}{5})^{2}$",
+            "$\\cos 2\\theta = 1 - 2(\\frac{9}{25})$",
+            "$\\cos 2\\theta = 1 - \\frac{18}{25}$",
+            "$\\cos 2\\theta = \\frac{7}{25}$"
           ],
-          "summary": "cos 2θ = 7/25."
+          "summary": "$\\cos 2\\theta = \\frac{7}{25}$."
         },
         "explanation": "استخدمنا الصيغة التي تعتمد على قيمة الجيب فقط."
       },
       {
         "id": "U02-L02-Q009",
         "number": 9,
-        "question": "ما هو ناتج تبسيط التعبير 4 cos³ θ - 3 cos θ؟",
+        "question": "ما هو ناتج تبسيط التعبير $4 \\cos ^{3} \\theta - 3 \\cos \\theta$؟",
         "options": {
           "A": "cos 3θ",
           "B": "sin 3θ",
@@ -237,28 +237,28 @@
           "D": "3 cos θ"
         },
         "correct_answer": "A",
-        "correct_answer_text": "cos 3θ",
+        "correct_answer_text": "$\\cos 3\\theta$",
         "difficulty": "hard",
         "source": {
           "page": 50,
           "reference": "مثال 2"
         },
         "solution": {
-          "formula": "cos 3θ = 4 cos³ θ - 3 cos θ",
+          "formula": "$\\cos 3\\theta = 4 \\cos ^{3} \\theta - 3 \\cos \\theta$",
           "steps": [
-            "نكتب 3θ على صورة 2θ + θ",
+            "نكتب $3\\theta$على صورة $2\\theta + \\theta$",
             "نستخدم متطابقة جيب تمام مجموع زاويتين",
             "نستخدم متطابقات ضعف الزاوية",
-            "بعد التبسيط نحصل على 4 cos³ θ - 3 cos θ"
+            "بعد التبسيط نحصل على $4 \\cos ^{3} \\theta - 3 \\cos \\theta$"
           ],
-          "summary": "4 cos³ θ - 3 cos θ = cos 3θ."
+          "summary": "$4 \\cos ^{3} \\theta - 3 \\cos \\theta = \\cos 3\\theta$."
         },
-        "explanation": "هذه هي صيغة جيب تمام الزاوية الثلاثية بدلالة cos θ."
+        "explanation": "هذه هي صيغة جيب تمام الزاوية الثلاثية بدلالة $\\cos \\theta$."
       },
       {
         "id": "U02-L02-Q010",
         "number": 10,
-        "question": "أي من المتطابقات الآتية تستخدم لتقليص القوة sin² θ؟",
+        "question": "أي من المتطابقات الآتية تستخدم لتقليص القوة $\\sin ^{2} \\theta$؟",
         "options": {
           "A": "(1 - cos 2θ) / 2",
           "B": "(1 + cos 2θ) / 2",
@@ -266,23 +266,23 @@
           "D": "2 sin θ cos θ"
         },
         "correct_answer": "A",
-        "correct_answer_text": "(1 - cos 2θ) / 2",
+        "correct_answer_text": "$\\frac{1 - \\cos 2\\theta }{2}$",
         "difficulty": "medium",
         "source": {
           "page": 49,
           "reference": "متطابقات تقليص القوة"
         },
         "solution": {
-          "formula": "sin² θ = (1 - cos 2θ) / 2",
+          "formula": "$\\sin ^{2} \\theta = \\frac{1 - \\cos 2\\theta }{2}$",
           "steps": [],
           "summary": "هذه هي متطابقة تقليص قوة الجيب."
         },
-        "explanation": "تستخدم المتطابقة لتحويل sin² θ إلى تعبير يتضمن قوة أولى لجيب التمام."
+        "explanation": "تستخدم المتطابقة لتحويل $\\sin ^{2} \\theta$إلى تعبير يتضمن قوة أولى لجيب التمام."
       },
       {
         "id": "U02-L02-Q011",
         "number": 11,
-        "question": "ما هي متطابقة تقليص القوة لـ cos² θ؟",
+        "question": "ما هي متطابقة تقليص القوة لـ $\\cos ^{2} \\theta$؟",
         "options": {
           "A": "(1 + cos 2θ) / 2",
           "B": "(1 - cos 2θ) / 2",
@@ -290,23 +290,23 @@
           "D": "cos 2θ / 2"
         },
         "correct_answer": "A",
-        "correct_answer_text": "(1 + cos 2θ) / 2",
+        "correct_answer_text": "$\\frac{1 + \\cos 2\\theta }{2}$",
         "difficulty": "medium",
         "source": {
           "page": 49,
           "reference": "متطابقات تقليص القوة"
         },
         "solution": {
-          "formula": "cos² θ = (1 + cos 2θ) / 2",
+          "formula": "$\\cos ^{2} \\theta = \\frac{1 + \\cos 2\\theta }{2}$",
           "steps": [],
           "summary": "هذه هي متطابقة تقليص قوة جيب التمام."
         },
-        "explanation": "تستخدم لتحويل cos² θ إلى تعبير يتضمن قوة أولى لجيب التمام."
+        "explanation": "تستخدم لتحويل $\\cos ^{2} \\theta$إلى تعبير يتضمن قوة أولى لجيب التمام."
       },
       {
         "id": "U02-L02-Q012",
         "number": 12,
-        "question": "ما هو التعبير المكافئ لـ sin² x cos² x بدلالة قوة أولى لجيب التمام؟",
+        "question": "ما هو التعبير المكافئ لـ $\\sin ^{2} x \\cos ^{2} x$بدلالة قوة أولى لجيب التمام؟",
         "options": {
           "A": "1/8 (1 - cos 4x)",
           "B": "1/4 (1 - cos 4x)",
@@ -314,28 +314,28 @@
           "D": "1/2 (1 - cos 2x)"
         },
         "correct_answer": "A",
-        "correct_answer_text": "1/8 (1 - cos 4x)",
+        "correct_answer_text": "$\\frac{1}{8} (1 - \\cos 4x)$",
         "difficulty": "hard",
         "source": {
           "page": 50,
           "reference": "مثال 3"
         },
         "solution": {
-          "formula": "sin² x cos² x = [(1 - cos 2x)/2][(1 + cos 2x)/2]",
+          "formula": "$\\sin ^{2} x \\cos ^{2} x = [\\frac{1 - \\cos 2x}{2][}\\frac{1 + \\cos 2x}{2]}$",
           "steps": [
-            "= (1 - cos² 2x) / 4",
-            "باستخدام cos² 2x = (1 + cos 4x) / 2",
-            "= 1/4 [1 - (1 + cos 4x)/2]",
-            "= 1/8 (1 - cos 4x)"
+            "$= \\frac{1 - \\cos ^{2} 2x}{4}$",
+            "باستخدام $\\cos ^{2} 2x = \\frac{1 + \\cos 4x}{2}$",
+            "$= \\frac{1}{4} [1 - \\frac{1 + \\cos 4x}{2]}$",
+            "$= \\frac{1}{8} (1 - \\cos 4x)$"
           ],
-          "summary": "sin² x cos² x = 1/8 (1 - cos 4x)."
+          "summary": "$\\sin ^{2} x \\cos ^{2} x = \\frac{1}{8} (1 - \\cos 4x)$."
         },
         "explanation": "نستخدم متطابقات تقليص القوة مرتين للوصول إلى قوة أولى لجيب التمام."
       },
       {
         "id": "U02-L02-Q013",
         "number": 13,
-        "question": "ما هي متطابقة جيب نصف الزاوية sin(θ/2)؟",
+        "question": "ما هي متطابقة جيب نصف الزاوية $\\sin (\\theta /2)$؟",
         "options": {
           "A": "±√[(1 - cos θ) / 2]",
           "B": "±√[(1 + cos θ) / 2]",
@@ -343,23 +343,23 @@
           "D": "(1 - cos θ) / 2"
         },
         "correct_answer": "A",
-        "correct_answer_text": "±√[(1 - cos θ) / 2]",
+        "correct_answer_text": "$\\pm [\\frac{1 - \\cos \\theta }{2]}$",
         "difficulty": "medium",
         "source": {
           "page": 50,
           "reference": "متطابقات نصف الزاوية"
         },
         "solution": {
-          "formula": "sin(θ/2) = ±√[(1 - cos θ) / 2]",
+          "formula": "$\\sin (\\theta /2) = \\pm [\\frac{1 - \\cos \\theta }{2]}$",
           "steps": [],
           "summary": "قانون جيب نصف الزاوية."
         },
-        "explanation": "تحدد الإشارة المناسبة وفق الربع الذي تقع فيه الزاوية θ/2."
+        "explanation": "تحدد الإشارة المناسبة وفق الربع الذي تقع فيه الزاوية $\\theta /2$."
       },
       {
         "id": "U02-L02-Q014",
         "number": 14,
-        "question": "كيف يتم اختيار الإشارة المناسبة (±) في متطابقات نصف الزاوية؟",
+        "question": "كيف يتم اختيار الإشارة المناسبة $(\\pm )$في متطابقات نصف الزاوية؟",
         "options": {
           "A": "بحسب الربع الذي يقع فيه ضلع انتهاء θ/2",
           "B": "بحسب الربع الذي تقع فيه θ",
@@ -367,23 +367,22 @@
           "D": "بحسب إشارة cos θ"
         },
         "correct_answer": "A",
-        "correct_answer_text": "بحسب الربع الذي يقع فيه ضلع انتهاء θ/2",
+        "correct_answer_text": "بحسب الربع الذي يقع فيه ضلع انتهاء $\\theta /2$",
         "difficulty": "easy",
         "source": {
           "page": 50,
           "reference": "ملاحظة متطابقات نصف الزاوية"
         },
         "solution": {
-          "formula": null,
           "steps": [],
           "summary": "الإشارة تتحدد من موقع نصف الزاوية في المستوى الإحداثي."
         },
-        "explanation": "تُختار الإشارة وفق إشارة الدالة المثلثية في الربع الذي تقع فيه θ/2."
+        "explanation": "تُختار الإشارة وفق إشارة الدالة المثلثية في الربع الذي تقع فيه $\\theta /2$."
       },
       {
         "id": "U02-L02-Q015",
         "number": 15,
-        "question": "أوجد قيمة sin 22.5° دون استخدام الآلة الحاسبة.",
+        "question": "أوجد قيمة $\\sin 22.5^{\\circ}$دون استخدام الآلة الحاسبة.",
         "options": {
           "A": "1/2 √(2 - √2)",
           "B": "1/2 √(2 + √2)",
@@ -391,29 +390,29 @@
           "D": "√2 / 4"
         },
         "correct_answer": "A",
-        "correct_answer_text": "1/2 √(2 - √2)",
+        "correct_answer_text": "$\\frac{1}{2} \\sqrt{2 - \\sqrt{2}}$",
         "difficulty": "medium",
         "source": {
           "page": 51,
           "reference": "مثال 4"
         },
         "solution": {
-          "formula": "sin(θ/2) = √[(1 - cos θ) / 2]",
+          "formula": "$\\sin (\\theta /2) = [\\frac{1 - \\cos \\theta }{2]}$",
           "steps": [
-            "22.5° = 45° / 2",
-            "sin 22.5° = √[(1 - cos 45°) / 2]",
-            "cos 45° = √2/2",
-            "sin 22.5° = √[(1 - √2/2) / 2]",
-            "بالتبسيط نحصل على 1/2 √(2 - √2)"
+            "$22.5^{\\circ} = 45^{\\circ} / 2$",
+            "$\\sin 22.5^{\\circ} = [\\frac{1 - \\cos 45^{\\circ}}{2]}$",
+            "$\\cos 45^{\\circ} = \\frac{\\sqrt{2}}{2}$",
+            "$\\sin 22.5^{\\circ} = [\\frac{1 - \\frac{\\sqrt{2}}{2}}{2]}$",
+            "بالتبسيط نحصل على $\\frac{1}{2} \\sqrt{2 - \\sqrt{2}}$"
           ],
-          "summary": "sin 22.5° = 1/2 √(2 - √2)."
+          "summary": "$\\sin 22.5^{\\circ} = \\frac{1}{2} \\sqrt{2 - \\sqrt{2}}$."
         },
-        "explanation": "نستخدم متطابقة نصف الزاوية مع العلم أن 22.5° هي نصف 45°."
+        "explanation": "نستخدم متطابقة نصف الزاوية مع العلم أن $22.5^{\\circ}$هي نصف $45^{\\circ}$."
       },
       {
         "id": "U02-L02-Q016",
         "number": 16,
-        "question": "إذا كان cos x = -3/5 وكانت π < x < 3π/2، فما الربع الذي تقع فيه x/2؟",
+        "question": "إذا كان $\\cos x = \\frac{-3}{5}$وكانت $\\pi < x < 3\\pi /2$، فما الربع الذي تقع فيه $x/2$؟",
         "options": {
           "A": "الربع الثاني",
           "B": "الربع الأول",
@@ -428,20 +427,19 @@
           "reference": "مثال 5"
         },
         "solution": {
-          "formula": null,
           "steps": [
-            "π < x < 3π/2",
-            "بقسمة جميع الحدود على 2 نحصل على π/2 < x/2 < 3π/4",
-            "إذن x/2 تقع بين 90° و135°"
+            "$\\pi < x < 3\\pi /2$",
+            "بقسمة جميع الحدود على 2 نحصل على $\\pi /2 < x/2 < 3\\pi /4$",
+            "إذن $x/2$تقع بين $90^{\\circ}$و$135^{\\circ}$"
           ],
-          "summary": "الزاوية x/2 تقع في الربع الثاني."
+          "summary": "الزاوية $x/2$تقع في الربع الثاني."
         },
         "explanation": "قسمة حدود الفترة على 2 تحدد موقع نصف الزاوية."
       },
       {
         "id": "U02-L02-Q017",
         "number": 17,
-        "question": "باستعمال المعطيات cos x = -3/5 وπ < x < 3π/2، أوجد قيمة sin(x/2).",
+        "question": "باستعمال المعطيات $\\cos x = \\frac{-3}{5}$و$\\pi < x < 3\\pi /2$، أوجد قيمة $\\sin (x/2)$.",
         "options": {
           "A": "2/√5",
           "B": "-2/√5",
@@ -449,30 +447,30 @@
           "D": "-1/√5"
         },
         "correct_answer": "A",
-        "correct_answer_text": "2/√5",
+        "correct_answer_text": "$\\frac{2}{\\sqrt{5}}$",
         "difficulty": "hard",
         "source": {
           "page": 51,
           "reference": "مثال 5"
         },
         "solution": {
-          "formula": "sin(x/2) = ±√[(1 - cos x) / 2]",
+          "formula": "$\\sin (x/2) = \\pm [\\frac{1 - \\cos x}{2]}$",
           "steps": [
-            "من السؤال السابق، x/2 تقع في الربع الثاني",
-            "إذن sin(x/2) موجب",
-            "sin(x/2) = √[(1 - (-3/5)) / 2]",
-            "= √[(8/5) / 2]",
-            "= √(4/5)",
-            "= 2/√5"
+            "من السؤال السابق، $x/2$تقع في الربع الثاني",
+            "إذن $\\sin (x/2)$موجب",
+            "$\\sin (x/2) = [(1 - (\\frac{-3}{5})) / 2]$",
+            "$= [\\frac{\\frac{8}{5}}{2]}$",
+            "$= \\sqrt{\\frac{4}{5}}$",
+            "$= \\frac{2}{\\sqrt{5}}$"
           ],
-          "summary": "sin(x/2) = 2/√5."
+          "summary": "$\\sin (x/2) = \\frac{2}{\\sqrt{5}}$."
         },
         "explanation": "الجيب موجب في الربع الثاني، لذلك نختار الإشارة الموجبة."
       },
       {
         "id": "U02-L02-Q018",
         "number": 18,
-        "question": "باستعمال نفس المعطيات cos x = -3/5 وπ < x < 3π/2، أوجد قيمة tan(x/2).",
+        "question": "باستعمال نفس المعطيات $\\cos x = \\frac{-3}{5}$و$\\pi < x < 3\\pi /2$، أوجد قيمة $\\tan (x/2)$.",
         "options": {
           "A": "-2",
           "B": "2",
@@ -480,29 +478,29 @@
           "D": "1/2"
         },
         "correct_answer": "A",
-        "correct_answer_text": "-2",
+        "correct_answer_text": "$-2$",
         "difficulty": "hard",
         "source": {
           "page": 52,
           "reference": "مثال 5"
         },
         "solution": {
-          "formula": "tan(x/2) = ±√[(1 - cos x) / (1 + cos x)]",
+          "formula": "$\\tan (x/2) = \\pm [\\frac{1 - \\cos x}{1 + \\cos x}]$",
           "steps": [
-            "x/2 تقع في الربع الثاني، لذلك tan(x/2) سالبة",
-            "tan(x/2) = -√[(1 - (-3/5)) / (1 + (-3/5))]",
-            "= -√[(8/5) / (2/5)]",
-            "= -√4",
-            "= -2"
+            "$x/2$تقع في الربع الثاني، لذلك $\\tan (x/2)$سالبة",
+            "$\\tan (x/2) = -[(1 - (\\frac{-3}{5})) / (1 + (\\frac{-3}{5}))]$",
+            "$= -[\\frac{\\frac{8}{5}}{\\frac{2}{5}}]$",
+            "$= -\\sqrt{4}$",
+            "$= -2$"
           ],
-          "summary": "tan(x/2) = -2."
+          "summary": "$\\tan (x/2) = -2$."
         },
         "explanation": "الظل سالب في الربع الثاني."
       },
       {
         "id": "U02-L02-Q019",
         "number": 19,
-        "question": "ما هو قانون تحويل حاصل ضرب جيبين sin α sin β إلى مجموع أو فرق؟",
+        "question": "ما هو قانون تحويل حاصل ضرب جيبين $\\sin α \\sin β$إلى مجموع أو فرق؟",
         "options": {
           "A": "1/2 [cos(α - β) - cos(α + β)]",
           "B": "1/2 [cos(α - β) + cos(α + β)]",
@@ -510,14 +508,14 @@
           "D": "2 sin((α + β)/2) cos((α - β)/2)"
         },
         "correct_answer": "A",
-        "correct_answer_text": "1/2 [cos(α - β) - cos(α + β)]",
+        "correct_answer_text": "$\\frac{1}{2} [\\cos (α - β) - \\cos (α + β)]$",
         "difficulty": "medium",
         "source": {
           "page": 52,
           "reference": "متطابقات تحويل الضرب إلى مجموع أو فرق"
         },
         "solution": {
-          "formula": "sin α sin β = 1/2 [cos(α - β) - cos(α + β)]",
+          "formula": "$\\sin α \\sin β = \\frac{1}{2} [\\cos (α - β) - \\cos (α + β)]$",
           "steps": [],
           "summary": "قانون تحويل حاصل ضرب الجيبين إلى فرق."
         },
@@ -526,7 +524,7 @@
       {
         "id": "U02-L02-Q020",
         "number": 20,
-        "question": "أي مما يأتي يمثل تحويل cos α cos β إلى مجموع؟",
+        "question": "أي مما يأتي يمثل تحويل $\\cos α \\cos β$إلى مجموع؟",
         "options": {
           "A": "1/2 [cos(α - β) + cos(α + β)]",
           "B": "1/2 [cos(α - β) - cos(α + β)]",
@@ -534,14 +532,14 @@
           "D": "1/2 [sin(α + β) - sin(α - β)]"
         },
         "correct_answer": "A",
-        "correct_answer_text": "1/2 [cos(α - β) + cos(α + β)]",
+        "correct_answer_text": "$\\frac{1}{2} [\\cos (α - β) + \\cos (α + β)]$",
         "difficulty": "medium",
         "source": {
           "page": 52,
           "reference": "متطابقات تحويل الضرب إلى مجموع أو فرق"
         },
         "solution": {
-          "formula": "cos α cos β = 1/2 [cos(α - β) + cos(α + β)]",
+          "formula": "$\\cos α \\cos β = \\frac{1}{2} [\\cos (α - β) + \\cos (α + β)]$",
           "steps": [],
           "summary": "قانون تحويل حاصل ضرب جيبي التمام إلى مجموع."
         },
@@ -550,7 +548,7 @@
       {
         "id": "U02-L02-Q021",
         "number": 21,
-        "question": "أعد كتابة sin 3x sin 5x في صورة مجموع أو فرق.",
+        "question": "أعد كتابة $\\sin 3x \\sin 5x$في صورة مجموع أو فرق.",
         "options": {
           "A": "1/2 cos 2x - 1/2 cos 8x",
           "B": "1/2 cos 8x - 1/2 cos 2x",
@@ -558,28 +556,28 @@
           "D": "cos 2x - cos 8x"
         },
         "correct_answer": "A",
-        "correct_answer_text": "1/2 cos 2x - 1/2 cos 8x",
+        "correct_answer_text": "$\\frac{1}{2} \\cos 2x - \\frac{1}{2} \\cos 8x$",
         "difficulty": "medium",
         "source": {
           "page": 53,
           "reference": "مثال 6"
         },
         "solution": {
-          "formula": "sin α sin β = 1/2 [cos(α - β) - cos(α + β)]",
+          "formula": "$\\sin α \\sin β = \\frac{1}{2} [\\cos (α - β) - \\cos (α + β)]$",
           "steps": [
-            "sin 3x sin 5x = 1/2 [cos(3x - 5x) - cos(3x + 5x)]",
-            "= 1/2 [cos(-2x) - cos 8x]",
-            "بما أن cos(-2x) = cos 2x",
-            "= 1/2 cos 2x - 1/2 cos 8x"
+            "$\\sin 3x \\sin 5x = \\frac{1}{2} [\\cos (3x - 5x) - \\cos (3x + 5x)]$",
+            "$= \\frac{1}{2} [\\cos (-2x) - \\cos 8x]$",
+            "بما أن $\\cos (-2x) = \\cos 2x$",
+            "$= \\frac{1}{2} \\cos 2x - \\frac{1}{2} \\cos 8x$"
           ],
-          "summary": "1/2 cos 2x - 1/2 cos 8x."
+          "summary": "$\\frac{1}{2} \\cos 2x - \\frac{1}{2} \\cos 8x$."
         },
         "explanation": "نطبق قانون تحويل حاصل ضرب الجيبين إلى فرق، ثم نستخدم أن جيب التمام دالة زوجية."
       },
       {
         "id": "U02-L02-Q022",
         "number": 22,
-        "question": "ما هو القانون المستخدم لتحويل الفرق sin α - sin β إلى ضرب؟",
+        "question": "ما هو القانون المستخدم لتحويل الفرق $\\sin α - \\sin β$إلى ضرب؟",
         "options": {
           "A": "2 cos[(α + β)/2] sin[(α - β)/2]",
           "B": "2 sin[(α + β)/2] cos[(α - β)/2]",
@@ -587,14 +585,14 @@
           "D": "-2 sin[(α + β)/2] sin[(α - β)/2]"
         },
         "correct_answer": "A",
-        "correct_answer_text": "2 cos[(α + β)/2] sin[(α - β)/2]",
+        "correct_answer_text": "$2 \\cos [\\frac{α + β}{2]} \\sin [\\frac{α - β}{2]}$",
         "difficulty": "medium",
         "source": {
           "page": 53,
           "reference": "متطابقات تحويل المجموع أو الفرق إلى ضرب"
         },
         "solution": {
-          "formula": "sin α - sin β = 2 cos[(α + β)/2] sin[(α - β)/2]",
+          "formula": "$\\sin α - \\sin β = 2 \\cos [\\frac{α + β}{2]} \\sin [\\frac{α - β}{2]}$",
           "steps": [],
           "summary": "قانون تحويل فرق الجيبين إلى ضرب."
         },
@@ -603,7 +601,7 @@
       {
         "id": "U02-L02-Q023",
         "number": 23,
-        "question": "أعد كتابة sin 5x - sin 3x في صورة ضرب.",
+        "question": "أعد كتابة $\\sin 5x - \\sin 3x$في صورة ضرب.",
         "options": {
           "A": "2 cos 4x sin x",
           "B": "2 sin 4x cos x",
@@ -611,26 +609,26 @@
           "D": "cos 4x sin x"
         },
         "correct_answer": "A",
-        "correct_answer_text": "2 cos 4x sin x",
+        "correct_answer_text": "$2 \\cos 4x \\sin x$",
         "difficulty": "medium",
         "source": {
           "page": 54,
           "reference": "مثال 7"
         },
         "solution": {
-          "formula": "sin α - sin β = 2 cos[(α + β)/2] sin[(α - β)/2]",
+          "formula": "$\\sin α - \\sin β = 2 \\cos [\\frac{α + β}{2]} \\sin [\\frac{α - β}{2]}$",
           "steps": [
-            "sin 5x - sin 3x = 2 cos[(5x + 3x)/2] sin[(5x - 3x)/2]",
-            "= 2 cos 4x sin x"
+            "$\\sin 5x - \\sin 3x = 2 \\cos [\\frac{5x + 3x}{2]} \\sin [\\frac{5x - 3x}{2]}$",
+            "$= 2 \\cos 4x \\sin x$"
           ],
-          "summary": "2 cos 4x sin x."
+          "summary": "$2 \\cos 4x \\sin x$."
         },
         "explanation": "نطبق متطابقة تحويل فرق الجيبين إلى ضرب."
       },
       {
         "id": "U02-L02-Q024",
         "number": 24,
-        "question": "أثبت صحة المتطابقة: sin 3x / (sin x cos x) = 4 cos x - sec x. ما هي الخطوة الأولى المناسبة؟",
+        "question": "أثبت صحة المتطابقة: $\\sin \\frac{3x}{\\sin x \\cos x} = 4 \\cos x - \\sec x$. ما هي الخطوة الأولى المناسبة؟",
         "options": {
           "A": "كتابة 3x في صورة (x + 2x)",
           "B": "تحويل المقام إلى sin 2x",
@@ -638,28 +636,28 @@
           "D": "استخدام قانون نصف الزاوية"
         },
         "correct_answer": "A",
-        "correct_answer_text": "كتابة 3x في صورة (x + 2x)",
+        "correct_answer_text": "كتابة $3x$في صورة $(x + 2x)$",
         "difficulty": "easy",
         "source": {
           "page": 54,
           "reference": "مثال 8 (1)"
         },
         "solution": {
-          "formula": "sin 3x = sin(x + 2x)",
+          "formula": "$\\sin 3x = \\sin (x + 2x)$",
           "steps": [
-            "نكتب 3x = x + 2x",
+            "نكتب $3x = x + 2x$",
             "نطبق متطابقة جيب مجموع زاويتين",
             "نستخدم متطابقات ضعف الزاوية",
             "نبسط الناتج للوصول إلى الطرف الآخر"
           ],
-          "summary": "تفكيك الزاوية 3x إلى x + 2x."
+          "summary": "تفكيك الزاوية $3x$إلى $x + 2x$."
         },
         "explanation": "تفكيك الزاوية الثلاثية إلى زاوية أصلية وضعفها يسمح باستخدام المتطابقات المعروفة."
       },
       {
         "id": "U02-L02-Q025",
         "number": 25,
-        "question": "في مثال إثبات صحة (sin 3x - sin x) / (cos 3x + cos x) = tan x، ما المتطابقات المستخدمة في البسط والمقام؟",
+        "question": "في مثال إثبات صحة $\\frac{\\sin 3x - \\sin x}{\\cos 3x + \\cos x} = \\tan x$، ما المتطابقات المستخدمة في البسط والمقام؟",
         "options": {
           "A": "متطابقات تحويل الفرق والمجموع إلى ضرب",
           "B": "متطابقات ضعف الزاوية",
@@ -674,12 +672,12 @@
           "reference": "مثال 8 (2)"
         },
         "solution": {
-          "formula": "sin α - sin β = 2 cos[(α + β)/2] sin[(α - β)/2]، وcos α + cos β = 2 cos[(α + β)/2] cos[(α - β)/2]",
+          "formula": "$\\sin α - \\sin β = 2 \\cos [\\frac{α + β}{2]} \\sin [\\frac{α - β}{2]}$، و$\\cos α + \\cos β = 2 \\cos [\\frac{α + β}{2]} \\cos [\\frac{α - β}{2]}$",
           "steps": [
-            "البسط = 2 cos 2x sin x",
-            "المقام = 2 cos 2x cos x",
-            "نختصر العامل المشترك 2 cos 2x",
-            "الناتج = sin x / cos x = tan x"
+            "البسط $= 2 \\cos 2x \\sin x$",
+            "المقام $= 2 \\cos 2x \\cos x$",
+            "نختصر العامل المشترك $2 \\cos 2x$",
+            "الناتج $= \\sin x / \\cos x = \\tan x$"
           ],
           "summary": "استخدام قوانين تحويل المجموع والفرق إلى ضرب."
         },
@@ -688,7 +686,7 @@
       {
         "id": "U02-L02-Q026",
         "number": 26,
-        "question": "أوجد قيمة cos 22.5° دون استخدام الحاسبة.",
+        "question": "أوجد قيمة $\\cos 22.5^{\\circ}$دون استخدام الحاسبة.",
         "options": {
           "A": "1/2 √(2 + √2)",
           "B": "1/2 √(2 - √2)",
@@ -696,28 +694,28 @@
           "D": "√2 / 2"
         },
         "correct_answer": "A",
-        "correct_answer_text": "1/2 √(2 + √2)",
+        "correct_answer_text": "$\\frac{1}{2} \\sqrt{2 + \\sqrt{2}}$",
         "difficulty": "medium",
         "source": {
           "page": 55,
           "reference": "تمرين 9"
         },
         "solution": {
-          "formula": "cos(θ/2) = √[(1 + cos θ) / 2]",
+          "formula": "$\\cos (\\theta /2) = [\\frac{1 + \\cos \\theta }{2]}$",
           "steps": [
-            "22.5° = 45° / 2",
-            "cos 22.5° = √[(1 + cos 45°) / 2]",
-            "cos 45° = √2/2",
-            "بالتبسيط نحصل على 1/2 √(2 + √2)"
+            "$22.5^{\\circ} = 45^{\\circ} / 2$",
+            "$\\cos 22.5^{\\circ} = [\\frac{1 + \\cos 45^{\\circ}}{2]}$",
+            "$\\cos 45^{\\circ} = \\frac{\\sqrt{2}}{2}$",
+            "بالتبسيط نحصل على $\\frac{1}{2} \\sqrt{2 + \\sqrt{2}}$"
           ],
-          "summary": "cos 22.5° = 1/2 √(2 + √2)."
+          "summary": "$\\cos 22.5^{\\circ} = \\frac{1}{2} \\sqrt{2 + \\sqrt{2}}$."
         },
-        "explanation": "نستخدم متطابقة جيب تمام نصف الزاوية مع 45°."
+        "explanation": "نستخدم متطابقة جيب تمام نصف الزاوية مع $45^{\\circ}$."
       },
       {
         "id": "U02-L02-Q027",
         "number": 27,
-        "question": "إذا كان sin θ = 5/13 في الربع الأول، فما قيمة sin 2θ؟",
+        "question": "إذا كان $\\sin \\theta = \\frac{5}{13}$في الربع الأول، فما قيمة $\\sin 2\\theta$؟",
         "options": {
           "A": "120/169",
           "B": "60/169",
@@ -725,28 +723,28 @@
           "D": "1"
         },
         "correct_answer": "A",
-        "correct_answer_text": "120/169",
+        "correct_answer_text": "$\\frac{120}{169}$",
         "difficulty": "medium",
         "source": {
           "page": 55,
           "reference": "تمرين 1"
         },
         "solution": {
-          "formula": "sin 2θ = 2 sin θ cos θ",
+          "formula": "$\\sin 2\\theta = 2 \\sin \\theta \\cos \\theta$",
           "steps": [
-            "sin θ = 5/13",
-            "cos θ = 12/13 لأن θ في الربع الأول",
-            "sin 2θ = 2 × (5/13) × (12/13)",
-            "sin 2θ = 120/169"
+            "$\\sin \\theta = \\frac{5}{13}$",
+            "$\\cos \\theta = \\frac{12}{13}$لأن $\\theta$في الربع الأول",
+            "$\\sin 2\\theta = 2 \\times (\\frac{5}{13}) \\times (\\frac{12}{13})$",
+            "$\\sin 2\\theta = \\frac{120}{169}$"
           ],
-          "summary": "sin 2θ = 120/169."
+          "summary": "$\\sin 2\\theta = \\frac{120}{169}$."
         },
-        "explanation": "من مثلث 5-12-13 نحصل على cos θ = 12/13، ثم نستخدم متطابقة ضعف الزاوية."
+        "explanation": "من مثلث $5-12-13$نحصل على $\\cos \\theta = \\frac{12}{13}$، ثم نستخدم متطابقة ضعف الزاوية."
       },
       {
         "id": "U02-L02-Q028",
         "number": 28,
-        "question": "باستعمال نفس معطيات تمرين 1، حيث sin θ = 5/13 وθ في الربع الأول، أوجد قيمة cos 2θ.",
+        "question": "باستعمال نفس معطيات تمرين 1، حيث $\\sin \\theta = \\frac{5}{13}$و$\\theta$في الربع الأول، أوجد قيمة $\\cos 2\\theta$.",
         "options": {
           "A": "119/169",
           "B": "-119/169",
@@ -754,28 +752,28 @@
           "D": "25/169"
         },
         "correct_answer": "A",
-        "correct_answer_text": "119/169",
+        "correct_answer_text": "$\\frac{119}{169}$",
         "difficulty": "medium",
         "source": {
           "page": 55,
           "reference": "تمرين 1"
         },
         "solution": {
-          "formula": "cos 2θ = cos² θ - sin² θ",
+          "formula": "$\\cos 2\\theta = \\cos ^{2} \\theta - \\sin ^{2} \\theta$",
           "steps": [
-            "cos θ = 12/13",
-            "cos 2θ = (12/13)² - (5/13)²",
-            "cos 2θ = 144/169 - 25/169",
-            "cos 2θ = 119/169"
+            "$\\cos \\theta = \\frac{12}{13}$",
+            "$\\cos 2\\theta = (\\frac{12}{13})^{2} - (\\frac{5}{13})^{2}$",
+            "$\\cos 2\\theta = \\frac{144}{169} - \\frac{25}{169}$",
+            "$\\cos 2\\theta = \\frac{119}{169}$"
           ],
-          "summary": "cos 2θ = 119/169."
+          "summary": "$\\cos 2\\theta = \\frac{119}{169}$."
         },
-        "explanation": "نستخدم صيغة cos 2θ التي تساوي الفرق بين مربعي جيب التمام والجيب."
+        "explanation": "نستخدم صيغة $\\cos 2\\theta$التي تساوي الفرق بين مربعي جيب التمام والجيب."
       },
       {
         "id": "U02-L02-Q029",
         "number": 29,
-        "question": "أعد كتابة 3 cos 4x cos 7x في صورة مجموع أو فرق.",
+        "question": "أعد كتابة $3 \\cos 4x \\cos 7x$في صورة مجموع أو فرق.",
         "options": {
           "A": "3/2 (cos 3x + cos 11x)",
           "B": "3/2 (cos 3x - cos 11x)",
@@ -783,28 +781,28 @@
           "D": "3 cos 11x"
         },
         "correct_answer": "A",
-        "correct_answer_text": "3/2 (cos 3x + cos 11x)",
+        "correct_answer_text": "$\\frac{3}{2} (\\cos 3x + \\cos 11x)$",
         "difficulty": "medium",
         "source": {
           "page": 55,
           "reference": "تمرين 18"
         },
         "solution": {
-          "formula": "cos α cos β = 1/2 [cos(α - β) + cos(α + β)]",
+          "formula": "$\\cos α \\cos β = \\frac{1}{2} [\\cos (α - β) + \\cos (α + β)]$",
           "steps": [
-            "3 cos 4x cos 7x = 3/2 [cos(4x - 7x) + cos(4x + 7x)]",
-            "= 3/2 [cos(-3x) + cos 11x]",
-            "بما أن cos(-3x) = cos 3x",
-            "= 3/2 (cos 3x + cos 11x)"
+            "$3 \\cos 4x \\cos 7x = \\frac{3}{2} [\\cos (4x - 7x) + \\cos (4x + 7x)]$",
+            "$= \\frac{3}{2} [\\cos (-3x) + \\cos 11x]$",
+            "بما أن $\\cos (-3x) = \\cos 3x$",
+            "$= \\frac{3}{2} (\\cos 3x + \\cos 11x)$"
           ],
-          "summary": "3/2 (cos 3x + cos 11x)."
+          "summary": "$\\frac{3}{2} (\\cos 3x + \\cos 11x)$."
         },
         "explanation": "نحول حاصل ضرب جيبي التمام إلى مجموع باستخدام متطابقة تحويل الضرب إلى مجموع."
       },
       {
         "id": "U02-L02-Q030",
         "number": 30,
-        "question": "في فن الأوريغامي، إذا كان طول خط الطي L يعطى بالمعادلة L = 10.8 / (sin θ cos² θ)، فأي من الآتية تكافئها؟",
+        "question": "في فن الأوريغامي، إذا كان طول خط الطي $L$يعطى بالمعادلة $L = \\frac{10.8}{\\sin \\theta \\cos ^{2} \\theta }$، فأي من الآتية تكافئها؟",
         "options": {
           "A": "L = 21.6 sec θ / sin 2θ",
           "B": "L = 21.6 cos θ / sin 2θ",
@@ -812,31 +810,31 @@
           "D": "L = 21.6 sin 2θ"
         },
         "correct_answer": "A",
-        "correct_answer_text": "L = 21.6 sec θ / sin 2θ",
+        "correct_answer_text": "$L = 21.6 \\sec \\theta / \\sin 2\\theta$",
         "difficulty": "hard",
         "source": {
           "page": 56,
           "reference": "تمرين 22 الأوريغامي"
         },
         "solution": {
-          "formula": "sin 2θ = 2 sin θ cos θ",
+          "formula": "$\\sin 2\\theta = 2 \\sin \\theta \\cos \\theta$",
           "steps": [
-            "L = 10.8 / (sin θ cos² θ)",
+            "$L = \\frac{10.8}{\\sin \\theta \\cos ^{2} \\theta }$",
             "نضرب البسط والمقام في 2",
-            "L = 21.6 / (2 sin θ cos θ × cos θ)",
-            "2 sin θ cos θ = sin 2θ",
-            "L = 21.6 / (sin 2θ cos θ)",
-            "وبما أن 1/cos θ = sec θ",
-            "L = 21.6 sec θ / sin 2θ"
+            "$L = \\frac{21.6}{2 \\sin \\theta \\cos \\theta \\times \\cos \\theta }$",
+            "$2 \\sin \\theta \\cos \\theta = \\sin 2\\theta$",
+            "$L = \\frac{21.6}{\\sin 2\\theta \\cos \\theta }$",
+            "وبما أن $1/\\cos \\theta = \\sec \\theta$",
+            "$L = 21.6 \\sec \\theta / \\sin 2\\theta$"
           ],
-          "summary": "L = 21.6 sec θ / sin 2θ."
+          "summary": "$L = 21.6 \\sec \\theta / \\sin 2\\theta$."
         },
-        "explanation": "نستخدم متطابقة ضعف الزاوية sin 2θ = 2 sin θ cos θ ثم نحول 1/cos θ إلى sec θ."
+        "explanation": "نستخدم متطابقة ضعف الزاوية $\\sin 2\\theta = 2 \\sin \\theta \\cos \\theta$ثم نحول $1/\\cos \\theta$إلى $\\sec \\theta$."
       },
       {
         "id": "U02-L02-Q031",
         "number": 31,
-        "question": "أوجد طول خط الطي L في مسألة الأوريغامي عندما تكون θ = 30°.",
+        "question": "أوجد طول خط الطي $L$في مسألة الأوريغامي عندما تكون $\\theta = 30^{\\circ}$.",
         "options": {
           "A": "28.8 cm",
           "B": "14.4 cm",
@@ -844,29 +842,29 @@
           "D": "30 cm"
         },
         "correct_answer": "A",
-        "correct_answer_text": "28.8 cm",
+        "correct_answer_text": "$28.8\\text{ cm}$",
         "difficulty": "hard",
         "source": {
           "page": 56,
           "reference": "تمرين 23 الأوريغامي"
         },
         "solution": {
-          "formula": "L = 21.6 sec θ / sin 2θ",
+          "formula": "$L = 21.6 \\sec \\theta / \\sin 2\\theta$",
           "steps": [
-            "عند θ = 30°: sec 30° = 2/√3",
-            "sin 60° = √3/2",
-            "L = 21.6 × (2/√3) / (√3/2)",
-            "L = 21.6 × 4/3",
-            "L = 28.8 cm"
+            "عند $\\theta = 30^{\\circ}$: $\\sec 30^{\\circ} = \\frac{2}{\\sqrt{3}}$",
+            "$\\sin 60^{\\circ} = \\frac{\\sqrt{3}}{2}$",
+            "$L = 21.6 \\times \\frac{\\frac{2}{\\sqrt{3}}}{\\frac{\\sqrt{3}}{2}}$",
+            "$L = 21.6 \\times \\frac{4}{3}$",
+            "$L = 28.8\\text{ cm}$"
           ],
-          "summary": "L = 28.8 cm."
+          "summary": "$L = 28.8\\text{ cm}$."
         },
-        "explanation": "نعوض θ = 30° في الصيغة المستنتجة ثم نبسط القيمة."
+        "explanation": "نعوض $\\theta = 30^{\\circ}$في الصيغة المستنتجة ثم نبسط القيمة."
       },
       {
         "id": "U02-L02-Q032",
         "number": 32,
-        "question": "ما هو تبسيط المقدار cos² 5x - sin² 5x؟",
+        "question": "ما هو تبسيط المقدار $\\cos ^{2} 5x - \\sin ^{2} 5x$؟",
         "options": {
           "A": "cos 10x",
           "B": "cos 5x",
@@ -874,27 +872,27 @@
           "D": "sin 10x"
         },
         "correct_answer": "A",
-        "correct_answer_text": "cos 10x",
+        "correct_answer_text": "$\\cos 10x$",
         "difficulty": "medium",
         "source": {
           "page": 56,
           "reference": "تمرين 24"
         },
         "solution": {
-          "formula": "cos 2θ = cos² θ - sin² θ",
+          "formula": "$\\cos 2\\theta = \\cos ^{2} \\theta - \\sin ^{2} \\theta$",
           "steps": [
-            "نضع θ = 5x",
-            "إذن 2θ = 10x",
-            "cos² 5x - sin² 5x = cos 10x"
+            "نضع $\\theta = 5x$",
+            "إذن $2\\theta = 10x$",
+            "$\\cos ^{2} 5x - \\sin ^{2} 5x = \\cos 10x$"
           ],
-          "summary": "cos 10x."
+          "summary": "$\\cos 10x$."
         },
         "explanation": "تطبيق مباشر لمتطابقة ضعف الزاوية لجيب التمام."
       },
       {
         "id": "U02-L02-Q033",
         "number": 33,
-        "question": "بسط المقدار: 2 sin(x/2) cos(x/2).",
+        "question": "بسط المقدار: $2 \\sin (x/2) \\cos (x/2)$.",
         "options": {
           "A": "sin x",
           "B": "sin 2x",
@@ -902,27 +900,27 @@
           "D": "2 sin x"
         },
         "correct_answer": "A",
-        "correct_answer_text": "sin x",
+        "correct_answer_text": "$\\sin x$",
         "difficulty": "medium",
         "source": {
           "page": 153,
           "reference": "اختبار نهاية الوحدة - تمرين 32"
         },
         "solution": {
-          "formula": "sin 2θ = 2 sin θ cos θ",
+          "formula": "$\\sin 2\\theta = 2 \\sin \\theta \\cos \\theta$",
           "steps": [
-            "نضع θ = x/2",
-            "إذن 2θ = x",
-            "2 sin(x/2) cos(x/2) = sin x"
+            "نضع $\\theta = x/2$",
+            "إذن $2\\theta = x$",
+            "$2 \\sin (x/2) \\cos (x/2) = \\sin x$"
           ],
-          "summary": "sin x."
+          "summary": "$\\sin x$."
         },
-        "explanation": "نطبق متطابقة ضعف الزاوية للجيب على الزاوية x/2."
+        "explanation": "نطبق متطابقة ضعف الزاوية للجيب على الزاوية $x/2$."
       },
       {
         "id": "U02-L02-Q034",
         "number": 34,
-        "question": "أي مما يأتي يمثل متطابقة صحيحة لـ sin 3x؟",
+        "question": "أي مما يأتي يمثل متطابقة صحيحة لـ $\\sin 3x$؟",
         "options": {
           "A": "3 sin x - 4 sin³ x",
           "B": "4 sin³ x - 3 sin x",
@@ -930,28 +928,28 @@
           "D": "sin³ x - 3 sin x"
         },
         "correct_answer": "A",
-        "correct_answer_text": "3 sin x - 4 sin³ x",
+        "correct_answer_text": "$3 \\sin x - 4 \\sin ^{3} x$",
         "difficulty": "hard",
         "source": {
           "page": 56,
           "reference": "تمرين 27"
         },
         "solution": {
-          "formula": "sin 3x = 3 sin x - 4 sin³ x",
+          "formula": "$\\sin 3x = 3 \\sin x - 4 \\sin ^{3} x$",
           "steps": [
-            "نكتب 3x = 2x + x",
+            "نكتب $3x = 2x + x$",
             "نستخدم متطابقة جيب مجموع زاويتين",
             "نستبدل متطابقات ضعف الزاوية",
-            "نبسط الحدود للحصول على 3 sin x - 4 sin³ x"
+            "نبسط الحدود للحصول على $3 \\sin x - 4 \\sin ^{3} x$"
           ],
-          "summary": "sin 3x = 3 sin x - 4 sin³ x."
+          "summary": "$\\sin 3x = 3 \\sin x - 4 \\sin ^{3} x$."
         },
-        "explanation": "هذه هي الصيغة القياسية لجيب الزاوية الثلاثية بدلالة sin x."
+        "explanation": "هذه هي الصيغة القياسية لجيب الزاوية الثلاثية بدلالة $\\sin x$."
       },
       {
         "id": "U02-L02-Q035",
         "number": 35,
-        "question": "بسط المقدار: (2 tan x) / (1 + tan² x).",
+        "question": "بسط المقدار: $\\frac{2 \\tan x}{1 + \\tan ^{2} x}$.",
         "options": {
           "A": "sin 2x",
           "B": "tan 2x",
@@ -959,28 +957,28 @@
           "D": "1"
         },
         "correct_answer": "A",
-        "correct_answer_text": "sin 2x",
+        "correct_answer_text": "$\\sin 2x$",
         "difficulty": "hard",
         "source": {
           "page": 54,
           "reference": "أتحقق من فهمي (a)"
         },
         "solution": {
-          "formula": "sin 2x = 2 tan x / (1 + tan² x)",
+          "formula": "$\\sin 2x = 2 \\tan \\frac{x}{1 + \\tan ^{2} x}$",
           "steps": [
-            "(2 tan x)/(1 + tan² x)",
-            "= [2(sin x/cos x)]/[1/cos² x]",
-            "= 2 sin x cos x",
-            "= sin 2x"
+            "$\\frac{2 \\tan x}{1 + \\tan ^{2} x}$",
+            "$= [2(\\sin x/\\cos x)]/[1/\\cos ^{2} x]$",
+            "$= 2 \\sin x \\cos x$",
+            "$= \\sin 2x$"
           ],
-          "summary": "sin 2x."
+          "summary": "$\\sin 2x$."
         },
-        "explanation": "نحول tan x إلى sin x/cos x ونستخدم المتطابقة 1 + tan² x = sec² x."
+        "explanation": "نحول $\\tan x$إلى $\\sin x/\\cos x$ونستخدم المتطابقة $1 + \\tan ^{2} x = \\sec ^{2} x$."
       },
       {
         "id": "U02-L02-Q036",
         "number": 36,
-        "question": "إذا كان المستطيل مرسومًا داخل نصف دائرة قطرها 1، وكان θ زاوية مركزية مرتبطة بأحد أضلاع المستطيل، فما التعبير المناسب لمساحة المستطيل بدلالة θ؟",
+        "question": "إذا كان المستطيل مرسومًا داخل نصف دائرة قطرها 1، وكان $\\theta$زاوية مركزية مرتبطة بأحد أضلاع المستطيل، فما التعبير المناسب لمساحة المستطيل بدلالة $\\theta$؟",
         "options": {
           "A": "1/4 sin 2θ",
           "B": "1/2 sin 2θ",
@@ -988,30 +986,30 @@
           "D": "2 sin θ cos θ"
         },
         "correct_answer": "A",
-        "correct_answer_text": "1/4 sin 2θ",
+        "correct_answer_text": "$\\frac{1}{4} \\sin 2\\theta$",
         "difficulty": "hard",
         "source": {
           "page": 56,
           "reference": "تمرين 36-37"
         },
         "solution": {
-          "formula": "A = base × height",
+          "formula": "$A = base \\times height$",
           "steps": [
-            "نصف قطر نصف الدائرة = 1/2",
-            "إذا كان الضلعان المتعامدان للمستطيل يمثلان إسقاطي نصف القطر، فإن القاعدة = cos θ والارتفاع = (1/2) sin θ",
-            "A = cos θ × (1/2) sin θ",
-            "A = 1/2 sin θ cos θ",
-            "وبما أن sin 2θ = 2 sin θ cos θ",
-            "A = 1/4 sin 2θ"
+            "نصف قطر نصف الدائرة $= \\frac{1}{2}$",
+            "إذا كان الضلعان المتعامدان للمستطيل يمثلان إسقاطي نصف القطر، فإن القاعدة $= \\cos \\theta$والارتفاع $= (\\frac{1}{2}) \\sin \\theta$",
+            "$A = \\cos \\theta \\times (\\frac{1}{2}) \\sin \\theta$",
+            "$A = \\frac{1}{2} \\sin \\theta \\cos \\theta$",
+            "وبما أن $\\sin 2\\theta = 2 \\sin \\theta \\cos \\theta$",
+            "$A = \\frac{1}{4} \\sin 2\\theta$"
           ],
-          "summary": "مساحة المستطيل = 1/4 sin 2θ."
+          "summary": "مساحة المستطيل $= \\frac{1}{4} \\sin 2\\theta$."
         },
-        "explanation": "لأن قطر نصف الدائرة يساوي 1، فإن نصف القطر يساوي 1/2، ولذلك تختلف المساحة عن الحالة التي يكون فيها نصف القطر 1."
+        "explanation": "لأن قطر نصف الدائرة يساوي 1، فإن نصف القطر يساوي $\\frac{1}{2}$، ولذلك تختلف المساحة عن الحالة التي يكون فيها نصف القطر 1."
       },
       {
         "id": "U02-L02-Q037",
         "number": 37,
-        "question": "ما هو ناتج تحويل cos α - cos β إلى ضرب؟",
+        "question": "ما هو ناتج تحويل $\\cos α - \\cos β$إلى ضرب؟",
         "options": {
           "A": "-2 sin[(α + β)/2] sin[(α - β)/2]",
           "B": "2 cos[(α + β)/2] cos[(α - β)/2]",
@@ -1019,14 +1017,14 @@
           "D": "-2 cos[(α + β)/2] cos[(α - β)/2]"
         },
         "correct_answer": "A",
-        "correct_answer_text": "-2 sin[(α + β)/2] sin[(α - β)/2]",
+        "correct_answer_text": "$-2 \\sin [\\frac{α + β}{2]} \\sin [\\frac{α - β}{2]}$",
         "difficulty": "medium",
         "source": {
           "page": 53,
           "reference": "متطابقات تحويل المجموع أو الفرق إلى ضرب"
         },
         "solution": {
-          "formula": "cos α - cos β = -2 sin[(α + β)/2] sin[(α - β)/2]",
+          "formula": "$\\cos α - \\cos β = -2 \\sin [\\frac{α + β}{2]} \\sin [\\frac{α - β}{2]}$",
           "steps": [],
           "summary": "قانون تحويل فرق جيبي التمام إلى ضرب."
         },
@@ -1035,7 +1033,7 @@
       {
         "id": "U02-L02-Q038",
         "number": 38,
-        "question": "بسط المقدار: tan² x / (sec x + 1).",
+        "question": "بسط المقدار: $\\tan ^{2} \\frac{x}{\\sec x + 1}$.",
         "options": {
           "A": "sec x - 1",
           "B": "sec x + 1",
@@ -1043,28 +1041,28 @@
           "D": "1"
         },
         "correct_answer": "A",
-        "correct_answer_text": "sec x - 1",
+        "correct_answer_text": "$\\sec x - 1$",
         "difficulty": "medium",
         "source": {
           "page": 40,
           "reference": "مثال 5 من المتطابقات السابقة"
         },
         "solution": {
-          "formula": "tan² x = sec² x - 1",
+          "formula": "$\\tan ^{2} x = \\sec ^{2} x - 1$",
           "steps": [
-            "tan² x / (sec x + 1) = (sec² x - 1)/(sec x + 1)",
+            "$\\tan ^{2} \\frac{x}{\\sec x + 1} = \\frac{\\sec ^{2} x - 1}{\\sec x + 1}$",
             "نحلل الفرق بين مربعين",
-            "= [(sec x - 1)(sec x + 1)]/(sec x + 1)",
-            "بالاختصار نحصل على sec x - 1"
+            "$= [(\\sec x - 1)(\\sec x + 1)\\frac{]}{\\sec x + 1}$",
+            "بالاختصار نحصل على $\\sec x - 1$"
           ],
-          "summary": "sec x - 1."
+          "summary": "$\\sec x - 1$."
         },
-        "explanation": "نستخدم المتطابقة tan² x = sec² x - 1 ثم نحلل الفرق بين مربعين."
+        "explanation": "نستخدم المتطابقة $\\tan ^{2} x = \\sec ^{2} x - 1$ثم نحلل الفرق بين مربعين."
       },
       {
         "id": "U02-L02-Q039",
         "number": 39,
-        "question": "ما ميل منحدر التزلج للمبتدئين إذا كان ميل المحترفين هو tan θ = 5/3 وكانت زاوية المبتدئين هي نصف قياس الزاوية θ؟",
+        "question": "ما ميل منحدر التزلج للمبتدئين إذا كان ميل المحترفين هو $\\tan \\theta = \\frac{5}{3}$وكانت زاوية المبتدئين هي نصف قياس الزاوية $\\theta$؟",
         "options": {
           "A": "0.5",
           "B": "(√34 - 3) / 5",
@@ -1072,29 +1070,29 @@
           "D": "3/5"
         },
         "correct_answer": "B",
-        "correct_answer_text": "(√34 - 3) / 5",
+        "correct_answer_text": "$\\frac{\\sqrt{34} - 3}{5}$",
         "difficulty": "hard",
         "source": {
           "page": 46,
           "reference": "مسألة اليوم"
         },
         "solution": {
-          "formula": "tan(θ/2) = sin θ / (1 + cos θ)",
+          "formula": "$\\tan (\\theta /2) = \\sin \\frac{\\theta }{1 + \\cos \\theta }$",
           "steps": [
-            "بما أن tan θ = 5/3، نأخذ مثلثًا قائمًا أضلاعه المقابلة 5 والمجاورة 3، فيكون الوتر √34",
-            "sin θ = 5/√34 وcos θ = 3/√34",
-            "tan(θ/2) = (5/√34) / (1 + 3/√34)",
-            "= 5/(√34 + 3)",
-            "بإنطاق المقام: 5/(√34 + 3) = (√34 - 3)/5"
+            "بما أن $\\tan \\theta = \\frac{5}{3}$، نأخذ مثلثًا قائمًا أضلاعه المقابلة 5 والمجاورة 3، فيكون الوتر $\\sqrt{34}$",
+            "$\\sin \\theta = \\frac{5}{\\sqrt{34}}$و$\\cos \\theta = \\frac{3}{\\sqrt{34}}$",
+            "$\\tan (\\theta /2) = \\frac{\\frac{5}{\\sqrt{34}}}{1 + \\frac{3}{\\sqrt{34}}}$",
+            "$= \\frac{5}{\\sqrt{34} + 3}$",
+            "بإنطاق المقام: $\\frac{5}{\\sqrt{34} + 3} = \\frac{\\sqrt{34} - 3}{5}$"
           ],
-          "summary": "tan(θ/2) = (√34 - 3)/5 ≈ 0.567."
+          "summary": "$\\tan (\\theta /2) = \\frac{\\sqrt{34} - 3}{5} ≈ 0.567$."
         },
-        "explanation": "القيمة ليست 1/2؛ نستخدم متطابقة نصف الزاوية مع tan θ = 5/3 للحصول على القيمة الصحيحة."
+        "explanation": "القيمة ليست $\\frac{1}{2}$؛ نستخدم متطابقة نصف الزاوية مع $\\tan \\theta = \\frac{5}{3}$للحصول على القيمة الصحيحة."
       },
       {
         "id": "U02-L02-Q040",
         "number": 40,
-        "question": "أي مما يأتي يمثل متطابقة ضعف الزاوية للظل tan 2θ؟",
+        "question": "أي مما يأتي يمثل متطابقة ضعف الزاوية للظل $\\tan 2\\theta$؟",
         "options": {
           "A": "2 tan θ / (1 - tan² θ)",
           "B": "2 tan θ / (1 + tan² θ)",
@@ -1102,20 +1100,19 @@
           "D": "2 tan θ / (1 - sin² θ)"
         },
         "correct_answer": "A",
-        "correct_answer_text": "2 tan θ / (1 - tan² θ)",
+        "correct_answer_text": "$2 \\tan \\frac{\\theta }{1 - \\tan ^{2} \\theta }$",
         "difficulty": "easy",
         "source": {
           "page": 47,
           "reference": "متطابقات ضعف الزاوية"
         },
         "solution": {
-          "formula": "tan 2θ = 2 tan θ / (1 - tan² θ)",
+          "formula": "$\\tan 2\\theta = 2 \\tan \\frac{\\theta }{1 - \\tan ^{2} \\theta }$",
           "steps": [],
           "summary": "صيغة ظل ضعف الزاوية."
         },
-        "explanation": "الصيغة الصحيحة تحتوي على 1 - tan² θ في المقام."
+        "explanation": "الصيغة الصحيحة تحتوي على $1 - \\tan ^{2} \\theta$في المقام."
       }
     ]
   }
 }
-

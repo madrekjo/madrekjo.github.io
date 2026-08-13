@@ -1,9 +1,6 @@
 {
+  "generations": ["2009", "2010"],
   "subjects": [
-    {
-      "name": "الرياضيات",
-      "slug": "math",
-      "generations": ["2009"]
-    }
+    { "subject_id": "math", "slug": "math", "name": "الرياضيات" }
   ]
 }

@@ -11,7 +11,7 @@
       {
         "id": "U03-L03-Q001",
         "number": 1,
-        "question": "إذا كان y اقترانًا بالنسبة إلى u، وكان u اقترانًا بالنسبة إلى x، فما هي قاعدة السلسلة لإيجاد dy/dx؟",
+        "question": "إذا كان $y$اقترانًا بالنسبة إلى $u$، وكان $u$اقترانًا بالنسبة إلى $x$، فما هي قاعدة السلسلة لإيجاد $\\frac{dy}{dx}$؟",
         "options": {
           "A": "dy/dx = dy/du + du/dx",
           "B": "dy/dx = (dy/du) * (du/dx)",
@@ -19,25 +19,25 @@
           "D": "dy/dx = f'(g'(x))"
         },
         "correct_answer": "B",
-        "correct_answer_text": "dy/dx = (dy/du) * (du/dx)",
+        "correct_answer_text": "$\\frac{dy}{dx} = (\\frac{dy}{du}) \\cdot (\\frac{du}{dx})$",
         "difficulty": "easy",
         "source": {
           "page": 104,
           "reference": "قاعدة السلسلة"
         },
         "solution": {
-          "formula": "dy/dx = (dy/du) * (du/dx)",
+          "formula": "$\\frac{dy}{dx} = (\\frac{dy}{du}) \\cdot (\\frac{du}{dx})$",
           "steps": [
             "مراجعة نص نظرية قاعدة السلسلة ص 104"
           ],
-          "summary": "مشتقة y بالنسبة إلى x هي حاصل ضرب مشتقة y بالنسبة إلى u في مشتقة u بالنسبة إلى x."
+          "summary": "مشتقة $y$بالنسبة إلى $x$هي حاصل ضرب مشتقة $y$بالنسبة إلى $u$في مشتقة $u$بالنسبة إلى $x$."
         },
         "explanation": "هذا هو التعريف الرمزي الأساسي لقاعدة السلسلة كما ورد في صفحة 104."
       },
       {
         "id": "U03-L03-Q002",
         "number": 2,
-        "question": "ما هي مشتقة الاقتران المركب f(g(x))؟",
+        "question": "ما هي مشتقة الاقتران المركب $f(g(x))$؟",
         "options": {
           "A": "f'(g(x))",
           "B": "f'(x) * g'(x)",
@@ -45,14 +45,14 @@
           "D": "g'(f(x)) * f'(x)"
         },
         "correct_answer": "C",
-        "correct_answer_text": "f'(g(x)) * g'(x)",
+        "correct_answer_text": "$f'(g(x)) \\cdot g'(x)$",
         "difficulty": "easy",
         "source": {
           "page": 104,
           "reference": "قاعدة السلسلة"
         },
         "solution": {
-          "formula": "(f o g)'(x) = f'(g(x)) * g'(x)",
+          "formula": "$(f o g)'(x) = f'(g(x)) \\cdot g'(x)$",
           "steps": [
             "اشتقاق الاقتران الخارجي عند الاقتران الداخلي",
             "الضرب في مشتقة الاقتران الداخلي"
@@ -64,7 +64,7 @@
       {
         "id": "U03-L03-Q003",
         "number": 3,
-        "question": "أجد مشتقة الاقتران f(x) = cos 2x.",
+        "question": "أجد مشتقة الاقتران $f(x) = \\cos 2x$.",
         "options": {
           "A": "-sin 2x",
           "B": "-2 sin 2x",
@@ -72,26 +72,26 @@
           "D": "sin 2x"
         },
         "correct_answer": "B",
-        "correct_answer_text": "-2 sin 2x",
+        "correct_answer_text": "$-2 \\sin 2x$",
         "difficulty": "medium",
         "source": {
           "page": 104,
           "reference": "مثال 1 - الفرع 1"
         },
         "solution": {
-          "formula": "d/dx(cos(g(x))) = -sin(g(x)) * g'(x)",
+          "formula": "$d/dx(\\cos (g(x))) = -\\sin (g(x)) \\cdot g'(x)$",
           "steps": [
-            "تحديد g(x) = 2x، ومشتقتها 2",
-            "تطبيق قاعدة السلسلة: -sin(2x) * 2"
+            "تحديد $g(x) = 2x$، ومشتقتها 2",
+            "تطبيق قاعدة السلسلة: $-\\sin (2x) \\cdot 2$"
           ],
-          "summary": "المشتقة هي -2 sin 2x."
+          "summary": "المشتقة هي $-2 \\sin 2x$."
         },
         "explanation": "تطبيق لقاعدة السلسلة على اقتران مثلثي كما في مثال 1 ص 104."
       },
       {
         "id": "U03-L03-Q004",
         "number": 4,
-        "question": "ما هي مشتقة الاقتران f(x) = e^(g(x))؟",
+        "question": "ما هي مشتقة الاقتران $f(x) = e^(g(x))$؟",
         "options": {
           "A": "e^(g(x))",
           "B": "g'(x) * e^(g(x))",
@@ -99,26 +99,26 @@
           "D": "g(x) * e^(g(x)-1)"
         },
         "correct_answer": "B",
-        "correct_answer_text": "g'(x) * e^(g(x))",
+        "correct_answer_text": "$g'(x) \\cdot e^(g(x))$",
         "difficulty": "easy",
         "source": {
           "page": 104,
           "reference": "نتائج قاعدة السلسلة"
         },
         "solution": {
-          "formula": "d/dx(e^(g(x))) = e^(g(x)) * g'(x)",
+          "formula": "$d/dx(e^(g(x))) = e^(g(x)) \\cdot g'(x)$",
           "steps": [
-            "مشتقة e^u هي e^u",
-            "الضرب في u' (مشتقة الأس)"
+            "مشتقة $e^{u}$هي $e^{u}$",
+            "الضرب في $u' ($مشتقة الأس)"
           ],
-          "summary": "مشتقة e مرفوعة لقوة هي نفس الاقتران مضروباً في مشتقة الأس."
+          "summary": "مشتقة $e$مرفوعة لقوة هي نفس الاقتران مضروباً في مشتقة الأس."
         },
         "explanation": "إحدى نتائج قاعدة السلسلة المذكورة في الجدول ص 104."
       },
       {
         "id": "U03-L03-Q005",
         "number": 5,
-        "question": "أجد مشتقة f(x) = e^(x + x^2).",
+        "question": "أجد مشتقة $f(x) = e^(x + x^2)$.",
         "options": {
           "A": "e^(x + x^2)",
           "B": "(1 + 2x) * e^(x + x^2)",
@@ -126,27 +126,27 @@
           "D": "2x * e^(x + x^2)"
         },
         "correct_answer": "B",
-        "correct_answer_text": "(1 + 2x) * e^(x + x^2)",
+        "correct_answer_text": "$(1 + 2x) \\cdot e^(x + x^2)$",
         "difficulty": "medium",
         "source": {
           "page": 105,
           "reference": "مثال 1 - الفرع 2"
         },
         "solution": {
-          "formula": "d/dx(e^(g(x))) = e^(g(x)) * g'(x)",
+          "formula": "$d/dx(e^(g(x))) = e^(g(x)) \\cdot g'(x)$",
           "steps": [
-            "تحديد الأس g(x) = x + x^2",
-            "إيجاد مشتقة الأس: g'(x) = 1 + 2x",
+            "تحديد الأس $g(x) = x + x^{2}$",
+            "إيجاد مشتقة الأس: $g'(x) = 1 + 2x$",
             "الضرب في الاقتران الأصلي"
           ],
-          "summary": "الناتج هو (1 + 2x)e^(x + x^2)."
+          "summary": "الناتج هو $(1 + 2x)e^(x + x^2)$."
         },
         "explanation": "تطبيق لقاعدة اشتقاق الاقتران الأسي الطبيعي المركب ص 105."
       },
       {
         "id": "U03-L03-Q006",
         "number": 6,
-        "question": "أجد مشتقة f(x) = ln(sin x).",
+        "question": "أجد مشتقة $f(x) = ln(\\sin x)$.",
         "options": {
           "A": "cos x",
           "B": "1 / sin x",
@@ -154,27 +154,27 @@
           "D": "tan x"
         },
         "correct_answer": "C",
-        "correct_answer_text": "cot x",
+        "correct_answer_text": "$\\cot x$",
         "difficulty": "medium",
         "source": {
           "page": 105,
           "reference": "مثال 1 - الفرع 3"
         },
         "solution": {
-          "formula": "d/dx(ln(g(x))) = g'(x) / g(x)",
+          "formula": "$d/dx(ln(g(x))) = g'\\frac{x}{g}(x)$",
           "steps": [
-            "تحديد g(x) = sin x",
-            "مشتقة sin x هي cos x",
-            "f'(x) = cos x / sin x = cot x"
+            "تحديد $g(x) = \\sin x$",
+            "مشتقة $\\sin x$هي $\\cos x$",
+            "$f'(x) = \\cos x / \\sin x = \\cot x$"
           ],
-          "summary": "المشتقة هي cot x."
+          "summary": "المشتقة هي $\\cot x$."
         },
         "explanation": "تم استخدام قاعدة اشتقاق اللوغاريتم للاقتران المركب ص 105."
       },
       {
         "id": "U03-L03-Q007",
         "number": 7,
-        "question": "ما هي قاعدة سلسلة القوة لاشتقاق الاقتران (g(x))^n؟",
+        "question": "ما هي قاعدة سلسلة القوة لاشتقاق الاقتران $(g(x))^{n}$؟",
         "options": {
           "A": "n(g(x))^(n-1)",
           "B": "n(g(x))^(n-1) * g'(x)",
@@ -182,16 +182,16 @@
           "D": "(g(x))^(n+1) / (n+1)"
         },
         "correct_answer": "B",
-        "correct_answer_text": "n(g(x))^(n-1) * g'(x)",
+        "correct_answer_text": "$n(g(x))^(n-1) \\cdot g'(x)$",
         "difficulty": "easy",
         "source": {
           "page": 105,
           "reference": "مفهوم أساسي - قاعدة سلسلة القوة"
         },
         "solution": {
-          "formula": "d/dx([g(x)]^n) = n[g(x)]^(n-1) * g'(x)",
+          "formula": "$d/dx([g(x)]^{n}) = n[g(x)]^(n-1) \\cdot g'(x)$",
           "steps": [
-            "تنزيل الأس n",
+            "تنزيل الأس $n$",
             "طرح 1 من الأس",
             "الضرب في مشتقة ما بداخل القوس"
           ],
@@ -202,7 +202,7 @@
       {
         "id": "U03-L03-Q008",
         "number": 8,
-        "question": "أجد مشتقة الاقتران f(x) = tan^4 x.",
+        "question": "أجد مشتقة الاقتران $f(x) = \\tan ^{4} x$.",
         "options": {
           "A": "4 tan^3 x",
           "B": "4 sec^2 x",
@@ -210,27 +210,27 @@
           "D": "tan^3 x"
         },
         "correct_answer": "C",
-        "correct_answer_text": "4 tan^3 x * sec^2 x",
+        "correct_answer_text": "$4 \\tan ^{3} x \\cdot \\sec ^{2} x$",
         "difficulty": "medium",
         "source": {
           "page": 106,
           "reference": "مثال 2 - الفرع 2"
         },
         "solution": {
-          "formula": "d/dx(u^n) = n u^(n-1) * u'",
+          "formula": "$d/dx(u^{n}) = n u^(n-1) \\cdot u'$",
           "steps": [
-            "كتابة الاقتران بصورة (tan x)^4",
-            "اشتقاق القوس: 4(tan x)^3",
-            "الضرب في مشتقة ما داخل القوس (sec^2 x)"
+            "كتابة الاقتران بصورة $(\\tan x)^{4}$",
+            "اشتقاق القوس: $4(\\tan x)^{3}$",
+            "الضرب في مشتقة ما داخل القوس $(\\sec ^{2} x)$"
           ],
-          "summary": "المشتقة هي 4 tan^3 x sec^2 x."
+          "summary": "المشتقة هي $4 \\tan ^{3} x \\sec ^{2} x$."
         },
         "explanation": "تطبيق قاعدة سلسلة القوة على اقتران مثلثي مرفوع لقوة ص 106."
       },
       {
         "id": "U03-L03-Q009",
         "number": 9,
-        "question": "أجد مشتقة الاقتران f(x) = √(ln x).",
+        "question": "أجد مشتقة الاقتران $f(x) = \\sqrt{ln x}$.",
         "options": {
           "A": "1 / (2x√(ln x))",
           "B": "1 / (2√(ln x))",
@@ -238,17 +238,17 @@
           "D": "2x√(ln x)"
         },
         "correct_answer": "A",
-        "correct_answer_text": "1 / (2x√(ln x))",
+        "correct_answer_text": "$\\frac{1}{2x\\sqrt{ln x}}$",
         "difficulty": "medium",
         "source": {
           "page": 106,
           "reference": "مثال 2 - الفرع 3"
         },
         "solution": {
-          "formula": "(√g(x))' = g'(x) / (2√g(x))",
+          "formula": "$(\\sqrt{g}(x))' = g'(x) / (2\\sqrt{g}(x))$",
           "steps": [
-            "ما تحت الجذر هو ln x، مشتقته 1/x",
-            "f'(x) = (1/x) / (2√(ln x)) = 1 / (2x√(ln x))"
+            "ما تحت الجذر هو $ln x$، مشتقته $1/x$",
+            "$f'(x) = \\frac{1/x}{2\\sqrt{ln x}} = \\frac{1}{2x\\sqrt{ln x}}$"
           ],
           "summary": "مشتقة الجذر هي مشتقة ما تحته على مثلي الجذر."
         },
@@ -257,7 +257,7 @@
       {
         "id": "U03-L03-Q010",
         "number": 10,
-        "question": "أجد مشتقة f(x) = e^(csc 4x).",
+        "question": "أجد مشتقة $f(x) = e^(\\csc 4x)$.",
         "options": {
           "A": "e^(csc 4x) * csc 4x * cot 4x",
           "B": "-4 e^(csc 4x) * csc 4x * cot 4x",
@@ -265,7 +265,7 @@
           "D": "4 e^(csc 4x)"
         },
         "correct_answer": "B",
-        "correct_answer_text": "-4 e^(csc 4x) * csc 4x * cot 4x",
+        "correct_answer_text": "$-4 e^(\\csc 4x) \\cdot \\csc 4x \\cdot \\cot 4x$",
         "difficulty": "hard",
         "source": {
           "page": 107,
@@ -274,8 +274,8 @@
         "solution": {
           "formula": "قاعدة السلسلة المتكررة",
           "steps": [
-            "مشتقة e^u هي e^u * u'",
-            "u = csc 4x، ومشتقتها -4csc(4x)cot(4x)",
+            "مشتقة $e^{u}$هي $e^{u} \\cdot u'$",
+            "$u = \\csc 4x$، ومشتقتها $-4\\csc (4x)\\cot (4x)$",
             "تجميع النتائج"
           ],
           "summary": "تم تطبيق قاعدة السلسلة مرتين."
@@ -285,7 +285,7 @@
       {
         "id": "U03-L03-Q011",
         "number": 11,
-        "question": "ما هو ميل المماس لمنحنى f(x) = e^(-0.2x) sin 4x عند x = π/8؟",
+        "question": "ما هو ميل المماس لمنحنى $f(x) = e^(-0.2x) \\sin 4x$عند $x = \\pi /8$؟",
         "options": {
           "A": "4 e^(-0.025π)",
           "B": "-0.2 e^(-0.025π)",
@@ -293,7 +293,7 @@
           "D": "e^(-0.2)"
         },
         "correct_answer": "B",
-        "correct_answer_text": "-0.2 e^(-0.025π)",
+        "correct_answer_text": "$-0.2 e^(-0.025\\pi )$",
         "difficulty": "hard",
         "source": {
           "page": 108,
@@ -302,19 +302,19 @@
         "solution": {
           "formula": "قاعدة الضرب + السلسلة",
           "steps": [
-            "f'(x) = e^(-0.2x) * (4 cos 4x) + sin 4x * (-0.2 e^(-0.2x))",
-            "تعويض x = π/8: 4x = π/2",
-            "cos(π/2) = 0 و sin(π/2) = 1",
-            "f'(π/8) = -0.2 e^(-0.025π)"
+            "$f'(x) = e^(-0.2x) \\cdot (4 \\cos 4x) + \\sin 4x \\cdot (-0.2 e^(-0.2x))$",
+            "تعويض $x = \\pi /8$: $4x = \\pi /2$",
+            "$\\cos (\\pi /2) = 0$و $\\sin (\\pi /2) = 1$",
+            "$f'(\\pi /8) = -0.2 e^(-0.025\\pi )$"
           ],
-          "summary": "الميل هو -0.2 e^(-0.025π)."
+          "summary": "الميل هو $-0.2 e^(-0.025\\pi )$."
         },
         "explanation": "يتطلب السؤال دمج قاعدة الضرب مع السلسلة والتعويض ص 108."
       },
       {
         "id": "U03-L03-Q012",
         "number": 12,
-        "question": "أجد ميل العمودي على المماس للاقتران f(x) = ((3x - 1) / (x^2 + 3))^2 عند x = 0.",
+        "question": "أجد ميل العمودي على المماس للاقتران $f(x) = (\\frac{3x - 1}{x^{2} + 3})^{2}$عند $x = 0$.",
         "options": {
           "A": "-2/3",
           "B": "3/2",
@@ -322,27 +322,27 @@
           "D": "-3/2"
         },
         "correct_answer": "B",
-        "correct_answer_text": "3/2",
+        "correct_answer_text": "$\\frac{3}{2}$",
         "difficulty": "hard",
         "source": {
           "page": 109,
           "reference": "مثال 4 - الفرع 2"
         },
         "solution": {
-          "formula": "m_normal = -1 / f'(0)",
+          "formula": "$m_{normal} = -1 / f'(0)$",
           "steps": [
-            "f'(x) = 2((3x-1)/(x^2+3)) * [(3(x^2+3)-2x(3x-1))/(x^2+3)^2]",
-            "تعويض x=0 لنجد f'(0) = -2/3",
-            "ميل العمودي = -1 / (-2/3) = 3/2"
+            "$f'(x) = 2(\\frac{3x-1}{x^{2+3}}) \\cdot [(3(x^{2+3})-2x(3x-1))/(x^{2+3})^{2]}$",
+            "تعويض $x=0$لنجد $f'(0) = \\frac{-2}{3}$",
+            "ميل العمودي $= -\\frac{1}{\\frac{-2}{3}} = \\frac{3}{2}$"
           ],
-          "summary": "ميل العمودي هو 3/2."
+          "summary": "ميل العمودي هو $\\frac{3}{2}$."
         },
         "explanation": "تم حساب المشتقة باستخدام قاعدة سلسلة القوة والقسمة ص 109."
       },
       {
         "id": "U03-L03-Q013",
         "number": 13,
-        "question": "ما هي مشتقة الاقتران الأسي العام a^x حيث a > 0؟",
+        "question": "ما هي مشتقة الاقتران الأسي العام $a^{x}$حيث $a > 0$؟",
         "options": {
           "A": "a^x",
           "B": "x a^(x-1)",
@@ -350,25 +350,25 @@
           "D": "a^x / ln a"
         },
         "correct_answer": "C",
-        "correct_answer_text": "a^x * ln a",
+        "correct_answer_text": "$a^{x} \\cdot ln a$",
         "difficulty": "easy",
         "source": {
           "page": 111,
           "reference": "نظرية مشتقة a^g(x)"
         },
         "solution": {
-          "formula": "d/dx(a^x) = a^x * ln a",
+          "formula": "$d/dx(a^{x}) = a^{x} \\cdot ln a$",
           "steps": [
-            "مراجعة إثبات النظرية باستخدام e^(x ln a)"
+            "مراجعة إثبات النظرية باستخدام $e^(x ln a)$"
           ],
-          "summary": "مشتقة الاقتران الأسي ذو الأساس a هي الاقتران نفسه مضروباً في ln الأساس."
+          "summary": "مشتقة الاقتران الأسي ذو الأساس $a$هي الاقتران نفسه مضروباً في $ln$الأساس."
         },
         "explanation": "قاعدة اشتقاق الاقتران الأسي العام الموضحة في ص 111."
       },
       {
         "id": "U03-L03-Q014",
         "number": 14,
-        "question": "أجد مشتقة الاقتران f(x) = 8^(5x).",
+        "question": "أجد مشتقة الاقتران $f(x) = 8^(5x)$.",
         "options": {
           "A": "5 * 8^(5x)",
           "B": "5 ln 8 * 8^(5x)",
@@ -376,27 +376,27 @@
           "D": "40^(5x)"
         },
         "correct_answer": "B",
-        "correct_answer_text": "5 ln 8 * 8^(5x)",
+        "correct_answer_text": "$5 ln 8 \\cdot 8^(5x)$",
         "difficulty": "medium",
         "source": {
           "page": 111,
           "reference": "مثال 6 - الفرع 1"
         },
         "solution": {
-          "formula": "d/dx(a^g(x)) = ln(a) * a^g(x) * g'(x)",
+          "formula": "$d/dx(a^{g}(x)) = ln(a) \\cdot a^{g}(x) \\cdot g'(x)$",
           "steps": [
-            "الأس g(x) = 5x، ومشتقته 5",
-            "الأساس a = 8",
-            "f'(x) = ln(8) * 8^(5x) * 5"
+            "الأس $g(x) = 5x$، ومشتقته 5",
+            "الأساس $a = 8$",
+            "$f'(x) = ln(8) \\cdot 8^(5x) \\cdot 5$"
           ],
-          "summary": "الناتج هو (5 ln 8) 8^(5x)."
+          "summary": "الناتج هو $(5 ln 8) 8^(5x)$."
         },
         "explanation": "تطبيق لقاعدة اشتقاق الاقتران الأسي العام المركب ص 111."
       },
       {
         "id": "U03-L03-Q015",
         "number": 15,
-        "question": "ما هي مشتقة اقتران اللوغاريتم العام log_a x؟",
+        "question": "ما هي مشتقة اقتران اللوغاريتم العام $log_{a} x$؟",
         "options": {
           "A": "1 / x",
           "B": "1 / (x ln a)",
@@ -404,26 +404,26 @@
           "D": "1 / a^x"
         },
         "correct_answer": "B",
-        "correct_answer_text": "1 / (x ln a)",
+        "correct_answer_text": "$\\frac{1}{x ln a}$",
         "difficulty": "medium",
         "source": {
           "page": 112,
           "reference": "نظرية مشتقة log_a g(x)"
         },
         "solution": {
-          "formula": "d/dx(log_a x) = 1 / (x ln a)",
+          "formula": "$d/dx(log_{a} x) = \\frac{1}{x ln a}$",
           "steps": [
-            "استخدام صيغة تغيير الأساس: log_a x = ln x / ln a",
-            "اشتقاق (1 / ln a) * ln x"
+            "استخدام صيغة تغيير الأساس: $log_{a} x = ln x / ln a$",
+            "اشتقاق $(1 / ln a) \\cdot ln x$"
           ],
-          "summary": "المشتقة تحوي ln الأساس في المقام."
+          "summary": "المشتقة تحوي $ln$الأساس في المقام."
         },
         "explanation": "إثبات وقاعدة مشتقة اللوغاريتم العام ص 112."
       },
       {
         "id": "U03-L03-Q016",
         "number": 16,
-        "question": "أجد مشتقة f(x) = log(cos x) (الأساس 10).",
+        "question": "أجد مشتقة $f(x) = log(\\cos x) ($الأساس $10)$.",
         "options": {
           "A": "-tan x",
           "B": "-tan x / ln 10",
@@ -431,27 +431,27 @@
           "D": "1 / (cos x ln 10)"
         },
         "correct_answer": "B",
-        "correct_answer_text": "-tan x / ln 10",
+        "correct_answer_text": "$-\\tan x / ln 10$",
         "difficulty": "hard",
         "source": {
           "page": 113,
           "reference": "مثال 7 - الفرع 1"
         },
         "solution": {
-          "formula": "d/dx(log_a(g(x))) = g'(x) / (g(x) ln a)",
+          "formula": "$d/dx(log_{a}(g(x))) = g'(x) / (g(x) ln a)$",
           "steps": [
-            "الأساس a = 10 والاقتران الداخلي g(x) = cos x",
-            "مشتقة الداخلي = -sin x",
-            "f'(x) = -sin x / (cos x ln 10) = -tan x / ln 10"
+            "الأساس $a = 10$والاقتران الداخلي $g(x) = \\cos x$",
+            "مشتقة الداخلي $= -\\sin x$",
+            "$f'(x) = -\\sin \\frac{x}{\\cos x ln 10} = -\\tan x / ln 10$"
           ],
-          "summary": "الناتج هو -tan x / ln 10."
+          "summary": "الناتج هو $-\\tan x / ln 10$."
         },
         "explanation": "دمج قاعدة اللوغاريتم العام مع قاعدة السلسلة للاقترانات المثلثية ص 113."
       },
       {
         "id": "U03-L03-Q017",
         "number": 17,
-        "question": "ماذا يسمى المتغير t في المعادلة الوسيطية x=h(t), y=g(t)؟",
+        "question": "ماذا يسمى المتغير $t$في المعادلة الوسيطية $x=h(t), y=g(t)$؟",
         "options": {
           "A": "المتغير التابع",
           "B": "المتغير الوسيط",
@@ -466,18 +466,17 @@
           "reference": "مشتقة المعادلات الوسيطية"
         },
         "solution": {
-          "formula": null,
           "steps": [
             "مراجعة المصطلحات في ص 114"
           ],
-          "summary": "t هو الوسيط (parameter) الذي يربط x و y."
+          "summary": "$t$هو الوسيط $(parameter)$الذي يربط $x$و $y$."
         },
         "explanation": "تعريف مصطلح المتغير الوسيط كما ورد في ص 114."
       },
       {
         "id": "U03-L03-Q018",
         "number": 18,
-        "question": "ما هي صيغة dy/dx للمعادلة الوسيطية بدلالة t؟",
+        "question": "ما هي صيغة $\\frac{dy}{dx}$للمعادلة الوسيطية بدلالة $t$؟",
         "options": {
           "A": "(dy/dt) * (dx/dt)",
           "B": "(dy/dt) / (dx/dt)",
@@ -485,27 +484,27 @@
           "D": "d/dt (y/x)"
         },
         "correct_answer": "B",
-        "correct_answer_text": "(dy/dt) / (dx/dt)",
+        "correct_answer_text": "$\\frac{\\frac{dy}{dt}}{\\frac{dx}{dt}}$",
         "difficulty": "medium",
         "source": {
           "page": 115,
           "reference": "مفهوم أساسي - مشتقة المعادلة الوسيطية"
         },
         "solution": {
-          "formula": "dy/dx = (dy/dt) / (dx/dt)",
+          "formula": "$\\frac{dy}{dx} = \\frac{\\frac{dy}{dt}}{\\frac{dx}{dt}}$",
           "steps": [
-            "اشتقاق y بالنسبة إلى t",
-            "اشتقاق x بالنسبة إلى t",
-            "قسمة مشتقة y على مشتقة x"
+            "اشتقاق $y$بالنسبة إلى $t$",
+            "اشتقاق $x$بالنسبة إلى $t$",
+            "قسمة مشتقة $y$على مشتقة $x$"
           ],
-          "summary": "يجب ألا تساوي مشتقة x بالنسبة إلى t صفراً."
+          "summary": "يجب ألا تساوي مشتقة $x$بالنسبة إلى $t$صفراً."
         },
         "explanation": "القاعدة الأساسية لاشتقاق المعادلات الوسيطية ص 115."
       },
       {
         "id": "U03-L03-Q019",
         "number": 19,
-        "question": "أجد dy/dx للمعادلة الوسيطية: x = 2 sin t, y = 3 cos t.",
+        "question": "أجد $\\frac{dy}{dx}$للمعادلة الوسيطية: $x = 2 \\sin t, y = 3 \\cos t$.",
         "options": {
           "A": "-1.5 tan t",
           "B": "1.5 cot t",
@@ -513,27 +512,27 @@
           "D": "tan t"
         },
         "correct_answer": "A",
-        "correct_answer_text": "-1.5 tan t",
+        "correct_answer_text": "$-1.5 \\tan t$",
         "difficulty": "medium",
         "source": {
           "page": 115,
           "reference": "مثال 8 - الخطوة 1"
         },
         "solution": {
-          "formula": "dy/dx = (dy/dt) / (dx/dt)",
+          "formula": "$\\frac{dy}{dx} = \\frac{\\frac{dy}{dt}}{\\frac{dx}{dt}}$",
           "steps": [
-            "dx/dt = 2 cos t",
-            "dy/dt = -3 sin t",
-            "dy/dx = -3 sin t / 2 cos t = -1.5 tan t"
+            "$\\frac{dx}{dt} = 2 \\cos t$",
+            "$\\frac{dy}{dt} = -3 \\sin t$",
+            "$\\frac{dy}{dx} = -3 \\sin t / 2 \\cos t = -1.5 \\tan t$"
           ],
-          "summary": "المشتقة هي -1.5 tan t."
+          "summary": "المشتقة هي $-1.5 \\tan t$."
         },
         "explanation": "تم حساب المشتقة الوسيطية تمهيداً لإيجاد الميل ص 115."
       },
       {
         "id": "U03-L03-Q020",
         "number": 20,
-        "question": "ما هي معادلة المماس لمنحنى x = 2 sin t, y = 3 cos t عند t = π/4؟",
+        "question": "ما هي معادلة المماس لمنحنى $x = 2 \\sin t, y = 3 \\cos t$عند $t = \\pi /4$؟",
         "options": {
           "A": "y = -1.5x + 6√2",
           "B": "2y + 3x = 6√2",
@@ -541,28 +540,28 @@
           "D": "3y + 2x = 6"
         },
         "correct_answer": "B",
-        "correct_answer_text": "2y + 3x = 6√2",
+        "correct_answer_text": "$2y + 3x = 6\\sqrt{2}$",
         "difficulty": "hard",
         "source": {
           "page": 116,
           "reference": "مثال 8 - الخطوة 3"
         },
         "solution": {
-          "formula": "y - y1 = m(x - x1)",
+          "formula": "$y - y1 = m(x - x1)$",
           "steps": [
-            "عند t = π/4: x = √2 و y = 3/√2",
-            "الميل m = -1.5 tan(π/4) = -1.5 = -3/2",
+            "عند $t = \\pi /4$: $x = \\sqrt{2}$و $y = \\frac{3}{\\sqrt{2}}$",
+            "الميل $m = -1.5 \\tan (\\pi /4) = -1.5 = \\frac{-3}{2}$",
             "التعويض في معادلة المستقيم",
-            "بالتبسيط: 2y + 3x = 6√2"
+            "بالتبسيط: $2y + 3x = 6\\sqrt{2}$"
           ],
-          "summary": "المعادلة هي 2y + 3x = 6√2."
+          "summary": "المعادلة هي $2y + 3x = 6\\sqrt{2}$."
         },
         "explanation": "إيجاد إحداثيات النقطة والميل ثم التعويض في معادلة المستقيم ص 116."
       },
       {
         "id": "U03-L03-Q021",
         "number": 21,
-        "question": "أجد مشتقة f(x) = √(x^2 + 8x).",
+        "question": "أجد مشتقة $f(x) = \\sqrt{x^{2} + 8x}$.",
         "options": {
           "A": "1 / (2√(x^2 + 8x))",
           "B": "(x + 4) / √(x^2 + 8x)",
@@ -570,27 +569,27 @@
           "D": "x + 4"
         },
         "correct_answer": "B",
-        "correct_answer_text": "(x + 4) / √(x^2 + 8x)",
+        "correct_answer_text": "$\\frac{x + 4}{\\sqrt{x^{2}} + 8x}$",
         "difficulty": "medium",
         "source": {
           "page": 117,
           "reference": "أتدرب وأحل المسائل - 11"
         },
         "solution": {
-          "formula": "g'(x) / (2√g(x))",
+          "formula": "$g'(x) / (2\\sqrt{g}(x))$",
           "steps": [
-            "مشتقة ما تحت الجذر: 2x + 8",
-            "f'(x) = (2x + 8) / (2√(x^2 + 8x))",
-            "بالقسمة على 2: (x + 4) / √(x^2 + 8x)"
+            "مشتقة ما تحت الجذر: $2x + 8$",
+            "$f'(x) = \\frac{2x + 8}{2\\sqrt{x^{2} + 8x}}$",
+            "بالقسمة على 2: $\\frac{x + 4}{\\sqrt{x^{2}} + 8x}$"
           ],
-          "summary": "الناتج بعد التبسيط هو (x + 4) / √(x^2 + 8x)."
+          "summary": "الناتج بعد التبسيط هو $\\frac{x + 4}{\\sqrt{x^{2}} + 8x}$."
         },
         "explanation": "تطبيق قاعدة الجذر التربيعي مع التبسيط ص 117."
       },
       {
         "id": "U03-L03-Q022",
         "number": 22,
-        "question": "أجد مشتقة f(x) = ln((1 + e^x) / (1 - e^x)).",
+        "question": "أجد مشتقة $f(x) = ln(\\frac{1 + e^{x}}{1 - e^{x}})$.",
         "options": {
           "A": "2e^x / (1 - e^(2x))",
           "B": "e^x / (1 - e^x)",
@@ -598,19 +597,19 @@
           "D": "e^x"
         },
         "correct_answer": "A",
-        "correct_answer_text": "2e^x / (1 - e^(2x))",
+        "correct_answer_text": "$2e^{x} / (1 - e^(2x))$",
         "difficulty": "hard",
         "source": {
           "page": 117,
           "reference": "أتدرب وأحل المسائل - 8"
         },
         "solution": {
-          "formula": "ln(a/b) = ln(a) - ln(b)",
+          "formula": "$ln(a/b) = ln(a) - ln(b)$",
           "steps": [
             "تبسيط اللوغاريتم باستخدام خاصية القسمة",
-            "اشتقاق ln(1 + e^x) و ln(1 - e^x)",
+            "اشتقاق $ln(1 + e^{x})$و $ln(1 - e^{x})$",
             "توحيد المقامات",
-            "التبسيط إلى 2e^x / (1 - e^(2x))"
+            "التبسيط إلى $2e^{x} / (1 - e^(2x))$"
           ],
           "summary": "استخدام خصائص اللوغاريتم يسهل الحل."
         },
@@ -619,7 +618,7 @@
       {
         "id": "U03-L03-Q023",
         "number": 23,
-        "question": "إذا كان A(x) = f(g(x))، وكان f'(-2) = 4 و g(5) = -2 و g'(5) = 6، فما قيمة A'(5)؟",
+        "question": "إذا كان $A(x) = f(g(x))$، وكان $f'(-2) = 4$و $g(5) = -2$و $g'(5) = 6$، فما قيمة $A'(5)$؟",
         "options": {
           "A": "10",
           "B": "24",
@@ -634,11 +633,11 @@
           "reference": "أتدرب وأحل المسائل - 23"
         },
         "solution": {
-          "formula": "A'(x) = f'(g(x)) * g'(x)",
+          "formula": "$A'(x) = f'(g(x)) \\cdot g'(x)$",
           "steps": [
-            "A'(5) = f'(g(5)) * g'(5)",
-            "A'(5) = f'(-2) * 6",
-            "A'(5) = 4 * 6 = 24"
+            "$A'(5) = f'(g(5)) \\cdot g'(5)$",
+            "$A'(5) = f'(-2) \\cdot 6$",
+            "$A'(5) = 4 \\cdot 6 = 24$"
           ],
           "summary": "تطبيق مباشر لقاعدة السلسلة عند نقطة."
         },
@@ -647,7 +646,7 @@
       {
         "id": "U03-L03-Q024",
         "number": 24,
-        "question": "في مسألة البكتيريا، إذا كان N(t) = N e^(0.1t)، فما هو معدل نمو المجتمع بعد 3 ساعات؟",
+        "question": "في مسألة البكتيريا، إذا كان $N(t) = N e^(0.1t)$، فما هو معدل نمو المجتمع بعد 3 ساعات؟",
         "options": {
           "A": "N e^(0.3)",
           "B": "0.1 N e^(0.3)",
@@ -655,26 +654,26 @@
           "D": "0.1 N"
         },
         "correct_answer": "B",
-        "correct_answer_text": "0.1 N e^(0.3)",
+        "correct_answer_text": "$0.1 N e^(0.3)$",
         "difficulty": "medium",
         "source": {
           "page": 118,
           "reference": "تمرين 25 - بكتيريا"
         },
         "solution": {
-          "formula": "N'(t) = 0.1N e^(0.1t)",
+          "formula": "$N'(t) = 0.1N e^(0.1t)$",
           "steps": [
-            "اشتقاق الاقتران الأسي: N'(t) = 0.1N e^(0.1t)",
-            "تعويض t = 3"
+            "اشتقاق الاقتران الأسي: $N'(t) = 0.1N e^(0.1t)$",
+            "تعويض $t = 3$"
           ],
-          "summary": "المعدل هو 0.1N e^0.3 خلية/ساعة."
+          "summary": "المعدل هو $0.1N e^{0.3}$خلية/ساعة."
         },
         "explanation": "تطبيق فيزيائي للمشتقة على اقتران النمو الأسي ص 118."
       },
       {
         "id": "U03-L03-Q025",
         "number": 25,
-        "question": "أجد المشتقة الثالثة f'''(x) للاقتران f(x) = sin(πx).",
+        "question": "أجد المشتقة الثالثة $f'''(x)$للاقتران $f(x) = \\sin (\\pi x)$.",
         "options": {
           "A": "-π^3 cos(πx)",
           "B": "π^3 cos(πx)",
@@ -682,7 +681,7 @@
           "D": "cos(πx)"
         },
         "correct_answer": "A",
-        "correct_answer_text": "-π^3 cos(πx)",
+        "correct_answer_text": "$-\\pi ^{3} \\cos (\\pi x)$",
         "difficulty": "hard",
         "source": {
           "page": 118,
@@ -691,18 +690,18 @@
         "solution": {
           "formula": "الاشتقاق المتتالي مع السلسلة",
           "steps": [
-            "f'(x) = π cos(πx)",
-            "f''(x) = -π^2 sin(πx)",
-            "f'''(x) = -π^3 cos(πx)"
+            "$f'(x) = \\pi \\cos (\\pi x)$",
+            "$f''(x) = -\\pi ^{2} \\sin (\\pi x)$",
+            "$f'''(x) = -\\pi ^{3} \\cos (\\pi x)$"
           ],
-          "summary": "يضرب المعامل π في كل مرة اشتقاق."
+          "summary": "يضرب المعامل $\\pi$في كل مرة اشتقاق."
         },
         "explanation": "اشتقاق متكرر مع تطبيق قاعدة السلسلة للزاوية ص 118."
       },
       {
         "id": "U03-L03-Q026",
         "number": 26,
-        "question": "ما هو الموقع الابتدائي لجسيم يتحرك حسب s(t) = √(3 + t - t^2)؟",
+        "question": "ما هو الموقع الابتدائي لجسيم يتحرك حسب $s(t) = \\sqrt{3 + t - t^{2}}$؟",
         "options": {
           "A": "0 m",
           "B": "√3 m",
@@ -710,26 +709,26 @@
           "D": "1 m"
         },
         "correct_answer": "B",
-        "correct_answer_text": "√3 m",
+        "correct_answer_text": "$\\sqrt{3} m$",
         "difficulty": "easy",
         "source": {
           "page": 118,
           "reference": "أتدرب وأحل المسائل - 33"
         },
         "solution": {
-          "formula": "s(0)",
+          "formula": "$s(0)$",
           "steps": [
-            "تعويض t = 0 في اقتران الموقع",
-            "s(0) = √(3 + 0 - 0) = √3"
+            "تعويض $t = 0$في اقتران الموقع",
+            "$s(0) = \\sqrt{3 + 0 - 0} = \\sqrt{3}$"
           ],
-          "summary": "الموقع الابتدائي هو √3 أمتار."
+          "summary": "الموقع الابتدائي هو $\\sqrt{3}$أمتار."
         },
         "explanation": "الموقع الابتدائي هو القيمة عند اللحظة صفر ص 118."
       },
       {
         "id": "U03-L03-Q027",
         "number": 27,
-        "question": "في تمرين أطوار القمر، ما هي قيمة الزاوية θ التي تجعل القمر بدراً (F = 1)؟",
+        "question": "في تمرين أطوار القمر، ما هي قيمة الزاوية $\\theta$التي تجعل القمر بدراً $(F = 1)$؟",
         "options": {
           "A": "0°",
           "B": "90°",
@@ -737,28 +736,28 @@
           "D": "360°"
         },
         "correct_answer": "C",
-        "correct_answer_text": "180°",
+        "correct_answer_text": "$180^{\\circ}$",
         "difficulty": "medium",
         "source": {
           "page": 119,
           "reference": "تمرين 23 - أطوار القمر"
         },
         "solution": {
-          "formula": "F = 0.5(1 - cos θ)",
+          "formula": "$F = 0.5(1 - \\cos \\theta )$",
           "steps": [
-            "1 = 0.5(1 - cos θ)",
-            "2 = 1 - cos θ",
-            "cos θ = -1",
-            "θ = 180°"
+            "$1 = 0.5(1 - \\cos \\theta )$",
+            "$2 = 1 - \\cos \\theta$",
+            "$\\cos \\theta = -1$",
+            "$\\theta = 180^{\\circ}$"
           ],
-          "summary": "الزاوية التي جيب تمامها -1 هي 180 درجة."
+          "summary": "الزاوية التي جيب تمامها $-1$هي 180 درجة."
         },
         "explanation": "حل معادلة مثلثية مرتبطة بتطبيق حياتي ص 119."
       },
       {
         "id": "U03-L03-Q028",
         "number": 28,
-        "question": "أجد معادلة المماس لمنحنى المعادلة الوسيطية x = t + 2, y = t^2 - 1 عند t = 1.",
+        "question": "أجد معادلة المماس لمنحنى المعادلة الوسيطية $x = t + 2, y = t^{2} - 1$عند $t = 1$.",
         "options": {
           "A": "y = 2x - 6",
           "B": "y = 2x - 3",
@@ -766,28 +765,28 @@
           "D": "y = 2t"
         },
         "correct_answer": "A",
-        "correct_answer_text": "y = 2x - 6",
+        "correct_answer_text": "$y = 2x - 6$",
         "difficulty": "hard",
         "source": {
           "page": 119,
           "reference": "أتدرب وأحل المسائل - 37"
         },
         "solution": {
-          "formula": "dy/dx = (dy/dt) / (dx/dt)",
+          "formula": "$\\frac{dy}{dx} = \\frac{\\frac{dy}{dt}}{\\frac{dx}{dt}}$",
           "steps": [
-            "dx/dt = 1 و dy/dt = 2t",
-            "عند t = 1: x = 3 و y = 0 و m = 2",
-            "المعادلة: y - 0 = 2(x - 3)",
-            "y = 2x - 6"
+            "$\\frac{dx}{dt} = 1$و $\\frac{dy}{dt} = 2t$",
+            "عند $t = 1$: $x = 3$و $y = 0$و $m = 2$",
+            "المعادلة: $y - 0 = 2(x - 3)$",
+            "$y = 2x - 6$"
           ],
-          "summary": "المعادلة هي y = 2x - 6."
+          "summary": "المعادلة هي $y = 2x - 6$."
         },
         "explanation": "تطبيق خطوات إيجاد المماس لمنحنى وسيطي ص 119."
       },
       {
         "id": "U03-L03-Q029",
         "number": 29,
-        "question": "أثبت أن dy/dx للاقتران y = ln(kx) هو 1/x.",
+        "question": "أثبت أن $\\frac{dy}{dx}$للاقتران $y = ln(kx)$هو $1/x$.",
         "options": {
           "A": "باستخدام قاعدة الضرب",
           "B": "باستخدام قاعدة السلسلة: مشتقة kx هي k، فالمشتقة k/kx = 1/x",
@@ -795,26 +794,26 @@
           "D": "لأن ln(kx) = ln x"
         },
         "correct_answer": "B",
-        "correct_answer_text": "باستخدام قاعدة السلسلة: مشتقة kx هي k، فالمشتقة k/kx = 1/x",
+        "correct_answer_text": "باستخدام قاعدة السلسلة: مشتقة $kx$هي $k$، فالمشتقة $k/kx = 1/x$",
         "difficulty": "medium",
         "source": {
           "page": 105,
           "reference": "تمرين مشابه ص 105"
         },
         "solution": {
-          "formula": "d/dx(ln u) = u' / u",
+          "formula": "$d/dx(ln u) = u' / u$",
           "steps": [
-            "u = kx و u' = k",
-            "y' = k / kx = 1/x"
+            "$u = kx$و $u' = k$",
+            "$y' = k / kx = 1/x$"
           ],
-          "summary": "الثابت k يختصر في الناتج النهائي."
+          "summary": "الثابت $k$يختصر في الناتج النهائي."
         },
         "explanation": "تطبيق لقاعدة اشتقاق اللوغاريتم المركب ص 105."
       },
       {
         "id": "U03-L03-Q030",
         "number": 30,
-        "question": "ما هي مشتقة f(x) = (ln x)^5؟",
+        "question": "ما هي مشتقة $f(x) = (ln x)^{5}$؟",
         "options": {
           "A": "5(ln x)^4",
           "B": "5(ln x)^4 / x",
@@ -822,26 +821,26 @@
           "D": "1 / x^5"
         },
         "correct_answer": "B",
-        "correct_answer_text": "5(ln x)^4 / x",
+        "correct_answer_text": "$5(ln x)^{4} / x$",
         "difficulty": "medium",
         "source": {
           "page": 106,
           "reference": "أتحقق من فهمي ص 106 - الفرع c"
         },
         "solution": {
-          "formula": "n u^(n-1) * u'",
+          "formula": "$n u^(n-1) \\cdot u'$",
           "steps": [
-            "تنزيل الأس 5: 5(ln x)^4",
-            "الضرب في مشتقة ln x وهي 1/x"
+            "تنزيل الأس 5: $5(ln x)^{4}$",
+            "الضرب في مشتقة $ln x$وهي $1/x$"
           ],
-          "summary": "الناتج هو 5(ln x)^4 / x."
+          "summary": "الناتج هو $5(ln x)^{4} / x$."
         },
         "explanation": "تطبيق لقاعدة سلسلة القوة على اقتران لوغاريتمي ص 106."
       },
       {
         "id": "U03-L03-Q031",
         "number": 31,
-        "question": "أجد مشتقة f(x) = 6^(1 - x^3).",
+        "question": "أجد مشتقة $f(x) = 6^(1 - x^3)$.",
         "options": {
           "A": "-3x^2 * 6^(1 - x^3)",
           "B": "-3x^2 ln 6 * 6^(1 - x^3)",
@@ -849,27 +848,27 @@
           "D": "6^(-3x^2)"
         },
         "correct_answer": "B",
-        "correct_answer_text": "-3x^2 ln 6 * 6^(1 - x^3)",
+        "correct_answer_text": "$-3x^{2} ln 6 \\cdot 6^(1 - x^3)$",
         "difficulty": "hard",
         "source": {
           "page": 112,
           "reference": "أتحقق من فهمي ص 112 - الفرع b"
         },
         "solution": {
-          "formula": "ln(a) * a^u * u'",
+          "formula": "$ln(a) \\cdot a^{u} \\cdot u'$",
           "steps": [
-            "a = 6 و u = 1 - x^3",
-            "u' = -3x^2",
-            "f'(x) = ln(6) * 6^(1-x^3) * (-3x^2)"
+            "$a = 6$و $u = 1 - x^{3}$",
+            "$u' = -3x^{2}$",
+            "$f'(x) = ln(6) \\cdot 6^(1-x^3) \\cdot (-3x^{2})$"
           ],
-          "summary": "المشتقة هي (-3x^2 ln 6) 6^(1-x^3)."
+          "summary": "المشتقة هي $(-3x^{2} ln 6) 6^(1-x^3)$."
         },
         "explanation": "تطبيق قاعدة الاقتران الأسي العام مع السلسلة ص 112."
       },
       {
         "id": "U03-L03-Q032",
         "number": 32,
-        "question": "ما هي قيمة k في مسألة البكتيريا ص 118 إذا كان معدل النمو 0.2 خلية/ساعة؟",
+        "question": "ما هي قيمة $k$في مسألة البكتيريا ص 118 إذا كان معدل النمو $0.2$خلية/ساعة؟",
         "options": {
           "A": "ln(2/N)",
           "B": "10 ln(2/N)",
@@ -877,20 +876,20 @@
           "D": "2/N"
         },
         "correct_answer": "B",
-        "correct_answer_text": "10 ln(2/N)",
+        "correct_answer_text": "$10 ln(2/N)$",
         "difficulty": "hard",
         "source": {
           "page": 118,
           "reference": "تمرين 26 - بكتيريا"
         },
         "solution": {
-          "formula": "A'(k) = 0.2",
+          "formula": "$A'(k) = 0.2$",
           "steps": [
-            "A'(t) = 0.1N e^(0.1t)",
-            "0.1N e^(0.1k) = 0.2",
-            "e^(0.1k) = 2/N",
-            "0.1k = ln(2/N)",
-            "k = 10 ln(2/N)"
+            "$A'(t) = 0.1N e^(0.1t)$",
+            "$0.1N e^(0.1k) = 0.2$",
+            "$e^(0.1k) = 2/N$",
+            "$0.1k = ln(2/N)$",
+            "$k = 10 ln(2/N)$"
           ],
           "summary": "حل معادلة أسية ناتجة عن المشتقة."
         },
@@ -899,7 +898,7 @@
       {
         "id": "U03-L03-Q033",
         "number": 33,
-        "question": "أجد مشتقة f(x) = log_3(1 + x ln x).",
+        "question": "أجد مشتقة $f(x) = log_{3}(1 + x ln x)$.",
         "options": {
           "A": "(1 + ln x) / [(1 + x ln x) ln 3]",
           "B": "1 / (1 + x ln x)",
@@ -907,27 +906,27 @@
           "D": "1 / ln 3"
         },
         "correct_answer": "A",
-        "correct_answer_text": "(1 + ln x) / [(1 + x ln x) ln 3]",
+        "correct_answer_text": "$\\frac{1 + ln x}{[}(1 + x ln x) ln 3]$",
         "difficulty": "hard",
         "source": {
           "page": 117,
           "reference": "أتدرب وأحل المسائل - 16"
         },
         "solution": {
-          "formula": "u' / (u ln a)",
+          "formula": "$\\frac{u'}{u ln a}$",
           "steps": [
-            "u = 1 + x ln x",
-            "u' = ln x + 1",
-            "تطبيق القاعدة مع a = 3"
+            "$u = 1 + x ln x$",
+            "$u' = ln x + 1$",
+            "تطبيق القاعدة مع $a = 3$"
           ],
-          "summary": "الناتج هو (1 + ln x) مقسوماً على (1 + x ln x)ln 3."
+          "summary": "الناتج هو $(1 + ln x)$مقسوماً على $(1 + x ln x)ln 3$."
         },
         "explanation": "دمج قاعدة الضرب واللوغاريتم العام ص 117."
       },
       {
         "id": "U03-L03-Q034",
         "number": 34,
-        "question": "ما هي المشتقة الثانية f''(x) للاقتران f(x) = cos(x^2)؟",
+        "question": "ما هي المشتقة الثانية $f''(x)$للاقتران $f(x) = \\cos (x^{2})$؟",
         "options": {
           "A": "-sin(x^2)",
           "B": "-2 sin(x^2) - 4x^2 cos(x^2)",
@@ -935,7 +934,7 @@
           "D": "2 cos(x^2)"
         },
         "correct_answer": "B",
-        "correct_answer_text": "-2 sin(x^2) - 4x^2 cos(x^2)",
+        "correct_answer_text": "$-2 \\sin (x^{2}) - 4x^{2} \\cos (x^{2})$",
         "difficulty": "hard",
         "source": {
           "page": 118,
@@ -944,9 +943,9 @@
         "solution": {
           "formula": "السلسلة ثم الضرب",
           "steps": [
-            "f'(x) = -2x sin(x^2)",
-            "f''(x) = (-2)(sin(x^2)) + (-2x)(2x cos(x^2))",
-            "f''(x) = -2 sin(x^2) - 4x^2 cos(x^2)"
+            "$f'(x) = -2x \\sin (x^{2})$",
+            "$f''(x) = (-2)(\\sin (x^{2})) + (-2x)(2x \\cos (x^{2}))$",
+            "$f''(x) = -2 \\sin (x^{2}) - 4x^{2} \\cos (x^{2})$"
           ],
           "summary": "تتطلب المشتقة الثانية استخدام قاعدة الضرب."
         },
@@ -955,7 +954,7 @@
       {
         "id": "U03-L03-Q035",
         "number": 35,
-        "question": "متى يعود الجسيم s(t) = ln(t^2 - 2t + 1.9) لموقعه الابتدائي؟",
+        "question": "متى يعود الجسيم $s(t) = ln(t^{2} - 2t + 1.9)$لموقعه الابتدائي؟",
         "options": {
           "A": "بعد ثانية واحدة",
           "B": "بعد ثانيتين",
@@ -970,22 +969,22 @@
           "reference": "مهارات التفكير العليا - 58"
         },
         "solution": {
-          "formula": "s(t) = s(0)",
+          "formula": "$s(t) = s(0)$",
           "steps": [
-            "s(0) = ln(1.9)",
-            "ln(t^2 - 2t + 1.9) = ln(1.9)",
-            "t^2 - 2t + 1.9 = 1.9",
-            "t(t - 2) = 0",
-            "t = 2"
+            "$s(0) = ln(1.9)$",
+            "$ln(t^{2} - 2t + 1.9) = ln(1.9)$",
+            "$t^{2} - 2t + 1.9 = 1.9$",
+            "$t(t - 2) = 0$",
+            "$t = 2$"
           ],
-          "summary": "يعود للموقع الابتدائي عند t = 2."
+          "summary": "يعود للموقع الابتدائي عند $t = 2$."
         },
         "explanation": "حل معادلة لوغاريتمية في سياق حركي ص 120."
       },
       {
         "id": "U03-L03-Q036",
         "number": 36,
-        "question": "أجد سرعة الجسيم s(t) = ln(t^2 - 2t + 1.9) عندما يكون تسارعه صفراً؟",
+        "question": "أجد سرعة الجسيم $s(t) = ln(t^{2} - 2t + 1.9)$عندما يكون تسارعه صفراً؟",
         "options": {
           "A": "1 m/s",
           "B": "0 m/s",
@@ -993,18 +992,18 @@
           "D": "غير موجودة"
         },
         "correct_answer": "B",
-        "correct_answer_text": "0 m/s",
+        "correct_answer_text": "$0 m/\\text{s}$",
         "difficulty": "hard",
         "source": {
           "page": 120,
           "reference": "مهارات التفكير العليا - 57"
         },
         "solution": {
-          "formula": "v(t) = s'(t), a(t) = v'(t)",
+          "formula": "$v(t) = s'(t), a(t) = v'(t)$",
           "steps": [
-            "v(t) = (2t - 2) / (t^2 - 2t + 1.9)",
-            "v(t) = 0 عندما t = 1",
-            "عند t = 1 تكون السرعة 0 m/s"
+            "$v(t) = \\frac{2t - 2}{t^{2} - 2t + 1.9}$",
+            "$v(t) = 0$عندما $t = 1$",
+            "عند $t = 1$تكون السرعة $0 m/\\text{s}$"
           ],
           "summary": "السرعة تساوي صفرًا عند النقطة المطلوبة."
         },
@@ -1013,7 +1012,7 @@
       {
         "id": "U03-L03-Q037",
         "number": 37,
-        "question": "ما هي مشتقة f(x) = π^(π^x)؟",
+        "question": "ما هي مشتقة $f(x) = \\pi ^(\\pi ^x)$؟",
         "options": {
           "A": "π^x * ln π",
           "B": "(ln π)^2 * π^x * π^(π^x)",
@@ -1021,27 +1020,27 @@
           "D": "x π^(x-1)"
         },
         "correct_answer": "B",
-        "correct_answer_text": "(ln π)^2 * π^x * π^(π^x)",
+        "correct_answer_text": "$(ln \\pi )^{2} \\cdot \\pi ^{x} \\cdot \\pi ^(\\pi ^x)$",
         "difficulty": "hard",
         "source": {
           "page": 112,
           "reference": "أتحقق من فهمي ص 112 - الفرع a"
         },
         "solution": {
-          "formula": "a^u * ln(a) * u'",
+          "formula": "$a^{u} \\cdot ln(a) \\cdot u'$",
           "steps": [
-            "a = π و u = π^x",
-            "u' = π^x * ln π",
-            "f'(x) = π^(π^x) * ln π * (π^x * ln π)"
+            "$a = \\pi$و $u = \\pi ^{x}$",
+            "$u' = \\pi ^{x} \\cdot ln \\pi$",
+            "$f'(x) = \\pi ^(\\pi ^x) \\cdot ln \\pi \\cdot (\\pi ^{x} \\cdot ln \\pi )$"
           ],
-          "summary": "المشتقة تحوي ln π مرتين."
+          "summary": "المشتقة تحوي $ln \\pi$مرتين."
         },
         "explanation": "تطبيق قاعدة الأسي العام بشكل متداخل ص 112."
       },
       {
         "id": "U03-L03-Q038",
         "number": 38,
-        "question": "أجد dy/dx للاقتران y = e^(sin 2x) + sin(e^(2x)).",
+        "question": "أجد $\\frac{dy}{dx}$للاقتران $y = e^(\\sin 2x) + \\sin (e^(2x))$.",
         "options": {
           "A": "2 cos 2x e^(sin 2x) + 2 e^(2x) cos(e^(2x))",
           "B": "e^(sin 2x) + sin(e^(2x))",
@@ -1049,7 +1048,7 @@
           "D": "cos 2x e^(sin 2x)"
         },
         "correct_answer": "A",
-        "correct_answer_text": "2 cos 2x e^(sin 2x) + 2 e^(2x) cos(e^(2x))",
+        "correct_answer_text": "$2 \\cos 2x e^(\\sin 2x) + 2 e^(2x) \\cos (e^(2x))$",
         "difficulty": "hard",
         "source": {
           "page": 117,
@@ -1058,8 +1057,8 @@
         "solution": {
           "formula": "قاعدة السلسلة للجمع",
           "steps": [
-            "الحد الأول: e^(sin 2x) * (cos 2x * 2)",
-            "الحد الثاني: cos(e^(2x)) * (e^(2x) * 2)",
+            "الحد الأول: $e^(\\sin 2x) \\cdot (\\cos 2x \\cdot 2)$",
+            "الحد الثاني: $\\cos (e^(2x)) \\cdot (e^(2x) \\cdot 2)$",
             "جمع المشتقتين"
           ],
           "summary": "تطبيق السلسلة على كل حد بشكل منفصل."
@@ -1069,7 +1068,7 @@
       {
         "id": "U03-L03-Q039",
         "number": 39,
-        "question": "في تمرين ذاكرة، ما هو معدل تغير قدرة الأطفال m(t) = t ln t + 1 بالنسبة إلى العمر؟",
+        "question": "في تمرين ذاكرة، ما هو معدل تغير قدرة الأطفال $m(t) = t ln t + 1$بالنسبة إلى العمر؟",
         "options": {
           "A": "1 / t",
           "B": "ln t + 1",
@@ -1077,7 +1076,7 @@
           "D": "ln t"
         },
         "correct_answer": "B",
-        "correct_answer_text": "ln t + 1",
+        "correct_answer_text": "$ln t + 1$",
         "difficulty": "medium",
         "source": {
           "page": 101,
@@ -1086,17 +1085,17 @@
         "solution": {
           "formula": "قاعدة الضرب",
           "steps": [
-            "مشتقة t ln t هي (1 * ln t + t * 1/t) = ln t + 1",
+            "مشتقة $t ln t$هي $(1 \\cdot ln t + t \\cdot 1/t) = ln t + 1$",
             "مشتقة الثابت 1 هي صفر"
           ],
-          "summary": "المعدل هو ln t + 1."
+          "summary": "المعدل هو $ln t + 1$."
         },
         "explanation": "تطبيق المشتقة على نموذج رياضي للذاكرة ص 101."
       },
       {
         "id": "U03-L03-Q040",
         "number": 40,
-        "question": "ما هي سرعة انتشار الإنفلونزا P(t) = 100 / (1 + e^(3-t)) بعد 3 أيام؟",
+        "question": "ما هي سرعة انتشار الإنفلونزا $P(t) = 100 / (1 + e^(3-t))$بعد 3 أيام؟",
         "options": {
           "A": "100 طالب/يوم",
           "B": "25 طالب/يوم",
@@ -1113,10 +1112,10 @@
         "solution": {
           "formula": "قاعدة المقلوب + السلسلة",
           "steps": [
-            "P'(t) = 100e^(3-t) / (1 + e^(3-t))^2",
-            "تعويض t = 3",
-            "P'(3) = 100e^0 / (1 + e^0)^2",
-            "P'(3) = 100 / 4 = 25"
+            "$P'(t) = 100e^(3-t) / (1 + e^(3-t))^{2}$",
+            "تعويض $t = 3$",
+            "$P'(3) = \\frac{100e^{0}}{1 + e^{0}}^{2}$",
+            "$P'(3) = \\frac{100}{4} = 25$"
           ],
           "summary": "سرعة الانتشار هي 25 طالبًا في اليوم."
         },
