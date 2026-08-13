@@ -850,21 +850,14 @@ function showQ() {
     html += '</button>';
   });
   html += '</div>';
-
-  const correctKey = q.correct_answer;
-  const chosenKey = prevAnswer && prevAnswer.chosen ? prevAnswer.chosen : null;
-  const isCorrect = prevAnswer && prevAnswer.correct;
-
-  html += '<div class="review-section" style="margin-top: 20px; padding: 16px; background: var(--surface2); border-radius: 12px; display: ' + (prevAnswer ? 'block' : 'none') + '">';
-  html += '<div class="review-header"><span>المراجعة الختامية</span></div>';
-  if (isCorrect) {
-    html += '<div class="review-ok"><span>✅ إجابتك صحيحة</span></div>';
-  } else {
-    const ci = KEYS.indexOf(chosenKey);
-    html += '<div class="review-no"><span>❌ إجابتك خاطئة</span></div>';
-    html += '<div class="review-your-answer"><strong>إجابتك:</strong> ' + AR_LABELS[ci] + ' — ' + q.options[ci] + '</div>';
-    html += '<div class="review-correct-answer"><strong>الإجابة الصحيحة:</strong> ' + AR_LABELS[correctKey] + ' — ' + q.options[correctKey] + '</div>';
-  }
+  html += '</div>';
+  html += '<div class="qnav" style="margin-top: 20px">';
+  if (state.idx > 0) html += '<button class="qnav-btn" onclick="goPrev()">→ السابق</button>';
+  html += '</div>';
+  html += '</div>';
+  document.getElementById('examContent').innerHTML = html;
+  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
+}
   html += '<div class="review-explanation"><strong>شرح الحل:</strong> للوصول إلى هذه الإجابة، يمكن استخدام الطريقة التالية:...</div>';
   html += '<button class="sol-toggle" onclick="this.classList.toggle(\'open\');this.nextElementSibling.classList.toggle(\'show\')">🔍 إظهار خطوات الحل</button>';
   html += '<div class="solution-box" style="display:none; margin-top: 10px; background: var(--surface); border: 1px solid var(--a-border); border-radius: 8px; padding: 10px">';
@@ -886,17 +879,18 @@ window.pick = function(key) {
   state.answers[state.idx] = { q: qItem, chosen: key, correct: key === qItem.correct_answer };
   document.querySelectorAll('.option-btn').forEach(b => {
     b.classList.toggle('selected', b.dataset.key === key);
-    if (b.dataset.key === qItem.correct_answer) b.classList.add('correct');
-    else if (b.dataset.key === key && key !== qItem.correct_answer) b.classList.add('wrong');
+    // Do NOT add 'correct' or 'wrong' classes during test - these are hidden
+    // b.classList.add('correct') would only apply after finishing
+    // b.classList.add('wrong') would only apply after finishing
   });
-  // Show review section immediately - no auto-advance
-  const qCard = document.getElementById('qCard');
-  if (qCard) {
-    const reviewSection = qCard.querySelector('.review-section');
-    if (reviewSection) {
-      reviewSection.style.display = 'block';
-    }
-  }
+  // Do NOT show review section during test - kept hidden until finish
+  // const qCard = document.getElementById('qCard');
+  // if (qCard) {
+  //   const reviewSection = qCard.querySelector('.review-section');
+  //   if (reviewSection) {
+  //     reviewSection.style.display = 'block';
+  //   }
+  // }
   // Remove timeout that auto-advanced
   clearTimeout(state.timer);
 };
@@ -905,14 +899,6 @@ window.goPrev = function() {
   clearTimeout(state.timer);
   if (state.idx > 0) {
     state.idx--;
-    // Hide review section of current question
-    const qCard = document.getElementById('qCard');
-    if (qCard) {
-      const reviewSection = qCard.querySelector('.review-section');
-      if (reviewSection) {
-        reviewSection.style.display = 'none';
-      }
-    }
     state.answered = false;
     showQ();
   }
@@ -921,14 +907,6 @@ window.goPrev = function() {
 window.goNext = function() {
   clearTimeout(state.timer);
   if (state.idx < state.questions.length - 1) {
-    // Hide review section of current question
-    const qCard = document.getElementById('qCard');
-    if (qCard) {
-      const reviewSection = qCard.querySelector('.review-section');
-      if (reviewSection) {
-        reviewSection.style.display = 'none';
-      }
-    }
     state.idx++;
     showQ();
   } else {
@@ -948,19 +926,46 @@ function showResult() {
   const pct = total ? Math.round((state.score / total) * 100) : 0;
   const icon = state.score === total ? '🏆' : state.score >= total * 0.5 ? '🎉' : '💪';
   const label = state.score === total ? 'ممتاز! إجابة كاملة' : state.score >= total * 0.5 ? 'أحسنت! استمر' : 'ركّز أكثر في المرة القادمة';
+  
+  // Build detailed result with each question's info
   let html = '<div class="result-card" style="display:block">' +
     '<div class="result-icon">' + icon + '</div>' +
     '<div class="result-score">' + state.score + '/' + total + '</div>' +
-    '<div class="result-label">' + label + '</div>' +
-    '<div class="result-detail">لقد أجبت على ' + state.score + ' من ' + total + ' أسئلة بشكل صحيح (' + pct + '%)</div>' +
-    '<div class="result-actions">' +
-    '<button class="result-again" onclick="restart()">🔄 إعادة الاختبار</button>' +
-    '<button class="result-again secondary" onclick="showAnswers()">📋 الإجابات النموذجية</button>' +
-    '</div>';
+    '<div class="result-label">' + label + '</div>';
+    
+  // Add detailed per-question results
+  html += '<div class="result-questions-detail" style="margin: 20px 0; max-height: 400px; overflow-y: auto;">';
+  state.questions.forEach((q, i) => {
+    const a = state.answers[i];
+    const isCorrect = a && a.correct;
+    html += '<div style="background: var(--surface2); border-radius: 12px; padding: 12px; margin: 8px 0; border-left: 4solid ' + (isCorrect ? '#4caf50' : '#f44336') + ';">';
+    html += '<div style="font-family: \'Tajawal\', sans-serif; font-size: 1rem; font-weight: 600; color: var(--a); margin-bottom: 6px;">سؤال ' + (i + 1) + ' من ' + total + '</div>';
+    html += '<div style="font-family: \'Tajawal\', sans-serif; font-size: 0.85rem; color: var(--text); margin: 4px 0;">' + q.question + '</div>';
+    html += '<div style="display: flex; justify-content: space-between; margin: 8px 0;">';
+    html += '<div style="flex: 1; color: var(--muted); font-size: 0.78rem;">إجابتك: ' + (a ? (a.chosen ? AR_LABELS[KEYS.indexOf(a.chosen)] : 'لم تجب') : 'لا توجد إجابة') + '</div>';
+    html += '<div style="color: var(--a); font-size: 0.78rem;">الصحيحة: ' + q.correct_answer + '</div>';
+    html += '</div>';
+    if (q.solution && (q.solution.formula || q.solution.steps || q.solution.summary)) {
+      html += '<div style="margin: 8px 0; font-size: 0.8rem; color: var(--muted);"><strong>خطوات الحل:</strong> ';
+      if (q.solution.formula) html += q.solution.formula + ' · ';
+      if (q.solution.steps && q.solution.steps.length) {
+        html += q.solution.steps.map(s => s || '').join(' | ');
+      }
+      if (q.solution.summary) html += ' · ' + q.solution.summary;
+      html += '</div>';
+    }
+    html += '</div>';
+  });
+  html += '</div>';
+  
+  html += '<div class="result-actions" style="margin-top: 20px">';
+  html += '<button class="result-again" onclick="restart()">🔄 إعادة الاختبار</button>';
+  html += '<button class="result-again secondary" onclick="showAnswers()">📋 الإجابات النموذجية</button>';
+  html += '</div>';
   if (state.origin === 'data') html += '<button class="back-btn center" onclick="renderLessons()">→ رجوع للدروس</button>';
   if (state.origin === 'legacy') html += '<button class="back-btn center" onclick="window.location=\'index.html\'">→ العودة للقائمة</button>';
   html += '</div>';
-  html += '<p class="result-message" style="margin: 20px 0; font-size: 0.9rem; color: var(--muted);">يمكنك مراجعة الإجابات الخاطئة من خلال الزر "الإجابات النموذجية" أعلاه، أو إعادة الاختبار لتحسين درجاتك.</p>';
+  html += '<p class="result-message" style="margin: 20px 0; font-size: 0.9rem; color: var(--muted);">يمكنك مراجعة الإجابات الخاطئة والأسئلة وتفسير الحلول من الأقسام أعلاه، أو إعادة الاختبار لتحسين درجاتك.</p>';
   document.getElementById('examContent').innerHTML = html;
 }
 
