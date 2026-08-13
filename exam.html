@@ -728,84 +728,72 @@ function startLegacy() {
 }
 
 function initData() {
-    fetch('questions/index.json', { cache: 'no-store' })
-      .then(r => { if (!r.ok) throw new Error('index'); return r.json(); })
+  // الفصل الثاني: رسالة "قريباً" مستقلة لكل جيل (لا يوجد محتوى بعد).
+  if (semester === 'ف2') { showChapter2ComingSoon(); return; }
+  const semDir = SEM_DIRS[semester];
+  if (!semDir) { startLegacy(); return; }
+  state.semDir = semDir;
+
+  fetch('questions/index.json', { cache: 'no-store' })
+    .then(r => { if (!r.ok) throw new Error('index'); return r.json(); })
     .then(idxData => {
       const rec = (idxData.subjects || []).find(s => s.name === subject);
-      const semDir = SEM_DIRS[semester];
-      // If second chapter (ف2) is selected, show coming soon message
-      if (semester === 'ف2') { showChapter2ComingSoon(); return; }
-      if (!rec || !rec.slug || !semDir) { startLegacy(); return; }
-      // ملكية المادة صريحة بالجيل: إذا كانت المادة مرفوعة لأجيال محددة فقط
-      // ولم يكن جيل الطالب من بينها، فلا تظهر له إطلاقاً (ولا نرجع لأسئلة عامة).
-      if (rec.generations && Array.isArray(rec.generations) && rec.generations.length && !rec.generations.includes(generation)) {
-        showGenEmpty();
-        return;
-      }
+      // مواد غير معتمدة على بنك الأسئلة (بلا ملفات مرفوعة) تعمل بالمولّد العادي.
+      if (!rec || !rec.slug) { startLegacy(); return; }
       state.slug = rec.slug;
-      state.semDir = semDir;
+      // بدون جيل لا يمكن تحديد محتوى ملكاً لأحد الأجيال — لا نعرض أي محتوى.
+      if (!generation) { showGenEmpty(); return; }
       loadSemesterIndex();
     })
     .catch(() => startLegacy());
 }
 
-// فهرس الفصل يحدد ملكيته بالجيل، ويُحلّ بأولوية:
-//   1) مجلد خاص بالجيل  questions/{slug}/{generation}/{semDir}/  (لمحتوى مستقبلي مستقل — مثل رياضيات 2010)
-//   2) المجلد المشترك   questions/{slug}/{semDir}/  — يُستخدم فقط إذا كان فهرسه بلا جيل،
-//      أو جيله مطابق لجيل الطالب. أي فهرس مرفوع لجيل آخر لا يُعرض أبداً.
+// البنية معزولة في مصدر البيانات نفسها:
+//   questions/{generation}/{semester}/{subject_id}/index.json  →  الوحدات
+// لا يوجد مجلد "مشترك" ولا أي fallback لمحتوى جيل آخر.
 function loadSemesterIndex() {
-  const genBase = generation ? 'questions/' + state.slug + '/' + generation + '/' + state.semDir : null;
-  const sharedBase = 'questions/' + state.slug + '/' + state.semDir;
+  const base = 'questions/' + generation + '/' + state.semDir + '/' + state.slug;
 
-  const fetchIndex = function(base) {
-    return fetch(base + '/index.json', { cache: 'no-store' })
-      .then(r => { if (!r.ok) throw new Error('sem'); return r.json(); })
-      .then(idx => {
-        const idxGen = (idx.generation || '').trim();
-        if (idxGen && idxGen !== generation) throw new Error('gen-mismatch');
-        return idx;
-      });
-  };
-
-  const accept = function(idx, base) {
-    state.semIndex = idx;
-    state.baseDir = base;
-    state.semLabel = idx.semester_label || semester;
-    document.getElementById('examSubject').textContent = '📖 ' + subject;
-    document.getElementById('examSemester').textContent = '— ' + state.semLabel;
-    renderUnits();
-  };
-
-  let chain;
-  if (genBase) {
-    chain = fetchIndex(genBase)
-      .then(idx => accept(idx, genBase))
-      .catch(() => fetchIndex(sharedBase))
-      .then(idx => accept(idx, sharedBase));
-  } else {
-    chain = fetchIndex(sharedBase).then(idx => accept(idx, sharedBase));
-  }
-  chain.catch(function(err) {
-    if (err && err.message === 'gen-mismatch') {
-      showGenEmpty();
-    } else {
-      showError('لا توجد أسئلة لهذا الفصل بعد', 'لم يتم العثور على أسئلة للفصل الدراسي المحدد. جرّب فصلاً آخر أو عُد لاحقاً.');
-    }
-  });
+  fetch(base + '/index.json', { cache: 'no-store' })
+    .then(r => { if (!r.ok) throw new Error('missing'); return r.json(); })
+    .then(idx => {
+      // دفاع مزدوج على مستوى البيانات: حتى لو وُجد الملف، يجب أن يصرّح
+      // بجيله ومادته، ولا يُعرض إن كان ينتمي لأي جهة أخرى.
+      if ((idx.generation && String(idx.generation) !== generation)
+          || (idx.generation_id && String(idx.generation_id) !== generation)
+          || (idx.subject_id && idx.subject_id !== state.slug)) {
+        throw { message: 'mismatch' };
+      }
+      state.semIndex = idx;
+      state.baseDir = base;
+      state.semLabel = idx.semester_label || semester;
+      document.getElementById('examSubject').textContent = '📖 ' + subject;
+      document.getElementById('examSemester').textContent = '— ' + state.semLabel;
+      renderUnits();
+    })
+    .catch(function(err) {
+      if (err && err.message === 'mismatch') {
+        showError('تعارض في بيانات المادة', 'ملف المحتوى المطلوب لا يخص ' + generation + ' أو مادة مختلفة. يرجى الإبلاغ عن المشكلة.');
+      } else {
+        showGenEmpty();
+      }
+    });
 }
 
 function showGenEmpty() {
   document.getElementById('examSubject').textContent = '📖 ' + (subject || '');
   document.getElementById('examSemester').textContent = generation ? '— ' + semester : '';
-  showEmpty('لا توجد أسئلة لجيلك لهذه المادة بعد',
-    'محتوى هذه المادة مرفوع لجيل آخر. سيتم إضافة أسئلة خاصة بجيلك لهذه المادة قريباً.');
+  showEmpty('لم تتم إضافة محتوى ' + (subject || '') + ' لهذا الجيل بعد',
+    generation
+      ? 'لا يوجد محتوى مرفوع لهذه المادة في مسار بيانات جيل ' + generation + '. لا يتم استخدام محتوى أي جيل آخر كبديل.'
+      : 'يرجى فتح الامتحان من صفحة جيلك (2009 أو 2010) ليتم تحديد المحتوى الصحيح.');
 }
 
 function showChapter2ComingSoon() {
   document.getElementById('examSubject').textContent = '📖 ' + (subject || '');
   document.getElementById('examSemester').textContent = '— الفصل الثاني';
   showEmpty('الفصل الثاني قريباً',
-    'يتم الآن إعداد أسئلة الفصل الثاني. سيتم إضافتها قريباً.');
+    'يتم الآن إعداد مواد الفصل الثاني لـ' + (generation ? 'جيل ' + generation : 'جيلك') + '، وسيتم إضافتها قريباً.');
 }
 
 function renderUnits() {
