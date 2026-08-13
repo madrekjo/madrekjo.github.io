@@ -521,12 +521,14 @@ const QUESTIONS = {
 const p = new URLSearchParams(window.location.search);
 const subject = p.get('subject');
 const semester = p.get('semester');
+const generation = (p.get('generation') || '').trim();
 const isReview = p.get('review') === 'true';
 const SEM_DIRS = { 'ف1': 'semester-1', 'ف2': 'semester-2' };
 const KEYS = ['A', 'B', 'C', 'D'];
 const AR_LABELS = ['أ', 'ب', 'ج', 'د'];
 const state = {
-  slug: null, semDir: null, semIndex: null, semLabel: null,
+  slug: null, semDir: null, semIndex: null, semLabel: null, baseDir: null,
+  generation: generation,
   unit: null, origin: 'legacy', title: '', expected: 0, warningMsg: '',
   questions: [], idx: 0, score: 0, answered: false, answers: [], timer: null
 };
@@ -537,6 +539,8 @@ if (isReview) {
   
   let wrongList = [];
   try { wrongList = JSON.parse(localStorage.getItem('madrekjo_wrong_questions') || '[]'); } catch(e) {}
+  // أسئلة جيل أخرى لا تظهر في مراجعة جيلك: السجلات القديمة بلا جيل تعتبر مشتركة.
+  wrongList = wrongList.filter(x => !x.generation || x.generation === generation);
 
   if (wrongList.length === 0) {
     document.getElementById('examContent').innerHTML = '<div class="empty-state"><div class="icon">✨</div><h3>لا توجد أسئلة خاطئة للمراجعة</h3><p>أنت ممتاز! لم تقم بالإجابة على أي سؤال بشكل خاطئ بعد، أو تم مسح السجل.</p></div>';
@@ -683,7 +687,7 @@ function addToWrong(qItem) {
     const qo = toLegacyQ(qItem);
     const exists = list.some(x => x.subject === subject && x.qObj.q === qo.q);
     if (!exists) {
-      list.push({ subject: subject, semester: semester || 'ف1', qObj: qo, answer: qo.answer });
+      list.push({ subject: subject, semester: semester || 'ف1', generation: state.generation, qObj: qo, answer: qo.answer });
       localStorage.setItem('madrekjo_wrong_questions', JSON.stringify(list));
     }
   } catch(e) {}
@@ -729,21 +733,79 @@ function initData() {
     .then(idxData => {
       const rec = (idxData.subjects || []).find(s => s.name === subject);
       const semDir = SEM_DIRS[semester];
+      // If second chapter (ف2) is selected, show coming soon message
+      if (semester === 'ف2') { showChapter2ComingSoon(); return; }
       if (!rec || !rec.slug || !semDir) { startLegacy(); return; }
+      // ملكية المادة صريحة بالجيل: إذا كانت المادة مرفوعة لأجيال محددة فقط
+      // ولم يكن جيل الطالب من بينها، فلا تظهر له إطلاقاً (ولا نرجع لأسئلة عامة).
+      if (rec.generations && Array.isArray(rec.generations) && rec.generations.length && !rec.generations.includes(generation)) {
+        showGenEmpty();
+        return;
+      }
       state.slug = rec.slug;
       state.semDir = semDir;
-      fetch('questions/' + rec.slug + '/' + semDir + '/index.json', { cache: 'no-store' })
-        .then(r => { if (!r.ok) throw new Error('sem'); return r.json(); })
-        .then(idx => {
-          state.semIndex = idx;
-          state.semLabel = idx.semester_label || semester;
-          document.getElementById('examSubject').textContent = '📖 ' + subject;
-          document.getElementById('examSemester').textContent = '— ' + state.semLabel;
-          renderUnits();
-        })
-        .catch(() => showError('لا توجد أسئلة لهذا الفصل بعد', 'لم يتم العثور على أسئلة للفصل الدراسي المحدد. جرّب فصلاً آخر أو عُد لاحقاً.'));
+      loadSemesterIndex();
     })
     .catch(() => startLegacy());
+}
+
+// فهرس الفصل يحدد ملكيته بالجيل، ويُحلّ بأولوية:
+//   1) مجلد خاص بالجيل  questions/{slug}/{generation}/{semDir}/  (لمحتوى مستقبلي مستقل — مثل رياضيات 2010)
+//   2) المجلد المشترك   questions/{slug}/{semDir}/  — يُستخدم فقط إذا كان فهرسه بلا جيل،
+//      أو جيله مطابق لجيل الطالب. أي فهرس مرفوع لجيل آخر لا يُعرض أبداً.
+function loadSemesterIndex() {
+  const genBase = generation ? 'questions/' + state.slug + '/' + generation + '/' + state.semDir : null;
+  const sharedBase = 'questions/' + state.slug + '/' + state.semDir;
+
+  const fetchIndex = function(base) {
+    return fetch(base + '/index.json', { cache: 'no-store' })
+      .then(r => { if (!r.ok) throw new Error('sem'); return r.json(); })
+      .then(idx => {
+        const idxGen = (idx.generation || '').trim();
+        if (idxGen && idxGen !== generation) throw new Error('gen-mismatch');
+        return idx;
+      });
+  };
+
+  const accept = function(idx, base) {
+    state.semIndex = idx;
+    state.baseDir = base;
+    state.semLabel = idx.semester_label || semester;
+    document.getElementById('examSubject').textContent = '📖 ' + subject;
+    document.getElementById('examSemester').textContent = '— ' + state.semLabel;
+    renderUnits();
+  };
+
+  let chain;
+  if (genBase) {
+    chain = fetchIndex(genBase)
+      .then(idx => accept(idx, genBase))
+      .catch(() => fetchIndex(sharedBase))
+      .then(idx => accept(idx, sharedBase));
+  } else {
+    chain = fetchIndex(sharedBase).then(idx => accept(idx, sharedBase));
+  }
+  chain.catch(function(err) {
+    if (err && err.message === 'gen-mismatch') {
+      showGenEmpty();
+    } else {
+      showError('لا توجد أسئلة لهذا الفصل بعد', 'لم يتم العثور على أسئلة للفصل الدراسي المحدد. جرّب فصلاً آخر أو عُد لاحقاً.');
+    }
+  });
+}
+
+function showGenEmpty() {
+  document.getElementById('examSubject').textContent = '📖 ' + (subject || '');
+  document.getElementById('examSemester').textContent = generation ? '— ' + semester : '';
+  showEmpty('لا توجد أسئلة لجيلك لهذه المادة بعد',
+    'محتوى هذه المادة مرفوع لجيل آخر. سيتم إضافة أسئلة خاصة بجيلك لهذه المادة قريباً.');
+}
+
+function showChapter2ComingSoon() {
+  document.getElementById('examSubject').textContent = '📖 ' + (subject || '');
+  document.getElementById('examSemester').textContent = '— الفصل الثاني';
+  showEmpty('الفصل الثاني قريباً',
+    'يتم الآن إعداد أسئلة الفصل الثاني. سيتم إضافتها قريباً.');
 }
 
 function renderUnits() {
@@ -794,13 +856,13 @@ function renderLessons() {
 function startLesson(li) {
   const l = state.unit.lessons[li];
   state.title = 'درس ' + (l.number || li + 1) + ' — ' + l.name;
-  loadQuiz('questions/' + state.slug + '/' + state.semDir + '/' + l.file, state.title, 40);
+  loadQuiz(state.baseDir + '/' + l.file, state.title, 40);
 }
 
 function startReview() {
   const r = state.unit.review;
   state.title = r.name;
-  loadQuiz('questions/' + state.slug + '/' + state.semDir + '/' + r.file, state.title, 50);
+  loadQuiz(state.baseDir + '/' + r.file, state.title, 50);
 }
 
 function loadQuiz(path, title, expected) {
@@ -851,20 +913,6 @@ function showQ() {
   });
   html += '</div>';
   html += '</div>';
-  html += '<div class="qnav" style="margin-top: 20px">';
-  if (state.idx > 0) html += '<button class="qnav-btn" onclick="goPrev()">→ السابق</button>';
-  html += '</div>';
-  html += '</div>';
-  document.getElementById('examContent').innerHTML = html;
-  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
-}
-  html += '<div class="review-explanation"><strong>شرح الحل:</strong> للوصول إلى هذه الإجابة، يمكن استخدام الطريقة التالية:...</div>';
-  html += '<button class="sol-toggle" onclick="this.classList.toggle(\'open\');this.nextElementSibling.classList.toggle(\'show\')">🔍 إظهار خطوات الحل</button>';
-  html += '<div class="solution-box" style="display:none; margin-top: 10px; background: var(--surface); border: 1px solid var(--a-border); border-radius: 8px; padding: 10px">';
-  html += '<div class="sol-steps"><li> الخطوة الأولى: قراءة السؤال وفهم المطلوب</li><li> الخطوة الثانية: تطبيق القاعدة أو الجنس</li><li> الخطوة الثالثة: حساب النتيجة النهائية</li></div>';
-  html += '</div>';
-  html += '</div>';
-
   html += '<div class="qnav" style="margin-top: 20px">';
   if (state.idx > 0) html += '<button class="qnav-btn" onclick="goPrev()">→ السابق</button>';
   html += '</div>';

@@ -166,6 +166,7 @@ const FIELD_DATA = {
 };
 
 const params = new URLSearchParams(window.location.search);
+const YEAR = document.body.dataset.year || '2009';
 const preselectedElective = params.get('elective');
 const preselectedMajor = params.get('major');
 let selectedElective = preselectedElective || null;
@@ -173,13 +174,13 @@ let selectedElective = preselectedElective || null;
 function buildSemesterLinks(elective) {
   function semItems(label) {
     const items = FIELD_DATA.mandatory.map(s => ({
-      icon: s.icon, text: s.name, url: '../exam.html?subject=' + encodeURIComponent(s.name) + '&semester=' + encodeURIComponent(label), type: 'iframe', title: s.name + ' — ' + label
+      icon: s.icon, text: s.name, url: '../exam.html?subject=' + encodeURIComponent(s.name) + '&semester=' + encodeURIComponent(label) + '&generation=' + encodeURIComponent(YEAR), type: 'iframe', title: s.name + ' — ' + label
     }));
     if (elective) {
       const i = elective.indexOf(' ');
       const icon = elective.slice(0, i);
       const name = elective.slice(i + 1);
-      items.push({ icon, text: 'اختياري: ' + name, url: '../exam.html?subject=' + encodeURIComponent(name) + '&semester=' + encodeURIComponent(label), type: 'iframe', title: name + ' — ' + label });
+      items.push({ icon, text: 'اختياري: ' + name, url: '../exam.html?subject=' + encodeURIComponent(name) + '&semester=' + encodeURIComponent(label) + '&generation=' + encodeURIComponent(YEAR), type: 'iframe', title: name + ' — ' + label });
     } else {
       items.push({ icon: '⬆️', text: '? اختر مادتك الاختيارية', type: 'action', action: 'scrollToElectives' });
     }
@@ -188,7 +189,11 @@ function buildSemesterLinks(elective) {
   return [
     { group: '⚙️ خدمات عامة', items: SHARED },
     { group: '📖 الفصل الأول', items: semItems('ف1') },
-    { group: '📘 الفصل الثاني', items: semItems('ف2') },
+    {
+      // الفصل الثاني مخفي - سيتم إضافه لاحقاً
+      group: '📘 الفصل الثاني',
+      items: [{ icon: '⏳', text: 'يتم إضافة مواد الفصل الثاني لاحقًا', url: '#', type: 'text' }]
+    },
     { group: '⚡ إضافات مفيدة', items: [] },
     { group: '📬 تواصل', items: [
       { icon: '💡', text: 'نموذج الاقتراحات', url: 'https://docs.google.com/forms/d/e/1FAIpQLSeOP7ow84vcJ-q8tm4YlHsKMCuGdoL-E5OCJw6C66PDrbMpWw/viewform', type: 'iframe', title: 'نموذج الاقتراحات' },

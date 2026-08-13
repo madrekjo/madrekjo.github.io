@@ -84,6 +84,7 @@
 
 <script>
 function enc(s) { return encodeURIComponent(s); }
+const YEAR = document.body.dataset.year || '2010';
 const SHARED = [
   { icon: '💬', text: 'الدردشة الدراسية', url: '/chat/', type: 'iframe', title: 'الدردشة الدراسية' },
   { icon: '🏆', text: 'الإنجاز', url: '/achievement/', type: 'iframe', title: 'الإنجاز' },
@@ -99,25 +100,23 @@ window.SIDEBAR_LINKS = [
   {
     group: '🔄 المراجعه الختاميه',
     items: [
-      { icon: '🎯', text: 'الأسئلة الخطأ للمراجعة', url: '../exam.html?review=true', type: 'iframe', title: 'المراجعه الختاميه — الأسئلة الخطأ' }
+      { icon: '🎯', text: 'الأسئلة الخطأ للمراجعة', url: '../exam.html?review=true&generation=2010', type: 'iframe', title: 'المراجعه الختاميه — الأسئلة الخطأ' }
     ]
   },
   {
     group: '📖 الفصل الأول',
     items: [
-      { icon: '🖊️', text: 'العربي',    url: '../exam.html?subject=' + enc('العربي') + '&semester=ف1', type: 'iframe', title: 'العربي — ف1' },
-      { icon: '🧮', text: 'الرياضيات',  url: '../exam.html?subject=' + enc('الرياضيات') + '&semester=ف1', type: 'iframe', title: 'الرياضيات — ف1' },
-      { icon: '☪️', text: 'الدين',     url: '../exam.html?subject=' + enc('الدين') + '&semester=ف1', type: 'iframe', title: 'الدين — ف1' },
-      { icon: '🏛️', text: 'تاريخ الاردن',   url: '../exam.html?subject=' + enc('تاريخ الاردن') + '&semester=ف1', type: 'iframe', title: 'تاريخ الاردن — ف1' },
+      { icon: '🖊️', text: 'العربي',    url: '../exam.html?subject=' + enc('العربي') + '&semester=ف1' + '&generation=' + YEAR, type: 'iframe', title: 'العربي — ف1' },
+      { icon: '🧮', text: 'الرياضيات',  url: '../exam.html?subject=' + enc('الرياضيات') + '&semester=ف1' + '&generation=' + YEAR, type: 'iframe', title: 'الرياضيات — ف1' },
+      { icon: '☪️', text: 'الدين',     url: '../exam.html?subject=' + enc('الدين') + '&semester=ف1' + '&generation=' + YEAR, type: 'iframe', title: 'الدين — ف1' },
+      { icon: '🏛️', text: 'تاريخ الاردن',   url: '../exam.html?subject=' + enc('تاريخ الاردن') + '&semester=ف1' + '&generation=' + YEAR, type: 'iframe', title: 'تاريخ الاردن — ف1' },
     ]
   },
   {
+    // الفصل الثاني مخفي - سيتم إضافته لاحقاً
     group: '📘 الفصل الثاني',
     items: [
-      { icon: '🖊️', text: 'العربي',    url: '../exam.html?subject=' + enc('العربي') + '&semester=ف2', type: 'iframe', title: 'العربي — ف2' },
-      { icon: '🧮', text: 'الرياضيات',  url: '../exam.html?subject=' + enc('الرياضيات') + '&semester=ف2', type: 'iframe', title: 'الرياضيات — ف2' },
-      { icon: '☪️', text: 'الدين',     url: '../exam.html?subject=' + enc('الدين') + '&semester=ف2', type: 'iframe', title: 'الدين — ف2' },
-      { icon: '🏛️', text: 'تاريخ الاردن',   url: '../exam.html?subject=' + enc('تاريخ الاردن') + '&semester=ف2', type: 'iframe', title: 'تاريخ الاردن — ف2' },
+      { icon: '⏳', text: 'يتم إضافة مواد الفصل الثاني لاحقًا', url: '#', type: 'text', title: 'الفصل الثاني قادم قريباً' }
     ]
   },
   {
@@ -143,7 +142,8 @@ function setWelcomeMsg(name) {
   // Check wrong questions notification
   try {
     const wrongQs = JSON.parse(localStorage.getItem('madrekjo_wrong_questions') || '[]');
-    if (wrongQs.length > 0) {
+    const wrongQsThisGen = wrongQs.filter(x => !x.generation || x.generation === YEAR);
+    if (wrongQsThisGen.length > 0) {
       setTimeout(() => {
         if (confirm('لديك اسئله تمت الاجابه عليهم بشكل خطا هل تريد الانتقال للقسم (المراجعه الختاميه)؟')) {
           const viewer = document.getElementById('fullViewer');
@@ -156,7 +156,7 @@ function setWelcomeMsg(name) {
           spinner.style.display = 'block';
           iframe.style.opacity = '0';
           errorBox.style.display = 'none';
-          iframe.src = '../exam.html?review=true';
+          iframe.src = '../exam.html?review=true&generation=2010';
           viewer.style.display = 'flex';
           document.body.style.overflow = 'hidden';
 
