@@ -77,6 +77,12 @@
           "number": 2,
           "name": "الجُهد الكهربائي",
           "file": "unit-03/lesson-02.json"
+        },
+        {
+          "id": "L03",
+          "number": 3,
+          "name": "المواسعة الكهربائية",
+          "file": "unit-03/lesson-03.json"
         }
       ],
       "review": {
