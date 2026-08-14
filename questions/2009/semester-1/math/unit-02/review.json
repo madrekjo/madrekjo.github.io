@@ -4,20 +4,20 @@
     "number": 1,
     "question": "أي من المتطابقات الآتية صحيحة لجميع قيم $\\theta$؟",
     "options": {
-      "A": "cos² θ + sin² θ = 1",
-      "B": "tan θ = cos θ / sin θ",
-      "C": "sec θ = sin θ",
-      "D": "sin 2θ = sin θ cos θ"
+      "A": "$\\cos^{2} \\theta + \\sin^{2} \\theta = 1$",
+      "B": "$\\tan \\theta = \\cos \\theta / \\sin \\theta$",
+      "C": "$\\sec \\theta = \\sin \\theta$",
+      "D": "$\\sin 2\\theta = \\sin \\theta \\cos \\theta$"
     },
     "correct_answer": "A",
-    "correct_answer_text": "$\\cos ^{2} \\theta + \\sin ^{2} \\theta = 1$",
+    "correct_answer_text": "$\\cos^{2} \\theta + \\sin^{2} \\theta = 1$",
     "difficulty": "easy",
     "source": {
       "page": 35,
       "reference": "متطابقات فيثاغورس"
     },
     "solution": {
-      "formula": "$\\sin ^{2} \\theta + \\cos ^{2} \\theta = 1$",
+      "formula": "$\\sin^{2} \\theta + \\cos^{2} \\theta = 1$",
       "steps": [],
       "summary": "هذه هي متطابقة فيثاغورس الأساسية."
     },
@@ -28,10 +28,10 @@
     "number": 2,
     "question": "ما هي قيمة $\\sec (-x)$؟",
     "options": {
-      "A": "sec x",
-      "B": "-sec x",
-      "C": "cos x",
-      "D": "-cos x"
+      "A": "$\\sec x$",
+      "B": "$-\\sec x$",
+      "C": "$\\cos x$",
+      "D": "$-\\cos x$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$\\sec x$",
@@ -41,7 +41,7 @@
       "reference": "متطابقات الزاوية السالبة"
     },
     "solution": {
-      "formula": "$\\sec (-x) = 1 / \\cos (-x)$",
+      "formula": "$\\sec (-x) = \\frac{1}{\\cos (-x)}$",
       "steps": [
         "بما أن جيب التمام اقتران زوجي، فإن $\\cos (-x) = \\cos x$",
         "إذن $1/\\cos x = \\sec x$"
@@ -55,9 +55,9 @@
     "number": 3,
     "question": "بسط المقدار: $\\tan x \\cos x$.",
     "options": {
-      "A": "sin x",
-      "B": "cos x",
-      "C": "sec x",
+      "A": "$\\sin x$",
+      "B": "$\\cos x$",
+      "C": "$\\sec x$",
       "D": "1"
     },
     "correct_answer": "A",
@@ -71,7 +71,7 @@
       "formula": "$(\\sin x / \\cos x) \\times \\cos x$",
       "steps": [
         "نعوض $\\tan x = \\sin x / \\cos x$",
-        "نختصر $\\cos x$من البسط والمقام"
+        "نختصر $\\cos x$ من البسط والمقام"
       ],
       "summary": "$\\sin x$"
     },
@@ -82,10 +82,10 @@
     "number": 4,
     "question": "ما هي قيمة $\\sin 75^{\\circ}$؟",
     "options": {
-      "A": "(√6 + √2) / 4",
-      "B": "(√6 - √2) / 4",
-      "C": "1/2",
-      "D": "√3/2"
+      "A": "$\\frac{\\sqrt{6} + \\sqrt{2}}{4}$",
+      "B": "$\\frac{\\sqrt{6} - \\sqrt{2}}{4}$",
+      "C": "$\\frac{1}{2}$",
+      "D": "$\\frac{\\sqrt{3}}{2}$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$\\frac{\\sqrt{6} + \\sqrt{2}}{4}$",
@@ -108,22 +108,22 @@
   {
     "id": "U02-REV-Q005",
     "number": 5,
-    "question": "ما هي متطابقة $\\cos 2\\theta$التي لا تحتوي على اقتران الجيب؟",
+    "question": "ما هي متطابقة $\\cos 2\\theta$ التي لا تحتوي على اقتران الجيب؟",
     "options": {
-      "A": "2 cos² θ - 1",
-      "B": "1 - 2 sin² θ",
-      "C": "cos² θ - sin² θ",
-      "D": "2 cos θ"
+      "A": "$2 \\cos^{2} \\theta - 1$",
+      "B": "$1 - 2 \\sin^{2} \\theta$",
+      "C": "$\\cos^{2} \\theta - \\sin^{2} \\theta$",
+      "D": "$2 \\cos \\theta$"
     },
     "correct_answer": "A",
-    "correct_answer_text": "$2 \\cos ^{2} \\theta - 1$",
+    "correct_answer_text": "$2 \\cos^{2} \\theta - 1$",
     "difficulty": "easy",
     "source": {
       "page": 47,
       "reference": "ضعف الزاوية"
     },
     "solution": {
-      "formula": "$\\cos 2\\theta = 2 \\cos ^{2} \\theta - 1$",
+      "formula": "$\\cos 2\\theta = 2 \\cos^{2} \\theta - 1$",
       "steps": [],
       "summary": "هذه الصيغة تعتمد على جيب التمام فقط."
     },
@@ -132,12 +132,12 @@
   {
     "id": "U02-REV-Q006",
     "number": 6,
-    "question": "أوجد قيمة $\\sin 22.5^{\\circ}$دون استخدام الحاسبة.",
+    "question": "أوجد قيمة $\\sin 22.5^{\\circ}$ دون استخدام الحاسبة.",
     "options": {
-      "A": "1/2 √(2 - √2)",
-      "B": "1/2 √(2 + √2)",
-      "C": "√2/4",
-      "D": "1/4"
+      "A": "$\\frac{1}{2} \\sqrt{2 - \\sqrt{2}}$",
+      "B": "$\\frac{1}{2} \\sqrt{2 + \\sqrt{2}}$",
+      "C": "$\\frac{\\sqrt{2}}{4}$",
+      "D": "$\\frac{1}{4}$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$\\frac{1}{2} \\sqrt{2 - \\sqrt{2}}$",
@@ -147,10 +147,10 @@
       "reference": "نصف الزاوية"
     },
     "solution": {
-      "formula": "$\\sin (\\theta /2) = [\\frac{1 - \\cos \\theta }{2]}$",
+      "formula": "$\\sin (\\frac{\\theta}{2}) = [\\frac{1 - \\cos \\theta}{2}]$",
       "steps": [
         "نضع $\\theta = 45^{\\circ}$",
-        "$\\sin 22.5^{\\circ} = [\\frac{1 - \\cos 45^{\\circ}}{2]}$",
+        "$\\sin 22.5^{\\circ} = [\\frac{1 - \\cos 45^{\\circ}}{2}]$",
         "وبالتبسيط نحصل على $\\frac{1}{2} \\sqrt{2 - \\sqrt{2}}$"
       ],
       "summary": "$\\frac{1}{2} \\sqrt{2 - \\sqrt{2}}$"
@@ -160,22 +160,22 @@
   {
     "id": "U02-REV-Q007",
     "number": 7,
-    "question": "أي مما يأتي يحول $\\sin α + \\sin β$إلى ضرب؟",
+    "question": "أي مما يأتي يحول $\\sin α + \\sin β$ إلى ضرب؟",
     "options": {
-      "A": "2 sin[(α+β)/2] cos[(α-β)/2]",
-      "B": "2 cos[(α+β)/2] sin[(α-β)/2]",
-      "C": "2 cos[(α+β)/2] cos[(α-β)/2]",
-      "D": "sin(α+β)"
+      "A": "$2 \\sin [\\frac{α+β}{2}] \\cos [\\frac{α-β}{2}]$",
+      "B": "$2 \\cos [\\frac{α+β}{2}] \\sin [\\frac{α-β}{2}]$",
+      "C": "$2 \\cos [\\frac{α+β}{2}] \\cos [\\frac{α-β}{2}]$",
+      "D": "$\\sin (α+β)$"
     },
     "correct_answer": "A",
-    "correct_answer_text": "$2 \\sin [\\frac{α+β}{2]} \\cos [\\frac{α-β}{2]}$",
+    "correct_answer_text": "$2 \\sin [\\frac{α+β}{2}] \\cos [\\frac{α-β}{2}]$",
     "difficulty": "medium",
     "source": {
       "page": 53,
       "reference": "تحويل المجموع إلى ضرب"
     },
     "solution": {
-      "formula": "$\\sin α + \\sin β = 2 \\sin [\\frac{α+β}{2]} \\cos [\\frac{α-β}{2]}$",
+      "formula": "$\\sin α + \\sin β = 2 \\sin [\\frac{α+β}{2}] \\cos [\\frac{α-β}{2}]$",
       "steps": [],
       "summary": "قانون تحويل مجموع الجيبين."
     },
@@ -184,15 +184,15 @@
   {
     "id": "U02-REV-Q008",
     "number": 8,
-    "question": "حل المعادلة $\\sin x = 1$في الفترة $[0, 2\\pi )$.",
+    "question": "حل المعادلة $\\sin x = 1$ في الفترة $[0, 2\\pi )$.",
     "options": {
-      "A": "π/2",
-      "B": "3π/2",
+      "A": "$\\frac{\\pi}{2}$",
+      "B": "$\\frac{3\\pi}{2}$",
       "C": "0",
-      "D": "π"
+      "D": "$\\pi$"
     },
     "correct_answer": "A",
-    "correct_answer_text": "$\\pi /2$",
+    "correct_answer_text": "$\\frac{\\pi}{2}$",
     "difficulty": "easy",
     "source": {
       "page": 58,
@@ -201,24 +201,24 @@
     "solution": {
       "formula": "$\\sin x = 1$",
       "steps": [
-        "جيب الزاوية يساوي 1 عند $\\pi /2$ضمن الفترة المعطاة"
+        "جيب الزاوية يساوي 1 عند $\\frac{\\pi}{2}$ ضمن الفترة المعطاة"
       ],
-      "summary": "$x = \\pi /2$"
+      "summary": "$x = \\frac{\\pi}{2}$"
     },
-    "explanation": "$\\pi /2$هو الحل الوحيد في الفترة $[0, 2\\pi )$الذي يحقق $\\sin x = 1$."
+    "explanation": "$\\frac{\\pi}{2}$ هو الحل الوحيد في الفترة $[0, 2\\pi )$ الذي يحقق $\\sin x = 1$."
   },
   {
     "id": "U02-REV-Q009",
     "number": 9,
     "question": "ما هو الحل العام للمعادلة $\\tan x = 1$؟",
     "options": {
-      "A": "x = π/4 + kπ",
-      "B": "x = π/4 + 2kπ",
-      "C": "x = 5π/4 + 2kπ",
-      "D": "x = kπ"
+      "A": "$x = \\frac{\\pi}{4} + k\\pi$",
+      "B": "$x = \\frac{\\pi}{4} + 2k\\pi$",
+      "C": "$x = \\frac{5\\pi}{4} + 2k\\pi$",
+      "D": "$x = k\\pi$"
     },
     "correct_answer": "A",
-    "correct_answer_text": "$x = \\pi /4 + k\\pi$",
+    "correct_answer_text": "$x = \\frac{\\pi}{4} + k\\pi$",
     "difficulty": "medium",
     "source": {
       "page": 60,
@@ -227,22 +227,22 @@
     "solution": {
       "formula": "$x = \\theta + k\\pi$",
       "steps": [
-        "الزاوية الأساسية التي ظلها يساوي 1 هي $\\pi /4$",
+        "الزاوية الأساسية التي ظلها يساوي 1 هي $\\frac{\\pi}{4}$",
         "دورة الظل تساوي $\\pi$",
-        "إذن $x = \\pi /4 + k\\pi$"
+        "إذن $x = \\frac{\\pi}{4} + k\\pi$"
       ],
-      "summary": "$\\pi /4 + k\\pi$"
+      "summary": "$\\frac{\\pi}{4} + k\\pi$"
     },
-    "explanation": "دورة دالة الظل هي $\\pi$، لذلك نضيف $k\\pi$إلى الحل الأساسي."
+    "explanation": "دورة دالة الظل هي $\\pi$، لذلك نضيف $k\\pi$ إلى الحل الأساسي."
   },
   {
     "id": "U02-REV-Q010",
     "number": 10,
-    "question": "بسط المقدار: $(1 - \\sin ^{2} x) \\sec ^{2} x$.",
+    "question": "بسط المقدار: $(1 - \\sin^{2} x) \\sec^{2} x$.",
     "options": {
       "A": "1",
-      "B": "cos² x",
-      "C": "tan² x",
+      "B": "$\\cos^{2} x$",
+      "C": "$\\tan^{2} x$",
       "D": "0"
     },
     "correct_answer": "A",
@@ -253,23 +253,23 @@
       "reference": "تبسيط"
     },
     "solution": {
-      "formula": "$1 - \\sin ^{2} x = \\cos ^{2} x$",
+      "formula": "$1 - \\sin^{2} x = \\cos^{2} x$",
       "steps": [
-        "باستخدام متطابقة فيثاغورس: $1 - \\sin ^{2} x = \\cos ^{2} x$",
-        "إذن $\\cos ^{2} x \\sec ^{2} x = 1$"
+        "باستخدام متطابقة فيثاغورس: $1 - \\sin^{2} x = \\cos^{2} x$",
+        "إذن $\\cos^{2} x \\sec^{2} x = 1$"
       ],
       "summary": "1"
     },
-    "explanation": "القوس يساوي $\\cos ^{2} x$، و$\\sec ^{2} x$هو مقلوبه، لذلك حاصل الضرب يساوي 1."
+    "explanation": "القوس يساوي $\\cos^{2} x$، و $\\sec^{2} x$ هو مقلوبه، لذلك حاصل الضرب يساوي 1."
   },
   {
     "id": "U02-REV-Q011",
     "number": 11,
     "question": "ما هي قيمة $\\cos 105^{\\circ}$؟",
     "options": {
-      "A": "(√2 - √6) / 4",
-      "B": "(√6 - √2) / 4",
-      "C": "-1/2",
+      "A": "$\\frac{\\sqrt{2} - \\sqrt{6}}{4}$",
+      "B": "$\\frac{\\sqrt{6} - \\sqrt{2}}{4}$",
+      "C": "$\\frac{-1}{2}$",
       "D": "0"
     },
     "correct_answer": "A",
@@ -293,12 +293,12 @@
   {
     "id": "U02-REV-Q012",
     "number": 12,
-    "question": "بسط المقدار: $\\sin \\frac{2x}{2 \\sin x}$.",
+    "question": "بسط المقدار: $\\sin 2\\frac{x}{2 \\sin x}$.",
     "options": {
-      "A": "cos x",
-      "B": "sin x",
+      "A": "$\\cos x$",
+      "B": "$\\sin x$",
       "C": "1",
-      "D": "1/2"
+      "D": "$\\frac{1}{2}$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$\\cos x$",
@@ -320,15 +320,15 @@
   {
     "id": "U02-REV-Q013",
     "number": 13,
-    "question": "أوجد حلول $2 \\cos x + 1 = 0$في الفترة $[0, 2\\pi )$.",
+    "question": "أوجد حلول $2 \\cos x + 1 = 0$ في الفترة $[0, 2\\pi )$.",
     "options": {
-      "A": "2π/3, 4π/3",
-      "B": "π/3, 5π/3",
-      "C": "π/6, 11π/6",
-      "D": "π/3, 2π/3"
+      "A": "$\\frac{2\\pi}{3}, \\frac{4\\pi}{3}$",
+      "B": "$\\frac{\\pi}{3}, \\frac{5\\pi}{3}$",
+      "C": "$\\frac{\\pi}{6}, \\frac{11\\pi}{6}$",
+      "D": "$\\frac{\\pi}{3}, \\frac{2\\pi}{3}$"
     },
     "correct_answer": "A",
-    "correct_answer_text": "$2\\pi /3, 4\\pi /3$",
+    "correct_answer_text": "$\\frac{2\\pi}{3}, \\frac{4\\pi}{3}$",
     "difficulty": "medium",
     "source": {
       "page": 59,
@@ -338,23 +338,23 @@
       "formula": "$\\cos x = \\frac{-1}{2}$",
       "steps": [
         "جيب التمام يساوي $\\frac{-1}{2}$",
-        "الزاوية المرجعية $\\pi /3$",
+        "الزاوية المرجعية $\\frac{\\pi}{3}$",
         "جيب التمام سالب في الربعين الثاني والثالث",
-        "إذن $x = 2\\pi /3, 4\\pi /3$"
+        "إذن $x = \\frac{2\\pi}{3}, \\frac{4\\pi}{3}$"
       ],
-      "summary": "$2\\pi /3$و $4\\pi /3$"
+      "summary": "$\\frac{2\\pi}{3}$ و $\\frac{4\\pi}{3}$"
     },
     "explanation": "نحدد الزوايا التي يكون فيها جيب التمام مساوياً لـ $\\frac{-1}{2}$."
   },
   {
     "id": "U02-REV-Q014",
     "number": 14,
-    "question": "ما هي متطابقة تقليص القوة لـ $\\sin ^{2}(x/2)$؟",
+    "question": "ما هي متطابقة تقليص القوة لـ $\\sin^{2}(\\frac{x}{2})$؟",
     "options": {
-      "A": "(1 - cos x) / 2",
-      "B": "(1 + cos x) / 2",
-      "C": "1 - cos x",
-      "D": "sin x"
+      "A": "$\\frac{1 - \\cos x}{2}$",
+      "B": "$\\frac{1 + \\cos x}{2}$",
+      "C": "$1 - \\cos x$",
+      "D": "$\\sin x$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$\\frac{1 - \\cos x}{2}$",
@@ -364,11 +364,11 @@
       "reference": "تقليص القوة"
     },
     "solution": {
-      "formula": "$\\sin ^{2} \\theta = \\frac{1 - \\cos 2\\theta }{2}$",
+      "formula": "$\\sin^{2} \\theta = \\frac{1 - \\cos 2\\theta}{2}$",
       "steps": [
-        "نعوض $\\theta = x/2$",
-        "$2(x/2) = x$",
-        "إذن $\\sin ^{2}(x/2) = \\frac{1 - \\cos x}{2}$"
+        "نعوض $\\theta = \\frac{x}{2}$",
+        "$2(\\frac{x}{2}) = x$",
+        "إذن $\\sin^{2}(\\frac{x}{2}) = \\frac{1 - \\cos x}{2}$"
       ],
       "summary": "$\\frac{1 - \\cos x}{2}$"
     },
@@ -379,10 +379,10 @@
     "number": 15,
     "question": "أوجد قيمة المقدار: $2 \\sin 15^{\\circ} \\cos 15^{\\circ}$.",
     "options": {
-      "A": "1/2",
-      "B": "√3/2",
+      "A": "$\\frac{1}{2}$",
+      "B": "$\\frac{\\sqrt{3}}{2}$",
       "C": "1",
-      "D": "√2/2"
+      "D": "$\\frac{\\sqrt{2}}{2}$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$\\frac{1}{2}$",
@@ -406,10 +406,10 @@
     "number": 16,
     "question": "بسط المقدار: $\\cos (A-B) - \\cos (A+B)$.",
     "options": {
-      "A": "2 sin A sin B",
-      "B": "2 cos A cos B",
+      "A": "$2 \\sin A \\sin B$",
+      "B": "$2 \\cos A \\cos B$",
       "C": "0",
-      "D": "2 sin A"
+      "D": "$2 \\sin A$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$2 \\sin A \\sin B$",
@@ -432,12 +432,12 @@
   {
     "id": "U02-REV-Q017",
     "number": 17,
-    "question": "ما هي حلول $\\cos ^{2} x = 1$في الفترة $[0, 2\\pi )$؟",
+    "question": "ما هي حلول $\\cos^{2} x = 1$ في الفترة $[0, 2\\pi )$؟",
     "options": {
-      "A": "0, π",
-      "B": "π/2, 3π/2",
+      "A": "$0, \\pi$",
+      "B": "$\\frac{\\pi}{2}, \\frac{3\\pi}{2}$",
       "C": "0",
-      "D": "π"
+      "D": "$\\pi$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$0, \\pi$",
@@ -447,39 +447,39 @@
       "reference": "حل المعادلات"
     },
     "solution": {
-      "formula": "$\\cos ^{2} x = 1$",
+      "formula": "$\\cos^{2} x = 1$",
       "steps": [
         "$\\cos x = \\pm 1$",
-        "في الفترة $[0, 2\\pi )$يتحقق ذلك عند $x = 0$و $x = \\pi$"
+        "في الفترة $[0, 2\\pi )$ يتحقق ذلك عند $x = 0$ و $x = \\pi$"
       ],
       "summary": "$0, \\pi$"
     },
-    "explanation": "جيب التمام يساوي 1 أو $-1$عند 0 و$\\pi$في الدورة المطلوبة."
+    "explanation": "جيب التمام يساوي 1 أو $-1$ عند 0 و $\\pi$ في الدورة المطلوبة."
   },
   {
     "id": "U02-REV-Q018",
     "number": 18,
     "question": "بسط المقدار: $(\\sec x - 1)(\\sec x + 1)$.",
     "options": {
-      "A": "tan² x",
+      "A": "$\\tan^{2} x$",
       "B": "1",
-      "C": "sec² x",
-      "D": "sin² x"
+      "C": "$\\sec^{2} x$",
+      "D": "$\\sin^{2} x$"
     },
     "correct_answer": "A",
-    "correct_answer_text": "$\\tan ^{2} x$",
+    "correct_answer_text": "$\\tan^{2} x$",
     "difficulty": "medium",
     "source": {
       "page": 35,
       "reference": "متطابقات فيثاغورس"
     },
     "solution": {
-      "formula": "$(\\sec x - 1)(\\sec x + 1) = \\sec ^{2} x - 1$",
+      "formula": "$(\\sec x - 1)(\\sec x + 1) = \\sec^{2} x - 1$",
       "steps": [
         "نستخدم الفرق بين مربعين",
-        "باستخدام $\\sec ^{2} x - 1 = \\tan ^{2} x$"
+        "باستخدام $\\sec^{2} x - 1 = \\tan^{2} x$"
       ],
-      "summary": "$\\tan ^{2} x$"
+      "summary": "$\\tan^{2} x$"
     },
     "explanation": "نستخدم تحليل الفرق بين مربعين ثم متطابقة فيثاغورس للقاطع والظل."
   },
@@ -488,10 +488,10 @@
     "number": 19,
     "question": "أوجد قيمة $\\tan 15^{\\circ}$.",
     "options": {
-      "A": "2 - √3",
-      "B": "2 + √3",
+      "A": "$2 - \\sqrt{3}$",
+      "B": "$2 + \\sqrt{3}$",
       "C": "1",
-      "D": "√3"
+      "D": "$\\sqrt{3}$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$2 - \\sqrt{3}$",
@@ -504,22 +504,22 @@
       "formula": "$\\tan (45^{\\circ} - 30^{\\circ})$",
       "steps": [
         "$\\tan (45^{\\circ} - 30^{\\circ}) = \\frac{\\tan 45^{\\circ} - \\tan 30^{\\circ}}{1 + \\tan 45^{\\circ} \\tan 30^{\\circ}}$",
-        "$=\\frac{1 - \\frac{1}{\\sqrt{3}}}{1 + \\frac{1}{\\sqrt{3}}}$",
+        "$=\\frac{1 - 1/\\sqrt{3}}{1 + 1/\\sqrt{3}}$",
         "$= 2 - \\sqrt{3}$"
       ],
       "summary": "$2 - \\sqrt{3}$"
     },
-    "explanation": "نطبق متطابقة ظل الفرق للزاويتين $45^{\\circ}$و$30^{\\circ}$."
+    "explanation": "نطبق متطابقة ظل الفرق للزاويتين $45^{\\circ}$ و $30^{\\circ}$."
   },
   {
     "id": "U02-REV-Q020",
     "number": 20,
-    "question": "أي مما يأتي يكافئ $\\csc ^{2} x - \\cot ^{2} x$؟",
+    "question": "أي مما يأتي يكافئ $\\csc^{2} x - \\cot^{2} x$؟",
     "options": {
       "A": "1",
       "B": "0",
-      "C": "-1",
-      "D": "sin² x"
+      "C": "$-1$",
+      "D": "$\\sin^{2} x$"
     },
     "correct_answer": "A",
     "correct_answer_text": "1",
@@ -529,9 +529,9 @@
       "reference": "متطابقات فيثاغورس"
     },
     "solution": {
-      "formula": "$\\csc ^{2} x = 1 + \\cot ^{2} x$",
+      "formula": "$\\csc^{2} x = 1 + \\cot^{2} x$",
       "steps": [
-        "$\\csc ^{2} x - \\cot ^{2} x = 1$"
+        "$\\csc^{2} x - \\cot^{2} x = 1$"
       ],
       "summary": "1"
     },
@@ -540,15 +540,15 @@
   {
     "id": "U02-REV-Q021",
     "number": 21,
-    "question": "ما هي حلول $\\sin x = \\cos x$في الفترة $[0, 2\\pi )$؟",
+    "question": "ما هي حلول $\\sin x = \\cos x$ في الفترة $[0, 2\\pi )$؟",
     "options": {
-      "A": "π/4, 5π/4",
-      "B": "π/4, 3π/4",
-      "C": "3π/4, 7π/4",
-      "D": "π/2, 3π/2"
+      "A": "$\\frac{\\pi}{4}, \\frac{5\\pi}{4}$",
+      "B": "$\\frac{\\pi}{4}, \\frac{3\\pi}{4}$",
+      "C": "$\\frac{3\\pi}{4}, \\frac{7\\pi}{4}$",
+      "D": "$\\frac{\\pi}{2}, \\frac{3\\pi}{2}$"
     },
     "correct_answer": "A",
-    "correct_answer_text": "$\\pi /4, 5\\pi /4$",
+    "correct_answer_text": "$\\frac{\\pi}{4}, \\frac{5\\pi}{4}$",
     "difficulty": "medium",
     "source": {
       "page": 146,
@@ -559,21 +559,21 @@
       "steps": [
         "نقسم الطرفين على $\\cos x$",
         "نحصل على $\\tan x = 1$",
-        "الحلول في الفترة هي $\\pi /4$و$5\\pi /4$"
+        "الحلول في الفترة هي $\\frac{\\pi}{4}$ و $\\frac{5\\pi}{4}$"
       ],
-      "summary": "$\\pi /4, 5\\pi /4$"
+      "summary": "$\\frac{\\pi}{4}, \\frac{5\\pi}{4}$"
     },
     "explanation": "الظل يساوي 1 في الربعين الأول والثالث."
   },
   {
     "id": "U02-REV-Q022",
     "number": 22,
-    "question": "بسط المقدار: $\\cos ⁴ x - \\sin ⁴ x$.",
+    "question": "بسط المقدار: $\\cos^{4} x - \\sin^{4} x$.",
     "options": {
-      "A": "cos 2x",
-      "B": "sin 2x",
+      "A": "$\\cos 2x$",
+      "B": "$\\sin 2x$",
       "C": "1",
-      "D": "cos² x"
+      "D": "$\\cos^{2} x$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$\\cos 2x$",
@@ -583,11 +583,11 @@
       "reference": "ضعف الزاوية والتحليل"
     },
     "solution": {
-      "formula": "$(\\cos ^{2} x - \\sin ^{2} x)(\\cos ^{2} x + \\sin ^{2} x)$",
+      "formula": "$(\\cos^{2} x - \\sin^{2} x)(\\cos^{2} x + \\sin^{2} x)$",
       "steps": [
         "نحلل الفرق بين مربعين",
-        "$\\cos ^{2} x + \\sin ^{2} x = 1$",
-        "$\\cos ^{2} x - \\sin ^{2} x = \\cos 2x$"
+        "$\\cos^{2} x + \\sin^{2} x = 1$",
+        "$\\cos^{2} x - \\sin^{2} x = \\cos 2x$"
       ],
       "summary": "$\\cos 2x$"
     },
@@ -596,12 +596,12 @@
   {
     "id": "U02-REV-Q023",
     "number": 23,
-    "question": "ما هي قيمة $\\sin (\\pi /2 + x)$؟",
+    "question": "ما هي قيمة $\\sin (\\frac{\\pi}{2} + x)$؟",
     "options": {
-      "A": "cos x",
-      "B": "-cos x",
-      "C": "sin x",
-      "D": "-sin x"
+      "A": "$\\cos x$",
+      "B": "$-\\cos x$",
+      "C": "$\\sin x$",
+      "D": "$-\\sin x$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$\\cos x$",
@@ -611,10 +611,10 @@
       "reference": "متطابقات المجموع"
     },
     "solution": {
-      "formula": "$\\sin (\\pi /2 + x) = \\sin (\\pi /2)\\cos x + \\cos (\\pi /2)\\sin x$",
+      "formula": "$\\sin (\\frac{\\pi}{2} + x) = \\sin (\\frac{\\pi}{2})\\cos x + \\cos (\\frac{\\pi}{2})\\sin x$",
       "steps": [
-        "$\\sin (\\pi /2) = 1$",
-        "$\\cos (\\pi /2) = 0$",
+        "$\\sin (\\frac{\\pi}{2}) = 1$",
+        "$\\cos (\\frac{\\pi}{2}) = 0$",
         "إذن القيمة تساوي $\\cos x$"
       ],
       "summary": "$\\cos x$"
@@ -624,41 +624,41 @@
   {
     "id": "U02-REV-Q024",
     "number": 24,
-    "question": "أوجد حلول $4 \\sin ^{2} x - 3 = 0$في الفترة $[0, \\pi ]$.",
+    "question": "أوجد حلول $4 \\sin^{2} x - 3 = 0$ في الفترة $[0, \\pi ]$.",
     "options": {
-      "A": "π/3, 2π/3",
-      "B": "π/3",
-      "C": "π/6, 5π/6",
-      "D": "2π/3"
+      "A": "$\\frac{\\pi}{3}, \\frac{2\\pi}{3}$",
+      "B": "$\\frac{\\pi}{3}$",
+      "C": "$\\frac{\\pi}{6}, \\frac{5\\pi}{6}$",
+      "D": "$\\frac{2\\pi}{3}$"
     },
     "correct_answer": "A",
-    "correct_answer_text": "$\\pi /3, 2\\pi /3$",
+    "correct_answer_text": "$\\frac{\\pi}{3}, \\frac{2\\pi}{3}$",
     "difficulty": "hard",
     "source": {
       "page": 63,
       "reference": "حل المعادلات"
     },
     "solution": {
-      "formula": "$\\sin ^{2} x = \\frac{3}{4}$",
+      "formula": "$\\sin^{2} x = \\frac{3}{4}$",
       "steps": [
         "$\\sin x = \\pm \\frac{\\sqrt{3}}{2}$",
-        "في الفترة $[0, \\pi ]$يكون $\\sin x$غير سالب",
+        "في الفترة $[0, \\pi ]$ يكون $\\sin x$ غير سالب",
         "إذن $\\sin x = \\frac{\\sqrt{3}}{2}$",
-        "الحلان هما $\\pi /3$و$2\\pi /3$"
+        "الحلان هما $\\frac{\\pi}{3}$ و $\\frac{2\\pi}{3}$"
       ],
-      "summary": "$\\pi /3, 2\\pi /3$"
+      "summary": "$\\frac{\\pi}{3}, \\frac{2\\pi}{3}$"
     },
     "explanation": "نحدد الزوايا في الربعين الأول والثاني التي يكون جيبها $\\frac{\\sqrt{3}}{2}$."
   },
   {
     "id": "U02-REV-Q025",
     "number": 25,
-    "question": "ما هو ناتج تحويل $2 \\sin 3x \\cos 2x$إلى مجموع؟",
+    "question": "ما هو ناتج تحويل $2 \\sin 3x \\cos 2x$ إلى مجموع؟",
     "options": {
-      "A": "sin 5x + sin x",
-      "B": "sin 5x - sin x",
-      "C": "cos 5x + cos x",
-      "D": "sin 3x"
+      "A": "$\\sin 5x + \\sin x$",
+      "B": "$\\sin 5x - \\sin x$",
+      "C": "$\\cos 5x + \\cos x$",
+      "D": "$\\sin 3x$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$\\sin 5x + \\sin x$",
@@ -670,7 +670,7 @@
     "solution": {
       "formula": "$2 \\sin α \\cos β = \\sin (α+β) + \\sin (α-β)$",
       "steps": [
-        "نعوض $α = 3x$و$β = 2x$",
+        "نعوض $α = 3x$ و $β = 2x$",
         "$\\sin (3x+2x) + \\sin (3x-2x)$",
         "$= \\sin 5x + \\sin x$"
       ],
@@ -683,10 +683,10 @@
     "number": 26,
     "question": "بسط التعبير: $\\sin (x - \\pi )$.",
     "options": {
-      "A": "-sin x",
-      "B": "sin x",
-      "C": "cos x",
-      "D": "-cos x"
+      "A": "$-\\sin x$",
+      "B": "$\\sin x$",
+      "C": "$\\cos x$",
+      "D": "$-\\cos x$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$-\\sin x$",
@@ -709,11 +709,11 @@
   {
     "id": "U02-REV-Q027",
     "number": 27,
-    "question": "ما هي قيمة $\\cos ^{2} 15^{\\circ} - \\sin ^{2} 15^{\\circ}$؟",
+    "question": "ما هي قيمة $\\cos^{2} 15^{\\circ} - \\sin^{2} 15^{\\circ}$؟",
     "options": {
-      "A": "√3/2",
-      "B": "1/2",
-      "C": "√2/2",
+      "A": "$\\frac{\\sqrt{3}}{2}$",
+      "B": "$\\frac{1}{2}$",
+      "C": "$\\frac{\\sqrt{2}}{2}$",
       "D": "1"
     },
     "correct_answer": "A",
@@ -724,7 +724,7 @@
       "reference": "ضعف الزاوية"
     },
     "solution": {
-      "formula": "$\\cos ^{2} \\theta - \\sin ^{2} \\theta = \\cos 2\\theta$",
+      "formula": "$\\cos^{2} \\theta - \\sin^{2} \\theta = \\cos 2\\theta$",
       "steps": [
         "نعوض $\\theta = 15^{\\circ}$",
         "$\\cos 30^{\\circ} = \\frac{\\sqrt{3}}{2}$"
@@ -751,6 +751,7 @@
       "reference": "إرشادات إثبات صحة المتطابقات"
     },
     "solution": {
+      "formula": null,
       "steps": [
         "نبدأ بالطرف الأكثر تعقيداً",
         "نبسطه باستخدام المتطابقات المناسبة",
@@ -763,15 +764,15 @@
   {
     "id": "U02-REV-Q029",
     "number": 29,
-    "question": "حل المعادلة $2 \\sin x \\cos x = \\frac{1}{2}$في الفترة $[0, \\pi ]$.",
+    "question": "حل المعادلة $2 \\sin x \\cos x = \\frac{1}{2}$ في الفترة $[0, \\pi ]$.",
     "options": {
-      "A": "π/12, 5π/12",
-      "B": "π/6, 5π/6",
-      "C": "π/4",
-      "D": "π/3"
+      "A": "$\\frac{\\pi}{12}, \\frac{5\\pi}{12}$",
+      "B": "$\\frac{\\pi}{6}, \\frac{5\\pi}{6}$",
+      "C": "$\\frac{\\pi}{4}$",
+      "D": "$\\frac{\\pi}{3}$"
     },
     "correct_answer": "A",
-    "correct_answer_text": "$\\pi /12, 5\\pi /12$",
+    "correct_answer_text": "$\\frac{\\pi}{12}, \\frac{5\\pi}{12}$",
     "difficulty": "hard",
     "source": {
       "page": 141,
@@ -782,10 +783,10 @@
       "steps": [
         "باستخدام $2 \\sin x \\cos x = \\sin 2x$",
         "نحصل على $\\sin 2x = \\frac{1}{2}$",
-        "$2x = \\pi /6$أو $5\\pi /6$",
-        "$x = \\pi /12$أو $5\\pi /12$"
+        "$2x = \\frac{\\pi}{6}$ أو $\\frac{5\\pi}{6}$",
+        "$x = \\frac{\\pi}{12}$ أو $\\frac{5\\pi}{12}$"
       ],
-      "summary": "$\\pi /12, 5\\pi /12$"
+      "summary": "$\\frac{\\pi}{12}, \\frac{5\\pi}{12}$"
     },
     "explanation": "نحوّل الطرف الأيسر إلى متطابقة جيب ضعف الزاوية ثم نحل المعادلة."
   },
@@ -794,38 +795,38 @@
     "number": 30,
     "question": "بسط المقدار: $\\frac{1 + \\cos 2x}{1 - \\cos 2x}$.",
     "options": {
-      "A": "cot² x",
-      "B": "tan² x",
+      "A": "$\\cot^{2} x$",
+      "B": "$\\tan^{2} x$",
       "C": "1",
-      "D": "sin² x"
+      "D": "$\\sin^{2} x$"
     },
     "correct_answer": "A",
-    "correct_answer_text": "$\\cot ^{2} x$",
+    "correct_answer_text": "$\\cot^{2} x$",
     "difficulty": "hard",
     "source": {
       "page": 49,
       "reference": "تقليص القوة"
     },
     "solution": {
-      "formula": "$1 + \\cos 2x = 2 \\cos ^{2} x$، و$1 - \\cos 2x = 2 \\sin ^{2} x$",
+      "formula": "$1 + \\cos 2x = 2 \\cos^{2} x$، و $1 - \\cos 2x = 2 \\sin^{2} x$",
       "steps": [
         "نعوض متطابقات تقليص القوة",
-        "$\\frac{2 \\cos ^{2} x}{2 \\sin ^{2} x}$",
-        "$= \\cos ^{2} x / \\sin ^{2} x$",
-        "$= \\cot ^{2} x$"
+        "$\\frac{2 \\cos^{2} x}{2 \\sin^{2} x}$",
+        "$= \\cos^{2} \\frac{x}{\\sin^{2}} x$",
+        "$= \\cot^{2} x$"
       ],
-      "summary": "$\\cot ^{2} x$"
+      "summary": "$\\cot^{2} x$"
     },
     "explanation": "باستخدام متطابقات تقليص القوة يتحول المقدار إلى مربع ظل التمام."
   },
   {
     "id": "U02-REV-Q031",
     "number": 31,
-    "question": "ما هي قيمة $\\cos (\\pi /2)$؟",
+    "question": "ما هي قيمة $\\cos (\\frac{\\pi}{2})$؟",
     "options": {
       "A": "0",
       "B": "1",
-      "C": "-1",
+      "C": "$-1$",
       "D": "غير معرف"
     },
     "correct_answer": "A",
@@ -836,19 +837,20 @@
       "reference": "ملحق الزوايا الخاصة"
     },
     "solution": {
+      "formula": null,
       "steps": [],
-      "summary": "جيب تمام $90^{\\circ}$يساوي صفر."
+      "summary": "جيب تمام $90^{\\circ}$ يساوي صفر."
     },
-    "explanation": "من دائرة الوحدة، إحداثي $x$عند الزاوية $\\pi /2$يساوي صفر."
+    "explanation": "من دائرة الوحدة، إحداثي $x$ عند الزاوية $\\frac{\\pi}{2}$ يساوي صفر."
   },
   {
     "id": "U02-REV-Q032",
     "number": 32,
     "question": "بسط المقدار: $\\sin (x+y) \\cos y - \\cos (x+y) \\sin y$.",
     "options": {
-      "A": "sin x",
-      "B": "sin(x+2y)",
-      "C": "cos x",
+      "A": "$\\sin x$",
+      "B": "$\\sin (x+2y)$",
+      "C": "$\\cos x$",
       "D": "1"
     },
     "correct_answer": "A",
@@ -861,7 +863,7 @@
     "solution": {
       "formula": "$\\sin α \\cos β - \\cos α \\sin β = \\sin (α-β)$",
       "steps": [
-        "نضع $α = x+y$و$β = y$",
+        "نضع $α = x+y$ و $β = y$",
         "$\\sin ((x+y)-y) = \\sin x$"
       ],
       "summary": "$\\sin x$"
@@ -873,10 +875,10 @@
     "number": 33,
     "question": "أوجد الحل العام للمعادلة $\\cos x = 1$.",
     "options": {
-      "A": "x = 2kπ",
-      "B": "x = kπ",
-      "C": "x = π + 2kπ",
-      "D": "x = π/2 + kπ"
+      "A": "$x = 2k\\pi$",
+      "B": "$x = k\\pi$",
+      "C": "$x = \\pi + 2k\\pi$",
+      "D": "$x = \\frac{\\pi}{2} + k\\pi$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$x = 2k\\pi$",
@@ -888,7 +890,7 @@
     "solution": {
       "formula": "$x = 0 + 2k\\pi$",
       "steps": [
-        "$\\cos x = 1$عند $x = 0$",
+        "$\\cos x = 1$ عند $x = 0$",
         "دورة جيب التمام تساوي $2\\pi$",
         "إذن $x = 2k\\pi$"
       ],
@@ -899,12 +901,12 @@
   {
     "id": "U02-REV-Q034",
     "number": 34,
-    "question": "ما هو ناتج تبسيط: $\\sec ^{2} x - \\tan ^{2} x$؟",
+    "question": "ما هو ناتج تبسيط: $\\sec^{2} x - \\tan^{2} x$؟",
     "options": {
       "A": "1",
       "B": "0",
-      "C": "-1",
-      "D": "cos² x"
+      "C": "$-1$",
+      "D": "$\\cos^{2} x$"
     },
     "correct_answer": "A",
     "correct_answer_text": "1",
@@ -914,10 +916,10 @@
       "reference": "متطابقات فيثاغورس"
     },
     "solution": {
-      "formula": "$\\sec ^{2} x = 1 + \\tan ^{2} x$",
+      "formula": "$\\sec^{2} x = 1 + \\tan^{2} x$",
       "steps": [
-        "نطرح $\\tan ^{2} x$من الطرفين",
-        "$\\sec ^{2} x - \\tan ^{2} x = 1$"
+        "نطرح $\\tan^{2} x$ من الطرفين",
+        "$\\sec^{2} x - \\tan^{2} x = 1$"
       ],
       "summary": "1"
     },
@@ -926,11 +928,11 @@
   {
     "id": "U02-REV-Q035",
     "number": 35,
-    "question": "أوجد قيمة $\\sin 105^{\\circ}$باستخدام المتطابقات.",
+    "question": "أوجد قيمة $\\sin 105^{\\circ}$ باستخدام المتطابقات.",
     "options": {
-      "A": "(√6 + √2) / 4",
-      "B": "(√6 - √2) / 4",
-      "C": "√3/2",
+      "A": "$\\frac{\\sqrt{6} + \\sqrt{2}}{4}$",
+      "B": "$\\frac{\\sqrt{6} - \\sqrt{2}}{4}$",
+      "C": "$\\frac{\\sqrt{3}}{2}$",
       "D": "1"
     },
     "correct_answer": "A",
@@ -956,10 +958,10 @@
     "number": 36,
     "question": "بسط المقدار: $1 / \\csc x$.",
     "options": {
-      "A": "sin x",
-      "B": "cos x",
-      "C": "tan x",
-      "D": "sec x"
+      "A": "$\\sin x$",
+      "B": "$\\cos x$",
+      "C": "$\\tan x$",
+      "D": "$\\sec x$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$\\sin x$",
@@ -981,22 +983,22 @@
   {
     "id": "U02-REV-Q037",
     "number": 37,
-    "question": "ما هو ناتج تحويل $\\cos α - \\cos β$إلى ضرب؟",
+    "question": "ما هو ناتج تحويل $\\cos α - \\cos β$ إلى ضرب؟",
     "options": {
-      "A": "-2 sin[(α+β)/2] sin[(α-β)/2]",
-      "B": "2 cos[(α+β)/2] cos[(α-β)/2]",
-      "C": "2 sin[(α+β)/2] sin[(α-β)/2]",
-      "D": "-2 cos[(α+β)/2] cos[(α-β)/2]"
+      "A": "$-2 \\sin [\\frac{α+β}{2}] \\sin [\\frac{α-β}{2}]$",
+      "B": "$2 \\cos [\\frac{α+β}{2}] \\cos [\\frac{α-β}{2}]$",
+      "C": "$2 \\sin [\\frac{α+β}{2}] \\sin [\\frac{α-β}{2}]$",
+      "D": "$-2 \\cos [\\frac{α+β}{2}] \\cos [\\frac{α-β}{2}]$"
     },
     "correct_answer": "A",
-    "correct_answer_text": "$-2 \\sin [\\frac{α+β}{2]} \\sin [\\frac{α-β}{2]}$",
+    "correct_answer_text": "$-2 \\sin [\\frac{α+β}{2}] \\sin [\\frac{α-β}{2}]$",
     "difficulty": "medium",
     "source": {
       "page": 53,
       "reference": "تحويل الفرق إلى ضرب"
     },
     "solution": {
-      "formula": "$\\cos α - \\cos β = -2 \\sin [\\frac{α+β}{2]} \\sin [\\frac{α-β}{2]}$",
+      "formula": "$\\cos α - \\cos β = -2 \\sin [\\frac{α+β}{2}] \\sin [\\frac{α-β}{2}]$",
       "steps": [],
       "summary": "قانون تحويل فرق جيبي التمام."
     },
@@ -1005,11 +1007,11 @@
   {
     "id": "U02-REV-Q038",
     "number": 38,
-    "question": "بسط المقدار: $\\tan ^{2} \\frac{x}{\\sec x + 1}$.",
+    "question": "بسط المقدار: $\\tan^{2} \\frac{x}{\\sec x + 1}$.",
     "options": {
-      "A": "sec x - 1",
-      "B": "sec x + 1",
-      "C": "tan x",
+      "A": "$\\sec x - 1$",
+      "B": "$\\sec x + 1$",
+      "C": "$\\tan x$",
       "D": "1"
     },
     "correct_answer": "A",
@@ -1020,9 +1022,9 @@
       "reference": "تمارين التبسيط"
     },
     "solution": {
-      "formula": "$\\tan ^{2} x = \\sec ^{2} x - 1$",
+      "formula": "$\\tan^{2} x = \\sec^{2} x - 1$",
       "steps": [
-        "نحلل $\\sec ^{2} x - 1$إلى $(\\sec x - 1)(\\sec x + 1)$",
+        "نحلل $\\sec^{2} x - 1$ إلى $(\\sec x - 1)(\\sec x + 1)$",
         "نقسم على $\\sec x + 1$",
         "يبقى $\\sec x - 1$"
       ],
@@ -1033,12 +1035,12 @@
   {
     "id": "U02-REV-Q039",
     "number": 39,
-    "question": "ما ميل منحدر التزلج للمبتدئين إذا كان ميل المحترفين هو $\\tan \\theta = \\frac{5}{3}$وزاوية المبتدئين هي نصف قياس الزاوية $\\theta$؟",
+    "question": "ما ميل منحدر التزلج للمبتدئين إذا كان ميل المحترفين هو $\\tan \\theta = \\frac{5}{3}$ وزاوية المبتدئين هي نصف قياس الزاوية $\\theta$؟",
     "options": {
-      "A": "0.5",
-      "B": "0.8",
+      "A": "$0.5$",
+      "B": "$0.8$",
       "C": "1",
-      "D": "0.3"
+      "D": "$0.3$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$0.5$",
@@ -1048,10 +1050,10 @@
       "reference": "مسألة اليوم"
     },
     "solution": {
-      "formula": "$\\tan (\\theta /2)$",
+      "formula": "$\\tan (\\frac{\\theta}{2})$",
       "steps": [
         "لدينا $\\tan \\theta = \\frac{5}{3}$",
-        "باستخدام متطابقة نصف الزاوية نحسب $\\tan (\\theta /2)$",
+        "باستخدام متطابقة نصف الزاوية نحسب $\\tan (\\frac{\\theta}{2})$",
         "الناتج $= 0.5$"
       ],
       "summary": "$0.5$"
@@ -1063,34 +1065,34 @@
     "number": 40,
     "question": "أي مما يأتي يمثل متطابقة ضعف الزاوية للظل $\\tan 2\\theta$؟",
     "options": {
-      "A": "2 tan θ / (1 - tan² θ)",
-      "B": "2 tan θ / (1 + tan² θ)",
-      "C": "tan² θ / (1 - 2 tan θ)",
-      "D": "2 tan θ / (1 - sin² θ)"
+      "A": "$2 \\tan \\theta / (1 - \\tan^{2} \\theta )$",
+      "B": "$2 \\tan \\theta / (1 + \\tan^{2} \\theta )$",
+      "C": "$\\tan^{2} \\frac{\\theta}{1 - 2 \\tan \\theta}$",
+      "D": "$2 \\tan \\theta / (1 - \\sin^{2} \\theta )$"
     },
     "correct_answer": "A",
-    "correct_answer_text": "$2 \\tan \\frac{\\theta }{1 - \\tan ^{2} \\theta }$",
+    "correct_answer_text": "$2 \\tan \\theta / (1 - \\tan^{2} \\theta )$",
     "difficulty": "easy",
     "source": {
       "page": 47,
       "reference": "متطابقات ضعف الزاوية"
     },
     "solution": {
-      "formula": "$\\tan 2\\theta = 2 \\tan \\frac{\\theta }{1 - \\tan ^{2} \\theta }$",
+      "formula": "$\\tan 2\\theta = 2 \\tan \\theta / (1 - \\tan^{2} \\theta )$",
       "steps": [],
       "summary": "صيغة ظل ضعف الزاوية."
     },
-    "explanation": "الصيغة الصحيحة تحتوي على $2 \\tan \\theta$في البسط و$1 - \\tan ^{2} \\theta$في المقام."
+    "explanation": "الصيغة الصحيحة تحتوي على $2 \\tan \\theta$ في البسط و $1 - \\tan^{2} \\theta$ في المقام."
   },
   {
     "id": "U02-REV-Q041",
     "number": 41,
-    "question": "أوجد حلول المعادلة $\\sin 2x = 3 \\cos 2x$في الفترة $[0, \\pi )$.",
+    "question": "أوجد حلول المعادلة $\\sin 2x = 3 \\cos 2x$ في الفترة $[0, \\pi )$.",
     "options": {
-      "A": "0.62 rad, 2.19 rad",
-      "B": "0.32 rad, 1.89 rad",
-      "C": "π/3, 2π/3",
-      "D": "0, π/2"
+      "A": "$0.62 rad, 2.19 rad$",
+      "B": "$0.32 rad, 1.89 rad$",
+      "C": "$\\frac{\\pi}{3}, \\frac{2\\pi}{3}$",
+      "D": "$0, \\frac{\\pi}{2}$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$0.62 rad, 2.19 rad$",
@@ -1104,8 +1106,8 @@
       "steps": [
         "نقسم الطرفين على $\\cos 2x$",
         "$\\tan 2x = 3$",
-        "$2x = \\tan ⁻¹(3) + k\\pi$",
-        "في الفترة $[0, \\pi )$: $x ≈ 0.62$و$2.19$"
+        "$2x = \\tan ⁻^{1}(3) + k\\pi$",
+        "في الفترة $[0, \\pi )$: $x ≈ 0.62$ و $2.19$"
       ],
       "summary": "$0.62 rad, 2.19 rad$"
     },
@@ -1114,12 +1116,12 @@
   {
     "id": "U02-REV-Q042",
     "number": 42,
-    "question": "ما هي القيمة الدقيقة لـ $\\tan (7\\pi /8)$؟",
+    "question": "ما هي القيمة الدقيقة لـ $\\tan (\\frac{7\\pi}{8})$؟",
     "options": {
-      "A": "1 - √2",
-      "B": "√2 - 1",
-      "C": "1 + √2",
-      "D": "√2"
+      "A": "$1 - \\sqrt{2}$",
+      "B": "$\\sqrt{2} - 1$",
+      "C": "$1 + \\sqrt{2}$",
+      "D": "$\\sqrt{2}$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$1 - \\sqrt{2}$",
@@ -1129,12 +1131,12 @@
       "reference": "تمرين 11"
     },
     "solution": {
-      "formula": "$\\tan (7\\pi /8)$",
+      "formula": "$\\tan (\\frac{7\\pi}{8})$",
       "steps": [
-        "$7\\pi /8 = \\pi - \\pi /8$",
-        "$\\tan (\\pi - \\pi /8) = -\\tan (\\pi /8)$",
-        "$\\tan (\\pi /8) = \\sqrt{2} - 1$",
-        "إذن $\\tan (7\\pi /8) = 1 - \\sqrt{2}$"
+        "$\\frac{7\\pi}{8} = \\pi - \\frac{\\pi}{8}$",
+        "$\\tan (\\pi - \\frac{\\pi}{8}) = -\\tan (\\frac{\\pi}{8})$",
+        "$\\tan (\\frac{\\pi}{8}) = \\sqrt{2} - 1$",
+        "إذن $\\tan (\\frac{7\\pi}{8}) = 1 - \\sqrt{2}$"
       ],
       "summary": "$1 - \\sqrt{2}$"
     },
@@ -1145,17 +1147,17 @@
     "number": 43,
     "question": "ما هي مساحة المستطيل المرسوم في نصف دائرة قطرها 1 بدلالة $\\theta$؟",
     "options": {
-      "A": "sin 2θ",
-      "B": "2 sin θ",
-      "C": "cos 2θ",
-      "D": "sin θ cos θ"
+      "A": "$\\sin 2\\theta$",
+      "B": "$2 \\sin \\theta$",
+      "C": "$\\cos 2\\theta$",
+      "D": "$\\sin \\theta \\cos \\theta$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$\\sin 2\\theta$",
     "difficulty": "hard",
     "source": {
       "page": 56,
-      "reference": "تمرين 36-37"
+      "reference": "تمرين $36-37$"
     },
     "solution": {
       "formula": "$A = base \\times height$",
@@ -1172,41 +1174,41 @@
   {
     "id": "U02-REV-Q044",
     "number": 44,
-    "question": "أوجد حلول المعادلة $\\cos 2x = \\cos x$في الفترة $[0, 2\\pi )$.",
+    "question": "أوجد حلول المعادلة $\\cos 2x = \\cos x$ في الفترة $[0, 2\\pi )$.",
     "options": {
-      "A": "0, 2π/3, 4π/3",
-      "B": "0, π/3, 5π/3",
-      "C": "π, π/6, 11π/6",
-      "D": "0, π"
+      "A": "$0, \\frac{2\\pi}{3}, \\frac{4\\pi}{3}$",
+      "B": "$0, \\frac{\\pi}{3}, \\frac{5\\pi}{3}$",
+      "C": "$\\pi , \\frac{\\pi}{6}, \\frac{11\\pi}{6}$",
+      "D": "$0, \\pi$"
     },
     "correct_answer": "A",
-    "correct_answer_text": "$0, 2\\pi /3, 4\\pi /3$",
+    "correct_answer_text": "$0, \\frac{2\\pi}{3}, \\frac{4\\pi}{3}$",
     "difficulty": "hard",
     "source": {
       "page": 147,
       "reference": "تمرين 29"
     },
     "solution": {
-      "formula": "$2 \\cos ^{2} x - 1 = \\cos x$",
+      "formula": "$2 \\cos^{2} x - 1 = \\cos x$",
       "steps": [
-        "$2 \\cos ^{2} x - \\cos x - 1 = 0$",
+        "$2 \\cos^{2} x - \\cos x - 1 = 0$",
         "$(2 \\cos x + 1)(\\cos x - 1) = 0$",
-        "$\\cos x = \\frac{-1}{2}$أو $\\cos x = 1$",
-        "الحلول: $0, 2\\pi /3, 4\\pi /3$"
+        "$\\cos x = \\frac{-1}{2}$ أو $\\cos x = 1$",
+        "الحلول: $0, \\frac{2\\pi}{3}, \\frac{4\\pi}{3}$"
       ],
-      "summary": "$0, 2\\pi /3, 4\\pi /3$"
+      "summary": "$0, \\frac{2\\pi}{3}, \\frac{4\\pi}{3}$"
     },
     "explanation": "نستخدم متطابقة ضعف الزاوية لتحويل المعادلة إلى معادلة تربيعية ثم نحلها."
   },
   {
     "id": "U02-REV-Q045",
     "number": 45,
-    "question": "في مسألة أطوار القمر $F = \\frac{1}{2}(1 - \\cos \\theta )$، متى يكون مقياس الطور $F = 0.25$؟",
+    "question": "في مسألة أطوار القمر $F = \\frac{1}{2(1 - \\cos \\theta )}$، متى يكون مقياس الطور $F = 0.25$؟",
     "options": {
-      "A": "60°",
-      "B": "90°",
-      "C": "120°",
-      "D": "45°"
+      "A": "$60^{\\circ}$",
+      "B": "$90^{\\circ}$",
+      "C": "$120^{\\circ}$",
+      "D": "$45^{\\circ}$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$60^{\\circ}$",
@@ -1216,7 +1218,7 @@
       "reference": "تمرين 22"
     },
     "solution": {
-      "formula": "$0.25 = \\frac{1}{2}(1 - \\cos \\theta )$",
+      "formula": "$0.25 = \\frac{1}{2(1 - \\cos \\theta )}$",
       "steps": [
         "نضرب الطرفين في 2",
         "$0.5 = 1 - \\cos \\theta$",
@@ -1230,12 +1232,12 @@
   {
     "id": "U02-REV-Q046",
     "number": 46,
-    "question": "أوجد قيمة $\\sin 105^{\\circ}$دون استخدام الحاسبة.",
+    "question": "أوجد قيمة $\\sin 105^{\\circ}$ دون استخدام الحاسبة.",
     "options": {
-      "A": "(√6 + √2) / 4",
-      "B": "(√6 - √2) / 4",
-      "C": "(√3 + 1) / 2",
-      "D": "1/2"
+      "A": "$\\frac{\\sqrt{6} + \\sqrt{2}}{4}$",
+      "B": "$\\frac{\\sqrt{6} - \\sqrt{2}}{4}$",
+      "C": "$\\frac{\\sqrt{3} + 1}{2}$",
+      "D": "$\\frac{1}{2}$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$\\frac{\\sqrt{6} + \\sqrt{2}}{4}$",
@@ -1258,15 +1260,15 @@
   {
     "id": "U02-REV-Q047",
     "number": 47,
-    "question": "أوجد حلول المعادلة $4 \\sin ^{2} x - 3 = 0$في الفترة $[0, 2\\pi )$.",
+    "question": "أوجد حلول المعادلة $4 \\sin^{2} x - 3 = 0$ في الفترة $[0, 2\\pi )$.",
     "options": {
-      "A": "π/3, 2π/3, 4π/3, 5π/3",
-      "B": "π/3, 2π/3",
-      "C": "π/6, 5π/6, 7π/6, 11π/6",
-      "D": "π/3, 5π/3"
+      "A": "$\\frac{\\pi}{3}, \\frac{2\\pi}{3}, \\frac{4\\pi}{3}, \\frac{5\\pi}{3}$",
+      "B": "$\\frac{\\pi}{3}, \\frac{2\\pi}{3}$",
+      "C": "$\\frac{\\pi}{6}, \\frac{5\\pi}{6}, \\frac{7\\pi}{6}, \\frac{11\\pi}{6}$",
+      "D": "$\\frac{\\pi}{3}, \\frac{5\\pi}{3}$"
     },
     "correct_answer": "A",
-    "correct_answer_text": "$\\pi /3, 2\\pi /3, 4\\pi /3, 5\\pi /3$",
+    "correct_answer_text": "$\\frac{\\pi}{3}, \\frac{2\\pi}{3}, \\frac{4\\pi}{3}, \\frac{5\\pi}{3}$",
     "difficulty": "hard",
     "source": {
       "page": 63,
@@ -1275,24 +1277,24 @@
     "solution": {
       "formula": "$\\sin x = \\pm \\frac{\\sqrt{3}}{2}$",
       "steps": [
-        "$4 \\sin ^{2} x = 3$",
-        "$\\sin ^{2} x = \\frac{3}{4}$",
+        "$4 \\sin^{2} x = 3$",
+        "$\\sin^{2} x = \\frac{3}{4}$",
         "$\\sin x = \\pm \\frac{\\sqrt{3}}{2}$",
         "نحدد الزوايا المناسبة في الأرباع الأربعة"
       ],
-      "summary": "أربعة حلول: $\\pi /3$، $2\\pi /3$، $4\\pi /3$، $5\\pi /3$."
+      "summary": "أربعة حلول: $\\frac{\\pi}{3}$، $\\frac{2\\pi}{3}$، $\\frac{4\\pi}{3}$، $\\frac{5\\pi}{3}$."
     },
     "explanation": "بأخذ الجذر التربيعي للطرفين نحصل على قيمتين للجيب، مما يعطي حلاً في كل ربع."
   },
   {
     "id": "U02-REV-Q048",
     "number": 48,
-    "question": "أعد كتابة $\\sin 3x \\sin 5x$في صورة مجموع أو فرق.",
+    "question": "أعد كتابة $\\sin 3x \\sin 5x$ في صورة مجموع أو فرق.",
     "options": {
-      "A": "1/2 cos 2x - 1/2 cos 8x",
-      "B": "1/2 cos 8x - 1/2 cos 2x",
-      "C": "1/2 sin 8x + 1/2 sin 2x",
-      "D": "cos 2x - cos 8x"
+      "A": "$\\frac{1}{2} \\cos 2x - \\frac{1}{2} \\cos 8x$",
+      "B": "$\\frac{1}{2} \\cos 8x - \\frac{1}{2} \\cos 2x$",
+      "C": "$\\frac{1}{2} \\sin 8x + \\frac{1}{2} \\sin 2x$",
+      "D": "$\\cos 2x - \\cos 8x$"
     },
     "correct_answer": "A",
     "correct_answer_text": "$\\frac{1}{2} \\cos 2x - \\frac{1}{2} \\cos 8x$",
@@ -1304,7 +1306,7 @@
     "solution": {
       "formula": "$\\sin α \\sin β = \\frac{1}{2}[\\cos (α-β) - \\cos (α+β)]$",
       "steps": [
-        "نعوض $α = 3x$و$β = 5x$",
+        "نعوض $α = 3x$ و $β = 5x$",
         "$\\frac{1}{2}[\\cos (-2x) - \\cos 8x]$",
         "بما أن $\\cos (-2x) = \\cos 2x$",
         "الناتج $= \\frac{1}{2} \\cos 2x - \\frac{1}{2} \\cos 8x$"
@@ -1318,35 +1320,36 @@
     "number": 49,
     "question": "كيف يتم اختيار الإشارة المناسبة في متطابقات نصف الزاوية؟",
     "options": {
-      "A": "بحسب الربع الذي يقع فيه ضلع انتهاء θ/2",
-      "B": "بحسب الربع الذي تقع فيه θ",
+      "A": "بحسب الربع الذي يقع فيه ضلع انتهاء $\\frac{\\theta}{2}$",
+      "B": "بحسب الربع الذي تقع فيه $\\theta$",
       "C": "تكون دائماً موجبة",
-      "D": "بحسب إشارة cos θ"
+      "D": "بحسب إشارة $\\cos \\theta$"
     },
     "correct_answer": "A",
-    "correct_answer_text": "بحسب الربع الذي يقع فيه ضلع انتهاء $\\theta /2$",
+    "correct_answer_text": "بحسب الربع الذي يقع فيه ضلع انتهاء $\\frac{\\theta}{2}$",
     "difficulty": "easy",
     "source": {
       "page": 50,
       "reference": "إرشادات نصف الزاوية"
     },
     "solution": {
+      "formula": null,
       "steps": [
-        "نحدد موقع $\\theta /2$على دائرة الوحدة",
+        "نحدد موقع $\\frac{\\theta}{2}$ على دائرة الوحدة",
         "نحدد إشارة النسبة المثلثية في ذلك الربع",
         "نختار الإشارة الموجبة أو السالبة وفقاً لذلك"
       ],
       "summary": "الإشارة تتبع موقع نصف الزاوية."
     },
-    "explanation": "يتم تحديد الإشارة وفقاً للربع الذي يقع فيه ضلع انتهاء الزاوية $\\theta /2$."
+    "explanation": "يتم تحديد الإشارة وفقاً للربع الذي يقع فيه ضلع انتهاء الزاوية $\\frac{\\theta}{2}$."
   },
   {
     "id": "U02-REV-Q050",
     "number": 50,
     "question": "ما هو ناتج تبسيط المقدار: $(\\sin x + \\cos x)^{2} - 1$؟",
     "options": {
-      "A": "sin 2x",
-      "B": "cos 2x",
+      "A": "$\\sin 2x$",
+      "B": "$\\cos 2x$",
       "C": "1",
       "D": "0"
     },
@@ -1360,8 +1363,8 @@
     "solution": {
       "formula": "$(\\sin x + \\cos x)^{2} - 1$",
       "steps": [
-        "$\\sin ^{2} x + 2 \\sin x \\cos x + \\cos ^{2} x - 1$",
-        "باستخدام $\\sin ^{2} x + \\cos ^{2} x = 1$",
+        "$\\sin^{2} x + 2 \\sin x \\cos x + \\cos^{2} x - 1$",
+        "باستخدام $\\sin^{2} x + \\cos^{2} x = 1$",
         "يبقى $2 \\sin x \\cos x$",
         "وبما أن $2 \\sin x \\cos x = \\sin 2x$"
       ],

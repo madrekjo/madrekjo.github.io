@@ -844,16 +844,16 @@ function renderLessons() {
 function startLesson(li) {
   const l = state.unit.lessons[li];
   state.title = 'درس ' + (l.number || li + 1) + ' — ' + l.name;
-  loadQuiz(state.baseDir + '/' + l.file, state.title, 40);
+  loadQuiz(state.baseDir + '/' + l.file, state.title);
 }
 
 function startReview() {
   const r = state.unit.review;
   state.title = r.name;
-  loadQuiz(state.baseDir + '/' + r.file, state.title, 50);
+  loadQuiz(state.baseDir + '/' + r.file, state.title);
 }
 
-function loadQuiz(path, title, expected) {
+function loadQuiz(path, title) {
   fetch(path, { cache: 'no-store' })
     .then(r => { if (!r.ok) throw new Error('load'); return r.json(); })
     .then(data => {
@@ -861,11 +861,10 @@ function loadQuiz(path, title, expected) {
       if (!valid.length) { showError('لا توجد أسئلة صالحة', 'تعذّر قراءة الأسئلة من الملف. تأكد من صحة البيانات.'); return; }
       state.origin = 'data';
       state.title = title;
-      state.expected = expected;
+      state.expected = valid.length;
       state.questions = valid;
       state.idx = 0; state.score = 0; state.answers = [];
       const warns = [];
-      if (valid.length !== expected) warns.push('تم تحميل ' + valid.length + ' من ' + expected + ' سؤالاً متوقعاً');
       if (bad.length) warns.push('تم تجاهل ' + bad.length + ' سؤالاً ناقصاً');
       state.warningMsg = warns.length ? warns.join(' · ') : '';
       document.getElementById('examSubject').textContent = '📖 ' + subject;

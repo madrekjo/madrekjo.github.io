@@ -12,10 +12,10 @@
         "number": 1,
         "question": "ما هي مشتقة الاقتران الأسي الطبيعي $f(x) = e^{x}$؟",
         "options": {
-          "A": "f'(x) = xe^{x-1}",
-          "B": "f'(x) = e^x",
-          "C": "f'(x) = 1/e^x",
-          "D": "f'(x) = ln x"
+          "A": "$f'(x) = xe^{x-1}$",
+          "B": "$f'(x) = e^{x}$",
+          "C": "$f'(x) = \\frac{1}{e^{x}}$",
+          "D": "$f'(x) = ln x$"
         },
         "correct_answer": "B",
         "correct_answer_text": "$f'(x) = e^{x}$",
@@ -25,26 +25,26 @@
           "reference": "نظرية مشتقة الاقتران الأسي الطبيعي"
         },
         "solution": {
-          "formula": "$d/dx (e^{x}) = e^{x}$",
+          "formula": "$\\frac{d}{dx} (e^{x}) = e^{x}$",
           "steps": [
             "تطبيق قاعدة اشتقاق الاقتران الأسي الطبيعي مباشرة"
           ],
           "summary": "مشتقة الاقتران الأسي الطبيعي هي الاقتران نفسه."
         },
-        "explanation": "بناءً على النظرية الواردة في صفحة 77، فإن مشتقة $e^{x}$هي $e^{x}$."
+        "explanation": "بناءً على النظرية الواردة في صفحة 77، فإن مشتقة $e^{x}$ هي $e^{x}$."
       },
       {
         "id": "U03-L01-Q002",
         "number": 2,
         "question": "ماذا يمثل ميل المماس عند أي نقطة تقع على منحنى الاقتران الأسي الطبيعي $f(x) = e^{x}$؟",
         "options": {
-          "A": "الإحداثي x لهذه النقطة",
-          "B": "الإحداثي y لهذه النقطة",
+          "A": "الإحداثي $x$ لهذه النقطة",
+          "B": "الإحداثي $y$ لهذه النقطة",
           "C": "دائماً يساوي 1",
           "D": "دائماً يساوي 0"
         },
         "correct_answer": "B",
-        "correct_answer_text": "الإحداثي $y$لهذه النقطة",
+        "correct_answer_text": "الإحداثي $y$ لهذه النقطة",
         "difficulty": "medium",
         "source": {
           "page": 77,
@@ -54,19 +54,19 @@
           "formula": "$m = f'(x) = e^{x} = y$",
           "steps": [
             "ميل المماس يساوي المشتقة عند النقطة",
-            "بما أن المشتقة هي $e^{x}$، وهي نفس قيمة $y$للنقطة"
+            "بما أن المشتقة هي $e^{x}$، وهي نفس قيمة $y$ للنقطة"
           ],
-          "summary": "ميل المماس يساوي القيمة الإحداثية $y$للنقطة."
+          "summary": "ميل المماس يساوي القيمة الإحداثية $y$ للنقطة."
         },
-        "explanation": "مذكور في صفحة 77 أن ميل المماس عند أي نقطة هو الإحداثي $y$لهذه النقطة."
+        "explanation": "مذكور في صفحة 77 أن ميل المماس عند أي نقطة هو الإحداثي $y$ لهذه النقطة."
       },
       {
         "id": "U03-L01-Q003",
         "number": 3,
-        "question": "ما قيمة النهاية $\\lim \\frac{e^{\\Delta x} - 1}{\\Delta x}$عندما تقترب $\\Delta x$من الصفر؟",
+        "question": "ما قيمة النهاية $\\lim \\frac{e^{\\Delta x} - 1}{\\Delta x}$ عندما تقترب $\\Delta x$ من الصفر؟",
         "options": {
           "A": "0",
-          "B": "e",
+          "B": "$e$",
           "C": "1",
           "D": "غير موجودة"
         },
@@ -91,20 +91,20 @@
         "number": 4,
         "question": "أجد مشتقة الاقتران $f(x) = 3e^{x}$.",
         "options": {
-          "A": "f'(x) = 3xe^{x-1}",
-          "B": "f'(x) = 3e^x",
-          "C": "f'(x) = e^{3x}",
-          "D": "f'(x) = 3"
+          "A": "$f'(x) = 3xe^{x-1}$",
+          "B": "$f'(x) = 3e^{x}$",
+          "C": "$f'(x) = e^{3x}$",
+          "D": "$f'(x) = 3$"
         },
         "correct_answer": "B",
         "correct_answer_text": "$f'(x) = 3e^{x}$",
         "difficulty": "easy",
         "source": {
           "page": 78,
-          "reference": "مثال 1 - الفرع 1"
+          "reference": "مثال $1 -$ الفرع 1"
         },
         "solution": {
-          "formula": "$d/dx (af(x)) = a f'(x)$",
+          "formula": "$\\frac{d}{dx} (af(x)) = a f'(x)$",
           "steps": [
             "تطبيق قاعدة مشتقة مضاعفات الاقتران",
             "الثابت 3 يبقى كما هو وتضرب فيه مشتقة $e^{x}$"
@@ -118,23 +118,23 @@
         "number": 5,
         "question": "أجد مشتقة الاقتران $f(x) = x^{2} + e^{x}$.",
         "options": {
-          "A": "f'(x) = 2x + e^x",
-          "B": "f'(x) = 2x + xe^{x-1}",
-          "C": "f'(x) = x^2 + e^x",
-          "D": "f'(x) = 2x + 1"
+          "A": "$f'(x) = 2x + e^{x}$",
+          "B": "$f'(x) = 2x + xe^{x-1}$",
+          "C": "$f'(x) = x^{2} + e^{x}$",
+          "D": "$f'(x) = 2x + 1$"
         },
         "correct_answer": "A",
         "correct_answer_text": "$f'(x) = 2x + e^{x}$",
         "difficulty": "easy",
         "source": {
           "page": 78,
-          "reference": "مثال 1 - الفرع 2"
+          "reference": "مثال $1 -$ الفرع 2"
         },
         "solution": {
-          "formula": "$d/dx (f+g) = f' + g'$",
+          "formula": "$\\frac{d}{dx} (f+g) = f' + g'$",
           "steps": [
-            "اشتقاق الحد الأول $x^{2}$باستخدام قاعدة القوة: $2x$",
-            "اشتقاق الحد الثاني $e^{x}$باستخدام قاعدته: $e^{x}$"
+            "اشتقاق الحد الأول $x^{2}$ باستخدام قاعدة القوة: $2x$",
+            "اشتقاق الحد الثاني $e^{x}$ باستخدام قاعدته: $e^{x}$"
           ],
           "summary": "المشتقة هي $2x + e^{x}$."
         },
@@ -145,10 +145,10 @@
         "number": 6,
         "question": "ما هو مجال الاقتران اللوغاريتمي الطبيعي $f(x) = ln x$؟",
         "options": {
-          "A": "R (جميع الأعداد الحقيقية)",
-          "B": "x ≥ 0",
-          "C": "x > 0",
-          "D": "x < 0"
+          "A": "$R ($ جميع الأعداد الحقيقية)",
+          "B": "$x \\ge 0$",
+          "C": "$x > 0$",
+          "D": "$x < 0$"
         },
         "correct_answer": "C",
         "correct_answer_text": "$x > 0$",
@@ -169,53 +169,53 @@
       {
         "id": "U03-L01-Q007",
         "number": 7,
-        "question": "ما هي مشتقة الاقتران اللوغاريتمي الطبيعي $f(x) = ln x$حيث $x > 0$؟",
+        "question": "ما هي مشتقة الاقتران اللوغاريتمي الطبيعي $f(x) = ln x$ حيث $x > 0$؟",
         "options": {
-          "A": "f'(x) = e^x",
-          "B": "f'(x) = 1/x",
-          "C": "f'(x) = x",
-          "D": "f'(x) = 1/ln x"
+          "A": "$f'(x) = e^{x}$",
+          "B": "$f'(x) = \\frac{1}{x}$",
+          "C": "$f'(x) = x$",
+          "D": "$f'(x) = 1/ln x$"
         },
         "correct_answer": "B",
-        "correct_answer_text": "$f'(x) = 1/x$",
+        "correct_answer_text": "$f'(x) = \\frac{1}{x}$",
         "difficulty": "easy",
         "source": {
           "page": 79,
           "reference": "نظرية مشتقة الاقتران اللوغاريتمي الطبيعي"
         },
         "solution": {
-          "formula": "$d/dx (ln x) = 1/x$",
+          "formula": "$\\frac{d}{dx} (ln x) = \\frac{1}{x}$",
           "steps": [
             "تطبيق نظرية اشتقاق اللوغاريتم الطبيعي مباشرة"
           ],
           "summary": "المشتقة هي مقلوب المتغير $x$."
         },
-        "explanation": "تنص النظرية في صفحة 79 على أن مشتقة $ln x$هي $1/x$."
+        "explanation": "تنص النظرية في صفحة 79 على أن مشتقة $ln x$ هي $\\frac{1}{x}$."
       },
       {
         "id": "U03-L01-Q008",
         "number": 8,
         "question": "باستعمال قوانين اللوغاريتمات، ما هي مشتقة $f(x) = ln(x^{4})$؟",
         "options": {
-          "A": "f'(x) = 4x^3",
-          "B": "f'(x) = 1/x^4",
-          "C": "f'(x) = 4/x",
-          "D": "f'(x) = 4 ln x"
+          "A": "$f'(x) = 4x^{3}$",
+          "B": "$f'(x) = \\frac{1}{x^{4}}$",
+          "C": "$f'(x) = \\frac{4}{x}$",
+          "D": "$f'(x) = 4 ln x$"
         },
         "correct_answer": "C",
-        "correct_answer_text": "$f'(x) = 4/x$",
+        "correct_answer_text": "$f'(x) = \\frac{4}{x}$",
         "difficulty": "medium",
         "source": {
           "page": 80,
-          "reference": "مثال 2 - الفرع 1"
+          "reference": "مثال $2 -$ الفرع 1"
         },
         "solution": {
           "formula": "$ln(x^{p}) = p ln x$",
           "steps": [
             "تبسيط الاقتران: $f(x) = 4 ln x$",
-            "اشتقاق الاقتران المبسط: $f'(x) = 4 \\cdot (1/x)$"
+            "اشتقاق الاقتران المبسط: $f'(x) = 4 \\cdot (\\frac{1}{x})$"
           ],
-          "summary": "المشتقة هي $4/x$."
+          "summary": "المشتقة هي $\\frac{4}{x}$."
         },
         "explanation": "تم استخدام قانون القوة في اللوغاريتمات لتسهيل عملية الاشتقاق ص 80."
       },
@@ -224,10 +224,10 @@
         "number": 9,
         "question": "ما هي مشتقة اقتران الجيب $f(x) = \\sin x$؟",
         "options": {
-          "A": "f'(x) = -cos x",
-          "B": "f'(x) = cos x",
-          "C": "f'(x) = sin x",
-          "D": "f'(x) = sec^2 x"
+          "A": "$f'(x) = -\\cos x$",
+          "B": "$f'(x) = \\cos x$",
+          "C": "$f'(x) = \\sin x$",
+          "D": "$f'(x) = \\sec^{2} x$"
         },
         "correct_answer": "B",
         "correct_answer_text": "$f'(x) = \\cos x$",
@@ -237,7 +237,7 @@
           "reference": "نظرية مشتقة الجيب وجيب التمام"
         },
         "solution": {
-          "formula": "$d/dx (\\sin x) = \\cos x$",
+          "formula": "$\\frac{d}{dx} (\\sin x) = \\cos x$",
           "steps": [
             "تطبيق قاعدة اشتقاق الجيب مباشرة"
           ],
@@ -250,10 +250,10 @@
         "number": 10,
         "question": "ما هي مشتقة اقتران جيب التمام $f(x) = \\cos x$؟",
         "options": {
-          "A": "f'(x) = sin x",
-          "B": "f'(x) = -sin x",
-          "C": "f'(x) = -cos x",
-          "D": "f'(x) = sec x"
+          "A": "$f'(x) = \\sin x$",
+          "B": "$f'(x) = -\\sin x$",
+          "C": "$f'(x) = -\\cos x$",
+          "D": "$f'(x) = \\sec x$"
         },
         "correct_answer": "B",
         "correct_answer_text": "$f'(x) = -\\sin x$",
@@ -263,7 +263,7 @@
           "reference": "نظرية مشتقة الجيب وجيب التمام"
         },
         "solution": {
-          "formula": "$d/dx (\\cos x) = -\\sin x$",
+          "formula": "$\\frac{d}{dx} (\\cos x) = -\\sin x$",
           "steps": [
             "تطبيق قاعدة اشتقاق جيب التمام مباشرة"
           ],
@@ -276,20 +276,20 @@
         "number": 11,
         "question": "أجد مشتقة الاقتران $f(x) = 3 \\sin x + 4$.",
         "options": {
-          "A": "f'(x) = 3 cos x",
-          "B": "f'(x) = 3 cos x + 4",
-          "C": "f'(x) = -3 cos x",
-          "D": "f'(x) = 3 sin x"
+          "A": "$f'(x) = 3 \\cos x$",
+          "B": "$f'(x) = 3 \\cos x + 4$",
+          "C": "$f'(x) = -3 \\cos x$",
+          "D": "$f'(x) = 3 \\sin x$"
         },
         "correct_answer": "A",
         "correct_answer_text": "$f'(x) = 3 \\cos x$",
         "difficulty": "easy",
         "source": {
           "page": 81,
-          "reference": "مثال 3 - الفرع 1"
+          "reference": "مثال $3 -$ الفرع 1"
         },
         "solution": {
-          "formula": "$d/dx (af(x) + c) = a f'(x)$",
+          "formula": "$\\frac{d}{dx} (af(x) + c) = a f'(x)$",
           "steps": [
             "اشتقاق الحد الأول: $3 \\cdot \\cos x$",
             "اشتقاق الحد الثابت 4: صفر"
@@ -301,54 +301,54 @@
       {
         "id": "U03-L01-Q012",
         "number": 12,
-        "question": "ما هو ميل المماس لمنحنى الاقتران $f(x) = ln(x/e)$عند النقطة $(-1, -1)$؟",
+        "question": "ما هو ميل المماس لمنحنى الاقتران $f(x) = ln(\\frac{x}{e})$ عند النقطة $(-1, -1)$؟",
         "options": {
           "A": "0",
-          "B": "e",
+          "B": "$e$",
           "C": "1",
-          "D": "-1"
+          "D": "$-1$"
         },
         "correct_answer": "C",
         "correct_answer_text": "1",
         "difficulty": "medium",
         "source": {
           "page": 82,
-          "reference": "مثال 4 - الخطوة 1"
+          "reference": "مثال $4 -$ الخطوة 1"
         },
         "solution": {
-          "formula": "$f'(x) = 1/x$",
+          "formula": "$f'(x) = \\frac{1}{x}$",
           "steps": [
             "تبسيط الاقتران: $f(x) = ln x - ln e = ln x - 1$",
-            "إيجاد المشتقة: $f'(x) = 1/x$",
+            "إيجاد المشتقة: $f'(x) = \\frac{1}{x}$",
             "تعويض $x=1$: $f'(1) = \\frac{1}{1} = 1$"
           ],
           "summary": "ميل المماس يساوي 1."
         },
-        "explanation": "تم حساب المشتقة وتعويض قيمة $x$للنقطة المعطاة ص 82."
+        "explanation": "تم حساب المشتقة وتعويض قيمة $x$ للنقطة المعطاة ص 82."
       },
       {
         "id": "U03-L01-Q013",
         "number": 13,
-        "question": "أجد معادلة المماس لمنحنى $f(x) = ln(x/e)$عند النقطة $(-1, -1)$.",
+        "question": "أجد معادلة المماس لمنحنى $f(x) = ln(\\frac{x}{e})$ عند النقطة $(-1, -1)$.",
         "options": {
-          "A": "y = x + 2",
-          "B": "y = x - 2",
-          "C": "y = -x",
-          "D": "y = x"
+          "A": "$y = x + 2$",
+          "B": "$y = x - 2$",
+          "C": "$y = -x$",
+          "D": "$y = x$"
         },
         "correct_answer": "B",
         "correct_answer_text": "$y = x - 2$",
         "difficulty": "medium",
         "source": {
           "page": 83,
-          "reference": "مثال 4 - الخطوة 2"
+          "reference": "مثال $4 -$ الخطوة 2"
         },
         "solution": {
           "formula": "$y - y1 = m(x - x1)$",
           "steps": [
-            "استخدام الميل $m=1$والنقطة $(-1, -1)$",
+            "استخدام الميل $m=1$ والنقطة $(-1, -1)$",
             "$y - (-1) = 1(x - 1)$",
-            "$y + 1 = x - 1$تعطي $y = x - 2$"
+            "$y + 1 = x - 1$ تعطي $y = x - 2$"
           ],
           "summary": "معادلة المماس هي $y = x - 2$."
         },
@@ -361,7 +361,7 @@
         "options": {
           "A": "1",
           "B": "0",
-          "C": "-1",
+          "C": "$-1$",
           "D": "غير معرف"
         },
         "correct_answer": "C",
@@ -384,7 +384,7 @@
       {
         "id": "U03-L01-Q015",
         "number": 15,
-        "question": "في تطبيقات الحركة، ماذا تمثل المشتقة الأولى لاقتران الموقع $s(t)$بالنسبة للزمن؟",
+        "question": "في تطبيقات الحركة، ماذا تمثل المشتقة الأولى لاقتران الموقع $s(t)$ بالنسبة للزمن؟",
         "options": {
           "A": "المسافة المقطوعة",
           "B": "التسارع",
@@ -410,7 +410,7 @@
       {
         "id": "U03-L01-Q016",
         "number": 16,
-        "question": "ماذا تمثل المشتقة الثانية لاقتران الموقع $s(t)$بالنسبة للزمن؟",
+        "question": "ماذا تمثل المشتقة الثانية لاقتران الموقع $s(t)$ بالنسبة للزمن؟",
         "options": {
           "A": "السرعة",
           "B": "التسارع",
@@ -438,22 +438,22 @@
         "number": 17,
         "question": "إذا كان $s(t) = 4 \\sin t$، فما هو اقتران السرعة المتجهة $v(t)$؟",
         "options": {
-          "A": "v(t) = 4 sin t",
-          "B": "v(t) = -4 cos t",
-          "C": "v(t) = 4 cos t",
-          "D": "v(t) = 4t"
+          "A": "$v(t) = 4 \\sin t$",
+          "B": "$v(t) = -4 \\cos t$",
+          "C": "$v(t) = 4 \\cos t$",
+          "D": "$v(t) = 4t$"
         },
         "correct_answer": "C",
         "correct_answer_text": "$4 \\cos t$",
         "difficulty": "easy",
         "source": {
           "page": 84,
-          "reference": "مثال 5 - سرعة الجسم"
+          "reference": "مثال $5 -$ سرعة الجسم"
         },
         "solution": {
           "formula": "$v(t) = s'(t)$",
           "steps": [
-            "اشتقاق $4 \\sin t$بالنسبة لـ $t$",
+            "اشتقاق $4 \\sin t$ بالنسبة لـ $t$",
             "المشتقة هي $4 \\cos t$"
           ],
           "summary": "اقتران السرعة هو $4 \\cos t$."
@@ -463,10 +463,10 @@
       {
         "id": "U03-L01-Q018",
         "number": 18,
-        "question": "أجد تسارع الجسم الذي موقعه $s(t) = 4 \\sin t$عند اللحظة $t = \\pi /4$.",
+        "question": "أجد تسارع الجسم الذي موقعه $s(t) = 4 \\sin t$ عند اللحظة $t = \\frac{\\pi}{4}$.",
         "options": {
-          "A": "2√2",
-          "B": "-2√2",
+          "A": "$2\\sqrt{2}$",
+          "B": "$-2\\sqrt{2}$",
           "C": "4",
           "D": "0"
         },
@@ -475,44 +475,44 @@
         "difficulty": "medium",
         "source": {
           "page": 84,
-          "reference": "مثال 5 - تسارع الجسم"
+          "reference": "مثال $5 -$ تسارع الجسم"
         },
         "solution": {
           "formula": "$a(t) = s''(t) = -4 \\sin t$",
           "steps": [
             "إيجاد اقتران التسارع: $a(t) = -4 \\sin t$",
-            "تعويض $t = \\pi /4$: $a(\\pi /4) = -4 \\cdot \\sin (\\pi /4)$",
-            "الحساب: $-4 \\cdot (\\frac{1}{\\sqrt{2}}) = -\\frac{4}{\\sqrt{2}} = -2\\sqrt{2}$"
+            "تعويض $t = \\frac{\\pi}{4}$: $a(\\frac{\\pi}{4}) = -4 \\cdot \\sin (\\frac{\\pi}{4})$",
+            "الحساب: $-4 \\cdot (\\frac{1}{\\sqrt{2}}) = \\frac{-4}{\\sqrt{2}} = -2\\sqrt{2}$"
           ],
-          "summary": "التسارع يساوي $-2\\sqrt{2} m/\\text{s}^{2}$."
+          "summary": "التسارع يساوي $-2\\sqrt{2} \\frac{m}{s^{2}}$."
         },
         "explanation": "تم حساب المشتقة الثانية وتعويض قيمة الزمن ص 84."
       },
       {
         "id": "U03-L01-Q019",
         "number": 19,
-        "question": "متى يكون الجسم في حالة سكون لحظي حسب اقتران الموقع $s(t) = 4 \\sin t$في الفترة $[0, \\pi ]$؟",
+        "question": "متى يكون الجسم في حالة سكون لحظي حسب اقتران الموقع $s(t) = 4 \\sin t$ في الفترة $[0, \\pi ]$؟",
         "options": {
-          "A": "t = 0",
-          "B": "t = π",
-          "C": "t = π/2",
-          "D": "t = π/4"
+          "A": "$t = 0$",
+          "B": "$t = \\pi$",
+          "C": "$t = \\frac{\\pi}{2}$",
+          "D": "$t = \\frac{\\pi}{4}$"
         },
         "correct_answer": "C",
-        "correct_answer_text": "$t = \\pi /2$",
+        "correct_answer_text": "$t = \\frac{\\pi}{2}$",
         "difficulty": "medium",
         "source": {
           "page": 85,
-          "reference": "مثال 5 - الفرع 2"
+          "reference": "مثال $5 -$ الفرع 2"
         },
         "solution": {
           "formula": "$v(t) = 0$",
           "steps": [
             "مساواة اقتران السرعة بالصفر: $4 \\cos t = 0$",
             "$\\cos t = 0$",
-            "في الفترة المعطاة، $t = \\pi /2$"
+            "في الفترة المعطاة، $t = \\frac{\\pi}{2}$"
           ],
-          "summary": "يكون الجسم في سكون لحظي عند $t = \\pi /2$."
+          "summary": "يكون الجسم في سكون لحظي عند $t = \\frac{\\pi}{2}$."
         },
         "explanation": "السكون اللحظي يعني أن السرعة المتجهة تساوي صفراً ص 85."
       },
@@ -531,9 +531,10 @@
         "difficulty": "easy",
         "source": {
           "page": 86,
-          "reference": "مثال 5 - الفرع 3"
+          "reference": "مثال $5 -$ الفرع 3"
         },
         "solution": {
+          "formula": null,
           "steps": [
             "مراجعة تفسير إشارة السرعة ص 86"
           ],
@@ -546,20 +547,20 @@
         "number": 21,
         "question": "أجد مشتقة الاقتران $f(x) = \\sqrt{x} - 4e^{x}$.",
         "options": {
-          "A": "f'(x) = 1/(2√x) - 4e^x",
-          "B": "f'(x) = 1/√x - 4e^x",
-          "C": "f'(x) = √x - 4e^x",
-          "D": "f'(x) = 2√x - 4e^x"
+          "A": "$f'(x) = \\frac{1}{2\\sqrt{x}} - 4e^{x}$",
+          "B": "$f'(x) = \\frac{1}{\\sqrt{x}} - 4e^{x}$",
+          "C": "$f'(x) = \\sqrt{x} - 4e^{x}$",
+          "D": "$f'(x) = 2\\sqrt{x} - 4e^{x}$"
         },
         "correct_answer": "A",
         "correct_answer_text": "$f'(x) = \\frac{1}{2\\sqrt{x}} - 4e^{x}$",
         "difficulty": "medium",
         "source": {
           "page": 78,
-          "reference": "أتحقق من فهمي ص 78 - الفرع b"
+          "reference": "أتحقق من فهمي ص $78 -$ الفرع $b$"
         },
         "solution": {
-          "formula": "$d/dx(\\sqrt{x}) = \\frac{1}{2\\sqrt{x}}$",
+          "formula": "$\\frac{d}{dx}(\\sqrt{x}) = \\frac{1}{2\\sqrt{x}}$",
           "steps": [
             "اشتقاق الجذر التربيعي: $\\frac{1}{2\\sqrt{x}}$",
             "اشتقاق $-4e^{x}$: تبقى كما هي $-4e^{x}$"
@@ -573,25 +574,25 @@
         "number": 22,
         "question": "ما هي مشتقة الاقتران $y = 8e^{x} + \\frac{4}{x^{5}}$؟",
         "options": {
-          "A": "y' = 8e^x + 20x^4",
-          "B": "y' = 8e^x - 20x^{-6}",
-          "C": "y' = 8e^x + 4/x^6",
-          "D": "y' = 8e^x - 20x^{-4}"
+          "A": "$y' = 8e^{x} + 20x^{4}$",
+          "B": "$y' = 8e^{x} - 20x^{-6}$",
+          "C": "$y' = 8e^{x} + \\frac{4}{x^{6}}$",
+          "D": "$y' = 8e^{x} - 20x^{-4}$"
         },
         "correct_answer": "B",
         "correct_answer_text": "$y' = 8e^{x} - 20x^{-6}$",
         "difficulty": "hard",
         "source": {
           "page": 78,
-          "reference": "أتحقق من فهمي ص 78 - الفرع c"
+          "reference": "أتحقق من فهمي ص $78 -$ الفرع $c$"
         },
         "solution": {
-          "formula": "$d/dx(x^{n}) = nx^{n-1}$",
+          "formula": "$\\frac{d}{dx}(x^{n}) = nx^{n-1}$",
           "steps": [
             "كتابة الحد الثاني بصورة $4x^{-5}$",
             "اشتقاقه: $4 \\cdot (-5) \\cdot x^{-6} = -20x^{-6}$"
           ],
-          "summary": "المشتقة هي $8e^{x} - 20/x^{6}$."
+          "summary": "المشتقة هي $8e^{x} - \\frac{20}{x^{6}}$."
         },
         "explanation": "استخدام قوانين الأسس السالبة لتسهيل الاشتقاق ص 78."
       },
@@ -600,49 +601,50 @@
         "number": 23,
         "question": "باستعمال الخصائص، أجد مشتقة $f(x) = ln(x e^{x})$.",
         "options": {
-          "A": "f'(x) = 1/(x e^x)",
-          "B": "f'(x) = 1/x + 1",
-          "C": "f'(x) = ln x + x",
-          "D": "f'(x) = 1/x + e^x"
+          "A": "$f'(x) = \\frac{1}{x e^{x}}$",
+          "B": "$f'(x) = \\frac{1}{x} + 1$",
+          "C": "$f'(x) = ln x + x$",
+          "D": "$f'(x) = \\frac{1}{x} + e^{x}$"
         },
         "correct_answer": "B",
-        "correct_answer_text": "$f'(x) = 1/x + 1$",
+        "correct_answer_text": "$f'(x) = \\frac{1}{x} + 1$",
         "difficulty": "medium",
         "source": {
           "page": 80,
-          "reference": "مثال 2 - الفرع 2"
+          "reference": "مثال $2 -$ الفرع 2"
         },
         "solution": {
           "formula": "$ln(xy) = ln x + ln y$",
           "steps": [
             "تبسيط: $f(x) = ln x + ln(e^{x}) = ln x + x$",
-            "اشتقاق: $f'(x) = 1/x + 1$"
+            "اشتقاق: $f'(x) = \\frac{1}{x} + 1$"
           ],
-          "summary": "المشتقة هي $1/x + 1$."
+          "summary": "المشتقة هي $\\frac{1}{x} + 1$."
         },
-        "explanation": "تم استخدام خاصية الضرب في اللوغاريتمات وحقيقة أن $ln(e^{x}) = x$ص 80."
+        "explanation": "تم استخدام خاصية الضرب في اللوغاريتمات وحقيقة أن $ln(e^{x}) = x$ ص 80."
       },
       {
         "id": "U03-L01-Q024",
         "number": 24,
         "question": "أجد مشتقة الاقتران $y = \\sin x / 2 + 3 \\cos x$.",
         "options": {
-          "A": "y' = cos x / 2 - 3 sin x",
-          "B": "y' = cos x / 2 + 3 sin x",
-          "C": "y' = -cos x / 2 - 3 sin x",
-          "D": "y' = 1/2 - 3 sin x"
+          "A": "$y' = \\cos x / 2 - 3 \\sin x$",
+          "B": "$y' = \\cos x / 2 + 3 \\sin x$",
+          "C": "$y' = -\\cos x / 2 - 3 \\sin x$",
+          "D": "$y' = \\frac{1}{2} - 3 \\sin x$"
         },
         "correct_answer": "A",
         "correct_answer_text": "$y' = \\cos x / 2 - 3 \\sin x$",
         "difficulty": "medium",
         "source": {
           "page": 82,
-          "reference": "أتحقق من فهمي ص 82 - الفرع a"
+          "reference": "أتحقق من فهمي ص $82 -$ الفرع $a$"
         },
         "solution": {
+          "formula": null,
           "steps": [
-            "اشتقاق $(\\frac{1}{2}) \\sin x$يعطي $(\\frac{1}{2}) \\cos x$",
-            "اشتقاق $3 \\cos x$يعطي $-3 \\sin x$"
+            "اشتقاق $(\\frac{1}{2}) \\sin x$ يعطي $(\\frac{1}{2}) \\cos x$",
+            "اشتقاق $3 \\cos x$ يعطي $-3 \\sin x$"
           ],
           "summary": "الناتج هو $\\cos x / 2 - 3 \\sin x$."
         },
@@ -651,40 +653,40 @@
       {
         "id": "U03-L01-Q025",
         "number": 25,
-        "question": "أجد مشتقة $f(x) = x^{2} + \\cos x + \\sin (\\pi /2)$.",
+        "question": "أجد مشتقة $f(x) = x^{2} + \\cos x + \\sin (\\frac{\\pi}{2})$.",
         "options": {
-          "A": "f'(x) = 2x - sin x + cos(π/2)",
-          "B": "f'(x) = 2x - sin x",
-          "C": "f'(x) = 2x + sin x + 1",
-          "D": "f'(x) = 2x - sin x + 1"
+          "A": "$f'(x) = 2x - \\sin x + \\cos (\\frac{\\pi}{2})$",
+          "B": "$f'(x) = 2x - \\sin x$",
+          "C": "$f'(x) = 2x + \\sin x + 1$",
+          "D": "$f'(x) = 2x - \\sin x + 1$"
         },
         "correct_answer": "B",
         "correct_answer_text": "$f'(x) = 2x - \\sin x$",
         "difficulty": "hard",
         "source": {
           "page": 82,
-          "reference": "أتحقق من فهمي ص 82 - الفرع b"
+          "reference": "أتحقق من فهمي ص $82 -$ الفرع $b$"
         },
         "solution": {
-          "formula": "$\\sin (\\pi /2) = 1$",
+          "formula": "$\\sin (\\frac{\\pi}{2}) = 1$",
           "steps": [
-            "$\\sin (\\pi /2)$قيمة ثابتة تساوي 1، مشتقتها صفر",
-            "اشتقاق $x^{2}$هو $2x$",
-            "اشتقاق $\\cos x$هو $-\\sin x$"
+            "$\\sin (\\frac{\\pi}{2})$ قيمة ثابتة تساوي 1، مشتقتها صفر",
+            "اشتقاق $x^{2}$ هو $2x$",
+            "اشتقاق $\\cos x$ هو $-\\sin x$"
           ],
           "summary": "المشتقة هي $2x - \\sin x$."
         },
-        "explanation": "يجب الانتباه أن $\\sin (\\pi /2)$ليس اقتراناً متغيراً بل ثابت عددي ص 82."
+        "explanation": "يجب الانتباه أن $\\sin (\\frac{\\pi}{2})$ ليس اقتراناً متغيراً بل ثابت عددي ص 82."
       },
       {
         "id": "U03-L01-Q026",
         "number": 26,
-        "question": "ما هي معادلة المماس لمنحنى $f(x) = ln \\sqrt{x}$عند النقطة $(e, \\frac{1}{2})$؟",
+        "question": "ما هي معادلة المماس لمنحنى $f(x) = ln \\sqrt{x}$ عند النقطة $(e, \\frac{1}{2})$؟",
         "options": {
-          "A": "y = x/(2e)",
-          "B": "y = x/(2e) + 1/2",
-          "C": "y = x/e - 1/2",
-          "D": "y = ex"
+          "A": "$y = \\frac{x}{2e}$",
+          "B": "$y = \\frac{x}{2e} + \\frac{1}{2}$",
+          "C": "$y = \\frac{x}{e} - \\frac{1}{2}$",
+          "D": "$y = ex$"
         },
         "correct_answer": "A",
         "correct_answer_text": "$y = \\frac{x}{2e}$",
@@ -699,8 +701,8 @@
             "تبسيط: $f(x) = ln x^{\\frac{1}{2}} = \\frac{1}{2} ln x$",
             "المشتقة: $f'(x) = \\frac{1}{2x}$",
             "الميل $m = f'(e) = \\frac{1}{2e}$",
-            "المعادلة: $y - \\frac{1}{2} = (\\frac{1}{2}e)(x - e)$",
-            "$y = \\frac{x}{2e} - \\frac{1}{2} + \\frac{1}{2}$تعطي $y = \\frac{x}{2e}$"
+            "المعادلة: $y - \\frac{1}{2} = (\\frac{1}{2e})(x - e)$",
+            "$y = \\frac{x}{2e} - \\frac{1}{2} + \\frac{1}{2}$ تعطي $y = \\frac{x}{2e}$"
           ],
           "summary": "معادلة المماس هي $y = \\frac{x}{2e}$."
         },
@@ -711,24 +713,24 @@
         "number": 27,
         "question": "متى يعود الجسم لموقعه الابتدائي لأول مرة إذا كان $s(t) = 4 \\sin t$؟",
         "options": {
-          "A": "بعد π ثانية",
-          "B": "بعد π/2 ثانية",
-          "C": "بعد 2π ثانية",
+          "A": "بعد $\\pi$ ثانية",
+          "B": "بعد $\\frac{\\pi}{2}$ ثانية",
+          "C": "بعد $2\\pi$ ثانية",
           "D": "لا يعود أبداً"
         },
         "correct_answer": "A",
-        "correct_answer_text": "بعد $\\pi$ثانية",
+        "correct_answer_text": "بعد $\\pi$ ثانية",
         "difficulty": "medium",
         "source": {
           "page": 86,
-          "reference": "مثال 5 - الفرع 4"
+          "reference": "مثال $5 -$ الفرع 4"
         },
         "solution": {
           "formula": "$s(t) = s(0)$",
           "steps": [
             "الموقع الابتدائي $s(0) = 4 \\sin 0 = 0$",
-            "نبحث عن $t > 0$تجعل $4 \\sin t = 0$",
-            "$\\sin t = 0$تؤدي لـ $t = \\pi$"
+            "نبحث عن $t > 0$ تجعل $4 \\sin t = 0$",
+            "$\\sin t = 0$ تؤدي لـ $t = \\pi$"
           ],
           "summary": "يعود الجسم للموقع الابتدائي عند $t = \\pi$."
         },
@@ -739,23 +741,23 @@
         "number": 28,
         "question": "أجد مشتقة الاقتران $f(x) = e^{x} + x^{e}$.",
         "options": {
-          "A": "f'(x) = e^x + e x^{e-1}",
-          "B": "f'(x) = e^x + x^e",
-          "C": "f'(x) = e x + e^x",
-          "D": "f'(x) = e^x + 1"
+          "A": "$f'(x) = e^{x} + e x^{e-1}$",
+          "B": "$f'(x) = e^{x} + x^{e}$",
+          "C": "$f'(x) = e x + e^{x}$",
+          "D": "$f'(x) = e^{x} + 1$"
         },
         "correct_answer": "A",
         "correct_answer_text": "$f'(x) = e^{x} + e x^{e-1}$",
         "difficulty": "hard",
         "source": {
           "page": 86,
-          "reference": "أتدرب وأحل المسائل - 5"
+          "reference": "أتدرب وأحل المسائل $- 5$"
         },
         "solution": {
-          "formula": "$d/dx(x^{n}) = nx^{n-1}$",
+          "formula": "$\\frac{d}{dx}(x^{n}) = nx^{n-1}$",
           "steps": [
             "الحد الأول أسي طبيعي مشتقته $e^{x}$",
-            "الحد الثاني اقتران قوة (الأس $e$ثابت): مشتقته $e \\cdot x^{e-1}$"
+            "الحد الثاني اقتران قوة (الأس $e$ ثابت): مشتقته $e \\cdot x^{e-1}$"
           ],
           "summary": "المشتقة هي $e^{x} + e x^{e-1}$."
         },
@@ -764,26 +766,26 @@
       {
         "id": "U03-L01-Q029",
         "number": 29,
-        "question": "ما هي قيمة $x$التي يكون عندها المماس أفقيّاً لمنحنى $f(x) = e^{x} - 2x$؟",
+        "question": "ما هي قيمة $x$ التي يكون عندها المماس أفقيّاً لمنحنى $f(x) = e^{x} - 2x$؟",
         "options": {
-          "A": "x = 0",
-          "B": "x = 2",
-          "C": "x = ln 2",
-          "D": "x = e^2"
+          "A": "$x = 0$",
+          "B": "$x = 2$",
+          "C": "$x = ln 2$",
+          "D": "$x = e^{2}$"
         },
         "correct_answer": "C",
         "correct_answer_text": "$x = ln 2$",
         "difficulty": "hard",
         "source": {
           "page": 86,
-          "reference": "أتدرب وأحل المسائل - 9"
+          "reference": "أتدرب وأحل المسائل $- 9$"
         },
         "solution": {
           "formula": "$f'(x) = 0$",
           "steps": [
             "$f'(x) = e^{x} - 2$",
-            "$e^{x} - 2 = 0$تعطي $e^{x} = 2$",
-            "بأخذ $ln$للطرفين: $x = ln 2$"
+            "$e^{x} - 2 = 0$ تعطي $e^{x} = 2$",
+            "بأخذ $ln$ للطرفين: $x = ln 2$"
           ],
           "summary": "المماس أفقي عند $x = ln 2$."
         },
@@ -792,28 +794,28 @@
       {
         "id": "U03-L01-Q030",
         "number": 30,
-        "question": "أجد معادلة العمودي على المماس لمنحنى $f(x) = \\sin x + \\cos x$عندما $x = \\pi$.",
+        "question": "أجد معادلة العمودي على المماس لمنحنى $f(x) = \\sin x + \\cos x$ عندما $x = \\pi$.",
         "options": {
-          "A": "y = -x + π - 1",
-          "B": "y = x - π - 1",
-          "C": "y = x - π + 1",
-          "D": "y = x + π + 1"
+          "A": "$y = -x + \\pi - 1$",
+          "B": "$y = x - \\pi - 1$",
+          "C": "$y = x - \\pi + 1$",
+          "D": "$y = x + \\pi + 1$"
         },
         "correct_answer": "B",
         "correct_answer_text": "$y = x - \\pi - 1$",
         "difficulty": "hard",
         "source": {
           "page": 87,
-          "reference": "أتدرب وأحل المسائل - 10"
+          "reference": "أتدرب وأحل المسائل $- 10$"
         },
         "solution": {
-          "formula": "$m_{normal} = -1/f'(x)$",
+          "formula": "$m_{normal} = \\frac{-1}{f'(x)}$",
           "steps": [
             "$f'(x) = \\cos x - \\sin x$",
             "ميل المماس $f'(\\pi ) = \\cos \\pi - \\sin \\pi = -1 - 0 = -1$",
-            "ميل العمودي $= -\\frac{1}{-1} = 1$",
+            "ميل العمودي $= \\frac{-1}{-1} = 1$",
             "النقطة: $x=\\pi , y=\\sin \\pi + \\cos \\pi = -1$",
-            "المعادلة: $y - (-1) = 1(x - \\pi )$تعطي $y = x - \\pi - 1$"
+            "المعادلة: $y - (-1) = 1(x - \\pi )$ تعطي $y = x - \\pi - 1$"
           ],
           "summary": "معادلة العمودي هي $y = x - \\pi - 1$."
         },
@@ -822,27 +824,27 @@
       {
         "id": "U03-L01-Q031",
         "number": 31,
-        "question": "بين أن $f'(x) = 1/x$للاقتران $f(x) = ln(kx)$حيث $k$ثابت موجب.",
+        "question": "بين أن $f'(x) = \\frac{1}{x}$ للاقتران $f(x) = ln(kx)$ حيث $k$ ثابت موجب.",
         "options": {
-          "A": "لأن المشتقة لا تعتمد على الثابت k",
-          "B": "لأن ln(kx) = ln k + ln x ومشتقة ln k هي صفر",
-          "C": "لأن k تختصر مع x",
+          "A": "لأن المشتقة لا تعتمد على الثابت $k$",
+          "B": "لأن $ln(kx) = ln k + ln x$ ومشتقة $ln k$ هي صفر",
+          "C": "لأن $k$ تختصر مع $x$",
           "D": "بسبب قاعدة السلسلة فقط"
         },
         "correct_answer": "B",
-        "correct_answer_text": "لأن $ln(kx) = ln k + ln x$ومشتقة $ln k$هي صفر",
+        "correct_answer_text": "لأن $ln(kx) = ln k + ln x$ ومشتقة $ln k$ هي صفر",
         "difficulty": "medium",
         "source": {
           "page": 87,
-          "reference": "أتدرب وأحل المسائل - 11"
+          "reference": "أتدرب وأحل المسائل $- 11$"
         },
         "solution": {
           "formula": "$ln(ab) = ln a + ln b$",
           "steps": [
             "$f(x) = ln k + ln x$",
-            "$f'(x) = 0 + 1/x = 1/x$"
+            "$f'(x) = 0 + \\frac{1}{x} = \\frac{1}{x}$"
           ],
-          "summary": "المشتقة هي $1/x$."
+          "summary": "المشتقة هي $\\frac{1}{x}$."
         },
         "explanation": "استخدام قوانين اللوغاريتمات يبسط الاشتقاق ص 87."
       },
@@ -851,81 +853,81 @@
         "number": 32,
         "question": "أجد الموقع الابتدائي لجسيم يتحرك حسب $s(t) = e^{t} - 4t$.",
         "options": {
-          "A": "0 m",
-          "B": "1 m",
-          "C": "-4 m",
-          "D": "e m"
+          "A": "$0 m$",
+          "B": "$1 m$",
+          "C": "$-4 m$",
+          "D": "$e m$"
         },
         "correct_answer": "B",
         "correct_answer_text": "$1 m$",
         "difficulty": "easy",
         "source": {
           "page": 87,
-          "reference": "أتدرب وأحل المسائل - 17"
+          "reference": "أتدرب وأحل المسائل $- 17$"
         },
         "solution": {
           "formula": "$s(0)$",
           "steps": [
-            "تعويض $t = 0$في اقتران الموقع",
+            "تعويض $t = 0$ في اقتران الموقع",
             "$s(0) = e^{0} - 4(0) = 1 - 0 = 1$"
           ],
           "summary": "الموقع الابتدائي هو 1 متر."
         },
-        "explanation": "الموقع الابتدائي هو قيمة $s$عندما $t=0$ص 87."
+        "explanation": "الموقع الابتدائي هو قيمة $s$ عندما $t=0$ ص 87."
       },
       {
         "id": "U03-L01-Q033",
         "number": 33,
-        "question": "أجد تسارع الجسيم $s(t) = e^{t} - 4t$عندما تكون سرعته صفراً.",
+        "question": "أجد تسارع الجسيم $s(t) = e^{t} - 4t$ عندما تكون سرعته صفراً.",
         "options": {
-          "A": "0 m/s^2",
-          "B": "4 m/s^2",
-          "C": "ln 4 m/s^2",
-          "D": "1 m/s^2"
+          "A": "$0 \\frac{m}{s^{2}}$",
+          "B": "$4 \\frac{m}{s^{2}}$",
+          "C": "$ln 4 \\frac{m}{s^{2}}$",
+          "D": "$1 \\frac{m}{s^{2}}$"
         },
         "correct_answer": "B",
-        "correct_answer_text": "$4 m/\\text{s}^{2}$",
+        "correct_answer_text": "$4 \\frac{m}{s^{2}}$",
         "difficulty": "hard",
         "source": {
           "page": 87,
-          "reference": "أتدرب وأحل المسائل - 18"
+          "reference": "أتدرب وأحل المسائل $- 18$"
         },
         "solution": {
           "formula": "$a(t) = s''(t)$",
           "steps": [
             "السرعة $v(t) = e^{t} - 4$",
-            "$v(t) = 0$تعطي $e^{t} = 4$",
+            "$v(t) = 0$ تعطي $e^{t} = 4$",
             "التسارع $a(t) = v'(t) = e^{t}$",
             "بالتعويض: $a = e^{t} = 4$"
           ],
-          "summary": "التسارع هو $4 m/\\text{s}^{2}$."
+          "summary": "التسارع هو $4 \\frac{m}{s^{2}}$."
         },
         "explanation": "تم إيجاد لحظة السكون ثم تعويضها في اقتران التسارع ص 87."
       },
       {
         "id": "U03-L01-Q034",
         "number": 34,
-        "question": "ما هي معادلة المماس للاقتران $y = e^{x} - ax$عند نقطة تقاطعه مع المحور $y$؟",
+        "question": "ما هي معادلة المماس للاقتران $y = e^{x} - ax$ عند نقطة تقاطعه مع المحور $y$؟",
         "options": {
-          "A": "y = (1-a)x + 1",
-          "B": "y = x - a",
-          "C": "y = e x - a",
-          "D": "y = -ax + 1"
+          "A": "$y = (1-a)x + 1$",
+          "B": "$y = x - a$",
+          "C": "$y = e x - a$",
+          "D": "$y = -ax + 1$"
         },
         "correct_answer": "A",
         "correct_answer_text": "$y = (1-a)x + 1$",
         "difficulty": "hard",
         "source": {
           "page": 88,
-          "reference": "مهارات التفكير العليا - 19"
+          "reference": "مهارات التفكير العليا $- 19$"
         },
         "solution": {
           "formula": "$y - y1 = m(x - x1)$",
           "steps": [
             "نقطة التقاطع مع $y (x=0)$: $y = e^{0} - 0 = 1$. النقطة هي $(0, 1)$",
             "المشتقة: $y' = e^{x} - a$",
-            "الميل $m$عند $x=0$: $m = 1 - a$",
-            "المعادلة: $y - 1 = (1-a)(x - 0)$تعطي $y = (1-a)x + 1$"
+            "الميل $m$ عند $x=0$: $m = 1 - a$",
+            "المعادلة: $y - 1 = (1-a)(x - 0)$ تعطي $y = (1-a)x + 1$"
           ],
           "summary": "المعادلة هي $y = (1-a)x + 1$."
         },
@@ -937,22 +939,22 @@
         "question": "أثبت عدم وجود مماس ميله 2 للاقتران $y = 2e^{x} + 3x + 5x^{3}$.",
         "options": {
           "A": "لأن المشتقة دائماً أقل من 2",
-          "B": "لأن المشتقة 2e^x + 3 + 15x^2 دائماً أكبر من 3",
+          "B": "لأن المشتقة $2e^{x} + 3 + 15x^{2}$ دائماً أكبر من 3",
           "C": "لأن الاقتران ليس له مشتقة",
           "D": "لأن الميل يجب أن يكون سالباً"
         },
         "correct_answer": "B",
-        "correct_answer_text": "لأن المشتقة $2e^{x} + 3 + 15x^{2}$دائماً أكبر من 3",
+        "correct_answer_text": "لأن المشتقة $2e^{x} + 3 + 15x^{2}$ دائماً أكبر من 3",
         "difficulty": "hard",
         "source": {
           "page": 88,
-          "reference": "تحد - 20"
+          "reference": "تحد $- 20$"
         },
         "solution": {
           "formula": "$y' = 2e^{x} + 3 + 15x^{2}$",
           "steps": [
             "إيجاد المشتقة: $y' = 2e^{x} + 3 + 15x^{2}$",
-            "بما أن $2e^{x} > 0$و $15x^{2} \\ge 0$، فإن $y' > 3$دائماً",
+            "بما أن $2e^{x} > 0$ و $15x^{2} \\ge 0$، فإن $y' > 3$ دائماً",
             "لذلك لا يمكن أن تساوي المشتقة (الميل) القيمة 2"
           ],
           "summary": "المشتقة دائماً أكبر من 3."
@@ -964,53 +966,53 @@
         "number": 36,
         "question": "إذا كان $s(t) = 3 - \\cos t - \\sin t$، متى يكون الجسم في حالة سكون لحظي أول مرة؟",
         "options": {
-          "A": "t = π/2",
-          "B": "t = π/4",
-          "C": "t = 3π/4",
-          "D": "t = π"
+          "A": "$t = \\frac{\\pi}{2}$",
+          "B": "$t = \\frac{\\pi}{4}$",
+          "C": "$t = \\frac{3\\pi}{4}$",
+          "D": "$t = \\pi$"
         },
         "correct_answer": "C",
-        "correct_answer_text": "$t = 3\\pi /4$",
+        "correct_answer_text": "$t = \\frac{3\\pi}{4}$",
         "difficulty": "hard",
         "source": {
           "page": 88,
-          "reference": "مهارات التفكير العليا - 23"
+          "reference": "مهارات التفكير العليا $- 23$"
         },
         "solution": {
           "formula": "$v(t) = \\sin t - \\cos t = 0$",
           "steps": [
             "$v(t) = s'(t) = \\sin t - \\cos t$",
-            "$\\sin t - \\cos t = 0$تعطي $\\tan t = 1$",
-            "أول قيمة موجبة هي $t = \\pi /4 ($لكن لاحظ $s(t)$المذكور في التمرين 23 ص $88)$",
+            "$\\sin t - \\cos t = 0$ تعطي $\\tan t = 1$",
+            "أول قيمة موجبة هي $t = \\frac{\\pi}{4} ($ لكن لاحظ $s(t)$ المذكور في التمرين 23 ص $88)$",
             "بتطبيق خطوات الحل الصحيحة للتمرين المذكور"
           ],
-          "summary": "الوقت هو $3\\pi /4 ($بناءً على تفاصيل المسألة 23 ص $88)$."
+          "summary": "الوقت هو $\\frac{3\\pi}{4} ($ بناءً على تفاصيل المسألة 23 ص $88)$."
         },
         "explanation": "تطبيق مهارات التفكير العليا في الحركة الموجية ص 88."
       },
       {
         "id": "U03-L01-Q037",
         "number": 37,
-        "question": "ما هي مشتقة الاقتران $y = log x ($اللوغاريتم الاعتيادي)؟",
+        "question": "ما هي مشتقة الاقتران $y = log x ($ اللوغاريتم الاعتيادي)؟",
         "options": {
-          "A": "1/x",
-          "B": "1 / (x ln 10)",
-          "C": "10/x",
-          "D": "ln x / 10"
+          "A": "$\\frac{1}{x}$",
+          "B": "$\\frac{1}{x ln 10}$",
+          "C": "$\\frac{10}{x}$",
+          "D": "$ln x / 10$"
         },
         "correct_answer": "B",
         "correct_answer_text": "$\\frac{1}{x ln 10}$",
         "difficulty": "medium",
         "source": {
           "page": 88,
-          "reference": "تحد - 25"
+          "reference": "تحد $- 25$"
         },
         "solution": {
-          "formula": "$d/dx(log_{a} x) = \\frac{1}{x ln a}$",
+          "formula": "$\\frac{d}{dx}(log_{a} x) = \\frac{1}{x ln a}$",
           "steps": [
             "اللوغاريتم الاعتيادي أساسه 10",
             "تطبيق قانون تغيير الأساس: $log x = ln x / ln 10$",
-            "المشتقة: $(1/ln 10) \\cdot (1/x)$"
+            "المشتقة: $(1/ln 10) \\cdot (\\frac{1}{x})$"
           ],
           "summary": "المشتقة هي $\\frac{1}{x ln 10}$."
         },
@@ -1021,36 +1023,37 @@
         "number": 38,
         "question": "أجد مشتقة الاقتران $f(x) = ln(x^{4}) + x^{4}$.",
         "options": {
-          "A": "4/x + 4x^3",
-          "B": "1/x^4 + 4x^3",
-          "C": "4 ln x + 4x^3",
-          "D": "4/x + x^3"
+          "A": "$\\frac{4}{x} + 4x^{3}$",
+          "B": "$\\frac{1}{x^{4}} + 4x^{3}$",
+          "C": "$4 ln x + 4x^{3}$",
+          "D": "$\\frac{4}{x} + x^{3}$"
         },
         "correct_answer": "A",
-        "correct_answer_text": "$4/x + 4x^{3}$",
+        "correct_answer_text": "$\\frac{4}{x} + 4x^{3}$",
         "difficulty": "medium",
         "source": {
           "page": 86,
-          "reference": "أتدرب وأحل المسائل - 3"
+          "reference": "أتدرب وأحل المسائل $- 3$"
         },
         "solution": {
+          "formula": null,
           "steps": [
-            "الحد الأول: $ln(x^{4}) = 4 ln x$، مشتقته $4/x$",
-            "الحد الثاني: $x^{4}$مشتقته $4x^{3}$"
+            "الحد الأول: $ln(x^{4}) = 4 ln x$، مشتقته $\\frac{4}{x}$",
+            "الحد الثاني: $x^{4}$ مشتقته $4x^{3}$"
           ],
-          "summary": "المشتقة هي $4/x + 4x^{3}$."
+          "summary": "المشتقة هي $\\frac{4}{x} + 4x^{3}$."
         },
         "explanation": "تم الجمع بين قاعدة اللوغاريتم وقاعدة القوة ص 86."
       },
       {
         "id": "U03-L01-Q039",
         "number": 39,
-        "question": "في مسألة اليوم، ما هي معادلة المماس لمنحنى $f(x) = e^{x} - 2x^{3}$عند النقطة $A(0, 1)$؟",
+        "question": "في مسألة اليوم، ما هي معادلة المماس لمنحنى $f(x) = e^{x} - 2x^{3}$ عند النقطة $A(0, 1)$؟",
         "options": {
-          "A": "y = x + 1",
-          "B": "y = -x + 1",
-          "C": "y = x",
-          "D": "y = 1"
+          "A": "$y = x + 1$",
+          "B": "$y = -x + 1$",
+          "C": "$y = x$",
+          "D": "$y = 1$"
         },
         "correct_answer": "A",
         "correct_answer_text": "$y = x + 1$",
@@ -1064,7 +1067,7 @@
           "steps": [
             "حساب المشتقة: $f'(x) = e^{x} - 6x^{2}$",
             "الميل عند $x=0$: $m = e^{0} - 0 = 1$",
-            "المعادلة عند $(0, 1)$: $y - 1 = 1(x - 0)$تعطي $y = x + 1$"
+            "المعادلة عند $(0, 1)$: $y - 1 = 1(x - 0)$ تعطي $y = x + 1$"
           ],
           "summary": "المعادلة هي $y = x + 1$."
         },
@@ -1073,19 +1076,19 @@
       {
         "id": "U03-L01-Q040",
         "number": 40,
-        "question": "ما هو تسارع الجسيم $s(t) = 4 - \\sin t$بعد $t$ثانية؟",
+        "question": "ما هو تسارع الجسيم $s(t) = 4 - \\sin t$ بعد $t$ ثانية؟",
         "options": {
-          "A": "cos t",
-          "B": "-cos t",
-          "C": "sin t",
-          "D": "-sin t"
+          "A": "$\\cos t$",
+          "B": "$-\\cos t$",
+          "C": "$\\sin t$",
+          "D": "$-\\sin t$"
         },
         "correct_answer": "C",
         "correct_answer_text": "$\\sin t$",
         "difficulty": "medium",
         "source": {
           "page": 87,
-          "reference": "أتدرب وأحل المسائل - 14"
+          "reference": "أتدرب وأحل المسائل $- 14$"
         },
         "solution": {
           "formula": "$a(t) = s''(t)$",
