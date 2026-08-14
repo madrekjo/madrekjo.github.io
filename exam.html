@@ -926,8 +926,16 @@ window.pick = function(key) {
   //     reviewSection.style.display = 'block';
   //   }
   // }
-  // Remove timeout that auto-advanced
+  // After answering, move to the next question automatically
   clearTimeout(state.timer);
+  state.timer = setTimeout(() => {
+    if (state.idx < state.questions.length - 1) {
+      state.idx++;
+      showQ();
+    } else {
+      showResult();
+    }
+  }, 900);
 };
 
 window.goPrev = function() {
