@@ -189,6 +189,7 @@ function buildSemesterLinks(elective) {
   }
   return [
     { group: '⚙️ خدمات عامة', items: SHARED },
+    { group: '🔄 المراجعه الختاميه', items: [ { icon: '🎯', text: 'الأسئلة الخطأ للمراجعة', url: '../exam.html?review=true&generation=' + YEAR, type: 'iframe', title: 'المراجعه الختاميه — الأسئلة الخطأ' } ] },
     { group: '📖 الفصل الأول', items: semItems('ف1') },
     {
       // الفصل الثاني مخفي - سيتم إضافه لاحقاً
@@ -225,6 +226,38 @@ setTimeout(function() {
 }, 0);
 </script>
 <script src="../js/main.js"></script>
+<script>
+(function() {
+  try {
+    const wrongQs = JSON.parse(localStorage.getItem('madrekjo_wrong_questions') || '[]');
+    const wrongQsThisGen = wrongQs.filter(x => !x.generation || x.generation === YEAR);
+    if (wrongQsThisGen.length > 0) {
+      setTimeout(() => {
+        if (confirm('لديك اسئله تمت الاجابه عليهم بشكل خطا هل تريد الانتقال للقسم (المراجعه الختاميه)؟')) {
+          const viewer = document.getElementById('fullViewer');
+          const iframe = document.getElementById('mainIframe');
+          const titleEl = document.getElementById('viewerTitle');
+          const spinner = document.getElementById('viewerSpinner');
+          const errorBox = document.getElementById('iframeError');
+
+          titleEl.textContent = 'المراجعه الختاميه — الأسئلة الخطأ';
+          spinner.style.display = 'block';
+          iframe.style.opacity = '0';
+          errorBox.style.display = 'none';
+          iframe.src = '../exam.html?review=true&generation=' + YEAR;
+          viewer.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+
+          iframe.onload = function() {
+            spinner.style.display = 'none';
+            iframe.style.opacity = '1';
+          };
+        }
+      }, 1000);
+    }
+  } catch(e) {}
+})();
+</script>
 <script src="../js/chatbot.js"></script>
 </body>
 </html>
