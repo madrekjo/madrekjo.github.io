@@ -12,42 +12,44 @@
       "number": 1,
       "name": "الوقود الأحفوري والبيئة",
       "lessons": [
-        {
-          "id": "L01",
-          "number": 1,
-          "name": "الوقود الأحفوري وغازات الدفيئة",
-          "file": "unit-01/lesson-01.json"
-        },
-        {
-          "id": "L02",
-          "number": 2,
-          "name": "الوقود الأحفوري والتغيّر المناخي",
-          "file": "unit-01/lesson-02.json"
-        }
+        { "id": "L01", "number": 1, "name": "الوقود الأحفوري وغازات الدفيئة", "file": "unit-01/lesson-01.json" },
+        { "id": "L02", "number": 2, "name": "الوقود الأحفوري والتغيّر المناخي", "file": "unit-01/lesson-02.json" },
+        { "id": "L03", "number": 3, "name": "الحد من التغيّر المناخي والتكيف مع آثاره", "file": "unit-01/lesson-03.json" }
       ],
-      "review": {
-        "id": "REV",
-        "name": "مراجعة الوحدة",
-        "file": "unit-01/review.json"
-      }
+      "review": { "id": "REV", "name": "مراجعة الوحدة", "file": "unit-01/review.json" }
+    },
+    {
+      "id": "U02",
+      "number": 2,
+      "name": "الاستكشاف الجيولوجي",
+      "lessons": [
+        { "id": "L01", "number": 1, "name": "الخرائط الجيولوجية", "file": "unit-02/lesson-01.json" },
+        { "id": "L02", "number": 2, "name": "طرائق الاستكشاف الجيولوجي", "file": "unit-02/lesson-02.json" },
+        { "id": "L03", "number": 3, "name": "تعدين الخامات المعدنية وأثره في البيئة", "file": "unit-02/lesson-03.json" }
+      ],
+      "review": { "id": "REV", "name": "مراجعة الوحدة", "file": "unit-02/review.json" }
+    },
+    {
+      "id": "U03",
+      "number": 3,
+      "name": "التراكيب الجيولوجية",
+      "lessons": [
+        { "id": "L01", "number": 1, "name": "تشوّه الصخور", "file": "unit-03/lesson-01.json" },
+        { "id": "L02", "number": 2, "name": "الصدوع", "file": "unit-03/lesson-02.json" },
+        { "id": "L03", "number": 3, "name": "الطيّات", "file": "unit-03/lesson-03.json" }
+      ],
+      "review": { "id": "REV", "name": "مراجعة الوحدة", "file": "unit-03/review.json" }
     },
     {
       "id": "U04",
       "number": 4,
       "name": "الصّفائح التكتونيّة",
       "lessons": [
-        {
-          "id": "L01",
-          "number": 1,
-          "name": "انجراف القارّات",
-          "file": "unit-04/lesson-01.json"
-        }
+        { "id": "L01", "number": 1, "name": "انجراف القارّات", "file": "unit-04/lesson-01.json" },
+        { "id": "L02", "number": 2, "name": "توسّع قاع المحيط", "file": "unit-04/lesson-02.json" },
+        { "id": "L03", "number": 3, "name": "حدود الصفائح", "file": "unit-04/lesson-03.json" }
       ],
-      "review": {
-        "id": "REV",
-        "name": "مراجعة الوحدة",
-        "file": "unit-04/review.json"
-      }
+      "review": { "id": "REV", "name": "مراجعة الوحدة", "file": "unit-04/review.json" }
     }
   ]
 }
