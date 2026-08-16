@@ -1,0 +1,51 @@
+{
+  "max_runtime_hours": 4,
+  "batch_size": 10,
+  "lesson_target": 40,
+  "review_target": 50,
+  "max_regeneration_attempts": 3,
+  "max_retries": 4,
+  "backoff_base_seconds": 5,
+  "backoff_multiplier": 3,
+  "backoff_max_seconds": 60,
+  "semantic_similarity_threshold": 0.82,
+  "content_relevance_threshold": 0.3,
+  "min_question_length": 12,
+  "max_content_chars": 24000,
+  "review_format": "array",
+  "update_global_index": false,
+  "output_root": "../questions",
+  "extractor_backend": "pdfjs",
+  "subject_names": {
+    "math": "الرياضيات",
+    "physics": "الفيزياء",
+    "earth-science": "علوم الأرض",
+    "islamic": "التربية الإسلامية"
+  },
+  "subject_config": {
+    "math": {
+      "verify_calculations": true,
+      "review_id_prefix": "R",
+      "id_padding": 2
+    },
+    "physics": {
+      "verify_calculations": true,
+      "review_id_prefix": "REV",
+      "id_padding": 2
+    },
+    "earth-science": {
+      "verify_calculations": false,
+      "review_id_prefix": "REV",
+      "id_padding": 2
+    },
+    "islamic": {
+      "verify_calculations": false,
+      "review_id_prefix": "REV",
+      "id_padding": 2
+    }
+  },
+  "subjects_requiring_calculations": [
+    "math",
+    "physics"
+  ]
+}

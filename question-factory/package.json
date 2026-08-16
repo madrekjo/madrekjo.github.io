@@ -1,0 +1,24 @@
+{
+  "name": "question-factory",
+  "version": "0.1.0",
+  "description": "Question Factory — توليد أسئلة المنهج الدراسي آليًا من كتب PDF بصيغة منصة مدارك جو",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "scan": "node src/cli.js scan",
+    "extract": "node src/cli.js extract",
+    "generate": "node src/cli.js generate",
+    "status": "node src/cli.js status",
+    "validate": "node src/cli.js validate",
+    "pause": "node src/cli.js pause",
+    "resume": "node src/cli.js resume",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "pdfjs-dist": "^4.0.0"
+  }
+}

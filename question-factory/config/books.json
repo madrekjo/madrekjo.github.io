@@ -1,0 +1,132 @@
+[
+  {
+    "generation": "2009",
+    "semester": "semester-1",
+    "subject": "physics",
+    "book": "physics",
+    "source": "books/2009/physics.pdf",
+    "enabled": false,
+    "structure": null
+  },
+  {
+    "generation": "2009",
+    "semester": "semester-1",
+    "subject": "math",
+    "book": "math",
+    "source": "books/2009/math.pdf",
+    "enabled": false,
+    "structure": null
+  },
+  {
+    "generation": "2009",
+    "semester": "semester-1",
+    "subject": "islamic",
+    "book": "التربية الإسلامية",
+    "source": "books/2009/islamic.pdf",
+    "enabled": true,
+    "structure": {
+      "units": [
+        {
+          "unit_number": 1,
+          "unit_name": "علاقة الإنسان بربه سبحانه",
+          "page_start": 6,
+          "page_end": 45,
+          "lessons": [
+            { "lesson_number": "1.1", "lesson_name": "واجب الإنسان تجاه خالقه", "page_start": 6, "page_end": 11 },
+            { "lesson_number": "1.2", "lesson_name": "شكر النعم", "page_start": 12, "page_end": 17 },
+            { "lesson_number": "1.3", "lesson_name": "مكانة الصلاة وآثارها في حياة المسلم", "page_start": 18, "page_end": 24 },
+            { "lesson_number": "1.4", "lesson_name": "الدعوة إلى الله تعالى", "page_start": 25, "page_end": 32 },
+            { "lesson_number": "1.5", "lesson_name": "فضل الصيام وآثاره في حياة المسلم", "page_start": 33, "page_end": 39 },
+            { "lesson_number": "1.6", "lesson_name": "الحياة الدنيا في التصور الإسلامي", "page_start": 40, "page_end": 45 }
+          ]
+        },
+        {
+          "unit_number": 2,
+          "unit_name": "علاقة الإنسان بنفسه",
+          "page_start": 46,
+          "page_end": 98,
+          "lessons": [
+            { "lesson_number": "2.1", "lesson_name": "الشخصية الإسلامية", "page_start": 47, "page_end": 53 },
+            { "lesson_number": "2.2", "lesson_name": "الإسلام والتخطيط", "page_start": 54, "page_end": 60 },
+            { "lesson_number": "2.3", "lesson_name": "الإسلام والشباب", "page_start": 61, "page_end": 67 },
+            { "lesson_number": "2.4", "lesson_name": "التربية الذوقية", "page_start": 68, "page_end": 77 },
+            { "lesson_number": "2.5", "lesson_name": "ثقافة الفرح", "page_start": 78, "page_end": 84 },
+            { "lesson_number": "2.6", "lesson_name": "موقف الإسلام من التعصب", "page_start": 85, "page_end": 91 },
+            { "lesson_number": "2.7", "lesson_name": "إدارة الذات في الإسلام", "page_start": 92, "page_end": 98 }
+          ]
+        },
+        {
+          "unit_number": 3,
+          "unit_name": "علاقة الإنسان بمَنْ حوله",
+          "page_start": 99,
+          "page_end": 148,
+          "lessons": [
+            { "lesson_number": "3.1", "lesson_name": "مكانة آل البيت في الإسلام", "page_start": 100, "page_end": 107 },
+            { "lesson_number": "3.2", "lesson_name": "كفالة الأيتام في الإسلام", "page_start": 108, "page_end": 113 },
+            { "lesson_number": "3.3", "lesson_name": "الصداقة في الإسلام", "page_start": 114, "page_end": 119 },
+            { "lesson_number": "3.4", "lesson_name": "عناية الإسلام بالحيوان", "page_start": 120, "page_end": 125 },
+            { "lesson_number": "3.5", "lesson_name": "السياحة في الإسلام", "page_start": 126, "page_end": 133 },
+            { "lesson_number": "3.6", "lesson_name": "الإسلام والاختلاف في الرأي", "page_start": 134, "page_end": 139 },
+            { "lesson_number": "3.7", "lesson_name": "الإسلام والإعلام", "page_start": 140, "page_end": 148 }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "generation": "2009",
+    "semester": "semester-1",
+    "subject": "earth-science",
+    "book": "علوم الأرض",
+    "source": "books/2009/earth-science.pdf",
+    "enabled": true,
+    "structure": {
+      "units": [
+        {
+          "unit_number": 1,
+          "unit_name": "الوقود الأحفوري والبيئة",
+          "page_start": 7,
+          "page_end": 44,
+          "lessons": [
+            { "lesson_number": "1.1", "lesson_name": "الوقود الأحفوري وغازات الدفيئة", "page_start": 10, "page_end": 20 },
+            { "lesson_number": "1.2", "lesson_name": "الوقود الأحفوري والتغيّر المناخي", "page_start": 21, "page_end": 31 },
+            { "lesson_number": "1.3", "lesson_name": "الحد من التغيّر المناخي والتكيف مع آثاره", "page_start": 32, "page_end": 40 }
+          ]
+        },
+        {
+          "unit_number": 2,
+          "unit_name": "الاستكشاف الجيولوجي",
+          "page_start": 45,
+          "page_end": 82,
+          "lessons": [
+            { "lesson_number": "2.1", "lesson_name": "الخرائط الجيولوجية", "page_start": 48, "page_end": 58 },
+            { "lesson_number": "2.2", "lesson_name": "طرائق الاستكشاف الجيولوجي", "page_start": 59, "page_end": 69 },
+            { "lesson_number": "2.3", "lesson_name": "تعدين الخامات المعدنية وأثره في البيئة", "page_start": 70, "page_end": 77 }
+          ]
+        },
+        {
+          "unit_number": 3,
+          "unit_name": "التراكيب الجيولوجية",
+          "page_start": 83,
+          "page_end": 114,
+          "lessons": [
+            { "lesson_number": "3.1", "lesson_name": "تشوّه الصخور", "page_start": 86, "page_end": 93 },
+            { "lesson_number": "3.2", "lesson_name": "الصدوع", "page_start": 94, "page_end": 101 },
+            { "lesson_number": "3.3", "lesson_name": "الطيّات", "page_start": 102, "page_end": 110 }
+          ]
+        },
+        {
+          "unit_number": 4,
+          "unit_name": "الصفائح التكتونية",
+          "page_start": 115,
+          "page_end": 154,
+          "lessons": [
+            { "lesson_number": "4.1", "lesson_name": "انجراف القارات", "page_start": 118, "page_end": 124 },
+            { "lesson_number": "4.2", "lesson_name": "توسّع قاع المحيط", "page_start": 125, "page_end": 133 },
+            { "lesson_number": "4.3", "lesson_name": "حدود الصفائح", "page_start": 134, "page_end": 150 }
+          ]
+        }
+      ]
+    }
+  }
+]

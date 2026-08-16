@@ -1,0 +1,53 @@
+{
+  "subject_id": "earth-science",
+  "subject": "علوم الأرض",
+  "generation_id": "2009",
+  "generation": "2009",
+  "semester_id": "semester-1",
+  "semester": 1,
+  "semester_label": "ف1",
+  "units": [
+    {
+      "id": "U01",
+      "number": 1,
+      "name": "الوقود الأحفوري والبيئة",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "الوقود الأحفوري وغازات الدفيئة",
+          "file": "unit-01/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "الوقود الأحفوري والتغيّر المناخي",
+          "file": "unit-01/lesson-02.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-01/review.json"
+      }
+    },
+    {
+      "id": "U04",
+      "number": 4,
+      "name": "الصّفائح التكتونيّة",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "انجراف القارّات",
+          "file": "unit-04/lesson-01.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-04/review.json"
+      }
+    }
+  ]
+}

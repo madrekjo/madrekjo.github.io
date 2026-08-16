@@ -1,0 +1,23 @@
+# بيئة / أسرار
+.env
+.env.*
+!.env.example
+
+# الاعتماديات
+node_modules/
+
+# مخرجات التشغيل (قابلة لإعادة الإنشاء)
+logs/
+state/
+extracted/
+output/
+
+# كتب PDF (محتوى محمي بحقوق — لا تُرفع إلى Git)
+books/*.pdf
+books/*.PDF
+
+# نظام التشغيل / المحرر
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

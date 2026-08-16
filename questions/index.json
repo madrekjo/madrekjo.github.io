@@ -2,6 +2,7 @@
   "generations": ["2009", "2010"],
   "subjects": [
     { "subject_id": "math", "slug": "math", "name": "الرياضيات" },
-    { "subject_id": "physics", "slug": "physics", "name": "الفيزياء" }
+    { "subject_id": "physics", "slug": "physics", "name": "الفيزياء" },
+    { "subject_id": "earth-science", "slug": "earth-science", "name": "علوم الأرض والبيئة" }
   ]
 }
