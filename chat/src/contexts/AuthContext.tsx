@@ -19,6 +19,7 @@ interface Profile {
   timeout_until?: string | null;
   generation?: string | null;
   field?: string | null;
+  gender?: string | null;
 }
 
 type Permission =

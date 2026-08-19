@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 import Navbar from "@/components/Navbar";
 import Onboarding from "@/components/Onboarding";
 import GenerationOnboardingDialog from "@/components/GenerationOnboardingDialog";
+import GenderOnboardingDialog from "@/components/GenderOnboardingDialog";
 import SectionGate from "@/components/SectionGate";
 import WarningNotice from "@/components/WarningNotice";
 import SsoSyncDialog from "@/components/SsoSyncDialog";
@@ -71,6 +72,7 @@ function AppRoutes() {
     <>
       <Navbar />
       {user && <GenerationOnboardingDialog />}
+      {user && <GenderOnboardingDialog />}
       {user && <Onboarding />}
       {user && <WarningNotice />}
       <SsoSyncDialog />

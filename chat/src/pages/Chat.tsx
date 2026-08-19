@@ -21,6 +21,7 @@ interface Post {
   created_at: string;
   updated_at: string;
   generation: string | null;
+  channel: string | null;
   profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null } | null;
   likes: { user_id: string }[];
   comments: {
@@ -51,8 +52,10 @@ const Chat = () => {
   const hasScrolled = useRef(false);
   const loaderRef = useRef<HTMLDivElement | null>(null);
   const [genFilter, setGenFilter] = useState<"shared" | "09" | "10">("shared");
+  const [channelFilter, setChannelFilter] = useState<"all" | "male" | "female">("all");
   const [postTarget, setPostTarget] = useState<"shared" | "own">("shared");
   const [staffPostTarget, setStaffPostTarget] = useState<"shared" | "09" | "10">("shared");
+  const [staffChannelTarget, setStaffChannelTarget] = useState<"shared" | "male" | "female">("shared");
 
   const fetchPosts = useCallback(async (offset = 0, append = false) => {
     if (append) setLoadingMore(true);
@@ -163,16 +166,24 @@ const Chat = () => {
     }
 
     let targetGen: string | null = null;
+    let targetChannel: string | null = null;
+
     if (isStaff) {
       targetGen = staffPostTarget === "shared" ? null : staffPostTarget;
+      targetChannel = staffChannelTarget === "shared" ? null : staffChannelTarget;
     } else {
       targetGen = postTarget === "own" ? (profile?.generation ?? null) : null;
     }
 
-    const { error } = await supabase.from("posts").insert({
+    const insertData: any = {
       user_id: user.id, content: content.trim(), image_url: imageUrl, video_url: videoUrl,
       generation: targetGen,
-    } as any);
+    };
+    if (isStaff) {
+      insertData.channel = targetChannel;
+    }
+
+    const { error } = await supabase.from("posts").insert(insertData);
     if (error) {
       if ((error as any).message?.includes("section_locked")) toast.error("هذه القناة مقفلة حالياً من قبل الإدارة");
       else toast.error("فشل نشر المنشور");
@@ -209,11 +220,13 @@ const Chat = () => {
     );
   }
 
+  const channelLabel = profile?.gender === "male" ? "ذكور" : profile?.gender === "female" ? "إناث" : "الدردشة";
+
   return (
     <div className="container mx-auto px-4 py-6 max-w-2xl">
       {user && (
         <div className="bg-card border rounded-xl p-4 mb-6 animate-fade-in">
-          <Textarea value={content} onChange={e => setContent(e.target.value)} placeholder="شارك أفكارك مع الجميع..." className="min-h-[80px] resize-none mb-3" />
+          <Textarea value={content} onChange={e => setContent(e.target.value)} placeholder={`شارك أفكارك مع ${channelLabel}...`} className="min-h-[80px] resize-none mb-3" />
           {mediaFile && (
             <div className="mb-3 p-2 bg-muted rounded-lg flex items-center justify-between">
               <span className="text-sm text-muted-foreground truncate">{mediaFile.name}</span>
@@ -242,23 +255,44 @@ const Chat = () => {
             </div>
           )}
           {isStaff && (
-            <div className="flex items-center gap-2 mb-3 flex-wrap">
-              <span className="text-xs text-muted-foreground">نشر إلى:</span>
-              <div className="flex gap-1 bg-muted/60 rounded-lg p-1">
-                {[
-                  { key: "shared", label: "الجميع" },
-                  { key: "09", label: "جيل 09" },
-                  { key: "10", label: "جيل 10" },
-                ].map(opt => (
-                  <button
-                    key={opt.key}
-                    type="button"
-                    onClick={() => setStaffPostTarget(opt.key as any)}
-                    className={`text-xs px-3 py-1 rounded-md transition-colors ${staffPostTarget === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
-                  >
-                    {opt.label}
-                  </button>
-                ))}
+            <div className="space-y-2 mb-3">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="text-xs text-muted-foreground">القناة:</span>
+                <div className="flex gap-1 bg-muted/60 rounded-lg p-1">
+                  {[
+                    { key: "shared", label: "الجميع" },
+                    { key: "male", label: "ذكور" },
+                    { key: "female", label: "إناث" },
+                  ].map(opt => (
+                    <button
+                      key={opt.key}
+                      type="button"
+                      onClick={() => setStaffChannelTarget(opt.key as any)}
+                      className={`text-xs px-3 py-1 rounded-md transition-colors ${staffChannelTarget === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="text-xs text-muted-foreground">الجيل:</span>
+                <div className="flex gap-1 bg-muted/60 rounded-lg p-1">
+                  {[
+                    { key: "shared", label: "الجميع" },
+                    { key: "09", label: "جيل 09" },
+                    { key: "10", label: "جيل 10" },
+                  ].map(opt => (
+                    <button
+                      key={opt.key}
+                      type="button"
+                      onClick={() => setStaffPostTarget(opt.key as any)}
+                      className={`text-xs px-3 py-1 rounded-md transition-colors ${staffPostTarget === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           )}
@@ -276,6 +310,27 @@ const Chat = () => {
         </div>
       )}
 
+      {/* Staff channel filter */}
+      {isStaff && (
+        <div className="flex items-center gap-1 mb-2 bg-muted/60 rounded-lg p-1 w-fit flex-wrap">
+          <span className="text-xs text-muted-foreground px-2">القناة:</span>
+          {[
+            { key: "all", label: "الكل" },
+            { key: "male", label: "ذكور" },
+            { key: "female", label: "إناث" },
+          ].map(opt => (
+            <button
+              key={opt.key}
+              onClick={() => setChannelFilter(opt.key as any)}
+              className={`text-xs px-3 py-1 rounded-md transition-colors ${channelFilter === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
+            >
+              {opt.label}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Generation filter */}
       <div className="flex items-center gap-1 mb-4 bg-muted/60 rounded-lg p-1 w-fit flex-wrap">
         <span className="text-xs text-muted-foreground px-2">عرض:</span>
         {(isStaff
@@ -307,6 +362,9 @@ const Chat = () => {
         <div className="space-y-4">
           {posts
             .filter(p => {
+              if (isStaff && channelFilter !== "all") {
+                if (p.channel !== null && p.channel !== channelFilter) return false;
+              }
               if (genFilter === "shared") return p.generation == null;
               return p.generation === genFilter;
             })

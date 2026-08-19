@@ -223,6 +223,17 @@ const Profile = () => {
             )}
           </div>
 
+          {/* Gender (read-only) */}
+          <div className="space-y-2">
+            <Label>القناة</Label>
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-medium">
+                {profile.gender === "male" ? "👦 ذكور" : profile.gender === "female" ? "👧 إناث" : "غير محدد"}
+              </span>
+            </div>
+            <p className="text-xs text-muted-foreground">لا يمكنك تغيير القناة من هنا. تواصل مع الإدارة إذا كنت بحاجة للتعديل.</p>
+          </div>
+
 
           {/* Password */}
           <div className="space-y-2">

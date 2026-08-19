@@ -323,6 +323,7 @@ export type Database = {
       }
       posts: {
         Row: {
+          channel: string | null
           content: string
           created_at: string
           deleted_at: string | null
@@ -336,6 +337,7 @@ export type Database = {
           video_url: string | null
         }
         Insert: {
+          channel?: string | null
           content: string
           created_at?: string
           deleted_at?: string | null
@@ -349,6 +351,7 @@ export type Database = {
           video_url?: string | null
         }
         Update: {
+          channel?: string | null
           content?: string
           created_at?: string
           deleted_at?: string | null
@@ -378,6 +381,7 @@ export type Database = {
           created_at: string
           field: string | null
           full_name: string
+          gender: string | null
           generation: string | null
           id: string
           is_banned: boolean
@@ -392,6 +396,7 @@ export type Database = {
           created_at?: string
           field?: string | null
           full_name: string
+          gender?: string | null
           generation?: string | null
           id?: string
           is_banned?: boolean
@@ -406,6 +411,7 @@ export type Database = {
           created_at?: string
           field?: string | null
           full_name?: string
+          gender?: string | null
           generation?: string | null
           id?: string
           is_banned?: boolean
