@@ -1,0 +1,251 @@
+{
+  "subject_id": "english",
+  "subject": "اللغة الإنجليزية",
+  "generation_id": "2009",
+  "generation": "2009",
+  "semester_id": "semester-1",
+  "semester": 1,
+  "semester_label": "ف1",
+  "units": [
+    {
+      "id": "U01",
+      "number": 1,
+      "name": "Identity",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "Vocabulary and Speaking",
+          "file": "unit-01/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "Speaking and Vocabulary",
+          "file": "unit-01/lesson-02.json"
+        },
+        {
+          "id": "L03",
+          "number": 3,
+          "name": "Listening and Vocabulary",
+          "file": "unit-01/lesson-03.json"
+        },
+        {
+          "id": "L04",
+          "number": 4,
+          "name": "Grammar",
+          "file": "unit-01/lesson-04.json"
+        },
+        {
+          "id": "L05",
+          "number": 5,
+          "name": "Reading and Vocabulary",
+          "file": "unit-01/lesson-05.json"
+        },
+        {
+          "id": "L06",
+          "number": 6,
+          "name": "Writing and Vocabulary",
+          "file": "unit-01/lesson-06.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "Unit Review",
+        "file": "unit-01/review.json"
+      }
+    },
+    {
+      "id": "U02",
+      "number": 2,
+      "name": "On the move",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "Vocabulary and Speaking",
+          "file": "unit-02/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "Reading and Vocabulary",
+          "file": "unit-02/lesson-02.json"
+        },
+        {
+          "id": "L03",
+          "number": 3,
+          "name": "Grammar",
+          "file": "unit-02/lesson-03.json"
+        },
+        {
+          "id": "L04",
+          "number": 4,
+          "name": "Listening and Vocabulary",
+          "file": "unit-02/lesson-04.json"
+        },
+        {
+          "id": "L05",
+          "number": 5,
+          "name": "Speaking",
+          "file": "unit-02/lesson-05.json"
+        },
+        {
+          "id": "L06",
+          "number": 6,
+          "name": "Writing and Vocabulary",
+          "file": "unit-02/lesson-06.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "Unit Review",
+        "file": "unit-02/review.json"
+      }
+    },
+    {
+      "id": "U03",
+      "number": 3,
+      "name": "Hard sell",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "Vocabulary and Speaking",
+          "file": "unit-03/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "Listening and Vocabulary",
+          "file": "unit-03/lesson-02.json"
+        },
+        {
+          "id": "L03",
+          "number": 3,
+          "name": "Speaking",
+          "file": "unit-03/lesson-03.json"
+        },
+        {
+          "id": "L04",
+          "number": 4,
+          "name": "Reading and Vocabulary",
+          "file": "unit-03/lesson-04.json"
+        },
+        {
+          "id": "L05",
+          "number": 5,
+          "name": "Grammar",
+          "file": "unit-03/lesson-05.json"
+        },
+        {
+          "id": "L06",
+          "number": 6,
+          "name": "Writing and Vocabulary",
+          "file": "unit-03/lesson-06.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "Unit Review",
+        "file": "unit-03/review.json"
+      }
+    },
+    {
+      "id": "U04",
+      "number": 4,
+      "name": "Tastes",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "Vocabulary and Speaking",
+          "file": "unit-04/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "Reading and Vocabulary",
+          "file": "unit-04/lesson-02.json"
+        },
+        {
+          "id": "L03",
+          "number": 3,
+          "name": "Grammar",
+          "file": "unit-04/lesson-03.json"
+        },
+        {
+          "id": "L04",
+          "number": 4,
+          "name": "Speaking",
+          "file": "unit-04/lesson-04.json"
+        },
+        {
+          "id": "L05",
+          "number": 5,
+          "name": "Listening and Vocabulary",
+          "file": "unit-04/lesson-05.json"
+        },
+        {
+          "id": "L06",
+          "number": 6,
+          "name": "Writing and Vocabulary",
+          "file": "unit-04/lesson-06.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "Unit Review",
+        "file": "unit-04/review.json"
+      }
+    },
+    {
+      "id": "U05",
+      "number": 5,
+      "name": "Do your best",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "Vocabulary and Speaking",
+          "file": "unit-05/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "Grammar",
+          "file": "unit-05/lesson-02.json"
+        },
+        {
+          "id": "L03",
+          "number": 3,
+          "name": "Reading and Vocabulary",
+          "file": "unit-05/lesson-03.json"
+        },
+        {
+          "id": "L04",
+          "number": 4,
+          "name": "Listening and Vocabulary",
+          "file": "unit-05/lesson-04.json"
+        },
+        {
+          "id": "L05",
+          "number": 5,
+          "name": "Speaking",
+          "file": "unit-05/lesson-05.json"
+        },
+        {
+          "id": "L06",
+          "number": 6,
+          "name": "Writing and Vocabulary",
+          "file": "unit-05/lesson-06.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "Unit Review",
+        "file": "unit-05/review.json"
+      }
+    }
+  ]
+}

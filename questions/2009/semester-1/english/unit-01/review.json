@@ -1,0 +1,1302 @@
+[
+  {
+    "id": "U01-REV-Q001",
+    "number": 1,
+    "question": "What type of compound adjective is 'world-famous'?",
+    "options": {
+      "A": "noun + adjective",
+      "B": "adjective + adjective",
+      "C": "adverb + adjective",
+      "D": "prefix + adjective"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "noun + adjective",
+    "difficulty": "easy",
+    "source": {
+      "page": 5,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'world-famous' is formed from the noun 'world' and the adjective 'famous'."
+      ],
+      "summary": "noun + adjective"
+    },
+    "explanation": "World combines with famous."
+  },
+  {
+    "id": "U01-REV-Q002",
+    "number": 2,
+    "question": "What does 'narrow-minded' mean?",
+    "options": {
+      "A": "not willing to accept new ideas",
+      "B": "very clever",
+      "C": "very generous",
+      "D": "very relaxed"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "not willing to accept new ideas",
+    "difficulty": "easy",
+    "source": {
+      "page": 5,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Narrow-minded' means not willing to listen to or accept new ideas."
+      ],
+      "summary": "narrow-minded = not open to ideas."
+    },
+    "explanation": "The opposite is open-minded."
+  },
+  {
+    "id": "U01-REV-Q003",
+    "number": 3,
+    "question": "Which adjective describes someone who recovers quickly after difficulties?",
+    "options": {
+      "A": "resilient",
+      "B": "defensive",
+      "C": "capable",
+      "D": "tough"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "resilient",
+    "difficulty": "easy",
+    "source": {
+      "page": 5,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Resilient' means able to recover quickly and return to normal after problems."
+      ],
+      "summary": "resilient = able to recover quickly."
+    },
+    "explanation": "A resilient person copes well with setbacks."
+  },
+  {
+    "id": "U01-REV-Q004",
+    "number": 4,
+    "question": "Which adjective describes someone who shows great interest and excitement?",
+    "options": {
+      "A": "enthusiastic",
+      "B": "resilient",
+      "C": "tough",
+      "D": "self-aware"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "enthusiastic",
+    "difficulty": "easy",
+    "source": {
+      "page": 5,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Enthusiastic' means showing strong interest, energy and excitement."
+      ],
+      "summary": "enthusiastic = full of interest."
+    },
+    "explanation": "An enthusiastic person shows great energy."
+  },
+  {
+    "id": "U01-REV-Q005",
+    "number": 5,
+    "question": "What does 'to set great store by' mean?",
+    "options": {
+      "A": "to consider something important",
+      "B": "to set up a shop",
+      "C": "to store food",
+      "D": "to keep something safe"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to consider something important",
+    "difficulty": "medium",
+    "source": {
+      "page": 5,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Set great store by' means to consider something to be very important."
+      ],
+      "summary": "set great store by = consider important."
+    },
+    "explanation": "If you set great store by values, you consider them important."
+  },
+  {
+    "id": "U01-REV-Q006",
+    "number": 6,
+    "question": "What does 'to plump for' mean?",
+    "options": {
+      "A": "to choose",
+      "B": "to become fat",
+      "C": "to fall asleep",
+      "D": "to give up"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to choose",
+    "difficulty": "medium",
+    "source": {
+      "page": 5,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Plump for' means to choose one thing from a number of possibilities."
+      ],
+      "summary": "plump for = choose."
+    },
+    "explanation": "To plump for something is to decide on it."
+  },
+  {
+    "id": "U01-REV-Q007",
+    "number": 7,
+    "question": "What does 'to get a kick out of' mean?",
+    "options": {
+      "A": "to feel excitement and enjoyment",
+      "B": "to kick something",
+      "C": "to be angry",
+      "D": "to be tired"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to feel excitement and enjoyment",
+    "difficulty": "medium",
+    "source": {
+      "page": 5,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Get a kick out of' means to feel excitement and enjoyment from something."
+      ],
+      "summary": "get a kick out of = enjoy very much."
+    },
+    "explanation": "It gives you excitement and pleasure."
+  },
+  {
+    "id": "U01-REV-Q008",
+    "number": 8,
+    "question": "What does 'a dark horse' mean?",
+    "options": {
+      "A": "a person with hidden ability",
+      "B": "a horse that runs at night",
+      "C": "a criminal",
+      "D": "a farmer"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "a person with hidden ability",
+    "difficulty": "medium",
+    "source": {
+      "page": 6,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'A dark horse' is someone who keeps their abilities secret and surprises others."
+      ],
+      "summary": "a dark horse = someone with hidden ability."
+    },
+    "explanation": "It is a personality idiom."
+  },
+  {
+    "id": "U01-REV-Q009",
+    "number": 9,
+    "question": "What does 'a go-getter' mean?",
+    "options": {
+      "A": "an energetic, ambitious person",
+      "B": "a person who gets lost",
+      "C": "someone who steals",
+      "D": "a lazy person"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "an energetic, ambitious person",
+    "difficulty": "easy",
+    "source": {
+      "page": 6,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'A go-getter' is an energetic and determined person who tries hard to succeed."
+      ],
+      "summary": "a go-getter = ambitious person."
+    },
+    "explanation": "It describes someone who works hard."
+  },
+  {
+    "id": "U01-REV-Q010",
+    "number": 10,
+    "question": "What does 'a cold fish' mean?",
+    "options": {
+      "A": "an unfriendly person who hides feelings",
+      "B": "a person who loves cold weather",
+      "C": "a very calm person",
+      "D": "a shy person"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "an unfriendly person who hides feelings",
+    "difficulty": "medium",
+    "source": {
+      "page": 6,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'A cold fish' is an idiom for an unfriendly person who does not show emotions."
+      ],
+      "summary": "a cold fish = unfriendly."
+    },
+    "explanation": "The idiom describes someone cold and distant."
+  },
+  {
+    "id": "U01-REV-Q011",
+    "number": 11,
+    "question": "What does 'a social butterfly' mean?",
+    "options": {
+      "A": "a very sociable person",
+      "B": "a person who collects insects",
+      "C": "a shy person",
+      "D": "a scientist"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "a very sociable person",
+    "difficulty": "easy",
+    "source": {
+      "page": 6,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'A social butterfly' is a very sociable person who loves being with many people."
+      ],
+      "summary": "a social butterfly = very sociable."
+    },
+    "explanation": "It describes someone who enjoys social events."
+  },
+  {
+    "id": "U01-REV-Q012",
+    "number": 12,
+    "question": "What does 'a smart cookie' mean?",
+    "options": {
+      "A": "a clever and sensible person",
+      "B": "a person who loves cakes",
+      "C": "an unfriendly person",
+      "D": "a person who makes quick decisions"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "a clever and sensible person",
+    "difficulty": "medium",
+    "source": {
+      "page": 6,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'A smart cookie' means a clever, intelligent and sensible person."
+      ],
+      "summary": "a smart cookie = a clever person."
+    },
+    "explanation": "It is a compliment."
+  },
+  {
+    "id": "U01-REV-Q013",
+    "number": 13,
+    "question": "What does 'a soft touch' mean?",
+    "options": {
+      "A": "a person who is easy to persuade",
+      "B": "a person who is gentle",
+      "C": "a strict person",
+      "D": "a person who avoids contact"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "a person who is easy to persuade",
+    "difficulty": "hard",
+    "source": {
+      "page": 6,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'A soft touch' is a person who is easily persuaded, especially to lend money."
+      ],
+      "summary": "a soft touch = easy to persuade."
+    },
+    "explanation": "A soft touch finds it hard to refuse requests."
+  },
+  {
+    "id": "U01-REV-Q014",
+    "number": 14,
+    "question": "Which phrase is used to paraphrase what someone said?",
+    "options": {
+      "A": "In other words, ...",
+      "B": "I agree with you, ...",
+      "C": "That is wrong, ...",
+      "D": "I don't care, ..."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "In other words, ...",
+    "difficulty": "easy",
+    "source": {
+      "page": 6,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'In other words' is used to restate what someone said in different words."
+      ],
+      "summary": "In other words = paraphrasing."
+    },
+    "explanation": "It checks your understanding."
+  },
+  {
+    "id": "U01-REV-Q015",
+    "number": 15,
+    "question": "What does 'keep yourself to yourself' mean?",
+    "options": {
+      "A": "to be private and not mix with others",
+      "B": "to keep secrets from yourself",
+      "C": "to take care of your health",
+      "D": "to control your feelings"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to be private and not mix with others",
+    "difficulty": "medium",
+    "source": {
+      "page": 6,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Keep yourself to yourself' means to stay private and avoid mixing with others."
+      ],
+      "summary": "keep yourself to yourself = stay private."
+    },
+    "explanation": "People who keep to themselves avoid socialising."
+  },
+  {
+    "id": "U01-REV-Q016",
+    "number": 16,
+    "question": "Which word means 'character or personality'?",
+    "options": {
+      "A": "disposition",
+      "B": "destiny",
+      "C": "vulnerability",
+      "D": "offspring"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "disposition",
+    "difficulty": "easy",
+    "source": {
+      "page": 7,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Disposition' means a person's character or usual mood."
+      ],
+      "summary": "disposition = personality."
+    },
+    "explanation": "It describes someone's natural tendency."
+  },
+  {
+    "id": "U01-REV-Q017",
+    "number": 17,
+    "question": "Which word means 'children'?",
+    "options": {
+      "A": "offspring",
+      "B": "onshore",
+      "C": "upbringing",
+      "D": "proponents"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "offspring",
+    "difficulty": "easy",
+    "source": {
+      "page": 7,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Offspring' means children or young of a person or animal."
+      ],
+      "summary": "offspring = children."
+    },
+    "explanation": "It is a formal word for children."
+  },
+  {
+    "id": "U01-REV-Q018",
+    "number": 18,
+    "question": "Which word means 'suggest'?",
+    "options": {
+      "A": "imply",
+      "B": "impress",
+      "C": "impose",
+      "D": "imitate"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "imply",
+    "difficulty": "easy",
+    "source": {
+      "page": 7,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Imply' means to suggest something without saying it directly."
+      ],
+      "summary": "imply = suggest indirectly."
+    },
+    "explanation": "If someone implies something, they hint at it."
+  },
+  {
+    "id": "U01-REV-Q019",
+    "number": 19,
+    "question": "Which word means 'a particular characteristic'?",
+    "options": {
+      "A": "trait",
+      "B": "tray",
+      "C": "treat",
+      "D": "trance"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "trait",
+    "difficulty": "easy",
+    "source": {
+      "page": 7,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Trait' means a particular characteristic or way of behaving."
+      ],
+      "summary": "trait = characteristic."
+    },
+    "explanation": "Honesty is a personality trait."
+  },
+  {
+    "id": "U01-REV-Q020",
+    "number": 20,
+    "question": "Which word means 'what will happen in the future'?",
+    "options": {
+      "A": "destiny",
+      "B": "density",
+      "C": "disposition",
+      "D": "decency"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "destiny",
+    "difficulty": "easy",
+    "source": {
+      "page": 7,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Destiny' means the future that is considered to be decided for someone."
+      ],
+      "summary": "destiny = future fate."
+    },
+    "explanation": "Some people believe personality and destiny are connected."
+  },
+  {
+    "id": "U01-REV-Q021",
+    "number": 21,
+    "question": "Which word means 'helping somebody to develop'?",
+    "options": {
+      "A": "nurture",
+      "B": "numb",
+      "C": "mock",
+      "D": "spark"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "nurture",
+    "difficulty": "medium",
+    "source": {
+      "page": 7,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Nurture' means helping somebody to grow and develop."
+      ],
+      "summary": "nurture = help to develop."
+    },
+    "explanation": "Parents nurture their children's talents."
+  },
+  {
+    "id": "U01-REV-Q022",
+    "number": 22,
+    "question": "Which word describes something that passes from parent to child?",
+    "options": {
+      "A": "hereditary",
+      "B": "hierarchical",
+      "C": "temporary",
+      "D": "heredity"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "hereditary",
+    "difficulty": "easy",
+    "source": {
+      "page": 7,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Hereditary' means passed from parent to child through genes."
+      ],
+      "summary": "hereditary = inherited."
+    },
+    "explanation": "Some personality traits are hereditary."
+  },
+  {
+    "id": "U01-REV-Q023",
+    "number": 23,
+    "question": "Which word means 'the quality of being easily hurt'?",
+    "options": {
+      "A": "vulnerability",
+      "B": "versatility",
+      "C": "sincerity",
+      "D": "humility"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "vulnerability",
+    "difficulty": "easy",
+    "source": {
+      "page": 7,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Vulnerability' is the quality of being easily hurt physically or emotionally."
+      ],
+      "summary": "vulnerability = being easily hurt."
+    },
+    "explanation": "A person's vulnerability makes them easy to hurt."
+  },
+  {
+    "id": "U01-REV-Q024",
+    "number": 24,
+    "question": "Which word means 'people who publicly support an idea'?",
+    "options": {
+      "A": "proponents",
+      "B": "opponents",
+      "C": "employees",
+      "D": "offspring"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "proponents",
+    "difficulty": "easy",
+    "source": {
+      "page": 7,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Proponents' are people who publicly support an idea or theory."
+      ],
+      "summary": "proponents = supporters."
+    },
+    "explanation": "Proponents argue in favour of a cause."
+  },
+  {
+    "id": "U01-REV-Q025",
+    "number": 25,
+    "question": "Which word means 'making something so easy to understand that it is no longer accurate'?",
+    "options": {
+      "A": "oversimplification",
+      "B": "exaggeration",
+      "C": "overpopulation",
+      "D": "understatement"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "oversimplification",
+    "difficulty": "hard",
+    "source": {
+      "page": 7,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Oversimplification' makes something so simple that it becomes inaccurate."
+      ],
+      "summary": "oversimplification = too simple."
+    },
+    "explanation": "Saying personality is only genetic is an oversimplification."
+  },
+  {
+    "id": "U01-REV-Q026",
+    "number": 26,
+    "question": "Which tense is used in 'I've just been running'?",
+    "options": {
+      "A": "present perfect continuous",
+      "B": "past perfect",
+      "C": "future continuous",
+      "D": "present simple"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "present perfect continuous",
+    "difficulty": "easy",
+    "source": {
+      "page": 8,
+      "reference": "Review: L4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'I've just been running' uses have + been + -ing, i.e. the present perfect continuous."
+      ],
+      "summary": "present perfect continuous"
+    },
+    "explanation": "It describes a recent activity."
+  },
+  {
+    "id": "U01-REV-Q027",
+    "number": 27,
+    "question": "We use the past perfect to describe ...",
+    "options": {
+      "A": "an action that happened before another past action",
+      "B": "an action happening now",
+      "C": "a future plan",
+      "D": "a temporary habit"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "an action that happened before another past action",
+    "difficulty": "easy",
+    "source": {
+      "page": 8,
+      "reference": "Review: L4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "The past perfect (had + past participle) refers to the earlier of two past actions."
+      ],
+      "summary": "earlier past action"
+    },
+    "explanation": "It shows which action happened first."
+  },
+  {
+    "id": "U01-REV-Q028",
+    "number": 28,
+    "question": "Which tense describes an action in progress at a future time?",
+    "options": {
+      "A": "future continuous",
+      "B": "future perfect",
+      "C": "present continuous",
+      "D": "past continuous"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "future continuous",
+    "difficulty": "easy",
+    "source": {
+      "page": 8,
+      "reference": "Review: L4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "The future continuous (will be + -ing) describes an action in progress at a future time."
+      ],
+      "summary": "future continuous"
+    },
+    "explanation": "Example: 'This time next week I'll be studying.'"
+  },
+  {
+    "id": "U01-REV-Q029",
+    "number": 29,
+    "question": "Which sentence uses the past perfect continuous correctly?",
+    "options": {
+      "A": "I had been waiting for two hours when the bus arrived.",
+      "B": "I had been waiting for two hours when the bus will arrive.",
+      "C": "I have been waiting when the bus arrived.",
+      "D": "I was waiting when the bus had arrived."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "I had been waiting for two hours when the bus arrived.",
+    "difficulty": "medium",
+    "source": {
+      "page": 8,
+      "reference": "Review: L4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "The past perfect continuous describes an action continuing up to a past moment."
+      ],
+      "summary": "had been waiting"
+    },
+    "explanation": "The bus arrived while the waiting was in progress."
+  },
+  {
+    "id": "U01-REV-Q030",
+    "number": 30,
+    "question": "What is the main idea of the reading text?",
+    "options": {
+      "A": "identity is shaped by genes, upbringing and experiences",
+      "B": "only genes matter",
+      "C": "identity never changes",
+      "D": "personality tests are perfect"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "identity is shaped by genes, upbringing and experiences",
+    "difficulty": "easy",
+    "source": {
+      "page": 10,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Identity is shaped by multiple factors working together."
+      ],
+      "summary": "genes + upbringing + experience"
+    },
+    "explanation": "Both nature and nurture matter."
+  },
+  {
+    "id": "U01-REV-Q031",
+    "number": 31,
+    "question": "What does 'innate' mean?",
+    "options": {
+      "A": "natural and present from birth",
+      "B": "learned from experience",
+      "C": "temporary",
+      "D": "dangerous"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "natural and present from birth",
+    "difficulty": "medium",
+    "source": {
+      "page": 10,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Innate' means something you are born with, natural and inborn."
+      ],
+      "summary": "innate = inborn."
+    },
+    "explanation": "Innate traits come from genes."
+  },
+  {
+    "id": "U01-REV-Q032",
+    "number": 32,
+    "question": "What does 'acquired' mean?",
+    "options": {
+      "A": "learned or developed through experience",
+      "B": "born with",
+      "C": "forgotten",
+      "D": "given as a gift"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "learned or developed through experience",
+    "difficulty": "medium",
+    "source": {
+      "page": 10,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Acquired' means gained or learned through experience."
+      ],
+      "summary": "acquired = learned."
+    },
+    "explanation": "Skills can be acquired over time."
+  },
+  {
+    "id": "U01-REV-Q033",
+    "number": 33,
+    "question": "What does 'to be self-aware' mean?",
+    "options": {
+      "A": "to understand your own character and feelings",
+      "B": "to not know yourself",
+      "C": "to be very angry",
+      "D": "to be very tall"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to understand your own character and feelings",
+    "difficulty": "medium",
+    "source": {
+      "page": 10,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Self-aware' means knowing and understanding your own character."
+      ],
+      "summary": "self-aware = knowing yourself."
+    },
+    "explanation": "Self-awareness helps us grow."
+  },
+  {
+    "id": "U01-REV-Q034",
+    "number": 34,
+    "question": "What does 'to be resilient' mean?",
+    "options": {
+      "A": "to recover quickly from difficulties",
+      "B": "to be unable to change",
+      "C": "to be very tall",
+      "D": "to be very quiet"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to recover quickly from difficulties",
+    "difficulty": "medium",
+    "source": {
+      "page": 10,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Resilient' means able to recover quickly from problems."
+      ],
+      "summary": "resilient = able to bounce back."
+    },
+    "explanation": "Resilient people cope well with challenges."
+  },
+  {
+    "id": "U01-REV-Q035",
+    "number": 35,
+    "question": "What is a personal profile?",
+    "options": {
+      "A": "a short description of a person's character and interests",
+      "B": "a long essay",
+      "C": "a type of exam",
+      "D": "a recipe"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "a short description of a person's character and interests",
+    "difficulty": "easy",
+    "source": {
+      "page": 12,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A personal profile is a brief description of who you are."
+      ],
+      "summary": "a self-description"
+    },
+    "explanation": "It introduces your qualities and interests."
+  },
+  {
+    "id": "U01-REV-Q036",
+    "number": 36,
+    "question": "What does 'to come across as' mean?",
+    "options": {
+      "A": "to give the impression of being",
+      "B": "to walk across",
+      "C": "to find",
+      "D": "to understand"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to give the impression of being",
+    "difficulty": "medium",
+    "source": {
+      "page": 12,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Come across as' means to give a particular impression to others."
+      ],
+      "summary": "come across as = appear to be."
+    },
+    "explanation": "You come across as friendly."
+  },
+  {
+    "id": "U01-REV-Q037",
+    "number": 37,
+    "question": "What does 'to get on well with' mean?",
+    "options": {
+      "A": "to have a good relationship with",
+      "B": "to travel on",
+      "C": "to finish",
+      "D": "to wake up"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to have a good relationship with",
+    "difficulty": "easy",
+    "source": {
+      "page": 12,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Get on well with' means to have a friendly, harmonious relationship."
+      ],
+      "summary": "get on well with = have a good relationship."
+    },
+    "explanation": "I get on well with my classmates."
+  },
+  {
+    "id": "U01-REV-Q038",
+    "number": 38,
+    "question": "What does 'to be into' mean?",
+    "options": {
+      "A": "to be very interested in",
+      "B": "to enter a room",
+      "C": "to be inside",
+      "D": "to fall into water"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to be very interested in",
+    "difficulty": "easy",
+    "source": {
+      "page": 12,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Be into' means to have a strong interest in or enjoyment of something."
+      ],
+      "summary": "be into = be interested in."
+    },
+    "explanation": "I'm into music and reading."
+  },
+  {
+    "id": "U01-REV-Q039",
+    "number": 39,
+    "question": "What does 'to look forward to' mean?",
+    "options": {
+      "A": "to feel excited about something future",
+      "B": "to look in front",
+      "C": "to think about the past",
+      "D": "to forget"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to feel excited about something future",
+    "difficulty": "easy",
+    "source": {
+      "page": 12,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Look forward to' means to feel pleased and excited about something coming."
+      ],
+      "summary": "look forward to = be excited about."
+    },
+    "explanation": "I look forward to meeting new people."
+  },
+  {
+    "id": "U01-REV-Q040",
+    "number": 40,
+    "question": "What does 'to be keen on' mean?",
+    "options": {
+      "A": "to be very interested in and enthusiastic about",
+      "B": "to be sharp",
+      "C": "to be angry",
+      "D": "to be tired"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to be very interested in and enthusiastic about",
+    "difficulty": "medium",
+    "source": {
+      "page": 12,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Be keen on' means to have a strong interest in and enthusiasm for something."
+      ],
+      "summary": "be keen on = be enthusiastic about."
+    },
+    "explanation": "She is keen on photography."
+  },
+  {
+    "id": "U01-REV-Q041",
+    "number": 41,
+    "question": "What does 'to get along with' mean?",
+    "options": {
+      "A": "to have a friendly relationship with",
+      "B": "to walk along",
+      "C": "to finish",
+      "D": "to understand"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to have a friendly relationship with",
+    "difficulty": "easy",
+    "source": {
+      "page": 12,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Get along with' means to have a good, friendly relationship."
+      ],
+      "summary": "get along with = get on well with."
+    },
+    "explanation": "I get along with everyone."
+  },
+  {
+    "id": "U01-REV-Q042",
+    "number": 42,
+    "question": "What does 'to be good at' mean?",
+    "options": {
+      "A": "to have a natural ability in something",
+      "B": "to be kind to",
+      "C": "to be near",
+      "D": "to be angry about"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to have a natural ability in something",
+    "difficulty": "easy",
+    "source": {
+      "page": 12,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Be good at' means to have a natural skill or ability."
+      ],
+      "summary": "be good at = have skill in."
+    },
+    "explanation": "She is good at mathematics."
+  },
+  {
+    "id": "U01-REV-Q043",
+    "number": 43,
+    "question": "What does 'to be afraid of' mean?",
+    "options": {
+      "A": "to feel fear or worry about",
+      "B": "to be angry with",
+      "C": "to be happy about",
+      "D": "to be close to"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to feel fear or worry about",
+    "difficulty": "easy",
+    "source": {
+      "page": 12,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Be afraid of' means to feel fear or anxiety about something."
+      ],
+      "summary": "be afraid of = fear."
+    },
+    "explanation": "Some people are afraid of spiders."
+  },
+  {
+    "id": "U01-REV-Q044",
+    "number": 44,
+    "question": "What does 'to be proud of' mean?",
+    "options": {
+      "A": "to feel pleased about an achievement",
+      "B": "to feel sad about",
+      "C": "to be angry about",
+      "D": "to be tired of"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to feel pleased about an achievement",
+    "difficulty": "easy",
+    "source": {
+      "page": 12,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Be proud of' means to feel pleasure and satisfaction about an achievement."
+      ],
+      "summary": "be proud of = feel satisfied about."
+    },
+    "explanation": "I am proud of my exam results."
+  },
+  {
+    "id": "U01-REV-Q045",
+    "number": 45,
+    "question": "What does 'to be honest' mean?",
+    "options": {
+      "A": "to tell the truth and be sincere",
+      "B": "to lie",
+      "C": "to keep secrets",
+      "D": "to be rude"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to tell the truth and be sincere",
+    "difficulty": "easy",
+    "source": {
+      "page": 12,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Being honest means telling the truth and being genuine."
+      ],
+      "summary": "honest = truthful."
+    },
+    "explanation": "Honesty is an important quality."
+  },
+  {
+    "id": "U01-REV-Q046",
+    "number": 46,
+    "question": "What does 'to be creative' mean?",
+    "options": {
+      "A": "to enjoy coming up with new ideas",
+      "B": "to follow rules exactly",
+      "C": "to be very quiet",
+      "D": "to be very old"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to enjoy coming up with new ideas",
+    "difficulty": "medium",
+    "source": {
+      "page": 12,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Being creative means enjoying new ideas and original thinking."
+      ],
+      "summary": "creative = imaginative."
+    },
+    "explanation": "It is a positive personality trait."
+  },
+  {
+    "id": "U01-REV-Q047",
+    "number": 47,
+    "question": "What does 'to be hard-working' mean?",
+    "options": {
+      "A": "to put a lot of effort into your work",
+      "B": "to work very little",
+      "C": "to avoid work",
+      "D": "to only work on holidays"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to put a lot of effort into your work",
+    "difficulty": "easy",
+    "source": {
+      "page": 12,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Hard-working' means putting a lot of effort and time into tasks."
+      ],
+      "summary": "hard-working = diligent."
+    },
+    "explanation": "Hard-working students achieve more."
+  },
+  {
+    "id": "U01-REV-Q048",
+    "number": 48,
+    "question": "What does 'to be curious' mean?",
+    "options": {
+      "A": "to want to learn and know more",
+      "B": "to be bored",
+      "C": "to be angry",
+      "D": "to be afraid"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to want to learn and know more",
+    "difficulty": "medium",
+    "source": {
+      "page": 12,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Curious' means wanting to learn and discover new things."
+      ],
+      "summary": "curious = wanting to know."
+    },
+    "explanation": "Curious people ask lots of questions."
+  },
+  {
+    "id": "U01-REV-Q049",
+    "number": 49,
+    "question": "What does 'to be sociable' mean?",
+    "options": {
+      "A": "to enjoy being with other people",
+      "B": "to avoid people",
+      "C": "to be very quiet",
+      "D": "to be very angry"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to enjoy being with other people",
+    "difficulty": "easy",
+    "source": {
+      "page": 12,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Sociable' means enjoying the company of other people."
+      ],
+      "summary": "sociable = friendly and outgoing."
+    },
+    "explanation": "Sociable people enjoy parties."
+  },
+  {
+    "id": "U01-REV-Q050",
+    "number": 50,
+    "question": "What does 'to be dependable' mean?",
+    "options": {
+      "A": "to be reliable and trustworthy",
+      "B": "to be unreliable",
+      "C": "to be very lazy",
+      "D": "to be very rude"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to be reliable and trustworthy",
+    "difficulty": "medium",
+    "source": {
+      "page": 12,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Dependable' means reliable and worthy of trust."
+      ],
+      "summary": "dependable = reliable."
+    },
+    "explanation": "A dependable friend keeps promises."
+  }
+]

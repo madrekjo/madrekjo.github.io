@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "1",
+    "lesson_name": "Vocabulary and Speaking",
+    "unit_number": 2,
+    "unit_name": "On the move",
+    "page_start": 14,
+    "page_end": 15,
+    "questions": [
+      {
+        "id": "U02-L01-Q001",
+        "number": 1,
+        "question": "Which verb of movement means 'walked with difficulty because of an injury'?",
+        "options": {
+          "A": "hobbled",
+          "B": "strode",
+          "C": "surged",
+          "D": "wobbled"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "hobbled",
+        "difficulty": "easy",
+        "source": {
+          "page": 14,
+          "reference": "Exercise 2: Verbs of movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Hobbled' means walking with difficulty, for example because of an injured ankle."
+          ],
+          "summary": "hobbled = walked with difficulty."
+        },
+        "explanation": "After hurting his ankle, the footballer hobbled off the pitch."
+      },
+      {
+        "id": "U02-L01-Q002",
+        "number": 2,
+        "question": "Which verb of movement means 'walked slowly without lifting your feet'?",
+        "options": {
+          "A": "shuffled",
+          "B": "strode",
+          "C": "surged",
+          "D": "staggered"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "shuffled",
+        "difficulty": "easy",
+        "source": {
+          "page": 14,
+          "reference": "Exercise 2: Verbs of movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Shuffled' means walking slowly, sliding your feet along the ground."
+          ],
+          "summary": "shuffled = walked slowly, dragging feet."
+        },
+        "explanation": "Half asleep, she shuffled out of her bedroom."
+      },
+      {
+        "id": "U02-L01-Q003",
+        "number": 3,
+        "question": "Which verb of movement means 'walked unsteadily, as if about to fall'?",
+        "options": {
+          "A": "staggered",
+          "B": "strode",
+          "C": "shuffled",
+          "D": "surged"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "staggered",
+        "difficulty": "easy",
+        "source": {
+          "page": 14,
+          "reference": "Exercise 2: Verbs of movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Staggered' means walking in an unsteady way, for example because of carrying something heavy."
+          ],
+          "summary": "staggered = walked unsteadily."
+        },
+        "explanation": "They staggered across the room with the heavy sofa."
+      },
+      {
+        "id": "U02-L01-Q004",
+        "number": 4,
+        "question": "Which verb means 'suddenly moved forward in an unsteady way'?",
+        "options": {
+          "A": "lurched",
+          "B": "strode",
+          "C": "hobbled",
+          "D": "shuffled"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "lurched",
+        "difficulty": "medium",
+        "source": {
+          "page": 14,
+          "reference": "Exercise 2: Verbs of movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Lurched' means moved suddenly and unsteadily."
+          ],
+          "summary": "lurched = moved suddenly and unsteadily."
+        },
+        "explanation": "The train lurched forward as it left the station."
+      },
+      {
+        "id": "U02-L01-Q005",
+        "number": 5,
+        "question": "Which verb of movement means 'walked with long, confident steps'?",
+        "options": {
+          "A": "strode",
+          "B": "wobbled",
+          "C": "shuffled",
+          "D": "hobbled"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "strode",
+        "difficulty": "easy",
+        "source": {
+          "page": 14,
+          "reference": "Exercise 2: Verbs of movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Strode' means walking with long, confident steps."
+          ],
+          "summary": "strode = walked confidently."
+        },
+        "explanation": "The angry father strode up to the manager and demanded an explanation."
+      },
+      {
+        "id": "U02-L01-Q006",
+        "number": 6,
+        "question": "Which verb means 'moved unsteadily from side to side'?",
+        "options": {
+          "A": "wobbled",
+          "B": "strode",
+          "C": "surged",
+          "D": "lurched"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "wobbled",
+        "difficulty": "medium",
+        "source": {
+          "page": 14,
+          "reference": "Exercise 2: Verbs of movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Wobbled' means moving unsteadily from side to side, like someone balancing a tray."
+          ],
+          "summary": "wobbled = moved unsteadily side to side."
+        },
+        "explanation": "Mariam wobbled into the room, terrified of dropping the tray."
+      },
+      {
+        "id": "U02-L01-Q007",
+        "number": 7,
+        "question": "Which verb means 'moved forward suddenly in a large group'?",
+        "options": {
+          "A": "surged",
+          "B": "strode",
+          "C": "shuffled",
+          "D": "wobbled"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "surged",
+        "difficulty": "easy",
+        "source": {
+          "page": 14,
+          "reference": "Exercise 2: Verbs of movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Surged' describes a crowd moving forward suddenly."
+          ],
+          "summary": "surged = moved forward suddenly (crowd)."
+        },
+        "explanation": "The workers surged out of the office after the fire alarm went off."
+      },
+      {
+        "id": "U02-L01-Q008",
+        "number": 8,
+        "question": "Complete: 'After hurting his ankle, the footballer ______ off the pitch to get some help.'",
+        "options": {
+          "A": "hobbled",
+          "B": "strode",
+          "C": "surged",
+          "D": "staggered"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "hobbled",
+        "difficulty": "easy",
+        "source": {
+          "page": 14,
+          "reference": "Exercise 2: Verbs of movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "An injured person walks with difficulty, so the correct verb is 'hobbled'."
+          ],
+          "summary": "hobbled"
+        },
+        "explanation": "He walked painfully because of his injured ankle."
+      },
+      {
+        "id": "U02-L01-Q009",
+        "number": 9,
+        "question": "Complete: 'My brother and I lifted up the sofa with some difficulty and ______ across the room with it.'",
+        "options": {
+          "A": "staggered",
+          "B": "strode",
+          "C": "surged",
+          "D": "wobbled"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "staggered",
+        "difficulty": "medium",
+        "source": {
+          "page": 14,
+          "reference": "Exercise 2: Verbs of movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Carrying something much heavier than expected makes you walk unsteadily, so: staggered."
+          ],
+          "summary": "staggered"
+        },
+        "explanation": "The sofa was far heavier than they expected."
+      },
+      {
+        "id": "U02-L01-Q010",
+        "number": 10,
+        "question": "Complete: 'While still half asleep, she ______ out of her bedroom and asked me where I had been.'",
+        "options": {
+          "A": "shuffled",
+          "B": "strode",
+          "C": "surged",
+          "D": "lurched"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "shuffled",
+        "difficulty": "medium",
+        "source": {
+          "page": 14,
+          "reference": "Exercise 2: Verbs of movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A sleepy person drags their feet, so the verb is 'shuffled'."
+          ],
+          "summary": "shuffled"
+        },
+        "explanation": "She was half asleep and walked slowly."
+      },
+      {
+        "id": "U02-L01-Q011",
+        "number": 11,
+        "question": "Complete: 'Angry at having to wait so long, my father ______ up to the manager and demanded an explanation.'",
+        "options": {
+          "A": "strode",
+          "B": "shuffled",
+          "C": "hobbled",
+          "D": "wobbled"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "strode",
+        "difficulty": "medium",
+        "source": {
+          "page": 14,
+          "reference": "Exercise 2: Verbs of movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "An angry, confident walk uses 'strode'."
+          ],
+          "summary": "strode"
+        },
+        "explanation": "He walked with long, confident, angry steps."
+      },
+      {
+        "id": "U02-L01-Q012",
+        "number": 12,
+        "question": "Complete: 'Mariam ______ into the room with a tray of tea and cake, terrified of dropping it.'",
+        "options": {
+          "A": "wobbled",
+          "B": "strode",
+          "C": "surged",
+          "D": "marched"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "wobbled",
+        "difficulty": "medium",
+        "source": {
+          "page": 14,
+          "reference": "Exercise 2: Verbs of movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Trying not to spill something makes you move unsteadily, so: wobbled."
+          ],
+          "summary": "wobbled"
+        },
+        "explanation": "She was terrified of dropping the tray on the carpet."
+      },
+      {
+        "id": "U02-L01-Q013",
+        "number": 13,
+        "question": "Complete: 'Shortly after the fire alarm went off, the workers ______ out of the office looking very worried.'",
+        "options": {
+          "A": "surged",
+          "B": "strode",
+          "C": "shuffled",
+          "D": "lurched"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "surged",
+        "difficulty": "medium",
+        "source": {
+          "page": 14,
+          "reference": "Exercise 2: Verbs of movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A crowd leaving quickly in alarm uses 'surged'."
+          ],
+          "summary": "surged"
+        },
+        "explanation": "The whole workforce moved out suddenly."
+      },
+      {
+        "id": "U02-L01-Q014",
+        "number": 14,
+        "question": "What does the idiom 'drive someone up the wall' mean?",
+        "options": {
+          "A": "make someone very annoyed",
+          "B": "give someone a lift",
+          "C": "make someone run fast",
+          "D": "help someone move house"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "make someone very annoyed",
+        "difficulty": "easy",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 3: Idioms related to movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The roadworks are driving motorists up the wall = making them very annoyed."
+          ],
+          "summary": "drive someone up the wall = annoy greatly."
+        },
+        "explanation": "The roadworks are driving motorists up the wall."
+      },
+      {
+        "id": "U02-L01-Q015",
+        "number": 15,
+        "question": "Complete: 'The roadworks are driving motorists up the ______.'",
+        "options": {
+          "A": "wall",
+          "B": "road",
+          "C": "hill",
+          "D": "corner"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "wall",
+        "difficulty": "easy",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 3: Idioms related to movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The idiom is 'drive someone up the wall'."
+          ],
+          "summary": "up the wall"
+        },
+        "explanation": "It means to make someone very annoyed."
+      },
+      {
+        "id": "U02-L01-Q016",
+        "number": 16,
+        "question": "What does the idiom 'steer clear of' mean?",
+        "options": {
+          "A": "avoid",
+          "B": "drive along",
+          "C": "explore",
+          "D": "pass by quickly"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "avoid",
+        "difficulty": "easy",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 3: Idioms related to movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "You'd better steer clear of the main junction = you should avoid it."
+          ],
+          "summary": "steer clear of = avoid."
+        },
+        "explanation": "Avoid the main junction for at least a week."
+      },
+      {
+        "id": "U02-L01-Q017",
+        "number": 17,
+        "question": "Complete: 'You'd better ______ clear of the main junction for at least a week.'",
+        "options": {
+          "A": "steer",
+          "B": "drive",
+          "C": "run",
+          "D": "sail"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "steer",
+        "difficulty": "easy",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 3: Idioms related to movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The idiom is 'steer clear of', meaning avoid."
+          ],
+          "summary": "steer"
+        },
+        "explanation": "The main junction is best avoided."
+      },
+      {
+        "id": "U02-L01-Q018",
+        "number": 18,
+        "question": "What does the idiom 'plain sailing' mean?",
+        "options": {
+          "A": "easy and without problems",
+          "B": "slow and boring",
+          "C": "dangerous and risky",
+          "D": "very expensive"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "easy and without problems",
+        "difficulty": "easy",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 3: Idioms related to movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "It wasn't all plain sailing = it wasn't always easy."
+          ],
+          "summary": "plain sailing = easy, without problems."
+        },
+        "explanation": "He encountered obstacles; it wasn't all plain sailing."
+      },
+      {
+        "id": "U02-L01-Q019",
+        "number": 19,
+        "question": "Complete: 'He encountered some obstacles while training to become a pilot. It wasn't all ______ sailing.'",
+        "options": {
+          "A": "plain",
+          "B": "clear",
+          "C": "straight",
+          "D": "fast"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "plain",
+        "difficulty": "medium",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 3: Idioms related to movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The idiom is 'plain sailing'."
+          ],
+          "summary": "plain sailing"
+        },
+        "explanation": "It means easy and trouble-free."
+      },
+      {
+        "id": "U02-L01-Q020",
+        "number": 20,
+        "question": "What does the idiom 'the driving force behind' mean?",
+        "options": {
+          "A": "the main person or thing that makes something happen",
+          "B": "the engine of a car",
+          "C": "the driver of a bus",
+          "D": "a strong wind"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the main person or thing that makes something happen",
+        "difficulty": "easy",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 3: Idioms related to movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Suha was the driving force behind the project = the main reason it succeeded."
+          ],
+          "summary": "the driving force = the main motivation."
+        },
+        "explanation": "Suha's commitment made the project successful."
+      },
+      {
+        "id": "U02-L01-Q021",
+        "number": 21,
+        "question": "Complete: 'She was the ______ force behind the new rail project.'",
+        "options": {
+          "A": "driving",
+          "B": "pushing",
+          "C": "pulling",
+          "D": "running"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "driving",
+        "difficulty": "easy",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 3: Idioms related to movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The idiom is 'the driving force behind something'."
+          ],
+          "summary": "driving force"
+        },
+        "explanation": "She was the reason the project succeeded."
+      },
+      {
+        "id": "U02-L01-Q022",
+        "number": 22,
+        "question": "What does the idiom 'going downhill' mean?",
+        "options": {
+          "A": "getting worse",
+          "B": "getting better",
+          "C": "going too fast",
+          "D": "going on holiday"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "getting worse",
+        "difficulty": "easy",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 3: Idioms related to movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The airline's reputation has been going downhill = getting worse."
+          ],
+          "summary": "going downhill = getting worse."
+        },
+        "explanation": "The airline's reputation is declining."
+      },
+      {
+        "id": "U02-L01-Q023",
+        "number": 23,
+        "question": "What does the idiom 'to be in the same boat' mean?",
+        "options": {
+          "A": "to be in the same difficult situation",
+          "B": "to go sailing together",
+          "C": "to work on a ship",
+          "D": "to have the same opinion"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to be in the same difficult situation",
+        "difficulty": "medium",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 3: Idioms related to movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Everyone is furious about the parking fees; we're all in the same boat = we share the same problem."
+          ],
+          "summary": "in the same boat = in the same situation."
+        },
+        "explanation": "They all have no other option."
+      },
+      {
+        "id": "U02-L01-Q024",
+        "number": 24,
+        "question": "What does the idiom 'to be taken for a ride' mean?",
+        "options": {
+          "A": "to be deceived or tricked",
+          "B": "to enjoy a car trip",
+          "C": "to go on a rollercoaster",
+          "D": "to be given a lift"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to be deceived or tricked",
+        "difficulty": "medium",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 3: Idioms related to movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'No one likes to be taken for a ride' means no one likes to be tricked, for example over fees."
+          ],
+          "summary": "taken for a ride = deceived."
+        },
+        "explanation": "The people do not want to be tricked about the fees."
+      },
+      {
+        "id": "U02-L01-Q025",
+        "number": 25,
+        "question": "Complete: 'Everyone's furious about the increase in car parking fees. We're all in the same ______ – we have no other option.'",
+        "options": {
+          "A": "boat",
+          "B": "car",
+          "C": "bus",
+          "D": "train"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "boat",
+        "difficulty": "easy",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 3: Idioms related to movement"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The idiom is 'in the same boat'."
+          ],
+          "summary": "boat"
+        },
+        "explanation": "They share the same situation."
+      },
+      {
+        "id": "U02-L01-Q026",
+        "number": 26,
+        "question": "According to the Active Vocabulary box, an idiom such as 'completely at sea' with a computer system means ...",
+        "options": {
+          "A": "totally confused",
+          "B": "on a boat",
+          "C": "very relaxed",
+          "D": "working at sea"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "totally confused",
+        "difficulty": "medium",
+        "source": {
+          "page": 15,
+          "reference": "Active Vocabulary: Idioms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The example says 'completely at sea' means totally confused or not sure what to do."
+          ],
+          "summary": "completely at sea = totally confused."
+        },
+        "explanation": "It is a figurative meaning."
+      },
+      {
+        "id": "U02-L01-Q027",
+        "number": 27,
+        "question": "Which statement about idioms is TRUE according to the Active Vocabulary box?",
+        "options": {
+          "A": "they are used mainly in informal or colloquial language",
+          "B": "they must always be used in formal essays",
+          "C": "you can change the words in an idiom",
+          "D": "you should use as many idioms as possible"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "they are used mainly in informal or colloquial language",
+        "difficulty": "medium",
+        "source": {
+          "page": 15,
+          "reference": "Active Vocabulary: Idioms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The box says idioms are used mainly in informal or colloquial language."
+          ],
+          "summary": "Idioms are informal."
+        },
+        "explanation": "It is important not to change any word in an idiom."
+      },
+      {
+        "id": "U02-L01-Q028",
+        "number": 28,
+        "question": "What is the LITERAL meaning of the verb 'fly'?",
+        "options": {
+          "A": "to move through the air",
+          "B": "to move quickly and suddenly",
+          "C": "to escape",
+          "D": "to disappear"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to move through the air",
+        "difficulty": "easy",
+        "source": {
+          "page": 15,
+          "reference": "Watch Out!: literal and figurative meanings"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Literally, to fly is to move through the air, like a bird."
+          ],
+          "summary": "fly = move through the air."
+        },
+        "explanation": "This is the literal meaning."
+      },
+      {
+        "id": "U02-L01-Q029",
+        "number": 29,
+        "question": "What is the FIGURATIVE meaning of the verb 'fly'?",
+        "options": {
+          "A": "to move quickly and suddenly",
+          "B": "to travel by plane",
+          "C": "to sing like a bird",
+          "D": "to fly a kite"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to move quickly and suddenly",
+        "difficulty": "medium",
+        "source": {
+          "page": 15,
+          "reference": "Watch Out!: literal and figurative meanings"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Figuratively, to fly means to move quickly and suddenly, e.g. 'I flew down the platform'."
+          ],
+          "summary": "fly = move quickly and suddenly."
+        },
+        "explanation": "I saw an opening in the crowd and flew down the platform."
+      },
+      {
+        "id": "U02-L01-Q030",
+        "number": 30,
+        "question": "What does 'sailed through her interview' mean?",
+        "options": {
+          "A": "succeeded easily",
+          "B": "failed the interview",
+          "C": "arrived late",
+          "D": "gave up"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "succeeded easily",
+        "difficulty": "medium",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 4: Travel verbs"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Sail through' means to succeed at something easily."
+          ],
+          "summary": "sailed through = succeeded easily."
+        },
+        "explanation": "Reem sailed through her interview to become a tour guide."
+      },
+      {
+        "id": "U02-L01-Q031",
+        "number": 31,
+        "question": "What does 'drives himself too hard' mean?",
+        "options": {
+          "A": "he works too much and pushes himself too far",
+          "B": "he drives his car badly",
+          "C": "he works very slowly",
+          "D": "he refuses to work"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "he works too much and pushes himself too far",
+        "difficulty": "medium",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 4: Travel verbs"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Drive yourself too hard' means to push yourself to work too much."
+          ],
+          "summary": "drives himself too hard = overworks."
+        },
+        "explanation": "He'll be ill if he's not careful."
+      },
+      {
+        "id": "U02-L01-Q032",
+        "number": 32,
+        "question": "What does 'stumbled over some of the words' mean while reading a speech?",
+        "options": {
+          "A": "made mistakes or hesitated on the words",
+          "B": "read every word perfectly",
+          "C": "shouted the words",
+          "D": "forgot the whole speech"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "made mistakes or hesitated on the words",
+        "difficulty": "medium",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 4: Travel verbs"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Stumble over words' means to make mistakes or hesitate while speaking or reading."
+          ],
+          "summary": "stumbled over = made mistakes on."
+        },
+        "explanation": "He was so stressed that he made mistakes."
+      },
+      {
+        "id": "U02-L01-Q033",
+        "number": 33,
+        "question": "What does 'we were staggered by the amount of work' mean?",
+        "options": {
+          "A": "we were amazed or shocked",
+          "B": "we were walking unsteadily",
+          "C": "we were bored",
+          "D": "we were confused"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "we were amazed or shocked",
+        "difficulty": "hard",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 4: Travel verbs"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Be staggered by' means to be amazed or shocked by something."
+          ],
+          "summary": "staggered by = amazed/shocked."
+        },
+        "explanation": "Here 'staggered' has a figurative meaning."
+      },
+      {
+        "id": "U02-L01-Q034",
+        "number": 34,
+        "question": "What does 'I flew down the road to catch the bus' mean?",
+        "options": {
+          "A": "I moved very quickly",
+          "B": "I walked slowly",
+          "C": "I jumped over the road",
+          "D": "I travelled by plane"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I moved very quickly",
+        "difficulty": "medium",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 4: Travel verbs"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Fly' here means to move quickly and suddenly."
+          ],
+          "summary": "flew down the road = went very quickly."
+        },
+        "explanation": "He was late, so he ran quickly to catch the bus."
+      },
+      {
+        "id": "U02-L01-Q035",
+        "number": 35,
+        "question": "What does 'let's just park that idea for now' mean?",
+        "options": {
+          "A": "let's leave that idea aside for now",
+          "B": "let's write the idea down",
+          "C": "let's reject the idea forever",
+          "D": "let's drive to the idea"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "let's leave that idea aside for now",
+        "difficulty": "hard",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 4: Travel verbs"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Park an idea' means to leave it aside and come back to it later."
+          ],
+          "summary": "park an idea = set it aside."
+        },
+        "explanation": "They cannot agree now, so they will return to it later."
+      },
+      {
+        "id": "U02-L01-Q036",
+        "number": 36,
+        "question": "What does 'he jumped the lights' mean?",
+        "options": {
+          "A": "he drove through red traffic lights",
+          "B": "he crossed the road at a crossing",
+          "C": "he repaired the traffic lights",
+          "D": "he waited at the lights"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "he drove through red traffic lights",
+        "difficulty": "hard",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 4: Travel verbs"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Jump the lights' means to drive through red traffic lights."
+          ],
+          "summary": "jumped the lights = drove through red lights."
+        },
+        "explanation": "He was in such a hurry that he nearly crashed."
+      },
+      {
+        "id": "U02-L01-Q037",
+        "number": 37,
+        "question": "What does 'he backpedalled very quickly' mean?",
+        "options": {
+          "A": "he quickly changed his opinion",
+          "B": "he cycled backwards",
+          "C": "he walked backwards slowly",
+          "D": "he apologised for cycling"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "he quickly changed his opinion",
+        "difficulty": "hard",
+        "source": {
+          "page": 15,
+          "reference": "Exercise 4: Travel verbs"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Backpedal' here means to quickly change an opinion or decision."
+          ],
+          "summary": "backpedalled = quickly changed his mind."
+        },
+        "explanation": "He changed his attitude when he realised they were police officers."
+      },
+      {
+        "id": "U02-L01-Q038",
+        "number": 38,
+        "question": "Why should you NOT overuse idioms?",
+        "options": {
+          "A": "because it can sound unnatural",
+          "B": "because idioms are too long",
+          "C": "because idioms are always rude",
+          "D": "because idioms are old-fashioned"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "because it can sound unnatural",
+        "difficulty": "medium",
+        "source": {
+          "page": 15,
+          "reference": "Active Vocabulary: Idioms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The box says 'It is better not to overuse idioms, as this can sound unnatural.'"
+          ],
+          "summary": "Overuse sounds unnatural."
+        },
+        "explanation": "Use idioms in the right places."
+      },
+      {
+        "id": "U02-L01-Q039",
+        "number": 39,
+        "question": "What happens if you change a word in an idiom?",
+        "options": {
+          "A": "the meaning is lost",
+          "B": "the idiom becomes more formal",
+          "C": "the idiom becomes easier",
+          "D": "the idiom becomes longer"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the meaning is lost",
+        "difficulty": "easy",
+        "source": {
+          "page": 15,
+          "reference": "Active Vocabulary: Idioms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The box says 'It is important not to change any word in an idiom or the meaning is lost.'"
+          ],
+          "summary": "The meaning is lost."
+        },
+        "explanation": "Idioms must keep all their words."
+      },
+      {
+        "id": "U02-L01-Q040",
+        "number": 40,
+        "question": "In 'I saw an opening in the crowd and flew down the platform', 'flew' is used ...",
+        "options": {
+          "A": "figuratively, meaning moved quickly and suddenly",
+          "B": "literally, meaning flew like a bird",
+          "C": "to describe a plane",
+          "D": "to describe a dream"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "figuratively, meaning moved quickly and suddenly",
+        "difficulty": "medium",
+        "source": {
+          "page": 15,
+          "reference": "Watch Out!: literal and figurative meanings"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Here 'flew' has its figurative meaning: to move quickly and suddenly."
+          ],
+          "summary": "flew = moved quickly (figurative)."
+        },
+        "explanation": "He is not flying like a bird; he is moving fast."
+      }
+    ]
+  }
+}

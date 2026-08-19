@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "1",
+    "lesson_name": "Vocabulary and Speaking",
+    "unit_number": 1,
+    "unit_name": "Identity",
+    "page_start": 4,
+    "page_end": 5,
+    "questions": [
+      {
+        "id": "U01-L01-Q001",
+        "number": 1,
+        "question": "Which of the following is a compound adjective formed by 'adjective + adjective'?",
+        "options": {
+          "A": "red-hot",
+          "B": "forward-looking",
+          "C": "full-time",
+          "D": "highly strung"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "red-hot",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Active Vocabulary: Compound adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A compound adjective of the type adjective + adjective combines two adjectives, e.g. red-hot."
+          ],
+          "summary": "red-hot is adjective + adjective."
+        },
+        "explanation": "red-hot combines the adjectives 'red' and 'hot' to describe a single idea."
+      },
+      {
+        "id": "U01-L01-Q002",
+        "number": 2,
+        "question": "What type of compound adjective is 'forward-looking'?",
+        "options": {
+          "A": "noun + adjective",
+          "B": "adverb + adjective",
+          "C": "adjective + noun",
+          "D": "noun + gerund"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "adverb + adjective",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Active Vocabulary: Compound adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'forward-looking' is formed from the adverb 'forward' and the adjective 'looking'."
+          ],
+          "summary": "forward-looking = adverb + adjective."
+        },
+        "explanation": "Adverbs such as 'forward' combine with adjectives to form compound adjectives."
+      },
+      {
+        "id": "U01-L01-Q003",
+        "number": 3,
+        "question": "What type of compound adjective is 'world-famous'?",
+        "options": {
+          "A": "noun + adjective",
+          "B": "adjective + adjective",
+          "C": "adjective + gerund",
+          "D": "prefix + adjective"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "noun + adjective",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Active Vocabulary: Compound adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'world-famous' is formed from the noun 'world' and the adjective 'famous'."
+          ],
+          "summary": "world-famous = noun + adjective."
+        },
+        "explanation": "A noun combines with an adjective, e.g. world-famous, lifelong."
+      },
+      {
+        "id": "U01-L01-Q004",
+        "number": 4,
+        "question": "What type of compound adjective is 'full-time'?",
+        "options": {
+          "A": "adverb + past participle",
+          "B": "noun + gerund",
+          "C": "adjective + noun",
+          "D": "noun + past participle"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "adjective + noun",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Active Vocabulary: Compound adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'full-time' is formed from the adjective 'full' and the noun 'time'."
+          ],
+          "summary": "full-time = adjective + noun."
+        },
+        "explanation": "Some compound adjectives combine an adjective and a noun, e.g. full-time, cutting-edge."
+      },
+      {
+        "id": "U01-L01-Q005",
+        "number": 5,
+        "question": "What type of compound adjective is 'good-looking'?",
+        "options": {
+          "A": "adjective + gerund",
+          "B": "adverb + adjective",
+          "C": "noun + adjective",
+          "D": "adjective + noun"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "adjective + gerund",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Active Vocabulary: Compound adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'good-looking' is formed from the adjective 'good' and the gerund 'looking'."
+          ],
+          "summary": "good-looking = adjective + gerund."
+        },
+        "explanation": "An adjective can combine with a gerund, e.g. good-looking."
+      },
+      {
+        "id": "U01-L01-Q006",
+        "number": 6,
+        "question": "What type of compound adjective is 'highly strung'?",
+        "options": {
+          "A": "noun + gerund",
+          "B": "adverb + past participle",
+          "C": "adjective + noun",
+          "D": "prefix + adjective"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "adverb + past participle",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Active Vocabulary: Compound adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'highly strung' is formed from the adverb 'highly' and the past participle 'strung'."
+          ],
+          "summary": "highly strung = adverb + past participle."
+        },
+        "explanation": "An adverb combines with a past participle, e.g. highly strung."
+      },
+      {
+        "id": "U01-L01-Q007",
+        "number": 7,
+        "question": "What type of compound adjective is 'eye-catching'?",
+        "options": {
+          "A": "noun + gerund",
+          "B": "adjective + gerund",
+          "C": "adverb + adjective",
+          "D": "noun + past participle"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "noun + gerund",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Active Vocabulary: Compound adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'eye-catching' is formed from the noun 'eye' and the gerund 'catching'."
+          ],
+          "summary": "eye-catching = noun + gerund."
+        },
+        "explanation": "A noun can combine with a gerund, e.g. eye-catching."
+      },
+      {
+        "id": "U01-L01-Q008",
+        "number": 8,
+        "question": "What type of compound adjective is 'olive oil-based'?",
+        "options": {
+          "A": "adjective + noun",
+          "B": "noun + past participle",
+          "C": "noun + adjective",
+          "D": "adverb + past participle"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "noun + past participle",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Active Vocabulary: Compound adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'olive oil-based' is formed from the noun phrase 'olive oil' and the past participle 'based'."
+          ],
+          "summary": "olive oil-based = noun + past participle."
+        },
+        "explanation": "A noun combines with a past participle, e.g. olive oil-based."
+      },
+      {
+        "id": "U01-L01-Q009",
+        "number": 9,
+        "question": "What type of compound adjective is 'underconfident'?",
+        "options": {
+          "A": "prefix + adjective",
+          "B": "noun + adjective",
+          "C": "adverb + adjective",
+          "D": "adjective + adjective"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "prefix + adjective",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Active Vocabulary: Compound adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'underconfident' is formed from the prefix 'under-' and the adjective 'confident'."
+          ],
+          "summary": "underconfident = prefix + adjective."
+        },
+        "explanation": "Prefixes such as 'under-' can combine with adjectives, e.g. underconfident, overcooked."
+      },
+      {
+        "id": "U01-L01-Q010",
+        "number": 10,
+        "question": "What does 'absent-minded' mean?",
+        "options": {
+          "A": "often forgetting things",
+          "B": "always happy",
+          "C": "very determined",
+          "D": "easily frightened"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "often forgetting things",
+        "difficulty": "medium",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 3: Compound adjectives (personality)"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'absent-minded' describes someone who forgets things easily because they are thinking about something else."
+          ],
+          "summary": "absent-minded = forgetful."
+        },
+        "explanation": "A person who is absent-minded often forgets things."
+      },
+      {
+        "id": "U01-L01-Q011",
+        "number": 11,
+        "question": "A person who thinks about the future and plans ahead can be described as ...",
+        "options": {
+          "A": "narrow-minded",
+          "B": "forward-looking",
+          "C": "tight-fisted",
+          "D": "thin-skinned"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "forward-looking",
+        "difficulty": "medium",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 3: Compound adjectives (personality)"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'forward-looking' means thinking about and planning for the future."
+          ],
+          "summary": "forward-looking = thinking about the future."
+        },
+        "explanation": "The compound adjective forward-looking describes planning for the future."
+      },
+      {
+        "id": "U01-L01-Q012",
+        "number": 12,
+        "question": "What does 'high-spirited' mean?",
+        "options": {
+          "A": "energetic and cheerful",
+          "B": "nervous and anxious",
+          "C": "quiet and shy",
+          "D": "serious and strict"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "energetic and cheerful",
+        "difficulty": "medium",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 3: Compound adjectives (personality)"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'high-spirited' means lively, energetic and cheerful."
+          ],
+          "summary": "high-spirited = lively and cheerful."
+        },
+        "explanation": "Someone high-spirited is full of energy and cheerfulness."
+      },
+      {
+        "id": "U01-L01-Q013",
+        "number": 13,
+        "question": "What does 'highly strung' mean?",
+        "options": {
+          "A": "very relaxed",
+          "B": "easily upset and nervous",
+          "C": "extremely lazy",
+          "D": "very generous"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "easily upset and nervous",
+        "difficulty": "medium",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 3: Compound adjectives (personality)"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'highly strung' describes someone who is nervous and easily upset."
+          ],
+          "summary": "highly strung = nervous and easily upset."
+        },
+        "explanation": "A highly strung person tends to worry and is easily upset."
+      },
+      {
+        "id": "U01-L01-Q014",
+        "number": 14,
+        "question": "What does 'kind-hearted' mean?",
+        "options": {
+          "A": "caring and generous",
+          "B": "selfish and cold",
+          "C": "stubborn and angry",
+          "D": "lazy and careless"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "caring and generous",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 3: Compound adjectives (personality)"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'kind-hearted' means caring, generous and warm towards others."
+          ],
+          "summary": "kind-hearted = caring and generous."
+        },
+        "explanation": "Someone kind-hearted treats others with care and generosity."
+      },
+      {
+        "id": "U01-L01-Q015",
+        "number": 15,
+        "question": "What does 'laid-back' mean?",
+        "options": {
+          "A": "anxious and worried",
+          "B": "relaxed and easy-going",
+          "C": "hard-working and serious",
+          "D": "easily offended"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "relaxed and easy-going",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 3: Compound adjectives (personality)"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'laid-back' means relaxed and easy-going, not easily worried."
+          ],
+          "summary": "laid-back = relaxed and easy-going."
+        },
+        "explanation": "A laid-back person stays calm and relaxed."
+      },
+      {
+        "id": "U01-L01-Q016",
+        "number": 16,
+        "question": "What does 'like-minded' mean?",
+        "options": {
+          "A": "having the same interests and opinions",
+          "B": "having a sharp mind",
+          "C": "being open to new ideas",
+          "D": "being easily influenced"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "having the same interests and opinions",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 3: Compound adjectives (personality)"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'like-minded' means having similar interests, opinions or attitudes."
+          ],
+          "summary": "like-minded = similar in interests and opinions."
+        },
+        "explanation": "Like-minded people get on well because they share views and interests."
+      },
+      {
+        "id": "U01-L01-Q017",
+        "number": 17,
+        "question": "What does 'narrow-minded' mean?",
+        "options": {
+          "A": "clever and quick",
+          "B": "open to new ideas",
+          "C": "not willing to accept new ideas",
+          "D": "extremely patient"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "not willing to accept new ideas",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 3: Compound adjectives (personality)"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'narrow-minded' means not willing to listen to or accept new ideas."
+          ],
+          "summary": "narrow-minded = not open to new ideas."
+        },
+        "explanation": "A narrow-minded person rejects ideas that differ from their own."
+      },
+      {
+        "id": "U01-L01-Q018",
+        "number": 18,
+        "question": "What does 'strong-willed' mean?",
+        "options": {
+          "A": "determined and firm in decisions",
+          "B": "physically powerful",
+          "C": "weak and hesitant",
+          "D": "friendly and sociable"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "determined and firm in decisions",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 3: Compound adjectives (personality)"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'strong-willed' means determined and having firm opinions or decisions."
+          ],
+          "summary": "strong-willed = determined."
+        },
+        "explanation": "A strong-willed person is firm in what they want to do."
+      },
+      {
+        "id": "U01-L01-Q019",
+        "number": 19,
+        "question": "What does 'thin-skinned' mean?",
+        "options": {
+          "A": "easily upset by criticism",
+          "B": "physically weak",
+          "C": "sensitive to cold weather",
+          "D": "not caring about others"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "easily upset by criticism",
+        "difficulty": "medium",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 3: Compound adjectives (personality)"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'thin-skinned' means easily upset or hurt by criticism."
+          ],
+          "summary": "thin-skinned = easily upset by criticism."
+        },
+        "explanation": "A thin-skinned person takes criticism very personally."
+      },
+      {
+        "id": "U01-L01-Q020",
+        "number": 20,
+        "question": "What does 'tight-fisted' mean?",
+        "options": {
+          "A": "very strong",
+          "B": "not generous with money",
+          "C": "extremely busy",
+          "D": "having firm control"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "not generous with money",
+        "difficulty": "medium",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 3: Compound adjectives (personality)"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'tight-fisted' means unwilling to spend or share money."
+          ],
+          "summary": "tight-fisted = mean with money."
+        },
+        "explanation": "A tight-fisted person avoids spending or giving money."
+      },
+      {
+        "id": "U01-L01-Q021",
+        "number": 21,
+        "question": "Which adjective describes someone who recovers quickly after difficulties?",
+        "options": {
+          "A": "resilient",
+          "B": "defensive",
+          "C": "capable",
+          "D": "tough"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "resilient",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 2: Personality adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Resilient' means able to recover quickly and return to normal after problems."
+          ],
+          "summary": "resilient = able to recover quickly."
+        },
+        "explanation": "A resilient person copes well with setbacks and recovers fast."
+      },
+      {
+        "id": "U01-L01-Q022",
+        "number": 22,
+        "question": "Which adjective describes someone who is able to do things well?",
+        "options": {
+          "A": "compassionate",
+          "B": "capable",
+          "C": "enthusiastic",
+          "D": "passionate"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "capable",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 2: Personality adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Capable' means having the ability and skill to do things well."
+          ],
+          "summary": "capable = able to do things well."
+        },
+        "explanation": "A capable person has the ability to achieve tasks successfully."
+      },
+      {
+        "id": "U01-L01-Q023",
+        "number": 23,
+        "question": "Which adjective describes someone who feels sympathy for other people's problems?",
+        "options": {
+          "A": "self-aware",
+          "B": "compassionate",
+          "C": "trustworthy",
+          "D": "dedicated"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "compassionate",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 2: Personality adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Compassionate' means showing sympathy and care for people who are suffering."
+          ],
+          "summary": "compassionate = full of sympathy."
+        },
+        "explanation": "A compassionate person cares about and understands other people's suffering."
+      },
+      {
+        "id": "U01-L01-Q024",
+        "number": 24,
+        "question": "Which adjective describes someone who gives a lot of time and effort to a task?",
+        "options": {
+          "A": "defensive",
+          "B": "laid-back",
+          "C": "dedicated",
+          "D": "resilient"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "dedicated",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 2: Personality adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Dedicated' means giving a lot of time, effort and loyalty to something."
+          ],
+          "summary": "dedicated = devoted and hard-working."
+        },
+        "explanation": "A dedicated person works very hard for a goal or cause."
+      },
+      {
+        "id": "U01-L01-Q025",
+        "number": 25,
+        "question": "Which adjective describes someone who quickly justifies or protects themselves?",
+        "options": {
+          "A": "defensive",
+          "B": "compassionate",
+          "C": "trustworthy",
+          "D": "capable"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "defensive",
+        "difficulty": "medium",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 2: Personality adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Defensive' means behaving as if you are being attacked and need to protect or justify yourself."
+          ],
+          "summary": "defensive = quick to justify yourself."
+        },
+        "explanation": "A defensive person reacts strongly to criticism as if under attack."
+      },
+      {
+        "id": "U01-L01-Q026",
+        "number": 26,
+        "question": "Which adjective describes someone who shows great interest and excitement?",
+        "options": {
+          "A": "enthusiastic",
+          "B": "resilient",
+          "C": "tough",
+          "D": "self-aware"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "enthusiastic",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 2: Personality adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Enthusiastic' means showing strong interest, energy and excitement about something."
+          ],
+          "summary": "enthusiastic = full of interest and excitement."
+        },
+        "explanation": "An enthusiastic person shows great energy and eagerness."
+      },
+      {
+        "id": "U01-L01-Q027",
+        "number": 27,
+        "question": "Which adjective describes someone with very strong feelings about something?",
+        "options": {
+          "A": "passionate",
+          "B": "defensive",
+          "C": "capable",
+          "D": "dedicated"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "passionate",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 2: Personality adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Passionate' means having very strong emotions, e.g. about a hobby or cause."
+          ],
+          "summary": "passionate = having strong feelings."
+        },
+        "explanation": "A passionate person feels strongly and intensely about something."
+      },
+      {
+        "id": "U01-L01-Q028",
+        "number": 28,
+        "question": "Which adjective describes someone who understands their own character?",
+        "options": {
+          "A": "self-aware",
+          "B": "thin-skinned",
+          "C": "tight-fisted",
+          "D": "narrow-minded"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "self-aware",
+        "difficulty": "medium",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 2: Personality adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Self-aware' means knowing and understanding your own character, feelings and motives."
+          ],
+          "summary": "self-aware = knowing your own character."
+        },
+        "explanation": "A self-aware person understands their own strengths and weaknesses."
+      },
+      {
+        "id": "U01-L01-Q029",
+        "number": 29,
+        "question": "Which adjective describes someone who is strong and not easily hurt?",
+        "options": {
+          "A": "tough",
+          "B": "shy",
+          "C": "fragile",
+          "D": "sensitive"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "tough",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 2: Personality adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Tough' means strong and able to deal with difficulties without being easily hurt."
+          ],
+          "summary": "tough = strong, not easily hurt."
+        },
+        "explanation": "A tough person handles pressure and criticism without breaking down."
+      },
+      {
+        "id": "U01-L01-Q030",
+        "number": 30,
+        "question": "Which adjective describes someone you can rely on and believe?",
+        "options": {
+          "A": "trustworthy",
+          "B": "defensive",
+          "C": "passionate",
+          "D": "compassionate"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "trustworthy",
+        "difficulty": "easy",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 2: Personality adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Trustworthy' means deserving trust because you are honest and reliable."
+          ],
+          "summary": "trustworthy = honest and reliable."
+        },
+        "explanation": "A trustworthy person can be depended on to tell the truth and keep promises."
+      },
+      {
+        "id": "U01-L01-Q031",
+        "number": 31,
+        "question": "Which adjective describes someone who lacks confidence in themselves?",
+        "options": {
+          "A": "underconfident",
+          "B": "overcooked",
+          "C": "strong-willed",
+          "D": "kind-hearted"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "underconfident",
+        "difficulty": "medium",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 2: Personality adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Underconfident' means not confident enough about your abilities."
+          ],
+          "summary": "underconfident = lacking confidence."
+        },
+        "explanation": "An underconfident person doubts their own abilities."
+      },
+      {
+        "id": "U01-L01-Q032",
+        "number": 32,
+        "question": "What noun do we form from the adjective 'assertive'?",
+        "options": {
+          "A": "assertiveness",
+          "B": "assertation",
+          "C": "assertioning",
+          "D": "assertness"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "assertiveness",
+        "difficulty": "medium",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 7: Nouns from adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The adjective 'assertive' forms the noun 'assertiveness'."
+          ],
+          "summary": "assertive → assertiveness."
+        },
+        "explanation": "Adding the suffix '-ness' to 'assertive' gives the noun assertiveness."
+      },
+      {
+        "id": "U01-L01-Q033",
+        "number": 33,
+        "question": "What noun do we form from the adjective 'discreet'?",
+        "options": {
+          "A": "discretion",
+          "B": "discreetness",
+          "C": "discreetion",
+          "D": "discrete"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "discretion",
+        "difficulty": "hard",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 7: Nouns from adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The adjective 'discreet' forms the irregular noun 'discretion'."
+          ],
+          "summary": "discreet → discretion."
+        },
+        "explanation": "Discretion (careful, tactful behaviour) is the noun form of discreet."
+      },
+      {
+        "id": "U01-L01-Q034",
+        "number": 34,
+        "question": "What noun do we form from the adjective 'humble'?",
+        "options": {
+          "A": "humbleness",
+          "B": "humility",
+          "C": "humblenessness",
+          "D": "humilness"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "humility",
+        "difficulty": "hard",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 7: Nouns from adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The adjective 'humble' forms the irregular noun 'humility'."
+          ],
+          "summary": "humble → humility."
+        },
+        "explanation": "Humility means the quality of being modest, and is the noun form of humble."
+      },
+      {
+        "id": "U01-L01-Q035",
+        "number": 35,
+        "question": "What noun do we form from the adjective 'merciful'?",
+        "options": {
+          "A": "mercy",
+          "B": "mercifulness",
+          "C": "merciness",
+          "D": "mercidom"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "mercy",
+        "difficulty": "hard",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 7: Nouns from adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The adjective 'merciful' forms the noun 'mercy'."
+          ],
+          "summary": "merciful → mercy."
+        },
+        "explanation": "Mercy (kindness and forgiveness) is the noun form of merciful."
+      },
+      {
+        "id": "U01-L01-Q036",
+        "number": 36,
+        "question": "What noun do we form from the adjective 'sincere'?",
+        "options": {
+          "A": "sincerity",
+          "B": "sincereness",
+          "C": "sinceration",
+          "D": "sincerism"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "sincerity",
+        "difficulty": "hard",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 7: Nouns from adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The adjective 'sincere' forms the noun 'sincerity'."
+          ],
+          "summary": "sincere → sincerity."
+        },
+        "explanation": "Sincerity (honesty of feeling) is the noun form of sincere."
+      },
+      {
+        "id": "U01-L01-Q037",
+        "number": 37,
+        "question": "What noun do we form from the adjective 'inclusive'?",
+        "options": {
+          "A": "inclusiveness",
+          "B": "inclusionment",
+          "C": "inclusiveity",
+          "D": "inclusivityness"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "inclusiveness",
+        "difficulty": "hard",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 7: Nouns from adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The adjective 'inclusive' forms the noun 'inclusiveness' (also 'inclusion')."
+          ],
+          "summary": "inclusive → inclusiveness."
+        },
+        "explanation": "Adding the suffix '-ness' to 'inclusive' gives inclusiveness."
+      },
+      {
+        "id": "U01-L01-Q038",
+        "number": 38,
+        "question": "Which fixed expression means 'feel excitement and enjoyment'?",
+        "options": {
+          "A": "get a kick out of",
+          "B": "set great store by",
+          "C": "plump for",
+          "D": "hit it off with"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "get a kick out of",
+        "difficulty": "medium",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 8: Fixed expressions"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Get a kick out of' means to feel excitement and enjoyment from something."
+          ],
+          "summary": "get a kick out of = enjoy very much."
+        },
+        "explanation": "If you get a kick out of something, it gives you excitement and pleasure."
+      },
+      {
+        "id": "U01-L01-Q039",
+        "number": 39,
+        "question": "Which fixed expression means 'choose'?",
+        "options": {
+          "A": "plump for",
+          "B": "get a kick out of",
+          "C": "be wild about",
+          "D": "keep yourself to yourself"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "plump for",
+        "difficulty": "medium",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 8: Fixed expressions"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Plump for' means to choose one thing from a number of possibilities."
+          ],
+          "summary": "plump for = choose."
+        },
+        "explanation": "To plump for something is to choose or decide on it."
+      },
+      {
+        "id": "U01-L01-Q040",
+        "number": 40,
+        "question": "Which fixed expression means 'consider something to be important'?",
+        "options": {
+          "A": "set great store by",
+          "B": "reveal our traits",
+          "C": "be wild about",
+          "D": "plump for"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "set great store by",
+        "difficulty": "medium",
+        "source": {
+          "page": 5,
+          "reference": "Exercise 8: Fixed expressions"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Set great store by' means to consider something to be very important."
+          ],
+          "summary": "set great store by = consider important."
+        },
+        "explanation": "If you set great store by values, you consider them very important."
+      }
+    ]
+  }
+}

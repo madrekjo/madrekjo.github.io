@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "2",
+    "lesson_name": "Listening and Vocabulary",
+    "unit_number": 3,
+    "unit_name": "Hard sell",
+    "page_start": 28,
+    "page_end": 28,
+    "questions": [
+      {
+        "id": "U03-L02-Q001",
+        "number": 1,
+        "question": "Which word describes someone who is too ready to believe things?",
+        "options": {
+          "A": "credulous",
+          "B": "shrewd",
+          "C": "crafty",
+          "D": "ingenuous"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "credulous",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 1: Adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Credulous' means too ready to believe things; easily deceived."
+          ],
+          "summary": "credulous = too trusting."
+        },
+        "explanation": "It is close in meaning to gullible."
+      },
+      {
+        "id": "U03-L02-Q002",
+        "number": 2,
+        "question": "Which word describes someone who easily believes people are honest?",
+        "options": {
+          "A": "gullible",
+          "B": "cunning",
+          "C": "devious",
+          "D": "shrewd"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "gullible",
+        "difficulty": "easy",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 1: Adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Gullible' means easily fooled or tricked."
+          ],
+          "summary": "gullible = easily tricked."
+        },
+        "explanation": "Gullible people believe anything."
+      },
+      {
+        "id": "U03-L02-Q003",
+        "number": 3,
+        "question": "Which word means 'sly and clever at deceiving others'?",
+        "options": {
+          "A": "cunning",
+          "B": "naive",
+          "C": "trusting",
+          "D": "unsuspecting"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "cunning",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 1: Adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Cunning' means clever at deceiving people."
+          ],
+          "summary": "cunning = sly and deceptive."
+        },
+        "explanation": "A cunning person is hard to fool."
+      },
+      {
+        "id": "U03-L02-Q004",
+        "number": 4,
+        "question": "Which word describes someone who is not honest and tricks others?",
+        "options": {
+          "A": "devious",
+          "B": "gullible",
+          "C": "credulous",
+          "D": "shrewd"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "devious",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 1: Adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Devious' means dishonest and cunning."
+          ],
+          "summary": "devious = dishonest."
+        },
+        "explanation": "A devious person uses tricks."
+      },
+      {
+        "id": "U03-L02-Q005",
+        "number": 5,
+        "question": "Which word describes someone who is clever and practical in business?",
+        "options": {
+          "A": "shrewd",
+          "B": "naive",
+          "C": "crafty",
+          "D": "unsuspecting"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "shrewd",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 1: Adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Shrewd' means clever and good at judging situations."
+          ],
+          "summary": "shrewd = clever and practical."
+        },
+        "explanation": "A shrewd businessperson makes good decisions."
+      },
+      {
+        "id": "U03-L02-Q006",
+        "number": 6,
+        "question": "Which word describes someone with little experience of the world?",
+        "options": {
+          "A": "naive",
+          "B": "devious",
+          "C": "cunning",
+          "D": "shrewd"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "naive",
+        "difficulty": "easy",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 1: Adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Naive' means lacking experience and too ready to trust."
+          ],
+          "summary": "naive = inexperienced."
+        },
+        "explanation": "Naive people are easy to persuade."
+      },
+      {
+        "id": "U03-L02-Q007",
+        "number": 7,
+        "question": "Which word means 'clever at getting what you want'?",
+        "options": {
+          "A": "crafty",
+          "B": "credulous",
+          "C": "gullible",
+          "D": "trusting"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "crafty",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 1: Adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Crafty' means clever, especially in a cunning way."
+          ],
+          "summary": "crafty = clever and sly."
+        },
+        "explanation": "Crafty salespeople use tricks."
+      },
+      {
+        "id": "U03-L02-Q008",
+        "number": 8,
+        "question": "Which word describes someone who does not suspect anything wrong?",
+        "options": {
+          "A": "unsuspecting",
+          "B": "cunning",
+          "C": "devious",
+          "D": "shrewd"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "unsuspecting",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 1: Adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Unsuspecting' means not realising that something bad is happening."
+          ],
+          "summary": "unsuspecting = not suspicious."
+        },
+        "explanation": "The salesperson targeted unsuspecting customers."
+      },
+      {
+        "id": "U03-L02-Q009",
+        "number": 9,
+        "question": "What is the 'scarcity principle' in persuasion?",
+        "options": {
+          "A": "people want things more when they are rare or limited",
+          "B": "people always buy the cheapest product",
+          "C": "people ignore rare products",
+          "D": "people prefer more choice"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "people want things more when they are rare or limited",
+        "difficulty": "easy",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 2: Persuasion techniques"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Scarcity works by making something seem limited, so people want it more."
+          ],
+          "summary": "Scarcity = limited availability."
+        },
+        "explanation": "'Only a few left!' creates demand."
+      },
+      {
+        "id": "U03-L02-Q010",
+        "number": 10,
+        "question": "What is 'framing' in persuasion?",
+        "options": {
+          "A": "presenting information in a way that influences the choice",
+          "B": "putting products in picture frames",
+          "C": "advertising on the radio",
+          "D": "giving free samples"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "presenting information in a way that influences the choice",
+        "difficulty": "hard",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 2: Persuasion techniques"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Framing means showing the same information in a different way to change perception."
+          ],
+          "summary": "framing = how the choice is presented."
+        },
+        "explanation": "e.g. '90% fat-free' vs '10% fat'."
+      },
+      {
+        "id": "U03-L02-Q011",
+        "number": 11,
+        "question": "What is 'reciprocation' in persuasion?",
+        "options": {
+          "A": "if someone gives you something, you feel you should give something back",
+          "B": "copying the salesperson",
+          "C": "repeating a question",
+          "D": "returning a product"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "if someone gives you something, you feel you should give something back",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 2: Persuasion techniques"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Reciprocation is the feeling of needing to return a favour."
+          ],
+          "summary": "reciprocation = returning a favour."
+        },
+        "explanation": "Free sweets with the bill make people buy more."
+      },
+      {
+        "id": "U03-L02-Q012",
+        "number": 12,
+        "question": "What is 'social proof' in persuasion?",
+        "options": {
+          "A": "people follow what others are doing",
+          "B": "people ignore other customers",
+          "C": "proof that a product works",
+          "D": "social media advertising only"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "people follow what others are doing",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 2: Persuasion techniques"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Social proof means people copy the behaviour of others."
+          ],
+          "summary": "social proof = following the crowd."
+        },
+        "explanation": "'Best seller' badges use social proof."
+      },
+      {
+        "id": "U03-L02-Q013",
+        "number": 13,
+        "question": "What are 'yes questions' in persuasion?",
+        "options": {
+          "A": "questions that make the customer keep saying yes",
+          "B": "questions that are easy to ignore",
+          "C": "questions about the price",
+          "D": "questions nobody answers"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "questions that make the customer keep saying yes",
+        "difficulty": "hard",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 2: Persuasion techniques"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Getting the customer to agree to small things first makes agreement easier."
+          ],
+          "summary": "yes questions lead to agreement."
+        },
+        "explanation": "Each 'yes' makes the next one easier."
+      },
+      {
+        "id": "U03-L02-Q014",
+        "number": 14,
+        "question": "What does the technique of leaving sweets with the bill show?",
+        "options": {
+          "A": "reciprocation",
+          "B": "scarcity",
+          "C": "social proof",
+          "D": "framing"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "reciprocation",
+        "difficulty": "hard",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 3: Listening focus"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The sweets made customers feel they should buy more in return."
+          ],
+          "summary": "It shows reciprocation."
+        },
+        "explanation": "The gift created a feeling of obligation."
+      },
+      {
+        "id": "U03-L02-Q015",
+        "number": 15,
+        "question": "What did Adnan imply about the interviewer and her orange coat?",
+        "options": {
+          "A": "she was a bit naive when she bought it",
+          "B": "she made a great choice",
+          "C": "she never wanted the coat",
+          "D": "she got a discount"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "she was a bit naive when she bought it",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 3: Listening focus"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Adnan implied the interviewer was a bit naive to be persuaded to buy it."
+          ],
+          "summary": "She was a bit naive."
+        },
+        "explanation": "The salesperson persuaded her easily."
+      },
+      {
+        "id": "U03-L02-Q016",
+        "number": 16,
+        "question": "What does 'to infer meaning' mean in listening?",
+        "options": {
+          "A": "to work out a meaning from evidence, not direct words",
+          "B": "to hear every word perfectly",
+          "C": "to repeat what you heard",
+          "D": "to translate word for word"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to work out a meaning from evidence, not direct words",
+        "difficulty": "easy",
+        "source": {
+          "page": 28,
+          "reference": "Active Listening: Inferring meaning"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "An inference is an idea or conclusion based on evidence."
+          ],
+          "summary": "infer = conclude from evidence."
+        },
+        "explanation": "You use the speaker's words and what you know."
+      },
+      {
+        "id": "U03-L02-Q017",
+        "number": 17,
+        "question": "According to Active Listening, what should you consider while listening?",
+        "options": {
+          "A": "the connotation of the words and what you know about the topic",
+          "B": "only the grammar of each sentence",
+          "C": "the number of words spoken",
+          "D": "the speaker's accent only"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the connotation of the words and what you know about the topic",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Active Listening: Inferring meaning"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Consider whether words have positive or negative connotations and what you know."
+          ],
+          "summary": "Consider word connotations and knowledge."
+        },
+        "explanation": "This helps you infer opinion and attitude."
+      },
+      {
+        "id": "U03-L02-Q018",
+        "number": 18,
+        "question": "Which word means 'to persuade by being extra nice or flattering'?",
+        "options": {
+          "A": "coax",
+          "B": "coerce",
+          "C": "incite",
+          "D": "sway"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "coax",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 4: Synonyms of persuade"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Coax' means to persuade gently and kindly."
+          ],
+          "summary": "coax = persuade kindly."
+        },
+        "explanation": "She coaxed the child to clean her teeth."
+      },
+      {
+        "id": "U03-L02-Q019",
+        "number": 19,
+        "question": "Which word means 'to persuade someone using force or threats'?",
+        "options": {
+          "A": "coerce",
+          "B": "entice",
+          "C": "urge",
+          "D": "convince"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "coerce",
+        "difficulty": "easy",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 4: Synonyms of persuade"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Coerce' means to force someone by threats or pressure."
+          ],
+          "summary": "coerce = force."
+        },
+        "explanation": "He tried to coerce his brother into doing it."
+      },
+      {
+        "id": "U03-L02-Q020",
+        "number": 20,
+        "question": "Which word means 'to persuade by offering something attractive'?",
+        "options": {
+          "A": "entice",
+          "B": "coerce",
+          "C": "incite",
+          "D": "pressure"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "entice",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 4: Synonyms of persuade"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Entice' means to tempt someone with an attractive offer."
+          ],
+          "summary": "entice = tempt."
+        },
+        "explanation": "They enticed her to leave with promises of a better salary."
+      },
+      {
+        "id": "U03-L02-Q021",
+        "number": 21,
+        "question": "Which word means 'to persuade someone to do something violent or unpleasant'?",
+        "options": {
+          "A": "incite",
+          "B": "coax",
+          "C": "sway",
+          "D": "convince"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "incite",
+        "difficulty": "hard",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 4: Synonyms of persuade"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Incite' means to encourage something violent or unpleasant."
+          ],
+          "summary": "incite = stir up violence."
+        },
+        "explanation": "It has a negative sense."
+      },
+      {
+        "id": "U03-L02-Q022",
+        "number": 22,
+        "question": "Which word means 'to make someone believe something is true'?",
+        "options": {
+          "A": "convince",
+          "B": "coerce",
+          "C": "entice",
+          "D": "incite"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "convince",
+        "difficulty": "easy",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 4: Synonyms of persuade"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Convince' means to make someone believe or agree."
+          ],
+          "summary": "convince = make believe."
+        },
+        "explanation": "She convinced the child to clean her teeth."
+      },
+      {
+        "id": "U03-L02-Q023",
+        "number": 23,
+        "question": "Which word means 'to try hard to persuade someone'?",
+        "options": {
+          "A": "urge",
+          "B": "entice",
+          "C": "coax",
+          "D": "sway"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "urge",
+        "difficulty": "easy",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 4: Synonyms of persuade"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Urge' means to strongly encourage someone to do something."
+          ],
+          "summary": "urge = strongly encourage."
+        },
+        "explanation": "She urged the team to take responsibility."
+      },
+      {
+        "id": "U03-L02-Q024",
+        "number": 24,
+        "question": "Which word means 'to persuade someone with gentle pressure'?",
+        "options": {
+          "A": "pressure",
+          "B": "incite",
+          "C": "coerce",
+          "D": "entice"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "pressure",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 4: Synonyms of persuade"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Pressure' as a verb means to try to persuade by putting pressure on someone."
+          ],
+          "summary": "pressure = apply pressure."
+        },
+        "explanation": "She pressured the team into taking responsibility."
+      },
+      {
+        "id": "U03-L02-Q025",
+        "number": 25,
+        "question": "Which word means 'to persuade people to choose between two things'?",
+        "options": {
+          "A": "sway",
+          "B": "incite",
+          "C": "coerce",
+          "D": "entice"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "sway",
+        "difficulty": "hard",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 4: Synonyms of persuade"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Sway' means to influence someone's decision one way or another."
+          ],
+          "summary": "sway = influence a decision."
+        },
+        "explanation": "The argument swayed them towards the cheaper option."
+      },
+      {
+        "id": "U03-L02-Q026",
+        "number": 26,
+        "question": "Which word means 'to persuade by gentle talking or flattery'?",
+        "options": {
+          "A": "cajole",
+          "B": "coerce",
+          "C": "incite",
+          "D": "pressure"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "cajole",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 4: Synonyms of persuade"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Cajole' means to persuade with flattery or gentle urging."
+          ],
+          "summary": "cajole = persuade with flattery."
+        },
+        "explanation": "She cajoled us into working late."
+      },
+      {
+        "id": "U03-L02-Q027",
+        "number": 27,
+        "question": "Complete: 'She ______ the child to clean her teeth.' (COAX)",
+        "options": {
+          "A": "coaxed",
+          "B": "coerced",
+          "C": "incited",
+          "D": "pressured"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "coaxed",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 5: Key word transformations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The past form of 'coax' is 'coaxed'."
+          ],
+          "summary": "coaxed"
+        },
+        "explanation": "She persuaded the child kindly."
+      },
+      {
+        "id": "U03-L02-Q028",
+        "number": 28,
+        "question": "Complete: 'The company ______ her to leave her job with promises of a better salary.' (ENTICE)",
+        "options": {
+          "A": "enticed",
+          "B": "coaxed",
+          "C": "coerced",
+          "D": "swayed"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "enticed",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 5: Key word transformations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Enticed' means tempted with an attractive offer."
+          ],
+          "summary": "enticed"
+        },
+        "explanation": "The promises tempted her to leave."
+      },
+      {
+        "id": "U03-L02-Q029",
+        "number": 29,
+        "question": "Complete: 'She ______ us to work late.' (CAJOLE)",
+        "options": {
+          "A": "cajoled",
+          "B": "enticed",
+          "C": "incited",
+          "D": "coerced"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "cajoled",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 5: Key word transformations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Cajoled' means persuaded with gentle talk."
+          ],
+          "summary": "cajoled"
+        },
+        "explanation": "She talked us into working late."
+      },
+      {
+        "id": "U03-L02-Q030",
+        "number": 30,
+        "question": "Complete: 'She ______ the team into taking responsibility.' (URGE)",
+        "options": {
+          "A": "urged",
+          "B": "coaxed",
+          "C": "enticed",
+          "D": "incited"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "urged",
+        "difficulty": "hard",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 5: Key word transformations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The transformation uses 'urged' with a to-infinitive or into + -ing."
+          ],
+          "summary": "urged"
+        },
+        "explanation": "She strongly encouraged the team."
+      },
+      {
+        "id": "U03-L02-Q031",
+        "number": 31,
+        "question": "Which phrase describes strong persuasion 'without much choice'?",
+        "options": {
+          "A": "coerce and incite",
+          "B": "coax and cajole",
+          "C": "convince and sway",
+          "D": "entice and urge"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "coerce and incite",
+        "difficulty": "hard",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 4: Categories"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Coerce (force) and incite (stir up) involve strong pressure."
+          ],
+          "summary": "coerce, incite = strong persuasion."
+        },
+        "explanation": "The others are gentler or neutral."
+      },
+      {
+        "id": "U03-L02-Q032",
+        "number": 32,
+        "question": "Which verb pattern is typical of 'persuade' in 'persuade someone to do something'?",
+        "options": {
+          "A": "someone to do something",
+          "B": "someone into doing something",
+          "C": "someone of something",
+          "D": "someone for something"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "someone to do something",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 4: Verb patterns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Many of these verbs take 'someone to do something'."
+          ],
+          "summary": "someone to do something"
+        },
+        "explanation": "e.g. persuade someone to stay."
+      },
+      {
+        "id": "U03-L02-Q033",
+        "number": 33,
+        "question": "Which of these adjectives describes an ideal customer for a clever salesperson?",
+        "options": {
+          "A": "gullible",
+          "B": "shrewd",
+          "C": "cunning",
+          "D": "devious"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "gullible",
+        "difficulty": "easy",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 1: Adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A gullible customer is easy to persuade and is an ideal target."
+          ],
+          "summary": "gullible"
+        },
+        "explanation": "The lesson asks which describe the man and his ideal customer."
+      },
+      {
+        "id": "U03-L02-Q034",
+        "number": 34,
+        "question": "What was Lama's attitude towards the salesperson described by the interviewer?",
+        "options": {
+          "A": "horrified",
+          "B": "admiring",
+          "C": "bored",
+          "D": "indifferent"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "horrified",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 3: Listening focus"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The listening asks how Lama felt; the salesperson used tricky techniques."
+          ],
+          "summary": "Lama was horrified."
+        },
+        "explanation": "She disliked the deceptive sales techniques."
+      },
+      {
+        "id": "U03-L02-Q035",
+        "number": 35,
+        "question": "How did Adnan describe the salesperson's techniques?",
+        "options": {
+          "A": "devious",
+          "B": "ethical",
+          "C": "effortless",
+          "D": "honest"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "devious",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 3: Listening focus"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Adnan described the techniques as devious (dishonest)."
+          ],
+          "summary": "devious"
+        },
+        "explanation": "He saw them as tricky."
+      },
+      {
+        "id": "U03-L02-Q036",
+        "number": 36,
+        "question": "What is the lesson's vocabulary focus?",
+        "options": {
+          "A": "synonyms of 'persuade' and words for describing people",
+          "B": "phrasal verbs for shopping",
+          "C": "food adjectives",
+          "D": "adverbs of frequency"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "synonyms of 'persuade' and words for describing people",
+        "difficulty": "easy",
+        "source": {
+          "page": 28,
+          "reference": "Lesson 2A: Listening and Vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The lesson focuses on persuasion vocabulary and inferring meaning."
+          ],
+          "summary": "Persuasion vocabulary"
+        },
+        "explanation": "It covers cajole, coax, coerce, etc."
+      },
+      {
+        "id": "U03-L02-Q037",
+        "number": 37,
+        "question": "Why is 'inferring opinion and attitude' useful in listening?",
+        "options": {
+          "A": "it helps you understand the speaker's real opinion even when implied",
+          "B": "it helps you spell words",
+          "C": "it helps you count words",
+          "D": "it helps you translate"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it helps you understand the speaker's real opinion even when implied",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Active Listening"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Inference lets you work out attitudes from evidence in the speech."
+          ],
+          "summary": "It reveals the true opinion."
+        },
+        "explanation": "Words can have positive or negative connotations."
+      },
+      {
+        "id": "U03-L02-Q038",
+        "number": 38,
+        "question": "Which adjective is the opposite of 'naive'?",
+        "options": {
+          "A": "shrewd",
+          "B": "gullible",
+          "C": "credulous",
+          "D": "unsuspecting"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "shrewd",
+        "difficulty": "hard",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 1: Adjectives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Shrewd' (clever and practical) is the opposite of naive."
+          ],
+          "summary": "shrewd vs naive"
+        },
+        "explanation": "Naive people are easily fooled; shrewd people are not."
+      },
+      {
+        "id": "U03-L02-Q039",
+        "number": 39,
+        "question": "Which verb means 'to encourage someone by being extra nice'?",
+        "options": {
+          "A": "coax",
+          "B": "coerce",
+          "C": "threaten",
+          "D": "demand"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "coax",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": "Exercise 4: Synonyms of persuade"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Coax' means to persuade gently by being extra nice."
+          ],
+          "summary": "coax = gently persuade."
+        },
+        "explanation": "She coaxed the dog with treats."
+      },
+      {
+        "id": "U03-L02-Q040",
+        "number": 40,
+        "question": "What does 'connotation' mean in the context of listening?",
+        "options": {
+          "A": "the feeling or idea a word gives beyond its dictionary meaning",
+          "B": "the exact dictionary definition",
+          "C": "the sound of a word",
+          "D": "the spelling of a word"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the feeling or idea a word gives beyond its dictionary meaning",
+        "difficulty": "hard",
+        "source": {
+          "page": 28,
+          "reference": "Active Listening: Inferring meaning"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A connotation is the extra meaning a word carries, positive or negative."
+          ],
+          "summary": "connotation = associated feeling."
+        },
+        "explanation": "Words like 'cheap' and 'affordable' have different connotations."
+      }
+    ]
+  }
+}

@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "2",
+    "lesson_name": "Reading and Vocabulary",
+    "unit_number": 2,
+    "unit_name": "On the move",
+    "page_start": 16,
+    "page_end": 17,
+    "questions": [
+      {
+        "id": "U02-L02-Q001",
+        "number": 1,
+        "question": "Where was Malek from?",
+        "options": {
+          "A": "the countryside",
+          "B": "a big capital city",
+          "C": "an island",
+          "D": "a mountain village"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the countryside",
+        "difficulty": "easy",
+        "source": {
+          "page": 16,
+          "reference": "Reading text: line 1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The text says back home in the countryside, life moved at a gentle pace."
+          ],
+          "summary": "Malek was from the countryside."
+        },
+        "explanation": "This was his first trip to a big city."
+      },
+      {
+        "id": "U02-L02-Q002",
+        "number": 2,
+        "question": "What was Malek's dream since childhood?",
+        "options": {
+          "A": "to visit the Camp Nou football stadium",
+          "B": "to live in Barcelona",
+          "C": "to ride the metro",
+          "D": "to become a tour guide"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to visit the Camp Nou football stadium",
+        "difficulty": "easy",
+        "source": {
+          "page": 16,
+          "reference": "Reading text: paragraph 1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "It was a dream since childhood to visit the great football stadium, Camp Nou."
+          ],
+          "summary": "His dream was to visit Camp Nou."
+        },
+        "explanation": "He was in his early 20s and making it happen."
+      },
+      {
+        "id": "U02-L02-Q003",
+        "number": 3,
+        "question": "How did people react when Malek announced his plan to travel alone?",
+        "options": {
+          "A": "everyone tried to talk him out of it",
+          "B": "everyone offered to come with him",
+          "C": "nobody believed him",
+          "D": "everyone congratulated him"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "everyone tried to talk him out of it",
+        "difficulty": "medium",
+        "source": {
+          "page": 16,
+          "reference": "Reading text: paragraph 1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Everyone tried to talk him out of it, but he was determined."
+          ],
+          "summary": "They tried to change his mind."
+        },
+        "explanation": "He was determined to go."
+      },
+      {
+        "id": "U02-L02-Q004",
+        "number": 4,
+        "question": "How would you describe life back home for Malek?",
+        "options": {
+          "A": "it moved at a gentle pace",
+          "B": "it was noisy and chaotic",
+          "C": "it was very dangerous",
+          "D": "it was full of tourists"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it moved at a gentle pace",
+        "difficulty": "medium",
+        "source": {
+          "page": 16,
+          "reference": "Reading text: paragraph 1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The text says life moved at a gentle pace in the countryside."
+          ],
+          "summary": "Life was calm and slow."
+        },
+        "explanation": "The city square was startlingly noisy in contrast."
+      },
+      {
+        "id": "U02-L02-Q005",
+        "number": 5,
+        "question": "What does 'the city square was teeming with tourists' mean?",
+        "options": {
+          "A": "it was full of tourists",
+          "B": "it was empty",
+          "C": "the tourists were leaving",
+          "D": "the square was closed"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it was full of tourists",
+        "difficulty": "easy",
+        "source": {
+          "page": 16,
+          "reference": "Reading text: paragraph 1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Teeming with' means full of, or swarming with."
+          ],
+          "summary": "teeming with = full of."
+        },
+        "explanation": "Tourists and locals filled the square."
+      },
+      {
+        "id": "U02-L02-Q006",
+        "number": 6,
+        "question": "Why did Malek stand back from the track on the platform?",
+        "options": {
+          "A": "for safety",
+          "B": "to see the train better",
+          "C": "to wait for a friend",
+          "D": "to buy a ticket"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "for safety",
+        "difficulty": "medium",
+        "source": {
+          "page": 16,
+          "reference": "Reading text: paragraph 3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "In the interest of safety, he stood back from the track."
+          ],
+          "summary": "He stood back for safety."
+        },
+        "explanation": "Unfortunately it was a poor choice of spot."
+      },
+      {
+        "id": "U02-L02-Q007",
+        "number": 7,
+        "question": "What problem did Malek's safe spot cause?",
+        "options": {
+          "A": "he was blocking the path of commuters",
+          "B": "he fell onto the track",
+          "C": "he missed his train",
+          "D": "he lost his wallet"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "he was blocking the path of commuters",
+        "difficulty": "medium",
+        "source": {
+          "page": 16,
+          "reference": "Reading text: paragraph 3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Inadvertently, he was blocking the path of commuters milling around the platform."
+          ],
+          "summary": "He blocked the commuters' path."
+        },
+        "explanation": "He dragged himself towards the wall to let them pass."
+      },
+      {
+        "id": "U02-L02-Q008",
+        "number": 8,
+        "question": "What does 'inadvertently' mean in the text?",
+        "options": {
+          "A": "without meaning to",
+          "B": "deliberately",
+          "C": "secretly",
+          "D": "happily"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "without meaning to",
+        "difficulty": "hard",
+        "source": {
+          "page": 16,
+          "reference": "Reading text: paragraph 3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Inadvertently' means unintentionally, not on purpose."
+          ],
+          "summary": "inadvertently = without intending to."
+        },
+        "explanation": "He did not mean to block anyone."
+      },
+      {
+        "id": "U02-L02-Q009",
+        "number": 9,
+        "question": "What did Malek wonder about the commuters?",
+        "options": {
+          "A": "whether they always dashed everywhere",
+          "B": "where they bought their tickets",
+          "C": "whether they enjoyed their jobs",
+          "D": "why they carried phones"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "whether they always dashed everywhere",
+        "difficulty": "medium",
+        "source": {
+          "page": 16,
+          "reference": "Reading text: paragraph 3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "He wondered 'Did they always dash everywhere?'."
+          ],
+          "summary": "He wondered if they always rushed."
+        },
+        "explanation": "Everyone moved quickly, heads down, wordless."
+      },
+      {
+        "id": "U02-L02-Q010",
+        "number": 10,
+        "question": "What happened when the express train passed?",
+        "options": {
+          "A": "Malek felt its wind in his eyes",
+          "B": "it knocked him over",
+          "C": "he got on it",
+          "D": "it stopped at the platform"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Malek felt its wind in his eyes",
+        "difficulty": "easy",
+        "source": {
+          "page": 16,
+          "reference": "Reading text: paragraph 4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "An express train thundered past and Malek felt its wind in his eyes."
+          ],
+          "summary": "The train's wind hit his eyes."
+        },
+        "explanation": "Just as quickly, it was gone."
+      },
+      {
+        "id": "U02-L02-Q011",
+        "number": 11,
+        "question": "What does 'the crowd inched closer to the yellow line' mean?",
+        "options": {
+          "A": "it moved very slowly closer",
+          "B": "it moved back quickly",
+          "C": "it measured the line",
+          "D": "it stayed still"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it moved very slowly closer",
+        "difficulty": "medium",
+        "source": {
+          "page": 16,
+          "reference": "Reading text: paragraph 4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Inch' as a verb means to move very slowly."
+          ],
+          "summary": "inched = moved very slowly."
+        },
+        "explanation": "The crowd gradually got closer to the yellow line."
+      },
+      {
+        "id": "U02-L02-Q012",
+        "number": 12,
+        "question": "What does 'the train rumbled to a stop' mean?",
+        "options": {
+          "A": "it stopped slowly with a low noise",
+          "B": "it stopped suddenly with a bang",
+          "C": "it never stopped",
+          "D": "it stopped silently"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it stopped slowly with a low noise",
+        "difficulty": "medium",
+        "source": {
+          "page": 16,
+          "reference": "Reading text: paragraph 4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Rumble' describes a low, continuous noise; the train gradually came to a stop."
+          ],
+          "summary": "rumbled to a stop = slowed down noisily."
+        },
+        "explanation": "The train arrived and slowed with a low sound."
+      },
+      {
+        "id": "U02-L02-Q013",
+        "number": 13,
+        "question": "How did the passengers alighting leave the train?",
+        "options": {
+          "A": "they elbowed their way through the people entering",
+          "B": "they waited politely",
+          "C": "they stayed on the train",
+          "D": "they climbed out the windows"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "they elbowed their way through the people entering",
+        "difficulty": "medium",
+        "source": {
+          "page": 16,
+          "reference": "Reading text: paragraph 4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Passengers alighting had to elbow their way through the sea of people entering."
+          ],
+          "summary": "They pushed through with their elbows."
+        },
+        "explanation": "There were too many people trying to get on."
+      },
+      {
+        "id": "U02-L02-Q014",
+        "number": 14,
+        "question": "What does 'alight' mean in this text?",
+        "options": {
+          "A": "to get off a train or bus",
+          "B": "to catch fire",
+          "C": "to board a train",
+          "D": "to fall asleep"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to get off a train or bus",
+        "difficulty": "hard",
+        "source": {
+          "page": 16,
+          "reference": "Reading text: paragraph 4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Alighting' means getting off a vehicle such as a train."
+          ],
+          "summary": "alight = get off."
+        },
+        "explanation": "The passengers alighting elbowed their way out."
+      },
+      {
+        "id": "U02-L02-Q015",
+        "number": 15,
+        "question": "What does 'the train lurched forward' mean?",
+        "options": {
+          "A": "it suddenly moved forward unsteadily",
+          "B": "it reversed slowly",
+          "C": "it glided smoothly",
+          "D": "it stopped suddenly"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it suddenly moved forward unsteadily",
+        "difficulty": "medium",
+        "source": {
+          "page": 16,
+          "reference": "Reading text: paragraph 4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Lurch' means to move suddenly and unsteadily."
+          ],
+          "summary": "lurched forward = moved suddenly."
+        },
+        "explanation": "The doors slammed shut and the train moved off."
+      },
+      {
+        "id": "U02-L02-Q016",
+        "number": 16,
+        "question": "In the carriage, what did those who could reach do?",
+        "options": {
+          "A": "they grasped the handrail to steady themselves",
+          "B": "they sat on the floor",
+          "C": "they opened the windows",
+          "D": "they held their phones"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "they grasped the handrail to steady themselves",
+        "difficulty": "easy",
+        "source": {
+          "page": 17,
+          "reference": "Reading text: paragraph 5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Those who could reach overhead grasped the handrail to steady themselves."
+          ],
+          "summary": "They held the handrail to stay steady."
+        },
+        "explanation": "Others struggled to keep their balance."
+      },
+      {
+        "id": "U02-L02-Q017",
+        "number": 17,
+        "question": "What happened to Malek when he was unaccustomed to the motion?",
+        "options": {
+          "A": "he faltered once or twice",
+          "B": "he fell over completely",
+          "C": "he felt sick",
+          "D": "he sat down at once"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "he faltered once or twice",
+        "difficulty": "medium",
+        "source": {
+          "page": 17,
+          "reference": "Reading text: paragraph 5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Unaccustomed to the motion, Malek faltered once or twice, then stood firm."
+          ],
+          "summary": "He faltered, then stood firm."
+        },
+        "explanation": "He soon stabilised himself."
+      },
+      {
+        "id": "U02-L02-Q018",
+        "number": 18,
+        "question": "What does 'to forge ahead' mean?",
+        "options": {
+          "A": "to move forward with determination",
+          "B": "to stay behind",
+          "C": "to move sideways",
+          "D": "to turn back"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to move forward with determination",
+        "difficulty": "medium",
+        "source": {
+          "page": 17,
+          "reference": "Reading text: paragraph 5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Forge ahead' means to move forward forcefully and determinedly."
+          ],
+          "summary": "forge ahead = move forward with determination."
+        },
+        "explanation": "The leaving passengers forged ahead to the doors."
+      },
+      {
+        "id": "U02-L02-Q019",
+        "number": 19,
+        "question": "What did Malek count on the Metro map?",
+        "options": {
+          "A": "the stops until Les Corts",
+          "B": "the number of passengers",
+          "C": "the trains passing",
+          "D": "the seats in the carriage"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the stops until Les Corts",
+        "difficulty": "easy",
+        "source": {
+          "page": 17,
+          "reference": "Reading text: paragraph 5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "He counted the stops until Les Corts, even though he had already counted them many times."
+          ],
+          "summary": "He counted the stops to Les Corts."
+        },
+        "explanation": "He had counted them umpteen times."
+      },
+      {
+        "id": "U02-L02-Q020",
+        "number": 20,
+        "question": "Who was sitting facing Malek?",
+        "options": {
+          "A": "an older couple",
+          "B": "two students",
+          "C": "a family with children",
+          "D": "a group of tourists"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "an older couple",
+        "difficulty": "easy",
+        "source": {
+          "page": 17,
+          "reference": "Reading text: paragraph 6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Malek noticed an older couple who were sitting down facing him."
+          ],
+          "summary": "An older couple sat facing him."
+        },
+        "explanation": "The old man was reading a novel."
+      },
+      {
+        "id": "U02-L02-Q021",
+        "number": 21,
+        "question": "What happened when the old man noticed Malek staring?",
+        "options": {
+          "A": "he nodded politely and Malek nodded back",
+          "B": "he moved to another seat",
+          "C": "he shouted at Malek",
+          "D": "he laughed at him"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "he nodded politely and Malek nodded back",
+        "difficulty": "medium",
+        "source": {
+          "page": 17,
+          "reference": "Reading text: paragraph 6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The man glanced up, nodded politely, and Malek nodded back, blushing."
+          ],
+          "summary": "They nodded to each other."
+        },
+        "explanation": "Malek was embarrassed about staring."
+      },
+      {
+        "id": "U02-L02-Q022",
+        "number": 22,
+        "question": "Why was Malek embarrassed?",
+        "options": {
+          "A": "he worried it might look as if he had been staring",
+          "B": "he had lost his ticket",
+          "C": "he did not know the way",
+          "D": "he was late for the match"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "he worried it might look as if he had been staring",
+        "difficulty": "medium",
+        "source": {
+          "page": 17,
+          "reference": "Reading text: paragraph 6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Malek worried that the man might think he had been staring at him."
+          ],
+          "summary": "He felt guilty about staring."
+        },
+        "explanation": "In fact the man just nodded politely."
+      },
+      {
+        "id": "U02-L02-Q023",
+        "number": 23,
+        "question": "What did the old man forget when he left the train?",
+        "options": {
+          "A": "his book",
+          "B": "his umbrella",
+          "C": "his glasses",
+          "D": "his hat"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "his book",
+        "difficulty": "easy",
+        "source": {
+          "page": 17,
+          "reference": "Reading text: paragraph 7"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Malek saw that the old man had forgotten his book; it was still on the seat."
+          ],
+          "summary": "He forgot his book."
+        },
+        "explanation": "Malek noticed it on the seat after the doors closed."
+      },
+      {
+        "id": "U02-L02-Q024",
+        "number": 24,
+        "question": "Why was Malek 'strangely lost for words'?",
+        "options": {
+          "A": "he wanted to say something friendly but could not think what to say",
+          "B": "he could not speak Spanish",
+          "C": "he had forgotten his mobile phone",
+          "D": "he was angry with the couple"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "he wanted to say something friendly but could not think what to say",
+        "difficulty": "medium",
+        "source": {
+          "page": 17,
+          "reference": "Reading text: paragraph 7"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "He desperately wanted to make a friendly comment but was strangely lost for words."
+          ],
+          "summary": "He could not find the words."
+        },
+        "explanation": "He missed the chance to speak before they left."
+      },
+      {
+        "id": "U02-L02-Q025",
+        "number": 25,
+        "question": "What does 'caught his eye' mean?",
+        "options": {
+          "A": "attracted his attention",
+          "B": "hurt his eye",
+          "C": "made him blink",
+          "D": "surprised him"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "attracted his attention",
+        "difficulty": "medium",
+        "source": {
+          "page": 17,
+          "reference": "Exercise 4: Figurative meaning"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Catch someone's eye' means to attract their attention."
+          ],
+          "summary": "caught his eye = attracted his attention."
+        },
+        "explanation": "The old man glanced up and caught Malek's eye."
+      },
+      {
+        "id": "U02-L02-Q026",
+        "number": 26,
+        "question": "What does 'swept along with the crowds' mean?",
+        "options": {
+          "A": "carried along by the movement of the crowd",
+          "B": "cleaned by the crowd",
+          "C": "pushed against the crowd",
+          "D": "ignored by the crowd"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "carried along by the movement of the crowd",
+        "difficulty": "medium",
+        "source": {
+          "page": 17,
+          "reference": "Exercise 4: Figurative meaning"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Malek was swept along with the crowds = carried along by them."
+          ],
+          "summary": "swept along = carried along."
+        },
+        "explanation": "He could not easily choose his own direction."
+      },
+      {
+        "id": "U02-L02-Q027",
+        "number": 27,
+        "question": "What does 'fell into step with' mean?",
+        "options": {
+          "A": "started walking in the same rhythm as others",
+          "B": "tripped over a step",
+          "C": "walked behind everyone",
+          "D": "left the group"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "started walking in the same rhythm as others",
+        "difficulty": "medium",
+        "source": {
+          "page": 17,
+          "reference": "Exercise 4: Figurative meaning"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "He fell into step with those heading the same way = he matched their pace."
+          ],
+          "summary": "fell into step = matched their pace."
+        },
+        "explanation": "He walked in rhythm with the crowd."
+      },
+      {
+        "id": "U02-L02-Q028",
+        "number": 28,
+        "question": "What does 'milling around' mean?",
+        "options": {
+          "A": "moving around in a crowd without a clear purpose",
+          "B": "making flour in a mill",
+          "C": "standing in a line",
+          "D": "running quickly"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "moving around in a crowd without a clear purpose",
+        "difficulty": "medium",
+        "source": {
+          "page": 17,
+          "reference": "Exercise 4: Figurative meaning"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Commuters were milling around the platform = moving about aimlessly."
+          ],
+          "summary": "milling around = moving about aimlessly."
+        },
+        "explanation": "They were bolting this way and that, wordless."
+      },
+      {
+        "id": "U02-L02-Q029",
+        "number": 29,
+        "question": "What does 'thundered past' describe?",
+        "options": {
+          "A": "moved past very loudly and quickly",
+          "B": "moved past silently",
+          "C": "moved very slowly",
+          "D": "stopped suddenly"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "moved past very loudly and quickly",
+        "difficulty": "medium",
+        "source": {
+          "page": 17,
+          "reference": "Exercise 4: Figurative meaning"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Thunder past' means to move very fast and noisily."
+          ],
+          "summary": "thundered past = passed noisily and fast."
+        },
+        "explanation": "The express train thundered past."
+      },
+      {
+        "id": "U02-L02-Q030",
+        "number": 30,
+        "question": "What does 'find his footing' mean?",
+        "options": {
+          "A": "become steady or get used to a situation",
+          "B": "lose his balance",
+          "C": "find his shoes",
+          "D": "get on the train"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "become steady or get used to a situation",
+        "difficulty": "medium",
+        "source": {
+          "page": 17,
+          "reference": "Exercise 4: Figurative meaning"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "He was pleased to find his footing = to become steady and comfortable."
+          ],
+          "summary": "find his footing = become steady."
+        },
+        "explanation": "He began to relax into the journey."
+      },
+      {
+        "id": "U02-L02-Q031",
+        "number": 31,
+        "question": "What type of reference device is 'this/that, these/those'?",
+        "options": {
+          "A": "demonstratives",
+          "B": "relative pronouns",
+          "C": "indefinite pronouns",
+          "D": "determiners"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "demonstratives",
+        "difficulty": "easy",
+        "source": {
+          "page": 16,
+          "reference": "Active Reading: Understanding reference devices"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The box lists this/that, these/those as demonstratives."
+          ],
+          "summary": "This/that/these/those are demonstratives."
+        },
+        "explanation": "They point to specific things."
+      },
+      {
+        "id": "U02-L02-Q032",
+        "number": 32,
+        "question": "Which of these is an indefinite pronoun?",
+        "options": {
+          "A": "something",
+          "B": "who",
+          "C": "his",
+          "D": "another"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "something",
+        "difficulty": "easy",
+        "source": {
+          "page": 16,
+          "reference": "Active Reading: Understanding reference devices"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Indefinite pronouns include something, anything, everything, no one."
+          ],
+          "summary": "something = indefinite pronoun."
+        },
+        "explanation": "It refers to a thing without naming it exactly."
+      },
+      {
+        "id": "U02-L02-Q033",
+        "number": 33,
+        "question": "Which of these is a relative pronoun?",
+        "options": {
+          "A": "whose",
+          "B": "those",
+          "C": "one",
+          "D": "it"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "whose",
+        "difficulty": "easy",
+        "source": {
+          "page": 16,
+          "reference": "Active Reading: Understanding reference devices"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Relative pronouns include who, whom, whose."
+          ],
+          "summary": "whose = relative pronoun."
+        },
+        "explanation": "Relative pronouns connect parts of a sentence."
+      },
+      {
+        "id": "U02-L02-Q034",
+        "number": 34,
+        "question": "Why are reference devices used in a text?",
+        "options": {
+          "A": "to avoid repetition",
+          "B": "to make sentences longer",
+          "C": "to confuse the reader",
+          "D": "to add new information only"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to avoid repetition",
+        "difficulty": "easy",
+        "source": {
+          "page": 16,
+          "reference": "Active Reading: Understanding reference devices"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Reference devices are often used to avoid repetition."
+          ],
+          "summary": "They avoid repetition."
+        },
+        "explanation": "They refer back to earlier information or forward to later information."
+      },
+      {
+        "id": "U02-L02-Q035",
+        "number": 35,
+        "question": "In 'I usually get on the last car of the train. I go for that one', what does 'that one' refer to?",
+        "options": {
+          "A": "the last car of the train",
+          "B": "the first car",
+          "C": "the ticket",
+          "D": "the station"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the last car of the train",
+        "difficulty": "medium",
+        "source": {
+          "page": 16,
+          "reference": "Active Reading: Referring back"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'That one' refers back to the last car of the train."
+          ],
+          "summary": "that one = the last car."
+        },
+        "explanation": "He chooses the last car because it's nearly empty."
+      },
+      {
+        "id": "U02-L02-Q036",
+        "number": 36,
+        "question": "In 'Although she hated travelling by tube, Huda decided that it would be the fastest way home', who does 'she' refer to?",
+        "options": {
+          "A": "Huda",
+          "B": "a friend",
+          "C": "Malek's mother",
+          "D": "the writer"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Huda",
+        "difficulty": "medium",
+        "source": {
+          "page": 16,
+          "reference": "Active Reading: Referring forward"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'She' refers to Huda, who is named later in the sentence."
+          ],
+          "summary": "she = Huda."
+        },
+        "explanation": "This is an example of referring forward."
+      },
+      {
+        "id": "U02-L02-Q037",
+        "number": 37,
+        "question": "What type of text is 'Lost words on the metro'?",
+        "options": {
+          "A": "an extract from a story",
+          "B": "a newspaper report",
+          "C": "an advertisement",
+          "D": "a formal email"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "an extract from a story",
+        "difficulty": "medium",
+        "source": {
+          "page": 16,
+          "reference": "Reading: text type"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The text is a narrative extract following Malek's journey on the metro."
+          ],
+          "summary": "It is a narrative extract."
+        },
+        "explanation": "It tells a story with characters and a sequence of events."
+      },
+      {
+        "id": "U02-L02-Q038",
+        "number": 38,
+        "question": "What does 'dispersing on the platform' mean?",
+        "options": {
+          "A": "spreading out in different directions",
+          "B": "waiting in a queue",
+          "C": "getting on the train",
+          "D": "buying tickets"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "spreading out in different directions",
+        "difficulty": "medium",
+        "source": {
+          "page": 17,
+          "reference": "Exercise 2: Synonyms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Dispersing' means spreading out or moving apart."
+          ],
+          "summary": "dispersing = spreading out."
+        },
+        "explanation": "People got off and spread out in different directions."
+      },
+      {
+        "id": "U02-L02-Q039",
+        "number": 39,
+        "question": "Which word in the text means the same as 'rushing'?",
+        "options": {
+          "A": "dashing",
+          "B": "inching",
+          "C": "settling",
+          "D": "scrolling"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "dashing",
+        "difficulty": "hard",
+        "source": {
+          "page": 17,
+          "reference": "Exercise 2: Synonyms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Dashing' means rushing or moving quickly."
+          ],
+          "summary": "dashing = rushing."
+        },
+        "explanation": "Malek wondered if they always dashed everywhere."
+      },
+      {
+        "id": "U02-L02-Q040",
+        "number": 40,
+        "question": "What does 'anchored' mean in 'he was pleased to find his footing and feel anchored'?",
+        "options": {
+          "A": "stable and steady",
+          "B": "heavy and tired",
+          "C": "lost and confused",
+          "D": "excited and nervous"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "stable and steady",
+        "difficulty": "hard",
+        "source": {
+          "page": 17,
+          "reference": "Reading text: paragraph 5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Anchored' here means feeling stable, like a ship fixed by an anchor."
+          ],
+          "summary": "anchored = stable."
+        },
+        "explanation": "He felt steady and relaxed in the journey."
+      }
+    ]
+  }
+}

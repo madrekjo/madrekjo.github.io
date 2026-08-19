@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "6",
+    "lesson_name": "Writing and Vocabulary",
+    "unit_number": 5,
+    "unit_name": "Do your best",
+    "page_start": 56,
+    "page_end": 57,
+    "questions": [
+      {
+        "id": "U05-L06-Q001",
+        "number": 1,
+        "question": "Which word is used to connect two contrasting ideas?",
+        "options": {
+          "A": "however",
+          "B": "moreover",
+          "C": "therefore",
+          "D": "also"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "however",
+        "difficulty": "easy",
+        "source": {
+          "page": "56",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "However is used to introduce a contrast between two ideas."
+          ],
+          "summary": "However shows a contrast."
+        },
+        "explanation": "He trained hard; however, he did not win."
+      },
+      {
+        "id": "U05-L06-Q002",
+        "number": 2,
+        "question": "What does moreover mean?",
+        "options": {
+          "A": "in addition to what was said",
+          "B": "instead of",
+          "C": "because of",
+          "D": "in spite of"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "in addition to what was said",
+        "difficulty": "easy",
+        "source": {
+          "page": "56",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Moreover means in addition to what has already been mentioned."
+          ],
+          "summary": "Moreover adds extra information."
+        },
+        "explanation": "She is fast; moreover, she is very strong."
+      },
+      {
+        "id": "U05-L06-Q003",
+        "number": 3,
+        "question": "Which connector is used to add another point?",
+        "options": {
+          "A": "in addition",
+          "B": "however",
+          "C": "although",
+          "D": "despite"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "in addition",
+        "difficulty": "easy",
+        "source": {
+          "page": "56",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "In addition is used to add more information to a point."
+          ],
+          "summary": "In addition introduces another related idea."
+        },
+        "explanation": "He won the race. In addition, he broke the record."
+      },
+      {
+        "id": "U05-L06-Q004",
+        "number": 4,
+        "question": "Which word shows an opposite idea to the previous statement?",
+        "options": {
+          "A": "on the other hand",
+          "B": "moreover",
+          "C": "also",
+          "D": "for example"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "on the other hand",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "On the other hand introduces a different or contrasting viewpoint."
+          ],
+          "summary": "On the other hand presents an alternative perspective."
+        },
+        "explanation": "Tennis is a solo sport. On the other hand, football is a team sport."
+      },
+      {
+        "id": "U05-L06-Q005",
+        "number": 5,
+        "question": "What is a reporting verb used in journalism?",
+        "options": {
+          "A": "announced",
+          "B": "jumped",
+          "C": "ran",
+          "D": "played"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "announced",
+        "difficulty": "easy",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Announced is a reporting verb used when someone makes a public statement."
+          ],
+          "summary": "Reporting verbs are used to report what someone said."
+        },
+        "explanation": "The coach announced the team lineup."
+      },
+      {
+        "id": "U05-L06-Q006",
+        "number": 6,
+        "question": "Which reporting verb means to tell the truth about something?",
+        "options": {
+          "A": "admitted",
+          "B": "denied",
+          "C": "lied",
+          "D": "hid"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "admitted",
+        "difficulty": "medium",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Admitted means to confess or acknowledge something is true."
+          ],
+          "summary": "Admitted means accepting that something is true."
+        },
+        "explanation": "He admitted that he did not train enough."
+      },
+      {
+        "id": "U05-L06-Q007",
+        "number": 7,
+        "question": "What does explained mean as a reporting verb?",
+        "options": {
+          "A": "made something clear",
+          "B": "hid the truth",
+          "C": "refused to speak",
+          "D": "told a story"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "made something clear",
+        "difficulty": "easy",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Explained means to make something easier to understand."
+          ],
+          "summary": "Explained means giving details to clarify something."
+        },
+        "explanation": "The coach explained the new strategy to the team."
+      },
+      {
+        "id": "U05-L06-Q008",
+        "number": 8,
+        "question": "Which connector is used to give an example?",
+        "options": {
+          "A": "for example",
+          "B": "however",
+          "C": "therefore",
+          "D": "moreover"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "for example",
+        "difficulty": "easy",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "For example introduces a specific instance to support a point."
+          ],
+          "summary": "For example introduces an example."
+        },
+        "explanation": "Many sports are popular; for example, football and basketball."
+      },
+      {
+        "id": "U05-L06-Q009",
+        "number": 9,
+        "question": "What does a report typically include at the beginning?",
+        "options": {
+          "A": "an introduction",
+          "B": "a conclusion",
+          "C": "a list of names",
+          "D": "a drawing"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "an introduction",
+        "difficulty": "easy",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A report starts with an introduction that states the topic."
+          ],
+          "summary": "The introduction explains what the report is about."
+        },
+        "explanation": "The report begins with an introduction about the event."
+      },
+      {
+        "id": "U05-L06-Q010",
+        "number": 10,
+        "question": "Which connector means as a result of something?",
+        "options": {
+          "A": "therefore",
+          "B": "however",
+          "C": "although",
+          "D": "moreover"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "therefore",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Therefore introduces a result or consequence."
+          ],
+          "summary": "Therefore shows the result of something."
+        },
+        "explanation": "She trained every day; therefore, she improved quickly."
+      },
+      {
+        "id": "U05-L06-Q011",
+        "number": 11,
+        "question": "What is the opposite of admitted?",
+        "options": {
+          "A": "denied",
+          "B": "explained",
+          "C": "announced",
+          "D": "suggested"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "denied",
+        "difficulty": "medium",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Denied means to say something is not true."
+          ],
+          "summary": "Denied means refusing to accept something."
+        },
+        "explanation": "He denied breaking the rules."
+      },
+      {
+        "id": "U05-L06-Q012",
+        "number": 12,
+        "question": "Which connector is used to show a reason?",
+        "options": {
+          "A": "because",
+          "B": "however",
+          "C": "moreover",
+          "D": "therefore"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "because",
+        "difficulty": "easy",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Because introduces a reason or cause."
+          ],
+          "summary": "Because shows the reason for something."
+        },
+        "explanation": "She won because she trained very hard."
+      },
+      {
+        "id": "U05-L06-Q013",
+        "number": 13,
+        "question": "What does the connector although mean?",
+        "options": {
+          "A": "despite the fact that",
+          "B": "because of",
+          "C": "as a result",
+          "D": "in addition"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "despite the fact that",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Although introduces a contrasting idea."
+          ],
+          "summary": "Although shows a contrast between two ideas."
+        },
+        "explanation": "Although it rained, the match continued."
+      },
+      {
+        "id": "U05-L06-Q014",
+        "number": 14,
+        "question": "Which reporting verb means to officially tell people something?",
+        "options": {
+          "A": "announced",
+          "B": "whispered",
+          "C": "murmured",
+          "D": "sighed"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "announced",
+        "difficulty": "medium",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Announced means to make a public or official statement."
+          ],
+          "summary": "Announced means telling everyone in a formal way."
+        },
+        "explanation": "The school announced the results of the competition."
+      },
+      {
+        "id": "U05-L06-Q015",
+        "number": 15,
+        "question": "What is the purpose of a conclusion in a report?",
+        "options": {
+          "A": "to summarize the main points",
+          "B": "to introduce the topic",
+          "C": "to list equipment",
+          "D": "to describe the weather"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to summarize the main points",
+        "difficulty": "easy",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The conclusion summarizes the main points of a report."
+          ],
+          "summary": "A conclusion wraps up the report by reviewing key ideas."
+        },
+        "explanation": "The conclusion reminded readers of the most important facts."
+      },
+      {
+        "id": "U05-L06-Q016",
+        "number": 16,
+        "question": "Which word best completes: She is a great athlete. ___, she is also a good student.",
+        "options": {
+          "A": "Moreover",
+          "B": "However",
+          "C": "Although",
+          "D": "Despite"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Moreover",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Moreover adds extra positive information."
+          ],
+          "summary": "Moreover adds more information that supports the previous idea."
+        },
+        "explanation": "Moreover shows she has more than one good quality."
+      },
+      {
+        "id": "U05-L06-Q017",
+        "number": 17,
+        "question": "What does suggested mean as a reporting verb?",
+        "options": {
+          "A": "put forward an idea",
+          "B": "proved a fact",
+          "C": "denied something",
+          "D": "shouted loudly"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "put forward an idea",
+        "difficulty": "medium",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Suggested means to put forward an idea for consideration."
+          ],
+          "summary": "Suggested means proposing something for others to think about."
+        },
+        "explanation": "The captain suggested a new training plan."
+      },
+      {
+        "id": "U05-L06-Q018",
+        "number": 18,
+        "question": "Which connector is used to contrast two things?",
+        "options": {
+          "A": "on the contrary",
+          "B": "moreover",
+          "C": "also",
+          "D": "for instance"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "on the contrary",
+        "difficulty": "hard",
+        "source": {
+          "page": "56",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "On the contrary introduces an opposite point."
+          ],
+          "summary": "On the contrary shows a strong contrast."
+        },
+        "explanation": "The game was not easy. On the contrary, it was very hard."
+      },
+      {
+        "id": "U05-L06-Q019",
+        "number": 19,
+        "question": "What is a heading in a report?",
+        "options": {
+          "A": "a title for each section",
+          "B": "the last sentence",
+          "C": "a picture",
+          "D": "the author name"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a title for each section",
+        "difficulty": "easy",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A heading is a title that labels each section of a report."
+          ],
+          "summary": "Headings organize a report into clear sections."
+        },
+        "explanation": "Use headings to make your report easy to read."
+      },
+      {
+        "id": "U05-L06-Q020",
+        "number": 20,
+        "question": "Which reporting verb means to say something in a low voice?",
+        "options": {
+          "A": "whispered",
+          "B": "announced",
+          "C": "declared",
+          "D": "stated"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "whispered",
+        "difficulty": "easy",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Whispered means speaking very softly and quietly."
+          ],
+          "summary": "Whispered means speaking so only nearby people can hear."
+        },
+        "explanation": "She whispered the answer to her friend."
+      },
+      {
+        "id": "U05-L06-Q021",
+        "number": 21,
+        "question": "What does the connector furthermore add?",
+        "options": {
+          "A": "additional information",
+          "B": "an opposing view",
+          "C": "a conclusion",
+          "D": "an example"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "additional information",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Furthermore adds more information to strengthen a point."
+          ],
+          "summary": "Furthermore is another way to say in addition."
+        },
+        "explanation": "He is a good player. Furthermore, he is a great leader."
+      },
+      {
+        "id": "U05-L06-Q022",
+        "number": 22,
+        "question": "Which connector means for this reason?",
+        "options": {
+          "A": "therefore",
+          "B": "however",
+          "C": "moreover",
+          "D": "although"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "therefore",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Therefore introduces a logical result or conclusion."
+          ],
+          "summary": "Therefore connects a cause to its effect."
+        },
+        "explanation": "The team trained hard; therefore, they won the match."
+      },
+      {
+        "id": "U05-L06-Q023",
+        "number": 23,
+        "question": "What is the purpose of an introduction in a report?",
+        "options": {
+          "A": "to state the topic and give background",
+          "B": "to list results",
+          "C": "to summarize findings",
+          "D": "to thank the reader"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to state the topic and give background",
+        "difficulty": "easy",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The introduction gives background information about the topic."
+          ],
+          "summary": "An introduction tells the reader what the report is about."
+        },
+        "explanation": "The introduction explains why the event was important."
+      },
+      {
+        "id": "U05-L06-Q024",
+        "number": 24,
+        "question": "Which reporting verb means to formally present something?",
+        "options": {
+          "A": "presented",
+          "B": "hid",
+          "C": "ignored",
+          "D": "forgot"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "presented",
+        "difficulty": "hard",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Presented means to formally show or introduce something."
+          ],
+          "summary": "Presented means showing something in a formal setting."
+        },
+        "explanation": "The team presented their results to the school."
+      },
+      {
+        "id": "U05-L06-Q025",
+        "number": 25,
+        "question": "What does despite mean in a sentence?",
+        "options": {
+          "A": "in spite of",
+          "B": "because of",
+          "C": "as a result",
+          "D": "in addition to"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "in spite of",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Despite introduces a fact that contrasts with the main clause."
+          ],
+          "summary": "Despite shows that something happened even though there was a problem."
+        },
+        "explanation": "Despite the rain, the fans came to watch."
+      },
+      {
+        "id": "U05-L06-Q026",
+        "number": 26,
+        "question": "Which is the correct order for a sports report?",
+        "options": {
+          "A": "introduction, body, conclusion",
+          "B": "conclusion, body, introduction",
+          "C": "body, introduction, conclusion",
+          "D": "introduction, conclusion, body"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "introduction, body, conclusion",
+        "difficulty": "medium",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A sports report follows the structure: introduction, body, conclusion."
+          ],
+          "summary": "A report should have a clear beginning, middle, and end."
+        },
+        "explanation": "Start with an introduction, then the body, and end with a conclusion."
+      },
+      {
+        "id": "U05-L06-Q027",
+        "number": 27,
+        "question": "What does the connector consequently mean?",
+        "options": {
+          "A": "as a result",
+          "B": "in contrast",
+          "C": "in addition",
+          "D": "for example"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "as a result",
+        "difficulty": "hard",
+        "source": {
+          "page": "56",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Consequently means as a result or outcome."
+          ],
+          "summary": "Consequently shows the effect of something."
+        },
+        "explanation": "He did not practice; consequently, he lost the match."
+      },
+      {
+        "id": "U05-L06-Q028",
+        "number": 28,
+        "question": "Which word is NOT a reporting verb?",
+        "options": {
+          "A": "running",
+          "B": "stated",
+          "C": "explained",
+          "D": "admitted"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "running",
+        "difficulty": "easy",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Running is a physical action, not a reporting verb."
+          ],
+          "summary": "Reporting verbs are used to report speech or statements."
+        },
+        "explanation": "Stated, explained, and admitted are reporting verbs."
+      },
+      {
+        "id": "U05-L06-Q029",
+        "number": 29,
+        "question": "What is a fact in a report?",
+        "options": {
+          "A": "information that can be proven true",
+          "B": "a personal opinion",
+          "C": "a funny story",
+          "D": "a guessing statement"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "information that can be proven true",
+        "difficulty": "easy",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A fact is information that can be verified or proven."
+          ],
+          "summary": "Facts are true and can be checked."
+        },
+        "explanation": "The team won 3-0 is a fact."
+      },
+      {
+        "id": "U05-L06-Q030",
+        "number": 30,
+        "question": "Which connector means because of this?",
+        "options": {
+          "A": "as a result",
+          "B": "however",
+          "C": "moreover",
+          "D": "on the other hand"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "as a result",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "As a result introduces a consequence."
+          ],
+          "summary": "As a result shows what happened because of something."
+        },
+        "explanation": "The player was injured; as a result, he missed the game."
+      },
+      {
+        "id": "U05-L06-Q031",
+        "number": 31,
+        "question": "What does the word opinion mean in report writing?",
+        "options": {
+          "A": "what someone thinks or believes",
+          "B": "a proven fact",
+          "C": "the title of the report",
+          "D": "a list of scores"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "what someone thinks or believes",
+        "difficulty": "easy",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "An opinion is a personal view or belief."
+          ],
+          "summary": "Opinions express what someone thinks about something."
+        },
+        "explanation": "In my opinion, the best player was number 7."
+      },
+      {
+        "id": "U05-L06-Q032",
+        "number": 32,
+        "question": "Which connector is used to show time order?",
+        "options": {
+          "A": "firstly, secondly, finally",
+          "B": "however, moreover, therefore",
+          "C": "although, despite, but",
+          "D": "for example, such as"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "firstly, secondly, finally",
+        "difficulty": "medium",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Firstly, secondly, and finally organize events in time order."
+          ],
+          "summary": "Time connectors help sequence events in a report."
+        },
+        "explanation": "Firstly, the teams entered the field. Secondly, the referee blew the whistle."
+      },
+      {
+        "id": "U05-L06-Q033",
+        "number": 33,
+        "question": "What is the difference between a fact and an opinion?",
+        "options": {
+          "A": "a fact can be proven, an opinion is a belief",
+          "B": "they mean the same thing",
+          "C": "an opinion is always true",
+          "D": "a fact is always wrong"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a fact can be proven, an opinion is a belief",
+        "difficulty": "medium",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Facts are provable truths; opinions are personal beliefs."
+          ],
+          "summary": "Facts can be checked, but opinions vary from person to person."
+        },
+        "explanation": "He scored three goals is a fact. He is the best player is an opinion."
+      },
+      {
+        "id": "U05-L06-Q034",
+        "number": 34,
+        "question": "Which reporting verb means to firmly state something?",
+        "options": {
+          "A": "insisted",
+          "B": "guessed",
+          "C": "hoped",
+          "D": "wished"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "insisted",
+        "difficulty": "hard",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Insisted means to firmly state that something is true."
+          ],
+          "summary": "Insisted shows strong belief in a statement."
+        },
+        "explanation": "The coach insisted that the team was ready."
+      },
+      {
+        "id": "U05-L06-Q035",
+        "number": 35,
+        "question": "What does the connector alternatively mean?",
+        "options": {
+          "A": "another option or choice",
+          "B": "a similar idea",
+          "C": "the end result",
+          "D": "a contrasting fact"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "another option or choice",
+        "difficulty": "hard",
+        "source": {
+          "page": "56",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Alternatively introduces a different option."
+          ],
+          "summary": "Alternatively presents another possible choice."
+        },
+        "explanation": "They could play football; alternatively, they could play basketball."
+      },
+      {
+        "id": "U05-L06-Q036",
+        "number": 36,
+        "question": "Which part of a report gives facts and details about the topic?",
+        "options": {
+          "A": "the body",
+          "B": "the introduction",
+          "C": "the conclusion",
+          "D": "the title"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the body",
+        "difficulty": "easy",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The body of a report contains the main facts and details."
+          ],
+          "summary": "The body is the main section with detailed information."
+        },
+        "explanation": "The body of the report describes the event in detail."
+      },
+      {
+        "id": "U05-L06-Q037",
+        "number": 37,
+        "question": "What does the connector similarly mean?",
+        "options": {
+          "A": "in a comparable way",
+          "B": "in a different way",
+          "C": "as a result",
+          "D": "in contrast"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "in a comparable way",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Similarly shows that two things are alike in some way."
+          ],
+          "summary": "Similarly connects two comparable ideas."
+        },
+        "explanation": "Football requires teamwork. Similarly, basketball needs cooperation."
+      },
+      {
+        "id": "U05-L06-Q038",
+        "number": 38,
+        "question": "Which connector means in the end or as a final point?",
+        "options": {
+          "A": "finally",
+          "B": "firstly",
+          "C": "however",
+          "D": "moreover"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "finally",
+        "difficulty": "easy",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Finally introduces the last point in a list or sequence."
+          ],
+          "summary": "Finally shows the last item or idea."
+        },
+        "explanation": "First they played, then they rested, and finally they celebrated."
+      },
+      {
+        "id": "U05-L06-Q039",
+        "number": 39,
+        "question": "What is the correct structure of a sentence using although?",
+        "options": {
+          "A": "Although + idea, main sentence.",
+          "B": "Main sentence although idea.",
+          "C": "Although idea main sentence.",
+          "D": "Main sentence. Although idea."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Although + idea, main sentence.",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Although introduces a dependent clause before the main clause."
+          ],
+          "summary": "The although clause comes before the main clause."
+        },
+        "explanation": "Although he was tired, he continued to play."
+      },
+      {
+        "id": "U05-L06-Q040",
+        "number": 40,
+        "question": "Which word is used to report what someone thinks?",
+        "options": {
+          "A": "believed",
+          "B": "ran",
+          "C": "jumped",
+          "D": "ate"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "believed",
+        "difficulty": "medium",
+        "source": {
+          "page": "57",
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Believed is a reporting verb used for thoughts and opinions."
+          ],
+          "summary": "Believed reports what someone thinks about something."
+        },
+        "explanation": "Many people believed the team would win."
+      }
+    ]
+  }
+}

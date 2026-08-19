@@ -1,0 +1,1302 @@
+[
+  {
+    "id": "U03-REV-Q001",
+    "number": 1,
+    "question": "What does 'bargain' mean in 'The watch was a bargain'?",
+    "options": {
+      "A": "something bought for less than its usual price",
+      "B": "a repair",
+      "C": "a present",
+      "D": "a loan"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "something bought for less than its usual price",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L1 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A bargain is something bought cheaply."
+      ],
+      "summary": "a good cheap deal"
+    },
+    "explanation": "You pay less than usual."
+  },
+  {
+    "id": "U03-REV-Q002",
+    "number": 2,
+    "question": "Which word means 'badly made'?",
+    "options": {
+      "A": "shoddy",
+      "B": "reliable",
+      "C": "durable",
+      "D": "luxury"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "shoddy",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L1 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Shoddy' describes poor, careless workmanship."
+      ],
+      "summary": "shoddy = badly made"
+    },
+    "explanation": "Shoddy goods break quickly."
+  },
+  {
+    "id": "U03-REV-Q003",
+    "number": 3,
+    "question": "Which verb means 'to make an effort to persuade'?",
+    "options": {
+      "A": "lobby",
+      "B": "protest",
+      "C": "boycott",
+      "D": "recycle"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "lobby",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L1 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Lobby' means to persuade people in power to change things."
+      ],
+      "summary": "lobby = try to persuade"
+    },
+    "explanation": "Campaigners lobby governments."
+  },
+  {
+    "id": "U03-REV-Q004",
+    "number": 4,
+    "question": "Which verb means 'to refuse to buy something as a protest'?",
+    "options": {
+      "A": "boycott",
+      "B": "lobby",
+      "C": "patronise",
+      "D": "invest"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "boycott",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L1 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A boycott is a refusal to buy as protest."
+      ],
+      "summary": "boycott = refuse to buy"
+    },
+    "explanation": "People boycotted the brand."
+  },
+  {
+    "id": "U03-REV-Q005",
+    "number": 5,
+    "question": "Which word means 'to support a business by buying from it'?",
+    "options": {
+      "A": "patronise",
+      "B": "boycott",
+      "C": "lobby",
+      "D": "oppose"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "patronise",
+    "difficulty": "hard",
+    "source": {
+      "page": 40,
+      "reference": "Review: L1 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Patronise' means to shop at or use a business."
+      ],
+      "summary": "patronise = support by buying"
+    },
+    "explanation": "Please patronise our sponsors."
+  },
+  {
+    "id": "U03-REV-Q006",
+    "number": 6,
+    "question": "Which word means 'a small amount of money given to help'?",
+    "options": {
+      "A": "a contribution",
+      "B": "a discount",
+      "C": "a refund",
+      "D": "an invoice"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "a contribution",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L1 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A contribution is money given to help a cause."
+      ],
+      "summary": "contribution = donation"
+    },
+    "explanation": "They asked for a small contribution."
+  },
+  {
+    "id": "U03-REV-Q007",
+    "number": 7,
+    "question": "What does 'a deal' mean in shopping language?",
+    "options": {
+      "A": "a good price or arrangement",
+      "B": "a bad product",
+      "C": "a lawsuit",
+      "D": "an apology"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "a good price or arrangement",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L1 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A deal is a good offer or arrangement."
+      ],
+      "summary": "deal = good offer"
+    },
+    "explanation": "It was a fantastic deal."
+  },
+  {
+    "id": "U03-REV-Q008",
+    "number": 8,
+    "question": "What does 'reliable' mean?",
+    "options": {
+      "A": "can be trusted to work well",
+      "B": "cheap",
+      "C": "modern",
+      "D": "rare"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "can be trusted to work well",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L1 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Reliable things or people can be trusted."
+      ],
+      "summary": "reliable = trustworthy"
+    },
+    "explanation": "Buy a reliable brand."
+  },
+  {
+    "id": "U03-REV-Q009",
+    "number": 9,
+    "question": "What does 'durable' mean?",
+    "options": {
+      "A": "strong and long-lasting",
+      "B": "expensive",
+      "C": "fashionable",
+      "D": "light"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "strong and long-lasting",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L1 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Durable goods last a long time."
+      ],
+      "summary": "durable = long-lasting"
+    },
+    "explanation": "Durable clothes survive many washes."
+  },
+  {
+    "id": "U03-REV-Q010",
+    "number": 10,
+    "question": "What does 'a valid reason' mean?",
+    "options": {
+      "A": "a good and acceptable reason",
+      "B": "a weak excuse",
+      "C": "a secret plan",
+      "D": "a lucky chance"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "a good and acceptable reason",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L1 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A valid reason is acceptable and well-founded."
+      ],
+      "summary": "valid = acceptable"
+    },
+    "explanation": "He had a valid reason for complaining."
+  },
+  {
+    "id": "U03-REV-Q011",
+    "number": 11,
+    "question": "What does 'a campaign' mean?",
+    "options": {
+      "A": "an organised effort to achieve a change",
+      "B": "a shopping trip",
+      "C": "a type of shop",
+      "D": "an argument"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "an organised effort to achieve a change",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L1 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A campaign is an organised effort to make a change."
+      ],
+      "summary": "campaign = organised effort"
+    },
+    "explanation": "They ran a campaign against plastic."
+  },
+  {
+    "id": "U03-REV-Q012",
+    "number": 12,
+    "question": "What does 'an aid worker' do?",
+    "options": {
+      "A": "helps people in difficult situations",
+      "B": "runs a shop",
+      "C": "collects taxes",
+      "D": "sells insurance"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "helps people in difficult situations",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L1 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Aid workers give help to people in crisis."
+      ],
+      "summary": "aid worker = helper"
+    },
+    "explanation": "They work in disaster zones."
+  },
+  {
+    "id": "U03-REV-Q013",
+    "number": 13,
+    "question": "What is 'fast fashion'?",
+    "options": {
+      "A": "cheap clothes that follow the latest trends for a short time",
+      "B": "clothes that last forever",
+      "C": "designer luxury clothes",
+      "D": "traditional national dress"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "cheap clothes that follow the latest trends for a short time",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L1 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Fast fashion is cheap, trendy clothing that changes quickly."
+      ],
+      "summary": "cheap and trendy"
+    },
+    "explanation": "It has a big environmental cost."
+  },
+  {
+    "id": "U03-REV-Q014",
+    "number": 14,
+    "question": "Which word means 'a request for money from people'?",
+    "options": {
+      "A": "an appeal",
+      "B": "a receipt",
+      "C": "a receipt",
+      "D": "a label"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "an appeal",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L1 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "An appeal is a serious request for help or money."
+      ],
+      "summary": "appeal = money request"
+    },
+    "explanation": "They launched an appeal for the victims."
+  },
+  {
+    "id": "U03-REV-Q015",
+    "number": 15,
+    "question": "What is 'persuasive power'?",
+    "options": {
+      "A": "the ability to change people's minds",
+      "B": "the ability to make money",
+      "C": "physical strength",
+      "D": "good luck"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "the ability to change people's minds",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L2 persuasion"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Persuasive power is the ability to convince others."
+      ],
+      "summary": "ability to convince"
+    },
+    "explanation": "Persuasion influences our choices."
+  },
+  {
+    "id": "U03-REV-Q016",
+    "number": 16,
+    "question": "According to Robert Cialdini, what triggers 'the scarcity principle'?",
+    "options": {
+      "A": "feeling that something may not be available for long",
+      "B": "a low price",
+      "C": "a famous brand",
+      "D": "a friend's advice"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "feeling that something may not be available for long",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L2 persuasion"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Scarcity works when we fear losing an opportunity."
+      ],
+      "summary": "fear of missing out"
+    },
+    "explanation": "Limited offers feel more valuable."
+  },
+  {
+    "id": "U03-REV-Q017",
+    "number": 17,
+    "question": "What is 'the rule of reciprocity'?",
+    "options": {
+      "A": "we feel obliged to return favours",
+      "B": "we like to be first",
+      "C": "we copy our friends",
+      "D": "we want to be unique"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "we feel obliged to return favours",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L2 persuasion"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Reciprocity: if someone gives us something, we feel we owe them back."
+      ],
+      "summary": "returning favours"
+    },
+    "explanation": "Free samples exploit reciprocity."
+  },
+  {
+    "id": "U03-REV-Q018",
+    "number": 18,
+    "question": "What is 'social proof'?",
+    "options": {
+      "A": "we are influenced by what other people do",
+      "B": "we trust nobody",
+      "C": "we always think alone",
+      "D": "we distrust our friends"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "we are influenced by what other people do",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L2 persuasion"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Social proof means copying the behaviour of others."
+      ],
+      "summary": "following the crowd"
+    },
+    "explanation": "Reviews and ratings use social proof."
+  },
+  {
+    "id": "U03-REV-Q019",
+    "number": 19,
+    "question": "What is 'the authority principle'?",
+    "options": {
+      "A": "we are persuaded by people we see as experts",
+      "B": "we ignore experts",
+      "C": "we only trust children",
+      "D": "we obey nobody"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "we are persuaded by people we see as experts",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L2 persuasion"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "We are more likely to agree with people in authority."
+      ],
+      "summary": "trusting experts"
+    },
+    "explanation": "White coats and titles signal authority."
+  },
+  {
+    "id": "U03-REV-Q020",
+    "number": 20,
+    "question": "What does 'the rule of liking' claim?",
+    "options": {
+      "A": "we are persuaded by people we like",
+      "B": "we buy only disliked products",
+      "C": "we never trust anyone",
+      "D": "friends cannot persuade us"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "we are persuaded by people we like",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L2 persuasion"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "We tend to agree with people we like."
+      ],
+      "summary": "liking leads to agreement"
+    },
+    "explanation": "Salespeople try to be likeable."
+  },
+  {
+    "id": "U03-REV-Q021",
+    "number": 21,
+    "question": "What is 'spontaneous'?",
+    "options": {
+      "A": "done suddenly, without planning",
+      "B": "done carefully after research",
+      "C": "expensive",
+      "D": "forbidden"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "done suddenly, without planning",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L2 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Spontaneous actions are unplanned and sudden."
+      ],
+      "summary": "spontaneous = unplanned"
+    },
+    "explanation": "A spontaneous decision is quick."
+  },
+  {
+    "id": "U03-REV-Q022",
+    "number": 22,
+    "question": "What does 'a scam' mean?",
+    "options": {
+      "A": "a dishonest trick to get your money",
+      "B": "a fair deal",
+      "C": "a cheap offer",
+      "D": "a long queue"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "a dishonest trick to get your money",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L2 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A scam is a dishonest scheme to steal money."
+      ],
+      "summary": "scam = trick"
+    },
+    "explanation": "Online shopping can hide scams."
+  },
+  {
+    "id": "U03-REV-Q023",
+    "number": 23,
+    "question": "What does 'chances are' mean?",
+    "options": {
+      "A": "it is likely that",
+      "B": "it is impossible that",
+      "C": "it is certain that",
+      "D": "nobody knows"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "it is likely that",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L2 language"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Chances are' means 'it is probable'."
+      ],
+      "summary": "it is likely"
+    },
+    "explanation": "Chances are, you will get a good deal."
+  },
+  {
+    "id": "U03-REV-Q024",
+    "number": 24,
+    "question": "What is the passive of 'People speak English everywhere'?",
+    "options": {
+      "A": "English is spoken everywhere.",
+      "B": "English was spoken everywhere.",
+      "C": "English is speaking everywhere.",
+      "D": "English speaks everywhere."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "English is spoken everywhere.",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L5 grammar"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Present simple passive: English is spoken everywhere."
+      ],
+      "summary": "is spoken"
+    },
+    "explanation": "be + past participle."
+  },
+  {
+    "id": "U03-REV-Q025",
+    "number": 25,
+    "question": "What is the passive of 'They will finish the project soon'?",
+    "options": {
+      "A": "The project will be finished soon.",
+      "B": "The project will finish soon.",
+      "C": "The project was finished soon.",
+      "D": "The project is finished soon."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "The project will be finished soon.",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L5 grammar"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Future passive: will be + past participle."
+      ],
+      "summary": "will be finished"
+    },
+    "explanation": "Keep the future marker."
+  },
+  {
+    "id": "U03-REV-Q026",
+    "number": 26,
+    "question": "What is the passive of 'They have sold the house'?",
+    "options": {
+      "A": "The house has been sold.",
+      "B": "The house has sold.",
+      "C": "The house is sold.",
+      "D": "The house have been sold."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "The house has been sold.",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L5 grammar"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Present perfect passive: has been + past participle."
+      ],
+      "summary": "has been sold"
+    },
+    "explanation": "'The house' is singular."
+  },
+  {
+    "id": "U03-REV-Q027",
+    "number": 27,
+    "question": "What is the passive of 'They were building a new stadium'?",
+    "options": {
+      "A": "A new stadium was being built.",
+      "B": "A new stadium was being building.",
+      "C": "A new stadium is being built.",
+      "D": "A new stadium was built."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "A new stadium was being built.",
+    "difficulty": "hard",
+    "source": {
+      "page": 40,
+      "reference": "Review: L5 grammar"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Past continuous passive: was being + past participle."
+      ],
+      "summary": "was being built"
+    },
+    "explanation": "An action in progress in the past."
+  },
+  {
+    "id": "U03-REV-Q028",
+    "number": 28,
+    "question": "Which sentence has the same meaning as 'People say that she is clever'?",
+    "options": {
+      "A": "She is said to be clever.",
+      "B": "She is said being clever.",
+      "C": "She says to be clever.",
+      "D": "She is saying clever."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "She is said to be clever.",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L5 grammar"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'She is said to be clever' is the correct passive."
+      ],
+      "summary": "is said to be"
+    },
+    "explanation": "Report + to-infinitive."
+  },
+  {
+    "id": "U03-REV-Q029",
+    "number": 29,
+    "question": "Which sentence means 'People believe he made a fortune'?",
+    "options": {
+      "A": "He is believed to have made a fortune.",
+      "B": "He is believed to make a fortune.",
+      "C": "He believes to have made a fortune.",
+      "D": "He is believed making a fortune."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "He is believed to have made a fortune.",
+    "difficulty": "hard",
+    "source": {
+      "page": 40,
+      "reference": "Review: L5 grammar"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Past actions use 'to have + past participle'."
+      ],
+      "summary": "believed to have made"
+    },
+    "explanation": "Perfect infinitive for the past."
+  },
+  {
+    "id": "U03-REV-Q030",
+    "number": 30,
+    "question": "What does the article say economics is really about?",
+    "options": {
+      "A": "making choices and decisions",
+      "B": "only money",
+      "C": "only banks",
+      "D": "only taxes"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "making choices and decisions",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L4 reading"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Economics is about choices and decisions."
+      ],
+      "summary": "choices and decisions"
+    },
+    "explanation": "It covers all of life."
+  },
+  {
+    "id": "U03-REV-Q031",
+    "number": 31,
+    "question": "What is 'present bias'?",
+    "options": {
+      "A": "overvaluing immediate rewards over long-term gains",
+      "B": "preferring the future",
+      "C": "ignoring the present",
+      "D": "saving too much"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "overvaluing immediate rewards over long-term gains",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L4 reading"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Present bias makes the immediate reward more attractive."
+      ],
+      "summary": "overvaluing now"
+    },
+    "explanation": "It causes procrastination."
+  },
+  {
+    "id": "U03-REV-Q032",
+    "number": 32,
+    "question": "What is the 'sunk-cost fallacy'?",
+    "options": {
+      "A": "persisting because you have already invested",
+      "B": "giving up easily",
+      "C": "buying cheap things",
+      "D": "a maths mistake"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "persisting because you have already invested",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L4 reading"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "We keep going because of what we have already invested."
+      ],
+      "summary": "persist because invested"
+    },
+    "explanation": "It often works against us."
+  },
+  {
+    "id": "U03-REV-Q033",
+    "number": 33,
+    "question": "What does 'the law of diminishing returns' mean?",
+    "options": {
+      "A": "beyond a point, extra effort gives less benefit",
+      "B": "prices always fall",
+      "C": "work always pays",
+      "D": "more is always better"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "beyond a point, extra effort gives less benefit",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L4 reading"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Each extra unit of effort gives less and less benefit."
+      ],
+      "summary": "less benefit per effort"
+    },
+    "explanation": "Doing your best is good enough."
+  },
+  {
+    "id": "U03-REV-Q034",
+    "number": 34,
+    "question": "What does 'no such thing as a free lunch' warn us about?",
+    "options": {
+      "A": "hidden costs in things that seem free",
+      "B": "free food",
+      "C": "cheap prices",
+      "D": "free parking"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "hidden costs in things that seem free",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L4 reading"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Everything has a hidden cost."
+      ],
+      "summary": "hidden costs"
+    },
+    "explanation": "Free offers often cost you in other ways."
+  },
+  {
+    "id": "U03-REV-Q035",
+    "number": 35,
+    "question": "What does 'negate' mean?",
+    "options": {
+      "A": "cancel out",
+      "B": "increase",
+      "C": "create",
+      "D": "explain"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "cancel out",
+    "difficulty": "hard",
+    "source": {
+      "page": 40,
+      "reference": "Review: L4 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Negate' means to cancel or make ineffective."
+      ],
+      "summary": "negate = cancel out"
+    },
+    "explanation": "Worries can negate a discount."
+  },
+  {
+    "id": "U03-REV-Q036",
+    "number": 36,
+    "question": "What does 'detrimental' mean?",
+    "options": {
+      "A": "harmful",
+      "B": "beneficial",
+      "C": "unclear",
+      "D": "sudden"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "harmful",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L4 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Detrimental' means damaging or harmful."
+      ],
+      "summary": "detrimental = harmful"
+    },
+    "explanation": "It had a detrimental effect."
+  },
+  {
+    "id": "U03-REV-Q037",
+    "number": 37,
+    "question": "What does 'a notion' mean?",
+    "options": {
+      "A": "an idea or concept",
+      "B": "a trap",
+      "C": "a price",
+      "D": "a shop"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "an idea or concept",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L4 vocabulary"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A notion is an idea or belief."
+      ],
+      "summary": "notion = idea"
+    },
+    "explanation": "Consider this notion."
+  },
+  {
+    "id": "U03-REV-Q038",
+    "number": 38,
+    "question": "What is a 'cost-benefit analysis'?",
+    "options": {
+      "A": "weighing the costs against the benefits of a choice",
+      "B": "a bill for repairs",
+      "C": "a shopping list",
+      "D": "a bank account"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "weighing the costs against the benefits of a choice",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L4 reading"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "It weighs costs against benefits to make a decision."
+      ],
+      "summary": "weigh costs against benefits"
+    },
+    "explanation": "Score each one out of five."
+  },
+  {
+    "id": "U03-REV-Q039",
+    "number": 39,
+    "question": "What is the topic of the for-and-against essay in the unit?",
+    "options": {
+      "A": "whether we should buy locally or from abroad",
+      "B": "whether to use cash",
+      "C": "the price of fuel",
+      "D": "online safety"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "whether we should buy locally or from abroad",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L6 writing"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "The essay debates buying local produce."
+      ],
+      "summary": "buying local"
+    },
+    "explanation": "It balances both sides."
+  },
+  {
+    "id": "U03-REV-Q040",
+    "number": 40,
+    "question": "What does 'to shop around' mean?",
+    "options": {
+      "A": "compare prices at different shops",
+      "B": "buy in bulk",
+      "C": "wander aimlessly",
+      "D": "ask for a discount"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "compare prices at different shops",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L6 collocations"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "You shop around to compare prices before buying."
+      ],
+      "summary": "compare prices"
+    },
+    "explanation": "It helps you find the best deal."
+  },
+  {
+    "id": "U03-REV-Q041",
+    "number": 41,
+    "question": "What does 'to stock up' mean?",
+    "options": {
+      "A": "buy large amounts to keep for later",
+      "B": "sell old goods",
+      "C": "open a shop",
+      "D": "return items"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "buy large amounts to keep for later",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L6 collocations"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Stock up = buy plenty of something for the future."
+      ],
+      "summary": "buy in quantity"
+    },
+    "explanation": "We stocked up before the holiday."
+  },
+  {
+    "id": "U03-REV-Q042",
+    "number": 42,
+    "question": "What does 'to mooch around' mean?",
+    "options": {
+      "A": "wander slowly with no clear purpose",
+      "B": "shop quickly",
+      "C": "compare prices",
+      "D": "buy everything"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "wander slowly with no clear purpose",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L6 collocations"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Mooch around = wander about without a plan."
+      ],
+      "summary": "wander aimlessly"
+    },
+    "explanation": "They mooched around the mall."
+  },
+  {
+    "id": "U03-REV-Q043",
+    "number": 43,
+    "question": "What does 'to run errands' mean?",
+    "options": {
+      "A": "make short trips to do small jobs",
+      "B": "run a marathon",
+      "C": "manage a business",
+      "D": "write notes"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "make short trips to do small jobs",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L6 collocations"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Running errands means doing small tasks like shopping."
+      ],
+      "summary": "small jobs/trips"
+    },
+    "explanation": "I have some errands to run."
+  },
+  {
+    "id": "U03-REV-Q044",
+    "number": 44,
+    "question": "What does 'to go on a shopping spree' mean?",
+    "options": {
+      "A": "spend a lot of money shopping in a short time",
+      "B": "look at shops without buying",
+      "C": "go shopping weekly",
+      "D": "return purchases"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "spend a lot of money shopping in a short time",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L6 collocations"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A spree is a period of excited, expensive buying."
+      ],
+      "summary": "spend a lot at once"
+    },
+    "explanation": "She went on a shopping spree."
+  },
+  {
+    "id": "U03-REV-Q045",
+    "number": 45,
+    "question": "What does 'just the ticket' mean?",
+    "options": {
+      "A": "exactly what is needed",
+      "B": "a free ticket",
+      "C": "a cheap fare",
+      "D": "a parking fine"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "exactly what is needed",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L6 collocations"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Just the ticket' means exactly the right thing."
+      ],
+      "summary": "exactly right"
+    },
+    "explanation": "That discount is just the ticket."
+  },
+  {
+    "id": "U03-REV-Q046",
+    "number": 46,
+    "question": "Where do you state your own opinion in a for-and-against essay?",
+    "options": {
+      "A": "in the final paragraph",
+      "B": "in the title",
+      "C": "in every sentence",
+      "D": "only in the middle"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "in the final paragraph",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L6 writing"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "The personal opinion comes in the conclusion."
+      ],
+      "summary": "final paragraph"
+    },
+    "explanation": "The body stays balanced."
+  },
+  {
+    "id": "U03-REV-Q047",
+    "number": 47,
+    "question": "What tense do you use for your final opinion?",
+    "options": {
+      "A": "the present simple",
+      "B": "the past perfect",
+      "C": "the future perfect",
+      "D": "the present continuous"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "the present simple",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L6 writing"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Use the present simple to state what you think."
+      ],
+      "summary": "present simple"
+    },
+    "explanation": "'I think that...'"
+  },
+  {
+    "id": "U03-REV-Q048",
+    "number": 48,
+    "question": "Which expression introduces the writer's conclusion?",
+    "options": {
+      "A": "taking everything into account",
+      "B": "to begin with",
+      "C": "first of all",
+      "D": "for example"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "taking everything into account",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L6 writing"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Taking everything into account' signals the conclusion."
+      ],
+      "summary": "conclusion marker"
+    },
+    "explanation": "Also 'on balance'."
+  },
+  {
+    "id": "U03-REV-Q049",
+    "number": 49,
+    "question": "What is the best balance the essay's writer recommends?",
+    "options": {
+      "A": "strike a balance between buying local and buying imported goods",
+      "B": "buy only imported goods",
+      "C": "never shop again",
+      "D": "only shop online"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "strike a balance between buying local and buying imported goods",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L6 writing"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "The writer says we should strike a balance."
+      ],
+      "summary": "a balanced approach"
+    },
+    "explanation": "Support local but accept imports."
+  },
+  {
+    "id": "U03-REV-Q050",
+    "number": 50,
+    "question": "Which sentence about passive use is correct?",
+    "options": {
+      "A": "Passives make writing more formal and objective.",
+      "B": "Passives always include the agent.",
+      "C": "Passives are only used in questions.",
+      "D": "Passives are informal."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "Passives make writing more formal and objective.",
+    "difficulty": "medium",
+    "source": {
+      "page": 40,
+      "reference": "Review: L5 grammar"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Passives are formal and focus on the action."
+      ],
+      "summary": "formal and objective"
+    },
+    "explanation": "The agent is often left out."
+  }
+]

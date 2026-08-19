@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "4",
+    "lesson_name": "Grammar",
+    "unit_number": 1,
+    "unit_name": "Identity",
+    "page_start": 8,
+    "page_end": 9,
+    "questions": [
+      {
+        "id": "U01-L04-Q001",
+        "number": 1,
+        "question": "Which tense is used in 'I've just been running'?",
+        "options": {
+          "A": "present perfect continuous",
+          "B": "past perfect",
+          "C": "future continuous",
+          "D": "present simple"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "present perfect continuous",
+        "difficulty": "easy",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 3: Extracts from the recording"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'I've just been running' uses have + been + -ing, i.e. the present perfect continuous."
+          ],
+          "summary": "I've been running = present perfect continuous."
+        },
+        "explanation": "The extract uses the present perfect continuous to describe a recent activity."
+      },
+      {
+        "id": "U01-L04-Q002",
+        "number": 2,
+        "question": "Which tense is used in 'I'll be doing a 5k run for charity in a few weeks'?",
+        "options": {
+          "A": "future continuous",
+          "B": "future perfect",
+          "C": "present perfect continuous",
+          "D": "past continuous"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "future continuous",
+        "difficulty": "easy",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 3: Extracts from the recording"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'I'll be doing' uses will + be + -ing, i.e. the future continuous."
+          ],
+          "summary": "I'll be doing = future continuous."
+        },
+        "explanation": "The future continuous describes an action in progress at a future time."
+      },
+      {
+        "id": "U01-L04-Q003",
+        "number": 3,
+        "question": "Which tense is used in 'Had you done much running before?'?",
+        "options": {
+          "A": "past perfect",
+          "B": "present perfect",
+          "C": "past continuous",
+          "D": "past simple"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "past perfect",
+        "difficulty": "easy",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 3: Extracts from the recording"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Had you done' uses had + past participle, i.e. the past perfect."
+          ],
+          "summary": "Had you done = past perfect."
+        },
+        "explanation": "The past perfect describes an action that happened before a past time."
+      },
+      {
+        "id": "U01-L04-Q004",
+        "number": 4,
+        "question": "Which tense is used in 'I will have been running every day for two months'?",
+        "options": {
+          "A": "future perfect continuous",
+          "B": "future perfect",
+          "C": "present perfect continuous",
+          "D": "future continuous"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "future perfect continuous",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 3: Extracts from the recording"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Will have been running' uses will + have + been + -ing, i.e. the future perfect continuous."
+          ],
+          "summary": "will have been running = future perfect continuous."
+        },
+        "explanation": "This tense describes how long an action will have continued by a future time."
+      },
+      {
+        "id": "U01-L04-Q005",
+        "number": 5,
+        "question": "We use the present perfect continuous to ...",
+        "options": {
+          "A": "focus on the activity itself or its continuity",
+          "B": "focus on a finished result",
+          "C": "describe a permanent state",
+          "D": "describe a past habit"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "focus on the activity itself or its continuity",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Grammar Reference: Continuous and perfect tenses"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The present perfect continuous focuses on the activity and how long it continues."
+          ],
+          "summary": "Present perfect continuous = focus on continuity."
+        },
+        "explanation": "It emphasises the ongoing activity rather than the finished result."
+      },
+      {
+        "id": "U01-L04-Q006",
+        "number": 6,
+        "question": "We use the present perfect simple to ...",
+        "options": {
+          "A": "focus on a finished action and its present result",
+          "B": "focus on the duration of an activity",
+          "C": "describe an action in progress",
+          "D": "describe a future plan"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "focus on a finished action and its present result",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Grammar Reference: Continuous and perfect tenses"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The present perfect simple focuses on a completed action that has a result now."
+          ],
+          "summary": "Present perfect simple = finished action with result."
+        },
+        "explanation": "It shows a completed action connected to the present."
+      },
+      {
+        "id": "U01-L04-Q007",
+        "number": 7,
+        "question": "Which tense describes an action that was in progress at a moment in the past?",
+        "options": {
+          "A": "past continuous",
+          "B": "present perfect",
+          "C": "future continuous",
+          "D": "past perfect"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "past continuous",
+        "difficulty": "easy",
+        "source": {
+          "page": 8,
+          "reference": "Grammar Reference: Continuous and perfect tenses"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The past continuous (was/were + -ing) describes an action in progress in the past."
+          ],
+          "summary": "Past continuous = in progress in the past."
+        },
+        "explanation": "Example: 'I was running for the bus when I tripped.'"
+      },
+      {
+        "id": "U01-L04-Q008",
+        "number": 8,
+        "question": "We use the past perfect to describe ...",
+        "options": {
+          "A": "an action that happened before another past action",
+          "B": "an action happening now",
+          "C": "a future plan",
+          "D": "a temporary habit"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "an action that happened before another past action",
+        "difficulty": "easy",
+        "source": {
+          "page": 8,
+          "reference": "Grammar Reference: Continuous and perfect tenses"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The past perfect (had + past participle) refers to the earlier of two past actions."
+          ],
+          "summary": "Past perfect = earlier past action."
+        },
+        "explanation": "Example: 'Before I trained, I had never run in a race.'"
+      },
+      {
+        "id": "U01-L04-Q009",
+        "number": 9,
+        "question": "Which tense describes an action that will be in progress at a certain time in the future?",
+        "options": {
+          "A": "future continuous",
+          "B": "future perfect",
+          "C": "present continuous",
+          "D": "past continuous"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "future continuous",
+        "difficulty": "easy",
+        "source": {
+          "page": 8,
+          "reference": "Grammar Reference: Continuous and perfect tenses"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The future continuous (will be + -ing) describes an action in progress at a future time."
+          ],
+          "summary": "Future continuous = in progress in the future."
+        },
+        "explanation": "Example: 'This time next week I'll be doing a 5k run.'"
+      },
+      {
+        "id": "U01-L04-Q010",
+        "number": 10,
+        "question": "We use the future perfect to describe ...",
+        "options": {
+          "A": "an action that will be finished by a certain time in the future",
+          "B": "an action in progress now",
+          "C": "a completed action in the past",
+          "D": "a future intention"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "an action that will be finished by a certain time in the future",
+        "difficulty": "easy",
+        "source": {
+          "page": 8,
+          "reference": "Grammar Reference: Continuous and perfect tenses"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The future perfect (will have + past participle) describes an action finished by a future time."
+          ],
+          "summary": "Future perfect = finished by a future time."
+        },
+        "explanation": "Example: 'When I finish the marathon, I will have run 42 km.'"
+      },
+      {
+        "id": "U01-L04-Q011",
+        "number": 11,
+        "question": "We use the future perfect continuous to describe ...",
+        "options": {
+          "A": "how long something will have been going on by a future time",
+          "B": "a single finished future action",
+          "C": "a present habit",
+          "D": "a past experience"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "how long something will have been going on by a future time",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Grammar Reference: Continuous and perfect tenses"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The future perfect continuous emphasises the duration of an action up to a future time."
+          ],
+          "summary": "Future perfect continuous = duration up to a future time."
+        },
+        "explanation": "Example: 'Next week I will have been running every day for two months.'"
+      },
+      {
+        "id": "U01-L04-Q012",
+        "number": 12,
+        "question": "In 'I've been reading a book about habits', the speaker ...",
+        "options": {
+          "A": "is still reading the book",
+          "B": "has finished the book",
+          "C": "will read the book soon",
+          "D": "never reads books"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "is still reading the book",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 4: Matching meanings"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The present perfect continuous shows the action is still in progress, so the speaker is still reading."
+          ],
+          "summary": "I've been reading = still reading."
+        },
+        "explanation": "The continuous form shows the activity has not finished."
+      },
+      {
+        "id": "U01-L04-Q013",
+        "number": 13,
+        "question": "In 'I've read a book about habits', the speaker ...",
+        "options": {
+          "A": "has finished the book",
+          "B": "is still reading the book",
+          "C": "reads books quickly",
+          "D": "has no time to read"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "has finished the book",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 4: Matching meanings"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The present perfect simple describes a finished action."
+          ],
+          "summary": "I've read = finished reading."
+        },
+        "explanation": "The simple form focuses on the completed result."
+      },
+      {
+        "id": "U01-L04-Q014",
+        "number": 14,
+        "question": "In 'I will be working', the speaker ...",
+        "options": {
+          "A": "will be in the middle of work",
+          "B": "will have finished work",
+          "C": "worked in the past",
+          "D": "is working now"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "will be in the middle of work",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 4: Matching meanings"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The future continuous shows the person will be in the middle of working."
+          ],
+          "summary": "I will be working = in the middle of work."
+        },
+        "explanation": "The continuous form describes an action in progress at a future time."
+      },
+      {
+        "id": "U01-L04-Q015",
+        "number": 15,
+        "question": "In 'I will have been working', the speaker ...",
+        "options": {
+          "A": "will have finished work",
+          "B": "will be in the middle of work",
+          "C": "never works",
+          "D": "is working now"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "will have finished work",
+        "difficulty": "hard",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 4: Matching meanings"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The future perfect shows the work will be finished by that future time."
+          ],
+          "summary": "I will have been working = finished."
+        },
+        "explanation": "The perfect form focuses on completion."
+      },
+      {
+        "id": "U01-L04-Q016",
+        "number": 16,
+        "question": "In 'I had been eating all day', the meaning is that the person ...",
+        "options": {
+          "A": "was eating continuously or very often",
+          "B": "ate one meal that day",
+          "C": "did not eat at all",
+          "D": "will eat later"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "was eating continuously or very often",
+        "difficulty": "hard",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 4: Matching meanings"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Had been eating' is the past perfect continuous, which shows continuous or repeated eating."
+          ],
+          "summary": "I had been eating all day = eating continuously."
+        },
+        "explanation": "The continuous form emphasises the repeated or continuous activity."
+      },
+      {
+        "id": "U01-L04-Q017",
+        "number": 17,
+        "question": "In 'I had eaten that day', the meaning is that the person ...",
+        "options": {
+          "A": "ate at some point that day",
+          "B": "was eating all day long",
+          "C": "will eat that day",
+          "D": "never eats"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "ate at some point that day",
+        "difficulty": "hard",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 4: Matching meanings"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Had eaten' is the past perfect simple, which describes one finished action."
+          ],
+          "summary": "I had eaten = ate once."
+        },
+        "explanation": "The simple form describes a single completed action."
+      },
+      {
+        "id": "U01-L04-Q018",
+        "number": 18,
+        "question": "In 'I've come up with a great idea', the speaker ...",
+        "options": {
+          "A": "has the idea now",
+          "B": "had the idea long ago",
+          "C": "will think of an idea",
+          "D": "lost the idea"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "has the idea now",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 4: Matching meanings"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The present perfect shows the idea exists now as a result of a past action."
+          ],
+          "summary": "I've come up with = I have the idea now."
+        },
+        "explanation": "The present perfect connects the past action to the present."
+      },
+      {
+        "id": "U01-L04-Q019",
+        "number": 19,
+        "question": "In 'I had a great idea', the speaker ...",
+        "options": {
+          "A": "came up with an idea at some point in the past",
+          "B": "has the idea right now",
+          "C": "will have an idea",
+          "D": "does not remember the idea"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "came up with an idea at some point in the past",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 4: Matching meanings"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'I had' is the past simple, describing an action at a past time."
+          ],
+          "summary": "I had a great idea = idea in the past."
+        },
+        "explanation": "The past simple refers to a finished time in the past."
+      },
+      {
+        "id": "U01-L04-Q020",
+        "number": 20,
+        "question": "'I'm playing a lot of football' means ...",
+        "options": {
+          "A": "I've been doing it recently or temporarily",
+          "B": "I always do it",
+          "C": "I will never do it",
+          "D": "I did it in the past"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I've been doing it recently or temporarily",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 4: Matching meanings"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The present continuous describes a temporary or recent activity."
+          ],
+          "summary": "I'm playing = temporary/recent activity."
+        },
+        "explanation": "The continuous form shows it is happening around now."
+      },
+      {
+        "id": "U01-L04-Q021",
+        "number": 21,
+        "question": "'I play a lot of football' means ...",
+        "options": {
+          "A": "this is something I always do",
+          "B": "this is a temporary habit",
+          "C": "I am playing now",
+          "D": "I played once"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "this is something I always do",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 4: Matching meanings"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The present simple describes a permanent or regular activity."
+          ],
+          "summary": "I play = something I always do."
+        },
+        "explanation": "The simple form shows a regular, permanent habit."
+      },
+      {
+        "id": "U01-L04-Q022",
+        "number": 22,
+        "question": "Which sentence uses the past perfect continuous correctly?",
+        "options": {
+          "A": "I had been waiting for two hours when the bus finally arrived.",
+          "B": "I had been waiting for two hours when the bus will arrive.",
+          "C": "I have been waiting for two hours when the bus arrived.",
+          "D": "I was waiting for two hours when the bus had arrived."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I had been waiting for two hours when the bus finally arrived.",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Grammar Reference: Past perfect continuous"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The past perfect continuous (had been + -ing) describes an action continuing up to a past moment."
+          ],
+          "summary": "had been waiting"
+        },
+        "explanation": "The bus arrived (past simple) while the waiting was in progress."
+      },
+      {
+        "id": "U01-L04-Q023",
+        "number": 23,
+        "question": "Which sentence uses the future perfect correctly?",
+        "options": {
+          "A": "By next year, I will have graduated from university.",
+          "B": "By next year, I will have been graduating from university.",
+          "C": "By next year, I am graduating from university.",
+          "D": "By next year, I had graduated from university."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "By next year, I will have graduated from university.",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Grammar Reference: Future perfect"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The future perfect (will have + past participle) describes an action completed before a future time."
+          ],
+          "summary": "will have graduated"
+        },
+        "explanation": "The action (graduating) will be finished by next year."
+      },
+      {
+        "id": "U01-L04-Q024",
+        "number": 24,
+        "question": "Choose the correct form: 'She ______ (work) here since 2019.'",
+        "options": {
+          "A": "has been working",
+          "B": "is working",
+          "C": "was working",
+          "D": "will be working"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "has been working",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 5: Gap fill"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Since 2019' indicates a period continuing to the present, so use the present perfect continuous."
+          ],
+          "summary": "has been working"
+        },
+        "explanation": "The action started in the past and continues now."
+      },
+      {
+        "id": "U01-L04-Q025",
+        "number": 25,
+        "question": "Choose the correct form: 'They ______ (already/eat) by the time I arrived.'",
+        "options": {
+          "A": "had already eaten",
+          "B": "have already eaten",
+          "C": "were already eating",
+          "D": "already ate"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "had already eaten",
+        "difficulty": "hard",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 5: Gap fill"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The arrival is in the past, and the eating happened before it, so use the past perfect."
+          ],
+          "summary": "had already eaten"
+        },
+        "explanation": "The past perfect shows the earlier action."
+      },
+      {
+        "id": "U01-L04-Q026",
+        "number": 26,
+        "question": "Choose the correct form: 'This time tomorrow, I ______ (lie) on the beach.'",
+        "options": {
+          "A": "will be lying",
+          "B": "will have lain",
+          "C": "am lying",
+          "D": "had been lying"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "will be lying",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 5: Gap fill"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'This time tomorrow' points to an action in progress at a future time, so use the future continuous."
+          ],
+          "summary": "will be lying"
+        },
+        "explanation": "The future continuous describes an action in progress at a specific future time."
+      },
+      {
+        "id": "U01-L04-Q027",
+        "number": 27,
+        "question": "Choose the correct form: 'By the time you get here, I ______ (finish) the report.'",
+        "options": {
+          "A": "will have finished",
+          "B": "will be finishing",
+          "C": "have finished",
+          "D": "had finished"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "will have finished",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 5: Gap fill"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'By the time you get here' sets a future deadline, so use the future perfect."
+          ],
+          "summary": "will have finished"
+        },
+        "explanation": "The action will be completed before the other future action."
+      },
+      {
+        "id": "U01-L04-Q028",
+        "number": 28,
+        "question": "Which sentence shows the difference between 'I've been reading' and 'I've read'?",
+        "options": {
+          "A": "'I've been reading' means I'm still reading; 'I've read' means I've finished.",
+          "B": "'I've been reading' means I finished; 'I've read' means I'm still reading.",
+          "C": "Both mean the same thing.",
+          "D": "'I've been reading' is past; 'I've read' is future."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "'I've been reading' means I'm still reading; 'I've read' means I've finished.",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 6: Present perfect simple vs continuous"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The continuous form emphasises the activity is ongoing; the simple form emphasises completion."
+          ],
+          "summary": "Continuous = ongoing; simple = finished."
+        },
+        "explanation": "This is the key difference between the two forms."
+      },
+      {
+        "id": "U01-L04-Q029",
+        "number": 29,
+        "question": "Which sentence correctly uses the past continuous?",
+        "options": {
+          "A": "I was studying when the power went out.",
+          "B": "I had been studying when the power went out.",
+          "C": "I have been studying when the power went out.",
+          "D": "I studied when the power went out."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I was studying when the power went out.",
+        "difficulty": "easy",
+        "source": {
+          "page": 8,
+          "reference": "Grammar Reference: Past continuous"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The past continuous (was/were + -ing) describes an action in progress when another action interrupted."
+          ],
+          "summary": "was studying"
+        },
+        "explanation": "The studying was in progress when the power cut happened."
+      },
+      {
+        "id": "U01-L04-Q030",
+        "number": 30,
+        "question": "Complete: 'I ______ (know) her since we were children.'",
+        "options": {
+          "A": "have known",
+          "B": "knew",
+          "C": "had known",
+          "D": "was knowing"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "have known",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 5: Gap fill"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Since we were children' indicates a period from the past continuing to now, so use present perfect simple."
+          ],
+          "summary": "have known"
+        },
+        "explanation": "The knowing started in the past and continues now."
+      },
+      {
+        "id": "U01-L04-Q031",
+        "number": 31,
+        "question": "Which sentence uses the future perfect continuous correctly?",
+        "options": {
+          "A": "In June, I will have been working here for ten years.",
+          "B": "In June, I will have worked here for ten years.",
+          "C": "In June, I am working here for ten years.",
+          "D": "In June, I had been working here for ten years."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "In June, I will have been working here for ten years.",
+        "difficulty": "hard",
+        "source": {
+          "page": 8,
+          "reference": "Grammar Reference: Future perfect continuous"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The future perfect continuous (will have been + -ing) emphasises the duration of an action up to a future time."
+          ],
+          "summary": "will have been working"
+        },
+        "explanation": "It emphasises the length of service, not just the completion."
+      },
+      {
+        "id": "U01-L04-Q032",
+        "number": 32,
+        "question": "Which is the correct transformation: 'People say she is kind' → Passive?",
+        "options": {
+          "A": "She is said to be kind.",
+          "B": "She is said being kind.",
+          "C": "She says to be kind.",
+          "D": "She is saying kind."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "She is said to be kind.",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Grammar: Reporting with passives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The structure is: subject + be + past participle + to-infinitive."
+          ],
+          "summary": "She is said to be kind."
+        },
+        "explanation": "This passive structure reports what people say about someone."
+      },
+      {
+        "id": "U01-L04-Q033",
+        "number": 33,
+        "question": "Which is correct: 'It is believed that he ______ (leave) yesterday'?",
+        "options": {
+          "A": "left",
+          "B": "has left",
+          "C": "leaves",
+          "D": "will leave"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "left",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Grammar: Reporting with passives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The reported action happened yesterday, so use the past simple in the that-clause."
+          ],
+          "summary": "left"
+        },
+        "explanation": "The past simple matches the time reference 'yesterday'."
+      },
+      {
+        "id": "U01-L04-Q034",
+        "number": 34,
+        "question": "Which sentence is correct?",
+        "options": {
+          "A": "I had been cooking for an hour when the guests arrived.",
+          "B": "I have been cooking for an hour when the guests arrived.",
+          "C": "I was cooking for an hour when the guests arrived.",
+          "D": "I cooked for an hour when the guests arrived."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I had been cooking for an hour when the guests arrived.",
+        "difficulty": "hard",
+        "source": {
+          "page": 8,
+          "reference": "Grammar Reference: Past perfect continuous"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The cooking started before the arrival and was still in progress, so use the past perfect continuous."
+          ],
+          "summary": "had been cooking"
+        },
+        "explanation": "The past perfect continuous shows the duration before a past event."
+      },
+      {
+        "id": "U01-L04-Q035",
+        "number": 35,
+        "question": "Complete: 'She ______ (just/finish) her homework. Do you want to play?'",
+        "options": {
+          "A": "has just finished",
+          "B": "had just finished",
+          "C": "just finished",
+          "D": "is just finishing"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "has just finished",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 5: Gap fill"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Just' with a recent action connected to the present uses the present perfect."
+          ],
+          "summary": "has just finished"
+        },
+        "explanation": "The result (she can play now) is relevant to the present."
+      },
+      {
+        "id": "U01-L04-Q036",
+        "number": 36,
+        "question": "Choose: 'By 2030, scientists ______ (probably/find) a cure for the disease.'",
+        "options": {
+          "A": "will probably have found",
+          "B": "will probably be finding",
+          "C": "probably found",
+          "D": "have probably found"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "will probably have found",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 5: Gap fill"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'By 2030' sets a future deadline, so use the future perfect."
+          ],
+          "summary": "will probably have found"
+        },
+        "explanation": "The finding will be completed before 2030."
+      },
+      {
+        "id": "U01-L04-Q037",
+        "number": 37,
+        "question": "Which sentence shows a temporary activity around now?",
+        "options": {
+          "A": "I'm reading a really interesting book at the moment.",
+          "B": "I read a really interesting book every summer.",
+          "C": "I have read a really interesting book.",
+          "D": "I was reading a really interesting book last week."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I'm reading a really interesting book at the moment.",
+        "difficulty": "easy",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 6: Present simple vs continuous"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The present continuous with 'at the moment' describes a temporary activity happening now."
+          ],
+          "summary": "I'm reading = temporary activity."
+        },
+        "explanation": "The present simple ('I read') would describe a permanent habit."
+      },
+      {
+        "id": "U01-L04-Q038",
+        "number": 38,
+        "question": "Which sentence describes a past action with a present result?",
+        "options": {
+          "A": "I've lost my keys, so I can't get in.",
+          "B": "I lost my keys yesterday.",
+          "C": "I was losing my keys when I ran.",
+          "D": "I had lost my keys before I got home."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I've lost my keys, so I can't get in.",
+        "difficulty": "medium",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 6: Present perfect vs past simple"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The present perfect connects a past action (losing keys) to a present result (can't get in)."
+          ],
+          "summary": "I've lost = present result."
+        },
+        "explanation": "The past simple ('I lost') would just state when it happened."
+      },
+      {
+        "id": "U01-L04-Q039",
+        "number": 39,
+        "question": "Complete: 'We ______ (live) in this house since 2015.'",
+        "options": {
+          "A": "have lived",
+          "B": "live",
+          "C": "had lived",
+          "D": "were living"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "have lived",
+        "difficulty": "easy",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 5: Gap fill"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Since 2015' means from a point in the past until now, so use the present perfect."
+          ],
+          "summary": "have lived"
+        },
+        "explanation": "The action started in the past and continues to the present."
+      },
+      {
+        "id": "U01-L04-Q040",
+        "number": 40,
+        "question": "Choose the correct form: 'When I ______ (get) to the party, everyone had already left.'",
+        "options": {
+          "A": "got",
+          "B": "had got",
+          "C": "was getting",
+          "D": "have got"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "got",
+        "difficulty": "hard",
+        "source": {
+          "page": 8,
+          "reference": "Exercise 5: Gap fill"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The past perfect 'had already left' needs a later past action (got) to relate to."
+          ],
+          "summary": "got"
+        },
+        "explanation": "The getting is the later past action; the leaving happened before it."
+      }
+    ]
+  }
+}

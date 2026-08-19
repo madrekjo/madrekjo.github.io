@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "1",
+    "lesson_name": "Vocabulary and Speaking",
+    "unit_number": 3,
+    "unit_name": "Hard sell",
+    "page_start": 26,
+    "page_end": 27,
+    "questions": [
+      {
+        "id": "U03-L01-Q001",
+        "number": 1,
+        "question": "What is the Goat Rental Service?",
+        "options": {
+          "A": "a company that rents goats to mow lawns and eat weeds",
+          "B": "a pet shop",
+          "C": "a farm that sells milk",
+          "D": "a zoo"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a company that rents goats to mow lawns and eat weeds",
+        "difficulty": "easy",
+        "source": {
+          "page": 26,
+          "reference": "Reading: Goat Rental Service"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The company brings goats to clear grass and weeds instead of using machines."
+          ],
+          "summary": "Goats are rented to mow lawns."
+        },
+        "explanation": "It is eco-friendly and cost-effective."
+      },
+      {
+        "id": "U03-L01-Q002",
+        "number": 2,
+        "question": "What is the USP of the goat rental service?",
+        "options": {
+          "A": "it is eco-friendly",
+          "B": "it is the cheapest service",
+          "C": "the goats are fast",
+          "D": "it uses electric mowers"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it is eco-friendly",
+        "difficulty": "medium",
+        "source": {
+          "page": 26,
+          "reference": "Reading: Goat Rental Service"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The text says the USP is that it is very eco-friendly."
+          ],
+          "summary": "Its USP is being eco-friendly."
+        },
+        "explanation": "USP = unique selling point."
+      },
+      {
+        "id": "U03-L01-Q003",
+        "number": 3,
+        "question": "How much grass can 38 goats 'mow' in a single day?",
+        "options": {
+          "A": "50,000 square feet",
+          "B": "5,000 square feet",
+          "C": "500 square feet",
+          "D": "50 square feet"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "50,000 square feet",
+        "difficulty": "easy",
+        "source": {
+          "page": 26,
+          "reference": "Reading: Goat Rental Service"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Just 38 goats can 'mow' 50,000 square feet of grass in a single day.'"
+          ],
+          "summary": "50,000 square feet"
+        },
+        "explanation": "The service is cost-effective."
+      },
+      {
+        "id": "U03-L01-Q004",
+        "number": 4,
+        "question": "What did Saeed want to launch?",
+        "options": {
+          "A": "a business making furniture many people would consider an eyesore",
+          "B": "a goat rental service",
+          "C": "a cake shop",
+          "D": "a furniture repair shop"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a business making furniture many people would consider an eyesore",
+        "difficulty": "easy",
+        "source": {
+          "page": 26,
+          "reference": "Reading: One-of-a-kind Furniture"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Saeed dreamt of launching a business based on making ugly (eyesore) furniture."
+          ],
+          "summary": "A furniture business"
+        },
+        "explanation": "His wife thought he had lost his marbles."
+      },
+      {
+        "id": "U03-L01-Q005",
+        "number": 5,
+        "question": "What does 'he'd completely lost his marbles' mean?",
+        "options": {
+          "A": "he had gone mad",
+          "B": "he lost his toys",
+          "C": "he was poor",
+          "D": "he was sleeping"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "he had gone mad",
+        "difficulty": "medium",
+        "source": {
+          "page": 26,
+          "reference": "Reading: One-of-a-kind Furniture"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Lose your marbles' means to go crazy."
+          ],
+          "summary": "lost his marbles = went mad."
+        },
+        "explanation": "His wife could not believe his idea."
+      },
+      {
+        "id": "U03-L01-Q006",
+        "number": 6,
+        "question": "What was Saeed's 'bread and butter'?",
+        "options": {
+          "A": "being skilful at making furniture",
+          "B": "eating sandwiches",
+          "C": "selling cakes",
+          "D": "his salary"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "being skilful at making furniture",
+        "difficulty": "hard",
+        "source": {
+          "page": 26,
+          "reference": "Reading: One-of-a-kind Furniture"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Bread and butter' means the way you earn a living; here, making furniture."
+          ],
+          "summary": "bread and butter = main income."
+        },
+        "explanation": "It was his basic skill and job."
+      },
+      {
+        "id": "U03-L01-Q007",
+        "number": 7,
+        "question": "How did Saeed's business perform?",
+        "options": {
+          "A": "within three months it had a turnover of more than $10,000 a month",
+          "B": "it went bankrupt quickly",
+          "C": "it stayed tiny",
+          "D": "he closed it down"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "within three months it had a turnover of more than $10,000 a month",
+        "difficulty": "medium",
+        "source": {
+          "page": 26,
+          "reference": "Reading: One-of-a-kind Furniture"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Within three months, his company had a turnover of more than $10,000 a month.'"
+          ],
+          "summary": "It had a big turnover."
+        },
+        "explanation": "The 'eyesore' tag worked as a sales gimmick."
+      },
+      {
+        "id": "U03-L01-Q008",
+        "number": 8,
+        "question": "What does 'turnover' mean in business?",
+        "options": {
+          "A": "the amount of business a company does in a set period of time",
+          "B": "the number of workers",
+          "C": "the size of the office",
+          "D": "the price of one product"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the amount of business a company does in a set period of time",
+        "difficulty": "easy",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 2: Business vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Turnover is the amount of business done in a period."
+          ],
+          "summary": "turnover = total business."
+        },
+        "explanation": "It is usually measured in money."
+      },
+      {
+        "id": "U03-L01-Q009",
+        "number": 9,
+        "question": "What is a 'sales gimmick'?",
+        "options": {
+          "A": "a trick or gimmick used to attract sales",
+          "B": "a genuine product feature",
+          "C": "a discount for regular customers",
+          "D": "a type of shop"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a trick or gimmick used to attract sales",
+        "difficulty": "hard",
+        "source": {
+          "page": 26,
+          "reference": "Reading: One-of-a-kind Furniture"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The 'eyesore' tag was a bit of a sales gimmick to attract attention."
+          ],
+          "summary": "sales gimmick = sales trick."
+        },
+        "explanation": "It worked even though it was a gimmick."
+      },
+      {
+        "id": "U03-L01-Q010",
+        "number": 10,
+        "question": "What does 'branching out into' mean?",
+        "options": {
+          "A": "expanding the work normally done into new areas",
+          "B": "closing the business",
+          "C": "moving to a new city",
+          "D": "employing more staff"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "expanding the work normally done into new areas",
+        "difficulty": "medium",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 2: Business vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Saeed is thinking about branching out into ugly accessories."
+          ],
+          "summary": "branching out = expanding into."
+        },
+        "explanation": "It extends the range of the business."
+      },
+      {
+        "id": "U03-L01-Q011",
+        "number": 11,
+        "question": "What did Nada decide to do for her own wedding?",
+        "options": {
+          "A": "make her own cake",
+          "B": "buy a cheap cake",
+          "C": "order a cake online",
+          "D": "have no cake"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "make her own cake",
+        "difficulty": "easy",
+        "source": {
+          "page": 26,
+          "reference": "Reading: Incredible Cake"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Unimpressed by expensive wedding cakes, Nada decided to make her own."
+          ],
+          "summary": "She made her own cake."
+        },
+        "explanation": "It was a work of art with edible trees and waterfalls."
+      },
+      {
+        "id": "U03-L01-Q012",
+        "number": 12,
+        "question": "Why did Nada work from home at first?",
+        "options": {
+          "A": "she and her husband didn't have the capital for a shop",
+          "B": "she preferred home working",
+          "C": "her shop burned down",
+          "D": "she had no customers"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "she and her husband didn't have the capital for a shop",
+        "difficulty": "medium",
+        "source": {
+          "page": 26,
+          "reference": "Reading: Incredible Cake"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "They didn't have the capital for a bricks-and-mortar shop, so she used e-commerce."
+          ],
+          "summary": "No capital for a shop."
+        },
+        "explanation": "She relied on e-commerce for her start-up."
+      },
+      {
+        "id": "U03-L01-Q013",
+        "number": 13,
+        "question": "What does 'bricks-and-mortar' mean?",
+        "options": {
+          "A": "a physical building such as a shop or office",
+          "B": "a building material",
+          "C": "a website",
+          "D": "a storage room"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a physical building such as a shop or office",
+        "difficulty": "medium",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 2: Business vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Bricks-and-mortar' refers to physical buildings, like a real shop."
+          ],
+          "summary": "bricks-and-mortar = physical shop."
+        },
+        "explanation": "Opposite of an online-only business."
+      },
+      {
+        "id": "U03-L01-Q014",
+        "number": 14,
+        "question": "What is a 'start-up'?",
+        "options": {
+          "A": "a new business that is risky",
+          "B": "a very old company",
+          "C": "a branch of a bank",
+          "D": "a chain store"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a new business that is risky",
+        "difficulty": "easy",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 2: Business vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A start-up is a new, risky business."
+          ],
+          "summary": "start-up = new risky business."
+        },
+        "explanation": "Her cake business began as a start-up."
+      },
+      {
+        "id": "U03-L01-Q015",
+        "number": 15,
+        "question": "What was Nada's new trade name?",
+        "options": {
+          "A": "A piece and love",
+          "B": "One-of-a-kind Furniture",
+          "C": "Goat Rental",
+          "D": "Incredible Cake"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A piece and love",
+        "difficulty": "medium",
+        "source": {
+          "page": 26,
+          "reference": "Reading: Incredible Cake"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "She opened her first physical store with the trade name 'A piece and love'."
+          ],
+          "summary": "A piece and love"
+        },
+        "explanation": "The name is a play on 'a piece of cake'."
+      },
+      {
+        "id": "U03-L01-Q016",
+        "number": 16,
+        "question": "What does 'bespoke' mean?",
+        "options": {
+          "A": "specially made for a particular person",
+          "B": "very cheap",
+          "C": "mass-produced",
+          "D": "broken"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "specially made for a particular person",
+        "difficulty": "easy",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 2: Business vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Her cakes include bespoke creations for the happy couple."
+          ],
+          "summary": "bespoke = made to order."
+        },
+        "explanation": "Bespoke cakes are made specially for customers."
+      },
+      {
+        "id": "U03-L01-Q017",
+        "number": 17,
+        "question": "What does 'bargain basement prices' mean?",
+        "options": {
+          "A": "extremely cheap prices",
+          "B": "expensive prices",
+          "C": "average prices",
+          "D": "hidden prices"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "extremely cheap prices",
+        "difficulty": "medium",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 2: Business vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Her simple designs are at bargain basement prices = very cheap."
+          ],
+          "summary": "bargain basement = extremely cheap."
+        },
+        "explanation": "The cakes cater to all budgets."
+      },
+      {
+        "id": "U03-L01-Q018",
+        "number": 18,
+        "question": "What does 'good value for money' mean?",
+        "options": {
+          "A": "worth the price you pay",
+          "B": "very expensive",
+          "C": "free",
+          "D": "poor quality"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "worth the price you pay",
+        "difficulty": "easy",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 2: Business vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Good value for money means the product is worth its price."
+          ],
+          "summary": "good value for money = worth it."
+        },
+        "explanation": "Customers want value for money."
+      },
+      {
+        "id": "U03-L01-Q019",
+        "number": 19,
+        "question": "What is a 'quote'?",
+        "options": {
+          "A": "the estimated price that will be charged for a service",
+          "B": "a famous saying",
+          "C": "a product guarantee",
+          "D": "a delivery time"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the estimated price that will be charged for a service",
+        "difficulty": "medium",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 2: Business vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The goat company will provide a quote before bringing the goats."
+          ],
+          "summary": "quote = estimated price."
+        },
+        "explanation": "It is a price offered before the service."
+      },
+      {
+        "id": "U03-L01-Q020",
+        "number": 20,
+        "question": "What is a 'business concept'?",
+        "options": {
+          "A": "an idea for a business",
+          "B": "a finished product",
+          "C": "a shop building",
+          "D": "an employee"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "an idea for a business",
+        "difficulty": "medium",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 2: Business vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Making cakes for a living became a business concept."
+          ],
+          "summary": "business concept = business idea."
+        },
+        "explanation": "It is the idea behind the company."
+      },
+      {
+        "id": "U03-L01-Q021",
+        "number": 21,
+        "question": "What is the 'price tag' of a product?",
+        "options": {
+          "A": "the amount that something costs",
+          "B": "the label with the brand",
+          "C": "the size of the product",
+          "D": "the expiry date"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the amount that something costs",
+        "difficulty": "easy",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 2: Business vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Nada was unimpressed by the expensive price tag of wedding cakes."
+          ],
+          "summary": "price tag = the cost."
+        },
+        "explanation": "It is the price attached to a product."
+      },
+      {
+        "id": "U03-L01-Q022",
+        "number": 22,
+        "question": "Which compound noun means 'money spent to start something'?",
+        "options": {
+          "A": "upfront investment",
+          "B": "sales gimmick",
+          "C": "impulse buy",
+          "D": "start-up"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "upfront investment",
+        "difficulty": "medium",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 4: Compound nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Planes require a lot of upfront investment to design and make."
+          ],
+          "summary": "upfront investment"
+        },
+        "explanation": "It is the money paid before a project starts."
+      },
+      {
+        "id": "U03-L01-Q023",
+        "number": 23,
+        "question": "Which compound noun means 'something bought without planning'?",
+        "options": {
+          "A": "impulse buy",
+          "B": "sales gimmick",
+          "C": "upfront investment",
+          "D": "word-of-mouth"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "impulse buy",
+        "difficulty": "medium",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 4: Compound nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'It was a bit of an impulse buy' = he bought it without planning."
+          ],
+          "summary": "impulse buy"
+        },
+        "explanation": "You buy on impulse."
+      },
+      {
+        "id": "U03-L01-Q024",
+        "number": 24,
+        "question": "Complete: 'They're giving away free toys as a part of a sales ______.'",
+        "options": {
+          "A": "gimmick",
+          "B": "concept",
+          "C": "quote",
+          "D": "venture"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "gimmick",
+        "difficulty": "easy",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 4: Compound nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The compound noun is 'sales gimmick'."
+          ],
+          "summary": "sales gimmick"
+        },
+        "explanation": "It is a trick to attract buyers."
+      },
+      {
+        "id": "U03-L01-Q025",
+        "number": 25,
+        "question": "Complete: 'My friend has just established a new start-______.'",
+        "options": {
+          "A": "up",
+          "B": "in",
+          "C": "out",
+          "D": "down"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "up",
+        "difficulty": "easy",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 4: Compound nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The compound noun is 'start-up'."
+          ],
+          "summary": "start-up"
+        },
+        "explanation": "It is a new business."
+      },
+      {
+        "id": "U03-L01-Q026",
+        "number": 26,
+        "question": "Complete: 'Planes require a lot of ______ investment.'",
+        "options": {
+          "A": "upfront",
+          "B": "offline",
+          "C": "overtime",
+          "D": "overhead"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "upfront",
+        "difficulty": "medium",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 4: Compound nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The compound noun is 'upfront investment'."
+          ],
+          "summary": "upfront investment"
+        },
+        "explanation": "The money is paid at the beginning."
+      },
+      {
+        "id": "U03-L01-Q027",
+        "number": 27,
+        "question": "Complete: 'I wasn't planning on getting a new shirt, it was a bit of an impulse ______.'",
+        "options": {
+          "A": "buy",
+          "B": "sell",
+          "C": "rent",
+          "D": "loan"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "buy",
+        "difficulty": "easy",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 4: Compound nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The compound noun is 'impulse buy'."
+          ],
+          "summary": "impulse buy"
+        },
+        "explanation": "It was a sudden, unplanned purchase."
+      },
+      {
+        "id": "U03-L01-Q028",
+        "number": 28,
+        "question": "Which phrasal verb means 'to start (a business)'?",
+        "options": {
+          "A": "set up",
+          "B": "break into",
+          "C": "knock off",
+          "D": "pass up"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "set up",
+        "difficulty": "easy",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 6: Phrasal verbs"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'What gave you the idea to set up the business?'"
+          ],
+          "summary": "set up = start."
+        },
+        "explanation": "You set up a new company."
+      },
+      {
+        "id": "U03-L01-Q029",
+        "number": 29,
+        "question": "Which phrasal verb means 'to enter (a new market)'?",
+        "options": {
+          "A": "break into",
+          "B": "sign up",
+          "C": "win over",
+          "D": "build up"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "break into",
+        "difficulty": "medium",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 6: Phrasal verbs"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'It seemed like a good market to break into.'"
+          ],
+          "summary": "break into = enter."
+        },
+        "explanation": "It means to get involved with a market."
+      },
+      {
+        "id": "U03-L01-Q030",
+        "number": 30,
+        "question": "Which phrasal verb means 'to fail to take advantage of an opportunity'?",
+        "options": {
+          "A": "pass up",
+          "B": "set up",
+          "C": "knock off",
+          "D": "build up"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "pass up",
+        "difficulty": "medium",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 6: Phrasal verbs"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'It was too good an opportunity to pass up.'"
+          ],
+          "summary": "pass up = fail to use."
+        },
+        "explanation": "He did not want to miss the chance."
+      },
+      {
+        "id": "U03-L01-Q031",
+        "number": 31,
+        "question": "Which phrasal verb means 'to commit (to a service)'?",
+        "options": {
+          "A": "sign up",
+          "B": "break into",
+          "C": "win over",
+          "D": "knock off"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "sign up",
+        "difficulty": "medium",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 6: Phrasal verbs"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'We often get new customers to sign up on the spot.'"
+          ],
+          "summary": "sign up = commit."
+        },
+        "explanation": "Customers agree to use the service."
+      },
+      {
+        "id": "U03-L01-Q032",
+        "number": 32,
+        "question": "Which phrasal verb means 'to gradually increase'?",
+        "options": {
+          "A": "build up",
+          "B": "pass up",
+          "C": "set up",
+          "D": "break into"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "build up",
+        "difficulty": "medium",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 6: Phrasal verbs"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'We'd been gradually building up customer loyalty in that area.'"
+          ],
+          "summary": "build up = increase gradually."
+        },
+        "explanation": "Loyalty grows over time."
+      },
+      {
+        "id": "U03-L01-Q033",
+        "number": 33,
+        "question": "Which phrasal verb means 'to persuade someone to support you'?",
+        "options": {
+          "A": "win over",
+          "B": "knock off",
+          "C": "sign up",
+          "D": "pass up"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "win over",
+        "difficulty": "medium",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 6: Phrasal verbs"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Eventually, we did manage to win them over.'"
+          ],
+          "summary": "win over = persuade."
+        },
+        "explanation": "They finally persuaded the customers."
+      },
+      {
+        "id": "U03-L01-Q034",
+        "number": 34,
+        "question": "Which phrasal verb means 'to considerably reduce a price'?",
+        "options": {
+          "A": "knock something off",
+          "B": "build something up",
+          "C": "set something up",
+          "D": "break something into"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "knock something off",
+        "difficulty": "medium",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 6: Phrasal verbs"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'We had to considerably knock the price off.'"
+          ],
+          "summary": "knock off = reduce price."
+        },
+        "explanation": "They lowered the price a lot."
+      },
+      {
+        "id": "U03-L01-Q035",
+        "number": 35,
+        "question": "How did Nada's reputation grow?",
+        "options": {
+          "A": "through social media and word-of-mouth",
+          "B": "through television adverts",
+          "C": "through radio commercials",
+          "D": "through newspaper ads"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "through social media and word-of-mouth",
+        "difficulty": "medium",
+        "source": {
+          "page": 26,
+          "reference": "Reading: Incredible Cake"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Through social media and word-of-mouth, her reputation grew.'"
+          ],
+          "summary": "Social media and word-of-mouth."
+        },
+        "explanation": "Within a year she opened a physical store."
+      },
+      {
+        "id": "U03-L01-Q036",
+        "number": 36,
+        "question": "What does 'word-of-mouth' mean?",
+        "options": {
+          "A": "people telling each other about something",
+          "B": "advertising on the radio",
+          "C": "speaking publicly",
+          "D": "a written review"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "people telling each other about something",
+        "difficulty": "medium",
+        "source": {
+          "page": 26,
+          "reference": "Reading: Incredible Cake"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Word-of-mouth means customers recommend the business to each other."
+          ],
+          "summary": "word-of-mouth = personal recommendation."
+        },
+        "explanation": "It helped her reputation grow."
+      },
+      {
+        "id": "U03-L01-Q037",
+        "number": 37,
+        "question": "What does 'meticulous attention to detail' mean?",
+        "options": {
+          "A": "extremely careful attention to detail",
+          "B": "careless work",
+          "C": "quick work",
+          "D": "no attention at all"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "extremely careful attention to detail",
+        "difficulty": "medium",
+        "source": {
+          "page": 26,
+          "reference": "Reading: Incredible Cake"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Nada and her staff pay meticulous attention to detail."
+          ],
+          "summary": "meticulous = extremely careful."
+        },
+        "explanation": "Each cake is made to be special."
+      },
+      {
+        "id": "U03-L01-Q038",
+        "number": 38,
+        "question": "What does 'cost-effective' mean?",
+        "options": {
+          "A": "giving good value in relation to its cost",
+          "B": "extremely expensive",
+          "C": "free of charge",
+          "D": "difficult to sell"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "giving good value in relation to its cost",
+        "difficulty": "medium",
+        "source": {
+          "page": 27,
+          "reference": "Exercise 2: Business vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The goat service is cost-effective: 38 goats do a huge job for the money."
+          ],
+          "summary": "cost-effective = worth the cost."
+        },
+        "explanation": "It gives good value for money."
+      },
+      {
+        "id": "U03-L01-Q039",
+        "number": 39,
+        "question": "What does the unit overview say the WRITING focus is?",
+        "options": {
+          "A": "a for-and-against essay",
+          "B": "an email of complaint",
+          "C": "a blog post",
+          "D": "a restaurant review"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a for-and-against essay",
+        "difficulty": "easy",
+        "source": {
+          "page": 26,
+          "reference": "Unit 3 overview"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Unit 3 WRITING: A for-and-against essay."
+          ],
+          "summary": "A for-and-against essay"
+        },
+        "explanation": "The GRAMMAR focus is the Passive."
+      },
+      {
+        "id": "U03-L01-Q040",
+        "number": 40,
+        "question": "What does the unit overview say the GRAMMAR focus is?",
+        "options": {
+          "A": "the Passive",
+          "B": "inversion",
+          "C": "cleft sentences",
+          "D": "conditional forms"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the Passive",
+        "difficulty": "easy",
+        "source": {
+          "page": 26,
+          "reference": "Unit 3 overview"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Unit 3 GRAMMAR: The Passive."
+          ],
+          "summary": "The Passive"
+        },
+        "explanation": "It also covers phrasal verbs and compound nouns."
+      }
+    ]
+  }
+}

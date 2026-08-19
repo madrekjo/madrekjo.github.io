@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "1",
+    "lesson_name": "Vocabulary and Speaking",
+    "unit_number": 5,
+    "unit_name": "Do your best",
+    "page_start": 48,
+    "page_end": 49,
+    "questions": [
+      {
+        "id": "U05-L01-Q001",
+        "number": 1,
+        "question": "Which sport uses a shuttlecock?",
+        "options": {
+          "A": "Badminton",
+          "B": "Tennis",
+          "C": "Football",
+          "D": "Basketball"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Badminton",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the sport that uses a shuttlecock as its main equipment."
+          ],
+          "summary": "Badminton uses a shuttlecock."
+        },
+        "explanation": "Badminton is played with a shuttlecock, not a ball."
+      },
+      {
+        "id": "U05-L01-Q002",
+        "number": 2,
+        "question": "What does 'compete' mean?",
+        "options": {
+          "A": "To take part in a contest or game",
+          "B": "To rest after exercise",
+          "C": "To watch a match",
+          "D": "To eat before a game"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "To take part in a contest or game",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Recall the definition of the verb 'compete'."
+          ],
+          "summary": "Compete means to take part in a contest."
+        },
+        "explanation": "Competing involves actively participating in a contest or game."
+      },
+      {
+        "id": "U05-L01-Q003",
+        "number": 3,
+        "question": "Which sport involves gymnastic movements on a mat?",
+        "options": {
+          "A": "Gymnastics",
+          "B": "Swimming",
+          "C": "Cycling",
+          "D": "Boxing"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Gymnastics",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Match the description to the correct sport."
+          ],
+          "summary": "Gymnastics is performed on a mat."
+        },
+        "explanation": "Gymnastics involves acrobatic movements performed on a mat or apparatus."
+      },
+      {
+        "id": "U05-L01-Q004",
+        "number": 4,
+        "question": "What is the opposite of 'win'?",
+        "options": {
+          "A": "Lose",
+          "B": "Score",
+          "C": "Train",
+          "D": "Qualify"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Lose",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the antonym of 'win'."
+          ],
+          "summary": "The opposite of 'win' is 'lose'."
+        },
+        "explanation": "Winning and losing are opposite outcomes in competition."
+      },
+      {
+        "id": "U05-L01-Q005",
+        "number": 5,
+        "question": "Which word describes someone who really wants to succeed?",
+        "options": {
+          "A": "Determined",
+          "B": "Exhausted",
+          "C": "Lazy",
+          "D": "Calm"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Determined",
+        "difficulty": "medium",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Choose the adjective that means strongly motivated to succeed."
+          ],
+          "summary": "Determined means wanting to succeed strongly."
+        },
+        "explanation": "A determined person has strong motivation and willpower to achieve goals."
+      },
+      {
+        "id": "U05-L01-Q006",
+        "number": 6,
+        "question": "What does 'to train' mean in sports?",
+        "options": {
+          "A": "To practise regularly to improve",
+          "B": "To travel by train",
+          "C": "To eat healthy food",
+          "D": "To sleep early"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "To practise regularly to improve",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define the sports meaning of 'train'."
+          ],
+          "summary": "To train means to practise regularly."
+        },
+        "explanation": "Athletes train regularly to improve their performance."
+      },
+      {
+        "id": "U05-L01-Q007",
+        "number": 7,
+        "question": "Which is NOT a sport?",
+        "options": {
+          "A": "Reading",
+          "B": "Volleyball",
+          "C": "Athletics",
+          "D": "Swimming"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Reading",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify which option is not classified as a sport."
+          ],
+          "summary": "Reading is not a sport."
+        },
+        "explanation": "Reading is a leisure activity, not a competitive physical sport."
+      },
+      {
+        "id": "U05-L01-Q008",
+        "number": 8,
+        "question": "What does 'athletics' refer to?",
+        "options": {
+          "A": "Track and field sports like running and jumping",
+          "B": "Playing video games",
+          "C": "Reading books",
+          "D": "Cooking food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Track and field sports like running and jumping",
+        "difficulty": "medium",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Recall the meaning of 'athletics' in a sports context."
+          ],
+          "summary": "Athletics refers to track and field sports."
+        },
+        "explanation": "Athletics includes running, jumping, throwing, and walking events."
+      },
+      {
+        "id": "U05-L01-Q009",
+        "number": 9,
+        "question": "If someone is 'exhausted', they feel...",
+        "options": {
+          "A": "Very tired",
+          "B": "Very happy",
+          "C": "Very hungry",
+          "D": "Very cold"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Very tired",
+        "difficulty": "easy",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the meaning of 'exhausted'."
+          ],
+          "summary": "Exhausted means very tired."
+        },
+        "explanation": "Exhaustion is extreme tiredness, often after physical activity."
+      },
+      {
+        "id": "U05-L01-Q010",
+        "number": 10,
+        "question": "Which word means 'to earn a point' in sports?",
+        "options": {
+          "A": "Score",
+          "B": "Lose",
+          "C": "Fall",
+          "D": "Rest"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Score",
+        "difficulty": "easy",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the verb that means to earn a point."
+          ],
+          "summary": "Score means to earn a point."
+        },
+        "explanation": "Players score points or goals during a game."
+      },
+      {
+        "id": "U05-L01-Q011",
+        "number": 11,
+        "question": "What does 'competitive' describe?",
+        "options": {
+          "A": "Someone who enjoys winning and trying hard",
+          "B": "Someone who does not care about sports",
+          "C": "Someone who sleeps a lot",
+          "D": "Someone who is very slow"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Someone who enjoys winning and trying hard",
+        "difficulty": "medium",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define the adjective 'competitive'."
+          ],
+          "summary": "Competitive describes someone who enjoys winning."
+        },
+        "explanation": "A competitive person tries hard to be the best."
+      },
+      {
+        "id": "U05-L01-Q012",
+        "number": 12,
+        "question": "Which sport is played in a swimming pool?",
+        "options": {
+          "A": "Water polo",
+          "B": "Cricket",
+          "C": "Baseball",
+          "D": "Rugby"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Water polo",
+        "difficulty": "easy",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Match the sport to its playing location."
+          ],
+          "summary": "Water polo is played in a swimming pool."
+        },
+        "explanation": "Water polo is a team sport played in a pool."
+      },
+      {
+        "id": "U05-L01-Q013",
+        "number": 13,
+        "question": "What does 'to qualify' mean in sports?",
+        "options": {
+          "A": "To meet the required standard to enter a competition",
+          "B": "To quit a race",
+          "C": "To buy a ticket",
+          "D": "To sleep before a game"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "To meet the required standard to enter a competition",
+        "difficulty": "medium",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define the sports meaning of 'qualify'."
+          ],
+          "summary": "Qualify means to meet requirements for a competition."
+        },
+        "explanation": "Athletes must qualify by achieving certain results before major events."
+      },
+      {
+        "id": "U05-L01-Q014",
+        "number": 14,
+        "question": "What is the equipment used in volleyball?",
+        "options": {
+          "A": "A large ball and a net",
+          "B": "A bat and a ball",
+          "C": "A racket and a shuttlecock",
+          "D": "A stick and a puck"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A large ball and a net",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the equipment for volleyball."
+          ],
+          "summary": "Volleyball uses a ball and a net."
+        },
+        "explanation": "Volleyball is played with a large ball over a high net."
+      },
+      {
+        "id": "U05-L01-Q015",
+        "number": 15,
+        "question": "Which word best describes someone who never gives up?",
+        "options": {
+          "A": "Persistent",
+          "B": "Lazy",
+          "C": "Slow",
+          "D": "Weak"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Persistent",
+        "difficulty": "medium",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Choose the adjective meaning 'never gives up'."
+          ],
+          "summary": "Persistent means never giving up."
+        },
+        "explanation": "A persistent athlete keeps trying even after failures."
+      },
+      {
+        "id": "U05-L01-Q016",
+        "number": 16,
+        "question": "What does 'hurdles' refer to in athletics?",
+        "options": {
+          "A": "A race over barriers",
+          "B": "A swimming event",
+          "C": "A ball game",
+          "D": "A team sport"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A race over barriers",
+        "difficulty": "medium",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify what 'hurdles' means in athletics."
+          ],
+          "summary": "Hurdles is a race over barriers."
+        },
+        "explanation": "Hurdles is a track event where runners jump over obstacles."
+      },
+      {
+        "id": "U05-L01-Q017",
+        "number": 17,
+        "question": "Which sport uses a bat and a ball?",
+        "options": {
+          "A": "Cricket",
+          "B": "Swimming",
+          "C": "Running",
+          "D": "Cycling"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Cricket",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Match the equipment to the correct sport."
+          ],
+          "summary": "Cricket uses a bat and a ball."
+        },
+        "explanation": "In cricket, players hit a ball with a flat bat."
+      },
+      {
+        "id": "U05-L01-Q018",
+        "number": 18,
+        "question": "What is a 'tournament'?",
+        "options": {
+          "A": "A competition with many matches or games",
+          "B": "A single race",
+          "C": "A practice session",
+          "D": "A rest day"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A competition with many matches or games",
+        "difficulty": "easy",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define the noun 'tournament'."
+          ],
+          "summary": "A tournament is a large competition."
+        },
+        "explanation": "A tournament involves many participants playing multiple rounds."
+      },
+      {
+        "id": "U05-L01-Q019",
+        "number": 19,
+        "question": "Which word means 'to do physical exercise before an event'?",
+        "options": {
+          "A": "Warm up",
+          "B": "Cool down",
+          "C": "Give up",
+          "D": "Break down"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Warm up",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the correct phrasal verb for pre-exercise activity."
+          ],
+          "summary": "Warm up means to exercise before an event."
+        },
+        "explanation": "Warming up prepares the body for physical activity."
+      },
+      {
+        "id": "U05-L01-Q020",
+        "number": 20,
+        "question": "What does 'athletic' mean?",
+        "options": {
+          "A": "Good at sports and physically fit",
+          "B": "Bad at sports",
+          "C": "Not interested in exercise",
+          "D": "Very slow"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Good at sports and physically fit",
+        "difficulty": "medium",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define the adjective 'athletic'."
+          ],
+          "summary": "Athletic means physically fit and good at sports."
+        },
+        "explanation": "An athletic person has strength, speed, and endurance."
+      },
+      {
+        "id": "U05-L01-Q021",
+        "number": 21,
+        "question": "Which sport is also known as 'football' in most countries?",
+        "options": {
+          "A": "Soccer",
+          "B": "American football",
+          "C": "Rugby",
+          "D": "Cricket"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Soccer",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the sport called 'football' globally."
+          ],
+          "summary": "Soccer is called football worldwide."
+        },
+        "explanation": "In most countries, 'football' refers to soccer."
+      },
+      {
+        "id": "U05-L01-Q022",
+        "number": 22,
+        "question": "What does 'to defeat' someone mean?",
+        "options": {
+          "A": "To beat them in a competition",
+          "B": "To help them win",
+          "C": "To train with them",
+          "D": "To share a medal with them"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "To beat them in a competition",
+        "difficulty": "easy",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define the verb 'defeat'."
+          ],
+          "summary": "Defeat means to beat someone in competition."
+        },
+        "explanation": "To defeat an opponent means to win against them."
+      },
+      {
+        "id": "U05-L01-Q023",
+        "number": 23,
+        "question": "Which is a water sport?",
+        "options": {
+          "A": "Surfing",
+          "B": "Cycling",
+          "C": "Boxing",
+          "D": "Tennis"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Surfing",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify which sport is performed in water."
+          ],
+          "summary": "Surfing is a water sport."
+        },
+        "explanation": "Surfing involves riding waves on a board in the ocean."
+      },
+      {
+        "id": "U05-L01-Q024",
+        "number": 24,
+        "question": "What does 'spectator' mean?",
+        "options": {
+          "A": "A person who watches a sport or event",
+          "B": "A person who plays a sport",
+          "C": "A coach",
+          "D": "A referee"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A person who watches a sport or event",
+        "difficulty": "medium",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define the noun 'spectator'."
+          ],
+          "summary": "A spectator is a person who watches."
+        },
+        "explanation": "Spectators watch sports events but do not participate."
+      },
+      {
+        "id": "U05-L01-Q025",
+        "number": 25,
+        "question": "What is a 'marathon'?",
+        "options": {
+          "A": "A long-distance running race of 42 km",
+          "B": "A short sprint",
+          "C": "A swimming race",
+          "D": "A team ball game"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A long-distance running race of 42 km",
+        "difficulty": "medium",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'marathon' in sports terms."
+          ],
+          "summary": "A marathon is a 42-kilometre running race."
+        },
+        "explanation": "Marathons test endurance and are held in many cities worldwide."
+      },
+      {
+        "id": "U05-L01-Q026",
+        "number": 26,
+        "question": "Which word means 'to get ready for a competition'?",
+        "options": {
+          "A": "Prepare",
+          "B": "Forget",
+          "C": "Ignore",
+          "D": "Avoid"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Prepare",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Choose the verb meaning 'get ready'."
+          ],
+          "summary": "Prepare means to get ready."
+        },
+        "explanation": "Athletes prepare physically and mentally for competitions."
+      },
+      {
+        "id": "U05-L01-Q027",
+        "number": 27,
+        "question": "What does 'referee' mean?",
+        "options": {
+          "A": "The official who enforces the rules in a game",
+          "B": "A player on the team",
+          "C": "A coach",
+          "D": "A fan"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The official who enforces the rules in a game",
+        "difficulty": "medium",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define the role of a 'referee'."
+          ],
+          "summary": "A referee enforces the rules in a game."
+        },
+        "explanation": "The referee makes sure all players follow the rules."
+      },
+      {
+        "id": "U05-L01-Q028",
+        "number": 28,
+        "question": "Which adjective means 'very fast'?",
+        "options": {
+          "A": "Quick",
+          "B": "Heavy",
+          "C": "Tall",
+          "D": "Wide"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Quick",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Choose the adjective that means 'very fast'."
+          ],
+          "summary": "Quick means very fast."
+        },
+        "explanation": "Quick athletes have a speed advantage."
+      },
+      {
+        "id": "U05-L01-Q029",
+        "number": 29,
+        "question": "What does 'endurance' mean in sports?",
+        "options": {
+          "A": "The ability to keep going for a long time",
+          "B": "The ability to run fast for a short time",
+          "C": "The ability to jump high",
+          "D": "The ability to throw far"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The ability to keep going for a long time",
+        "difficulty": "medium",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'endurance' in a sports context."
+          ],
+          "summary": "Endurance is the ability to keep going for a long time."
+        },
+        "explanation": "Endurance athletes train to sustain effort over long periods."
+      },
+      {
+        "id": "U05-L01-Q030",
+        "number": 30,
+        "question": "Which is NOT a type of exercise?",
+        "options": {
+          "A": "Snoring",
+          "B": "Running",
+          "C": "Cycling",
+          "D": "Swimming"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Snoring",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify which option is not a form of exercise."
+          ],
+          "summary": "Snoring is not exercise."
+        },
+        "explanation": "Snoring is an involuntary action during sleep, not physical exercise."
+      },
+      {
+        "id": "U05-L01-Q031",
+        "number": 31,
+        "question": "What does 'stamina' mean?",
+        "options": {
+          "A": "Physical strength and energy over time",
+          "B": "Speed over a short distance",
+          "C": "Flexibility",
+          "D": "Balance"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Physical strength and energy over time",
+        "difficulty": "medium",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'stamina' in sports."
+          ],
+          "summary": "Stamina is sustained physical energy."
+        },
+        "explanation": "Stamina allows athletes to perform for extended periods."
+      },
+      {
+        "id": "U05-L01-Q032",
+        "number": 32,
+        "question": "Which sport is played on ice?",
+        "options": {
+          "A": "Ice hockey",
+          "B": "Cricket",
+          "C": "Tennis",
+          "D": "Volleyball"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Ice hockey",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Match the sport to its playing surface."
+          ],
+          "summary": "Ice hockey is played on ice."
+        },
+        "explanation": "Ice hockey is a fast-paced sport played on a frozen rink."
+      },
+      {
+        "id": "U05-L01-Q033",
+        "number": 33,
+        "question": "What does 'teamwork' mean?",
+        "options": {
+          "A": "Working together with others to achieve a goal",
+          "B": "Working alone",
+          "C": "Cheering from the stands",
+          "D": "Wearing a uniform"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Working together with others to achieve a goal",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'teamwork' in a sports context."
+          ],
+          "summary": "Teamwork means working together as a group."
+        },
+        "explanation": "Good teamwork helps sports teams succeed."
+      },
+      {
+        "id": "U05-L01-Q034",
+        "number": 34,
+        "question": "What is a 'sprint'?",
+        "options": {
+          "A": "A short-distance race at maximum speed",
+          "B": "A long-distance jog",
+          "C": "A swimming stroke",
+          "D": "A type of jump"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A short-distance race at maximum speed",
+        "difficulty": "medium",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'sprint' in athletics."
+          ],
+          "summary": "A sprint is a short fast race."
+        },
+        "explanation": "Sprints are explosive, high-speed races over short distances."
+      },
+      {
+        "id": "U05-L01-Q035",
+        "number": 35,
+        "question": "Which word means 'fair play'?",
+        "options": {
+          "A": "Sportsmanship",
+          "B": "Cheating",
+          "C": "Laziness",
+          "D": "Sadness"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Sportsmanship",
+        "difficulty": "medium",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the word for fair behaviour in sports."
+          ],
+          "summary": "Sportsmanship means fair play."
+        },
+        "explanation": "Good sportsmanship involves respecting opponents and rules."
+      },
+      {
+        "id": "U05-L01-Q036",
+        "number": 36,
+        "question": "What does 'coach' mean?",
+        "options": {
+          "A": "A person who trains and guides athletes",
+          "B": "A type of bus",
+          "C": "A type of chair",
+          "D": "A referee"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A person who trains and guides athletes",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define the role of a 'coach' in sports."
+          ],
+          "summary": "A coach trains and guides athletes."
+        },
+        "explanation": "Coaches help athletes improve their skills and strategy."
+      },
+      {
+        "id": "U05-L01-Q037",
+        "number": 37,
+        "question": "Which sport uses a net and rackets?",
+        "options": {
+          "A": "Tennis",
+          "B": "Football",
+          "C": "Basketball",
+          "D": "Swimming"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Tennis",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Match the equipment to the correct sport."
+          ],
+          "summary": "Tennis uses a net and rackets."
+        },
+        "explanation": "Tennis is played with rackets over a net dividing the court."
+      },
+      {
+        "id": "U05-L01-Q038",
+        "number": 38,
+        "question": "What does 'to forfeit' mean?",
+        "options": {
+          "A": "To give up or withdraw from a competition",
+          "B": "To win a medal",
+          "C": "To score a goal",
+          "D": "To start a race"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "To give up or withdraw from a competition",
+        "difficulty": "hard",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define the verb 'forfeit'."
+          ],
+          "summary": "Forfeit means to give up a competition."
+        },
+        "explanation": "A team may forfeit if they cannot continue playing."
+      },
+      {
+        "id": "U05-L01-Q039",
+        "number": 39,
+        "question": "Which word describes someone who plays sports regularly?",
+        "options": {
+          "A": "Active",
+          "B": "Passive",
+          "C": "Dull",
+          "D": "Lazy"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Active",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Choose the adjective for a regularly active person."
+          ],
+          "summary": "Active describes someone who exercises regularly."
+        },
+        "explanation": "Active people engage in physical activities often."
+      },
+      {
+        "id": "U05-L01-Q040",
+        "number": 40,
+        "question": "What is a 'bronze medal' awarded for?",
+        "options": {
+          "A": "Third place in a competition",
+          "B": "First place",
+          "C": "Last place",
+          "D": "Participation only"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Third place in a competition",
+        "difficulty": "medium",
+        "source": {
+          "page": 49,
+          "reference": "L1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Recall which place wins a bronze medal."
+          ],
+          "summary": "A bronze medal is for third place."
+        },
+        "explanation": "Gold is first, silver is second, and bronze is third."
+      }
+    ]
+  }
+}

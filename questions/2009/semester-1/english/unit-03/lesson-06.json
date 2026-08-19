@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "6",
+    "lesson_name": "Writing and Vocabulary",
+    "unit_number": 3,
+    "unit_name": "Hard sell",
+    "page_start": 34,
+    "page_end": 35,
+    "questions": [
+      {
+        "id": "U03-L06-Q001",
+        "number": 1,
+        "question": "What is the topic of the essay in the unit?",
+        "options": {
+          "A": "whether we should buy locally or buy from anywhere in the world",
+          "B": "whether online shopping is dangerous",
+          "C": "how to save money",
+          "D": "the history of supermarkets"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "whether we should buy locally or buy from anywhere in the world",
+        "difficulty": "easy",
+        "source": {
+          "page": 34,
+          "reference": "Writing: topic"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The essay asks whether we should buy local produce or buy from abroad."
+          ],
+          "summary": "Buying local"
+        },
+        "explanation": "It weighs the two sides of the argument."
+      },
+      {
+        "id": "U03-L06-Q002",
+        "number": 2,
+        "question": "Why is 'buying local' a good title for the essay?",
+        "options": {
+          "A": "it summarises the topic in just two words",
+          "B": "it is long and detailed",
+          "C": "it names the writer",
+          "D": "it gives the conclusion"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it summarises the topic in just two words",
+        "difficulty": "easy",
+        "source": {
+          "page": 34,
+          "reference": "Writing: title"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Buying local' instantly tells the reader what the essay is about."
+          ],
+          "summary": "A good title is short and clear."
+        },
+        "explanation": "It shows the subject immediately."
+      },
+      {
+        "id": "U03-L06-Q003",
+        "number": 3,
+        "question": "Why should the opening paragraph do more than repeat the title?",
+        "options": {
+          "A": "it should also grab the reader's attention",
+          "B": "it should be very short",
+          "C": "it should include facts",
+          "D": "it should give the opinion"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it should also grab the reader's attention",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Writing: opening"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A good opening catches the reader's attention and introduces the debate."
+          ],
+          "summary": "Grab the reader's attention"
+        },
+        "explanation": "Then introduce the issue being argued."
+      },
+      {
+        "id": "U03-L06-Q004",
+        "number": 4,
+        "question": "In the opening paragraph, what example is used?",
+        "options": {
+          "A": "packaged food, books and cheap clothes",
+          "B": "cars and petrol",
+          "C": "houses and land",
+          "D": "machinery and tools"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "packaged food, books and cheap clothes",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Writing: opening"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Packaged food, books and cheap clothes are given as examples."
+          ],
+          "summary": "Food, books and clothes"
+        },
+        "explanation": "These are things we can buy from anywhere."
+      },
+      {
+        "id": "U03-L06-Q005",
+        "number": 5,
+        "question": "What surprise does the opening paragraph mention?",
+        "options": {
+          "A": "a label showing that a product was made in another country",
+          "B": "a price that is too cheap",
+          "C": "a free gift",
+          "D": "a new shop"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a label showing that a product was made in another country",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Writing: opening"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "It is surprising when a label reveals a product was made far away."
+          ],
+          "summary": "A label shows a foreign origin."
+        },
+        "explanation": "This surprises some buyers."
+      },
+      {
+        "id": "U03-L06-Q006",
+        "number": 6,
+        "question": "What is a 'shop around'?",
+        "options": {
+          "A": "compare prices in different shops before buying",
+          "B": "buy everything in one shop",
+          "C": "ask for a refund",
+          "D": "order online"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "compare prices in different shops before buying",
+        "difficulty": "easy",
+        "source": {
+          "page": 34,
+          "reference": "Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Shop around' means to compare prices before deciding."
+          ],
+          "summary": "Compare prices"
+        },
+        "explanation": "You shop around to find the best deal."
+      },
+      {
+        "id": "U03-L06-Q007",
+        "number": 7,
+        "question": "What is 'to stock up'?",
+        "options": {
+          "A": "buy large quantities for the future",
+          "B": "put goods on shelves",
+          "C": "open a new shop",
+          "D": "sell items cheaply"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "buy large quantities for the future",
+        "difficulty": "easy",
+        "source": {
+          "page": 34,
+          "reference": "Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Stock up' means to buy a lot of something to keep for later."
+          ],
+          "summary": "Buy in large quantities"
+        },
+        "explanation": "We stock up on essentials."
+      },
+      {
+        "id": "U03-L06-Q008",
+        "number": 8,
+        "question": "What is 'to run errands'?",
+        "options": {
+          "A": "make short journeys to do jobs like buying things",
+          "B": "run a shop",
+          "C": "work for a company",
+          "D": "go on holiday"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "make short journeys to do jobs like buying things",
+        "difficulty": "easy",
+        "source": {
+          "page": 34,
+          "reference": "Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Run errands' means make short trips to do small tasks."
+          ],
+          "summary": "Short trips for tasks"
+        },
+        "explanation": "Like going to the shop or the bank."
+      },
+      {
+        "id": "U03-L06-Q009",
+        "number": 9,
+        "question": "What is 'to go on a shopping spree'?",
+        "options": {
+          "A": "go shopping and spend a lot of money in a short time",
+          "B": "buy only food",
+          "C": "window-shop without buying",
+          "D": "return goods to a shop"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "go shopping and spend a lot of money in a short time",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A shopping spree means buying lots of things at once."
+          ],
+          "summary": "Spend a lot quickly"
+        },
+        "explanation": "It is an exciting but expensive activity."
+      },
+      {
+        "id": "U03-L06-Q010",
+        "number": 10,
+        "question": "What does 'mooch around' mean?",
+        "options": {
+          "A": "wander slowly around the shops with no clear purpose",
+          "B": "run quickly through the mall",
+          "C": "compare prices carefully",
+          "D": "buy in bulk"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "wander slowly around the shops with no clear purpose",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Mooch around' means wander without a fixed aim."
+          ],
+          "summary": "Wander aimlessly"
+        },
+        "explanation": "People mooch around the shops on Saturdays."
+      },
+      {
+        "id": "U03-L06-Q011",
+        "number": 11,
+        "question": "Which phrase means 'exactly what I need'?",
+        "options": {
+          "A": "just the ticket",
+          "B": "up to the minute",
+          "C": "a piece of cake",
+          "D": "in the red"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "just the ticket",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Just the ticket' means exactly what is wanted or needed."
+          ],
+          "summary": "just the ticket"
+        },
+        "explanation": "A shopping-related idiom."
+      },
+      {
+        "id": "U03-L06-Q012",
+        "number": 12,
+        "question": "What does 'weigh up the pros and cons' mean?",
+        "options": {
+          "A": "consider the advantages and disadvantages",
+          "B": "weigh the goods you bought",
+          "C": "decide immediately",
+          "D": "count your money"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "consider the advantages and disadvantages",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Writing: essay language"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Weigh up the pros and cons' means think about the good and bad points."
+          ],
+          "summary": "Consider pros and cons"
+        },
+        "explanation": "This is the core of a for-and-against essay."
+      },
+      {
+        "id": "U03-L06-Q013",
+        "number": 13,
+        "question": "In a for-and-against essay, where do you usually state your own opinion?",
+        "options": {
+          "A": "in the final paragraph",
+          "B": "only in the title",
+          "C": "at the start of every sentence",
+          "D": "in the middle of a list"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "in the final paragraph",
+        "difficulty": "easy",
+        "source": {
+          "page": 34,
+          "reference": "Writing: structure"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The essay generally ends with the writer's own opinion."
+          ],
+          "summary": "In the final paragraph"
+        },
+        "explanation": "You reach your conclusion at the end."
+      },
+      {
+        "id": "U03-L06-Q014",
+        "number": 14,
+        "question": "What tense do you normally use to give your opinion at the end?",
+        "options": {
+          "A": "the present simple",
+          "B": "the past perfect",
+          "C": "the future continuous",
+          "D": "the present perfect continuous"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the present simple",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Writing: opinion"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Use the present simple when giving your own opinion."
+          ],
+          "summary": "Present simple"
+        },
+        "explanation": "'I think that...', 'In my opinion...'"
+      },
+      {
+        "id": "U03-L06-Q015",
+        "number": 15,
+        "question": "Why do you NOT use the past tense to give your final opinion?",
+        "options": {
+          "A": "opinions are about the present, not the past",
+          "B": "the past is too informal",
+          "C": "it is grammatically wrong",
+          "D": "nobody uses the past"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "opinions are about the present, not the past",
+        "difficulty": "hard",
+        "source": {
+          "page": 34,
+          "reference": "Writing: opinion"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A final opinion states what you think now, so the present simple fits."
+          ],
+          "summary": "The opinion is true now."
+        },
+        "explanation": "Present simple matches this."
+      },
+      {
+        "id": "U03-L06-Q016",
+        "number": 16,
+        "question": "Which words help you paraphrase in an essay?",
+        "options": {
+          "A": "nearly the same as, identical, a different way to say",
+          "B": "however, therefore, but",
+          "C": "a, an, the",
+          "D": "and, or, but"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "nearly the same as, identical, a different way to say",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Writing: paraphrasing"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Paraphrasing words include 'nearly the same as' and 'a different way to say'."
+          ],
+          "summary": "Paraphrasing phrases"
+        },
+        "explanation": "They help you avoid repeating words."
+      },
+      {
+        "id": "U03-L06-Q017",
+        "number": 17,
+        "question": "Why is paraphrasing useful in an essay?",
+        "options": {
+          "A": "it lets you show the same idea in a different way",
+          "B": "it makes the essay longer",
+          "C": "it adds new ideas",
+          "D": "it changes the topic"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it lets you show the same idea in a different way",
+        "difficulty": "easy",
+        "source": {
+          "page": 34,
+          "reference": "Writing: paraphrasing"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Paraphrasing expresses the same idea without repeating it."
+          ],
+          "summary": "Say the same thing differently"
+        },
+        "explanation": "It keeps the essay natural."
+      },
+      {
+        "id": "U03-L06-Q018",
+        "number": 18,
+        "question": "Which of these is a way to introduce a contrast?",
+        "options": {
+          "A": "on the other hand",
+          "B": "for example",
+          "C": "in addition",
+          "D": "first of all"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "on the other hand",
+        "difficulty": "easy",
+        "source": {
+          "page": 34,
+          "reference": "Writing: linking words"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'On the other hand' introduces the opposite side of an argument."
+          ],
+          "summary": "on the other hand"
+        },
+        "explanation": "Use it in a for-and-against essay."
+      },
+      {
+        "id": "U03-L06-Q019",
+        "number": 19,
+        "question": "Which expression introduces a conclusion?",
+        "options": {
+          "A": "taking everything into account",
+          "B": "to begin with",
+          "C": "furthermore",
+          "D": "as well as"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "taking everything into account",
+        "difficulty": "easy",
+        "source": {
+          "page": 34,
+          "reference": "Writing: linking words"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Taking everything into account' signals the final opinion."
+          ],
+          "summary": "taking everything into account"
+        },
+        "explanation": "Other options include 'on balance'."
+      },
+      {
+        "id": "U03-L06-Q020",
+        "number": 20,
+        "question": "What does 'in my view' do in a final paragraph?",
+        "options": {
+          "A": "marks your personal opinion",
+          "B": "adds an example",
+          "C": "starts a new topic",
+          "D": "gives a fact"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "marks your personal opinion",
+        "difficulty": "easy",
+        "source": {
+          "page": 34,
+          "reference": "Writing: opinion"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'In my view' clearly marks a personal opinion."
+          ],
+          "summary": "Marks the opinion"
+        },
+        "explanation": "Similar: 'I believe that', 'as I see it'."
+      },
+      {
+        "id": "U03-L06-Q021",
+        "number": 21,
+        "question": "Which word means 'finally' or 'in conclusion'?",
+        "options": {
+          "A": "eventually",
+          "B": "suddenly",
+          "C": "fortunately",
+          "D": "obviously"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "eventually",
+        "difficulty": "hard",
+        "source": {
+          "page": 34,
+          "reference": "Writing: linking words"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Eventually' can mean finally, in the end."
+          ],
+          "summary": "eventually = in conclusion"
+        },
+        "explanation": "It signals the final paragraph."
+      },
+      {
+        "id": "U03-L06-Q022",
+        "number": 22,
+        "question": "Which phrase means 'considering everything'?",
+        "options": {
+          "A": "on balance",
+          "B": "in the red",
+          "C": "up to the minute",
+          "D": "in the black"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "on balance",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Writing: linking words"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'On balance' means when all things are considered."
+          ],
+          "summary": "on balance"
+        },
+        "explanation": "Used before giving a final opinion."
+      },
+      {
+        "id": "U03-L06-Q023",
+        "number": 23,
+        "question": "Complete the essay opener: 'The internet means that we can now buy things ______ all over the world.'",
+        "options": {
+          "A": "from",
+          "B": "at",
+          "C": "by",
+          "D": "to"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "from",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Writing: opening"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'...buy things from all over the world.'"
+          ],
+          "summary": "from"
+        },
+        "explanation": "We buy things from places."
+      },
+      {
+        "id": "U03-L06-Q024",
+        "number": 24,
+        "question": "Which argument FOR buying locally is given in the essay?",
+        "options": {
+          "A": "it protects jobs in your local community",
+          "B": "it is cheaper",
+          "C": "it saves time",
+          "D": "it is more convenient"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it protects jobs in your local community",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Writing: for-arguments"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Buying local keeps money in the local community and protects jobs."
+          ],
+          "summary": "Protects local jobs"
+        },
+        "explanation": "Supporting local businesses helps your area."
+      },
+      {
+        "id": "U03-L06-Q025",
+        "number": 25,
+        "question": "Which argument AGAINST buying locally is given in the essay?",
+        "options": {
+          "A": "local goods can be more expensive and limited in choice",
+          "B": "local goods are always better",
+          "C": "foreign goods are dangerous",
+          "D": "local shops close early"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "local goods can be more expensive and limited in choice",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Writing: against-arguments"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Local products may cost more and the choice may be smaller."
+          ],
+          "summary": "More expensive, less choice"
+        },
+        "explanation": "Foreign goods are often cheaper."
+      },
+      {
+        "id": "U03-L06-Q026",
+        "number": 26,
+        "question": "What does 'exclusive' mean in 'exclusive goods'?",
+        "options": {
+          "A": "special and not available everywhere",
+          "B": "cheap and simple",
+          "C": "broken and old",
+          "D": "dangerous and risky"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "special and not available everywhere",
+        "difficulty": "hard",
+        "source": {
+          "page": 34,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Exclusive' means special, limited to certain places or people."
+          ],
+          "summary": "special and rare"
+        },
+        "explanation": "An exclusive product is not mass-produced."
+      },
+      {
+        "id": "U03-L06-Q027",
+        "number": 27,
+        "question": "What does 'high-end' mean?",
+        "options": {
+          "A": "expensive and of good quality",
+          "B": "cheap and basic",
+          "C": "out of fashion",
+          "D": "sold everywhere"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "expensive and of good quality",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'High-end' describes luxury, quality goods."
+          ],
+          "summary": "luxury, top quality"
+        },
+        "explanation": "High-end products cost more."
+      },
+      {
+        "id": "U03-L06-Q028",
+        "number": 28,
+        "question": "What does 'globally' mean in the essay?",
+        "options": {
+          "A": "all over the world",
+          "B": "in one town",
+          "C": "on the internet",
+          "D": "in the past"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "all over the world",
+        "difficulty": "easy",
+        "source": {
+          "page": 34,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Globally' means across the whole world."
+          ],
+          "summary": "all over the world"
+        },
+        "explanation": "Goods can now be sold globally."
+      },
+      {
+        "id": "U03-L06-Q029",
+        "number": 29,
+        "question": "What does 'imported' mean?",
+        "options": {
+          "A": "brought into a country from another",
+          "B": "made in your own town",
+          "C": "sold at a loss",
+          "D": "thrown away"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "brought into a country from another",
+        "difficulty": "easy",
+        "source": {
+          "page": 34,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Imported' goods come from another country."
+          ],
+          "summary": "brought from abroad"
+        },
+        "explanation": "Opposite: exported or local."
+      },
+      {
+        "id": "U03-L06-Q030",
+        "number": 30,
+        "question": "Which word means 'exported'?",
+        "options": {
+          "A": "sold to other countries",
+          "B": "bought from abroad",
+          "C": "made at home",
+          "D": "given for free"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "sold to other countries",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Exported' means sold or sent to other countries."
+          ],
+          "summary": "sold abroad"
+        },
+        "explanation": "The opposite of imported."
+      },
+      {
+        "id": "U03-L06-Q031",
+        "number": 31,
+        "question": "What is the basic structure of a for-and-against essay?",
+        "options": {
+          "A": "introduction, arguments for, arguments against, conclusion",
+          "B": "one long paragraph",
+          "C": "title only",
+          "D": "questions and answers"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "introduction, arguments for, arguments against, conclusion",
+        "difficulty": "easy",
+        "source": {
+          "page": 34,
+          "reference": "Writing: structure"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "It has an opening, the two sides, and a final opinion."
+          ],
+          "summary": "Intro, for, against, conclusion"
+        },
+        "explanation": "Each point is in its own paragraph."
+      },
+      {
+        "id": "U03-L06-Q032",
+        "number": 32,
+        "question": "Why should each paragraph contain only ONE main idea?",
+        "options": {
+          "A": "it makes the argument clear to the reader",
+          "B": "it makes the essay shorter",
+          "C": "it avoids grammar mistakes",
+          "D": "it is a rule of spelling"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it makes the argument clear to the reader",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Writing: paragraphs"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "One idea per paragraph keeps the essay clear and logical."
+          ],
+          "summary": "Clear and logical"
+        },
+        "explanation": "Readers can follow the argument easily."
+      },
+      {
+        "id": "U03-L06-Q033",
+        "number": 33,
+        "question": "Which linking word best adds another argument FOR?",
+        "options": {
+          "A": "moreover",
+          "B": "on the other hand",
+          "C": "however",
+          "D": "whereas"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "moreover",
+        "difficulty": "easy",
+        "source": {
+          "page": 34,
+          "reference": "Writing: linking words"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Moreover' adds another supporting point."
+          ],
+          "summary": "moreover"
+        },
+        "explanation": "Use 'however' to contrast."
+      },
+      {
+        "id": "U03-L06-Q034",
+        "number": 34,
+        "question": "Which linking word best introduces an AGAINST point?",
+        "options": {
+          "A": "however",
+          "B": "in addition",
+          "C": "firstly",
+          "D": "for instance"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "however",
+        "difficulty": "easy",
+        "source": {
+          "page": 34,
+          "reference": "Writing: linking words"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'However' introduces a point that contrasts with the last one."
+          ],
+          "summary": "however"
+        },
+        "explanation": "It signals the opposing view."
+      },
+      {
+        "id": "U03-L06-Q035",
+        "number": 35,
+        "question": "Complete: 'The writer of a for-and-against essay should be ________ in the main paragraphs.'",
+        "options": {
+          "A": "balanced",
+          "B": "angry",
+          "C": "funny",
+          "D": "emotional"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "balanced",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Writing: style"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "In the body you present both sides fairly; emotion comes in the conclusion."
+          ],
+          "summary": "balanced and fair"
+        },
+        "explanation": "Only the final opinion is personal."
+      },
+      {
+        "id": "U03-L06-Q036",
+        "number": 36,
+        "question": "What does 'cutting-edge' mean in 'cutting-edge technology'?",
+        "options": {
+          "A": "the most advanced and modern",
+          "B": "cheap and basic",
+          "C": "broken",
+          "D": "outdated"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the most advanced and modern",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Cutting-edge' means the newest and most advanced."
+          ],
+          "summary": "most advanced"
+        },
+        "explanation": "Another phrase: state-of-the-art."
+      },
+      {
+        "id": "U03-L06-Q037",
+        "number": 37,
+        "question": "Which phrase means 'the most fashionable'?",
+        "options": {
+          "A": "up to the minute",
+          "B": "behind the times",
+          "C": "old-fashioned",
+          "D": "second-hand"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "up to the minute",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Up to the minute' means the very latest."
+          ],
+          "summary": "up to the minute"
+        },
+        "explanation": "Used about fashion and news."
+      },
+      {
+        "id": "U03-L06-Q038",
+        "number": 38,
+        "question": "What is the final paragraph mainly for?",
+        "options": {
+          "A": "stating your own opinion",
+          "B": "adding new facts",
+          "C": "listing shops",
+          "D": "asking questions"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "stating your own opinion",
+        "difficulty": "easy",
+        "source": {
+          "page": 34,
+          "reference": "Writing: conclusion"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The last paragraph gives your personal conclusion."
+          ],
+          "summary": "Your own opinion"
+        },
+        "explanation": "It balances everything together."
+      },
+      {
+        "id": "U03-L06-Q039",
+        "number": 39,
+        "question": "In the model essay, what is the writer's final opinion?",
+        "options": {
+          "A": "it is best to strike a balance between local and imported goods",
+          "B": "never buy anything imported",
+          "C": "only buy imported goods",
+          "D": "stop shopping completely"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it is best to strike a balance between local and imported goods",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": "Writing: conclusion"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The writer concludes we should strike a balance between the two."
+          ],
+          "summary": "Strike a balance"
+        },
+        "explanation": "Buy local when possible, but accept imports too."
+      },
+      {
+        "id": "U03-L06-Q040",
+        "number": 40,
+        "question": "Which word best completes: 'Buying local is good for the ________ economy.'",
+        "options": {
+          "A": "local",
+          "B": "global",
+          "C": "foreign",
+          "D": "central"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "local",
+        "difficulty": "easy",
+        "source": {
+          "page": 34,
+          "reference": "Writing: collocation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'The local economy' is the standard collocation."
+          ],
+          "summary": "local economy"
+        },
+        "explanation": "Buying local helps it grow."
+      }
+    ]
+  }
+}

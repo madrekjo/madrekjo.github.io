@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "6",
+    "lesson_name": "Writing and Vocabulary",
+    "unit_number": 4,
+    "unit_name": "Tastes",
+    "page_start": 47,
+    "page_end": 48,
+    "questions": [
+      {
+        "id": "U04-L06-Q001",
+        "number": 1,
+        "question": "What is the first part of a well-written recipe?",
+        "options": {
+          "A": "Cooking instructions",
+          "B": "Title",
+          "C": "Serving suggestion",
+          "D": "List of ingredients"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "Title",
+        "difficulty": "easy",
+        "source": {
+          "page": 47,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: first part of a recipe"
+          ],
+          "summary": "Title comes first in a recipe."
+        },
+        "explanation": "The title is the first thing a reader sees in a recipe, followed by ingredients and instructions."
+      },
+      {
+        "id": "U04-L06-Q002",
+        "number": 2,
+        "question": "Which section comes immediately after the title in a recipe?",
+        "options": {
+          "A": "Serving suggestion",
+          "B": "Cooking instructions",
+          "C": "List of ingredients",
+          "D": "Introduction"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "List of ingredients",
+        "difficulty": "easy",
+        "source": {
+          "page": 47,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: second part of a recipe"
+          ],
+          "summary": "Ingredients come after the title."
+        },
+        "explanation": "After the title, the recipe lists all the ingredients needed before moving on to instructions."
+      },
+      {
+        "id": "U04-L06-Q003",
+        "number": 3,
+        "question": "What is the correct order of a recipe's main sections?",
+        "options": {
+          "A": "Instructions, title, ingredients",
+          "B": "Ingredients, instructions, serving suggestion",
+          "C": "Title, instructions, ingredients",
+          "D": "Serving suggestion, title, ingredients"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "Ingredients, instructions, serving suggestion",
+        "difficulty": "medium",
+        "source": {
+          "page": 47,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the correct recipe structure order"
+          ],
+          "summary": "Ingredients, instructions, serving suggestion is correct."
+        },
+        "explanation": "A recipe follows the order: title, ingredients, cooking instructions, and finally serving suggestion."
+      },
+      {
+        "id": "U04-L06-Q004",
+        "number": 4,
+        "question": "The serving suggestion in a recipe tells the reader:",
+        "options": {
+          "A": "What temperature to cook at",
+          "B": "How many people the dish serves",
+          "C": "How to present and serve the dish",
+          "D": "What tools are needed"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "How to present and serve the dish",
+        "difficulty": "medium",
+        "source": {
+          "page": 47,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: purpose of serving suggestion"
+          ],
+          "summary": "Serving suggestion describes presentation."
+        },
+        "explanation": "The serving suggestion explains how to plate and present the finished dish."
+      },
+      {
+        "id": "U04-L06-Q005",
+        "number": 5,
+        "question": "Which part of the recipe contains step-by-step directions?",
+        "options": {
+          "A": "Title",
+          "B": "List of ingredients",
+          "C": "Cooking instructions",
+          "D": "Serving suggestion"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "Cooking instructions",
+        "difficulty": "easy",
+        "source": {
+          "page": 47,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: location of directions"
+          ],
+          "summary": "Cooking instructions contain step-by-step directions."
+        },
+        "explanation": "The cooking instructions section provides the detailed step-by-step method."
+      },
+      {
+        "id": "U04-L06-Q006",
+        "number": 6,
+        "question": "What should be listed in the ingredients section?",
+        "options": {
+          "A": "Personal opinions about the dish",
+          "B": "All food items and quantities needed",
+          "C": "A story about the recipe",
+          "D": "Tips for advanced cooks"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "All food items and quantities needed",
+        "difficulty": "easy",
+        "source": {
+          "page": 47,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: contents of ingredients section"
+          ],
+          "summary": "Ingredients section lists food items and quantities."
+        },
+        "explanation": "The ingredients section includes every food item and exact quantity required for the recipe."
+      },
+      {
+        "id": "U04-L06-Q007",
+        "number": 7,
+        "question": "Why is it important to follow the correct order when writing a recipe?",
+        "options": {
+          "A": "To make the recipe longer",
+          "B": "To confuse the reader",
+          "C": "So the reader can follow it easily and prepare the dish",
+          "D": "To add more ingredients"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "So the reader can follow it easily and prepare the dish",
+        "difficulty": "medium",
+        "source": {
+          "page": 47,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: importance of recipe order"
+          ],
+          "summary": "Correct order helps the reader follow the recipe."
+        },
+        "explanation": "Following the correct order ensures the reader can prepare the dish step by step without confusion."
+      },
+      {
+        "id": "U04-L06-Q008",
+        "number": 8,
+        "question": "A recipe's title should clearly describe:",
+        "options": {
+          "A": "The author's biography",
+          "B": "The name of the dish being prepared",
+          "C": "The history of the dish",
+          "D": "The country of origin only"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "The name of the dish being prepared",
+        "difficulty": "easy",
+        "source": {
+          "page": 47,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: what a recipe title shows"
+          ],
+          "summary": "The title describes the name of the dish."
+        },
+        "explanation": "The recipe title clearly states what dish is being prepared so the reader knows what they are making."
+      },
+      {
+        "id": "U04-L06-Q009",
+        "number": 9,
+        "question": "Which connector is used to describe the very first step in a recipe?",
+        "options": {
+          "A": "Finally",
+          "B": "Then",
+          "C": "First",
+          "D": "After that"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "First",
+        "difficulty": "easy",
+        "source": {
+          "page": 47,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: first step connector"
+          ],
+          "summary": "First is used for the initial step."
+        },
+        "explanation": "First introduces the beginning of a sequence of steps in a recipe."
+      },
+      {
+        "id": "U04-L06-Q010",
+        "number": 10,
+        "question": "Fill in the blank: '___, mix the flour and sugar in a large bowl.'",
+        "options": {
+          "A": "Finally",
+          "B": "However",
+          "C": "First",
+          "D": "Moreover"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "First",
+        "difficulty": "easy",
+        "source": {
+          "page": 47,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: sequence connector for first step"
+          ],
+          "summary": "First is the correct connector for the opening step."
+        },
+        "explanation": "When describing the opening step, 'first' is the appropriate sequential connector."
+      },
+      {
+        "id": "U04-L06-Q011",
+        "number": 11,
+        "question": "Which connector shows the next step after 'First'?",
+        "options": {
+          "A": "However",
+          "B": "Then",
+          "C": "But",
+          "D": "Although"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "Then",
+        "difficulty": "easy",
+        "source": {
+          "page": 47,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: connector after first"
+          ],
+          "summary": "Then is the correct connector for the next step."
+        },
+        "explanation": "Then is a sequential connector used to introduce the step that follows the first one."
+      },
+      {
+        "id": "U04-L06-Q012",
+        "number": 12,
+        "question": "Fill in the blank: 'First, preheat the oven. ___, add the eggs to the mixture.'",
+        "options": {
+          "A": "However",
+          "B": "After that",
+          "C": "Then",
+          "D": "On the other hand"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "Then",
+        "difficulty": "medium",
+        "source": {
+          "page": 47,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: sequential connector in context"
+          ],
+          "summary": "Then correctly connects two consecutive steps."
+        },
+        "explanation": "Then is used to move from one step to the immediate next step in a sequence."
+      },
+      {
+        "id": "U04-L06-Q013",
+        "number": 13,
+        "question": "Which connector is best for the last step in a recipe?",
+        "options": {
+          "A": "First",
+          "B": "Next",
+          "C": "Then",
+          "D": "Finally"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "Finally",
+        "difficulty": "easy",
+        "source": {
+          "page": 47,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: last step connector"
+          ],
+          "summary": "Finally signals the last step."
+        },
+        "explanation": "Finally is used to indicate the concluding step in a sequence of instructions."
+      },
+      {
+        "id": "U04-L06-Q014",
+        "number": 14,
+        "question": "Fill in the blank: '___, after the chicken is golden brown, serve it with rice.'",
+        "options": {
+          "A": "Next",
+          "B": "After that",
+          "C": "First",
+          "D": "However"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "After that",
+        "difficulty": "medium",
+        "source": {
+          "page": 47,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: connector for step following another"
+          ],
+          "summary": "After that connects steps in sequence."
+        },
+        "explanation": "After that is used to describe a step that comes after a previous one has been completed."
+      },
+      {
+        "id": "U04-L06-Q015",
+        "number": 15,
+        "question": "Which of these is NOT a sequential connector used in recipes?",
+        "options": {
+          "A": "First",
+          "B": "Moreover",
+          "C": "Next",
+          "D": "After that"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "Moreover",
+        "difficulty": "medium",
+        "source": {
+          "page": 47,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: which word is not sequential"
+          ],
+          "summary": "Moreover is not a sequential connector."
+        },
+        "explanation": "Moreover is an addition connector, not a sequential one; it adds information rather than showing order."
+      },
+      {
+        "id": "U04-L06-Q016",
+        "number": 16,
+        "question": "Put the connectors in the correct order for a recipe: first, then, next, after that, finally.",
+        "options": {
+          "A": "first → after that → then → next → finally",
+          "B": "first → next → then → after that → finally",
+          "C": "first → then → next → after that → finally",
+          "D": "first → then → after that → next → finally"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "first → then → next → after that → finally",
+        "difficulty": "hard",
+        "source": {
+          "page": 47,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: ordering sequential connectors"
+          ],
+          "summary": "The correct order is first → then → next → after that → finally."
+        },
+        "explanation": "These connectors follow a logical order from beginning to end of a recipe instruction."
+      },
+      {
+        "id": "U04-L06-Q017",
+        "number": 17,
+        "question": "What does 'mouth-watering' describe?",
+        "options": {
+          "A": "A dish that looks very appetizing",
+          "B": "A dish that is too salty",
+          "C": "A dish that is bland",
+          "D": "A dish that is cold"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A dish that looks very appetizing",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: meaning of mouth-watering"
+          ],
+          "summary": "Mouth-watering means very appetizing."
+        },
+        "explanation": "Mouth-watering is an adjective used to describe food that looks so delicious it makes you want to eat it."
+      },
+      {
+        "id": "U04-L06-Q018",
+        "number": 18,
+        "question": "Which adjective means 'so tasty you can't stop eating'?",
+        "options": {
+          "A": "Bland",
+          "B": "Irresistible",
+          "C": "Sour",
+          "D": "Raw"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "Irresistible",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: adjective meaning"
+          ],
+          "summary": "Irresistible means impossible to resist."
+        },
+        "explanation": "Irresistible describes food so delicious that you cannot stop eating it."
+      },
+      {
+        "id": "U04-L06-Q019",
+        "number": 19,
+        "question": "What does 'finger-licking' describe?",
+        "options": {
+          "A": "Food that is too hot to touch",
+          "B": "Food so delicious you lick your fingers after eating",
+          "C": "Food that is messy and unhealthy",
+          "D": "Food that is served without utensils"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "Food so delicious you lick your fingers after eating",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: meaning of finger-licking"
+          ],
+          "summary": "Finger-licking means very tasty."
+        },
+        "explanation": "Finger-licking is an adjective meaning the food is so enjoyable you lick your fingers clean."
+      },
+      {
+        "id": "U04-L06-Q020",
+        "number": 20,
+        "question": "Which word best describes a dish with rich and deep flavors?",
+        "options": {
+          "A": "Bland",
+          "B": "Mouth-watering",
+          "C": "Flavorful",
+          "D": "Tasteless"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "Flavorful",
+        "difficulty": "medium",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: adjective for rich flavors"
+          ],
+          "summary": "Flavorful describes food with rich flavors."
+        },
+        "explanation": "Flavorful is an adjective meaning the food has strong, rich, and pleasant flavors."
+      },
+      {
+        "id": "U04-L06-Q021",
+        "number": 21,
+        "question": "What does 'crispy' describe when reviewing food?",
+        "options": {
+          "A": "Food that is soft and mushy",
+          "B": "Food with a firm, crunchy texture",
+          "C": "Food that is cold",
+          "D": "Food that is spicy"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "Food with a firm, crunchy texture",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: meaning of crispy"
+          ],
+          "summary": "Crispy means firm and crunchy."
+        },
+        "explanation": "Crispy describes food that has a satisfying crunch when you bite into it."
+      },
+      {
+        "id": "U04-L06-Q022",
+        "number": 22,
+        "question": "Which adjective is used for food that has no strong taste?",
+        "options": {
+          "A": "Mouth-watering",
+          "B": "Delicious",
+          "C": "Bland",
+          "D": "Irresistible"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "Bland",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: adjective for tasteless food"
+          ],
+          "summary": "Bland means lacking flavor."
+        },
+        "explanation": "Bland is a negative adjective describing food that lacks taste or flavor."
+      },
+      {
+        "id": "U04-L06-Q023",
+        "number": 23,
+        "question": "Fill in the blank: 'The pasta was absolutely ___. I couldn't stop eating it.'",
+        "options": {
+          "A": "Bland",
+          "B": "Irresistible",
+          "C": "Tasteless",
+          "D": "Raw"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "Irresistible",
+        "difficulty": "medium",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: adjective in context"
+          ],
+          "summary": "Irresistible fits because the reviewer could not stop eating."
+        },
+        "explanation": "Irresistible fits the context because it means the food was so good the reviewer kept eating."
+      },
+      {
+        "id": "U04-L06-Q024",
+        "number": 24,
+        "question": "Which word is the BEST adjective to use in a positive food review?",
+        "options": {
+          "A": "Tasteless",
+          "B": "Bland",
+          "C": "Decent",
+          "D": "Mouth-watering"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "Mouth-watering",
+        "difficulty": "medium",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: best positive food adjective"
+          ],
+          "summary": "Mouth-watering is the strongest positive adjective."
+        },
+        "explanation": "Mouth-watering is the most enthusiastic and positive adjective among the choices for a food review."
+      },
+      {
+        "id": "U04-L06-Q025",
+        "number": 25,
+        "question": "Which connector is used to show contrast in a food review?",
+        "options": {
+          "A": "Moreover",
+          "B": "In addition",
+          "C": "However",
+          "D": "Also"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "However",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: contrast connector"
+          ],
+          "summary": "However shows contrast."
+        },
+        "explanation": "However is used to introduce a contrasting point or an opposing idea in a review."
+      },
+      {
+        "id": "U04-L06-Q026",
+        "number": 26,
+        "question": "Fill in the blank: 'The food was excellent.___, the service was slow.'",
+        "options": {
+          "A": "Moreover",
+          "B": "However",
+          "C": "Also",
+          "D": "Furthermore"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "However",
+        "difficulty": "medium",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: contrast connector in context"
+          ],
+          "summary": "However shows the contrast between food and service."
+        },
+        "explanation": "However connects two contrasting ideas: excellent food but slow service."
+      },
+      {
+        "id": "U04-L06-Q027",
+        "number": 27,
+        "question": "Which connector is used to present the opposite side of an argument?",
+        "options": {
+          "A": "Moreover",
+          "B": "In addition",
+          "C": "However",
+          "D": "On the other hand"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "On the other hand",
+        "difficulty": "medium",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: opposite-side connector"
+          ],
+          "summary": "On the other hand presents the opposite side."
+        },
+        "explanation": "On the other hand is used to introduce an opposing or contrasting perspective."
+      },
+      {
+        "id": "U04-L06-Q028",
+        "number": 28,
+        "question": "Fill in the blank: 'The dessert was sweet and creamy. ___, it was not too heavy.'",
+        "options": {
+          "A": "On the other hand",
+          "B": "However",
+          "C": "In addition",
+          "D": "But"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "In addition",
+        "difficulty": "medium",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: addition connector in context"
+          ],
+          "summary": "In addition adds another positive point."
+        },
+        "explanation": "In addition is used to add another related point or detail."
+      },
+      {
+        "id": "U04-L06-Q029",
+        "number": 29,
+        "question": "Which connector means 'also' or 'besides'?",
+        "options": {
+          "A": "However",
+          "B": "But",
+          "C": "Moreover",
+          "D": "On the other hand"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "Moreover",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: connector meaning"
+          ],
+          "summary": "Moreover means also or besides."
+        },
+        "explanation": "Moreover is used to add extra information to support or expand on a previous point."
+      },
+      {
+        "id": "U04-L06-Q030",
+        "number": 30,
+        "question": "Fill in the blank: 'The restaurant has great ambiance. ___, the prices are very reasonable.'",
+        "options": {
+          "A": "However",
+          "B": "On the other hand",
+          "C": "Moreover",
+          "D": "But"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "Moreover",
+        "difficulty": "medium",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: addition connector in context"
+          ],
+          "summary": "Moreover adds another positive aspect."
+        },
+        "explanation": "Moreover is used here to add a positive point that supports the overall good review."
+      },
+      {
+        "id": "U04-L06-Q031",
+        "number": 31,
+        "question": "Which sentence uses a contrast connector correctly?",
+        "options": {
+          "A": "The soup was salty. Moreover, it was too cold.",
+          "B": "The soup was salty. However, it was well-seasoned.",
+          "C": "The soup was salty. In addition, it was too cold.",
+          "D": "The soup was salty. Also, it was too cold."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "The soup was salty. However, it was well-seasoned.",
+        "difficulty": "hard",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: correct use of contrast connector"
+          ],
+          "summary": "However correctly introduces a contrasting point."
+        },
+        "explanation": "However is used correctly when the second clause contrasts with or opposes the first clause."
+      },
+      {
+        "id": "U04-L06-Q032",
+        "number": 32,
+        "question": "Fill in the blank: 'The main course was delicious. ___, the side dishes were equally impressive.'",
+        "options": {
+          "A": "However",
+          "B": "On the other hand",
+          "C": "But",
+          "D": "In addition"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "In addition",
+        "difficulty": "medium",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: addition connector for similar point"
+          ],
+          "summary": "In addition connects a similar positive point."
+        },
+        "explanation": "In addition is used to add another positive point that reinforces the previous statement."
+      },
+      {
+        "id": "U04-L06-Q033",
+        "number": 33,
+        "question": "What does 'a hidden gem' mean when describing a restaurant?",
+        "options": {
+          "A": "A restaurant that is very famous",
+          "B": "A little-known restaurant that is surprisingly good",
+          "C": "A restaurant with poor decoration",
+          "D": "A restaurant that is expensive"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "A little-known restaurant that is surprisingly good",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: meaning of hidden gem"
+          ],
+          "summary": "A hidden gem is an undiscovered, excellent place."
+        },
+        "explanation": "A hidden gem refers to a little-known restaurant or place that offers surprisingly great food."
+      },
+      {
+        "id": "U04-L06-Q034",
+        "number": 34,
+        "question": "Which phrase means 'a dish that everyone must try'?",
+        "options": {
+          "A": "A waste of money",
+          "B": "A must-try",
+          "C": "A total disaster",
+          "D": "A ordinary meal"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "A must-try",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: must-try phrase"
+          ],
+          "summary": "A must-try means essential to experience."
+        },
+        "explanation": "A must-try is used to strongly recommend a dish that is definitely worth ordering."
+      },
+      {
+        "id": "U04-L06-Q035",
+        "number": 35,
+        "question": "What does 'a culinary delight' mean?",
+        "options": {
+          "A": "A bad cooking experience",
+          "B": "A simple and boring dish",
+          "C": "A wonderful and enjoyable food experience",
+          "D": "A dish that is too spicy"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "A wonderful and enjoyable food experience",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: meaning of culinary delight"
+          ],
+          "summary": "A culinary delight is a wonderful food experience."
+        },
+        "explanation": "A culinary delight describes an outstanding and enjoyable experience with food."
+      },
+      {
+        "id": "U04-L06-Q036",
+        "number": 36,
+        "question": "Fill in the blank: 'This tiny cafe is a real ___. The food is amazing and the prices are low.'",
+        "options": {
+          "A": "culinary disaster",
+          "B": "hidden gem",
+          "C": "waste of time",
+          "D": "food nightmare"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "hidden gem",
+        "difficulty": "medium",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: review phrase in context"
+          ],
+          "summary": "Hidden gem fits the context of a small, excellent place."
+        },
+        "explanation": "Hidden gem fits because the description mentions a tiny cafe with amazing food and low prices."
+      },
+      {
+        "id": "U04-L06-Q037",
+        "number": 37,
+        "question": "Which phrase would you use to strongly recommend a dish in a review?",
+        "options": {
+          "A": "It was okay.",
+          "B": "I would not recommend it.",
+          "C": "This is a must-try dish!",
+          "D": "It was not bad."
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "This is a must-try dish!",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: strongest recommendation phrase"
+          ],
+          "summary": "This is a must-try dish is the strongest recommendation."
+        },
+        "explanation": "This is a must-try dish is an enthusiastic phrase used to strongly recommend a dish to readers."
+      },
+      {
+        "id": "U04-L06-Q038",
+        "number": 38,
+        "question": "Which phrase is used to give an opinion in a food review?",
+        "options": {
+          "A": "In conclusion",
+          "B": "I believe that this restaurant deserves five stars",
+          "C": "First, we ordered the soup",
+          "D": "The restaurant opens at 6 PM"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "I believe that this restaurant deserves five stars",
+        "difficulty": "easy",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: opinion phrase in review"
+          ],
+          "summary": "I believe that this restaurant deserves five stars is an opinion phrase."
+        },
+        "explanation": "Opinion phrases express the reviewer's personal view about the food or restaurant."
+      },
+      {
+        "id": "U04-L06-Q039",
+        "number": 39,
+        "question": "Which phrase is best for concluding a food review?",
+        "options": {
+          "A": "First, we sat down",
+          "B": "Then, we ordered drinks",
+          "C": "In conclusion, I highly recommend this restaurant",
+          "D": "Moreover, the bread was warm"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "In conclusion, I highly recommend this restaurant",
+        "difficulty": "medium",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: conclusion phrase"
+          ],
+          "summary": "In conclusion introduces the final summary."
+        },
+        "explanation": "In conclusion is used to wrap up a review and give a final recommendation or verdict."
+      },
+      {
+        "id": "U04-L06-Q040",
+        "number": 40,
+        "question": "What is the correct structure of a well-written food review?",
+        "options": {
+          "A": "Conclusion → Opinion → Details",
+          "B": "Opinion → Details → Conclusion",
+          "C": "Details → Conclusion → Opinion",
+          "D": "Title → Biography → Opinion"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "Opinion → Details → Conclusion",
+        "difficulty": "hard",
+        "source": {
+          "page": 48,
+          "reference": "L6"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the question topic: food review structure"
+          ],
+          "summary": "Opinion → Details → Conclusion is the correct order."
+        },
+        "explanation": "A good food review starts with an overall opinion, provides supporting details, and ends with a conclusion."
+      }
+    ]
+  }
+}

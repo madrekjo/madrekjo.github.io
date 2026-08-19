@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "5",
+    "lesson_name": "Listening and Vocabulary",
+    "unit_number": 4,
+    "unit_name": "Tastes",
+    "page_start": 45,
+    "page_end": 46,
+    "questions": [
+      {
+        "id": "U04-L05-Q001",
+        "number": 1,
+        "question": "Which word means 'a large flat pan used for frying'?",
+        "options": {
+          "A": "frying pan",
+          "B": "saucepan",
+          "C": "baking tray",
+          "D": "grater"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "frying pan",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A frying pan is a flat-bottomed pan used for frying food."
+          ],
+          "summary": "frying pan = flat pan for frying."
+        },
+        "explanation": "You fry eggs in a frying pan."
+      },
+      {
+        "id": "U04-L05-Q002",
+        "number": 2,
+        "question": "Which word means 'a deep pan with a lid used for boiling'?",
+        "options": {
+          "A": "saucepan",
+          "B": "frying pan",
+          "C": "kettle",
+          "D": "blender"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "saucepan",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A saucepan is a deep cooking pot with a long handle and a lid."
+          ],
+          "summary": "saucepan = deep pot with lid."
+        },
+        "explanation": "Use a saucepan to boil water or cook soup."
+      },
+      {
+        "id": "U04-L05-Q003",
+        "number": 3,
+        "question": "Which word means 'a sharp tool with small holes used to cut food into thin pieces'?",
+        "options": {
+          "A": "grater",
+          "B": "peeler",
+          "C": "whisk",
+          "D": "spatula"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "grater",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A grater is a kitchen tool with sharp-edged holes used for shredding food."
+          ],
+          "summary": "grater = shredding tool."
+        },
+        "explanation": "Use a grater to shred cheese or carrots."
+      },
+      {
+        "id": "U04-L05-Q004",
+        "number": 4,
+        "question": "Which word means 'a tool with wire loops used to mix ingredients'?",
+        "options": {
+          "A": "whisk",
+          "B": "spatula",
+          "C": "ladle",
+          "D": "tongs"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "whisk",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A whisk is a cooking tool with wire loops used for beating or mixing."
+          ],
+          "summary": "whisk = mixing tool."
+        },
+        "explanation": "Use a whisk to beat eggs."
+      },
+      {
+        "id": "U04-L05-Q005",
+        "number": 5,
+        "question": "Which word means 'a flat tool used for lifting and turning food'?",
+        "options": {
+          "A": "spatula",
+          "B": "whisk",
+          "C": "ladle",
+          "D": "grater"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "spatula",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A spatula is a flat, broad tool used for lifting, turning or spreading food."
+          ],
+          "summary": "spatula = flat lifting tool."
+        },
+        "explanation": "Use a spatula to flip pancakes."
+      },
+      {
+        "id": "U04-L05-Q006",
+        "number": 6,
+        "question": "Which word means 'a sharp tool used to remove the outer skin of vegetables'?",
+        "options": {
+          "A": "peeler",
+          "B": "grater",
+          "C": "knife",
+          "D": "scissors"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "peeler",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A peeler is a small tool with a sharp blade used to remove skin from vegetables and fruit."
+          ],
+          "summary": "peeler = skin-removing tool."
+        },
+        "explanation": "Use a peeler to remove potato skin."
+      },
+      {
+        "id": "U04-L05-Q007",
+        "number": 7,
+        "question": "Which word means 'a large spoon used for serving soup'?",
+        "options": {
+          "A": "ladle",
+          "B": "spoon",
+          "C": "fork",
+          "D": "tongs"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "ladle",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A ladle is a large, deep spoon used for serving liquid food like soup."
+          ],
+          "summary": "ladle = large soup spoon."
+        },
+        "explanation": "Use a ladle to serve soup into bowls."
+      },
+      {
+        "id": "U04-L05-Q008",
+        "number": 8,
+        "question": "Which word means 'a tool with two arms used for picking up hot food'?",
+        "options": {
+          "A": "tongs",
+          "B": "spatula",
+          "C": "whisk",
+          "D": "ladle"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "tongs",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Tongs are a tool with two long arms joined at one end, used for gripping."
+          ],
+          "summary": "tongs = gripping tool."
+        },
+        "explanation": "Use tongs to pick up hot meat."
+      },
+      {
+        "id": "U04-L05-Q009",
+        "number": 9,
+        "question": "Which word means 'an electrical tool used to mix or liquidise food'?",
+        "options": {
+          "A": "blender",
+          "B": "toaster",
+          "C": "kettle",
+          "D": "oven"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "blender",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A blender is an electrical appliance used for mixing, liquidising or puréeing food."
+          ],
+          "summary": "blender = electrical mixer."
+        },
+        "explanation": "Use a blender to make a fruit smoothie."
+      },
+      {
+        "id": "U04-L05-Q010",
+        "number": 10,
+        "question": "Which word means 'a large box-like appliance used for cooking food with dry heat'?",
+        "options": {
+          "A": "oven",
+          "B": "microwave",
+          "C": "fridge",
+          "D": "freezer"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "oven",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "An oven is a enclosed appliance used for baking, roasting or heating food."
+          ],
+          "summary": "oven = dry-heat cooker."
+        },
+        "explanation": "You bake cakes in an oven."
+      },
+      {
+        "id": "U04-L05-Q011",
+        "number": 11,
+        "question": "What does 'to fry' food mean?",
+        "options": {
+          "A": "to cook food in hot oil",
+          "B": "to cook food in water",
+          "C": "to freeze food",
+          "D": "to wash food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to cook food in hot oil",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To fry means to cook food in hot oil or fat in a pan."
+          ],
+          "summary": "fry = cook in oil."
+        },
+        "explanation": "Fry the onions until they are golden brown."
+      },
+      {
+        "id": "U04-L05-Q012",
+        "number": 12,
+        "question": "What does 'to boil' food mean?",
+        "options": {
+          "A": "to cook food in very hot water",
+          "B": "to cook food in oil",
+          "C": "to grill food",
+          "D": "to freeze food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to cook food in very hot water",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To boil means to heat a liquid until it reaches 100 degrees and bubbles."
+          ],
+          "summary": "boil = cook in hot water."
+        },
+        "explanation": "Boil the pasta for ten minutes."
+      },
+      {
+        "id": "U04-L05-Q013",
+        "number": 13,
+        "question": "What does 'to bake' food mean?",
+        "options": {
+          "A": "to cook food in an oven using dry heat",
+          "B": "to fry food in oil",
+          "C": "to boil food in water",
+          "D": "to grill food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to cook food in an oven using dry heat",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To bake means to cook food in an oven using hot, dry air."
+          ],
+          "summary": "bake = cook in oven."
+        },
+        "explanation": "Bake the cake at 180 degrees for 30 minutes."
+      },
+      {
+        "id": "U04-L05-Q014",
+        "number": 14,
+        "question": "What does 'to grill' food mean?",
+        "options": {
+          "A": "to cook food under direct heat",
+          "B": "to boil food",
+          "C": "to freeze food",
+          "D": "to blend food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to cook food under direct heat",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To grill means to cook food using direct heat from above or below."
+          ],
+          "summary": "grill = cook under direct heat."
+        },
+        "explanation": "Grill the chicken for five minutes on each side."
+      },
+      {
+        "id": "U04-L05-Q015",
+        "number": 15,
+        "question": "What does 'to roast' food mean?",
+        "options": {
+          "A": "to cook food slowly in an oven with hot air",
+          "B": "to boil food quickly",
+          "C": "to fry food in oil",
+          "D": "to blend food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to cook food slowly in an oven with hot air",
+        "difficulty": "medium",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To roast means to cook food slowly in an oven using hot, dry air."
+          ],
+          "summary": "roast = slow oven cooking."
+        },
+        "explanation": "Roast the meat for two hours."
+      },
+      {
+        "id": "U04-L05-Q016",
+        "number": 16,
+        "question": "What does 'to steam' food mean?",
+        "options": {
+          "A": "to cook food using steam from boiling water",
+          "B": "to fry food in oil",
+          "C": "to grill food",
+          "D": "to freeze food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to cook food using steam from boiling water",
+        "difficulty": "medium",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To steam means to cook food using the steam from boiling water without direct contact."
+          ],
+          "summary": "steamed = cooked by steam."
+        },
+        "explanation": "Steam the vegetables for five minutes."
+      },
+      {
+        "id": "U04-L05-Q017",
+        "number": 17,
+        "question": "What does 'to simmer' food mean?",
+        "options": {
+          "A": "to cook food gently in liquid just below boiling point",
+          "B": "to boil food quickly",
+          "C": "to fry food",
+          "D": "to grill food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to cook food gently in liquid just below boiling point",
+        "difficulty": "medium",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To simmer means to cook food gently in liquid at a temperature just below boiling."
+          ],
+          "summary": "simmer = gentle boiling."
+        },
+        "explanation": "Simmer the soup for twenty minutes."
+      },
+      {
+        "id": "U04-L05-Q018",
+        "number": 18,
+        "question": "What does 'to chop' food mean?",
+        "options": {
+          "A": "to cut food into pieces with a knife",
+          "B": "to cook food slowly",
+          "C": "to blend food",
+          "D": "to serve food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to cut food into pieces with a knife",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To chop means to cut food into rough, irregular pieces."
+          ],
+          "summary": "chop = cut into pieces."
+        },
+        "explanation": "Chop the onions into small pieces."
+      },
+      {
+        "id": "U04-L05-Q019",
+        "number": 19,
+        "question": "What does 'to dice' food mean?",
+        "options": {
+          "A": "to cut food into small equal cubes",
+          "B": "to cut food into thin strips",
+          "C": "to mash food",
+          "D": "to blend food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to cut food into small equal cubes",
+        "difficulty": "medium",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To dice means to cut food into small, even cubes."
+          ],
+          "summary": "dice = cut into cubes."
+        },
+        "explanation": "Dice the potatoes into small cubes."
+      },
+      {
+        "id": "U04-L05-Q020",
+        "number": 20,
+        "question": "What does 'to slice' food mean?",
+        "options": {
+          "A": "to cut food into thin, flat pieces",
+          "B": "to cut food into cubes",
+          "C": "to mash food",
+          "D": "to cook food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to cut food into thin, flat pieces",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To slice means to cut food into thin, even pieces."
+          ],
+          "summary": "slice = cut thinly."
+        },
+        "explanation": "Slice the bread into thin pieces."
+      },
+      {
+        "id": "U04-L05-Q021",
+        "number": 21,
+        "question": "What does 'to mash' food mean?",
+        "options": {
+          "A": "to crush food into a soft, smooth mass",
+          "B": "to cut food into pieces",
+          "C": "to cook food quickly",
+          "D": "to serve food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to crush food into a soft, smooth mass",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To mash means to crush food into a soft, smooth mass."
+          ],
+          "summary": "mash = crush into soft mass."
+        },
+        "explanation": "Mash the potatoes with butter and milk."
+      },
+      {
+        "id": "U04-L05-Q022",
+        "number": 22,
+        "question": "What does 'to grill' mean in a restaurant context?",
+        "options": {
+          "A": "to cook food using direct heat from a grill",
+          "B": "to cook food in water",
+          "C": "to freeze food",
+          "D": "to blend food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to cook food using direct heat from a grill",
+        "difficulty": "medium",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "In a restaurant, to grill means to cook food on a metal frame over direct heat."
+          ],
+          "summary": "grill = direct heat cooking."
+        },
+        "explanation": "The chef grilled the fish to perfection."
+      },
+      {
+        "id": "U04-L05-Q023",
+        "number": 23,
+        "question": "What does 'to garnish' food mean?",
+        "options": {
+          "A": "to decorate food with small pieces of herbs or vegetables",
+          "B": "to cook food",
+          "C": "to freeze food",
+          "D": "to serve food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to decorate food with small pieces of herbs or vegetables",
+        "difficulty": "medium",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To garnish means to add a small amount of decoration to food before serving."
+          ],
+          "summary": "garnish = decorate food."
+        },
+        "explanation": "Garnish the dish with fresh parsley."
+      },
+      {
+        "id": "U04-L05-Q024",
+        "number": 24,
+        "question": "Which cooking method is best for making crispy chips?",
+        "options": {
+          "A": "Deep-frying",
+          "B": "Steaming",
+          "C": "Boiling",
+          "D": "Mashing"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Deep-frying",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Deep-frying in hot oil makes chips crispy and golden."
+          ],
+          "summary": "deep-frying = crispy cooking."
+        },
+        "explanation": "Chips are deep-fried in hot oil."
+      },
+      {
+        "id": "U04-L05-Q025",
+        "number": 25,
+        "question": "Which cooking method is healthiest for vegetables?",
+        "options": {
+          "A": "Steaming",
+          "B": "Deep-frying",
+          "C": "Roasting in lots of oil",
+          "D": "Frying in butter"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Steaming",
+        "difficulty": "medium",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Steaming preserves the most nutrients in vegetables."
+          ],
+          "summary": "steaming = healthiest method."
+        },
+        "explanation": "Steaming keeps vitamins in vegetables."
+      },
+      {
+        "id": "U04-L05-Q026",
+        "number": 26,
+        "question": "What does 'a chopping board' mean?",
+        "options": {
+          "A": "a flat board used for cutting food on",
+          "B": "a board for playing games",
+          "C": "a board for writing",
+          "D": "a board for sitting on"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a flat board used for cutting food on",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A chopping board is a flat surface used as a base for cutting food."
+          ],
+          "summary": "chopping board = cutting surface."
+        },
+        "explanation": "Always use a chopping board when cutting vegetables."
+      },
+      {
+        "id": "U04-L05-Q027",
+        "number": 27,
+        "question": "What does 'kitchen utensils' mean?",
+        "options": {
+          "A": "tools and equipment used in cooking",
+          "B": "types of food",
+          "C": "types of kitchen furniture",
+          "D": "recipes"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "tools and equipment used in cooking",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Kitchen utensils are small tools and equipment used for preparing and cooking food."
+          ],
+          "summary": "kitchen utensils = cooking tools."
+        },
+        "explanation": "Pots, pans and knives are kitchen utensils."
+      },
+      {
+        "id": "U04-L05-Q028",
+        "number": 28,
+        "question": "What does 'preheat the oven' mean?",
+        "options": {
+          "A": "to heat the oven before putting food in",
+          "B": "to turn off the oven",
+          "C": "to clean the oven",
+          "D": "to open the oven door"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to heat the oven before putting food in",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Preheating the oven means heating it to the required temperature before cooking."
+          ],
+          "summary": "preheat = heat before use."
+        },
+        "explanation": "Preheat the oven to 200 degrees."
+      },
+      {
+        "id": "U04-L05-Q029",
+        "number": 29,
+        "question": "What does 'to drain' food mean?",
+        "options": {
+          "A": "to remove water or liquid from food",
+          "B": "to add water to food",
+          "C": "to cook food in water",
+          "D": "to freeze food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to remove water or liquid from food",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To drain means to remove liquid from food, usually using a colander."
+          ],
+          "summary": "drain = remove liquid."
+        },
+        "explanation": "Drain the pasta after cooking."
+      },
+      {
+        "id": "U04-L05-Q030",
+        "number": 30,
+        "question": "What does 'to defrost' food mean?",
+        "options": {
+          "A": "to allow frozen food to return to room temperature",
+          "B": "to freeze food quickly",
+          "C": "to cook frozen food",
+          "D": "to mash frozen food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to allow frozen food to return to room temperature",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To defrost means to allow frozen food to thaw and return to its normal temperature."
+          ],
+          "summary": "defrost = thaw frozen food."
+        },
+        "explanation": "Defrost the chicken in the fridge overnight."
+      },
+      {
+        "id": "U04-L05-Q031",
+        "number": 31,
+        "question": "What does 'to marinate' food mean?",
+        "options": {
+          "A": "to soak food in flavoured liquid before cooking",
+          "B": "to cook food quickly",
+          "C": "to freeze food",
+          "D": "to serve food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to soak food in flavoured liquid before cooking",
+        "difficulty": "medium",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To marinate means to soak food in a seasoned liquid to add flavour before cooking."
+          ],
+          "summary": "marinate = flavour before cooking."
+        },
+        "explanation": "Marinate the chicken in lemon juice for two hours."
+      },
+      {
+        "id": "U04-L05-Q032",
+        "number": 32,
+        "question": "What does 'to glaze' food mean?",
+        "options": {
+          "A": "to coat food with a shiny layer of sugar or sauce",
+          "B": "to cut food into pieces",
+          "C": "to freeze food",
+          "D": "to boil food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to coat food with a shiny layer of sugar or sauce",
+        "difficulty": "medium",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To glaze means to cover food with a thin, shiny coating of sugar or sauce."
+          ],
+          "summary": "glaze = shiny coating."
+        },
+        "explanation": "Glaze the ham with honey before roasting."
+      },
+      {
+        "id": "U04-L05-Q033",
+        "number": 33,
+        "question": "What does 'a recipe' tell you to do?",
+        "options": {
+          "A": "how to prepare and cook a dish step by step",
+          "B": "how to wash dishes",
+          "C": "how to set the table",
+          "D": "how to buy food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "how to prepare and cook a dish step by step",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A recipe provides step-by-step instructions for preparing and cooking food."
+          ],
+          "summary": "recipe = cooking instructions."
+        },
+        "explanation": "Follow the recipe carefully for best results."
+      },
+      {
+        "id": "U04-L05-Q034",
+        "number": 34,
+        "question": "What does 'to fold in' ingredients mean?",
+        "options": {
+          "A": "to gently mix ingredients together without losing air",
+          "B": "to chop ingredients",
+          "C": "to boil ingredients",
+          "D": "to freeze ingredients"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to gently mix ingredients together without losing air",
+        "difficulty": "hard",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To fold in means to gently combine ingredients using a sweeping motion."
+          ],
+          "summary": "fold in = gently mix."
+        },
+        "explanation": "Fold the flour into the mixture carefully."
+      },
+      {
+        "id": "U04-L05-Q035",
+        "number": 35,
+        "question": "What does 'to knead' dough mean?",
+        "options": {
+          "A": "to press and stretch dough repeatedly with your hands",
+          "B": "to cut dough into pieces",
+          "C": "to boil dough",
+          "D": "to freeze dough"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to press and stretch dough repeatedly with your hands",
+        "difficulty": "medium",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To knead means to work dough by pressing, folding and stretching it."
+          ],
+          "summary": "knead = work dough."
+        },
+        "explanation": "Knead the dough for ten minutes until smooth."
+      },
+      {
+        "id": "U04-L05-Q036",
+        "number": 36,
+        "question": "What does 'to whisk eggs' mean?",
+        "options": {
+          "A": "to beat eggs quickly with a whisk or fork until mixed",
+          "B": "to boil eggs",
+          "C": "to fry eggs",
+          "D": "to freeze eggs"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to beat eggs quickly with a whisk or fork until mixed",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To whisk eggs means to beat them rapidly to mix the yolk and white together."
+          ],
+          "summary": "whisk = beat rapidly."
+        },
+        "explanation": "Whisk the eggs until they are light and frothy."
+      },
+      {
+        "id": "U04-L05-Q037",
+        "number": 37,
+        "question": "What does 'to stir-fry' mean?",
+        "options": {
+          "A": "to cook food quickly in a hot pan with a little oil while stirring",
+          "B": "to boil food slowly",
+          "C": "to grill food",
+          "D": "to freeze food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to cook food quickly in a hot pan with a little oil while stirring",
+        "difficulty": "medium",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To stir-fry means to cook food quickly in a very hot pan with oil while stirring."
+          ],
+          "summary": "stir-fry = quick hot-pan cooking."
+        },
+        "explanation": "Stir-fry the vegetables for three minutes."
+      },
+      {
+        "id": "U04-L05-Q038",
+        "number": 38,
+        "question": "Which kitchen tool is used to measure ingredients precisely?",
+        "options": {
+          "A": "measuring scales",
+          "B": "frying pan",
+          "C": "blender",
+          "D": "chopping board"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "measuring scales",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Measuring scales are used to weigh ingredients accurately."
+          ],
+          "summary": "measuring scales = weighing tool."
+        },
+        "explanation": "Use scales to measure flour precisely."
+      },
+      {
+        "id": "U04-L05-Q039",
+        "number": 39,
+        "question": "Which appliance is used to keep food cold and fresh?",
+        "options": {
+          "A": "fridge",
+          "B": "oven",
+          "C": "microwave",
+          "D": "toaster"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "fridge",
+        "difficulty": "easy",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A fridge is used to keep food and drink cold to preserve freshness."
+          ],
+          "summary": "fridge = cold storage."
+        },
+        "explanation": "Keep milk in the fridge to keep it fresh."
+      },
+      {
+        "id": "U04-L05-Q040",
+        "number": 40,
+        "question": "What does 'to blanch' vegetables mean?",
+        "options": {
+          "A": "to boil briefly then put in cold water to stop cooking",
+          "B": "to fry in oil for a long time",
+          "C": "to freeze raw",
+          "D": "to mash into a paste"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to boil briefly then put in cold water to stop cooking",
+        "difficulty": "hard",
+        "source": {
+          "page": 45,
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Blanching means briefly boiling food then plunging it into cold water."
+          ],
+          "summary": "blanch = brief boil then cold water."
+        },
+        "explanation": "Blanch the beans for two minutes."
+      }
+    ]
+  }
+}

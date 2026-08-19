@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "3",
+    "lesson_name": "Speaking",
+    "unit_number": 3,
+    "unit_name": "Hard sell",
+    "page_start": 29,
+    "page_end": 29,
+    "questions": [
+      {
+        "id": "U03-L03-Q001",
+        "number": 1,
+        "question": "Which phrase is used to ask for something politely?",
+        "options": {
+          "A": "This is a bit awkward, but ...",
+          "B": "It has to be a 'no'.",
+          "C": "Let's shake on that, then.",
+          "D": "OK, I can live with that."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "This is a bit awkward, but ...",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Asking for what you want"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'This is a bit awkward, but...' politely introduces a request."
+          ],
+          "summary": "This is a bit awkward, but..."
+        },
+        "explanation": "It softens an awkward request."
+      },
+      {
+        "id": "U03-L03-Q002",
+        "number": 2,
+        "question": "Which phrase means 'would you be willing to...'?",
+        "options": {
+          "A": "Would you be prepared to ...?",
+          "B": "How does that sound?",
+          "C": "The bottom line is ...",
+          "D": "I'd like to say yes, but ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Would you be prepared to ...?",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Asking for what you want"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Would you be prepared to...?' politely asks if someone will accept."
+          ],
+          "summary": "Would you be prepared to...?"
+        },
+        "explanation": "It is a polite request."
+      },
+      {
+        "id": "U03-L03-Q003",
+        "number": 3,
+        "question": "Which phrase asks about the possibility of change?",
+        "options": {
+          "A": "I'm wondering if there's any flexibility ...?",
+          "B": "It has to be a 'no'.",
+          "C": "Great, you've got yourself a deal.",
+          "D": "Let's shake on that, then."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I'm wondering if there's any flexibility ...?",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Asking for what you want"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'I'm wondering if there's any flexibility?' asks if the offer can change."
+          ],
+          "summary": "I'm wondering if there's any flexibility?"
+        },
+        "explanation": "It checks if the other side can move."
+      },
+      {
+        "id": "U03-L03-Q004",
+        "number": 4,
+        "question": "Which phrase suggests a proposal?",
+        "options": {
+          "A": "How about if we were to ...?",
+          "B": "At the end of the day ...",
+          "C": "I can see what you're saying, but ...",
+          "D": "Provided you ..., I see no reason why I couldn't ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "How about if we were to ...?",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Asking for what you want"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'How about if we were to...?' makes a suggestion to negotiate."
+          ],
+          "summary": "How about if we were to...?"
+        },
+        "explanation": "It proposes a possible solution."
+      },
+      {
+        "id": "U03-L03-Q005",
+        "number": 5,
+        "question": "Which phrase politely refuses an offer?",
+        "options": {
+          "A": "I'd like to say yes, but ...",
+          "B": "Would you be prepared to ...?",
+          "C": "How about if we were to ...?",
+          "D": "I'm wondering if there's any flexibility?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I'd like to say yes, but ...",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Refusing an offer"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'I'd like to say yes, but...' refuses while being polite."
+          ],
+          "summary": "I'd like to say yes, but..."
+        },
+        "explanation": "It softens the refusal."
+      },
+      {
+        "id": "U03-L03-Q006",
+        "number": 6,
+        "question": "What does 'I'm afraid that's a bit out of my price range' mean?",
+        "options": {
+          "A": "that is more than I can afford",
+          "B": "that is a very good price",
+          "C": "I have no money at all",
+          "D": "the price is negotiable"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "that is more than I can afford",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Refusing an offer"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Out of my price range' means the price is too high for the speaker."
+          ],
+          "summary": "out of my price range = too expensive."
+        },
+        "explanation": "It is a polite refusal of a price."
+      },
+      {
+        "id": "U03-L03-Q007",
+        "number": 7,
+        "question": "What does 'The bottom line is...' mean?",
+        "options": {
+          "A": "the most important point is...",
+          "B": "the final price is...",
+          "C": "the last line is...",
+          "D": "the problem is..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the most important point is...",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Refusing an offer"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'The bottom line' is the essential or final point."
+          ],
+          "summary": "The bottom line = key point."
+        },
+        "explanation": "It states the essential fact."
+      },
+      {
+        "id": "U03-L03-Q008",
+        "number": 8,
+        "question": "What does 'At the end of the day...' mean in a negotiation?",
+        "options": {
+          "A": "when you consider everything...",
+          "B": "when it gets dark...",
+          "C": "at midnight...",
+          "D": "on the last day..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "when you consider everything...",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Refusing an offer"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'At the end of the day' means 'when all is considered'."
+          ],
+          "summary": "At the end of the day = ultimately."
+        },
+        "explanation": "It introduces the final judgement."
+      },
+      {
+        "id": "U03-L03-Q009",
+        "number": 9,
+        "question": "Which phrase clearly rejects an offer?",
+        "options": {
+          "A": "It has to be a 'no'.",
+          "B": "OK, I can live with that.",
+          "C": "Great, you've got yourself a deal.",
+          "D": "Let's shake on that, then."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "It has to be a 'no'.",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Refusing an offer"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'It has to be a no' is a firm refusal."
+          ],
+          "summary": "It has to be a 'no'."
+        },
+        "explanation": "It makes the refusal clear."
+      },
+      {
+        "id": "U03-L03-Q010",
+        "number": 10,
+        "question": "Which phrase accepts an offer happily?",
+        "options": {
+          "A": "Great, you've got yourself a deal.",
+          "B": "I'm afraid that's out of my budget.",
+          "C": "It has to be a 'no'.",
+          "D": "I'm wondering if there's any flexibility?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Great, you've got yourself a deal.",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Accepting an offer"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Great, you've got yourself a deal' accepts the offer."
+          ],
+          "summary": "You've got yourself a deal = agreement."
+        },
+        "explanation": "It confirms the deal."
+      },
+      {
+        "id": "U03-L03-Q011",
+        "number": 11,
+        "question": "What does 'Let's shake on that, then.' mean?",
+        "options": {
+          "A": "let's agree by shaking hands",
+          "B": "let's leave now",
+          "C": "let's think about it",
+          "D": "let's change the deal"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "let's agree by shaking hands",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Accepting an offer"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Shake on it' means to confirm an agreement by shaking hands."
+          ],
+          "summary": "shake on that = confirm the deal."
+        },
+        "explanation": "It seals the agreement."
+      },
+      {
+        "id": "U03-L03-Q012",
+        "number": 12,
+        "question": "What does 'OK, I can live with that.' mean?",
+        "options": {
+          "A": "I can accept that even though it's not perfect",
+          "B": "I refuse that",
+          "C": "that will kill me",
+          "D": "I don't understand that"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I can accept that even though it's not perfect",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Accepting an offer"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'I can live with that' means I can accept the compromise."
+          ],
+          "summary": "I can live with that = I accept it."
+        },
+        "explanation": "It is a willing but not thrilled acceptance."
+      },
+      {
+        "id": "U03-L03-Q013",
+        "number": 13,
+        "question": "Which phrase tries to find a middle ground?",
+        "options": {
+          "A": "Can we try and meet halfway on this?",
+          "B": "It has to be a 'no'.",
+          "C": "I'd like to say yes, but ...",
+          "D": "The bottom line is ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Can we try and meet halfway on this?",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Win-win situation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Meet halfway' means compromise in the middle."
+          ],
+          "summary": "meet halfway = compromise."
+        },
+        "explanation": "Each side gives a little."
+      },
+      {
+        "id": "U03-L03-Q014",
+        "number": 14,
+        "question": "What does 'Is there any room for compromise?' mean?",
+        "options": {
+          "A": "can we make some changes to reach an agreement?",
+          "B": "is the meeting room free?",
+          "C": "do we have any space?",
+          "D": "is the offer final?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "can we make some changes to reach an agreement?",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Win-win situation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Room for compromise' means a chance to adjust the deal."
+          ],
+          "summary": "room for compromise = possibility to adjust."
+        },
+        "explanation": "It seeks a solution both sides accept."
+      },
+      {
+        "id": "U03-L03-Q015",
+        "number": 15,
+        "question": "What does 'Provided you ..., I see no reason why I couldn't ...' express?",
+        "options": {
+          "A": "a conditional acceptance",
+          "B": "a final refusal",
+          "C": "a question",
+          "D": "an apology"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a conditional acceptance",
+        "difficulty": "hard",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Win-win situation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Provided you...' means 'if you...'; the speaker accepts conditionally."
+          ],
+          "summary": "Provided = if, condition."
+        },
+        "explanation": "It opens the door to a deal."
+      },
+      {
+        "id": "U03-L03-Q016",
+        "number": 16,
+        "question": "What does 'I can see what you're saying, but ...' do?",
+        "options": {
+          "A": "it acknowledges the other side before disagreeing",
+          "B": "it ends the negotiation",
+          "C": "it changes the subject",
+          "D": "it threatens the other side"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it acknowledges the other side before disagreeing",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Win-win situation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "It shows understanding before presenting a different view."
+          ],
+          "summary": "It acknowledges then disagrees."
+        },
+        "explanation": "It keeps the discussion friendly."
+      },
+      {
+        "id": "U03-L03-Q017",
+        "number": 17,
+        "question": "What does 'How does that sound?' mean?",
+        "options": {
+          "A": "what do you think of that proposal?",
+          "B": "is that too loud?",
+          "C": "can you hear me?",
+          "D": "is that correct grammar?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "what do you think of that proposal?",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Win-win situation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'How does that sound?' asks for the other person's opinion of a proposal."
+          ],
+          "summary": "How does that sound? = what do you think?"
+        },
+        "explanation": "It checks the proposal's acceptability."
+      },
+      {
+        "id": "U03-L03-Q018",
+        "number": 18,
+        "question": "Complete: 'Huda: Well, I'd like to say ______, but midnight is a bit late for me.'",
+        "options": {
+          "A": "yes",
+          "B": "no",
+          "C": "maybe",
+          "D": "sorry"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "yes",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": "Exercise 4: Conversation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Huda uses 'I'd like to say yes, but...' to refuse politely."
+          ],
+          "summary": "yes"
+        },
+        "explanation": "She refuses 11.30-8-midnight politely."
+      },
+      {
+        "id": "U03-L03-Q019",
+        "number": 19,
+        "question": "Complete: 'Mrs Alra'i: ______ 11.30? Would that be OK?'",
+        "options": {
+          "A": "How about",
+          "B": "The bottom line is",
+          "C": "At the end of the day",
+          "D": "Let's shake on that"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "How about",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": "Exercise 4: Conversation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Mrs Alra'i suggests 'How about 11.30?'."
+          ],
+          "summary": "How about"
+        },
+        "explanation": "She offers an alternative time."
+      },
+      {
+        "id": "U03-L03-Q020",
+        "number": 20,
+        "question": "Complete: 'Mrs Alra'i: Oh, I'm afraid that's a bit out of my ______.'",
+        "options": {
+          "A": "budget",
+          "B": "reach",
+          "C": "house",
+          "D": "plan"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "budget",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": "Exercise 4: Conversation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "She says the price is out of her budget."
+          ],
+          "summary": "budget"
+        },
+        "explanation": "She cannot pay 8 dinars an hour."
+      },
+      {
+        "id": "U03-L03-Q021",
+        "number": 21,
+        "question": "Complete: 'Huda: Can we try and ______ ? Would 7.50 dinars be OK?'",
+        "options": {
+          "A": "meet halfway",
+          "B": "shake on it",
+          "C": "start again",
+          "D": "call it a day"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "meet halfway",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": "Exercise 4: Conversation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Huda asks to meet halfway between 8 and 7 dinars."
+          ],
+          "summary": "meet halfway"
+        },
+        "explanation": "7.50 is the middle point."
+      },
+      {
+        "id": "U03-L03-Q022",
+        "number": 22,
+        "question": "What is Huda's normal charge?",
+        "options": {
+          "A": "8 dinars an hour",
+          "B": "7 dinars an hour",
+          "C": "7.50 dinars an hour",
+          "D": "10 dinars an hour"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "8 dinars an hour",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Exercise 4: Conversation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'I usually charge 8 dinars an hour.'"
+          ],
+          "summary": "8 dinars an hour"
+        },
+        "explanation": "Mrs Alra'i asked for 7, and they settled on 7.50."
+      },
+      {
+        "id": "U03-L03-Q023",
+        "number": 23,
+        "question": "What did Huda and Mrs Alra'i finally agree on?",
+        "options": {
+          "A": "7.50 dinars an hour",
+          "B": "8 dinars an hour",
+          "C": "7 dinars an hour",
+          "D": "no deal"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "7.50 dinars an hour",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": "Exercise 4: Conversation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "They met halfway at 7.50 dinars an hour."
+          ],
+          "summary": "7.50 dinars an hour"
+        },
+        "explanation": "Both sides accepted the compromise."
+      },
+      {
+        "id": "U03-L03-Q024",
+        "number": 24,
+        "question": "When does Mrs Alra'i need a babysitter?",
+        "options": {
+          "A": "a Friday or Saturday night for about four hours",
+          "B": "every weekday evening",
+          "C": "Sunday mornings",
+          "D": "the whole weekend"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a Friday or Saturday night for about four hours",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Exercise 4: Conversation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'It'll be a Friday or Saturday night for about four hours, say eight 'til midnight.'"
+          ],
+          "summary": "Friday or Saturday night"
+        },
+        "explanation": "They agreed on until 11.30."
+      },
+      {
+        "id": "U03-L03-Q025",
+        "number": 25,
+        "question": "What is 'negotiating'?",
+        "options": {
+          "A": "discussing to reach an agreement both sides accept",
+          "B": "fighting to get your way",
+          "C": "selling products cheaply",
+          "D": "giving a presentation"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "discussing to reach an agreement both sides accept",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Lesson 3A: Speaking"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Negotiation is discussion to find an acceptable agreement."
+          ],
+          "summary": "negotiating = reaching an agreement."
+        },
+        "explanation": "It often involves compromise."
+      },
+      {
+        "id": "U03-L03-Q026",
+        "number": 26,
+        "question": "Which phrase describes 'trying to get to a win-win situation'?",
+        "options": {
+          "A": "Can we try and meet halfway on this?",
+          "B": "It has to be a 'no'.",
+          "C": "I'm afraid that's out of my price range.",
+          "D": "Great, you've got yourself a deal."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Can we try and meet halfway on this?",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Win-win situation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Meet halfway' aims for a result good for both sides."
+          ],
+          "summary": "meet halfway = win-win."
+        },
+        "explanation": "Both sides compromise."
+      },
+      {
+        "id": "U03-L03-Q027",
+        "number": 27,
+        "question": "Which is a polite way to refuse?",
+        "options": {
+          "A": "I'd like to say yes, but ...",
+          "B": "No way!",
+          "C": "Forget it.",
+          "D": "Never!"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I'd like to say yes, but ...",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Refusing an offer"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'I'd like to say yes, but...' is a polite refusal."
+          ],
+          "summary": "I'd like to say yes, but..."
+        },
+        "explanation": "It is soft and courteous."
+      },
+      {
+        "id": "U03-L03-Q028",
+        "number": 28,
+        "question": "Which phrase is used to check the other person's reaction?",
+        "options": {
+          "A": "How does that sound?",
+          "B": "It has to be a 'no'.",
+          "C": "The bottom line is ...",
+          "D": "At the end of the day ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "How does that sound?",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Win-win situation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'How does that sound?' checks whether the proposal is acceptable."
+          ],
+          "summary": "How does that sound?"
+        },
+        "explanation": "It invites feedback."
+      },
+      {
+        "id": "U03-L03-Q029",
+        "number": 29,
+        "question": "In the negotiation conversation, who negotiates with Mrs Alra'i?",
+        "options": {
+          "A": "Huda",
+          "B": "Malek",
+          "C": "Adnan",
+          "D": "Saeed"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Huda",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Exercise 4: Conversation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Huda negotiates the babysitting job with Mrs Alra'i."
+          ],
+          "summary": "Huda"
+        },
+        "explanation": "Huda wants the babysitting job."
+      },
+      {
+        "id": "U03-L03-Q030",
+        "number": 30,
+        "question": "What did Mrs Alra'i say about the children?",
+        "options": {
+          "A": "they're quite self-sufficient and won't be any bother",
+          "B": "they are very difficult",
+          "C": "they sleep all day",
+          "D": "they need constant care"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "they're quite self-sufficient and won't be any bother",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": "Exercise 4: Conversation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "She said the children are self-sufficient; Huda will only need to watch TV."
+          ],
+          "summary": "They are self-sufficient."
+        },
+        "explanation": "That is why she asked for a lower price."
+      },
+      {
+        "id": "U03-L03-Q031",
+        "number": 31,
+        "question": "Which phrase means 'I accept even though it isn't perfect'?",
+        "options": {
+          "A": "OK, I can live with that.",
+          "B": "I'd like to say yes, but ...",
+          "C": "It has to be a 'no'.",
+          "D": "I'm wondering if there's any flexibility?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "OK, I can live with that.",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Accepting an offer"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'I can live with that' shows acceptance of an imperfect deal."
+          ],
+          "summary": "I can live with that = accept."
+        },
+        "explanation": "It is a realistic acceptance."
+      },
+      {
+        "id": "U03-L03-Q032",
+        "number": 32,
+        "question": "Which phrase introduces a firm final point?",
+        "options": {
+          "A": "The bottom line is ...",
+          "B": "How about if we were to ...?",
+          "C": "Would you be prepared to ...?",
+          "D": "Provided you ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The bottom line is ...",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Refusing an offer"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'The bottom line is...' states the essential final point."
+          ],
+          "summary": "The bottom line = final point."
+        },
+        "explanation": "It often precedes a refusal or condition."
+      },
+      {
+        "id": "U03-L03-Q033",
+        "number": 33,
+        "question": "Which of these is NOT a phrase for asking for what you want?",
+        "options": {
+          "A": "Let's shake on that, then.",
+          "B": "This is a bit awkward, but ...",
+          "C": "Would you be prepared to ...?",
+          "D": "How about if we were to ...?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Let's shake on that, then.",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Negotiating"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Let's shake on that' is for accepting, not asking."
+          ],
+          "summary": "Let's shake on that = accepting."
+        },
+        "explanation": "The others are requests."
+      },
+      {
+        "id": "U03-L03-Q034",
+        "number": 34,
+        "question": "Which expression means 'when you consider everything'?",
+        "options": {
+          "A": "At the end of the day ...",
+          "B": "In the beginning ...",
+          "C": "At the moment ...",
+          "D": "After lunch ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "At the end of the day ...",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Refusing an offer"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'At the end of the day' means ultimately, all things considered."
+          ],
+          "summary": "At the end of the day = ultimately."
+        },
+        "explanation": "It frames the final point."
+      },
+      {
+        "id": "U03-L03-Q035",
+        "number": 35,
+        "question": "What does 'win-win situation' mean?",
+        "options": {
+          "A": "a result that is good for both sides",
+          "B": "a result good for only one side",
+          "C": "a game where nobody wins",
+          "D": "a competition"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a result that is good for both sides",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Win-win situation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A win-win outcome benefits both people in the negotiation."
+          ],
+          "summary": "win-win = good for both."
+        },
+        "explanation": "Compromise can create win-win results."
+      },
+      {
+        "id": "U03-L03-Q036",
+        "number": 36,
+        "question": "What is a 'compromise'?",
+        "options": {
+          "A": "an agreement where each side gives up something",
+          "B": "a decision made by one side only",
+          "C": "a fight between two sides",
+          "D": "a suggestion nobody accepts"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "an agreement where each side gives up something",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Win-win situation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A compromise is a settlement reached by both sides giving a little."
+          ],
+          "summary": "compromise = give-and-take."
+        },
+        "explanation": "Meeting halfway is a compromise."
+      },
+      {
+        "id": "U03-L03-Q037",
+        "number": 37,
+        "question": "Complete: 'Great, you've got yourself a ______.'",
+        "options": {
+          "A": "deal",
+          "B": "job",
+          "C": "price",
+          "D": "time"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "deal",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Accepting an offer"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The phrase is 'you've got yourself a deal'."
+          ],
+          "summary": "deal"
+        },
+        "explanation": "It confirms the agreement."
+      },
+      {
+        "id": "U03-L03-Q038",
+        "number": 38,
+        "question": "Which phrase could end a successful negotiation?",
+        "options": {
+          "A": "Let's shake on that, then.",
+          "B": "It has to be a 'no'.",
+          "C": "I'm afraid that's out of my budget.",
+          "D": "I'd like to say yes, but ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Let's shake on that, then.",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Accepting an offer"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Let's shake on that' seals a successful agreement."
+          ],
+          "summary": "Let's shake on that, then."
+        },
+        "explanation": "Both sides agree."
+      },
+      {
+        "id": "U03-L03-Q039",
+        "number": 39,
+        "question": "Which question asks if a price can change?",
+        "options": {
+          "A": "I'm wondering if there's any flexibility?",
+          "B": "How does that sound?",
+          "C": "Is there a deal?",
+          "D": "Are you sure?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I'm wondering if there's any flexibility?",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": "Speaking box: Asking for what you want"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Any flexibility?' asks whether the terms can be adjusted."
+          ],
+          "summary": "Is there any flexibility?"
+        },
+        "explanation": "It invites a better offer."
+      },
+      {
+        "id": "U03-L03-Q040",
+        "number": 40,
+        "question": "What did Mrs Alra'i suggest about Huda's hours?",
+        "options": {
+          "A": "she wanted midnight to be changed to 11.30",
+          "B": "she wanted a full day",
+          "C": "she wanted Sunday morning",
+          "D": "she wanted a different babysitter"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "she wanted midnight to be changed to 11.30",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": "Exercise 4: Conversation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Mrs Alra'i asked if 11.30 would be OK instead of midnight."
+          ],
+          "summary": "Change midnight to 11.30."
+        },
+        "explanation": "Huda agreed to this change."
+      }
+    ]
+  }
+}

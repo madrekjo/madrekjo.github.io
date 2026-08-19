@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "3",
+    "lesson_name": "Grammar",
+    "unit_number": 2,
+    "unit_name": "On the move",
+    "page_start": 18,
+    "page_end": 19,
+    "questions": [
+      {
+        "id": "U02-L03-Q001",
+        "number": 1,
+        "question": "Which sentence is an example of negative inversion?",
+        "options": {
+          "A": "Never before had I experienced such intense heat.",
+          "B": "I had never experienced such intense heat before.",
+          "C": "The heat was very intense.",
+          "D": "I experienced intense heat."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Never before had I experienced such intense heat.",
+        "difficulty": "easy",
+        "source": {
+          "page": 18,
+          "reference": "Exercise 2: Inversion and cleft sentences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Never before had I experienced' inverts the subject and auxiliary after a negative adverbial."
+          ],
+          "summary": "Negative inversion: Never + had + I."
+        },
+        "explanation": "Inversion is used for emphasis."
+      },
+      {
+        "id": "U02-L03-Q002",
+        "number": 2,
+        "question": "What is the normal word order of 'Never before had I experienced such intense heat'?",
+        "options": {
+          "A": "I had never experienced such intense heat before.",
+          "B": "Had I never experienced heat before.",
+          "C": "Never I had experienced heat.",
+          "D": "I never had experienced heat before."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I had never experienced such intense heat before.",
+        "difficulty": "medium",
+        "source": {
+          "page": 18,
+          "reference": "Exercise 2: Inversion and cleft sentences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "In normal order: subject + auxiliary: I had never experienced such intense heat before."
+          ],
+          "summary": "I had never experienced such intense heat before."
+        },
+        "explanation": "Inversion swaps the subject and auxiliary for emphasis."
+      },
+      {
+        "id": "U02-L03-Q003",
+        "number": 3,
+        "question": "What do we call it when we begin a sentence with a negative adverbial and invert the subject?",
+        "options": {
+          "A": "inversion",
+          "B": "cleft sentence",
+          "C": "passive voice",
+          "D": "reported speech"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "inversion",
+        "difficulty": "easy",
+        "source": {
+          "page": 18,
+          "reference": "Exercise 4: Grammar explanation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The text calls this 'inversion'."
+          ],
+          "summary": "It is inversion."
+        },
+        "explanation": "We use it to add emphasis."
+      },
+      {
+        "id": "U02-L03-Q004",
+        "number": 4,
+        "question": "Which words can begin a sentence with inversion?",
+        "options": {
+          "A": "Seldom, Rarely, Never, Only",
+          "B": "and, but, or, so",
+          "C": "the, a, an",
+          "D": "in, on, at"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Seldom, Rarely, Never, Only",
+        "difficulty": "easy",
+        "source": {
+          "page": 18,
+          "reference": "Exercise 4: Grammar explanation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "We begin with negative adverbials such as Seldom and Rarely, or words like Only, So and Such."
+          ],
+          "summary": "Seldom, Rarely, Never, Only, etc."
+        },
+        "explanation": "These words trigger inversion."
+      },
+      {
+        "id": "U02-L03-Q005",
+        "number": 5,
+        "question": "What does 'Little did I realise how differently I would feel about them soon' mean?",
+        "options": {
+          "A": "I did not realise at all",
+          "B": "I realised a little bit",
+          "C": "I realised everything",
+          "D": "I knew all along"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I did not realise at all",
+        "difficulty": "medium",
+        "source": {
+          "page": 18,
+          "reference": "Reading text: Speeding in the sand"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Little did I realise' means I did not realise at all."
+          ],
+          "summary": "Little did I realise = I did not realise."
+        },
+        "explanation": "This is inversion after 'little'."
+      },
+      {
+        "id": "U02-L03-Q006",
+        "number": 6,
+        "question": "Which sentence uses inversion correctly?",
+        "options": {
+          "A": "Only when we reached the top did I realise how high the dunes were.",
+          "B": "Only when we reached the top I realised how high the dunes were.",
+          "C": "Only did when we reached the top I realise.",
+          "D": "We reached only the top did I realise."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Only when we reached the top did I realise how high the dunes were.",
+        "difficulty": "medium",
+        "source": {
+          "page": 18,
+          "reference": "Exercise 3: Inversion"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "After 'Only when...' the subject and auxiliary are inverted: did I realise."
+          ],
+          "summary": "Only when... did I realise."
+        },
+        "explanation": "The auxiliary 'did' comes before the subject."
+      },
+      {
+        "id": "U02-L03-Q007",
+        "number": 7,
+        "question": "What is the normal word order of 'Only when we reached the top did I realise how high the dunes were'?",
+        "options": {
+          "A": "I only realised how high the dunes were when we reached the top.",
+          "B": "Only I realised when we reached the top.",
+          "C": "I realised only the dunes were high.",
+          "D": "We reached the top and I only realised."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I only realised how high the dunes were when we reached the top.",
+        "difficulty": "hard",
+        "source": {
+          "page": 18,
+          "reference": "Exercise 3: Inversion"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "In normal order: I only realised how high the dunes were when we reached the top."
+          ],
+          "summary": "I only realised... when we reached the top."
+        },
+        "explanation": "Inversion moves 'did' before 'I' for emphasis."
+      },
+      {
+        "id": "U02-L03-Q008",
+        "number": 8,
+        "question": "Complete: 'Rarely ______ such a crazy experience as a family.'",
+        "options": {
+          "A": "have we had",
+          "B": "we have had",
+          "C": "we had have",
+          "D": "had we"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "have we had",
+        "difficulty": "medium",
+        "source": {
+          "page": 18,
+          "reference": "Reading text: Speeding in the sand"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "After 'Rarely' we invert: Rarely have we had such a crazy experience."
+          ],
+          "summary": "Rarely have we had..."
+        },
+        "explanation": "Rarely is a negative adverbial, so the auxiliary comes first."
+      },
+      {
+        "id": "U02-L03-Q009",
+        "number": 9,
+        "question": "In the text, 'Rarely have we had such a crazy experience' means ...",
+        "options": {
+          "A": "we have hardly ever had such a crazy experience",
+          "B": "we often have crazy experiences",
+          "C": "we always have crazy experiences",
+          "D": "we will never have fun"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "we have hardly ever had such a crazy experience",
+        "difficulty": "medium",
+        "source": {
+          "page": 18,
+          "reference": "Reading text: Speeding in the sand"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Rarely' = seldom; the family hardly ever has such a crazy experience."
+          ],
+          "summary": "Rarely = hardly ever."
+        },
+        "explanation": "The dune bashing was extraordinary for them."
+      },
+      {
+        "id": "U02-L03-Q010",
+        "number": 10,
+        "question": "Which sentence uses 'Not only... but also' with correct inversion?",
+        "options": {
+          "A": "Not only was it clear that the coach had not been serviced, but also that care had not been taken.",
+          "B": "Not only it was clear that...",
+          "C": "Not only was clear it that...",
+          "D": "Not only it was clearly..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Not only was it clear that the coach had not been serviced, but also that care had not been taken.",
+        "difficulty": "hard",
+        "source": {
+          "page": 18,
+          "reference": "Unit 2 review of inversion"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "With 'Not only' at the start, we invert: Not only was it clear..."
+          ],
+          "summary": "Not only was it clear..."
+        },
+        "explanation": "The auxiliary 'was' comes before the subject 'it'."
+      },
+      {
+        "id": "U02-L03-Q011",
+        "number": 11,
+        "question": "What is the purpose of using inversion?",
+        "options": {
+          "A": "to add emphasis",
+          "B": "to make the sentence shorter",
+          "C": "to avoid using commas",
+          "D": "to make the sentence informal"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to add emphasis",
+        "difficulty": "easy",
+        "source": {
+          "page": 18,
+          "reference": "Exercise 4: Grammar explanation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The text says 'To add emphasis, we can begin sentences with negative adverbials...'"
+          ],
+          "summary": "Inversion adds emphasis."
+        },
+        "explanation": "It makes the sentence sound stronger and more dramatic."
+      },
+      {
+        "id": "U02-L03-Q012",
+        "number": 12,
+        "question": "Which sentence is a cleft sentence?",
+        "options": {
+          "A": "It was the flowing golden dunes which really impressed me.",
+          "B": "The flowing golden dunes impressed me.",
+          "C": "I was impressed by the dunes.",
+          "D": "The dunes were impressive."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "It was the flowing golden dunes which really impressed me.",
+        "difficulty": "medium",
+        "source": {
+          "page": 18,
+          "reference": "Exercise 3: Cleft sentences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A cleft sentence begins with It's/What and splits the information into two parts."
+          ],
+          "summary": "It was X which... = cleft sentence."
+        },
+        "explanation": "Cleft sentences make information more memorable."
+      },
+      {
+        "id": "U02-L03-Q013",
+        "number": 13,
+        "question": "In 'It was the flowing golden dunes which really impressed me', what is emphasised?",
+        "options": {
+          "A": "the flowing golden dunes",
+          "B": "me",
+          "C": "really",
+          "D": "impressed"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the flowing golden dunes",
+        "difficulty": "medium",
+        "source": {
+          "page": 18,
+          "reference": "Exercise 3: Cleft sentences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The cleft structure 'It was X which...' emphasises X, the dunes."
+          ],
+          "summary": "The dunes are emphasised."
+        },
+        "explanation": "The structure puts the important information first."
+      },
+      {
+        "id": "U02-L03-Q014",
+        "number": 14,
+        "question": "Complete: 'What I was really wild about was ______.'",
+        "options": {
+          "A": "seeing the desert",
+          "B": "the intense heat",
+          "C": "the plane journey",
+          "D": "the hotel room"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "seeing the desert",
+        "difficulty": "medium",
+        "source": {
+          "page": 18,
+          "reference": "Reading text: Speeding in the sand"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'What I was really wild about though, was seeing the desert for the first time.'"
+          ],
+          "summary": "seeing the desert"
+        },
+        "explanation": "The cleft with 'What' emphasises seeing the desert."
+      },
+      {
+        "id": "U02-L03-Q015",
+        "number": 15,
+        "question": "What do cleft sentences begin with?",
+        "options": {
+          "A": "It's, What, The only thing that",
+          "B": "Never, Rarely, Seldom",
+          "C": "and, but, or",
+          "D": "in, on, at"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "It's, What, The only thing that",
+        "difficulty": "easy",
+        "source": {
+          "page": 19,
+          "reference": "Watch Out!: Cleft sentences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Cleft sentences start with It's and What, and also The (only) thing that, The day when, etc."
+          ],
+          "summary": "It's / What / The only thing that."
+        },
+        "explanation": "These structures add emphasis."
+      },
+      {
+        "id": "U02-L03-Q016",
+        "number": 16,
+        "question": "Complete: 'What you can expect is good food, fast cars and great ______.'",
+        "options": {
+          "A": "roads",
+          "B": "races",
+          "C": "meals",
+          "D": "hotels"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "roads",
+        "difficulty": "easy",
+        "source": {
+          "page": 19,
+          "reference": "Exercise 8: Jordan Rally advert"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The advert says 'What you can expect is good food, fast cars and great roads.'"
+          ],
+          "summary": "great roads"
+        },
+        "explanation": "This is from the Jordan Rally advert."
+      },
+      {
+        "id": "U02-L03-Q017",
+        "number": 17,
+        "question": "Complete: 'What you'll find amazing is the ______.'",
+        "options": {
+          "A": "camaraderie",
+          "B": "speed",
+          "C": "desert",
+          "D": "weather"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "camaraderie",
+        "difficulty": "medium",
+        "source": {
+          "page": 19,
+          "reference": "Exercise 8: Jordan Rally advert"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The advert says 'What you'll find amazing is the camaraderie.'"
+          ],
+          "summary": "camaraderie"
+        },
+        "explanation": "Camaraderie means friendship between people."
+      },
+      {
+        "id": "U02-L03-Q018",
+        "number": 18,
+        "question": "What does 'camaraderie' mean?",
+        "options": {
+          "A": "friendship and trust between people",
+          "B": "speed and excitement",
+          "C": "money and profit",
+          "D": "danger and risk"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "friendship and trust between people",
+        "difficulty": "easy",
+        "source": {
+          "page": 19,
+          "reference": "Exercise 8: Jordan Rally advert"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Camaraderie' means friendship and mutual trust, especially among a group."
+          ],
+          "summary": "camaraderie = friendship."
+        },
+        "explanation": "A passion for cars unites the group."
+      },
+      {
+        "id": "U02-L03-Q019",
+        "number": 19,
+        "question": "Complete: 'It's the camaraderie ______ amazing.'",
+        "options": {
+          "A": "that's",
+          "B": "what's",
+          "C": "it's",
+          "D": "which's"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "that's",
+        "difficulty": "medium",
+        "source": {
+          "page": 19,
+          "reference": "Exercise 9: Cleft sentences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'It's the camaraderie that's amazing.'"
+          ],
+          "summary": "that's"
+        },
+        "explanation": "The cleft structure is It's X that's Y."
+      },
+      {
+        "id": "U02-L03-Q020",
+        "number": 20,
+        "question": "Rewrite the cleft sentence 'It's the camaraderie that's amazing' using 'What'. What would it be?",
+        "options": {
+          "A": "What you'll find amazing is the camaraderie.",
+          "B": "What amazing is the camaraderie.",
+          "C": "What the camaraderie is amazing.",
+          "D": "What is amazing the camaraderie."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "What you'll find amazing is the camaraderie.",
+        "difficulty": "hard",
+        "source": {
+          "page": 19,
+          "reference": "Exercise 9: Cleft sentences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The 'What' cleft version: What you'll find amazing is the camaraderie."
+          ],
+          "summary": "What you'll find amazing is the camaraderie."
+        },
+        "explanation": "Both versions emphasise the same information."
+      },
+      {
+        "id": "U02-L03-Q021",
+        "number": 21,
+        "question": "Complete the inversion: 'He never felt sorry for himself. → NOT ONCE ______ sorry for himself.'",
+        "options": {
+          "A": "did he feel",
+          "B": "he did feel",
+          "C": "felt he did",
+          "D": "he felt"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "did he feel",
+        "difficulty": "medium",
+        "source": {
+          "page": 19,
+          "reference": "Exercise 7: Rewrite using inversion"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "With 'Not once' at the start, invert: Not once did he feel sorry for himself."
+          ],
+          "summary": "Not once did he feel sorry for himself."
+        },
+        "explanation": "Negative adverbial + inversion."
+      },
+      {
+        "id": "U02-L03-Q022",
+        "number": 22,
+        "question": "Complete the inversion: 'He didn't know what was going to happen. → LITTLE ______ what was going to happen.'",
+        "options": {
+          "A": "did he know",
+          "B": "he knew",
+          "C": "he did know",
+          "D": "knew he"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "did he know",
+        "difficulty": "medium",
+        "source": {
+          "page": 19,
+          "reference": "Exercise 7: Rewrite using inversion"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "With 'Little' at the start: Little did he know what was going to happen."
+          ],
+          "summary": "Little did he know..."
+        },
+        "explanation": "'Little' here is a negative adverbial."
+      },
+      {
+        "id": "U02-L03-Q023",
+        "number": 23,
+        "question": "Complete the inversion: 'She was so happy that she thought she would never stop smiling. → SO ______ that she thought she would never stop smiling.'",
+        "options": {
+          "A": "happy was she",
+          "B": "she was happy",
+          "C": "was she happy",
+          "D": "happy she was"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "happy was she",
+        "difficulty": "hard",
+        "source": {
+          "page": 19,
+          "reference": "Exercise 7: Rewrite using inversion"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "With 'So' at the start: So happy was she that she thought she would never stop smiling."
+          ],
+          "summary": "So happy was she..."
+        },
+        "explanation": "The complement 'happy' moves before the verb."
+      },
+      {
+        "id": "U02-L03-Q024",
+        "number": 24,
+        "question": "Complete the inversion: 'The speed was so great that they started to feel scared. → SUCH ______ that they started to feel scared.'",
+        "options": {
+          "A": "was the speed",
+          "B": "the speed was",
+          "C": "was speed the",
+          "D": "speed the was"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "was the speed",
+        "difficulty": "hard",
+        "source": {
+          "page": 19,
+          "reference": "Exercise 7: Rewrite using inversion"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "With 'Such' at the start: Such was the speed that they started to feel scared."
+          ],
+          "summary": "Such was the speed that..."
+        },
+        "explanation": "'Such' + inverted be-verb."
+      },
+      {
+        "id": "U02-L03-Q025",
+        "number": 25,
+        "question": "What is the text 'Speeding in the sand' about?",
+        "options": {
+          "A": "a family trying dune bashing in the desert",
+          "B": "a car race in Jordan",
+          "C": "a train journey",
+          "D": "a skiing holiday"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a family trying dune bashing in the desert",
+        "difficulty": "easy",
+        "source": {
+          "page": 18,
+          "reference": "Reading text: Speeding in the sand"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The text is about a family's first experience of dune bashing."
+          ],
+          "summary": "It is about dune bashing."
+        },
+        "explanation": "They surged up the dunes in a special car."
+      },
+      {
+        "id": "U02-L03-Q026",
+        "number": 26,
+        "question": "What is 'dune bashing'?",
+        "options": {
+          "A": "driving over sand dunes in a special vehicle",
+          "B": "building sandcastles",
+          "C": "walking through the desert",
+          "D": "racing camels"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "driving over sand dunes in a special vehicle",
+        "difficulty": "medium",
+        "source": {
+          "page": 18,
+          "reference": "Reading text: Speeding in the sand"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "They went dune bashing in a car especially equipped for the sport."
+          ],
+          "summary": "dune bashing = driving over dunes."
+        },
+        "explanation": "It is a thrilling desert activity."
+      },
+      {
+        "id": "U02-L03-Q027",
+        "number": 27,
+        "question": "What did the writer's father say the experience was like?",
+        "options": {
+          "A": "a rollercoaster without the feeling of safety",
+          "B": "a boat trip in a storm",
+          "C": "a quiet walk",
+          "D": "a theme park ride with seatbelts"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a rollercoaster without the feeling of safety",
+        "difficulty": "medium",
+        "source": {
+          "page": 18,
+          "reference": "Reading text: Speeding in the sand"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Dad said it was like a rollercoaster without the feeling of safety."
+          ],
+          "summary": "It was like a rollercoaster."
+        },
+        "explanation": "Everyone agreed with him."
+      },
+      {
+        "id": "U02-L03-Q028",
+        "number": 28,
+        "question": "What does 'we got a real kick out of it' mean?",
+        "options": {
+          "A": "we really enjoyed it",
+          "B": "we were kicked out",
+          "C": "we got hurt",
+          "D": "we were bored"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "we really enjoyed it",
+        "difficulty": "medium",
+        "source": {
+          "page": 18,
+          "reference": "Reading text: Speeding in the sand"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Get a kick out of something' means to enjoy it a lot."
+          ],
+          "summary": "got a kick out of it = really enjoyed it."
+        },
+        "explanation": "They loved the high speeds and scenery."
+      },
+      {
+        "id": "U02-L03-Q029",
+        "number": 29,
+        "question": "Where was the writer when they went dune bashing?",
+        "options": {
+          "A": "in the desert near Dubai",
+          "B": "in the mountains",
+          "C": "at the beach",
+          "D": "in a city park"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "in the desert near Dubai",
+        "difficulty": "easy",
+        "source": {
+          "page": 18,
+          "reference": "Reading text: Speeding in the sand"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The family arrived in Dubai on holiday and then went to the desert."
+          ],
+          "summary": "They went to the desert near Dubai."
+        },
+        "explanation": "It was the writer's first time in the Middle East."
+      },
+      {
+        "id": "U02-L03-Q030",
+        "number": 30,
+        "question": "What was the guide's name?",
+        "options": {
+          "A": "Saeed",
+          "B": "Malek",
+          "C": "Adnan",
+          "D": "Amer"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Saeed",
+        "difficulty": "easy",
+        "source": {
+          "page": 18,
+          "reference": "Reading text: Speeding in the sand"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The text says 'we set off with our guide, Saeed'."
+          ],
+          "summary": "The guide was Saeed."
+        },
+        "explanation": "He took them to a car equipped for the sport."
+      },
+      {
+        "id": "U02-L03-Q031",
+        "number": 31,
+        "question": "Complete the cleft sentence: '______ the camaraderie that's amazing.'",
+        "options": {
+          "A": "It's",
+          "B": "What",
+          "C": "That",
+          "D": "Which"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "It's",
+        "difficulty": "medium",
+        "source": {
+          "page": 19,
+          "reference": "Exercise 9: Cleft sentences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'It's the camaraderie that's amazing.'"
+          ],
+          "summary": "It's"
+        },
+        "explanation": "The cleft begins with 'It's'."
+      },
+      {
+        "id": "U02-L03-Q032",
+        "number": 32,
+        "question": "Which structure is NOT used to begin a cleft sentence?",
+        "options": {
+          "A": "Never before",
+          "B": "The day when",
+          "C": "The reason why",
+          "D": "The person who"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Never before",
+        "difficulty": "hard",
+        "source": {
+          "page": 19,
+          "reference": "Watch Out!: Cleft sentences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Clefts begin with It's, What, The (only) thing that, The day when, etc.; 'Never before' starts an inversion."
+          ],
+          "summary": "'Never before' starts an inversion."
+        },
+        "explanation": "The others are all cleft starters."
+      },
+      {
+        "id": "U02-L03-Q033",
+        "number": 33,
+        "question": "Complete: 'The day when I learnt how to use cleft sentences was the best day of my life!' What does this cleft sentence emphasise?",
+        "options": {
+          "A": "the day",
+          "B": "cleft sentences",
+          "C": "my life",
+          "D": "learning"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the day",
+        "difficulty": "hard",
+        "source": {
+          "page": 19,
+          "reference": "Watch Out!: Cleft sentences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'The day when...' emphasises the day itself."
+          ],
+          "summary": "It emphasises the day."
+        },
+        "explanation": "'The day when' is one of the cleft starters."
+      },
+      {
+        "id": "U02-L03-Q034",
+        "number": 34,
+        "question": "Which word can begin an inversion meaning 'not very often'?",
+        "options": {
+          "A": "Seldom",
+          "B": "Always",
+          "C": "Often",
+          "D": "Sometimes"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Seldom",
+        "difficulty": "easy",
+        "source": {
+          "page": 18,
+          "reference": "Exercise 4: Negative adverbials"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Seldom' and 'Rarely' are negative adverbials meaning not often."
+          ],
+          "summary": "Seldom = not often."
+        },
+        "explanation": "With them we invert the subject."
+      },
+      {
+        "id": "U02-L03-Q035",
+        "number": 35,
+        "question": "What did the writer's mother do during the dune bashing ride?",
+        "options": {
+          "A": "she laughed in fear for the entire ride",
+          "B": "she slept",
+          "C": "she shouted at the driver",
+          "D": "she took photos"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "she laughed in fear for the entire ride",
+        "difficulty": "medium",
+        "source": {
+          "page": 18,
+          "reference": "Reading text: Speeding in the sand"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Mum just laughed in fear for the entire ride.'"
+          ],
+          "summary": "She laughed in fear."
+        },
+        "explanation": "The ride was scary but thrilling for her."
+      },
+      {
+        "id": "U02-L03-Q036",
+        "number": 36,
+        "question": "Complete: 'Only when the lights went out ______ how dark it was.'",
+        "options": {
+          "A": "did I realise",
+          "B": "I realised",
+          "C": "realised I did",
+          "D": "I did realise"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "did I realise",
+        "difficulty": "medium",
+        "source": {
+          "page": 18,
+          "reference": "Grammar: Inversion after Only"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "After 'Only when...', invert: Only when the lights went out did I realise."
+          ],
+          "summary": "did I realise"
+        },
+        "explanation": "Inversion follows the negative adverbial phrase."
+      },
+      {
+        "id": "U02-L03-Q037",
+        "number": 37,
+        "question": "Which sentence is written in normal (non-inverted) word order?",
+        "options": {
+          "A": "The coach was half an hour late.",
+          "B": "Never have I experienced such discomfort.",
+          "C": "Little did he know the truth.",
+          "D": "So cold was the water that we left."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The coach was half an hour late.",
+        "difficulty": "medium",
+        "source": {
+          "page": 19,
+          "reference": "Grammar: Inversion"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'The coach was half an hour late' follows normal subject + verb order."
+          ],
+          "summary": "Normal order = subject first."
+        },
+        "explanation": "The others all start with negative adverbials or 'So'."
+      },
+      {
+        "id": "U02-L03-Q038",
+        "number": 38,
+        "question": "What is the effect of using a cleft sentence like 'It was Dad who said it was like a rollercoaster'?",
+        "options": {
+          "A": "it makes the sentence more emphatic and memorable",
+          "B": "it makes the sentence longer for no reason",
+          "C": "it changes the meaning completely",
+          "D": "it makes the sentence informal"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it makes the sentence more emphatic and memorable",
+        "difficulty": "medium",
+        "source": {
+          "page": 19,
+          "reference": "Grammar: Cleft sentences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Cleft sentences emphasise information and make it sound more memorable."
+          ],
+          "summary": "Clefts add emphasis."
+        },
+        "explanation": "The focus is put on 'Dad'."
+      },
+      {
+        "id": "U02-L03-Q039",
+        "number": 39,
+        "question": "Complete the inversion with 'Not until': 'Not until the train arrived ______ that we were late.'",
+        "options": {
+          "A": "did we realise",
+          "B": "we realised",
+          "C": "realised we",
+          "D": "we did realise"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "did we realise",
+        "difficulty": "hard",
+        "source": {
+          "page": 19,
+          "reference": "Grammar: Inversion"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "After 'Not until...', invert: Not until the train arrived did we realise that we were late."
+          ],
+          "summary": "did we realise"
+        },
+        "explanation": "'Not until' is a negative expression that causes inversion."
+      },
+      {
+        "id": "U02-L03-Q040",
+        "number": 40,
+        "question": "Which pair of sentences mean the same: 'What impressed me most was the desert' and ...",
+        "options": {
+          "A": "The desert impressed me most.",
+          "B": "The desert was impressed.",
+          "C": "I was impressing the desert.",
+          "D": "Most desert impressed me."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The desert impressed me most.",
+        "difficulty": "hard",
+        "source": {
+          "page": 19,
+          "reference": "Grammar: Cleft sentences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'What impressed me most was the desert' equals 'The desert impressed me most', with emphasis added."
+          ],
+          "summary": "Both mean the desert impressed me most."
+        },
+        "explanation": "The cleft adds emphasis to the desert."
+      }
+    ]
+  }
+}

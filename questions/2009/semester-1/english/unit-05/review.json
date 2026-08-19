@@ -1,0 +1,1302 @@
+[
+  {
+    "id": "U05-REV-Q001",
+    "number": 1,
+    "question": "Which sport is played on a rectangular field with goals at each end?",
+    "options": {
+      "A": "football",
+      "B": "tennis",
+      "C": "basketball",
+      "D": "volleyball"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "football",
+    "difficulty": "easy",
+    "source": {
+      "page": 48,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Football is played on a rectangular field with goals at each end."
+      ],
+      "summary": "football = field sport"
+    },
+    "explanation": "Football requires a large pitch with two goals."
+  },
+  {
+    "id": "U05-REV-Q002",
+    "number": 2,
+    "question": "What do you call a person who plays a sport professionally?",
+    "options": {
+      "A": "athlete",
+      "B": "spectator",
+      "C": "coach",
+      "D": "referee"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "athlete",
+    "difficulty": "easy",
+    "source": {
+      "page": 48,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "An athlete is a person who is skilled in sports and physical activities."
+      ],
+      "summary": "athlete = professional sportsperson"
+    },
+    "explanation": "Athletes train regularly to compete."
+  },
+  {
+    "id": "U05-REV-Q003",
+    "number": 3,
+    "question": "Which word means 'to get points in a game or match'?",
+    "options": {
+      "A": "score",
+      "B": "throw",
+      "C": "catch",
+      "D": "kick"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "score",
+    "difficulty": "easy",
+    "source": {
+      "page": 48,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Score' means to gain points in a game or competition."
+      ],
+      "summary": "score = earn points"
+    },
+    "explanation": "She scored three goals in the match."
+  },
+  {
+    "id": "U05-REV-Q004",
+    "number": 4,
+    "question": "What equipment do you use to play tennis?",
+    "options": {
+      "A": "a racket",
+      "B": "a bat",
+      "C": "a club",
+      "D": "a paddle"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "a racket",
+    "difficulty": "easy",
+    "source": {
+      "page": 48,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Tennis is played using a racket to hit the ball over the net."
+      ],
+      "summary": "tennis uses a racket"
+    },
+    "explanation": "A tennis racket has strings and a handle."
+  },
+  {
+    "id": "U05-REV-Q005",
+    "number": 5,
+    "question": "What do you call the person who watches a sports game?",
+    "options": {
+      "A": "spectator",
+      "B": "player",
+      "C": "captain",
+      "D": "coach"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "spectator",
+    "difficulty": "medium",
+    "source": {
+      "page": 49,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A spectator is a person who watches a sports event."
+      ],
+      "summary": "spectator = viewer at a game"
+    },
+    "explanation": "Thousands of spectators watched the match."
+  },
+  {
+    "id": "U05-REV-Q006",
+    "number": 6,
+    "question": "Which word describes a sports competition between two teams?",
+    "options": {
+      "A": "match",
+      "B": "race",
+      "C": "concert",
+      "D": "lesson"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "match",
+    "difficulty": "easy",
+    "source": {
+      "page": 49,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A match is an organized sports competition between two teams."
+      ],
+      "summary": "match = sports competition"
+    },
+    "explanation": "The football match ended 2-1."
+  },
+  {
+    "id": "U05-REV-Q007",
+    "number": 7,
+    "question": "What is a 'marathon'?",
+    "options": {
+      "A": "a long-distance running race of 42 kilometres",
+      "B": "a swimming competition",
+      "C": "a cycling event",
+      "D": "a wrestling match"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "a long-distance running race of 42 kilometres",
+    "difficulty": "easy",
+    "source": {
+      "page": 49,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A marathon is a long-distance running race covering 42.195 kilometres."
+      ],
+      "summary": "marathon = 42 km running race"
+    },
+    "explanation": "Marathon runners need great endurance."
+  },
+  {
+    "id": "U05-REV-Q008",
+    "number": 8,
+    "question": "Which adjective means 'very fit and strong'?",
+    "options": {
+      "A": "athletic",
+      "B": "wooden",
+      "C": "plastic",
+      "D": "musical"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "athletic",
+    "difficulty": "easy",
+    "source": {
+      "page": 49,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Athletic' describes someone who is physically strong and good at sports."
+      ],
+      "summary": "athletic = physically fit"
+    },
+    "explanation": "She has an athletic build."
+  },
+  {
+    "id": "U05-REV-Q009",
+    "number": 9,
+    "question": "You ___ eat healthy food to stay fit.",
+    "options": {
+      "A": "should",
+      "B": "can",
+      "C": "might",
+      "D": "could"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "should",
+    "difficulty": "easy",
+    "source": {
+      "page": 50,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Should' gives advice about what is good to do."
+      ],
+      "summary": "should = advice"
+    },
+    "explanation": "Healthy eating is recommended for fitness."
+  },
+  {
+    "id": "U05-REV-Q010",
+    "number": 10,
+    "question": "Players ___ follow the rules of the game.",
+    "options": {
+      "A": "must",
+      "B": "might",
+      "C": "could",
+      "D": "would"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "must",
+    "difficulty": "easy",
+    "source": {
+      "page": 50,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Must' expresses a strong obligation or rule."
+      ],
+      "summary": "must = strong obligation"
+    },
+    "explanation": "Rules are not optional in sports."
+  },
+  {
+    "id": "U05-REV-Q011",
+    "number": 11,
+    "question": "She runs ___ than anyone else in her class.",
+    "options": {
+      "A": "faster",
+      "B": "fastest",
+      "C": "more fast",
+      "D": "most fast"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "faster",
+    "difficulty": "easy",
+    "source": {
+      "page": 50,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Faster' is the comparative form of 'fast'."
+      ],
+      "summary": "faster = comparative of fast"
+    },
+    "explanation": "Comparative compares two things with '-er' or 'more'."
+  },
+  {
+    "id": "U05-REV-Q012",
+    "number": 12,
+    "question": "This is the ___ match I have ever watched.",
+    "options": {
+      "A": "best",
+      "B": "better",
+      "C": "goodest",
+      "D": "more good"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "best",
+    "difficulty": "easy",
+    "source": {
+      "page": 50,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Best' is the superlative form of 'good'."
+      ],
+      "summary": "best = superlative of good"
+    },
+    "explanation": "Superlatives use '-est' or 'most' for three or more."
+  },
+  {
+    "id": "U05-REV-Q013",
+    "number": 13,
+    "question": "You ___ to train every day if you want to improve.",
+    "options": {
+      "A": "have",
+      "B": "should",
+      "C": "must",
+      "D": "can"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "have",
+    "difficulty": "medium",
+    "source": {
+      "page": 50,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Have to' expresses an external obligation or necessity."
+      ],
+      "summary": "have to = necessity"
+    },
+    "explanation": "Daily training is necessary for improvement."
+  },
+  {
+    "id": "U05-REV-Q014",
+    "number": 14,
+    "question": "Which is the correct comparative form of 'good'?",
+    "options": {
+      "A": "better",
+      "B": "gooder",
+      "C": "more good",
+      "D": "goodest"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "better",
+    "difficulty": "medium",
+    "source": {
+      "page": 51,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "The comparative of 'good' is the irregular form 'better'."
+      ],
+      "summary": "better = comparative of good"
+    },
+    "explanation": "'Good' has irregular forms: good, better, best."
+  },
+  {
+    "id": "U05-REV-Q015",
+    "number": 15,
+    "question": "He is the ___ player on the team.",
+    "options": {
+      "A": "strongest",
+      "B": "stronger",
+      "C": "more strong",
+      "D": "most strong"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "strongest",
+    "difficulty": "medium",
+    "source": {
+      "page": 51,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Strongest' is the superlative of 'strong'."
+      ],
+      "summary": "strongest = superlative of strong"
+    },
+    "explanation": "Add '-est' to short adjectives for the superlative."
+  },
+  {
+    "id": "U05-REV-Q016",
+    "number": 16,
+    "question": "You ___ not skip practice if you want to win.",
+    "options": {
+      "A": "should",
+      "B": "can",
+      "C": "may",
+      "D": "might"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "should",
+    "difficulty": "medium",
+    "source": {
+      "page": 51,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Should not' advises against skipping practice."
+      ],
+      "summary": "should not = advice against"
+    },
+    "explanation": "Skipping practice is a bad idea for athletes."
+  },
+  {
+    "id": "U05-REV-Q017",
+    "number": 17,
+    "question": "An athlete who trains for the Olympic Games is often called an...",
+    "options": {
+      "A": "Olympian",
+      "B": "spectator",
+      "C": "referee",
+      "D": "captain"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "Olympian",
+    "difficulty": "easy",
+    "source": {
+      "page": 52,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "An Olympian is an athlete who competes in the Olympic Games."
+      ],
+      "summary": "Olympian = Olympic athlete"
+    },
+    "explanation": "Olympians represent their countries."
+  },
+  {
+    "id": "U05-REV-Q018",
+    "number": 18,
+    "question": "What does 'to set a record' mean?",
+    "options": {
+      "A": "to achieve the best result ever recorded",
+      "B": "to break a machine",
+      "C": "to sing a song",
+      "D": "to lose a game"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to achieve the best result ever recorded",
+    "difficulty": "easy",
+    "source": {
+      "page": 52,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Setting a record means achieving a result better than any before."
+      ],
+      "summary": "set a record = best result ever"
+    },
+    "explanation": "Usain Bolt set the 100m record."
+  },
+  {
+    "id": "U05-REV-Q019",
+    "number": 19,
+    "question": "A marathon runner needs a lot of...",
+    "options": {
+      "A": "endurance",
+      "B": "height",
+      "C": "silence",
+      "D": "weight"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "endurance",
+    "difficulty": "medium",
+    "source": {
+      "page": 52,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Endurance is the ability to keep doing something difficult for a long time."
+      ],
+      "summary": "endurance = stamina"
+    },
+    "explanation": "Marathon running requires great endurance."
+  },
+  {
+    "id": "U05-REV-Q020",
+    "number": 20,
+    "question": "Which word means 'to keep trying despite difficulties'?",
+    "options": {
+      "A": "persevere",
+      "B": "surrender",
+      "C": "hesitate",
+      "D": "complain"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "persevere",
+    "difficulty": "medium",
+    "source": {
+      "page": 52,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Persevere' means to continue trying even when it is hard."
+      ],
+      "summary": "persevere = keep trying"
+    },
+    "explanation": "Great athletes persevere through challenges."
+  },
+  {
+    "id": "U05-REV-Q021",
+    "number": 21,
+    "question": "What is the meaning of 'to qualify for a competition'?",
+    "options": {
+      "A": "to meet the required standard to enter",
+      "B": "to win the competition",
+      "C": "to watch the competition",
+      "D": "to organise the competition"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to meet the required standard to enter",
+    "difficulty": "medium",
+    "source": {
+      "page": 53,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Qualifying means meeting the minimum standard needed to participate."
+      ],
+      "summary": "qualify = meet the standard"
+    },
+    "explanation": "Runners must qualify by finishing under a certain time."
+  },
+  {
+    "id": "U05-REV-Q022",
+    "number": 22,
+    "question": "An athlete's coach helps them to...",
+    "options": {
+      "A": "improve their performance",
+      "B": "lose the game",
+      "C": "forget training",
+      "D": "avoid exercise"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "improve their performance",
+    "difficulty": "easy",
+    "source": {
+      "page": 53,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A coach guides athletes to become better at their sport."
+      ],
+      "summary": "coach helps improvement"
+    },
+    "explanation": "Coaches design training plans for athletes."
+  },
+  {
+    "id": "U05-REV-Q023",
+    "number": 23,
+    "question": "What does 'personal best' mean?",
+    "options": {
+      "A": "the best result a person has ever achieved",
+      "B": "the worst result",
+      "C": "an average score",
+      "D": "a team record"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "the best result a person has ever achieved",
+    "difficulty": "medium",
+    "source": {
+      "page": 53,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A personal best (PB) is an individual's highest achievement so far."
+      ],
+      "summary": "personal best = own top result"
+    },
+    "explanation": "She broke her personal best in the 200m."
+  },
+  {
+    "id": "U05-REV-Q024",
+    "number": 24,
+    "question": "To win a gold medal at the Olympics is a great...",
+    "options": {
+      "A": "achievement",
+      "B": "mistake",
+      "C": "accident",
+      "D": "problem"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "achievement",
+    "difficulty": "easy",
+    "source": {
+      "page": 53,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "An achievement is something done successfully through effort."
+      ],
+      "summary": "achievement = accomplishment"
+    },
+    "explanation": "Winning a medal requires years of hard work."
+  },
+  {
+    "id": "U05-REV-Q025",
+    "number": 25,
+    "question": "What do you call the first place in a race?",
+    "options": {
+      "A": "first place",
+      "B": "last place",
+      "C": "midfield",
+      "D": "sideline"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "first place",
+    "difficulty": "easy",
+    "source": {
+      "page": 54,
+      "reference": "Review: L4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "The first-place finisher wins the race."
+      ],
+      "summary": "first place = the winner"
+    },
+    "explanation": "She finished in first place."
+  },
+  {
+    "id": "U05-REV-Q026",
+    "number": 26,
+    "question": "A sports event where athletes compete against each other is called a...",
+    "options": {
+      "A": "competition",
+      "B": "holiday",
+      "C": "picnic",
+      "D": "festival"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "competition",
+    "difficulty": "easy",
+    "source": {
+      "page": 54,
+      "reference": "Review: L4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A competition is an event where people or teams contest against each other."
+      ],
+      "summary": "competition = contest"
+    },
+    "explanation": "The swimming competition had many participants."
+  },
+  {
+    "id": "U05-REV-Q027",
+    "number": 27,
+    "question": "What does 'to take part in' mean?",
+    "options": {
+      "A": "to participate",
+      "B": "to watch",
+      "C": "to organise",
+      "D": "to avoid"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to participate",
+    "difficulty": "easy",
+    "source": {
+      "page": 54,
+      "reference": "Review: L4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Take part in' means to be involved in an activity or event."
+      ],
+      "summary": "take part in = participate"
+    },
+    "explanation": "All students can take part in the sports day."
+  },
+  {
+    "id": "U05-REV-Q028",
+    "number": 28,
+    "question": "A team that wins a tournament is called the...",
+    "options": {
+      "A": "winner",
+      "B": "loser",
+      "C": "organiser",
+      "D": "spectator"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "winner",
+    "difficulty": "easy",
+    "source": {
+      "page": 54,
+      "reference": "Review: L4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "The winner is the team or person that comes first in a competition."
+      ],
+      "summary": "winner = the champion"
+    },
+    "explanation": "The winning team received a trophy."
+  },
+  {
+    "id": "U05-REV-Q029",
+    "number": 29,
+    "question": "What do you call the person who organises a sports event?",
+    "options": {
+      "A": "organiser",
+      "B": "spectator",
+      "C": "opponent",
+      "D": "coach"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "organiser",
+    "difficulty": "medium",
+    "source": {
+      "page": 55,
+      "reference": "Review: L4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "An organiser is the person who plans and manages an event."
+      ],
+      "summary": "organiser = event planner"
+    },
+    "explanation": "The organiser announced the schedule."
+  },
+  {
+    "id": "U05-REV-Q030",
+    "number": 30,
+    "question": "What is a 'tournament'?",
+    "options": {
+      "A": "a competition with a series of matches leading to a final",
+      "B": "a single game",
+      "C": "a training session",
+      "D": "a sports lesson"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "a competition with a series of matches leading to a final",
+    "difficulty": "medium",
+    "source": {
+      "page": 55,
+      "reference": "Review: L4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A tournament is a sports competition with multiple rounds and a final."
+      ],
+      "summary": "tournament = multi-round competition"
+    },
+    "explanation": "The school tournament lasted three days."
+  },
+  {
+    "id": "U05-REV-Q031",
+    "number": 31,
+    "question": "What does 'a close match' mean?",
+    "options": {
+      "A": "a match where the scores are almost equal",
+      "B": "a match that is far away",
+      "C": "a match that is easy",
+      "D": "a match that is cancelled"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "a match where the scores are almost equal",
+    "difficulty": "medium",
+    "source": {
+      "page": 55,
+      "reference": "Review: L4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A close match is one where both sides score nearly the same."
+      ],
+      "summary": "close match = very tight scores"
+    },
+    "explanation": "The close match ended 3-2."
+  },
+  {
+    "id": "U05-REV-Q032",
+    "number": 32,
+    "question": "Which phrase is used to encourage someone before a game?",
+    "options": {
+      "A": "Good luck!",
+      "B": "Bad news!",
+      "C": "Well done!",
+      "D": "Too bad!"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "Good luck!",
+    "difficulty": "easy",
+    "source": {
+      "page": 55,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Good luck!' is said before an event to wish someone success."
+      ],
+      "summary": "Good luck! = wish for success"
+    },
+    "explanation": "It is a common encouragement phrase."
+  },
+  {
+    "id": "U05-REV-Q033",
+    "number": 33,
+    "question": "What does 'You can do it!' express?",
+    "options": {
+      "A": "encouragement",
+      "B": "anger",
+      "C": "sadness",
+      "D": "confusion"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "encouragement",
+    "difficulty": "easy",
+    "source": {
+      "page": 55,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'You can do it!' is a phrase used to encourage and motivate someone."
+      ],
+      "summary": "You can do it! = encouragement"
+    },
+    "explanation": "It tells someone you believe in their ability."
+  },
+  {
+    "id": "U05-REV-Q034",
+    "number": 34,
+    "question": "Your friend says, 'I am nervous about the game.' Which is the best response?",
+    "options": {
+      "A": "Don't worry, you'll do great!",
+      "B": "That's your problem.",
+      "C": "I don't care.",
+      "D": "Just give up."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "Don't worry, you'll do great!",
+    "difficulty": "easy",
+    "source": {
+      "page": 55,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A good response reassures and encourages the person."
+      ],
+      "summary": "Don't worry = reassurance"
+    },
+    "explanation": "We should comfort nervous friends."
+  },
+  {
+    "id": "U05-REV-Q035",
+    "number": 35,
+    "question": "When your friend wins a match, you can say...",
+    "options": {
+      "A": "Congratulations!",
+      "B": "Better luck next time!",
+      "C": "That's terrible!",
+      "D": "I'm sorry."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "Congratulations!",
+    "difficulty": "easy",
+    "source": {
+      "page": 55,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Congratulations!' is said to praise someone on an achievement."
+      ],
+      "summary": "Congratulations! = praise for success"
+    },
+    "explanation": "Use it after someone wins or achieves something."
+  },
+  {
+    "id": "U05-REV-Q036",
+    "number": 36,
+    "question": "Which phrase means 'try your hardest'?",
+    "options": {
+      "A": "Do your best!",
+      "B": "Take it easy!",
+      "C": "Sit down!",
+      "D": "Be quiet!"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "Do your best!",
+    "difficulty": "easy",
+    "source": {
+      "page": 56,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Do your best!' encourages someone to put in maximum effort."
+      ],
+      "summary": "Do your best! = maximum effort"
+    },
+    "explanation": "This is the title theme of Unit 5."
+  },
+  {
+    "id": "U05-REV-Q037",
+    "number": 37,
+    "question": "What does 'Cheer up!' mean?",
+    "options": {
+      "A": "Don't be sad!",
+      "B": "Stand up!",
+      "C": "Go faster!",
+      "D": "Wake up!"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "Don't be sad!",
+    "difficulty": "medium",
+    "source": {
+      "page": 56,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Cheer up!' is used to tell someone to stop feeling sad."
+      ],
+      "summary": "Cheer up! = don't be sad"
+    },
+    "explanation": "It is a common phrase of comfort."
+  },
+  {
+    "id": "U05-REV-Q038",
+    "number": 38,
+    "question": "To tell someone you believe in them, you can say...",
+    "options": {
+      "A": "I believe in you!",
+      "B": "I doubt you.",
+      "C": "You will fail.",
+      "D": "Try harder next time."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "I believe in you!",
+    "difficulty": "medium",
+    "source": {
+      "page": 56,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'I believe in you!' expresses confidence in someone's ability."
+      ],
+      "summary": "I believe in you! = expressing faith"
+    },
+    "explanation": "It builds someone's confidence."
+  },
+  {
+    "id": "U05-REV-Q039",
+    "number": 39,
+    "question": "Which phrase shows support before a competition?",
+    "options": {
+      "A": "We're all rooting for you!",
+      "B": "We don't care.",
+      "C": "Goodbye forever!",
+      "D": "You'll never win."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "We're all rooting for you!",
+    "difficulty": "medium",
+    "source": {
+      "page": 56,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Rooting for you' means supporting and cheering someone on."
+      ],
+      "summary": "rooting for you = supporting you"
+    },
+    "explanation": "A team of supporters roots for the player."
+  },
+  {
+    "id": "U05-REV-Q040",
+    "number": 40,
+    "question": "What is a good response to someone who says 'Good luck!'?",
+    "options": {
+      "A": "Thank you!",
+      "B": "No!",
+      "C": "I don't need it!",
+      "D": "Go away!"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "Thank you!",
+    "difficulty": "easy",
+    "source": {
+      "page": 56,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Saying 'Thank you!' is a polite response to being wished good luck."
+      ],
+      "summary": "Thank you! = polite response"
+    },
+    "explanation": "Always thank people for their good wishes."
+  },
+  {
+    "id": "U05-REV-Q041",
+    "number": 41,
+    "question": "Which word is used to show contrast in a sports report?",
+    "options": {
+      "A": "however",
+      "B": "also",
+      "C": "finally",
+      "D": "first"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "however",
+    "difficulty": "easy",
+    "source": {
+      "page": 56,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'However' shows a contrast or opposite idea."
+      ],
+      "summary": "however = contrast"
+    },
+    "explanation": "The team played well; however, they lost."
+  },
+  {
+    "id": "U05-REV-Q042",
+    "number": 42,
+    "question": "To add more information in a report, you can use...",
+    "options": {
+      "A": "furthermore",
+      "B": "however",
+      "C": "but",
+      "D": "although"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "furthermore",
+    "difficulty": "medium",
+    "source": {
+      "page": 56,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Furthermore' is used to add extra information to a point."
+      ],
+      "summary": "furthermore = in addition"
+    },
+    "explanation": "It is common in formal writing."
+  },
+  {
+    "id": "U05-REV-Q043",
+    "number": 43,
+    "question": "What does 'In conclusion' signal in a text?",
+    "options": {
+      "A": "the ending or summary",
+      "B": "the beginning",
+      "C": "a question",
+      "D": "a contrast"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "the ending or summary",
+    "difficulty": "easy",
+    "source": {
+      "page": 57,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'In conclusion' introduces the final summary or closing idea."
+      ],
+      "summary": "in conclusion = the end"
+    },
+    "explanation": "It tells the reader the text is finishing."
+  },
+  {
+    "id": "U05-REV-Q044",
+    "number": 44,
+    "question": "Which sequence words are used to describe a series of events?",
+    "options": {
+      "A": "First, then, finally",
+      "B": "But, however, although",
+      "C": "Also, furthermore, moreover",
+      "D": "Because, so, therefore"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "First, then, finally",
+    "difficulty": "easy",
+    "source": {
+      "page": 57,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Sequence words like 'first, then, finally' show the order of events."
+      ],
+      "summary": "first/then/finally = order"
+    },
+    "explanation": "They help readers follow the timeline."
+  },
+  {
+    "id": "U05-REV-Q045",
+    "number": 45,
+    "question": "What does 'As a result' show in a report?",
+    "options": {
+      "A": "cause and effect",
+      "B": "contrast",
+      "C": "time",
+      "D": "location"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "cause and effect",
+    "difficulty": "medium",
+    "source": {
+      "page": 57,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'As a result' shows the consequence or effect of something."
+      ],
+      "summary": "as a result = consequence"
+    },
+    "explanation": "They trained hard; as a result, they won."
+  },
+  {
+    "id": "U05-REV-Q046",
+    "number": 46,
+    "question": "To give an example in writing, you can use...",
+    "options": {
+      "A": "for example",
+      "B": "in conclusion",
+      "C": "as a result",
+      "D": "however"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "for example",
+    "difficulty": "easy",
+    "source": {
+      "page": 57,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'For example' introduces a specific instance to support a point."
+      ],
+      "summary": "for example = instance"
+    },
+    "explanation": "Many sports, for example football, require teamwork."
+  },
+  {
+    "id": "U05-REV-Q047",
+    "number": 47,
+    "question": "Which connector shows that something happens next in time?",
+    "options": {
+      "A": "after that",
+      "B": "however",
+      "C": "in contrast",
+      "D": "nevertheless"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "after that",
+    "difficulty": "easy",
+    "source": {
+      "page": 57,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'After that' connects events by showing what happens next."
+      ],
+      "summary": "after that = next in time"
+    },
+    "explanation": "They won the semi-final; after that, they reached the final."
+  },
+  {
+    "id": "U05-REV-Q048",
+    "number": 48,
+    "question": "What is the purpose of an introduction in a sports report?",
+    "options": {
+      "A": "to give basic information about the event",
+      "B": "to give your final opinion",
+      "C": "to list the results",
+      "D": "to describe the weather"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to give basic information about the event",
+    "difficulty": "medium",
+    "source": {
+      "page": 56,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "An introduction provides key facts like who, what, when, and where."
+      ],
+      "summary": "introduction = basic info"
+    },
+    "explanation": "It sets the scene for the reader."
+  },
+  {
+    "id": "U05-REV-Q049",
+    "number": 49,
+    "question": "Which word means 'at the same time'?",
+    "options": {
+      "A": "meanwhile",
+      "B": "therefore",
+      "C": "consequently",
+      "D": "moreover"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "meanwhile",
+    "difficulty": "medium",
+    "source": {
+      "page": 57,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Meanwhile' means during the same period of time."
+      ],
+      "summary": "meanwhile = at the same time"
+    },
+    "explanation": "One team scored; meanwhile, the other rested."
+  },
+  {
+    "id": "U05-REV-Q050",
+    "number": 50,
+    "question": "To summarise your report, you can begin with...",
+    "options": {
+      "A": "to sum up",
+      "B": "to begin with",
+      "C": "first of all",
+      "D": "on the other hand"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to sum up",
+    "difficulty": "medium",
+    "source": {
+      "page": 57,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'To sum up' introduces the final summary of the main points."
+      ],
+      "summary": "to sum up = in summary"
+    },
+    "explanation": "It signals the writer is wrapping up."
+  }
+]

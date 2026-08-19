@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "5",
+    "lesson_name": "Grammar",
+    "unit_number": 3,
+    "unit_name": "Hard sell",
+    "page_start": 32,
+    "page_end": 33,
+    "questions": [
+      {
+        "id": "U03-L05-Q001",
+        "number": 1,
+        "question": "When do we use the passive rather than the active?",
+        "options": {
+          "A": "when we don't know who did something or want to focus on the action",
+          "B": "when we want to talk about the agent",
+          "C": "when we write informal emails",
+          "D": "when the subject is a person"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "when we don't know who did something or want to focus on the action",
+        "difficulty": "easy",
+        "source": {
+          "page": 32,
+          "reference": "Grammar reference"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Use the passive when the agent is unknown or less important."
+          ],
+          "summary": "Focus on the action or object."
+        },
+        "explanation": "We use it when the doer is obvious or unknown."
+      },
+      {
+        "id": "U03-L05-Q002",
+        "number": 2,
+        "question": "What is the structure of a passive sentence?",
+        "options": {
+          "A": "be + past participle",
+          "B": "have + past participle",
+          "C": "do + infinitive",
+          "D": "be + -ing"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "be + past participle",
+        "difficulty": "easy",
+        "source": {
+          "page": 32,
+          "reference": "Grammar reference"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The passive uses the verb 'be' plus a past participle."
+          ],
+          "summary": "be + past participle"
+        },
+        "explanation": "The past participle changes with tenses."
+      },
+      {
+        "id": "U03-L05-Q003",
+        "number": 3,
+        "question": "Which sentence is passive?",
+        "options": {
+          "A": "The bananas were being taken away.",
+          "B": "I took the bananas away.",
+          "C": "They took the bananas away.",
+          "D": "Taking the bananas away."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The bananas were being taken away.",
+        "difficulty": "easy",
+        "source": {
+          "page": 32,
+          "reference": "Exercise 1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'were being taken away' is be + being + past participle."
+          ],
+          "summary": "were being taken = passive"
+        },
+        "explanation": "The other options have active subjects."
+      },
+      {
+        "id": "U03-L05-Q004",
+        "number": 4,
+        "question": "What do passive constructions allow you to do?",
+        "options": {
+          "A": "express points of view without saying who has them",
+          "B": "make sentences longer",
+          "C": "hide the truth",
+          "D": "avoid writing verbs"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "express points of view without saying who has them",
+        "difficulty": "easy",
+        "source": {
+          "page": 32,
+          "reference": "Grammar text"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Passive constructions allow you to express points of view without saying who holds them.'"
+          ],
+          "summary": "Give opinions without naming the person."
+        },
+        "explanation": "It makes statements sound neutral."
+      },
+      {
+        "id": "U03-L05-Q005",
+        "number": 5,
+        "question": "Why does economics writing use the passive a lot?",
+        "options": {
+          "A": "it is formal and allows objective statements",
+          "B": "it is easier to write",
+          "C": "it is a new fashion",
+          "D": "it sounds more emotional"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it is formal and allows objective statements",
+        "difficulty": "medium",
+        "source": {
+          "page": 32,
+          "reference": "Grammar text"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Economics is about reasoned, formal argument, so the passive suits it."
+          ],
+          "summary": "Formal, objective writing."
+        },
+        "explanation": "Economists avoid emotional statements."
+      },
+      {
+        "id": "U03-L05-Q006",
+        "number": 6,
+        "question": "Which sentence is more formal?",
+        "options": {
+          "A": "The data were analysed.",
+          "B": "I analysed the data.",
+          "C": "We looked at the data.",
+          "D": "Somebody checked the data."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The data were analysed.",
+        "difficulty": "medium",
+        "source": {
+          "page": 32,
+          "reference": "Grammar text"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The passive removes the personal agent, which is more formal."
+          ],
+          "summary": "Passive is more formal."
+        },
+        "explanation": "It is common in academic writing."
+      },
+      {
+        "id": "U03-L05-Q007",
+        "number": 7,
+        "question": "To express a present general truth, which is correct?",
+        "options": {
+          "A": "It is said that money makes the world go round.",
+          "B": "It was said that money makes the world go round.",
+          "C": "It is saying that money...",
+          "D": "Money is make the world go round."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "It is said that money makes the world go round.",
+        "difficulty": "easy",
+        "source": {
+          "page": 32,
+          "reference": "Exercise: grammar"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "For present general truths, use 'It is said' + that clause."
+          ],
+          "summary": "is said (present passive)"
+        },
+        "explanation": "Past would be 'It was said'."
+      },
+      {
+        "id": "U03-L05-Q008",
+        "number": 8,
+        "question": "What is the passive form of 'The government increased taxes'?",
+        "options": {
+          "A": "Taxes were increased (by the government).",
+          "B": "Taxes are increase.",
+          "C": "The government was increased taxes.",
+          "D": "Taxes were increasing."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Taxes were increased (by the government).",
+        "difficulty": "easy",
+        "source": {
+          "page": 32,
+          "reference": "Exercise 2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The object becomes the subject: Taxes were increased."
+          ],
+          "summary": "Taxes were increased"
+        },
+        "explanation": "The agent is often omitted."
+      },
+      {
+        "id": "U03-L05-Q009",
+        "number": 9,
+        "question": "What is the passive of 'An economist wrote the report'?",
+        "options": {
+          "A": "The report was written by an economist.",
+          "B": "The report was writing by an economist.",
+          "C": "An economist was written the report.",
+          "D": "The report is wrote by an economist."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The report was written by an economist.",
+        "difficulty": "easy",
+        "source": {
+          "page": 32,
+          "reference": "Exercise 2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The report was written by an economist."
+          ],
+          "summary": "The report was written"
+        },
+        "explanation": "The agent stays with 'by'."
+      },
+      {
+        "id": "U03-L05-Q010",
+        "number": 10,
+        "question": "What is the passive of 'They will build a new road'?",
+        "options": {
+          "A": "A new road will be built.",
+          "B": "A new road will build.",
+          "C": "A new road was built.",
+          "D": "They will be built a new road."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A new road will be built.",
+        "difficulty": "medium",
+        "source": {
+          "page": 32,
+          "reference": "Exercise 2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Future passive: will be + past participle."
+          ],
+          "summary": "will be built"
+        },
+        "explanation": "Future simple passive."
+      },
+      {
+        "id": "U03-L05-Q011",
+        "number": 11,
+        "question": "What is the passive of 'They have raised the price'?",
+        "options": {
+          "A": "The price has been raised.",
+          "B": "The price has raised.",
+          "C": "The price was raising.",
+          "D": "The price have been raised."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The price has been raised.",
+        "difficulty": "medium",
+        "source": {
+          "page": 32,
+          "reference": "Exercise 2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Present perfect passive: has/have been + past participle."
+          ],
+          "summary": "has been raised"
+        },
+        "explanation": "Note 'the price' is singular."
+      },
+      {
+        "id": "U03-L05-Q012",
+        "number": 12,
+        "question": "What is the passive of 'Someone stole my wallet'?",
+        "options": {
+          "A": "My wallet was stolen.",
+          "B": "My wallet was stealing.",
+          "C": "My wallet is stolen.",
+          "D": "Someone was stolen my wallet."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "My wallet was stolen.",
+        "difficulty": "easy",
+        "source": {
+          "page": 32,
+          "reference": "Exercise 2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "My wallet was stolen."
+          ],
+          "summary": "was stolen"
+        },
+        "explanation": "Past simple passive."
+      },
+      {
+        "id": "U03-L05-Q013",
+        "number": 13,
+        "question": "What is the passive of 'They are repairing the bridge'?",
+        "options": {
+          "A": "The bridge is being repaired.",
+          "B": "The bridge is repairing.",
+          "C": "The bridge was repaired.",
+          "D": "The bridge repairs."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The bridge is being repaired.",
+        "difficulty": "medium",
+        "source": {
+          "page": 32,
+          "reference": "Exercise 2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Present continuous passive: is/are being + past participle."
+          ],
+          "summary": "is being repaired"
+        },
+        "explanation": "Emphasises an ongoing action."
+      },
+      {
+        "id": "U03-L05-Q014",
+        "number": 14,
+        "question": "Two-object passives: 'The company gave him a bonus.' What is the first passive form?",
+        "options": {
+          "A": "He was given a bonus (by the company).",
+          "B": "A bonus was giving him.",
+          "C": "He was gave a bonus.",
+          "D": "Him was given a bonus."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "He was given a bonus (by the company).",
+        "difficulty": "hard",
+        "source": {
+          "page": 32,
+          "reference": "Grammar reference"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "With two objects, make the person the subject: He was given a bonus."
+          ],
+          "summary": "He was given a bonus"
+        },
+        "explanation": "This is the more common passive form."
+      },
+      {
+        "id": "U03-L05-Q015",
+        "number": 15,
+        "question": "What is the second passive form of 'The company gave him a bonus'?",
+        "options": {
+          "A": "A bonus was given (to him) by the company.",
+          "B": "A bonus was given him by the company.",
+          "C": "A bonus was gave him.",
+          "D": "A bonus was giving by the company."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A bonus was given (to him) by the company.",
+        "difficulty": "hard",
+        "source": {
+          "page": 32,
+          "reference": "Grammar reference"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Make the thing the subject: A bonus was given to him by the company."
+          ],
+          "summary": "A bonus was given to him"
+        },
+        "explanation": "Both forms are possible."
+      },
+      {
+        "id": "U03-L05-Q016",
+        "number": 16,
+        "question": "Two-object passives: 'They offered her a job.' Which is correct?",
+        "options": {
+          "A": "She was offered a job.",
+          "B": "A job was offering her.",
+          "C": "She was offer a job.",
+          "D": "Her was offered a job."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "She was offered a job.",
+        "difficulty": "hard",
+        "source": {
+          "page": 32,
+          "reference": "Grammar reference"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The person becomes the subject: She was offered a job."
+          ],
+          "summary": "She was offered a job"
+        },
+        "explanation": "Also: A job was offered to her."
+      },
+      {
+        "id": "U03-L05-Q017",
+        "number": 17,
+        "question": "Which preposition introduces the agent in a passive sentence?",
+        "options": {
+          "A": "by",
+          "B": "for",
+          "C": "with",
+          "D": "from"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "by",
+        "difficulty": "easy",
+        "source": {
+          "page": 32,
+          "reference": "Grammar reference"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The agent is introduced with 'by'."
+          ],
+          "summary": "by + agent"
+        },
+        "explanation": "The report was written BY an economist."
+      },
+      {
+        "id": "U03-L05-Q018",
+        "number": 18,
+        "question": "When do we NOT use 'by + agent'?",
+        "options": {
+          "A": "when it is obvious or not important who did it",
+          "B": "when the sentence is long",
+          "C": "when the verb is irregular",
+          "D": "when we want to be clear"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "when it is obvious or not important who did it",
+        "difficulty": "medium",
+        "source": {
+          "page": 32,
+          "reference": "Grammar reference"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The agent is left out when it is obvious or unimportant."
+          ],
+          "summary": "Leave out the agent when obvious."
+        },
+        "explanation": "'The thief was arrested' - we know by police."
+      },
+      {
+        "id": "U03-L05-Q019",
+        "number": 19,
+        "question": "What does the word 'puzzling' in the economics text mean?",
+        "options": {
+          "A": "confusing / surprising",
+          "B": "easy",
+          "C": "boring",
+          "D": "perfect"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "confusing / surprising",
+        "difficulty": "hard",
+        "source": {
+          "page": 32,
+          "reference": "Exercise: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Puzzling' describes something confusing or hard to explain."
+          ],
+          "summary": "puzzling = confusing"
+        },
+        "explanation": "It refers to something odd that needs explaining."
+      },
+      {
+        "id": "U03-L05-Q020",
+        "number": 20,
+        "question": "What does 'clever' mean in the phrase 'those who design ways to make us spend'?",
+        "options": {
+          "A": "cunning and skilful",
+          "B": "honest and simple",
+          "C": "slow and careful",
+          "D": "rich and famous"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "cunning and skilful",
+        "difficulty": "hard",
+        "source": {
+          "page": 32,
+          "reference": "Exercise: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "In this context 'clever' means skilful and cunning."
+          ],
+          "summary": "clever = cunning here."
+        },
+        "explanation": "They design traps to make us spend."
+      },
+      {
+        "id": "U03-L05-Q021",
+        "number": 21,
+        "question": "Complete: Money is what makes the world ____ round.",
+        "options": {
+          "A": "go",
+          "B": "going",
+          "C": "gone",
+          "D": "to go"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "go",
+        "difficulty": "easy",
+        "source": {
+          "page": 33,
+          "reference": "Grammar text"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'It is said that money makes the world go round.'"
+          ],
+          "summary": "go"
+        },
+        "explanation": "A present general truth."
+      },
+      {
+        "id": "U03-L05-Q022",
+        "number": 22,
+        "question": "Why is it not simply the rich who enjoy the fruits of the economy?",
+        "options": {
+          "A": "wealth is distributed - some of it reaches us all",
+          "B": "the rich spend nothing",
+          "C": "everyone is rich",
+          "D": "the economy is closed"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "wealth is distributed - some of it reaches us all",
+        "difficulty": "hard",
+        "source": {
+          "page": 33,
+          "reference": "Grammar text"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Despite growing inequality, some wealth is distributed through the economy."
+          ],
+          "summary": "Some wealth reaches everyone."
+        },
+        "explanation": "The sentence introduces the text's topic."
+      },
+      {
+        "id": "U03-L05-Q023",
+        "number": 23,
+        "question": "Complete the gap: It is generally ____ that the economy is doing well.",
+        "options": {
+          "A": "believed",
+          "B": "believing",
+          "C": "believe",
+          "D": "believes"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "believed",
+        "difficulty": "medium",
+        "source": {
+          "page": 33,
+          "reference": "Grammar gap"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'It is believed that...' is a common passive structure."
+          ],
+          "summary": "is believed"
+        },
+        "explanation": "Present passive + that clause."
+      },
+      {
+        "id": "U03-L05-Q024",
+        "number": 24,
+        "question": "Complete the gap: The price of oil ____ by the crisis.",
+        "options": {
+          "A": "was affected",
+          "B": "was affecting",
+          "C": "affected",
+          "D": "is affect"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "was affected",
+        "difficulty": "medium",
+        "source": {
+          "page": 33,
+          "reference": "Grammar gap"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The price was affected by the crisis."
+          ],
+          "summary": "was affected"
+        },
+        "explanation": "Past passive with 'by + agent'."
+      },
+      {
+        "id": "U03-L05-Q025",
+        "number": 25,
+        "question": "Which structure means the same as 'People say that he is rich'?",
+        "options": {
+          "A": "He is said to be rich.",
+          "B": "He is saying to be rich.",
+          "C": "He says to be rich.",
+          "D": "He is said being rich."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "He is said to be rich.",
+        "difficulty": "medium",
+        "source": {
+          "page": 33,
+          "reference": "Grammar: transformation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'He is said to be rich' = people say he is rich."
+          ],
+          "summary": "He is said to be rich"
+        },
+        "explanation": "A common reporting passive."
+      },
+      {
+        "id": "U03-L05-Q026",
+        "number": 26,
+        "question": "Which structure means the same as 'People think she works hard'?",
+        "options": {
+          "A": "She is thought to work hard.",
+          "B": "She is thought working hard.",
+          "C": "She thought to work hard.",
+          "D": "She is thought to working hard."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "She is thought to work hard.",
+        "difficulty": "medium",
+        "source": {
+          "page": 33,
+          "reference": "Grammar: transformation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Subject + be + past participle + to + infinitive."
+          ],
+          "summary": "She is thought to work hard"
+        },
+        "explanation": "Present infinitive after 'to'."
+      },
+      {
+        "id": "U03-L05-Q027",
+        "number": 27,
+        "question": "Which structure means the same as 'People believe he built a fortune'?",
+        "options": {
+          "A": "He is believed to have built a fortune.",
+          "B": "He is believed to build a fortune.",
+          "C": "He is believed building a fortune.",
+          "D": "He was believed to building a fortune."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "He is believed to have built a fortune.",
+        "difficulty": "hard",
+        "source": {
+          "page": 33,
+          "reference": "Grammar: transformation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "For the past, use 'to have + past participle'."
+          ],
+          "summary": "is believed to have built"
+        },
+        "explanation": "Perfect infinitive shows an earlier action."
+      },
+      {
+        "id": "U03-L05-Q028",
+        "number": 28,
+        "question": "Which structure means the same as 'It was reported that sales fell'?",
+        "options": {
+          "A": "Sales were reported to have fallen.",
+          "B": "Sales are reported to fall.",
+          "C": "Sales reported to have fallen.",
+          "D": "It was reported sales fall."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Sales were reported to have fallen.",
+        "difficulty": "hard",
+        "source": {
+          "page": 33,
+          "reference": "Grammar: transformation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Sales were reported to have fallen' matches the past report."
+          ],
+          "summary": "were reported to have fallen"
+        },
+        "explanation": "Keep both verbs in the past."
+      },
+      {
+        "id": "U03-L05-Q029",
+        "number": 29,
+        "question": "Why does the writer of the economics text use 'It is said' rather than 'People say'?",
+        "options": {
+          "A": "to sound neutral and formal",
+          "B": "to sound angry",
+          "C": "to make the text shorter",
+          "D": "to make a joke"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to sound neutral and formal",
+        "difficulty": "medium",
+        "source": {
+          "page": 33,
+          "reference": "Grammar text"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Passives with 'It is said' give an impersonal, formal tone."
+          ],
+          "summary": "Impersonal and formal"
+        },
+        "explanation": "A typical economics style."
+      },
+      {
+        "id": "U03-L05-Q030",
+        "number": 30,
+        "question": "In the text, what is described as 'extremely puzzling'?",
+        "options": {
+          "A": "the fact that we keep buying things we don't need",
+          "B": "the rise in prices",
+          "C": "the weather",
+          "D": "the stock market"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the fact that we keep buying things we don't need",
+        "difficulty": "hard",
+        "source": {
+          "page": 33,
+          "reference": "Grammar text"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The writer finds our continued spending puzzling."
+          ],
+          "summary": "We keep buying what we don't need."
+        },
+        "explanation": "It seems to make no sense."
+      },
+      {
+        "id": "U03-L05-Q031",
+        "number": 31,
+        "question": "What 'puzzling' question does the text ask?",
+        "options": {
+          "A": "whether money brings happiness",
+          "B": "whether taxes are fair",
+          "C": "how banks work",
+          "D": "who is richest"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "whether money brings happiness",
+        "difficulty": "hard",
+        "source": {
+          "page": 33,
+          "reference": "Grammar text"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The text asks whether money actually makes us happier."
+          ],
+          "summary": "Does money bring happiness?"
+        },
+        "explanation": "It questions the value of wealth."
+      },
+      {
+        "id": "U03-L05-Q032",
+        "number": 32,
+        "question": "Complete the gap: The film ____ by millions of people.",
+        "options": {
+          "A": "was watched",
+          "B": "was watching",
+          "C": "watched",
+          "D": "is watch"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "was watched",
+        "difficulty": "easy",
+        "source": {
+          "page": 33,
+          "reference": "Grammar gap"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The film was watched by millions of people."
+          ],
+          "summary": "was watched"
+        },
+        "explanation": "Past passive."
+      },
+      {
+        "id": "U03-L05-Q033",
+        "number": 33,
+        "question": "Complete the gap: The exam results ____ tomorrow.",
+        "options": {
+          "A": "will be announced",
+          "B": "will announce",
+          "C": "will be announce",
+          "D": "are announcing"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "will be announced",
+        "difficulty": "medium",
+        "source": {
+          "page": 33,
+          "reference": "Grammar gap"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Future passive: will be + past participle."
+          ],
+          "summary": "will be announced"
+        },
+        "explanation": "Results will be announced tomorrow."
+      },
+      {
+        "id": "U03-L05-Q034",
+        "number": 34,
+        "question": "Complete the gap: The homework ____ already been checked.",
+        "options": {
+          "A": "has",
+          "B": "have",
+          "C": "is",
+          "D": "was"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "has",
+        "difficulty": "medium",
+        "source": {
+          "page": 33,
+          "reference": "Grammar gap"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'The homework has already been checked.'"
+          ],
+          "summary": "has"
+        },
+        "explanation": "has been checked."
+      },
+      {
+        "id": "U03-L05-Q035",
+        "number": 35,
+        "question": "Which of these is an advantage of the passive in academic writing?",
+        "options": {
+          "A": "it makes statements sound more authoritative and objective",
+          "B": "it makes writing less clear",
+          "C": "it hides important information",
+          "D": "it is informal"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it makes statements sound more authoritative and objective",
+        "difficulty": "easy",
+        "source": {
+          "page": 32,
+          "reference": "Grammar text"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Passives sound objective, formal and authoritative."
+          ],
+          "summary": "Objective and authoritative"
+        },
+        "explanation": "It removes the personal."
+      },
+      {
+        "id": "U03-L05-Q036",
+        "number": 36,
+        "question": "Transform to passive: 'They send emails every day.'",
+        "options": {
+          "A": "Emails are sent every day.",
+          "B": "Emails are sending every day.",
+          "C": "Emails was sent every day.",
+          "D": "Emails is sent every day."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Emails are sent every day.",
+        "difficulty": "easy",
+        "source": {
+          "page": 32,
+          "reference": "Exercise 2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Present simple passive: Emails are sent every day."
+          ],
+          "summary": "Emails are sent"
+        },
+        "explanation": "Present simple passive."
+      },
+      {
+        "id": "U03-L05-Q037",
+        "number": 37,
+        "question": "Transform to passive: 'They built this tower in 1920.'",
+        "options": {
+          "A": "This tower was built in 1920.",
+          "B": "This tower is built in 1920.",
+          "C": "This tower was building in 1920.",
+          "D": "This tower built in 1920."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "This tower was built in 1920.",
+        "difficulty": "easy",
+        "source": {
+          "page": 32,
+          "reference": "Exercise 2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Past simple passive: This tower was built in 1920."
+          ],
+          "summary": "was built"
+        },
+        "explanation": "The agent is unimportant here."
+      },
+      {
+        "id": "U03-L05-Q038",
+        "number": 38,
+        "question": "Transform to passive: 'We must pay the bill by Friday.'",
+        "options": {
+          "A": "The bill must be paid by Friday.",
+          "B": "The bill must pay by Friday.",
+          "C": "The bill must be pay by Friday.",
+          "D": "The bill must be paying by Friday."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The bill must be paid by Friday.",
+        "difficulty": "hard",
+        "source": {
+          "page": 32,
+          "reference": "Exercise 2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Modal passive: must + be + past participle."
+          ],
+          "summary": "must be paid"
+        },
+        "explanation": "Modal verbs use 'be + pp'."
+      },
+      {
+        "id": "U03-L05-Q039",
+        "number": 39,
+        "question": "Transform to passive: 'They have cancelled the match.'",
+        "options": {
+          "A": "The match has been cancelled.",
+          "B": "The match has cancelled.",
+          "C": "The match have been cancelled.",
+          "D": "The match is cancelled by."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The match has been cancelled.",
+        "difficulty": "medium",
+        "source": {
+          "page": 32,
+          "reference": "Exercise 2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Present perfect passive: has/have been + past participle."
+          ],
+          "summary": "has been cancelled"
+        },
+        "explanation": "'The match' is singular."
+      },
+      {
+        "id": "U03-L05-Q040",
+        "number": 40,
+        "question": "Which sentence correctly uses 'it' + passive?",
+        "options": {
+          "A": "It is believed that prices will rise.",
+          "B": "It is believing that prices will rise.",
+          "C": "It believed that prices will rise.",
+          "D": "It is believed prices will rising."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "It is believed that prices will rise.",
+        "difficulty": "medium",
+        "source": {
+          "page": 33,
+          "reference": "Grammar: it + passive"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'It is believed that...' is the standard structure."
+          ],
+          "summary": "It is believed that"
+        },
+        "explanation": "Use the past participle after 'is'."
+      }
+    ]
+  }
+}

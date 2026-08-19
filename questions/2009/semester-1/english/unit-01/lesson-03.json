@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "3",
+    "lesson_name": "Listening and Vocabulary",
+    "unit_number": 1,
+    "unit_name": "Identity",
+    "page_start": 7,
+    "page_end": 7,
+    "questions": [
+      {
+        "id": "U01-L03-Q001",
+        "number": 1,
+        "question": "Which word means 'character or personality'?",
+        "options": {
+          "A": "disposition",
+          "B": "destiny",
+          "C": "vulnerability",
+          "D": "offspring"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "disposition",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 1: Matching definitions"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Disposition' means a person's character or usual mood."
+          ],
+          "summary": "disposition = character or personality."
+        },
+        "explanation": "The text defines disposition as character or personality."
+      },
+      {
+        "id": "U01-L03-Q002",
+        "number": 2,
+        "question": "Which word means 'influenced or changed'?",
+        "options": {
+          "A": "moulded",
+          "B": "nurtured",
+          "C": "implied",
+          "D": "deduced"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "moulded",
+        "difficulty": "medium",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 1: Matching definitions"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Moulded' means influenced or shaped into something."
+          ],
+          "summary": "moulded = influenced or changed."
+        },
+        "explanation": "Personality can be moulded by experiences and upbringing."
+      },
+      {
+        "id": "U01-L03-Q003",
+        "number": 3,
+        "question": "Which word means 'people who publicly support an idea'?",
+        "options": {
+          "A": "proponents",
+          "B": "opponents",
+          "C": "employees",
+          "D": "offspring"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "proponents",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 1: Matching definitions"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Proponents' are people who publicly support an idea or theory."
+          ],
+          "summary": "proponents = public supporters."
+        },
+        "explanation": "Proponents argue in favour of a cause or theory."
+      },
+      {
+        "id": "U01-L03-Q004",
+        "number": 4,
+        "question": "Which word means 'the quality of being easily hurt'?",
+        "options": {
+          "A": "vulnerability",
+          "B": "versatility",
+          "C": "sincerity",
+          "D": "humility"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "vulnerability",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 1: Matching definitions"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Vulnerability' is the quality of being easily hurt physically or emotionally."
+          ],
+          "summary": "vulnerability = being easily hurt."
+        },
+        "explanation": "A person's vulnerability makes them easy to hurt."
+      },
+      {
+        "id": "U01-L03-Q005",
+        "number": 5,
+        "question": "Which word means 'a particular characteristic or way of behaving'?",
+        "options": {
+          "A": "trait",
+          "B": "tray",
+          "C": "treat",
+          "D": "trance"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "trait",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 1: Matching definitions"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Trait' means a particular characteristic or way of behaving."
+          ],
+          "summary": "trait = a characteristic."
+        },
+        "explanation": "Honesty and kindness are examples of personality traits."
+      },
+      {
+        "id": "U01-L03-Q006",
+        "number": 6,
+        "question": "Which word means 'helping somebody to develop'?",
+        "options": {
+          "A": "nurture",
+          "B": "numb",
+          "C": "mock",
+          "D": "spark"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "nurture",
+        "difficulty": "medium",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 1: Matching definitions"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Nurture' means helping somebody to grow and develop."
+          ],
+          "summary": "nurture = helping to develop."
+        },
+        "explanation": "Parents nurture their children's talents and growth."
+      },
+      {
+        "id": "U01-L03-Q007",
+        "number": 7,
+        "question": "Which word describes something that passes from parent to child?",
+        "options": {
+          "A": "hereditary",
+          "B": "hierarchical",
+          "C": "temporary",
+          "D": "heredity"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "hereditary",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 1: Matching definitions"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Hereditary' means passed from parent to child through genes."
+          ],
+          "summary": "hereditary = passed from parents to children."
+        },
+        "explanation": "Some personality traits are hereditary."
+      },
+      {
+        "id": "U01-L03-Q008",
+        "number": 8,
+        "question": "Which word means 'children'?",
+        "options": {
+          "A": "offspring",
+          "B": "onshore",
+          "C": "upbringing",
+          "D": "proponents"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "offspring",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 1: Matching definitions"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Offspring' means children or young of a person or animal."
+          ],
+          "summary": "offspring = children."
+        },
+        "explanation": "Parents pass their traits to their offspring."
+      },
+      {
+        "id": "U01-L03-Q009",
+        "number": 9,
+        "question": "Which word means 'what will happen in the future'?",
+        "options": {
+          "A": "destiny",
+          "B": "density",
+          "C": "disposition",
+          "D": "decency"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "destiny",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 1: Matching definitions"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Destiny' means the future that is considered to be decided for someone."
+          ],
+          "summary": "destiny = what will happen in the future."
+        },
+        "explanation": "Some people believe personality and destiny are connected."
+      },
+      {
+        "id": "U01-L03-Q010",
+        "number": 10,
+        "question": "Which word means 'suggest'?",
+        "options": {
+          "A": "imply",
+          "B": "impress",
+          "C": "impose",
+          "D": "imitate"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "imply",
+        "difficulty": "medium",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 1: Matching definitions"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Imply' means to suggest something without saying it directly."
+          ],
+          "summary": "imply = suggest."
+        },
+        "explanation": "If someone implies something, they suggest it indirectly."
+      },
+      {
+        "id": "U01-L03-Q011",
+        "number": 11,
+        "question": "Which word means 'making something so easy to understand that it is no longer accurate'?",
+        "options": {
+          "A": "oversimplification",
+          "B": "exaggeration",
+          "C": "overpopulation",
+          "D": "understatement"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "oversimplification",
+        "difficulty": "hard",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 1: Matching definitions"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Oversimplification' makes something so simple that it becomes inaccurate."
+          ],
+          "summary": "oversimplification = too simple to be accurate."
+        },
+        "explanation": "Saying personality is only in our genes is an oversimplification."
+      },
+      {
+        "id": "U01-L03-Q012",
+        "number": 12,
+        "question": "Complete: 'Scientists who support this theory are called ______ .'",
+        "options": {
+          "A": "proponents",
+          "B": "opponents",
+          "C": "employees",
+          "D": "patients"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "proponents",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Vocabulary application"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "People who publicly support an idea are its proponents."
+          ],
+          "summary": "Supporters are proponents."
+        },
+        "explanation": "Proponents publicly support the theory."
+      },
+      {
+        "id": "U01-L03-Q013",
+        "number": 13,
+        "question": "Complete: 'His ______ made it easy for others to hurt his feelings.'",
+        "options": {
+          "A": "vulnerability",
+          "B": "credibility",
+          "C": "ability",
+          "D": "stability"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "vulnerability",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Vocabulary application"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Vulnerability means being easily hurt."
+          ],
+          "summary": "His vulnerability made him easy to hurt."
+        },
+        "explanation": "A person's vulnerability makes them sensitive to being hurt."
+      },
+      {
+        "id": "U01-L03-Q014",
+        "number": 14,
+        "question": "Complete: 'Honesty is a ______ I really admire in people.'",
+        "options": {
+          "A": "trait",
+          "B": "treat",
+          "C": "track",
+          "D": "trade"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "trait",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Vocabulary application"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A trait is a particular characteristic or way of behaving."
+          ],
+          "summary": "Honesty is a trait."
+        },
+        "explanation": "Traits are characteristic ways of behaving, like honesty."
+      },
+      {
+        "id": "U01-L03-Q015",
+        "number": 15,
+        "question": "Complete: 'Parents should ______ their children's natural talents.'",
+        "options": {
+          "A": "nurture",
+          "B": "neglect",
+          "C": "mock",
+          "D": "prevent"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "nurture",
+        "difficulty": "medium",
+        "source": {
+          "page": 7,
+          "reference": "Vocabulary application"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To nurture is to help somebody to develop."
+          ],
+          "summary": "Parents nurture talents."
+        },
+        "explanation": "Nurturing means helping talents and skills to grow."
+      },
+      {
+        "id": "U01-L03-Q016",
+        "number": 16,
+        "question": "Complete: 'Some personality characteristics are ______ ; they pass from parents to children.'",
+        "options": {
+          "A": "hereditary",
+          "B": "temporary",
+          "C": "voluntary",
+          "D": "imaginary"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "hereditary",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Vocabulary application"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Hereditary traits pass from parent to child."
+          ],
+          "summary": "Some traits are hereditary."
+        },
+        "explanation": "Genes can pass personality characteristics from parents to children."
+      },
+      {
+        "id": "U01-L03-Q017",
+        "number": 17,
+        "question": "Complete: 'Her warm personality was ______ by years of loving care.'",
+        "options": {
+          "A": "moulded",
+          "B": "missed",
+          "C": "measured",
+          "D": "moved"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "moulded",
+        "difficulty": "medium",
+        "source": {
+          "page": 7,
+          "reference": "Vocabulary application"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To be moulded means to be influenced or shaped."
+          ],
+          "summary": "Her personality was moulded by care."
+        },
+        "explanation": "Experience and care moulded her warm personality."
+      },
+      {
+        "id": "U01-L03-Q018",
+        "number": 18,
+        "question": "Complete: 'Nobody knows for sure what ______ has in store for them.'",
+        "options": {
+          "A": "destiny",
+          "B": "density",
+          "C": "disposition",
+          "D": "decency"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "destiny",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Vocabulary application"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Destiny means what will happen in the future."
+          ],
+          "summary": "Destiny = the future in store for us."
+        },
+        "explanation": "Destiny refers to what the future holds."
+      },
+      {
+        "id": "U01-L03-Q019",
+        "number": 19,
+        "question": "Complete: 'Are you ______ that I should leave?', she asked quietly.",
+        "options": {
+          "A": "implying",
+          "B": "impressing",
+          "C": "imposing",
+          "D": "imitating"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "implying",
+        "difficulty": "medium",
+        "source": {
+          "page": 7,
+          "reference": "Vocabulary application"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To imply is to suggest something indirectly."
+          ],
+          "summary": "implying = suggesting indirectly."
+        },
+        "explanation": "She was suggesting without saying it directly."
+      },
+      {
+        "id": "U01-L03-Q020",
+        "number": 20,
+        "question": "Complete: 'Saying personality is purely genetic is an ______ .'",
+        "options": {
+          "A": "oversimplification",
+          "B": "overstatement",
+          "C": "underestimation",
+          "D": "overproduction"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "oversimplification",
+        "difficulty": "hard",
+        "source": {
+          "page": 7,
+          "reference": "Vocabulary application"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "An oversimplification makes something too simple to be accurate."
+          ],
+          "summary": "This claim is an oversimplification."
+        },
+        "explanation": "Personality depends on many factors, so this is an oversimplification."
+      },
+      {
+        "id": "U01-L03-Q021",
+        "number": 21,
+        "question": "Complete: 'Mariam has a calm ______ ; she rarely gets angry.'",
+        "options": {
+          "A": "disposition",
+          "B": "destiny",
+          "C": "vulnerability",
+          "D": "offspring"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "disposition",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Vocabulary application"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A disposition is a person's character or usual mood."
+          ],
+          "summary": "a calm disposition = a calm nature."
+        },
+        "explanation": "Disposition describes a person's usual character."
+      },
+      {
+        "id": "U01-L03-Q022",
+        "number": 22,
+        "question": "What does the verb 'imply' mean?",
+        "options": {
+          "A": "to suggest something without saying it directly",
+          "B": "to explain something in detail",
+          "C": "to force someone to do something",
+          "D": "to repeat something many times"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to suggest something without saying it directly",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 1: Matching definitions"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To imply is to suggest something without stating it directly."
+          ],
+          "summary": "imply = suggest indirectly."
+        },
+        "explanation": "The definition given in the lesson is 'suggest'."
+      },
+      {
+        "id": "U01-L03-Q023",
+        "number": 23,
+        "question": "What is the listening talk mainly about?",
+        "options": {
+          "A": "whether personality tests really reveal your personality",
+          "B": "how to pass an interview",
+          "C": "why genes control everything",
+          "D": "how to create a quiz"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "whether personality tests really reveal your personality",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Listening: main idea"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The talk is called 'Do personality tests really reveal your personality?'"
+          ],
+          "summary": "The talk questions whether tests reveal personality."
+        },
+        "explanation": "The psychologist discusses the reliability of personality tests."
+      },
+      {
+        "id": "U01-L03-Q024",
+        "number": 24,
+        "question": "According to the talk, what do many people think of personality tests?",
+        "options": {
+          "A": "gimmicky and pseudo-scientific",
+          "B": "reliable and accurate",
+          "C": "cheap and simple",
+          "D": "modern and useful"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "gimmicky and pseudo-scientific",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Listening: gap 1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Many people think the word 'personality tests' is gimmicky and pseudo-scientific."
+          ],
+          "summary": "People see the tests as gimmicky."
+        },
+        "explanation": "For many, the word has negative associations."
+      },
+      {
+        "id": "U01-L03-Q025",
+        "number": 25,
+        "question": "According to the talk, why can results change over time?",
+        "options": {
+          "A": "Because the results are not fixed",
+          "B": "Because the tests are too short",
+          "C": "Because candidates cheat",
+          "D": "Because the questions are difficult"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Because the results are not fixed",
+        "difficulty": "medium",
+        "source": {
+          "page": 7,
+          "reference": "Listening: gap 3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The talk says the results are not fixed and can often change."
+          ],
+          "summary": "Results are not fixed."
+        },
+        "explanation": "An individual's job performance and health can also affect results."
+      },
+      {
+        "id": "U01-L03-Q026",
+        "number": 26,
+        "question": "According to the talk, what can change over time?",
+        "options": {
+          "A": "an individual's job performance",
+          "B": "the number of questions",
+          "C": "the price of the test",
+          "D": "the length of the interview"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "an individual's job performance",
+        "difficulty": "medium",
+        "source": {
+          "page": 7,
+          "reference": "Listening: gap 4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The talk says an individual's job performance can change over time."
+          ],
+          "summary": "Job performance can change over time."
+        },
+        "explanation": "Both test results and job performance can change."
+      },
+      {
+        "id": "U01-L03-Q027",
+        "number": 27,
+        "question": "According to the talk, what can also affect personality test results?",
+        "options": {
+          "A": "mental and physical health",
+          "B": "the interviewer's mood",
+          "C": "the time of day",
+          "D": "the candidate's clothes"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "mental and physical health",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Listening: gap 5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The talk says mental and physical health can affect the results."
+          ],
+          "summary": "Health can affect the results."
+        },
+        "explanation": "Changes in mental and physical health change test results."
+      },
+      {
+        "id": "U01-L03-Q028",
+        "number": 28,
+        "question": "According to the talk, what is always best when hiring?",
+        "options": {
+          "A": "a combination of methods",
+          "B": "one personality test",
+          "C": "a longer interview",
+          "D": "no tests at all"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a combination of methods",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Listening: gap 10"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The talk says 'a combination of methods is always best'."
+          ],
+          "summary": "A combination of methods is best."
+        },
+        "explanation": "No one should be hired on the basis of a single test alone."
+      },
+      {
+        "id": "U01-L03-Q029",
+        "number": 29,
+        "question": "According to the talk, what should recruiters also consider?",
+        "options": {
+          "A": "the working environment",
+          "B": "the candidate's hobbies",
+          "C": "the salary offered",
+          "D": "the office furniture"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the working environment",
+        "difficulty": "medium",
+        "source": {
+          "page": 7,
+          "reference": "Listening: gap 8"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The talk says the working environment is crucial to performance."
+          ],
+          "summary": "The working environment is crucial."
+        },
+        "explanation": "Recruiters should consider the working environment too."
+      },
+      {
+        "id": "U01-L03-Q030",
+        "number": 30,
+        "question": "How does the psychologist describe personality tests?",
+        "options": {
+          "A": "a useful tool, but the results are not fixed",
+          "B": "a complete waste of time",
+          "C": "the only way to hire people",
+          "D": "always accurate and reliable"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a useful tool, but the results are not fixed",
+        "difficulty": "medium",
+        "source": {
+          "page": 7,
+          "reference": "Listening: comprehension"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The talk says 'It is a useful tool, but it is not fixed - the results are not fixed'."
+          ],
+          "summary": "A useful tool that is not fixed."
+        },
+        "explanation": "The psychologist sees tests as useful but not final."
+      },
+      {
+        "id": "U01-L03-Q031",
+        "number": 31,
+        "question": "Which syllable carries the main stress in the word 'disposition'?",
+        "options": {
+          "A": "the second syllable (po)",
+          "B": "the first syllable (dis)",
+          "C": "the last syllable (tion)",
+          "D": "the third syllable (si)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the second syllable (po)",
+        "difficulty": "hard",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 2: Word stress"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The main stress in dis-PO-si-tion falls on the second syllable 'po'."
+          ],
+          "summary": "dis-PO-si-tion"
+        },
+        "explanation": "The stressed syllable is the second one."
+      },
+      {
+        "id": "U01-L03-Q032",
+        "number": 32,
+        "question": "Which syllable carries the main stress in the word 'personality'?",
+        "options": {
+          "A": "the third syllable (al)",
+          "B": "the first syllable (per)",
+          "C": "the second syllable (son)",
+          "D": "the last syllable (ty)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the third syllable (al)",
+        "difficulty": "hard",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 2: Word stress"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The main stress in per-son-AL-i-ty falls on the third syllable 'al'."
+          ],
+          "summary": "per-son-AL-i-ty"
+        },
+        "explanation": "The stressed syllable is 'al'."
+      },
+      {
+        "id": "U01-L03-Q033",
+        "number": 33,
+        "question": "Which syllable carries the main stress in the word 'vulnerability'?",
+        "options": {
+          "A": "the fourth syllable (bil)",
+          "B": "the first syllable (vul)",
+          "C": "the second syllable (ner)",
+          "D": "the fifth syllable (i)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the fourth syllable (bil)",
+        "difficulty": "hard",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 2: Word stress"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The main stress in vul-ne-ra-BIL-i-ty falls on the fourth syllable 'bil'."
+          ],
+          "summary": "vul-ne-ra-BIL-i-ty"
+        },
+        "explanation": "The stressed syllable is 'bil'."
+      },
+      {
+        "id": "U01-L03-Q034",
+        "number": 34,
+        "question": "Which syllable carries the main stress in the word 'hereditary'?",
+        "options": {
+          "A": "the second syllable (red)",
+          "B": "the first syllable (her)",
+          "C": "the third syllable (i)",
+          "D": "the last syllable (ry)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the second syllable (red)",
+        "difficulty": "hard",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 2: Word stress"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The main stress in he-RED-i-ta-ry falls on the second syllable 'red'."
+          ],
+          "summary": "he-RED-i-ta-ry"
+        },
+        "explanation": "The stressed syllable is 'red'."
+      },
+      {
+        "id": "U01-L03-Q035",
+        "number": 35,
+        "question": "Which syllable carries the main stress in the word 'oversimplification'?",
+        "options": {
+          "A": "the sixth syllable (ca)",
+          "B": "the first syllable (o)",
+          "C": "the third syllable (sim)",
+          "D": "the last syllable (tion)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the sixth syllable (ca)",
+        "difficulty": "hard",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 2: Word stress"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The main stress in o-ver-sim-pli-fi-CA-tion falls on the syllable 'ca'."
+          ],
+          "summary": "o-ver-sim-pli-fi-CA-tion"
+        },
+        "explanation": "The stressed syllable is 'ca'."
+      },
+      {
+        "id": "U01-L03-Q036",
+        "number": 36,
+        "question": "Which word's main stress falls on the FIRST syllable?",
+        "options": {
+          "A": "destiny",
+          "B": "disposition",
+          "C": "personality",
+          "D": "vulnerability"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "destiny",
+        "difficulty": "medium",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 2: Word stress"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "DES-ti-ny has the main stress on the first syllable."
+          ],
+          "summary": "DES-ti-ny"
+        },
+        "explanation": "The other words are stressed on later syllables."
+      },
+      {
+        "id": "U01-L03-Q037",
+        "number": 37,
+        "question": "Which word has the main stress on its FIRST syllable?",
+        "options": {
+          "A": "offspring",
+          "B": "hereditary",
+          "C": "proponents",
+          "D": "oversimplification"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "offspring",
+        "difficulty": "medium",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 2: Word stress"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "OFF-spring is stressed on the first syllable."
+          ],
+          "summary": "OFF-spring"
+        },
+        "explanation": "The other words carry stress on later syllables."
+      },
+      {
+        "id": "U01-L03-Q038",
+        "number": 38,
+        "question": "In the discussion statement 'It is unusual for someone to leave school without a career idea', the speaker thinks that ...",
+        "options": {
+          "A": "most students have some idea of their future career",
+          "B": "students never think about careers",
+          "C": "schools should give career tests",
+          "D": "leaving school is a bad idea"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "most students have some idea of their future career",
+        "difficulty": "hard",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 5: Discussion statements"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The statement says it is unusual (rare) to leave school with no career idea."
+          ],
+          "summary": "Most students have a career idea."
+        },
+        "explanation": "If it is unusual, then it rarely happens."
+      },
+      {
+        "id": "U01-L03-Q039",
+        "number": 39,
+        "question": "In 'the candidate may know what the interviewer wants to hear', the phrase 'wants to hear' means the interviewer wants ...",
+        "options": {
+          "A": "the answer the interviewer expects or likes",
+          "B": "the candidate to sing",
+          "C": "the candidate to leave",
+          "D": "a truthful but different answer"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the answer the interviewer expects or likes",
+        "difficulty": "hard",
+        "source": {
+          "page": 7,
+          "reference": "Exercise 5: Discussion statements"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The phrase means the candidate may give the answer the interviewer expects."
+          ],
+          "summary": "The interviewer wants the expected answer."
+        },
+        "explanation": "This is given as a weakness of personality tests."
+      },
+      {
+        "id": "U01-L03-Q040",
+        "number": 40,
+        "question": "Which word is closest in meaning to 'implied'?",
+        "options": {
+          "A": "suggested",
+          "B": "stated",
+          "C": "denied",
+          "D": "proved"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "suggested",
+        "difficulty": "medium",
+        "source": {
+          "page": 7,
+          "reference": "Word List 1.3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Implied' is the past form of 'imply', which means 'suggest'."
+          ],
+          "summary": "implied = suggested."
+        },
+        "explanation": "To imply something is to suggest it indirectly."
+      }
+    ]
+  }
+}

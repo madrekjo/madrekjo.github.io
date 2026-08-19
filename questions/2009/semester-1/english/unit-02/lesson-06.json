@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "6",
+    "lesson_name": "Writing and Vocabulary",
+    "unit_number": 2,
+    "unit_name": "On the move",
+    "page_start": 22,
+    "page_end": 23,
+    "questions": [
+      {
+        "id": "U02-L06-Q001",
+        "number": 1,
+        "question": "Who is email A written to?",
+        "options": {
+          "A": "a friend (Amer)",
+          "B": "the coach company",
+          "C": "the hotel manager",
+          "D": "the airline"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a friend (Amer)",
+        "difficulty": "easy",
+        "source": {
+          "page": 22,
+          "reference": "Model emails A and B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Email A begins 'Hi Amer' and is informal, written to a friend."
+          ],
+          "summary": "Email A is to a friend."
+        },
+        "explanation": "It uses informal language."
+      },
+      {
+        "id": "U02-L06-Q002",
+        "number": 2,
+        "question": "Who is email B written to?",
+        "options": {
+          "A": "the coach company",
+          "B": "a friend",
+          "C": "the tour guide",
+          "D": "the pilot"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the coach company",
+        "difficulty": "easy",
+        "source": {
+          "page": 22,
+          "reference": "Model emails A and B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Email B begins 'Dear Sir' and is a formal complaint to the company."
+          ],
+          "summary": "Email B is a formal complaint."
+        },
+        "explanation": "It is signed 'Yours faithfully, Malek Alhayek'."
+      },
+      {
+        "id": "U02-L06-Q003",
+        "number": 3,
+        "question": "Who wrote email B?",
+        "options": {
+          "A": "Malek Alhayek",
+          "B": "Amer",
+          "C": "M",
+          "D": "Saeed"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Malek Alhayek",
+        "difficulty": "easy",
+        "source": {
+          "page": 22,
+          "reference": "Model email B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The formal email is signed 'Yours faithfully, Malek Alhayek'."
+          ],
+          "summary": "Malek Alhayek"
+        },
+        "explanation": "He is writing about his family's coach journey."
+      },
+      {
+        "id": "U02-L06-Q004",
+        "number": 4,
+        "question": "What does 'What a nightmare journey!' in email A mean?",
+        "options": {
+          "A": "the journey was a terrible experience",
+          "B": "the journey was short",
+          "C": "the journey was very cheap",
+          "D": "the journey was by night"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the journey was a terrible experience",
+        "difficulty": "medium",
+        "source": {
+          "page": 22,
+          "reference": "Model email A"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'A nightmare journey' means a journey full of problems and stress."
+          ],
+          "summary": "It was a terrible journey."
+        },
+        "explanation": "Email A describes everything that went wrong."
+      },
+      {
+        "id": "U02-L06-Q005",
+        "number": 5,
+        "question": "What is the formal equivalent of 'It didn't arrive on time' in email B?",
+        "options": {
+          "A": "the coach failed to arrive on time",
+          "B": "the coach arrived early",
+          "C": "the coach never arrived",
+          "D": "the coach arrived on time"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the coach failed to arrive on time",
+        "difficulty": "medium",
+        "source": {
+          "page": 23,
+          "reference": "Exercise 2: Formal equivalents"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Email B says 'We were disappointed when the coach failed to arrive on time'."
+          ],
+          "summary": "failed to arrive on time"
+        },
+        "explanation": "'Failed to' is more formal than 'didn't'."
+      },
+      {
+        "id": "U02-L06-Q006",
+        "number": 6,
+        "question": "What is the formal equivalent of 'more than 30 minutes late'?",
+        "options": {
+          "A": "in excess of 30 minutes late",
+          "B": "about 30 minutes late",
+          "C": "exactly 30 minutes late",
+          "D": "less than 30 minutes late"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "in excess of 30 minutes late",
+        "difficulty": "medium",
+        "source": {
+          "page": 23,
+          "reference": "Exercise 2: Formal equivalents"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Email B says 'it was in excess of 30 minutes late'."
+          ],
+          "summary": "in excess of 30 minutes"
+        },
+        "explanation": "'In excess of' is formal for 'more than'."
+      },
+      {
+        "id": "U02-L06-Q007",
+        "number": 7,
+        "question": "What is the formal equivalent of 'The next thing that went wrong was...'?",
+        "options": {
+          "A": "The second issue was...",
+          "B": "The last problem was...",
+          "C": "The best part was...",
+          "D": "The first surprise was..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The second issue was...",
+        "difficulty": "medium",
+        "source": {
+          "page": 23,
+          "reference": "Exercise 2: Formal equivalents"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Email B structures the complaint with 'The second issue was...'."
+          ],
+          "summary": "The second issue was..."
+        },
+        "explanation": "It is a formal way of listing problems."
+      },
+      {
+        "id": "U02-L06-Q008",
+        "number": 8,
+        "question": "What is the formal equivalent of 'You know that...'?",
+        "options": {
+          "A": "You may remember that...",
+          "B": "You must know that...",
+          "C": "You will never know that...",
+          "D": "I know that..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "You may remember that...",
+        "difficulty": "medium",
+        "source": {
+          "page": 23,
+          "reference": "Exercise 2: Formal equivalents"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Email B uses 'You may remember that last Thursday was a particularly cold morning'."
+          ],
+          "summary": "You may remember that..."
+        },
+        "explanation": "'May' makes it polite and formal."
+      },
+      {
+        "id": "U02-L06-Q009",
+        "number": 9,
+        "question": "What is the formal equivalent of 'To top it all...'?",
+        "options": {
+          "A": "Finally, ...",
+          "B": "First of all, ...",
+          "C": "Surprisingly, ...",
+          "D": "Of course, ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Finally, ...",
+        "difficulty": "medium",
+        "source": {
+          "page": 23,
+          "reference": "Exercise 2: Formal equivalents"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Email B uses 'Finally, to our utter disbelief...'."
+          ],
+          "summary": "Finally, ..."
+        },
+        "explanation": "It introduces the last and worst problem."
+      },
+      {
+        "id": "U02-L06-Q010",
+        "number": 10,
+        "question": "What is the formal equivalent of 'Not an apology from anyone.'?",
+        "options": {
+          "A": "at no time were we offered an apology",
+          "B": "nobody said sorry",
+          "C": "someone apologised",
+          "D": "an apology was expected"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "at no time were we offered an apology",
+        "difficulty": "hard",
+        "source": {
+          "page": 23,
+          "reference": "Exercise 2: Formal equivalents"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Email B says 'at no time were we offered an apology of any kind'."
+          ],
+          "summary": "at no time were we offered an apology"
+        },
+        "explanation": "This uses inversion and the passive for formality."
+      },
+      {
+        "id": "U02-L06-Q011",
+        "number": 11,
+        "question": "What is the formal equivalent of 'Luckily...'?",
+        "options": {
+          "A": "we were extremely fortunate in that...",
+          "B": "by luck, ...",
+          "C": "with good luck, ...",
+          "D": "lucky us, ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "we were extremely fortunate in that...",
+        "difficulty": "hard",
+        "source": {
+          "page": 23,
+          "reference": "Exercise 2: Formal equivalents"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Email B says 'While we were extremely fortunate in that we reached the airport just in time'."
+          ],
+          "summary": "we were extremely fortunate"
+        },
+        "explanation": "It is a formal way to say 'luckily'."
+      },
+      {
+        "id": "U02-L06-Q012",
+        "number": 12,
+        "question": "What is the formal equivalent of 'by the skin of our teeth'?",
+        "options": {
+          "A": "just in time to catch our flight",
+          "B": "very late for our flight",
+          "C": "with no time at all",
+          "D": "on a different flight"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "just in time to catch our flight",
+        "difficulty": "hard",
+        "source": {
+          "page": 23,
+          "reference": "Exercise 2: Formal equivalents"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Email B says 'just in time to catch our flight' instead of 'by the skin of our teeth'."
+          ],
+          "summary": "just in time to catch our flight"
+        },
+        "explanation": "'By the skin of our teeth' is informal."
+      },
+      {
+        "id": "U02-L06-Q013",
+        "number": 13,
+        "question": "Why do we use the passive voice in a formal email of complaint?",
+        "options": {
+          "A": "to be less direct and more formal",
+          "B": "to make the email shorter",
+          "C": "to sound angry",
+          "D": "to hide the facts"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to be less direct and more formal",
+        "difficulty": "easy",
+        "source": {
+          "page": 23,
+          "reference": "Writing box: An email of complaint"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The Writing box says passives are used 'to be less direct and more formal'."
+          ],
+          "summary": "Passives are less direct."
+        },
+        "explanation": "Example: 'We were only informed of the timetable change...'"
+      },
+      {
+        "id": "U02-L06-Q014",
+        "number": 14,
+        "question": "Which example uses a clause of concession?",
+        "options": {
+          "A": "Although your company had been recommended to us, the service did not meet our expectations.",
+          "B": "The coach was late.",
+          "C": "We booked the coach at 8.15.",
+          "D": "We caught our flight."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Although your company had been recommended to us, the service did not meet our expectations.",
+        "difficulty": "medium",
+        "source": {
+          "page": 23,
+          "reference": "Writing box: Clauses of concession"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Although...' is a clause of concession, used to give balance."
+          ],
+          "summary": "Although... gives balance."
+        },
+        "explanation": "It concedes a point before complaining."
+      },
+      {
+        "id": "U02-L06-Q015",
+        "number": 15,
+        "question": "Which adverb is described as an 'initial comment adverb' in the Writing box?",
+        "options": {
+          "A": "ultimately",
+          "B": "quickly",
+          "C": "never",
+          "D": "always"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "ultimately",
+        "difficulty": "medium",
+        "source": {
+          "page": 23,
+          "reference": "Writing box: Initial comment adverbs"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The box lists realistically and ultimately as initial comment adverbs."
+          ],
+          "summary": "ultimately"
+        },
+        "explanation": "It comments on the whole sentence."
+      },
+      {
+        "id": "U02-L06-Q016",
+        "number": 16,
+        "question": "Complete: '______, the fault lies with the supplier.'",
+        "options": {
+          "A": "Ultimately",
+          "B": "Luckily",
+          "C": "Happily",
+          "D": "Suddenly"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Ultimately",
+        "difficulty": "easy",
+        "source": {
+          "page": 23,
+          "reference": "Writing box: Initial comment adverbs"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The example is 'Ultimately, the fault lies with the supplier'."
+          ],
+          "summary": "Ultimately"
+        },
+        "explanation": "It gives the final judgement."
+      },
+      {
+        "id": "U02-L06-Q017",
+        "number": 17,
+        "question": "Complete the collocation: 'deeply ______'.",
+        "options": {
+          "A": "disappointed",
+          "B": "improved",
+          "C": "inexcusable",
+          "D": "mistaken"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "disappointed",
+        "difficulty": "easy",
+        "source": {
+          "page": 23,
+          "reference": "Exercise 4: Adverb-adjective collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Email B uses 'deeply disappointed'."
+          ],
+          "summary": "deeply disappointed"
+        },
+        "explanation": "We were deeply disappointed with the service."
+      },
+      {
+        "id": "U02-L06-Q018",
+        "number": 18,
+        "question": "Complete the collocation: 'drastically ______'.",
+        "options": {
+          "A": "improved",
+          "B": "disappointed",
+          "C": "flawed",
+          "D": "overrated"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "improved",
+        "difficulty": "easy",
+        "source": {
+          "page": 23,
+          "reference": "Exercise 4: Adverb-adjective collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Email B says the service 'will be drastically improved'."
+          ],
+          "summary": "drastically improved"
+        },
+        "explanation": "It means greatly improved."
+      },
+      {
+        "id": "U02-L06-Q019",
+        "number": 19,
+        "question": "Complete the collocation: 'completely ______'.",
+        "options": {
+          "A": "inexcusable",
+          "B": "improved",
+          "C": "disappointed",
+          "D": "mistaken"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "inexcusable",
+        "difficulty": "easy",
+        "source": {
+          "page": 23,
+          "reference": "Exercise 4: Adverb-adjective collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Email B says 'what was, in my view, completely inexcusable'."
+          ],
+          "summary": "completely inexcusable"
+        },
+        "explanation": "It means unforgivable."
+      },
+      {
+        "id": "U02-L06-Q020",
+        "number": 20,
+        "question": "How late was the coach in email B?",
+        "options": {
+          "A": "in excess of 30 minutes",
+          "B": "exactly 5 minutes",
+          "C": "two hours",
+          "D": "on time"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "in excess of 30 minutes",
+        "difficulty": "easy",
+        "source": {
+          "page": 22,
+          "reference": "Model email B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The coach failed to arrive on time and was in excess of 30 minutes late."
+          ],
+          "summary": "More than 30 minutes late"
+        },
+        "explanation": "The driver went to a different pick-up point."
+      },
+      {
+        "id": "U02-L06-Q021",
+        "number": 21,
+        "question": "Why was the coach late according to the driver?",
+        "options": {
+          "A": "he had first gone to a completely different pick-up point",
+          "B": "the traffic was terrible",
+          "C": "the coach had a flat tyre",
+          "D": "he overslept"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "he had first gone to a completely different pick-up point",
+        "difficulty": "medium",
+        "source": {
+          "page": 22,
+          "reference": "Model email B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Email B says the driver admitted to having gone to a completely different pick-up point."
+          ],
+          "summary": "He went to the wrong place."
+        },
+        "explanation": "This was the first problem."
+      },
+      {
+        "id": "U02-L06-Q022",
+        "number": 22,
+        "question": "What was the second issue with the coach?",
+        "options": {
+          "A": "the heating system was faulty",
+          "B": "the seats were broken",
+          "C": "the windows were open",
+          "D": "the radio was too loud"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the heating system was faulty",
+        "difficulty": "medium",
+        "source": {
+          "page": 22,
+          "reference": "Model email B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The coach's heating system was faulty and did not work properly."
+          ],
+          "summary": "The heating was faulty."
+        },
+        "explanation": "It was a particularly cold morning."
+      },
+      {
+        "id": "U02-L06-Q023",
+        "number": 23,
+        "question": "What happened on the motorway?",
+        "options": {
+          "A": "the coach broke down because of an engine problem",
+          "B": "the coach ran out of petrol",
+          "C": "there was an accident",
+          "D": "the coach turned back"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the coach broke down because of an engine problem",
+        "difficulty": "easy",
+        "source": {
+          "page": 22,
+          "reference": "Model email B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The coach suffered an engine problem and broke down on the motorway."
+          ],
+          "summary": "The coach broke down."
+        },
+        "explanation": "A replacement coach was arranged."
+      },
+      {
+        "id": "U02-L06-Q024",
+        "number": 24,
+        "question": "What did Malek ask for in his email?",
+        "options": {
+          "A": "monetary compensation",
+          "B": "a new coach",
+          "C": "a free holiday",
+          "D": "a written apology only"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "monetary compensation",
+        "difficulty": "medium",
+        "source": {
+          "page": 22,
+          "reference": "Model email B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Malek believes they should receive monetary compensation for the inconvenience."
+          ],
+          "summary": "He asked for compensation."
+        },
+        "explanation": "He also hopes the service will improve."
+      },
+      {
+        "id": "U02-L06-Q025",
+        "number": 25,
+        "question": "Complete the collocation: 'gravely ______'.",
+        "options": {
+          "A": "mistaken",
+          "B": "obvious",
+          "C": "opposed",
+          "D": "overrated"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "mistaken",
+        "difficulty": "medium",
+        "source": {
+          "page": 23,
+          "reference": "Exercise 5: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The collocation is 'gravely mistaken'."
+          ],
+          "summary": "gravely mistaken"
+        },
+        "explanation": "If you think I won't take this further, you are gravely mistaken."
+      },
+      {
+        "id": "U02-L06-Q026",
+        "number": 26,
+        "question": "Complete the collocation: 'wildly ______' (about information).",
+        "options": {
+          "A": "inaccurate",
+          "B": "improved",
+          "C": "overrated",
+          "D": "flawed"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "inaccurate",
+        "difficulty": "medium",
+        "source": {
+          "page": 23,
+          "reference": "Exercise 5: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The collocation is 'wildly inaccurate'."
+          ],
+          "summary": "wildly inaccurate"
+        },
+        "explanation": "The information was wildly inaccurate, causing me to miss my plane."
+      },
+      {
+        "id": "U02-L06-Q027",
+        "number": 27,
+        "question": "Complete the collocation: 'fundamentally ______' (about a process).",
+        "options": {
+          "A": "flawed",
+          "B": "mistaken",
+          "C": "justified",
+          "D": "obvious"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "flawed",
+        "difficulty": "medium",
+        "source": {
+          "page": 23,
+          "reference": "Exercise 5: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The collocation is 'fundamentally flawed'."
+          ],
+          "summary": "fundamentally flawed"
+        },
+        "explanation": "The delivery process was fundamentally flawed."
+      },
+      {
+        "id": "U02-L06-Q028",
+        "number": 28,
+        "question": "Complete the collocation: 'vastly ______' (about quality).",
+        "options": {
+          "A": "overrated",
+          "B": "inaccurate",
+          "C": "obvious",
+          "D": "opposed"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "overrated",
+        "difficulty": "medium",
+        "source": {
+          "page": 23,
+          "reference": "Exercise 5: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The collocation is 'vastly overrated'."
+          ],
+          "summary": "vastly overrated"
+        },
+        "explanation": "The shoes were vastly overrated; they needed repairs after a month."
+      },
+      {
+        "id": "U02-L06-Q029",
+        "number": 29,
+        "question": "Complete the collocation: 'vehemently ______ to'.",
+        "options": {
+          "A": "opposed",
+          "B": "mistaken",
+          "C": "justified",
+          "D": "inaccurate"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "opposed",
+        "difficulty": "medium",
+        "source": {
+          "page": 23,
+          "reference": "Exercise 5: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The collocation is 'vehemently opposed to'."
+          ],
+          "summary": "vehemently opposed"
+        },
+        "explanation": "I am vehemently opposed to travelling with your company again."
+      },
+      {
+        "id": "U02-L06-Q030",
+        "number": 30,
+        "question": "Complete the collocation: 'wholly ______' (about the way you were treated).",
+        "options": {
+          "A": "unjustified",
+          "B": "overrated",
+          "C": "improved",
+          "D": "inaccurate"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "unjustified",
+        "difficulty": "medium",
+        "source": {
+          "page": 23,
+          "reference": "Exercise 5: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The collocation is 'wholly unjustified'."
+          ],
+          "summary": "wholly unjustified"
+        },
+        "explanation": "The way I was treated was wholly unjustified."
+      },
+      {
+        "id": "U02-L06-Q031",
+        "number": 31,
+        "question": "Complete the collocation: 'blindingly ______' (about a problem).",
+        "options": {
+          "A": "obvious",
+          "B": "mistaken",
+          "C": "opposed",
+          "D": "flawed"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "obvious",
+        "difficulty": "medium",
+        "source": {
+          "page": 23,
+          "reference": "Exercise 5: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The collocation is 'blindingly obvious'."
+          ],
+          "summary": "blindingly obvious"
+        },
+        "explanation": "It is blindingly obvious that there is a serious issue."
+      },
+      {
+        "id": "U02-L06-Q032",
+        "number": 32,
+        "question": "What is the main difference between emails A and B?",
+        "options": {
+          "A": "A is informal (to a friend) and B is formal (to the company)",
+          "B": "A is longer than B",
+          "C": "A is about a flight and B is about a hotel",
+          "D": "A is formal and B is informal"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A is informal (to a friend) and B is formal (to the company)",
+        "difficulty": "easy",
+        "source": {
+          "page": 22,
+          "reference": "Exercise 1: Comparing emails"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Email A uses informal language for a friend, while email B is formal to the company."
+          ],
+          "summary": "A = informal, B = formal."
+        },
+        "explanation": "The register changes with the reader."
+      },
+      {
+        "id": "U02-L06-Q033",
+        "number": 33,
+        "question": "Which informal phrase in email A means 'it started badly'?",
+        "options": {
+          "A": "it didn't get off to a great start",
+          "B": "it was plain sailing",
+          "C": "it went downhill",
+          "D": "it was in excess of time"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it didn't get off to a great start",
+        "difficulty": "medium",
+        "source": {
+          "page": 22,
+          "reference": "Model email A"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Get off to a bad/great start' means to begin badly or well."
+          ],
+          "summary": "didn't get off to a great start = began badly."
+        },
+        "explanation": "The coach was half an hour late from the start."
+      },
+      {
+        "id": "U02-L06-Q034",
+        "number": 34,
+        "question": "What does 'down it came! In buckets!' mean in email A?",
+        "options": {
+          "A": "it rained very heavily",
+          "B": "the rain stopped",
+          "C": "the coach arrived",
+          "D": "the sky cleared"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it rained very heavily",
+        "difficulty": "hard",
+        "source": {
+          "page": 22,
+          "reference": "Model email A"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Rain in buckets' or 'bucket down' means to rain very heavily."
+          ],
+          "summary": "It rained heavily."
+        },
+        "explanation": "They got soaked while waiting for the coach."
+      },
+      {
+        "id": "U02-L06-Q035",
+        "number": 35,
+        "question": "What does 'we caught the plane by the skin of our teeth' mean?",
+        "options": {
+          "A": "we only just caught it, at the last moment",
+          "B": "we missed the plane",
+          "C": "we caught a different plane",
+          "D": "we caught it easily"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "we only just caught it, at the last moment",
+        "difficulty": "medium",
+        "source": {
+          "page": 22,
+          "reference": "Model email A"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'By the skin of our teeth' means by a very small margin, barely."
+          ],
+          "summary": "They only just caught the plane."
+        },
+        "explanation": "Email B says the same idea formally: 'just in time'."
+      },
+      {
+        "id": "U02-L06-Q036",
+        "number": 36,
+        "question": "Why does the Writing box say to 'remain polite and be assertive but not aggressive'?",
+        "options": {
+          "A": "a firm but polite tone is more effective in a complaint",
+          "B": "you should shout to be heard",
+          "C": "you should never complain",
+          "D": "aggression wins arguments"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a firm but polite tone is more effective in a complaint",
+        "difficulty": "medium",
+        "source": {
+          "page": 23,
+          "reference": "Writing box: An email of complaint"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A good complaint is assertive but polite, so the reader takes it seriously."
+          ],
+          "summary": "Polite but assertive is best."
+        },
+        "explanation": "It keeps the email effective and professional."
+      },
+      {
+        "id": "U02-L06-Q037",
+        "number": 37,
+        "question": "Complete: 'I would like to express in the strongest terms, how deeply ______ we were with your company's service.'",
+        "options": {
+          "A": "disappointed",
+          "B": "improved",
+          "C": "mistaken",
+          "D": "opposed"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "disappointed",
+        "difficulty": "medium",
+        "source": {
+          "page": 22,
+          "reference": "Model email B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Email B says 'how deeply disappointed we were'."
+          ],
+          "summary": "disappointed"
+        },
+        "explanation": "'Deeply' collocates with 'disappointed'."
+      },
+      {
+        "id": "U02-L06-Q038",
+        "number": 38,
+        "question": "Which sentence uses the passive voice?",
+        "options": {
+          "A": "We were only informed of the timetable change at the last minute.",
+          "B": "The company informed us at the last minute.",
+          "C": "We received information at the last minute.",
+          "D": "Someone told us at the last minute."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "We were only informed of the timetable change at the last minute.",
+        "difficulty": "hard",
+        "source": {
+          "page": 23,
+          "reference": "Writing box: Passives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'We were only informed' is passive; the agent is not emphasised."
+          ],
+          "summary": "We were informed = passive."
+        },
+        "explanation": "It is less direct and more formal."
+      },
+      {
+        "id": "U02-L06-Q039",
+        "number": 39,
+        "question": "Which phrase from email A is informal?",
+        "options": {
+          "A": "guess what",
+          "B": "in excess of",
+          "C": "we were extremely fortunate",
+          "D": "to our utter disbelief"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "guess what",
+        "difficulty": "easy",
+        "source": {
+          "page": 22,
+          "reference": "Exercise 1: Comparing emails"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Guess what' is informal and typical of a message to a friend."
+          ],
+          "summary": "guess what"
+        },
+        "explanation": "Email B uses formal equivalents like 'in excess of'."
+      },
+      {
+        "id": "U02-L06-Q040",
+        "number": 40,
+        "question": "What should a good email of complaint include at the end?",
+        "options": {
+          "A": "a clear statement of what you want (e.g. compensation)",
+          "B": "a joke",
+          "C": "a threat",
+          "D": "a new topic"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a clear statement of what you want (e.g. compensation)",
+        "difficulty": "easy",
+        "source": {
+          "page": 23,
+          "reference": "Writing task"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Malek ends by requesting monetary compensation."
+          ],
+          "summary": "State what you want."
+        },
+        "explanation": "It makes the complaint effective."
+      }
+    ]
+  }
+}

@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "4",
+    "lesson_name": "Listening and Vocabulary",
+    "unit_number": 5,
+    "unit_name": "Do your best",
+    "page_start": 54,
+    "page_end": 55,
+    "questions": [
+      {
+        "id": "U05-L04-Q001",
+        "number": 1,
+        "question": "What is the stage of a competition where the last two teams play?",
+        "options": {
+          "A": "the final",
+          "B": "the round",
+          "C": "the knockout",
+          "D": "the elimination"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the final",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The final is the last match that decides the winner."
+          ],
+          "summary": "Final means the last stage of a competition."
+        },
+        "explanation": "The final is the match that determines the champion."
+      },
+      {
+        "id": "U05-L04-Q002",
+        "number": 2,
+        "question": "A competition where the loser is immediately out is called a ___ competition.",
+        "options": {
+          "A": "knockout",
+          "B": "semi-final",
+          "C": "round",
+          "D": "pool"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "knockout",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "In a knockout competition, the losing team is eliminated right away."
+          ],
+          "summary": "Knockout means elimination after losing."
+        },
+        "explanation": "A knockout competition removes the loser immediately."
+      },
+      {
+        "id": "U05-L04-Q003",
+        "number": 3,
+        "question": "What do you use to hit the ball in tennis?",
+        "options": {
+          "A": "a racket",
+          "B": "a bat",
+          "C": "a stick",
+          "D": "a club"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a racket",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "In tennis, players use a racket to hit the ball."
+          ],
+          "summary": "A racket is used in tennis and badminton."
+        },
+        "explanation": "Tennis players hit the ball with a racket."
+      },
+      {
+        "id": "U05-L04-Q004",
+        "number": 4,
+        "question": "A match played before the final to decide who goes to the final is a ___.",
+        "options": {
+          "A": "semi-final",
+          "B": "round",
+          "C": "knockout",
+          "D": "group stage"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "semi-final",
+        "difficulty": "medium",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A semi-final is the round before the final."
+          ],
+          "summary": "Semi-final is the match before the final."
+        },
+        "explanation": "The semi-final decides who reaches the final."
+      },
+      {
+        "id": "U05-L04-Q005",
+        "number": 5,
+        "question": "Where is a football match played?",
+        "options": {
+          "A": "on a pitch",
+          "B": "in a pool",
+          "C": "on a court",
+          "D": "in a ring"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "on a pitch",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Football is played on a pitch, which is a large grass field."
+          ],
+          "summary": "A pitch is a field for football or cricket."
+        },
+        "explanation": "Football matches are played on a pitch."
+      },
+      {
+        "id": "U05-L04-Q006",
+        "number": 6,
+        "question": "A very large building where many spectators watch sports is a ___.",
+        "options": {
+          "A": "stadium",
+          "B": "gym",
+          "C": "court",
+          "D": "net"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "stadium",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A stadium is a large venue for outdoor sports events."
+          ],
+          "summary": "A stadium holds thousands of spectators."
+        },
+        "explanation": "Stadiums are large venues for watching sports."
+      },
+      {
+        "id": "U05-L04-Q007",
+        "number": 7,
+        "question": "In a competition, a ___ is one section where teams or players compete before moving on.",
+        "options": {
+          "A": "round",
+          "B": "net",
+          "C": "bat",
+          "D": "racket"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "round",
+        "difficulty": "medium",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A round is one stage or level in a competition."
+          ],
+          "summary": "A round is a stage in a tournament."
+        },
+        "explanation": "Competitions are divided into rounds."
+      },
+      {
+        "id": "U05-L04-Q008",
+        "number": 8,
+        "question": "What is the name for the area where basketball is played?",
+        "options": {
+          "A": "a court",
+          "B": "a pitch",
+          "C": "a pool",
+          "D": "a field"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a court",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Basketball is played on a court with hard flooring."
+          ],
+          "summary": "A court is used for basketball, tennis, and volleyball."
+        },
+        "explanation": "Basketball is played on a court."
+      },
+      {
+        "id": "U05-L04-Q009",
+        "number": 9,
+        "question": "When all players or teams from a group continue to the next stage, this is called ___.",
+        "options": {
+          "A": "qualification",
+          "B": "elimination",
+          "C": "knockout",
+          "D": "defeat"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "qualification",
+        "difficulty": "medium",
+        "source": {
+          "page": "55",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Qualification means successfully passing to the next stage."
+          ],
+          "summary": "Qualification means earning the right to continue."
+        },
+        "explanation": "Teams qualify by finishing at the top of their group."
+      },
+      {
+        "id": "U05-L04-Q010",
+        "number": 10,
+        "question": "What equipment do you need to play volleyball?",
+        "options": {
+          "A": "a net and a ball",
+          "B": "a racket and a ball",
+          "C": "a bat and a ball",
+          "D": "a stick and a puck"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a net and a ball",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Volleyball is played with a net in the middle and a ball."
+          ],
+          "summary": "Volleyball needs a net and a ball."
+        },
+        "explanation": "Players hit a ball over a net in volleyball."
+      },
+      {
+        "id": "U05-L04-Q011",
+        "number": 11,
+        "question": "The opposite of winning is ___.",
+        "options": {
+          "A": "losing",
+          "B": "playing",
+          "C": "training",
+          "D": "scoring"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "losing",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Losing is the opposite of winning in a competition."
+          ],
+          "summary": "When you lose, you do not win."
+        },
+        "explanation": "Losing means you did not win the match."
+      },
+      {
+        "id": "U05-L04-Q012",
+        "number": 12,
+        "question": "What is an indoor sports facility with exercise equipment?",
+        "options": {
+          "A": "a gymnasium",
+          "B": "a stadium",
+          "C": "a court",
+          "D": "a pitch"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a gymnasium",
+        "difficulty": "medium",
+        "source": {
+          "page": "55",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A gymnasium is an indoor place for exercise and sports."
+          ],
+          "summary": "A gymnasium or gym is for indoor exercise."
+        },
+        "explanation": "People train in a gymnasium."
+      },
+      {
+        "id": "U05-L04-Q013",
+        "number": 13,
+        "question": "When one team beats another team, we say they ___.",
+        "options": {
+          "A": "defeated them",
+          "B": "visited them",
+          "C": "invited them",
+          "D": "followed them"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "defeated them",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To defeat someone means to win against them."
+          ],
+          "summary": "Defeating means winning against an opponent."
+        },
+        "explanation": "Our team defeated the other team 3-1."
+      },
+      {
+        "id": "U05-L04-Q014",
+        "number": 14,
+        "question": "A swimming competition takes place in a ___.",
+        "options": {
+          "A": "pool",
+          "B": "pitch",
+          "C": "court",
+          "D": "ring"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "pool",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Swimming competitions are held in a pool."
+          ],
+          "summary": "A pool is where swimming competitions happen."
+        },
+        "explanation": "Swimmers race in a pool."
+      },
+      {
+        "id": "U05-L04-Q015",
+        "number": 15,
+        "question": "Which word means the act of taking part in a sport or competition?",
+        "options": {
+          "A": "participation",
+          "B": "observation",
+          "C": "imitation",
+          "D": "navigation"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "participation",
+        "difficulty": "medium",
+        "source": {
+          "page": "55",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Participation means taking part in something."
+          ],
+          "summary": "Participation means being involved in an event."
+        },
+        "explanation": "Every athlete's participation in the event was impressive."
+      },
+      {
+        "id": "U05-L04-Q016",
+        "number": 16,
+        "question": "In a round-robin tournament, every team plays ___.",
+        "options": {
+          "A": "every other team",
+          "B": "only the winner",
+          "C": "one match",
+          "D": "the final"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "every other team",
+        "difficulty": "hard",
+        "source": {
+          "page": "55",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "In a round-robin, each team plays against every other team."
+          ],
+          "summary": "Round-robin means everyone plays everyone."
+        },
+        "explanation": "A round-robin tournament ensures all teams face each other."
+      },
+      {
+        "id": "U05-L04-Q017",
+        "number": 17,
+        "question": "What is the person called who watches a sports match?",
+        "options": {
+          "A": "a spectator",
+          "B": "a player",
+          "C": "a coach",
+          "D": "a referee"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a spectator",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A spectator is a person who watches a sports event."
+          ],
+          "summary": "Spectators watch sports events."
+        },
+        "explanation": "Thousands of spectators came to watch the match."
+      },
+      {
+        "id": "U05-L04-Q018",
+        "number": 18,
+        "question": "The person who makes sure the rules are followed in a game is the ___.",
+        "options": {
+          "A": "referee",
+          "B": "spectator",
+          "C": "captain",
+          "D": "coach"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "referee",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The referee enforces the rules during a match."
+          ],
+          "summary": "A referee controls the game and checks rules."
+        },
+        "explanation": "The referee gave a yellow card to the player."
+      },
+      {
+        "id": "U05-L04-Q019",
+        "number": 19,
+        "question": "When a team scores more goals than the other, they have ___.",
+        "options": {
+          "A": "won",
+          "B": "lost",
+          "C": "drawn",
+          "D": "tied"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "won",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Winning means scoring more than the opponent."
+          ],
+          "summary": "You win when you score more goals."
+        },
+        "explanation": "Our team won the match 4-2."
+      },
+      {
+        "id": "U05-L04-Q020",
+        "number": 20,
+        "question": "A competition where teams are grouped and play a set number of matches is a ___ stage.",
+        "options": {
+          "A": "group",
+          "B": "final",
+          "C": "knockout",
+          "D": "semi-final"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "group",
+        "difficulty": "medium",
+        "source": {
+          "page": "55",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A group stage divides teams into groups to play each other."
+          ],
+          "summary": "The group stage is the first part of many tournaments."
+        },
+        "explanation": "Teams compete in a group stage before the knockout rounds."
+      },
+      {
+        "id": "U05-L04-Q021",
+        "number": 21,
+        "question": "What do we call it when a match ends with no winner?",
+        "options": {
+          "A": "a draw",
+          "B": "a win",
+          "C": "a loss",
+          "D": "a goal"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a draw",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A draw means both teams score the same number of points."
+          ],
+          "summary": "A draw means the result is equal."
+        },
+        "explanation": "The match ended in a draw at 2-2."
+      },
+      {
+        "id": "U05-L04-Q022",
+        "number": 22,
+        "question": "Which word means to throw the ball into the goal in football?",
+        "options": {
+          "A": "to score",
+          "B": "to catch",
+          "C": "to kick",
+          "D": "to throw"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to score",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "To score means to get a goal or point."
+          ],
+          "summary": "Scoring means putting the ball in the goal."
+        },
+        "explanation": "He managed to score in the last minute."
+      },
+      {
+        "id": "U05-L04-Q023",
+        "number": 23,
+        "question": "A person who trains and leads a sports team is called a ___.",
+        "options": {
+          "A": "coach",
+          "B": "referee",
+          "C": "spectator",
+          "D": "umpire"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "coach",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A coach trains and guides a sports team."
+          ],
+          "summary": "The coach gives advice and plans strategies."
+        },
+        "explanation": "Our coach prepared us well for the final."
+      },
+      {
+        "id": "U05-L04-Q024",
+        "number": 24,
+        "question": "The sport of hitting a small ball with a club into a hole is ___.",
+        "options": {
+          "A": "golf",
+          "B": "tennis",
+          "C": "cricket",
+          "D": "hockey"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "golf",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Golf is played with clubs and balls on a large course."
+          ],
+          "summary": "Golf uses a club to hit a ball into holes."
+        },
+        "explanation": "Golf requires patience and precision."
+      },
+      {
+        "id": "U05-L04-Q025",
+        "number": 25,
+        "question": "A place where indoor sports like basketball and volleyball are played is called a(n) ___.",
+        "options": {
+          "A": "arena",
+          "B": "pitch",
+          "C": "pool",
+          "D": "field"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "arena",
+        "difficulty": "medium",
+        "source": {
+          "page": "55",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "An arena is a large indoor venue for sports and events."
+          ],
+          "summary": "An arena hosts indoor sports competitions."
+        },
+        "explanation": "The basketball game was held in a big arena."
+      },
+      {
+        "id": "U05-L04-Q026",
+        "number": 26,
+        "question": "When athletes compete against each other in sports, this is called ___.",
+        "options": {
+          "A": "rivalry",
+          "B": "friendship",
+          "C": "training",
+          "D": "休息"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "rivalry",
+        "difficulty": "medium",
+        "source": {
+          "page": "55",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Rivalry is strong competition between opponents."
+          ],
+          "summary": "Rivalry means competing fiercely against someone."
+        },
+        "explanation": "The rivalry between the two teams is very old."
+      },
+      {
+        "id": "U05-L04-Q027",
+        "number": 27,
+        "question": "What is the person who plays a sport called?",
+        "options": {
+          "A": "athlete",
+          "B": "spectator",
+          "C": "coach",
+          "D": "manager"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "athlete",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "An athlete is a person who plays sports."
+          ],
+          "summary": "Athletes compete in sports competitions."
+        },
+        "explanation": "She is a talented athlete who runs very fast."
+      },
+      {
+        "id": "U05-L04-Q028",
+        "number": 28,
+        "question": "When you practice before a competition, you are ___.",
+        "options": {
+          "A": "training",
+          "B": "resting",
+          "C": "winning",
+          "D": "losing"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "training",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Training means practicing to improve your performance."
+          ],
+          "summary": "Training prepares you for competition."
+        },
+        "explanation": "The team trained hard before the final."
+      },
+      {
+        "id": "U05-L04-Q029",
+        "number": 29,
+        "question": "A hard surface for playing basketball and tennis is called a ___.",
+        "options": {
+          "A": "court",
+          "B": "pitch",
+          "C": "pool",
+          "D": "track"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "court",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A court is a hard-surface playing area."
+          ],
+          "summary": "Courts are used for basketball, tennis, and volleyball."
+        },
+        "explanation": "The tennis court was in excellent condition."
+      },
+      {
+        "id": "U05-L04-Q030",
+        "number": 30,
+        "question": "Which word means a competition with many rounds leading to a winner?",
+        "options": {
+          "A": "tournament",
+          "B": "practice",
+          "C": "exercise",
+          "D": "lesson"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "tournament",
+        "difficulty": "medium",
+        "source": {
+          "page": "55",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A tournament is a competition with several rounds of matches."
+          ],
+          "summary": "A tournament has multiple stages and rounds."
+        },
+        "explanation": "The school organized a basketball tournament."
+      },
+      {
+        "id": "U05-L04-Q031",
+        "number": 31,
+        "question": "The first place in a competition is called ___.",
+        "options": {
+          "A": "first prize",
+          "B": "last place",
+          "C": "starting point",
+          "D": "warm-up"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "first prize",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "First prize is awarded to the winner of a competition."
+          ],
+          "summary": "The winner receives the first prize."
+        },
+        "explanation": "She won first prize in the swimming competition."
+      },
+      {
+        "id": "U05-L04-Q032",
+        "number": 32,
+        "question": "What does a captain do in a sports team?",
+        "options": {
+          "A": "leads the team",
+          "B": "watches the game",
+          "C": "plays music",
+          "D": "sells tickets"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "leads the team",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The captain is the leader of the team on the field."
+          ],
+          "summary": "A captain leads and motivates the team."
+        },
+        "explanation": "The captain lifted the trophy after the final."
+      },
+      {
+        "id": "U05-L04-Q033",
+        "number": 33,
+        "question": "In swimming, the different strokes include freestyle, breaststroke, and ___.",
+        "options": {
+          "A": "butterfly",
+          "B": "cricket",
+          "C": "tennis",
+          "D": "boxing"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "butterfly",
+        "difficulty": "medium",
+        "source": {
+          "page": "55",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Butterfly is one of the swimming strokes."
+          ],
+          "summary": "Butterfly is a difficult but fast swimming style."
+        },
+        "explanation": "She won the gold medal in the butterfly event."
+      },
+      {
+        "id": "U05-L04-Q034",
+        "number": 34,
+        "question": "A large grass area for playing football is called a ___.",
+        "options": {
+          "A": "pitch",
+          "B": "court",
+          "C": "pool",
+          "D": "ring"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "pitch",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A pitch is a grass field for football or cricket."
+          ],
+          "summary": "Football is played on a green pitch."
+        },
+        "explanation": "The pitch was wet after the rain."
+      },
+      {
+        "id": "U05-L04-Q035",
+        "number": 35,
+        "question": "When two teams play and the score is equal, we say it is a ___.",
+        "options": {
+          "A": "draw",
+          "B": "win",
+          "C": "loss",
+          "D": "goal"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "draw",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A draw means both teams have the same score."
+          ],
+          "summary": "Draw means no winner at the end."
+        },
+        "explanation": "The game ended in a 1-1 draw."
+      },
+      {
+        "id": "U05-L04-Q036",
+        "number": 36,
+        "question": "What is the area around a sports field where people sit?",
+        "options": {
+          "A": "the stands",
+          "B": "the court",
+          "C": "the pitch",
+          "D": "the pool"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the stands",
+        "difficulty": "medium",
+        "source": {
+          "page": "55",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The stands are seats for spectators around a sports field."
+          ],
+          "summary": "Spectators sit in the stands to watch games."
+        },
+        "explanation": "The stands were full during the championship."
+      },
+      {
+        "id": "U05-L04-Q037",
+        "number": 37,
+        "question": "To get better at a sport, you need to ___.",
+        "options": {
+          "A": "practice regularly",
+          "B": "sleep all day",
+          "C": "watch TV",
+          "D": "eat sweets"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "practice regularly",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Regular practice improves your sporting skills."
+          ],
+          "summary": "Practice makes you better at sports."
+        },
+        "explanation": "She practices every day to improve her speed."
+      },
+      {
+        "id": "U05-L04-Q038",
+        "number": 38,
+        "question": "A competition between two people is called a ___.",
+        "options": {
+          "A": "match",
+          "B": "class",
+          "C": "lesson",
+          "D": "meeting"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "match",
+        "difficulty": "easy",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A match is a contest between two players or teams."
+          ],
+          "summary": "A match is a sporting competition."
+        },
+        "explanation": "The tennis match lasted for three hours."
+      },
+      {
+        "id": "U05-L04-Q039",
+        "number": 39,
+        "question": "Which sport uses a net, a shuttlecock, and rackets?",
+        "options": {
+          "A": "badminton",
+          "B": "football",
+          "C": "swimming",
+          "D": "running"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "badminton",
+        "difficulty": "medium",
+        "source": {
+          "page": "54",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Badminton is played with rackets, a net, and a shuttlecock."
+          ],
+          "summary": "Badminton needs rackets and a shuttlecock."
+        },
+        "explanation": "Badminton is a popular indoor sport."
+      },
+      {
+        "id": "U05-L04-Q040",
+        "number": 40,
+        "question": "When an athlete retires from professional sport, they ___.",
+        "options": {
+          "A": "stop competing permanently",
+          "B": "start training",
+          "C": "join a new team",
+          "D": "win a medal"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "stop competing permanently",
+        "difficulty": "hard",
+        "source": {
+          "page": "55",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Retiring means permanently stopping from professional sport."
+          ],
+          "summary": "Retirement means ending a professional career."
+        },
+        "explanation": "After winning the gold medal, he decided to retire."
+      }
+    ]
+  }
+}

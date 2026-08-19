@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "3",
+    "lesson_name": "Grammar",
+    "unit_number": 4,
+    "unit_name": "Tastes",
+    "page_start": 42,
+    "page_end": 43,
+    "questions": [
+      {
+        "id": "U04-L03-Q001",
+        "number": 1,
+        "question": "Which word is used with countable nouns?",
+        "options": {
+          "A": "Many",
+          "B": "Much",
+          "C": "A little",
+          "D": "A piece of"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Many",
+        "difficulty": "easy",
+        "source": {
+          "page": "42",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Many is used with countable nouns."
+          ],
+          "summary": "Many is for countable nouns."
+        },
+        "explanation": "Many is used with plural countable nouns."
+      },
+      {
+        "id": "U04-L03-Q002",
+        "number": 2,
+        "question": "Which word is used with uncountable nouns?",
+        "options": {
+          "A": "Much",
+          "B": "Many",
+          "C": "A few",
+          "D": "Several"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Much",
+        "difficulty": "easy",
+        "source": {
+          "page": "42",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Much is used with uncountable nouns."
+          ],
+          "summary": "Much is for uncountable nouns."
+        },
+        "explanation": "Much is used with uncountable nouns."
+      },
+      {
+        "id": "U04-L03-Q003",
+        "number": 3,
+        "question": "Which of these is an uncountable noun?",
+        "options": {
+          "A": "Water",
+          "B": "Apples",
+          "C": "Eggs",
+          "D": "Carrots"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Water",
+        "difficulty": "easy",
+        "source": {
+          "page": "42",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Water is an uncountable noun."
+          ],
+          "summary": "Water is uncountable."
+        },
+        "explanation": "Water cannot be counted individually."
+      },
+      {
+        "id": "U04-L03-Q004",
+        "number": 4,
+        "question": "Choose the correct sentence:",
+        "options": {
+          "A": "There are many cookies on the plate.",
+          "B": "There are much cookies on the plate.",
+          "C": "There is many cookies on the plate.",
+          "D": "There are a lot cookies on the plate."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "There are many cookies on the plate.",
+        "difficulty": "easy",
+        "source": {
+          "page": "42",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Cookies is countable, so 'many' is the correct quantifier."
+          ],
+          "summary": "Many is used with countable nouns."
+        },
+        "explanation": "'Many' is correct because cookies are countable."
+      },
+      {
+        "id": "U04-L03-Q005",
+        "number": 5,
+        "question": "Which quantifier can be used with BOTH countable and uncountable nouns?",
+        "options": {
+          "A": "A lot of",
+          "B": "Many",
+          "C": "Much",
+          "D": "A few"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A lot of",
+        "difficulty": "easy",
+        "source": {
+          "page": "42",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A lot of works with both countable and uncountable nouns."
+          ],
+          "summary": "A lot of is used with both."
+        },
+        "explanation": "A lot of is a versatile quantifier."
+      },
+      {
+        "id": "U04-L03-Q006",
+        "number": 6,
+        "question": "There is _____ milk in the fridge.",
+        "options": {
+          "A": "a little",
+          "B": "a few",
+          "C": "many",
+          "D": "few"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a little",
+        "difficulty": "easy",
+        "source": {
+          "page": "42",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Milk is uncountable, so we use 'a little'."
+          ],
+          "summary": "A little is for uncountable nouns."
+        },
+        "explanation": "Milk is uncountable, requiring 'a little'."
+      },
+      {
+        "id": "U04-L03-Q007",
+        "number": 7,
+        "question": "There are _____ bananas on the table.",
+        "options": {
+          "A": "a few",
+          "B": "a little",
+          "C": "much",
+          "D": "a piece of"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a few",
+        "difficulty": "easy",
+        "source": {
+          "page": "42",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Bananas is countable, so we use 'a few'."
+          ],
+          "summary": "A few is for countable nouns."
+        },
+        "explanation": "Bananas are countable, so use 'a few'."
+      },
+      {
+        "id": "U04-L03-Q008",
+        "number": 8,
+        "question": "Which is the correct form?",
+        "options": {
+          "A": "I don't have any sugar.",
+          "B": "I don't have some sugar.",
+          "C": "I don't have many sugar.",
+          "D": "I don't have a few sugar."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I don't have any sugar.",
+        "difficulty": "easy",
+        "source": {
+          "page": "42",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "We use 'any' in negative sentences with uncountable nouns."
+          ],
+          "summary": "Any is used in negatives."
+        },
+        "explanation": "'Any' is correct in negative statements."
+      },
+      {
+        "id": "U04-L03-Q009",
+        "number": 9,
+        "question": "How many _____ do you want?",
+        "options": {
+          "A": "eggs",
+          "B": "rice",
+          "C": "water",
+          "D": "bread"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "eggs",
+        "difficulty": "easy",
+        "source": {
+          "page": "42",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "How many is followed by a countable noun; eggs is countable."
+          ],
+          "summary": "How many is for countable nouns."
+        },
+        "explanation": "How many requires a countable noun."
+      },
+      {
+        "id": "U04-L03-Q010",
+        "number": 10,
+        "question": "How much _____ do we need for the recipe?",
+        "options": {
+          "A": "flour",
+          "B": "carrots",
+          "C": "tomatoes",
+          "D": "onions"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "flour",
+        "difficulty": "easy",
+        "source": {
+          "page": "42",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "How much is followed by an uncountable noun; flour is uncountable."
+          ],
+          "summary": "How much is for uncountable nouns."
+        },
+        "explanation": "How much requires an uncountable noun."
+      },
+      {
+        "id": "U04-L03-Q011",
+        "number": 11,
+        "question": "There is _____ sugar in my coffee.",
+        "options": {
+          "A": "a little",
+          "B": "a few",
+          "C": "many",
+          "D": "few"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a little",
+        "difficulty": "medium",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Sugar is uncountable, so 'a little' is used."
+          ],
+          "summary": "A little is for uncountable nouns."
+        },
+        "explanation": "Sugar is uncountable, so we say 'a little'."
+      },
+      {
+        "id": "U04-L03-Q012",
+        "number": 12,
+        "question": "I'd like _____ bread, please.",
+        "options": {
+          "A": "a piece of",
+          "B": "a few",
+          "C": "many",
+          "D": "several"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a piece of",
+        "difficulty": "medium",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Bread is uncountable, so we use 'a piece of'."
+          ],
+          "summary": "Use 'a piece of' with uncountable nouns."
+        },
+        "explanation": "Bread is uncountable and needs a partitive."
+      },
+      {
+        "id": "U04-L03-Q013",
+        "number": 13,
+        "question": "She doesn't have _____ friends who like sushi.",
+        "options": {
+          "A": "many",
+          "B": "much",
+          "C": "a little",
+          "D": "a piece of"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "many",
+        "difficulty": "medium",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Friends is countable, so we use 'many' in negatives."
+          ],
+          "summary": "Many is for countable nouns."
+        },
+        "explanation": "'Many' is correct because friends is countable."
+      },
+      {
+        "id": "U04-L03-Q014",
+        "number": 14,
+        "question": "Is there _____ cheese left in the kitchen?",
+        "options": {
+          "A": "any",
+          "B": "many",
+          "C": "a few",
+          "D": "several"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "any",
+        "difficulty": "medium",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "We use 'any' in questions."
+          ],
+          "summary": "Any is used in questions."
+        },
+        "explanation": "'Any' is the correct quantifier in questions."
+      },
+      {
+        "id": "U04-L03-Q015",
+        "number": 15,
+        "question": "We need _____ eggs to make an omelette.",
+        "options": {
+          "A": "a few",
+          "B": "a little",
+          "C": "much",
+          "D": "a piece of"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a few",
+        "difficulty": "medium",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Eggs is countable, so we use 'a few'."
+          ],
+          "summary": "A few is for countable nouns."
+        },
+        "explanation": "Eggs is countable, so 'a few' is correct."
+      },
+      {
+        "id": "U04-L03-Q016",
+        "number": 16,
+        "question": "There aren't _____ tomatoes in the fridge.",
+        "options": {
+          "A": "many",
+          "B": "much",
+          "C": "a little",
+          "D": "a piece of"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "many",
+        "difficulty": "medium",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Tomatoes is countable and we are in a negative sentence."
+          ],
+          "summary": "Many is for countable nouns in negatives."
+        },
+        "explanation": "'Many' works with countable tomatoes."
+      },
+      {
+        "id": "U04-L03-Q017",
+        "number": 17,
+        "question": "How _____ salt should I add to the soup?",
+        "options": {
+          "A": "much",
+          "B": "many",
+          "C": "few",
+          "D": "several"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "much",
+        "difficulty": "medium",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Salt is uncountable, so we use 'much'."
+          ],
+          "summary": "Much is for uncountable nouns."
+        },
+        "explanation": "Salt is uncountable, so use 'much'."
+      },
+      {
+        "id": "U04-L03-Q018",
+        "number": 18,
+        "question": "I have _____ milk but not enough sugar.",
+        "options": {
+          "A": "some",
+          "B": "any",
+          "C": "many",
+          "D": "few"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "some",
+        "difficulty": "medium",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "We use 'some' in positive statements."
+          ],
+          "summary": "Some is used in affirmative sentences."
+        },
+        "explanation": "'Some' is correct in positive statements."
+      },
+      {
+        "id": "U04-L03-Q019",
+        "number": 19,
+        "question": "There are _____ bottles of juice on the shelf.",
+        "options": {
+          "A": "a few",
+          "B": "a little",
+          "C": "much",
+          "D": "a piece of"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a few",
+        "difficulty": "medium",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Bottles is countable, so we use 'a few'."
+          ],
+          "summary": "A few is for countable nouns."
+        },
+        "explanation": "'A few' is used with countable bottles."
+      },
+      {
+        "id": "U04-L03-Q020",
+        "number": 20,
+        "question": "She doesn't eat _____ meat.",
+        "options": {
+          "A": "much",
+          "B": "many",
+          "C": "a few",
+          "D": "several"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "much",
+        "difficulty": "medium",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Meat is uncountable, so we use 'much' in negatives."
+          ],
+          "summary": "Much is for uncountable nouns."
+        },
+        "explanation": "Meat is uncountable, requiring 'much'."
+      },
+      {
+        "id": "U04-L03-Q021",
+        "number": 21,
+        "question": "Would you like _____ water?",
+        "options": {
+          "A": "some",
+          "B": "any",
+          "C": "many",
+          "D": "few"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "some",
+        "difficulty": "medium",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "We use 'some' in offers and requests."
+          ],
+          "summary": "Some is used in offers."
+        },
+        "explanation": "'Some' is correct in polite offers."
+      },
+      {
+        "id": "U04-L03-Q022",
+        "number": 22,
+        "question": "He ate _____ cookies before dinner.",
+        "options": {
+          "A": "a few",
+          "B": "a little",
+          "C": "much",
+          "D": "a piece of"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a few",
+        "difficulty": "medium",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Cookies is countable, so we use 'a few'."
+          ],
+          "summary": "A few is for countable nouns."
+        },
+        "explanation": "'A few' is used with countable cookies."
+      },
+      {
+        "id": "U04-L03-Q023",
+        "number": 23,
+        "question": "There is _____ bread left, so we need to buy more.",
+        "options": {
+          "A": "only a little",
+          "B": "only a few",
+          "C": "only many",
+          "D": "only several"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "only a little",
+        "difficulty": "hard",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Bread is uncountable; 'only a little' shows a small amount remains."
+          ],
+          "summary": "A little is for uncountable nouns."
+        },
+        "explanation": "Bread is uncountable, so use 'only a little'."
+      },
+      {
+        "id": "U04-L03-Q024",
+        "number": 24,
+        "question": "_____ of the students brought their own lunch.",
+        "options": {
+          "A": "A few",
+          "B": "A little",
+          "C": "Much",
+          "D": "A piece of"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A few",
+        "difficulty": "hard",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Students is countable, so we use 'a few'."
+          ],
+          "summary": "A few is for countable nouns."
+        },
+        "explanation": "Students is countable, requiring 'a few'."
+      },
+      {
+        "id": "U04-L03-Q025",
+        "number": 25,
+        "question": "There isn't _____ flour left for the cake.",
+        "options": {
+          "A": "much",
+          "B": "many",
+          "C": "a few",
+          "D": "several"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "much",
+        "difficulty": "hard",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Flour is uncountable; 'much' is used in negatives."
+          ],
+          "summary": "Much is for uncountable nouns."
+        },
+        "explanation": "Flour is uncountable, so 'much' is correct."
+      },
+      {
+        "id": "U04-L03-Q026",
+        "number": 26,
+        "question": "I need _____ sugar and _____ lemons for this recipe.",
+        "options": {
+          "A": "some / a few",
+          "B": "any / a little",
+          "C": "many / much",
+          "D": "a few / a little"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "some / a few",
+        "difficulty": "hard",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Sugar is uncountable (some), lemons is countable (a few)."
+          ],
+          "summary": "Some for uncountable, a few for countable."
+        },
+        "explanation": "Sugar is uncountable and lemons are countable."
+      },
+      {
+        "id": "U04-L03-Q027",
+        "number": 27,
+        "question": "There are _____ pieces of chicken on the plate.",
+        "options": {
+          "A": "a few",
+          "B": "a little",
+          "C": "much",
+          "D": "a piece of"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a few",
+        "difficulty": "hard",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Pieces is countable, so 'a few' is correct."
+          ],
+          "summary": "A few is for countable nouns."
+        },
+        "explanation": "'Pieces' is countable, so use 'a few'."
+      },
+      {
+        "id": "U04-L03-Q028",
+        "number": 28,
+        "question": "How _____ butter do you put in the recipe?",
+        "options": {
+          "A": "much",
+          "B": "many",
+          "C": "few",
+          "D": "several"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "much",
+        "difficulty": "hard",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Butter is uncountable, so we use 'much'."
+          ],
+          "summary": "Much is for uncountable nouns."
+        },
+        "explanation": "Butter is uncountable, requiring 'much'."
+      },
+      {
+        "id": "U04-L03-Q029",
+        "number": 29,
+        "question": "She doesn't have _____ experience cooking Italian food.",
+        "options": {
+          "A": "much",
+          "B": "many",
+          "C": "a few",
+          "D": "several"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "much",
+        "difficulty": "hard",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Experience is uncountable, so we use 'much'."
+          ],
+          "summary": "Much is for uncountable nouns."
+        },
+        "explanation": "Experience is uncountable, so 'much' is correct."
+      },
+      {
+        "id": "U04-L03-Q030",
+        "number": 30,
+        "question": "We bought _____ cheese and _____ yoghurt at the market.",
+        "options": {
+          "A": "some / some",
+          "B": "many / much",
+          "C": "a few / a little",
+          "D": "any / any"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "some / some",
+        "difficulty": "hard",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Both cheese and yoghurt are uncountable; 'some' works for both."
+          ],
+          "summary": "Some is used for uncountable nouns."
+        },
+        "explanation": "Both are uncountable, so 'some' is correct."
+      },
+      {
+        "id": "U04-L03-Q031",
+        "number": 31,
+        "question": "There aren't _____ carrots in the soup. Can you add more?",
+        "options": {
+          "A": "many",
+          "B": "much",
+          "C": "a little",
+          "D": "a piece of"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "many",
+        "difficulty": "hard",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Carrots is countable and we are in a negative sentence."
+          ],
+          "summary": "Many is for countable nouns."
+        },
+        "explanation": "Carrots is countable, so 'many' is correct."
+      },
+      {
+        "id": "U04-L03-Q032",
+        "number": 32,
+        "question": "I don't have _____ money to buy expensive restaurants meals.",
+        "options": {
+          "A": "much",
+          "B": "many",
+          "C": "a few",
+          "D": "several"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "much",
+        "difficulty": "hard",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Money is uncountable, so we use 'much'."
+          ],
+          "summary": "Much is for uncountable nouns."
+        },
+        "explanation": "Money is uncountable, requiring 'much'."
+      },
+      {
+        "id": "U04-L03-Q033",
+        "number": 33,
+        "question": "How _____ eggs do we need for the omelette?",
+        "options": {
+          "A": "many",
+          "B": "much",
+          "C": "a little",
+          "D": "a piece of"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "many",
+        "difficulty": "easy",
+        "source": {
+          "page": "42",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Eggs is countable, so we use 'many'."
+          ],
+          "summary": "Many is for countable nouns."
+        },
+        "explanation": "How many is used with countable eggs."
+      },
+      {
+        "id": "U04-L03-Q034",
+        "number": 34,
+        "question": "There's _____ milk in my cereal.",
+        "options": {
+          "A": "a little",
+          "B": "a few",
+          "C": "many",
+          "D": "several"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a little",
+        "difficulty": "easy",
+        "source": {
+          "page": "42",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Milk is uncountable, so we use 'a little'."
+          ],
+          "summary": "A little is for uncountable nouns."
+        },
+        "explanation": "Milk is uncountable, so use 'a little'."
+      },
+      {
+        "id": "U04-L03-Q035",
+        "number": 35,
+        "question": "Would you like _____ more rice?",
+        "options": {
+          "A": "some",
+          "B": "any",
+          "C": "many",
+          "D": "few"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "some",
+        "difficulty": "medium",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "We use 'some' in offers."
+          ],
+          "summary": "Some is used in offers."
+        },
+        "explanation": "'Some' is correct in a polite offer."
+      },
+      {
+        "id": "U04-L03-Q036",
+        "number": 36,
+        "question": "I have _____ bananas but not enough apples.",
+        "options": {
+          "A": "a few",
+          "B": "a little",
+          "C": "much",
+          "D": "a piece of"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a few",
+        "difficulty": "medium",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Bananas is countable, so 'a few' is used."
+          ],
+          "summary": "A few is for countable nouns."
+        },
+        "explanation": "'A few' works with countable bananas."
+      },
+      {
+        "id": "U04-L03-Q037",
+        "number": 37,
+        "question": "There's _____ rice in the cupboard.",
+        "options": {
+          "A": "a lot of",
+          "B": "a lot",
+          "C": "many",
+          "D": "few"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a lot of",
+        "difficulty": "medium",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Rice is uncountable; 'a lot of' is used with both."
+          ],
+          "summary": "A lot of works with both types."
+        },
+        "explanation": "Rice is uncountable, so 'a lot of' is correct."
+      },
+      {
+        "id": "U04-L03-Q038",
+        "number": 38,
+        "question": "We need _____ butter and _____ flour for this cake.",
+        "options": {
+          "A": "a little / a little",
+          "B": "a few / a few",
+          "C": "many / much",
+          "D": "much / many"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a little / a little",
+        "difficulty": "hard",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Both butter and flour are uncountable, so 'a little' works for both."
+          ],
+          "summary": "A little is for uncountable nouns."
+        },
+        "explanation": "Both ingredients are uncountable."
+      },
+      {
+        "id": "U04-L03-Q039",
+        "number": 39,
+        "question": "There aren't _____ tomatoes in the garden.",
+        "options": {
+          "A": "many",
+          "B": "much",
+          "C": "a little",
+          "D": "a piece of"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "many",
+        "difficulty": "medium",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Tomatoes is countable in a negative sentence."
+          ],
+          "summary": "Many is for countable nouns."
+        },
+        "explanation": "Tomatoes is countable, so 'many' fits."
+      },
+      {
+        "id": "U04-L03-Q040",
+        "number": 40,
+        "question": "She doesn't eat _____ fish.",
+        "options": {
+          "A": "much",
+          "B": "many",
+          "C": "a few",
+          "D": "several"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "much",
+        "difficulty": "medium",
+        "source": {
+          "page": "43",
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Fish as food is uncountable, so we use 'much'."
+          ],
+          "summary": "Much is for uncountable nouns."
+        },
+        "explanation": "Fish as food is uncountable, so 'much' is correct."
+      }
+    ]
+  }
+}

@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "2",
+    "lesson_name": "Grammar",
+    "unit_number": 5,
+    "unit_name": "Do your best",
+    "page_start": 50,
+    "page_end": 51,
+    "questions": [
+      {
+        "id": "U05-L02-Q001",
+        "number": 1,
+        "question": "Which modal verb is used for strong advice?",
+        "options": {
+          "A": "Should",
+          "B": "Could",
+          "C": "Might",
+          "D": "Would"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Should",
+        "difficulty": "easy",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the modal verb used for giving advice."
+          ],
+          "summary": "'Should' is used for advice."
+        },
+        "explanation": "'Should' gives suggestions or recommendations."
+      },
+      {
+        "id": "U05-L02-Q002",
+        "number": 2,
+        "question": "Complete: 'You ___ give up easily.'",
+        "options": {
+          "A": "should not",
+          "B": "should",
+          "C": "can",
+          "D": "may"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "should not",
+        "difficulty": "easy",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Choose the correct negative modal for advice."
+          ],
+          "summary": "'Should not' means it is bad advice to give up."
+        },
+        "explanation": "We use 'should not' to advise against an action."
+      },
+      {
+        "id": "U05-L02-Q003",
+        "number": 3,
+        "question": "What does 'must' express in 'You must train hard'?",
+        "options": {
+          "A": "Strong obligation or necessity",
+          "B": "Possibility",
+          "C": "Permission",
+          "D": "Future plan"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Strong obligation or necessity",
+        "difficulty": "easy",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the meaning of 'must' in this sentence."
+          ],
+          "summary": "'Must' expresses strong obligation."
+        },
+        "explanation": "'Must' indicates something is absolutely necessary."
+      },
+      {
+        "id": "U05-L02-Q004",
+        "number": 4,
+        "question": "Which is the comparative form of 'fast'?",
+        "options": {
+          "A": "Faster",
+          "B": "Fastest",
+          "C": "More fast",
+          "D": "Fastlier"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Faster",
+        "difficulty": "easy",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Form the comparative of the one-syllable adjective 'fast'."
+          ],
+          "summary": "'Faster' is the comparative of 'fast'."
+        },
+        "explanation": "One-syllable adjectives usually add '-er' for comparatives."
+      },
+      {
+        "id": "U05-L02-Q005",
+        "number": 5,
+        "question": "Choose the correct sentence: 'She runs ___ than her sister.'",
+        "options": {
+          "A": "faster",
+          "B": "more fast",
+          "C": "fastest",
+          "D": "most fast"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "faster",
+        "difficulty": "easy",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Select the correct comparative form."
+          ],
+          "summary": "'Faster' is correct."
+        },
+        "explanation": "We use comparatives with 'than' to compare two things."
+      },
+      {
+        "id": "U05-L02-Q006",
+        "number": 6,
+        "question": "What is the superlative of 'good'?",
+        "options": {
+          "A": "Best",
+          "B": "Goodest",
+          "C": "Better",
+          "D": "More good"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Best",
+        "difficulty": "medium",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Recall the superlative form of the irregular adjective 'good'."
+          ],
+          "summary": "'Best' is the superlative of 'good'."
+        },
+        "explanation": "'Good' is irregular: good, better, best."
+      },
+      {
+        "id": "U05-L02-Q007",
+        "number": 7,
+        "question": "Complete: 'He is ___ player on the team.'",
+        "options": {
+          "A": "the best",
+          "B": "the better",
+          "C": "good",
+          "D": "best"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the best",
+        "difficulty": "medium",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Choose the correct superlative with an article."
+          ],
+          "summary": "'The best' is correct with a superlative."
+        },
+        "explanation": "Superlatives require the definite article 'the'."
+      },
+      {
+        "id": "U05-L02-Q008",
+        "number": 8,
+        "question": "What does 'had better' express?",
+        "options": {
+          "A": "Strong advice with a warning if ignored",
+          "B": "Past obligation",
+          "C": "Future possibility",
+          "D": "Permission"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Strong advice with a warning if ignored",
+        "difficulty": "medium",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define the meaning of 'had better'."
+          ],
+          "summary": "'Had better' gives strong advice with a warning."
+        },
+        "explanation": "'Had better' suggests consequences if the advice is not followed."
+      },
+      {
+        "id": "U05-L02-Q009",
+        "number": 9,
+        "question": "Choose: 'You ___ study harder if you want to pass.'",
+        "options": {
+          "A": "had better",
+          "B": "may",
+          "C": "might",
+          "D": "could"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "had better",
+        "difficulty": "medium",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Select the best modal for urgent strong advice."
+          ],
+          "summary": "'Had better' gives urgent strong advice."
+        },
+        "explanation": "'Had better' implies a warning about consequences."
+      },
+      {
+        "id": "U05-L02-Q010",
+        "number": 10,
+        "question": "What is the comparative of 'tall'?",
+        "options": {
+          "A": "Taller",
+          "B": "Tallest",
+          "C": "More tall",
+          "D": "Talliest"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Taller",
+        "difficulty": "easy",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Form the comparative of 'tall'."
+          ],
+          "summary": "'Taller' is the comparative of 'tall'."
+        },
+        "explanation": "Add '-er' to short adjectives for comparatives."
+      },
+      {
+        "id": "U05-L02-Q011",
+        "number": 11,
+        "question": "Complete: 'This race is ___ difficult ___ the last one.'",
+        "options": {
+          "A": "more ... than",
+          "B": "most ... than",
+          "C": "much ... from",
+          "D": "less ... to"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "more ... than",
+        "difficulty": "medium",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Choose the correct comparative structure."
+          ],
+          "summary": "'More ... than' is correct for multi-syllable adjectives."
+        },
+        "explanation": "'More + adjective + than' is used for longer adjectives."
+      },
+      {
+        "id": "U05-L02-Q012",
+        "number": 12,
+        "question": "What does 'have to' express?",
+        "options": {
+          "A": "Obligation or duty",
+          "B": "Suggestion",
+          "C": "Ability",
+          "D": "Possibility"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Obligation or duty",
+        "difficulty": "easy",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the meaning of 'have to'."
+          ],
+          "summary": "'Have to' expresses obligation."
+        },
+        "explanation": "'Have to' means something is required or necessary."
+      },
+      {
+        "id": "U05-L02-Q013",
+        "number": 13,
+        "question": "Which sentence uses 'must' correctly?",
+        "options": {
+          "A": "You must wear a helmet when cycling.",
+          "B": "You must maybe attend.",
+          "C": "You must will win.",
+          "D": "You must to train."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "You must wear a helmet when cycling.",
+        "difficulty": "easy",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the correct use of 'must'."
+          ],
+          "summary": "'You must wear a helmet' is correct."
+        },
+        "explanation": "'Must' is followed by a base verb, no 'to' or other modals."
+      },
+      {
+        "id": "U05-L02-Q014",
+        "number": 14,
+        "question": "What is the superlative of 'bad'?",
+        "options": {
+          "A": "Worst",
+          "B": "Baddest",
+          "C": "Badder",
+          "D": "Worse"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Worst",
+        "difficulty": "medium",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Recall the superlative of the irregular adjective 'bad'."
+          ],
+          "summary": "'Worst' is the superlative of 'bad'."
+        },
+        "explanation": "'Bad' is irregular: bad, worse, worst."
+      },
+      {
+        "id": "U05-L02-Q015",
+        "number": 15,
+        "question": "Complete: 'She is ___ athlete I have ever seen.'",
+        "options": {
+          "A": "the most talented",
+          "B": "most talented",
+          "C": "talented than",
+          "D": "the talented"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the most talented",
+        "difficulty": "medium",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Choose the correct superlative form."
+          ],
+          "summary": "'The most talented' is the correct superlative."
+        },
+        "explanation": "Multi-syllable adjectives use 'most' for superlatives."
+      },
+      {
+        "id": "U05-L02-Q016",
+        "number": 16,
+        "question": "What is the difference between 'must' and 'have to'?",
+        "options": {
+          "A": "Must is personal obligation; have to is external obligation",
+          "B": "There is no difference",
+          "C": "Must is for past; have to is for future",
+          "D": "Must is weaker than have to"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Must is personal obligation; have to is external obligation",
+        "difficulty": "hard",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Compare the meanings of 'must' and 'have to'."
+          ],
+          "summary": "'Must' is internal; 'have to' is external obligation."
+        },
+        "explanation": "'Must' comes from the speaker; 'have to' comes from rules or authority."
+      },
+      {
+        "id": "U05-L02-Q017",
+        "number": 17,
+        "question": "Choose: 'You ___ not smoke in the stadium.'",
+        "options": {
+          "A": "must",
+          "B": "should",
+          "C": "might",
+          "D": "could"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "must",
+        "difficulty": "easy",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Select the modal for a strong prohibition."
+          ],
+          "summary": "'Must not' expresses strong prohibition."
+        },
+        "explanation": "'Must not' means something is absolutely forbidden."
+      },
+      {
+        "id": "U05-L02-Q018",
+        "number": 18,
+        "question": "What is the comparative of 'good'?",
+        "options": {
+          "A": "Better",
+          "B": "Gooder",
+          "C": "More good",
+          "D": "Best"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Better",
+        "difficulty": "easy",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Recall the comparative of the irregular adjective 'good'."
+          ],
+          "summary": "'Better' is the comparative of 'good'."
+        },
+        "explanation": "'Good' is irregular: good, better, best."
+      },
+      {
+        "id": "U05-L02-Q019",
+        "number": 19,
+        "question": "Which sentence is correct?",
+        "options": {
+          "A": "He ran more quickly than anyone else.",
+          "B": "He ran most quickly than anyone.",
+          "C": "He ran quickly than anyone.",
+          "D": "He ran the most quicklier."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "He ran more quickly than anyone else.",
+        "difficulty": "medium",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the correct comparative sentence."
+          ],
+          "summary": "'More quickly than' is correct."
+        },
+        "explanation": "Adverbs with more than one syllable use 'more' for comparatives."
+      },
+      {
+        "id": "U05-L02-Q020",
+        "number": 20,
+        "question": "Complete: 'If you want to win, you ___ practise every day.'",
+        "options": {
+          "A": "should",
+          "B": "might",
+          "C": "could",
+          "D": "would"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "should",
+        "difficulty": "easy",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Choose the best modal for giving advice."
+          ],
+          "summary": "'Should' is the best choice for advice."
+        },
+        "explanation": "'Should' is the most common modal for giving advice."
+      },
+      {
+        "id": "U05-L02-Q021",
+        "number": 21,
+        "question": "What is the superlative of 'athletic'?",
+        "options": {
+          "A": "Most athletic",
+          "B": "Athleticest",
+          "C": "Athleticer",
+          "D": "The athleticest"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Most athletic",
+        "difficulty": "medium",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Form the superlative of 'athletic'."
+          ],
+          "summary": "'Most athletic' is the correct superlative."
+        },
+        "explanation": "Adjectives with three or more syllables use 'most' for superlatives."
+      },
+      {
+        "id": "U05-L02-Q022",
+        "number": 22,
+        "question": "Choose: 'You ___ be more careful next time.'",
+        "options": {
+          "A": "should",
+          "B": "must to",
+          "C": "should to",
+          "D": "must can"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "should",
+        "difficulty": "easy",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Select the grammatically correct modal."
+          ],
+          "summary": "'Should' is followed directly by the base verb."
+        },
+        "explanation": "Modal verbs are never followed by 'to' or another modal."
+      },
+      {
+        "id": "U05-L02-Q023",
+        "number": 23,
+        "question": "What does 'can' express in 'She can run very fast'?",
+        "options": {
+          "A": "Ability",
+          "B": "Obligation",
+          "C": "Advice",
+          "D": "Permission"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Ability",
+        "difficulty": "easy",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the meaning of 'can' in this context."
+          ],
+          "summary": "'Can' expresses ability."
+        },
+        "explanation": "'Can' shows what someone is able to do."
+      },
+      {
+        "id": "U05-L02-Q024",
+        "number": 24,
+        "question": "Which is the superlative of 'exhausted'?",
+        "options": {
+          "A": "Most exhausted",
+          "B": "Exhaustedest",
+          "C": "Exhausteder",
+          "D": "The exhaustedest"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Most exhausted",
+        "difficulty": "medium",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Form the superlative of 'exhausted'."
+          ],
+          "summary": "'Most exhausted' is correct."
+        },
+        "explanation": "Long adjectives use 'most' for superlatives."
+      },
+      {
+        "id": "U05-L02-Q025",
+        "number": 25,
+        "question": "Complete: 'You ___ listen to your coach.'",
+        "options": {
+          "A": "had better",
+          "B": "can to",
+          "C": "might to",
+          "D": "could to"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "had better",
+        "difficulty": "medium",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Choose the correct modal phrase."
+          ],
+          "summary": "'Had better' is the correct choice."
+        },
+        "explanation": "'Had better' gives strong advice with implied consequences."
+      },
+      {
+        "id": "U05-L02-Q026",
+        "number": 26,
+        "question": "What is the comparative of 'determined'?",
+        "options": {
+          "A": "More determined",
+          "B": "Determineder",
+          "C": "Most determined",
+          "D": "Determinedest"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "More determined",
+        "difficulty": "medium",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Form the comparative of 'determined'."
+          ],
+          "summary": "'More determined' is the correct comparative."
+        },
+        "explanation": "Long adjectives use 'more' for comparatives."
+      },
+      {
+        "id": "U05-L02-Q027",
+        "number": 27,
+        "question": "Choose: 'I ___ to finish this race even if I'm tired.'",
+        "options": {
+          "A": "am going",
+          "B": "must to",
+          "C": "should to",
+          "D": "had better to"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "am going",
+        "difficulty": "medium",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Select the correct expression of intention."
+          ],
+          "summary": "'Am going to' expresses a future intention."
+        },
+        "explanation": "This shows determination to complete the race."
+      },
+      {
+        "id": "U05-L02-Q028",
+        "number": 28,
+        "question": "Which sentence uses a superlative correctly?",
+        "options": {
+          "A": "She is the fastest runner in the school.",
+          "B": "She is fastest runner in school.",
+          "C": "She is the faster runner.",
+          "D": "She is more fast runner."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "She is the fastest runner in the school.",
+        "difficulty": "medium",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the correct superlative sentence."
+          ],
+          "summary": "'The fastest' is the correct superlative form."
+        },
+        "explanation": "Superlatives need 'the' and are followed by 'in' or 'of'."
+      },
+      {
+        "id": "U05-L02-Q029",
+        "number": 29,
+        "question": "What does 'may' express in 'You may leave early'?",
+        "options": {
+          "A": "Permission",
+          "B": "Obligation",
+          "C": "Advice",
+          "D": "Ability"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Permission",
+        "difficulty": "easy",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the meaning of 'may' here."
+          ],
+          "summary": "'May' expresses permission."
+        },
+        "explanation": "'May' is a polite way to give or ask for permission."
+      },
+      {
+        "id": "U05-L02-Q030",
+        "number": 30,
+        "question": "Complete: 'This is ___ goal I have scored all season.'",
+        "options": {
+          "A": "the most important",
+          "B": "more important",
+          "C": "importantest",
+          "D": "the importantest"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the most important",
+        "difficulty": "medium",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Choose the correct superlative form."
+          ],
+          "summary": "'The most important' is the correct superlative."
+        },
+        "explanation": "Multi-syllable adjectives use 'most' with 'the' for superlatives."
+      },
+      {
+        "id": "U05-L02-Q031",
+        "number": 31,
+        "question": "What is the difference between 'should' and 'must'?",
+        "options": {
+          "A": "Should is advice; must is obligation",
+          "B": "They mean the same",
+          "C": "Must is weaker than should",
+          "D": "Should is for commands"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Should is advice; must is obligation",
+        "difficulty": "medium",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Compare 'should' and 'must'."
+          ],
+          "summary": "'Should' is advice; 'must' is obligation."
+        },
+        "explanation": "'Must' is stronger and more forceful than 'should'."
+      },
+      {
+        "id": "U05-L02-Q032",
+        "number": 32,
+        "question": "Choose: 'He ___ have scored that goal!'",
+        "options": {
+          "A": "should",
+          "B": "must to",
+          "C": "should to",
+          "D": "had better to"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "should",
+        "difficulty": "medium",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Select the correct modal for criticism."
+          ],
+          "summary": "'Should have' expresses criticism about the past."
+        },
+        "explanation": "'Should have + past participle' regrets a past action."
+      },
+      {
+        "id": "U05-L02-Q033",
+        "number": 33,
+        "question": "What is the comparative of 'competitive'?",
+        "options": {
+          "A": "More competitive",
+          "B": "Competitiver",
+          "C": "Most competitive",
+          "D": "Competitiveest"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "More competitive",
+        "difficulty": "medium",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Form the comparative of 'competitive'."
+          ],
+          "summary": "'More competitive' is correct."
+        },
+        "explanation": "Long adjectives always use 'more' for comparatives."
+      },
+      {
+        "id": "U05-L02-Q034",
+        "number": 34,
+        "question": "Which modal shows future possibility?",
+        "options": {
+          "A": "Might",
+          "B": "Must",
+          "C": "Should",
+          "D": "Have to"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Might",
+        "difficulty": "easy",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the modal for future possibility."
+          ],
+          "summary": "'Might' shows something could happen."
+        },
+        "explanation": "'Might' suggests a lower probability than 'will'."
+      },
+      {
+        "id": "U05-L02-Q035",
+        "number": 35,
+        "question": "Complete: 'She is ___ than her opponent.'",
+        "options": {
+          "A": "stronger",
+          "B": "strongest",
+          "C": "more strong",
+          "D": "most strong"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "stronger",
+        "difficulty": "easy",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Choose the correct comparative form."
+          ],
+          "summary": "'Stronger' is the correct comparative."
+        },
+        "explanation": "One-syllable adjectives add '-er' for comparatives."
+      },
+      {
+        "id": "U05-L02-Q036",
+        "number": 36,
+        "question": "What does 'had better not' mean?",
+        "options": {
+          "A": "Strong advice not to do something",
+          "B": "Permission to stop",
+          "C": "Past ability",
+          "D": "Future possibility"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Strong advice not to do something",
+        "difficulty": "hard",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'had better not'."
+          ],
+          "summary": "'Had better not' advises strongly against an action."
+        },
+        "explanation": "'Had better not' implies bad consequences if the action is done."
+      },
+      {
+        "id": "U05-L02-Q037",
+        "number": 37,
+        "question": "Choose the correct sentence:",
+        "options": {
+          "A": "You must not cheat in a competition.",
+          "B": "You mustn't to cheat.",
+          "C": "You must not to cheat.",
+          "D": "You mustn't cheating."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "You must not cheat in a competition.",
+        "difficulty": "medium",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the grammatically correct sentence."
+          ],
+          "summary": "'You must not cheat' is correct."
+        },
+        "explanation": "'Must' is followed by the base form without 'to'."
+      },
+      {
+        "id": "U05-L02-Q038",
+        "number": 38,
+        "question": "What is the superlative of 'fit'?",
+        "options": {
+          "A": "Fittest",
+          "B": "Most fit",
+          "C": "Fitest",
+          "D": "The most fit"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Fittest",
+        "difficulty": "easy",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Form the superlative of 'fit'."
+          ],
+          "summary": "'Fittest' is the correct superlative."
+        },
+        "explanation": "Short adjectives double the final consonant and add '-est'."
+      },
+      {
+        "id": "U05-L02-Q039",
+        "number": 39,
+        "question": "Which sentence uses 'have to' correctly?",
+        "options": {
+          "A": "You have to follow the rules.",
+          "B": "You have to must follow.",
+          "C": "You have to should follow.",
+          "D": "You have to to follow."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "You have to follow the rules.",
+        "difficulty": "easy",
+        "source": {
+          "page": 50,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identify the correct use of 'have to'."
+          ],
+          "summary": "'You have to follow the rules' is correct."
+        },
+        "explanation": "'Have to' is followed by the base form of the verb."
+      },
+      {
+        "id": "U05-L02-Q040",
+        "number": 40,
+        "question": "Complete: 'This is ___ competition I have entered.'",
+        "options": {
+          "A": "the most challenging",
+          "B": "more challenging",
+          "C": "challengingest",
+          "D": "the challengingest"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the most challenging",
+        "difficulty": "hard",
+        "source": {
+          "page": 51,
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Choose the correct superlative form."
+          ],
+          "summary": "'The most challenging' is correct."
+        },
+        "explanation": "Multi-syllable adjectives need 'most' and 'the' for superlatives."
+      }
+    ]
+  }
+}

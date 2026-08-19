@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "3",
+    "lesson_name": "Reading and Vocabulary",
+    "unit_number": 5,
+    "unit_name": "Do your best",
+    "page_start": 52,
+    "page_end": 53,
+    "questions": [
+      {
+        "id": "U05-L03-Q001",
+        "number": 1,
+        "question": "What is a 'medal' awarded for?",
+        "options": {
+          "A": "Achieving a top position in a competition",
+          "B": "Buying a ticket to a game",
+          "C": "Watching a match on TV",
+          "D": "Wearing sports clothes"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Achieving a top position in a competition",
+        "difficulty": "easy",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'medal' in the context of sports."
+          ],
+          "summary": "A medal is awarded for winning in competition."
+        },
+        "explanation": "Medals are given to athletes who finish first, second, or third."
+      },
+      {
+        "id": "U05-L03-Q002",
+        "number": 2,
+        "question": "What does 'champion' mean?",
+        "options": {
+          "A": "A person who wins a competition",
+          "B": "A person who watches sports",
+          "C": "A type of sport",
+          "D": "A type of food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A person who wins a competition",
+        "difficulty": "easy",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'champion' in sports."
+          ],
+          "summary": "A champion is a competition winner."
+        },
+        "explanation": "Champions are the best performers in their sport."
+      },
+      {
+        "id": "U05-L03-Q003",
+        "number": 3,
+        "question": "What is a 'record' in sports?",
+        "options": {
+          "A": "The best performance ever achieved",
+          "B": "A type of music",
+          "C": "A score of zero",
+          "D": "A rest period"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The best performance ever achieved",
+        "difficulty": "easy",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'record' in a sports context."
+          ],
+          "summary": "A record is the best performance ever."
+        },
+        "explanation": "Breaking a record means surpassing the best previous achievement."
+      },
+      {
+        "id": "U05-L03-Q004",
+        "number": 4,
+        "question": "What does 'achievement' mean?",
+        "options": {
+          "A": "Something accomplished through effort",
+          "B": "A type of exercise",
+          "C": "A score in a game",
+          "D": "A type of food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Something accomplished through effort",
+        "difficulty": "easy",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define the noun 'achievement'."
+          ],
+          "summary": "An achievement is something accomplished with effort."
+        },
+        "explanation": "Achievements require dedication and hard work."
+      },
+      {
+        "id": "U05-L03-Q005",
+        "number": 5,
+        "question": "What does 'perseverance' mean?",
+        "options": {
+          "A": "Continuing to try despite difficulties",
+          "B": "Giving up quickly",
+          "C": "Running very fast",
+          "D": "Eating healthy food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Continuing to try despite difficulties",
+        "difficulty": "medium",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'perseverance' in the context of sports."
+          ],
+          "summary": "Perseverance means continuing despite difficulties."
+        },
+        "explanation": "Athletes need perseverance to overcome setbacks."
+      },
+      {
+        "id": "U05-L03-Q006",
+        "number": 6,
+        "question": "What is a 'tournament'?",
+        "options": {
+          "A": "A competition with many participants and rounds",
+          "B": "A single game",
+          "C": "A practice session",
+          "D": "A type of shoe"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A competition with many participants and rounds",
+        "difficulty": "easy",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'tournament'."
+          ],
+          "summary": "A tournament is a large multi-round competition."
+        },
+        "explanation": "Tournaments involve many athletes competing over several days."
+      },
+      {
+        "id": "U05-L03-Q007",
+        "number": 7,
+        "question": "What does 'dedication' mean?",
+        "options": {
+          "A": "Committing time and energy to a goal",
+          "B": "Taking a break",
+          "C": "Watching others train",
+          "D": "Sleeping early"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Committing time and energy to a goal",
+        "difficulty": "medium",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'dedication' in sports."
+          ],
+          "summary": "Dedication means committing to a goal."
+        },
+        "explanation": "Dedicated athletes spend many hours training."
+      },
+      {
+        "id": "U05-L03-Q008",
+        "number": 8,
+        "question": "What is an 'athlete'?",
+        "options": {
+          "A": "A person who competes in sports",
+          "B": "A person who watches sports",
+          "C": "A type of coach",
+          "D": "A type of referee"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A person who competes in sports",
+        "difficulty": "easy",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'athlete'."
+          ],
+          "summary": "An athlete is a sports competitor."
+        },
+        "explanation": "Athletes train regularly to compete in their sport."
+      },
+      {
+        "id": "U05-L03-Q009",
+        "number": 9,
+        "question": "What does 'championship' mean?",
+        "options": {
+          "A": "A series of games to determine the best team or player",
+          "B": "A type of training",
+          "C": "A single practice",
+          "D": "A sports shop"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A series of games to determine the best team or player",
+        "difficulty": "easy",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'championship' in sports."
+          ],
+          "summary": "A championship is a series of deciding games."
+        },
+        "explanation": "Championships determine the overall winner of a league or event."
+      },
+      {
+        "id": "U05-L03-Q010",
+        "number": 10,
+        "question": "What does 'sacrifice' mean in sports?",
+        "options": {
+          "A": "Giving up something for a goal",
+          "B": "Losing a game",
+          "C": "Scoring a goal",
+          "D": "Wearing a uniform"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Giving up something for a goal",
+        "difficulty": "medium",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'sacrifice' in a sports context."
+          ],
+          "summary": "Sacrifice means giving up something for success."
+        },
+        "explanation": "Athletes often sacrifice free time to train."
+      },
+      {
+        "id": "U05-L03-Q011",
+        "number": 11,
+        "question": "What is 'ambition' in the context of sports?",
+        "options": {
+          "A": "A strong desire to achieve something",
+          "B": "A type of exercise",
+          "C": "A type of food",
+          "D": "A rest day"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A strong desire to achieve something",
+        "difficulty": "medium",
+        "source": {
+          "page": 53,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'ambition' in sports."
+          ],
+          "summary": "Ambition is a strong desire to succeed."
+        },
+        "explanation": "Ambitious athletes set high goals for themselves."
+      },
+      {
+        "id": "U05-L03-Q012",
+        "number": 12,
+        "question": "What does 'defeat' mean?",
+        "options": {
+          "A": "To lose a competition",
+          "B": "To win a game",
+          "C": "To train hard",
+          "D": "To rest after a game"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "To lose a competition",
+        "difficulty": "easy",
+        "source": {
+          "page": 53,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'defeat' in sports."
+          ],
+          "summary": "Defeat means to lose or be beaten."
+        },
+        "explanation": "Experiencing defeat can motivate athletes to train harder."
+      },
+      {
+        "id": "U05-L03-Q013",
+        "number": 13,
+        "question": "What does 'victory' mean?",
+        "options": {
+          "A": "Winning a game or competition",
+          "B": "Losing a match",
+          "C": "Tying a game",
+          "D": "Giving up"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Winning a game or competition",
+        "difficulty": "easy",
+        "source": {
+          "page": 53,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'victory' in sports."
+          ],
+          "summary": "Victory means winning."
+        },
+        "explanation": "Victory is the reward for hard work and preparation."
+      },
+      {
+        "id": "U05-L03-Q014",
+        "number": 14,
+        "question": "What does 'setback' mean?",
+        "options": {
+          "A": "A problem that delays progress",
+          "B": "A type of victory",
+          "C": "A training method",
+          "D": "A type of equipment"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A problem that delays progress",
+        "difficulty": "medium",
+        "source": {
+          "page": 53,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'setback' in a sports context."
+          ],
+          "summary": "A setback is something that slows progress."
+        },
+        "explanation": "Athletes face setbacks like injuries or losses."
+      },
+      {
+        "id": "U05-L03-Q015",
+        "number": 15,
+        "question": "What is 'resilience'?",
+        "options": {
+          "A": "The ability to recover from difficulties",
+          "B": "The ability to run fast",
+          "C": "The ability to jump high",
+          "D": "The ability to score goals"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The ability to recover from difficulties",
+        "difficulty": "medium",
+        "source": {
+          "page": 53,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'resilience'."
+          ],
+          "summary": "Resilience is the ability to bounce back."
+        },
+        "explanation": "Resilient athletes recover quickly from losses or injuries."
+      },
+      {
+        "id": "U05-L03-Q016",
+        "number": 16,
+        "question": "What does 'role model' mean?",
+        "options": {
+          "A": "A person who inspires others by their example",
+          "B": "A type of sport",
+          "C": "A type of training",
+          "D": "A type of food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A person who inspires others by their example",
+        "difficulty": "easy",
+        "source": {
+          "page": 53,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'role model'."
+          ],
+          "summary": "A role model is someone who inspires others."
+        },
+        "explanation": "Athletes often become role models for young people."
+      },
+      {
+        "id": "U05-L03-Q017",
+        "number": 17,
+        "question": "What is an 'inspiration'?",
+        "options": {
+          "A": "Something that motivates or encourages someone",
+          "B": "A type of exercise",
+          "C": "A type of food",
+          "D": "A type of equipment"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Something that motivates or encourages someone",
+        "difficulty": "easy",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'inspiration'."
+          ],
+          "summary": "Inspiration is something that motivates people."
+        },
+        "explanation": "Many athletes find inspiration in their families or heroes."
+      },
+      {
+        "id": "U05-L03-Q018",
+        "number": 18,
+        "question": "What does 'overcome' mean?",
+        "options": {
+          "A": "To succeed despite a difficulty",
+          "B": "To lose a competition",
+          "C": "To train with a coach",
+          "D": "To watch a game"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "To succeed despite a difficulty",
+        "difficulty": "medium",
+        "source": {
+          "page": 53,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'overcome'."
+          ],
+          "summary": "Overcome means to succeed despite difficulty."
+        },
+        "explanation": "Overcoming challenges is a key part of any athlete's story."
+      },
+      {
+        "id": "U05-L03-Q019",
+        "number": 19,
+        "question": "What is 'determination'?",
+        "options": {
+          "A": "The quality of continuing to try despite obstacles",
+          "B": "A type of exercise",
+          "C": "A type of sport",
+          "D": "A type of medal"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The quality of continuing to try despite obstacles",
+        "difficulty": "medium",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'determination' in sports."
+          ],
+          "summary": "Determination is the will to keep trying."
+        },
+        "explanation": "Determination helps athletes push through tough moments."
+      },
+      {
+        "id": "U05-L03-Q020",
+        "number": 20,
+        "question": "What does 'talent' mean?",
+        "options": {
+          "A": "A natural ability to do something well",
+          "B": "A type of training",
+          "C": "A type of food",
+          "D": "A type of game"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A natural ability to do something well",
+        "difficulty": "easy",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'talent'."
+          ],
+          "summary": "Talent is a natural ability."
+        },
+        "explanation": "Talent alone is not enough; it must be developed with practice."
+      },
+      {
+        "id": "U05-L03-Q021",
+        "number": 21,
+        "question": "What is a 'coach' in the context of reading?",
+        "options": {
+          "A": "A person who trains and guides athletes",
+          "B": "A type of bus",
+          "C": "A type of chair",
+          "D": "A type of referee"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A person who trains and guides athletes",
+        "difficulty": "easy",
+        "source": {
+          "page": 53,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'coach' in the context of athletes."
+          ],
+          "summary": "A coach trains and guides athletes."
+        },
+        "explanation": "Coaches play a vital role in an athlete's development."
+      },
+      {
+        "id": "U05-L03-Q022",
+        "number": 22,
+        "question": "What does 'injury' mean?",
+        "options": {
+          "A": "Physical harm to the body",
+          "B": "A type of sport",
+          "C": "A type of victory",
+          "D": "A type of medal"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Physical harm to the body",
+        "difficulty": "easy",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'injury' in sports."
+          ],
+          "summary": "An injury is physical harm to the body."
+        },
+        "explanation": "Injuries can delay an athlete's progress."
+      },
+      {
+        "id": "U05-L03-Q023",
+        "number": 23,
+        "question": "What does 'recover' mean?",
+        "options": {
+          "A": "To get better after being hurt or sick",
+          "B": "To lose a game",
+          "C": "To train harder",
+          "D": "To score a goal"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "To get better after being hurt or sick",
+        "difficulty": "easy",
+        "source": {
+          "page": 53,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'recover' in sports."
+          ],
+          "summary": "Recover means to get better after harm."
+        },
+        "explanation": "Athletes must recover properly after injuries."
+      },
+      {
+        "id": "U05-L03-Q024",
+        "number": 24,
+        "question": "What is 'commitment'?",
+        "options": {
+          "A": "Being devoted to a goal or activity",
+          "B": "A type of sport",
+          "C": "A type of game",
+          "D": "A type of medal"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Being devoted to a goal or activity",
+        "difficulty": "medium",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'commitment' in sports."
+          ],
+          "summary": "Commitment is devotion to a goal."
+        },
+        "explanation": "Commitment requires consistency and effort over time."
+      },
+      {
+        "id": "U05-L03-Q025",
+        "number": 25,
+        "question": "What does 'triumph' mean?",
+        "options": {
+          "A": "A great victory or achievement",
+          "B": "A type of exercise",
+          "C": "A type of injury",
+          "D": "A type of equipment"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A great victory or achievement",
+        "difficulty": "medium",
+        "source": {
+          "page": 53,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'triumph'."
+          ],
+          "summary": "Triumph means a great victory."
+        },
+        "explanation": "Triumphs are celebrated moments of success."
+      },
+      {
+        "id": "U05-L03-Q026",
+        "number": 26,
+        "question": "What is a 'legend' in sports?",
+        "options": {
+          "A": "A famous and admired athlete",
+          "B": "A type of sport",
+          "C": "A type of coach",
+          "D": "A type of game"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A famous and admired athlete",
+        "difficulty": "easy",
+        "source": {
+          "page": 53,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'legend' in a sports context."
+          ],
+          "summary": "A legend is a famous and admired athlete."
+        },
+        "explanation": "Sports legends are remembered for their great achievements."
+      },
+      {
+        "id": "U05-L03-Q027",
+        "number": 27,
+        "question": "What does 'endeavour' mean?",
+        "options": {
+          "A": "A serious effort or attempt",
+          "B": "A type of sport",
+          "C": "A type of food",
+          "D": "A type of rest"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A serious effort or attempt",
+        "difficulty": "hard",
+        "source": {
+          "page": 53,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'endeavour'."
+          ],
+          "summary": "Endeavour means a serious effort."
+        },
+        "explanation": "Athletes make great endeavours to reach their goals."
+      },
+      {
+        "id": "U05-L03-Q028",
+        "number": 28,
+        "question": "What does 'conquer' mean in sports?",
+        "options": {
+          "A": "To overcome a challenge or opponent",
+          "B": "To give up",
+          "C": "To rest",
+          "D": "To watch"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "To overcome a challenge or opponent",
+        "difficulty": "medium",
+        "source": {
+          "page": 53,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'conquer' in a sports context."
+          ],
+          "summary": "Conquer means to overcome a challenge."
+        },
+        "explanation": "Conquering fear is part of being a great athlete."
+      },
+      {
+        "id": "U05-L03-Q029",
+        "number": 29,
+        "question": "What is 'potential'?",
+        "options": {
+          "A": "The ability to develop or improve in the future",
+          "B": "A type of sport",
+          "C": "A type of medal",
+          "D": "A type of game"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The ability to develop or improve in the future",
+        "difficulty": "medium",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'potential' in sports."
+          ],
+          "summary": "Potential is the ability to improve."
+        },
+        "explanation": "Young athletes show great potential when they train hard."
+      },
+      {
+        "id": "U05-L03-Q030",
+        "number": 30,
+        "question": "What does 'fail' mean?",
+        "options": {
+          "A": "Not succeeding at something",
+          "B": "Winning a race",
+          "C": "Scoring a goal",
+          "D": "Training hard"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Not succeeding at something",
+        "difficulty": "easy",
+        "source": {
+          "page": 53,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'fail'."
+          ],
+          "summary": "Fail means not succeeding."
+        },
+        "explanation": "Failure can teach important lessons."
+      },
+      {
+        "id": "U05-L03-Q031",
+        "number": 31,
+        "question": "What is a 'challenge'?",
+        "options": {
+          "A": "A difficult task or situation",
+          "B": "A type of sport",
+          "C": "A type of medal",
+          "D": "A type of rest"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A difficult task or situation",
+        "difficulty": "easy",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'challenge' in sports."
+          ],
+          "summary": "A challenge is a difficult task."
+        },
+        "explanation": "Athletes face many challenges throughout their careers."
+      },
+      {
+        "id": "U05-L03-Q032",
+        "number": 32,
+        "question": "What does 'believe' mean in the context of sports?",
+        "options": {
+          "A": "To have confidence in oneself or others",
+          "B": "To rest",
+          "C": "To watch",
+          "D": "To lose"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "To have confidence in oneself or others",
+        "difficulty": "easy",
+        "source": {
+          "page": 53,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'believe' in sports context."
+          ],
+          "summary": "Believe means to have confidence."
+        },
+        "explanation": "Believing in yourself helps you perform better."
+      },
+      {
+        "id": "U05-L03-Q033",
+        "number": 33,
+        "question": "What is 'progress'?",
+        "options": {
+          "A": "Moving forward or improving over time",
+          "B": "A type of sport",
+          "C": "A type of game",
+          "D": "A type of medal"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Moving forward or improving over time",
+        "difficulty": "easy",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'progress'."
+          ],
+          "summary": "Progress means improving over time."
+        },
+        "explanation": "Training leads to gradual progress in skills."
+      },
+      {
+        "id": "U05-L03-Q034",
+        "number": 34,
+        "question": "What does 'compete' mean in a reading passage?",
+        "options": {
+          "A": "To take part in a contest",
+          "B": "To watch a game",
+          "C": "To rest",
+          "D": "To eat"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "To take part in a contest",
+        "difficulty": "easy",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'compete' from reading context."
+          ],
+          "summary": "Compete means to take part in a contest."
+        },
+        "explanation": "Athletes compete to test their abilities against others."
+      },
+      {
+        "id": "U05-L03-Q035",
+        "number": 35,
+        "question": "What does 'opportunity' mean?",
+        "options": {
+          "A": "A chance to do something",
+          "B": "A type of exercise",
+          "C": "A type of sport",
+          "D": "A type of food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A chance to do something",
+        "difficulty": "easy",
+        "source": {
+          "page": 53,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'opportunity'."
+          ],
+          "summary": "An opportunity is a chance to do something."
+        },
+        "explanation": "Athletes look for opportunities to compete and improve."
+      },
+      {
+        "id": "U05-L03-Q036",
+        "number": 36,
+        "question": "What is 'self-belief'?",
+        "options": {
+          "A": "Confidence in your own abilities",
+          "B": "A type of sport",
+          "C": "A type of training",
+          "D": "A type of food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Confidence in your own abilities",
+        "difficulty": "medium",
+        "source": {
+          "page": 53,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'self-belief' in sports."
+          ],
+          "summary": "Self-belief is confidence in your own abilities."
+        },
+        "explanation": "Self-belief helps athletes perform under pressure."
+      },
+      {
+        "id": "U05-L03-Q037",
+        "number": 37,
+        "question": "What does 'inspire' mean?",
+        "options": {
+          "A": "To make someone want to do something great",
+          "B": "To lose a game",
+          "C": "To rest",
+          "D": "To watch"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "To make someone want to do something great",
+        "difficulty": "easy",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'inspire'."
+          ],
+          "summary": "Inspire means to encourage someone to act."
+        },
+        "explanation": "Great athletes inspire others through their achievements."
+      },
+      {
+        "id": "U05-L03-Q038",
+        "number": 38,
+        "question": "What is 'hard work'?",
+        "options": {
+          "A": "Putting in a lot of effort over time",
+          "B": "A type of sport",
+          "C": "A type of food",
+          "D": "A type of game"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Putting in a lot of effort over time",
+        "difficulty": "easy",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'hard work' in a sports context."
+          ],
+          "summary": "Hard work means putting in lots of effort."
+        },
+        "explanation": "Hard work is essential for achieving success in sports."
+      },
+      {
+        "id": "U05-L03-Q039",
+        "number": 39,
+        "question": "What does 'goal' mean in sports?",
+        "options": {
+          "A": "An aim or target to achieve",
+          "B": "A type of exercise",
+          "C": "A type of ball",
+          "D": "A type of race"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "An aim or target to achieve",
+        "difficulty": "easy",
+        "source": {
+          "page": 52,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'goal' in a sports context."
+          ],
+          "summary": "A goal is an aim or target."
+        },
+        "explanation": "Setting clear goals helps athletes focus their training."
+      },
+      {
+        "id": "U05-L03-Q040",
+        "number": 40,
+        "question": "What does 'hero' mean in a sports reading?",
+        "options": {
+          "A": "A person admired for courage or great deeds",
+          "B": "A type of sport",
+          "C": "A type of coach",
+          "D": "A type of referee"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A person admired for courage or great deeds",
+        "difficulty": "easy",
+        "source": {
+          "page": 53,
+          "reference": "L3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Define 'hero' in a sports context."
+          ],
+          "summary": "A hero is someone admired for great deeds."
+        },
+        "explanation": "Sports heroes inspire future generations of athletes."
+      }
+    ]
+  }
+}

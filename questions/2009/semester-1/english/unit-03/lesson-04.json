@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "4",
+    "lesson_name": "Reading and Vocabulary",
+    "unit_number": 3,
+    "unit_name": "Hard sell",
+    "page_start": 30,
+    "page_end": 31,
+    "questions": [
+      {
+        "id": "U03-L04-Q001",
+        "number": 1,
+        "question": "According to the article, what is economics really about?",
+        "options": {
+          "A": "making choices and decisions",
+          "B": "money and banks only",
+          "C": "buying and selling shares",
+          "D": "government taxes"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "making choices and decisions",
+        "difficulty": "easy",
+        "source": {
+          "page": 31,
+          "reference": "Reading: introduction"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Economics is really all about making choices and decisions.'"
+          ],
+          "summary": "Economics is about choices."
+        },
+        "explanation": "It is far broader than just money."
+      },
+      {
+        "id": "U03-L04-Q002",
+        "number": 2,
+        "question": "Why is a pros and cons list not very effective?",
+        "options": {
+          "A": "just one of the cons might easily outweigh all of the pros",
+          "B": "it is too long to write",
+          "C": "nobody uses lists anymore",
+          "D": "it takes too much time"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "just one of the cons might easily outweigh all of the pros",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph A"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Just one of the cons might easily outweigh all of the pros.'"
+          ],
+          "summary": "One con can outweigh all pros."
+        },
+        "explanation": "The list does not weigh importance."
+      },
+      {
+        "id": "U03-L04-Q003",
+        "number": 3,
+        "question": "What is a cost-benefit analysis better at?",
+        "options": {
+          "A": "allowing you to be more objective",
+          "B": "making things cheaper",
+          "C": "speeding up decisions",
+          "D": "removing all risks"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "allowing you to be more objective",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph A"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A cost-benefit analysis is more sophisticated and allows you to be more objective."
+          ],
+          "summary": "It makes you more objective."
+        },
+        "explanation": "You score costs and benefits."
+      },
+      {
+        "id": "U03-L04-Q004",
+        "number": 4,
+        "question": "In the train vs aeroplane example, what other costs should you consider?",
+        "options": {
+          "A": "the cost in your time, tiredness and the environment",
+          "B": "the price of food",
+          "C": "the cost of parking",
+          "D": "the price of luggage"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the cost in your time, tiredness and the environment",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph A"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Other costs include your time, tiredness on arrival and the environmental cost."
+          ],
+          "summary": "Time, tiredness and environment."
+        },
+        "explanation": "You score each cost out of five."
+      },
+      {
+        "id": "U03-L04-Q005",
+        "number": 5,
+        "question": "What is 'present bias'?",
+        "options": {
+          "A": "people overvalue immediate rewards over long-term payoffs",
+          "B": "people prefer the future",
+          "C": "people ignore the present",
+          "D": "people spend too much"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "people overvalue immediate rewards over long-term payoffs",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'People have a tendency to overvalue immediate rewards over long-term payoffs.'"
+          ],
+          "summary": "Present bias = overvaluing now."
+        },
+        "explanation": "It explains procrastination."
+      },
+      {
+        "id": "U03-L04-Q006",
+        "number": 6,
+        "question": "In the famous money study, what did most people choose?",
+        "options": {
+          "A": "less money now, even though they'd end up less well-off",
+          "B": "more money later",
+          "C": "no money",
+          "D": "equal amounts"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "less money now, even though they'd end up less well-off",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Most people chose less money now over more money later."
+          ],
+          "summary": "They chose the immediate reward."
+        },
+        "explanation": "Even though it made them worse off."
+      },
+      {
+        "id": "U03-L04-Q007",
+        "number": 7,
+        "question": "Why do people procrastinate, according to the article?",
+        "options": {
+          "A": "because of present bias",
+          "B": "because they are lazy people",
+          "C": "because they are too busy",
+          "D": "because they lack intelligence"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "because of present bias",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Present bias is also the reason why people procrastinate."
+          ],
+          "summary": "Present bias causes procrastination."
+        },
+        "explanation": "Immediate rewards beat long-term ones."
+      },
+      {
+        "id": "U03-L04-Q008",
+        "number": 8,
+        "question": "Why should you never go food shopping when hungry?",
+        "options": {
+          "A": "you overvalue the immediate reward of food",
+          "B": "you will buy too little",
+          "C": "the shop is crowded",
+          "D": "food costs more at night"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "you overvalue the immediate reward of food",
+        "difficulty": "hard",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "When hungry, immediate rewards (food) seem more valuable, so you overbuy."
+          ],
+          "summary": "Hunger increases present bias."
+        },
+        "explanation": "Awareness helps you avoid it."
+      },
+      {
+        "id": "U03-L04-Q009",
+        "number": 9,
+        "question": "What is one way to overcome the tendency to spend money immediately?",
+        "options": {
+          "A": "put money in a savings account where you can't get at it easily",
+          "B": "carry more cash",
+          "C": "avoid all shops",
+          "D": "spend it all at once"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "put money in a savings account where you can't get at it easily",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A savings account you can't access easily helps you wait."
+          ],
+          "summary": "Use a savings account."
+        },
+        "explanation": "It overcomes the urge to spend."
+      },
+      {
+        "id": "U03-L04-Q010",
+        "number": 10,
+        "question": "What is the 'sunk-cost fallacy'?",
+        "options": {
+          "A": "the idea that because you've invested, you should persist no matter what",
+          "B": "the idea that invested money is lost",
+          "C": "a belief about cheap products",
+          "D": "a type of maths error"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the idea that because you've invested, you should persist no matter what",
+        "difficulty": "easy",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph C"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The sunk-cost fallacy: because you've invested time or money, you should persist."
+          ],
+          "summary": "sunk-cost = persist because invested."
+        },
+        "explanation": "It often works against our best interests."
+      },
+      {
+        "id": "U03-L04-Q011",
+        "number": 11,
+        "question": "What is a 'fallacy'?",
+        "options": {
+          "A": "an idea often believed to be true but which is false",
+          "B": "a scientific law",
+          "C": "a useful trick",
+          "D": "a type of argument"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "an idea often believed to be true but which is false",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph C"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'A fallacy is an idea that is often believed to be true, but which is, in fact, false.'"
+          ],
+          "summary": "fallacy = false belief."
+        },
+        "explanation": "The sunk-cost idea is a fallacy."
+      },
+      {
+        "id": "U03-L04-Q012",
+        "number": 12,
+        "question": "In the chocolate cake study, what made people more likely to eat the cake?",
+        "options": {
+          "A": "being told the cake required a significant investment of time and money",
+          "B": "how hungry they were",
+          "C": "how much they loved chocolate",
+          "D": "how big the cake was"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "being told the cake required a significant investment of time and money",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph C"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Those told the cake was expensive and far away were more likely to eat it all."
+          ],
+          "summary": "The investment made them eat more."
+        },
+        "explanation": "They felt it would be wasted otherwise."
+      },
+      {
+        "id": "U03-L04-Q013",
+        "number": 13,
+        "question": "Even though they felt full, why did people eat the cake?",
+        "options": {
+          "A": "because of the sunk-cost fallacy",
+          "B": "because they were hungry",
+          "C": "because it was delicious",
+          "D": "because they were polite"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "because of the sunk-cost fallacy",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph C"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The expensive cake seemed to require finishing, so they ate it all."
+          ],
+          "summary": "The sunk-cost fallacy made them finish it."
+        },
+        "explanation": "It went against their best interests."
+      },
+      {
+        "id": "U03-L04-Q014",
+        "number": 14,
+        "question": "Which is an example of the sunk-cost fallacy in daily life?",
+        "options": {
+          "A": "maintaining a friendship because you've known the person a long time",
+          "B": "buying a new phone",
+          "C": "starting a new hobby",
+          "D": "moving to a new city"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "maintaining a friendship because you've known the person a long time",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph C"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Keeping a friendship you no longer enjoy because of time invested is an example."
+          ],
+          "summary": "Friendship sunk-cost example."
+        },
+        "explanation": "Also persisting with a failing business idea."
+      },
+      {
+        "id": "U03-L04-Q015",
+        "number": 15,
+        "question": "What does 'falling prey to' in the article mean?",
+        "options": {
+          "A": "being influenced by (in a bad way)",
+          "B": "being left unaffected by",
+          "C": "being improved by",
+          "D": "being protected from"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "being influenced by (in a bad way)",
+        "difficulty": "hard",
+        "source": {
+          "page": 30,
+          "reference": "Exercise 2: Question 4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Falling prey to this fallacy' means being harmed or influenced by it."
+          ],
+          "summary": "falling prey = being influenced by."
+        },
+        "explanation": "You should recognise when it happens."
+      },
+      {
+        "id": "U03-L04-Q016",
+        "number": 16,
+        "question": "What is the 'law of diminishing returns'?",
+        "options": {
+          "A": "after a point, investing more does not lead to increased benefits",
+          "B": "prices always go down",
+          "C": "investments always fail",
+          "D": "returns are never guaranteed"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "after a point, investing more does not lead to increased benefits",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph D"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "After a certain point, more money or effort does not bring more benefit."
+          ],
+          "summary": "Diminishing returns = less benefit per effort."
+        },
+        "explanation": "More input gives less extra output."
+      },
+      {
+        "id": "U03-L04-Q017",
+        "number": 17,
+        "question": "What example shows the law of diminishing returns?",
+        "options": {
+          "A": "inviting 20 or 30 people to paint one room",
+          "B": "buying one pizza",
+          "C": "hiring one worker",
+          "D": "painting a room alone"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "inviting 20 or 30 people to paint one room",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph D"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Too many helpers make the decorating inefficient."
+          ],
+          "summary": "Too many people = diminishing returns."
+        },
+        "explanation": "At first more help is constructive."
+      },
+      {
+        "id": "U03-L04-Q018",
+        "number": 18,
+        "question": "What does the pizza example teach us?",
+        "options": {
+          "A": "the first few slices are great, but then it becomes less pleasant",
+          "B": "pizza is always delicious",
+          "C": "you should eat all the pizza",
+          "D": "pizza is cheap"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the first few slices are great, but then it becomes less pleasant",
+        "difficulty": "hard",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph D"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The first slices are great, but the benefit drops as you eat more."
+          ],
+          "summary": "The pleasure decreases."
+        },
+        "explanation": "It shows diminishing returns."
+      },
+      {
+        "id": "U03-L04-Q019",
+        "number": 19,
+        "question": "What lesson does the article draw from the law of diminishing returns?",
+        "options": {
+          "A": "doing your best is good enough - don't overdo things",
+          "B": "always expect more",
+          "C": "make risky investments",
+          "D": "never stop pushing"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "doing your best is good enough - don't overdo things",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph D"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'It is really a reminder that doing your best is good enough.'"
+          ],
+          "summary": "Don't overdo things."
+        },
+        "explanation": "If you keep pushing, you get diminishing returns."
+      },
+      {
+        "id": "U03-L04-Q020",
+        "number": 20,
+        "question": "What does 'there's no such thing as a free lunch' mean?",
+        "options": {
+          "A": "everything has a cost, even if it isn't obvious",
+          "B": "lunch is never free",
+          "C": "restaurants give free food",
+          "D": "food is expensive"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "everything has a cost, even if it isn't obvious",
+        "difficulty": "easy",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph E"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Nothing is truly free; there is always a hidden cost."
+          ],
+          "summary": "Everything has a hidden cost."
+        },
+        "explanation": "The expression warns against free offers."
+      },
+      {
+        "id": "U03-L04-Q021",
+        "number": 21,
+        "question": "Why was the free lunch made as salty as possible?",
+        "options": {
+          "A": "so people would buy expensive drinks",
+          "B": "to make the lunch taste better",
+          "C": "to stop people eating too much",
+          "D": "to show off the chef's skill"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "so people would buy expensive drinks",
+        "difficulty": "hard",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph E"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The salty lunch made people thirsty, so they spent far more on beverages."
+          ],
+          "summary": "The salt made people buy drinks."
+        },
+        "explanation": "That was the hidden cost."
+      },
+      {
+        "id": "U03-L04-Q022",
+        "number": 22,
+        "question": "What does 'if you aren't paying for a product, you ARE the product' mean?",
+        "options": {
+          "A": "free services make money from you (e.g. your data)",
+          "B": "you get products for free",
+          "C": "products are people",
+          "D": "prices are invisible"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "free services make money from you (e.g. your data)",
+        "difficulty": "hard",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph E"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Free social media sites use your attention or data to profit."
+          ],
+          "summary": "You are the product."
+        },
+        "explanation": "Free sites still make money from users."
+      },
+      {
+        "id": "U03-L04-Q023",
+        "number": 23,
+        "question": "Which word means the same as 'outweigh' in the text?",
+        "options": {
+          "A": "cancel out",
+          "B": "add to",
+          "C": "explain",
+          "D": "ignore"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "cancel out",
+        "difficulty": "medium",
+        "source": {
+          "page": 30,
+          "reference": "Exercise 3: Synonyms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "One con can outweigh all the pros; 'cancel out' means to balance or counter."
+          ],
+          "summary": "cancel out"
+        },
+        "explanation": "The pros are cancelled by the cons."
+      },
+      {
+        "id": "U03-L04-Q024",
+        "number": 24,
+        "question": "Which word means 'objective'?",
+        "options": {
+          "A": "dispassionate / impartial",
+          "B": "emotional",
+          "C": "angry",
+          "D": "confused"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "dispassionate / impartial",
+        "difficulty": "medium",
+        "source": {
+          "page": 30,
+          "reference": "Exercise 3: Synonyms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Dispassionate' and 'impartial' both mean objective and fair."
+          ],
+          "summary": "dispassionate = impartial = objective."
+        },
+        "explanation": "A cost-benefit analysis is more objective."
+      },
+      {
+        "id": "U03-L04-Q025",
+        "number": 25,
+        "question": "Which phrase means 'take into account'?",
+        "options": {
+          "A": "bear in mind",
+          "B": "put away",
+          "C": "throw out",
+          "D": "give up"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "bear in mind",
+        "difficulty": "easy",
+        "source": {
+          "page": 30,
+          "reference": "Exercise 3: Synonyms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Bear in mind' means to remember or consider."
+          ],
+          "summary": "bear in mind = consider."
+        },
+        "explanation": "There are other costs to bear in mind."
+      },
+      {
+        "id": "U03-L04-Q026",
+        "number": 26,
+        "question": "Which word means 'a tendency'?",
+        "options": {
+          "A": "propensity",
+          "B": "notion",
+          "C": "snare",
+          "D": "pitfall"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "propensity",
+        "difficulty": "hard",
+        "source": {
+          "page": 30,
+          "reference": "Exercise 3: Synonyms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Propensity' means a natural tendency or inclination."
+          ],
+          "summary": "propensity = tendency."
+        },
+        "explanation": "People have a propensity to overvalue rewards."
+      },
+      {
+        "id": "U03-L04-Q027",
+        "number": 27,
+        "question": "Which word means 'a trap or a danger'?",
+        "options": {
+          "A": "snare / pitfall",
+          "B": "notion",
+          "C": "benefit",
+          "D": "analysis"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "snare / pitfall",
+        "difficulty": "medium",
+        "source": {
+          "page": 30,
+          "reference": "Exercise 3: Synonyms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Snare' and 'pitfall' both mean a trap or hidden danger."
+          ],
+          "summary": "snare = pitfall = trap."
+        },
+        "explanation": "Another trap is the sunk-cost fallacy."
+      },
+      {
+        "id": "U03-L04-Q028",
+        "number": 28,
+        "question": "Which word means 'to persist' or 'continue despite difficulty'?",
+        "options": {
+          "A": "persevere / plough on",
+          "B": "give up",
+          "C": "pause",
+          "D": "worry"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "persevere / plough on",
+        "difficulty": "medium",
+        "source": {
+          "page": 30,
+          "reference": "Exercise 3: Synonyms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Persevere' and 'plough on' mean to keep going despite problems."
+          ],
+          "summary": "persevere = plough on = persist."
+        },
+        "explanation": "You should persist with the plan."
+      },
+      {
+        "id": "U03-L04-Q029",
+        "number": 29,
+        "question": "Which word means 'damaging or harmful'?",
+        "options": {
+          "A": "detrimental",
+          "B": "beneficial",
+          "C": "neutral",
+          "D": "obvious"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "detrimental",
+        "difficulty": "medium",
+        "source": {
+          "page": 30,
+          "reference": "Exercise 3: Synonyms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Detrimental' means harmful or damaging."
+          ],
+          "summary": "detrimental = harmful."
+        },
+        "explanation": "The impact may be detrimental."
+      },
+      {
+        "id": "U03-L04-Q030",
+        "number": 30,
+        "question": "Which word means 'an idea or concept'?",
+        "options": {
+          "A": "notion",
+          "B": "snare",
+          "C": "pitfall",
+          "D": "propensity"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "notion",
+        "difficulty": "easy",
+        "source": {
+          "page": 30,
+          "reference": "Exercise 3: Synonyms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Notion' means an idea or belief."
+          ],
+          "summary": "notion = concept."
+        },
+        "explanation": "Consider this notion when using social media."
+      },
+      {
+        "id": "U03-L04-Q031",
+        "number": 31,
+        "question": "Which word means 'to remove or make ineffective'?",
+        "options": {
+          "A": "negate",
+          "B": "create",
+          "C": "boost",
+          "D": "keep"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "negate",
+        "difficulty": "hard",
+        "source": {
+          "page": 30,
+          "reference": "Exercise 3: Synonyms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Negate' means to cancel out or make something ineffective."
+          ],
+          "summary": "negate = cancel out."
+        },
+        "explanation": "The worries negate the discount."
+      },
+      {
+        "id": "U03-L04-Q032",
+        "number": 32,
+        "question": "What should you score out of five in a cost-benefit analysis?",
+        "options": {
+          "A": "each cost and each potential benefit",
+          "B": "each friend's opinion",
+          "C": "each year of work",
+          "D": "each kilometre travelled"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "each cost and each potential benefit",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph A"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Give each cost a score out of five, then weigh them against benefits scored the same way."
+          ],
+          "summary": "Score costs and benefits out of five."
+        },
+        "explanation": "It makes the choice easier."
+      },
+      {
+        "id": "U03-L04-Q033",
+        "number": 33,
+        "question": "What is the main message of the article?",
+        "options": {
+          "A": "behavioural economics can be applied to daily decisions",
+          "B": "economics is only about money",
+          "C": "you should never analyse decisions",
+          "D": "biases cannot be avoided"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "behavioural economics can be applied to daily decisions",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": "Reading: overall message"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Economic principles, especially behavioural economics, apply to all areas of life."
+          ],
+          "summary": "Economics applies to daily life."
+        },
+        "explanation": "Recognising biases improves decisions."
+      },
+      {
+        "id": "U03-L04-Q034",
+        "number": 34,
+        "question": "Which of these is NOT one of the biases or concepts in the article?",
+        "options": {
+          "A": "the scarcity principle",
+          "B": "present bias",
+          "C": "the sunk-cost fallacy",
+          "D": "the law of diminishing returns"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the scarcity principle",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": "Reading: concepts"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The scarcity principle is from the persuasion lesson, not this article."
+          ],
+          "summary": "Scarcity principle is not here."
+        },
+        "explanation": "The article covers present bias, sunk cost and diminishing returns."
+      },
+      {
+        "id": "U03-L04-Q035",
+        "number": 35,
+        "question": "According to the article, when can decision-making ability be dramatically improved?",
+        "options": {
+          "A": "when we recognise we may be falling prey to the sunk-cost fallacy",
+          "B": "when we ignore our biases",
+          "C": "when we spend more money",
+          "D": "when we stop analysing"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "when we recognise we may be falling prey to the sunk-cost fallacy",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph C"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Recognising the fallacy dramatically improves our decision-making ability."
+          ],
+          "summary": "Recognition improves decisions."
+        },
+        "explanation": "Awareness is the first step."
+      },
+      {
+        "id": "U03-L04-Q036",
+        "number": 36,
+        "question": "What does 'notwithstanding the objective risk' mean?",
+        "options": {
+          "A": "even though there is a real risk",
+          "B": "because there is no risk",
+          "C": "without any risk",
+          "D": "despite the profit"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "even though there is a real risk",
+        "difficulty": "hard",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph D"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Notwithstanding' means despite or regardless of."
+          ],
+          "summary": "notwithstanding = despite."
+        },
+        "explanation": "There may be an adverse impact despite the risk."
+      },
+      {
+        "id": "U03-L04-Q037",
+        "number": 37,
+        "question": "What does the expression 'no such thing as a free lunch' warn us about?",
+        "options": {
+          "A": "hidden costs in things that seem free",
+          "B": "free food in restaurants",
+          "C": "cheap meals",
+          "D": "eating too much"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "hidden costs in things that seem free",
+        "difficulty": "easy",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph E"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "It warns that everything has a hidden cost."
+          ],
+          "summary": "Beware hidden costs."
+        },
+        "explanation": "Free offers usually cost you something."
+      },
+      {
+        "id": "U03-L04-Q038",
+        "number": 38,
+        "question": "What example shows 'negate' in the article?",
+        "options": {
+          "A": "worries about modern slavery negating a discount",
+          "B": "a cheap price for a good product",
+          "C": "a free lunch",
+          "D": "a chocolate cake"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "worries about modern slavery negating a discount",
+        "difficulty": "hard",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph E"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Worries about modern slavery often negate any discount' - they cancel out the saving."
+          ],
+          "summary": "The worries cancel the discount."
+        },
+        "explanation": "Cheap items may have terrible costs."
+      },
+      {
+        "id": "U03-L04-Q039",
+        "number": 39,
+        "question": "In the study about retirement savings, what made people save more?",
+        "options": {
+          "A": "seeing a digitally-aged photo of themselves",
+          "B": "a lecture about saving",
+          "C": "more income",
+          "D": "a tax cut"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "seeing a digitally-aged photo of themselves",
+        "difficulty": "hard",
+        "source": {
+          "page": 31,
+          "reference": "Reading: paragraph B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Participants shown an aged photo of themselves chose to save more."
+          ],
+          "summary": "The aged photo increased saving."
+        },
+        "explanation": "It is a study about present bias."
+      },
+      {
+        "id": "U03-L04-Q040",
+        "number": 40,
+        "question": "What does 'propensity' mean in 'a propensity to overvalue rewards'?",
+        "options": {
+          "A": "a natural tendency or inclination",
+          "B": "a decision",
+          "C": "a mistake",
+          "D": "a benefit"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a natural tendency or inclination",
+        "difficulty": "hard",
+        "source": {
+          "page": 30,
+          "reference": "Exercise 3: Synonyms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Propensity' means a natural tendency to do something."
+          ],
+          "summary": "propensity = tendency."
+        },
+        "explanation": "People have a propensity to overvalue the present."
+      }
+    ]
+  }
+}

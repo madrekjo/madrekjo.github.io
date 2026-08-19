@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "5",
+    "lesson_name": "Reading and Vocabulary",
+    "unit_number": 1,
+    "unit_name": "Identity",
+    "page_start": 10,
+    "page_end": 11,
+    "questions": [
+      {
+        "id": "U01-L05-Q001",
+        "number": 1,
+        "question": "What is the main idea of the reading text?",
+        "options": {
+          "A": "our identity is shaped by a combination of genes, upbringing and experiences",
+          "B": "only genes determine our personality",
+          "C": "identity never changes after childhood",
+          "D": "personality tests are the best way to know yourself"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "our identity is shaped by a combination of genes, upbringing and experiences",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "Reading: main idea"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The text argues that identity is shaped by multiple factors, not just one."
+          ],
+          "summary": "Identity = genes + upbringing + experience."
+        },
+        "explanation": "The text presents a balanced view of nature and nurture."
+      },
+      {
+        "id": "U01-L05-Q002",
+        "number": 2,
+        "question": "According to the text, what does 'nature' refer to in the nature vs nurture debate?",
+        "options": {
+          "A": "the genetic information we inherit from our parents",
+          "B": "the environment we grow up in",
+          "C": "the education we receive",
+          "D": "the friends we make"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the genetic information we inherit from our parents",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph A"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Nature' refers to the genetic inheritance we receive from our parents."
+          ],
+          "summary": "nature = genes/inherited traits."
+        },
+        "explanation": "It is one side of the identity debate."
+      },
+      {
+        "id": "U01-L05-Q003",
+        "number": 3,
+        "question": "According to the text, what does 'nurture' refer to?",
+        "options": {
+          "A": "the environment, upbringing and experiences that shape us",
+          "B": "the genes we are born with",
+          "C": "the food we eat",
+          "D": "the sports we play"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the environment, upbringing and experiences that shape us",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph A"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Nurture' refers to how our environment and experiences shape us."
+          ],
+          "summary": "nurture = environment and upbringing."
+        },
+        "explanation": "It is the other side of the identity debate."
+      },
+      {
+        "id": "U01-L05-Q004",
+        "number": 4,
+        "question": "What evidence does the text give for the role of nature?",
+        "options": {
+          "A": "twins separated at birth often have similar personalities",
+          "B": "people in the same family always behave the same",
+          "C": "identical twins never share traits",
+          "D": "genes have no effect on personality"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "twins separated at birth often have similar personalities",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Studies of twins separated at birth show genetic influence on personality."
+          ],
+          "summary": "Separated twins show similar traits."
+        },
+        "explanation": "This supports the nature argument."
+      },
+      {
+        "id": "U01-L05-Q005",
+        "number": 5,
+        "question": "What does the text say about identical twins raised apart?",
+        "options": {
+          "A": "they often develop surprisingly similar habits and interests",
+          "B": "they are always completely different",
+          "C": "they have nothing in common",
+          "D": "they never meet again"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "they often develop surprisingly similar habits and interests",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identical twins raised apart often develop similar habits, suggesting genetic influence."
+          ],
+          "summary": "Separated identical twins share similarities."
+        },
+        "explanation": "This is strong evidence for genetic influence."
+      },
+      {
+        "id": "U01-L05-Q006",
+        "number": 6,
+        "question": "What argument does the text give for the role of nurture?",
+        "options": {
+          "A": "children raised in different cultures develop different values and behaviours",
+          "B": "all children behave the same regardless of environment",
+          "C": "genes determine everything about us",
+          "D": "upbringing has no effect on personality"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "children raised in different cultures develop different values and behaviours",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph C"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Children raised in different cultures develop different values, showing nurture's role."
+          ],
+          "summary": "Different cultures → different behaviours."
+        },
+        "explanation": "This supports the nurture argument."
+      },
+      {
+        "id": "U01-L05-Q007",
+        "number": 7,
+        "question": "What example does the text use to show nurture's influence?",
+        "options": {
+          "A": "siblings raised in the same family can have very different personalities",
+          "B": "twins always behave identically",
+          "C": "genes determine our career choices",
+          "D": "education has no effect on character"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "siblings raised in the same family can have very different personalities",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph C"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Siblings in the same family can be very different, suggesting environment matters."
+          ],
+          "summary": "Siblings can be very different."
+        },
+        "explanation": "Same genes but different experiences lead to different personalities."
+      },
+      {
+        "id": "U01-L05-Q008",
+        "number": 8,
+        "question": "What is the text's conclusion about the nature vs nurture debate?",
+        "options": {
+          "A": "both nature and nurture work together to shape identity",
+          "B": "only nature matters",
+          "C": "only nurture matters",
+          "D": "the debate has been fully resolved"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "both nature and nurture work together to shape identity",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph D"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The text concludes that both factors work together in shaping who we are."
+          ],
+          "summary": "Both nature and nurture matter."
+        },
+        "explanation": "The debate is not either/or but both/and."
+      },
+      {
+        "id": "U01-L05-Q009",
+        "number": 9,
+        "question": "What does the text say about the influence of peers?",
+        "options": {
+          "A": "friends and classmates can significantly shape our values and behaviour",
+          "B": "peers have no influence on identity",
+          "C": "only family matters",
+          "D": "peer pressure is always negative"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "friends and classmates can significantly shape our values and behaviour",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph D"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Peers (friends, classmates) significantly influence our values and behaviour."
+          ],
+          "summary": "Peers shape our identity."
+        },
+        "explanation": "This is part of the nurture argument."
+      },
+      {
+        "id": "U01-L05-Q010",
+        "number": 10,
+        "question": "What does the word 'innate' mean in the text?",
+        "options": {
+          "A": "natural and present from birth",
+          "B": "learned from experience",
+          "C": "temporary and changeable",
+          "D": "dangerous and harmful"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "natural and present from birth",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Exercise 2: Vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Innate' means something you are born with, natural and inborn."
+          ],
+          "summary": "innate = inborn/natural."
+        },
+        "explanation": "Innate traits come from genes, not experience."
+      },
+      {
+        "id": "U01-L05-Q011",
+        "number": 11,
+        "question": "What does 'acquired' mean in the context of the text?",
+        "options": {
+          "A": "learned or developed through experience",
+          "B": "born with",
+          "C": "forgotten",
+          "D": "given as a gift"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "learned or developed through experience",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Exercise 2: Vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Acquired' means gained or learned through experience rather than born with."
+          ],
+          "summary": "acquired = learned/developed."
+        },
+        "explanation": "Skills and habits can be acquired over time."
+      },
+      {
+        "id": "U01-L05-Q012",
+        "number": 12,
+        "question": "What does 'environmental' mean in 'environmental factors'?",
+        "options": {
+          "A": "relating to the surroundings and conditions we grow up in",
+          "B": "relating to nature and wildlife",
+          "C": "relating to genes",
+          "D": "relating to exams"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "relating to the surroundings and conditions we grow up in",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "Exercise 2: Vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Environmental' refers to the conditions and surroundings that affect development."
+          ],
+          "summary": "environmental = relating to surroundings."
+        },
+        "explanation": "Environmental factors include family, school and culture."
+      },
+      {
+        "id": "U01-L05-Q013",
+        "number": 13,
+        "question": "What does 'hereditary' mean?",
+        "options": {
+          "A": "passed from parents to children through genes",
+          "B": "learned at school",
+          "C": "chosen freely",
+          "D": "temporary"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "passed from parents to children through genes",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "Exercise 2: Vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Hereditary' means inherited or passed from parent to child."
+          ],
+          "summary": "hereditary = inherited."
+        },
+        "explanation": "Eye colour is a hereditary trait."
+      },
+      {
+        "id": "U01-L05-Q014",
+        "number": 14,
+        "question": "What does 'disposition' mean in the text?",
+        "options": {
+          "A": "a person's natural tendency or character",
+          "B": "a mathematical position",
+          "C": "a type of argument",
+          "D": "a medical condition"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a person's natural tendency or character",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Exercise 2: Vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Disposition' means a person's natural tendency or usual mood."
+          ],
+          "summary": "disposition = natural tendency."
+        },
+        "explanation": "A cheerful disposition means someone is naturally happy."
+      },
+      {
+        "id": "U01-L05-Q015",
+        "number": 15,
+        "question": "What does the text say about personality and change?",
+        "options": {
+          "A": "personality can change throughout life due to experiences",
+          "B": "personality is fixed at birth and never changes",
+          "C": "only childhood experiences matter",
+          "D": "personality tests can predict future personality"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "personality can change throughout life due to experiences",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph D"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The text says personality can develop and change throughout life."
+          ],
+          "summary": "Personality can change."
+        },
+        "explanation": "Experiences continue to shape us as we grow."
+      },
+      {
+        "id": "U01-L05-Q016",
+        "number": 16,
+        "question": "What does the text say about the role of education?",
+        "options": {
+          "A": "it plays an important role in shaping values and attitudes",
+          "B": "it has no effect on personality",
+          "C": "it only teaches academic skills",
+          "D": "it is less important than genes"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it plays an important role in shaping values and attitudes",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph D"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Education shapes our values, attitudes and behaviour significantly."
+          ],
+          "summary": "Education shapes identity."
+        },
+        "explanation": "School is a key part of the nurture argument."
+      },
+      {
+        "id": "U01-L05-Q017",
+        "number": 17,
+        "question": "What does 'pre-determined' mean in the text?",
+        "options": {
+          "A": "decided in advance, before something happens",
+          "B": "chosen randomly",
+          "C": "changed after birth",
+          "D": "learned from others"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "decided in advance, before something happens",
+        "difficulty": "hard",
+        "source": {
+          "page": 10,
+          "reference": "Exercise 2: Vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Pre-determined' means fixed or decided before something happens."
+          ],
+          "summary": "pre-determined = decided in advance."
+        },
+        "explanation": "The text questions whether identity is pre-determined."
+      },
+      {
+        "id": "U01-L05-Q018",
+        "number": 18,
+        "question": "What does the text suggest about self-knowledge?",
+        "options": {
+          "A": "understanding both nature and nurture helps us know ourselves better",
+          "B": "we can never know ourselves",
+          "C": "self-knowledge is only for scientists",
+          "D": "personality tests are the only way to know yourself"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "understanding both nature and nurture helps us know ourselves better",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph D"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Understanding both factors helps us develop better self-knowledge."
+          ],
+          "summary": "Self-knowledge comes from understanding both factors."
+        },
+        "explanation": "This is the text's practical message."
+      },
+      {
+        "id": "U01-L05-Q019",
+        "number": 19,
+        "question": "What does 'potential' mean in the text?",
+        "options": {
+          "A": "the ability to develop or achieve something in the future",
+          "B": "a current achievement",
+          "C": "a past mistake",
+          "D": "a physical strength"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the ability to develop or achieve something in the future",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Exercise 2: Vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Potential' means the possibility of future development or achievement."
+          ],
+          "summary": "potential = future possibility."
+        },
+        "explanation": "Everyone has potential that can be developed."
+      },
+      {
+        "id": "U01-L05-Q020",
+        "number": 20,
+        "question": "What does the text say about identical twins who share the same environment?",
+        "options": {
+          "A": "they tend to be more similar than twins raised apart",
+          "B": "they are always completely different",
+          "C": "they have nothing in common",
+          "D": "environment has no effect on them"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "they tend to be more similar than twins raised apart",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Twins raised together are more similar than those raised apart, showing nurture's role."
+          ],
+          "summary": "Same environment → more similar."
+        },
+        "explanation": "This shows both nature and nurture work together."
+      },
+      {
+        "id": "U01-L05-Q021",
+        "number": 21,
+        "question": "What does the phrase 'a product of' mean in 'we are a product of our genes and experiences'?",
+        "options": {
+          "A": "something that is created or shaped by",
+          "B": "something that is sold in a shop",
+          "C": "something that is broken",
+          "D": "something that is lost"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "something that is created or shaped by",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "Exercise 3: Vocabulary in context"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'A product of' means something that is the result of specific factors."
+          ],
+          "summary": "product of = shaped by."
+        },
+        "explanation": "We are shaped by both genes and experiences."
+      },
+      {
+        "id": "U01-L05-Q022",
+        "number": 22,
+        "question": "What does 'nurture' mean as a verb?",
+        "options": {
+          "A": "to care for and encourage the growth or development of",
+          "B": "to ignore completely",
+          "C": "to punish severely",
+          "D": "to forget about"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to care for and encourage the growth or development of",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "Exercise 2: Vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "As a verb, 'nurture' means to help something grow and develop."
+          ],
+          "summary": "nurture = care for and develop."
+        },
+        "explanation": "Parents nurture their children's talents."
+      },
+      {
+        "id": "U01-L05-Q023",
+        "number": 23,
+        "question": "What does 'heritage' mean in the text?",
+        "options": {
+          "A": "the culture, traditions and qualities passed down from previous generations",
+          "B": "a new invention",
+          "C": "a type of food",
+          "D": "a modern trend"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the culture, traditions and qualities passed down from previous generations",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Exercise 2: Vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Heritage' refers to the culture and traditions passed from previous generations."
+          ],
+          "summary": "heritage = inherited culture."
+        },
+        "explanation": "Our heritage influences our values and identity."
+      },
+      {
+        "id": "U01-L05-Q024",
+        "number": 24,
+        "question": "What does the text say about the debate itself?",
+        "options": {
+          "A": "it is still ongoing and scientists continue to research it",
+          "B": "it was settled centuries ago",
+          "C": "it is not important",
+          "D": "only philosophers care about it"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "it is still ongoing and scientists continue to research it",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph D"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The debate continues as scientists keep researching the topic."
+          ],
+          "summary": "The debate is still ongoing."
+        },
+        "explanation": "New research continues to add to our understanding."
+      },
+      {
+        "id": "U01-L05-Q025",
+        "number": 25,
+        "question": "What does 'trait' mean in the text?",
+        "options": {
+          "A": "a particular quality or characteristic",
+          "B": "a type of food",
+          "C": "a mathematical formula",
+          "D": "a musical instrument"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a particular quality or characteristic",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "Exercise 2: Vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Trait' means a distinguishing quality or characteristic of a person."
+          ],
+          "summary": "trait = characteristic."
+        },
+        "explanation": "Honesty is a positive personality trait."
+      },
+      {
+        "id": "U01-L05-Q026",
+        "number": 26,
+        "question": "What does 'upbringing' mean?",
+        "options": {
+          "A": "the way a child is raised and cared for",
+          "B": "growing taller",
+          "C": "starting school",
+          "D": "moving to a new house"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the way a child is raised and cared for",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "Exercise 2: Vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Upbringing' refers to the way a child is raised and the values they learn."
+          ],
+          "summary": "upbringing = how you were raised."
+        },
+        "explanation": "A good upbringing shapes positive values."
+      },
+      {
+        "id": "U01-L05-Q027",
+        "number": 27,
+        "question": "What does the text suggest about nature and nurture working together?",
+        "options": {
+          "A": "genes provide the blueprint, but experiences shape how we develop",
+          "B": "they work against each other",
+          "C": "only one of them matters",
+          "D": "they are the same thing"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "genes provide the blueprint, but experiences shape how we develop",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph D"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Genes give us tendencies, but experiences and environment shape how those tendencies develop."
+          ],
+          "summary": "Genes + experiences = identity."
+        },
+        "explanation": "Neither factor works alone."
+      },
+      {
+        "id": "U01-L05-Q028",
+        "number": 28,
+        "question": "What does 'influence' mean in the text?",
+        "options": {
+          "A": "the power to affect how someone thinks or behaves",
+          "B": "a type of electricity",
+          "C": "a scientific experiment",
+          "D": "a type of music"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the power to affect how someone thinks or behaves",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "Exercise 2: Vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Influence' is the power to have an effect on someone's character or behaviour."
+          ],
+          "summary": "influence = power to affect."
+        },
+        "explanation": "Family has a strong influence on children."
+      },
+      {
+        "id": "U01-L05-Q029",
+        "number": 29,
+        "question": "What does the text say about identical twins' IQ scores?",
+        "options": {
+          "A": "twins raised apart often have very similar IQ scores",
+          "B": "twins always have different IQ scores",
+          "C": "IQ is entirely determined by education",
+          "D": "IQ tests are unreliable"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "twins raised apart often have very similar IQ scores",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Studies show separated identical twins often have similar IQ scores, supporting genetic influence."
+          ],
+          "summary": "Separated twins have similar IQs."
+        },
+        "explanation": "This is evidence for the role of nature."
+      },
+      {
+        "id": "U01-L05-Q030",
+        "number": 30,
+        "question": "What does 'determine' mean in the text?",
+        "options": {
+          "A": "to have a decisive effect on something",
+          "B": "to measure precisely",
+          "C": "to guess correctly",
+          "D": "to forget completely"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to have a decisive effect on something",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Exercise 2: Vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Determine' means to cause something to happen or to have a decisive effect."
+          ],
+          "summary": "determine = decide/cause."
+        },
+        "explanation": "Genes and environment both determine our personality."
+      },
+      {
+        "id": "U01-L05-Q031",
+        "number": 31,
+        "question": "What does the text say about identical twins raised together vs apart?",
+        "options": {
+          "A": "twins raised together are more similar, showing environment also matters",
+          "B": "there is no difference between them",
+          "C": "twins raised apart are more similar",
+          "D": "environment has no effect on twins"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "twins raised together are more similar, showing environment also matters",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph B"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Twins raised together show more similarities than those raised apart, proving nurture's role."
+          ],
+          "summary": "Together twins are more similar."
+        },
+        "explanation": "This proves both factors matter."
+      },
+      {
+        "id": "U01-L05-Q032",
+        "number": 32,
+        "question": "What does 'cognitive' mean in 'cognitive abilities'?",
+        "options": {
+          "A": "relating to thinking, learning and understanding",
+          "B": "relating to physical movement",
+          "C": "relating to emotions",
+          "D": "relating to music"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "relating to thinking, learning and understanding",
+        "difficulty": "hard",
+        "source": {
+          "page": 10,
+          "reference": "Exercise 2: Vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Cognitive' relates to the mental processes of thinking and understanding."
+          ],
+          "summary": "cognitive = relating to thinking."
+        },
+        "explanation": "Cognitive abilities include memory and problem-solving."
+      },
+      {
+        "id": "U01-L05-Q033",
+        "number": 33,
+        "question": "What does the text conclude about identity?",
+        "options": {
+          "A": "identity is complex and shaped by many interacting factors",
+          "B": "identity is simple and fixed",
+          "C": "identity is entirely genetic",
+          "D": "identity is entirely environmental"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "identity is complex and shaped by many interacting factors",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph D"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Identity is complex and results from many factors working together."
+          ],
+          "summary": "Identity is complex."
+        },
+        "explanation": "No single factor explains who we are."
+      },
+      {
+        "id": "U01-L05-Q034",
+        "number": 34,
+        "question": "What does 'resilient' mean in the text?",
+        "options": {
+          "A": "able to recover quickly from difficulties",
+          "B": "unable to change",
+          "C": "very tall and strong",
+          "D": "extremely quiet"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "able to recover quickly from difficulties",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Exercise 2: Vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Resilient' means able to recover quickly from problems or setbacks."
+          ],
+          "summary": "resilient = able to bounce back."
+        },
+        "explanation": "Resilient people cope well with challenges."
+      },
+      {
+        "id": "U01-L05-Q035",
+        "number": 35,
+        "question": "What does the text say about the nature vs nurture debate in schools?",
+        "options": {
+          "A": "understanding it can help teachers support students better",
+          "B": "schools should ignore it",
+          "C": "only science teachers need to know about it",
+          "D": "it is too complicated for students"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "understanding it can help teachers support students better",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph D"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Understanding the debate helps educators create better learning environments."
+          ],
+          "summary": "It helps teachers support students."
+        },
+        "explanation": "Awareness of both factors improves education."
+      },
+      {
+        "id": "U01-L05-Q036",
+        "number": 36,
+        "question": "What does 'identity' mean in the text?",
+        "options": {
+          "A": "the qualities, beliefs and characteristics that make a person unique",
+          "B": "a type of document",
+          "C": "a mathematical equation",
+          "D": "a type of food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the qualities, beliefs and characteristics that make a person unique",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "Reading: introduction"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Identity' refers to the qualities and characteristics that define who a person is."
+          ],
+          "summary": "identity = who you are."
+        },
+        "explanation": "It includes personality, values and beliefs."
+      },
+      {
+        "id": "U01-L05-Q037",
+        "number": 37,
+        "question": "What does the text say about the role of culture?",
+        "options": {
+          "A": "different cultures shape different values and behaviours",
+          "B": "culture has no effect on personality",
+          "C": "all cultures are the same",
+          "D": "culture is only about food and music"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "different cultures shape different values and behaviours",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph C"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Different cultures shape different values, attitudes and behaviours."
+          ],
+          "summary": "Culture shapes identity."
+        },
+        "explanation": "This is part of the nurture argument."
+      },
+      {
+        "id": "U01-L05-Q038",
+        "number": 38,
+        "question": "What does 'express' mean in 'express our identity'?",
+        "options": {
+          "A": "to show or communicate who we are",
+          "B": "to hide our feelings",
+          "C": "to travel quickly",
+          "D": "to buy something"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to show or communicate who we are",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "Exercise 3: Vocabulary in context"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Express' means to show or communicate thoughts, feelings or identity."
+          ],
+          "summary": "express = show/communicate."
+        },
+        "explanation": "We express our identity through clothes, music and behaviour."
+      },
+      {
+        "id": "U01-L05-Q039",
+        "number": 39,
+        "question": "What does the text say about the future of the debate?",
+        "options": {
+          "A": "new research will continue to deepen our understanding",
+          "B": "the debate will be solved tomorrow",
+          "C": "no more research is needed",
+          "D": "the debate is boring"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "new research will continue to deepen our understanding",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Reading: paragraph D"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Future research will continue to add to our understanding of identity."
+          ],
+          "summary": "Research will continue."
+        },
+        "explanation": "The debate is ongoing and evolving."
+      },
+      {
+        "id": "U01-L05-Q040",
+        "number": 40,
+        "question": "What does 'self-aware' mean?",
+        "options": {
+          "A": "having a clear understanding of your own character and feelings",
+          "B": "not knowing anything about yourself",
+          "C": "being very angry",
+          "D": "being physically strong"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "having a clear understanding of your own character and feelings",
+        "difficulty": "medium",
+        "source": {
+          "page": 10,
+          "reference": "Exercise 2: Vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Self-aware' means knowing and understanding your own character, feelings and motives."
+          ],
+          "summary": "self-aware = knowing yourself."
+        },
+        "explanation": "Self-awareness helps us grow as individuals."
+      }
+    ]
+  }
+}

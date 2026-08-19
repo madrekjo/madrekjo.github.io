@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "2",
+    "lesson_name": "Speaking and Vocabulary",
+    "unit_number": 1,
+    "unit_name": "Identity",
+    "page_start": 6,
+    "page_end": 7,
+    "questions": [
+      {
+        "id": "U01-L02-Q001",
+        "number": 1,
+        "question": "What does 'a cold fish' mean?",
+        "options": {
+          "A": "an unfriendly person who hides their feelings",
+          "B": "a person who loves cold weather",
+          "C": "a very calm person",
+          "D": "a shy but talented person"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "an unfriendly person who hides their feelings",
+        "difficulty": "medium",
+        "source": {
+          "page": 6,
+          "reference": "Personality idioms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'A cold fish' is an idiom for an unfriendly person who does not show emotions."
+          ],
+          "summary": "a cold fish = an unfriendly person."
+        },
+        "explanation": "The idiom 'a cold fish' describes someone who seems cold and distant."
+      },
+      {
+        "id": "U01-L02-Q002",
+        "number": 2,
+        "question": "What does 'a dark horse' mean?",
+        "options": {
+          "A": "a person with hidden ability who is not well known",
+          "B": "a person who rides horses",
+          "C": "an unlucky person",
+          "D": "a mysterious criminal"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a person with hidden ability who is not well known",
+        "difficulty": "medium",
+        "source": {
+          "page": 6,
+          "reference": "Personality idioms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'A dark horse' is an idiom for someone who keeps their abilities secret and surprises others."
+          ],
+          "summary": "a dark horse = someone with hidden ability."
+        },
+        "explanation": "A dark horse seems quiet but turns out to be surprisingly able."
+      },
+      {
+        "id": "U01-L02-Q003",
+        "number": 3,
+        "question": "What does 'a go-getter' mean?",
+        "options": {
+          "A": "an energetic, ambitious person who works hard to succeed",
+          "B": "a person who gets lost easily",
+          "C": "someone who takes things too quickly",
+          "D": "a person who gives up easily"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "an energetic, ambitious person who works hard to succeed",
+        "difficulty": "easy",
+        "source": {
+          "page": 6,
+          "reference": "Personality idioms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'A go-getter' is an energetic and determined person who tries hard to succeed."
+          ],
+          "summary": "a go-getter = an ambitious, hard-working person."
+        },
+        "explanation": "A go-getter is active and determined to achieve success."
+      },
+      {
+        "id": "U01-L02-Q004",
+        "number": 4,
+        "question": "What does 'a mover and shaker' mean?",
+        "options": {
+          "A": "an important person with power and influence",
+          "B": "a person who works out at the gym",
+          "C": "someone who changes jobs often",
+          "D": "a restless, active person"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "an important person with power and influence",
+        "difficulty": "hard",
+        "source": {
+          "page": 6,
+          "reference": "Personality idioms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'A mover and shaker' is an idiom for an important, influential person."
+          ],
+          "summary": "a mover and shaker = an influential person."
+        },
+        "explanation": "Movers and shakers are people who have power and influence in an organisation."
+      },
+      {
+        "id": "U01-L02-Q005",
+        "number": 5,
+        "question": "What does 'a smart alec' mean?",
+        "options": {
+          "A": "a person who annoyingly shows off their cleverness",
+          "B": "a person who is intelligent and kind",
+          "C": "a quiet, modest genius",
+          "D": "a person who tells good jokes"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a person who annoyingly shows off their cleverness",
+        "difficulty": "hard",
+        "source": {
+          "page": 6,
+          "reference": "Personality idioms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'A smart alec' describes someone who is irritatingly eager to show how clever they are."
+          ],
+          "summary": "a smart alec = an annoying know-it-all."
+        },
+        "explanation": "A smart alec keeps showing off their knowledge in an annoying way."
+      },
+      {
+        "id": "U01-L02-Q006",
+        "number": 6,
+        "question": "What does 'a smart cookie' mean?",
+        "options": {
+          "A": "a clever and sensible person",
+          "B": "a person who loves cakes",
+          "C": "an unfriendly person",
+          "D": "a person who makes quick decisions"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a clever and sensible person",
+        "difficulty": "medium",
+        "source": {
+          "page": 6,
+          "reference": "Personality idioms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'A smart cookie' means a clever, intelligent and sensible person."
+          ],
+          "summary": "a smart cookie = a clever person."
+        },
+        "explanation": "The idiom 'a smart cookie' is a compliment meaning someone is smart."
+      },
+      {
+        "id": "U01-L02-Q007",
+        "number": 7,
+        "question": "What does 'a soft touch' mean?",
+        "options": {
+          "A": "a person who is easy to persuade to give money or help",
+          "B": "a person who is gentle to touch",
+          "C": "a strict, unkind person",
+          "D": "a person who avoids contact with others"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a person who is easy to persuade to give money or help",
+        "difficulty": "hard",
+        "source": {
+          "page": 6,
+          "reference": "Personality idioms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'A soft touch' is a person who is easily persuaded, especially to lend money or help."
+          ],
+          "summary": "a soft touch = someone easy to persuade."
+        },
+        "explanation": "A soft touch finds it hard to refuse requests for money or help."
+      },
+      {
+        "id": "U01-L02-Q008",
+        "number": 8,
+        "question": "What does 'a social butterfly' mean?",
+        "options": {
+          "A": "a friendly person who enjoys spending time with many people",
+          "B": "a person who collects butterflies",
+          "C": "a shy person who avoids parties",
+          "D": "a person who talks about insects"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a friendly person who enjoys spending time with many people",
+        "difficulty": "easy",
+        "source": {
+          "page": 6,
+          "reference": "Personality idioms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'A social butterfly' is a very sociable person who loves being with lots of people."
+          ],
+          "summary": "a social butterfly = a very sociable person."
+        },
+        "explanation": "A social butterfly moves easily among many people and enjoys social events."
+      },
+      {
+        "id": "U01-L02-Q009",
+        "number": 9,
+        "question": "What does 'keep yourself to yourself' mean?",
+        "options": {
+          "A": "to be private and not mix with other people",
+          "B": "to keep your own secrets from yourself",
+          "C": "to take care of your own health",
+          "D": "to control your own feelings"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to be private and not mix with other people",
+        "difficulty": "medium",
+        "source": {
+          "page": 6,
+          "reference": "Personality idioms"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Keep yourself to yourself' means to stay private and avoid mixing with others."
+          ],
+          "summary": "keep yourself to yourself = stay private."
+        },
+        "explanation": "People who keep themselves to themselves avoid socialising much."
+      },
+      {
+        "id": "U01-L02-Q010",
+        "number": 10,
+        "question": "In the quiz, 'I want to make sure that I am playing to my strengths' means the person ...",
+        "options": {
+          "A": "wants to use the things they are good at",
+          "B": "wants to win at sports",
+          "C": "wants to learn new skills",
+          "D": "wants to appear strong"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "wants to use the things they are good at",
+        "difficulty": "medium",
+        "source": {
+          "page": 6,
+          "reference": "Exercise 1: Quiz answers"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Playing to your strengths' means making the most of your abilities."
+          ],
+          "summary": "playing to your strengths = using your abilities."
+        },
+        "explanation": "If you play to your strengths, you focus on what you do well."
+      },
+      {
+        "id": "U01-L02-Q011",
+        "number": 11,
+        "question": "A quiz answer says: 'I'm a bit thin-skinned and not competitive, so I'll pass.' This means the person ...",
+        "options": {
+          "A": "is easily hurt and does not like competing, so refuses",
+          "B": "is tough and loves winning",
+          "C": "will take part because they enjoy challenges",
+          "D": "has no opinion about the quiz"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "is easily hurt and does not like competing, so refuses",
+        "difficulty": "medium",
+        "source": {
+          "page": 6,
+          "reference": "Exercise 1: Quiz answers"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Thin-skinned' means easily upset and 'not competitive' means not liking to compete, so the person refuses."
+          ],
+          "summary": "The person refuses because they are easily hurt and not competitive."
+        },
+        "explanation": "The answer 'I'll pass' shows the person does not want to take part."
+      },
+      {
+        "id": "U01-L02-Q012",
+        "number": 12,
+        "question": "In the quiz answer 'I know that deep down I'm a go-getter', the phrase 'deep down' means ...",
+        "options": {
+          "A": "in my true feelings",
+          "B": "at the bottom of a sea",
+          "C": "in a secret place",
+          "D": "for a long time"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "in my true feelings",
+        "difficulty": "hard",
+        "source": {
+          "page": 6,
+          "reference": "Exercise 1: Quiz answers"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Deep down' means in one's true or real feelings, hidden underneath."
+          ],
+          "summary": "deep down = in your true feelings."
+        },
+        "explanation": "Saying something is true deep down means it is what you really feel inside."
+      },
+      {
+        "id": "U01-L02-Q013",
+        "number": 13,
+        "question": "Complete: 'A personality test is a 1 ______ questionnaire created by psychologists.'",
+        "options": {
+          "A": "personal",
+          "B": "professional",
+          "C": "public",
+          "D": "physical"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "personal",
+        "difficulty": "easy",
+        "source": {
+          "page": 6,
+          "reference": "Exercise 3: Gap fill"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The correct word is 'personal' — a personal questionnaire."
+          ],
+          "summary": "A personality test is a personal questionnaire."
+        },
+        "explanation": "Psychologists create personal questionnaires used in the job process."
+      },
+      {
+        "id": "U01-L02-Q014",
+        "number": 14,
+        "question": "Complete: 'It is used by companies to help them in their 2 ______ process.'",
+        "options": {
+          "A": "job",
+          "B": "leisure",
+          "C": "shopping",
+          "D": "learning"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "job",
+        "difficulty": "easy",
+        "source": {
+          "page": 6,
+          "reference": "Exercise 3: Gap fill"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The correct word is 'job' — the job (hiring) process."
+          ],
+          "summary": "Companies use the tests in their job process."
+        },
+        "explanation": "Personality tests help companies choose candidates during the job process."
+      },
+      {
+        "id": "U01-L02-Q015",
+        "number": 15,
+        "question": "Complete: 'The test is usually presented by a 3 ______ or an online platform.'",
+        "options": {
+          "A": "speaker",
+          "B": "singer",
+          "C": "candidate",
+          "D": "manager"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "speaker",
+        "difficulty": "medium",
+        "source": {
+          "page": 6,
+          "reference": "Exercise 3: Gap fill"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The correct word is 'speaker'."
+          ],
+          "summary": "A speaker presents the test."
+        },
+        "explanation": "A personality test is presented by a speaker or an online platform."
+      },
+      {
+        "id": "U01-L02-Q016",
+        "number": 16,
+        "question": "Complete: 'A 4 ______ person fills it in.'",
+        "options": {
+          "A": "quiz",
+          "B": "clever",
+          "C": "random",
+          "D": "busy"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "quiz",
+        "difficulty": "hard",
+        "source": {
+          "page": 6,
+          "reference": "Exercise 3: Gap fill"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The correct word is 'quiz' — a quiz person fills it in."
+          ],
+          "summary": "A quiz person fills in the questionnaire."
+        },
+        "explanation": "The person taking the test fills in the questionnaire."
+      },
+      {
+        "id": "U01-L02-Q017",
+        "number": 17,
+        "question": "Complete: 'Then, a 5 ______ reads the answers and gives the results.'",
+        "options": {
+          "A": "interviewer",
+          "B": "psychologist",
+          "C": "colleague",
+          "D": "viewer"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "interviewer",
+        "difficulty": "easy",
+        "source": {
+          "page": 6,
+          "reference": "Exercise 3: Gap fill"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The correct word is 'interviewer'."
+          ],
+          "summary": "An interviewer reads the answers."
+        },
+        "explanation": "After the test, an interviewer reads the answers and gives the results."
+      },
+      {
+        "id": "U01-L02-Q018",
+        "number": 18,
+        "question": "Which of these phrases is used to CHECK that you have understood someone?",
+        "options": {
+          "A": "In other words, ...",
+          "B": "In my opinion, ...",
+          "C": "To sum up, ...",
+          "D": "On the one hand, ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "In other words, ...",
+        "difficulty": "easy",
+        "source": {
+          "page": 6,
+          "reference": "Speaking box: Paraphrasing what you hear"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'In other words ...' restates what someone said to check understanding."
+          ],
+          "summary": "In other words = checking understanding."
+        },
+        "explanation": "The phrases 'In other words', 'If I'm hearing you correctly' and 'Let me get this straight' check understanding."
+      },
+      {
+        "id": "U01-L02-Q019",
+        "number": 19,
+        "question": "Which phrase from the Speaking box would you use to restate an idea in a different way?",
+        "options": {
+          "A": "To put it another way, ...",
+          "B": "Essentially, ...",
+          "C": "In a nutshell, ...",
+          "D": "Simply put, ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "To put it another way, ...",
+        "difficulty": "medium",
+        "source": {
+          "page": 6,
+          "reference": "Speaking box: Paraphrasing what you hear"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'To put it another way' introduces a paraphrase of what someone said."
+          ],
+          "summary": "To put it another way = restating differently."
+        },
+        "explanation": "This phrase shows you are re-expressing an idea in different words."
+      },
+      {
+        "id": "U01-L02-Q020",
+        "number": 20,
+        "question": "Which phrase means you want to confirm that what you understood is correct?",
+        "options": {
+          "A": "If I'm hearing you correctly, ...",
+          "B": "In a nutshell, ...",
+          "C": "So, what it boils down to is ...",
+          "D": "On the whole, ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "If I'm hearing you correctly, ...",
+        "difficulty": "easy",
+        "source": {
+          "page": 6,
+          "reference": "Speaking box: Paraphrasing what you hear"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'If I'm hearing you correctly' is used to check your understanding of what was said."
+          ],
+          "summary": "If I'm hearing you correctly = checking understanding."
+        },
+        "explanation": "This phrase politely checks that you understood the speaker correctly."
+      },
+      {
+        "id": "U01-L02-Q021",
+        "number": 21,
+        "question": "Which phrase is used to check understanding before repeating what someone said?",
+        "options": {
+          "A": "Let me get this straight ...",
+          "B": "Essentially, ...",
+          "C": "To sum up, ...",
+          "D": "Generally speaking, ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Let me get this straight ...",
+        "difficulty": "medium",
+        "source": {
+          "page": 6,
+          "reference": "Speaking box: Paraphrasing what you hear"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Let me get this straight' introduces a question that checks your understanding."
+          ],
+          "summary": "Let me get this straight = checking understanding."
+        },
+        "explanation": "You use this phrase to confirm the facts before continuing."
+      },
+      {
+        "id": "U01-L02-Q022",
+        "number": 22,
+        "question": "Which phrase below is used to check understanding?",
+        "options": {
+          "A": "So you're saying (that) ...",
+          "B": "In a nutshell, ...",
+          "C": "Simply put, ...",
+          "D": "Essentially, ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "So you're saying (that) ...",
+        "difficulty": "easy",
+        "source": {
+          "page": 6,
+          "reference": "Speaking box: Paraphrasing what you hear"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'So you're saying (that) ...' checks that you understood the speaker's meaning."
+          ],
+          "summary": "So you're saying (that) = checking understanding."
+        },
+        "explanation": "This phrase repeats the other person's point to confirm it."
+      },
+      {
+        "id": "U01-L02-Q023",
+        "number": 23,
+        "question": "Which phrase would you use to SUMMARISE what someone has said?",
+        "options": {
+          "A": "In a nutshell, ...",
+          "B": "Let me get this straight ...",
+          "C": "If I'm hearing you correctly, ...",
+          "D": "To put it another way, ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "In a nutshell, ...",
+        "difficulty": "easy",
+        "source": {
+          "page": 6,
+          "reference": "Speaking box: Paraphrasing what you hear"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'In a nutshell' introduces a short summary of the main points."
+          ],
+          "summary": "In a nutshell = summarising."
+        },
+        "explanation": "You use 'In a nutshell' to give a brief summary of what was said."
+      },
+      {
+        "id": "U01-L02-Q024",
+        "number": 24,
+        "question": "Which of the following phrases is used to SUMMARISE rather than to check understanding?",
+        "options": {
+          "A": "Simply put, ...",
+          "B": "In other words, ...",
+          "C": "So you're saying (that) ...",
+          "D": "Let me get this straight ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Simply put, ...",
+        "difficulty": "medium",
+        "source": {
+          "page": 6,
+          "reference": "Speaking box: Paraphrasing what you hear"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Simply put' introduces a summary in simple terms."
+          ],
+          "summary": "Simply put = summarising."
+        },
+        "explanation": "'Simply put', 'Essentially', 'In a nutshell' and 'boils down to' are summarising phrases."
+      },
+      {
+        "id": "U01-L02-Q025",
+        "number": 25,
+        "question": "Complete: '______ , what it boils down to is that the test is not reliable.'",
+        "options": {
+          "A": "So",
+          "B": "But",
+          "C": "Because",
+          "D": "Although"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "So",
+        "difficulty": "hard",
+        "source": {
+          "page": 6,
+          "reference": "Speaking box: Paraphrasing what you hear"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The phrase is 'So, what it boils down to is that ...' — a summarising expression."
+          ],
+          "summary": "So, what it boils down to is ... = summarising."
+        },
+        "explanation": "This expression summarises the essential point of what was said."
+      },
+      {
+        "id": "U01-L02-Q026",
+        "number": 26,
+        "question": "Which of these phrases would you use to introduce a summary of the main idea?",
+        "options": {
+          "A": "Essentially, ...",
+          "B": "If I'm hearing you correctly, ...",
+          "C": "To put it another way, ...",
+          "D": "Let me get this straight ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Essentially, ...",
+        "difficulty": "easy",
+        "source": {
+          "page": 6,
+          "reference": "Speaking box: Paraphrasing what you hear"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Essentially' introduces the main, essential point of what was said."
+          ],
+          "summary": "Essentially = summarising."
+        },
+        "explanation": "You use 'Essentially' when giving the key point in short."
+      },
+      {
+        "id": "U01-L02-Q027",
+        "number": 27,
+        "question": "Which of the following statements is a point IN FAVOUR of using psychometric tests?",
+        "options": {
+          "A": "It's better to know as much about a candidate as possible.",
+          "B": "If a candidate is nervous, they may not perform well.",
+          "C": "People may do badly in the tests.",
+          "D": "It can be expensive to administer and mark the tests."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "It's better to know as much about a candidate as possible.",
+        "difficulty": "medium",
+        "source": {
+          "page": 6,
+          "reference": "Exercise 5: Discussion statements"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Knowing as much as possible about a candidate supports the use of tests."
+          ],
+          "summary": "In favour: more information about the candidate."
+        },
+        "explanation": "The other options list drawbacks of psychometric tests."
+      },
+      {
+        "id": "U01-L02-Q028",
+        "number": 28,
+        "question": "Which of the following statements is a point IN FAVOUR of psychometric tests?",
+        "options": {
+          "A": "They are usually quick and easy to do.",
+          "B": "A candidate may know what the interviewer wants to hear.",
+          "C": "They can be expensive to administer.",
+          "D": "Candidates may do badly in them."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "They are usually quick and easy to do.",
+        "difficulty": "medium",
+        "source": {
+          "page": 6,
+          "reference": "Exercise 5: Discussion statements"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "That tests are quick and easy is given as a positive point."
+          ],
+          "summary": "In favour: quick and easy."
+        },
+        "explanation": "The other statements present reasons against using the tests."
+      },
+      {
+        "id": "U01-L02-Q029",
+        "number": 29,
+        "question": "Which of the following statements is a point AGAINST using psychometric tests?",
+        "options": {
+          "A": "A nervous candidate may not perform well in an interview.",
+          "B": "It's better to know as much about a candidate as possible.",
+          "C": "They help companies understand candidates.",
+          "D": "They give a fair chance to quiet candidates."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A nervous candidate may not perform well in an interview.",
+        "difficulty": "medium",
+        "source": {
+          "page": 6,
+          "reference": "Exercise 5: Discussion statements"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "That a nervous candidate may not perform well is a drawback of the tests."
+          ],
+          "summary": "Against: nervous candidates may do badly."
+        },
+        "explanation": "Nervousness could cause good candidates to fail, so this argues against the tests."
+      },
+      {
+        "id": "U01-L02-Q030",
+        "number": 30,
+        "question": "Which of the following is a point AGAINST relying on psychometric tests?",
+        "options": {
+          "A": "People may do badly in them.",
+          "B": "They save the company time.",
+          "C": "They are quick and easy to do.",
+          "D": "They give a lot of useful information."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "People may do badly in them.",
+        "difficulty": "medium",
+        "source": {
+          "page": 6,
+          "reference": "Exercise 5: Discussion statements"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "That people may do badly in the tests is a reason against relying on them."
+          ],
+          "summary": "Against: people may do badly."
+        },
+        "explanation": "If capable people can fail the tests, the tests are not reliable."
+      },
+      {
+        "id": "U01-L02-Q031",
+        "number": 31,
+        "question": "Which of the following is a point AGAINST psychometric tests?",
+        "options": {
+          "A": "The candidate may know what the interviewer wants to hear.",
+          "B": "They are usually quick to do.",
+          "C": "They reveal more about the candidate.",
+          "D": "They are easy to mark."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The candidate may know what the interviewer wants to hear.",
+        "difficulty": "medium",
+        "source": {
+          "page": 6,
+          "reference": "Exercise 5: Discussion statements"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "If the candidate can guess what the interviewer wants, the test result is less reliable."
+          ],
+          "summary": "Against: candidates may give expected answers."
+        },
+        "explanation": "Candidates might answer what they think the interviewer wants rather than truthfully."
+      },
+      {
+        "id": "U01-L02-Q032",
+        "number": 32,
+        "question": "Which of the following is a point AGAINST psychometric tests?",
+        "options": {
+          "A": "It can be expensive to administer and mark the tests.",
+          "B": "They are quick and easy to do.",
+          "C": "They help choose the best candidate.",
+          "D": "They are based on science."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "It can be expensive to administer and mark the tests.",
+        "difficulty": "medium",
+        "source": {
+          "page": 6,
+          "reference": "Exercise 5: Discussion statements"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The cost of administering and marking the tests is a drawback."
+          ],
+          "summary": "Against: they can be expensive."
+        },
+        "explanation": "Companies may find the tests costly to run and mark."
+      },
+      {
+        "id": "U01-L02-Q033",
+        "number": 33,
+        "question": "According to the discussion statements, what is described as unusual?",
+        "options": {
+          "A": "someone leaving school without a career idea",
+          "B": "a candidate feeling nervous in an interview",
+          "C": "a candidate doing badly in a test",
+          "D": "a company using personality tests"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "someone leaving school without a career idea",
+        "difficulty": "hard",
+        "source": {
+          "page": 6,
+          "reference": "Exercise 5: Discussion statements"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "One statement says it is unusual for someone to leave school without a career idea."
+          ],
+          "summary": "It is unusual to leave school with no career idea."
+        },
+        "explanation": "The statement questions how common it is to finish school without an idea of a career."
+      },
+      {
+        "id": "U01-L02-Q034",
+        "number": 34,
+        "question": "In the listening, 'For many people, the word 1 ______ has negative associations.'",
+        "options": {
+          "A": "personality tests",
+          "B": "interviews",
+          "C": "universities",
+          "D": "careers"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "personality tests",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Listening gap fill: gap 1"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The psychologist says the word 'personality tests' has negative associations for many people."
+          ],
+          "summary": "The word is 'personality tests'."
+        },
+        "explanation": "Many people see personality tests as gimmicky or pseudo-scientific."
+      },
+      {
+        "id": "U01-L02-Q035",
+        "number": 35,
+        "question": "In the listening, the psychologist says the results are not ______ .",
+        "options": {
+          "A": "fixed",
+          "B": "chosen",
+          "C": "free",
+          "D": "found"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "fixed",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Listening gap fill: gap 3"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The talk says 'it is not 3 ______ - the results are not fixed'."
+          ],
+          "summary": "The results are not fixed."
+        },
+        "explanation": "Test results can change over time."
+      },
+      {
+        "id": "U01-L02-Q036",
+        "number": 36,
+        "question": "In the listening, 'an individual's job ______ can change over time.'",
+        "options": {
+          "A": "performance",
+          "B": "salary",
+          "C": "contract",
+          "D": "location"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "performance",
+        "difficulty": "medium",
+        "source": {
+          "page": 7,
+          "reference": "Listening gap fill: gap 4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The talk says an individual's job performance can change over time."
+          ],
+          "summary": "Job performance can change."
+        },
+        "explanation": "Test results and job performance are not permanent."
+      },
+      {
+        "id": "U01-L02-Q037",
+        "number": 37,
+        "question": "In the listening, what can also affect the results of a personality test?",
+        "options": {
+          "A": "mental and physical health",
+          "B": "the weather",
+          "C": "the time of day",
+          "D": "the number of questions"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "mental and physical health",
+        "difficulty": "easy",
+        "source": {
+          "page": 7,
+          "reference": "Listening gap fill: gap 5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The talk says an individual's mental and physical health can also affect the results."
+          ],
+          "summary": "Mental and physical health affect the results."
+        },
+        "explanation": "Changes in life and health can change test results."
+      },
+      {
+        "id": "U01-L02-Q038",
+        "number": 38,
+        "question": "In the listening, 'No one is hired on the basis of a ______ personality test alone.'",
+        "options": {
+          "A": "single",
+          "B": "double",
+          "C": "weekly",
+          "D": "monthly"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "single",
+        "difficulty": "medium",
+        "source": {
+          "page": 7,
+          "reference": "Listening gap fill"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The talk says no one is hired on the basis of a single personality test alone."
+          ],
+          "summary": "No one is hired on one test alone."
+        },
+        "explanation": "Employers should use a combination of methods, not a single test."
+      },
+      {
+        "id": "U01-L02-Q039",
+        "number": 39,
+        "question": "In the listening, what is 'always best' according to the psychologist?",
+        "options": {
+          "A": "a combination of methods",
+          "B": "one long interview",
+          "C": "more personality tests",
+          "D": "no hiring process"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a combination of methods",
+        "difficulty": "medium",
+        "source": {
+          "page": 7,
+          "reference": "Listening gap fill"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The talk says 'a combination of methods is always best'."
+          ],
+          "summary": "A combination of methods is always best."
+        },
+        "explanation": "Recruiters should combine several methods to judge candidates."
+      },
+      {
+        "id": "U01-L02-Q040",
+        "number": 40,
+        "question": "What should people in recruiting consider as crucial to performance?",
+        "options": {
+          "A": "the working environment",
+          "B": "the office design",
+          "C": "the applicant's age",
+          "D": "the number of applications"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the working environment",
+        "difficulty": "hard",
+        "source": {
+          "page": 7,
+          "reference": "Listening gap fill"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The talk says 'The working environment is crucial to performance'."
+          ],
+          "summary": "The working environment is crucial."
+        },
+        "explanation": "Recruiters should also consider the working environment."
+      }
+    ]
+  }
+}

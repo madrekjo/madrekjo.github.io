@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "2",
+    "lesson_name": "Reading and Vocabulary",
+    "unit_number": 4,
+    "unit_name": "Tastes",
+    "page_start": 40,
+    "page_end": 41,
+    "questions": [
+      {
+        "id": "U04-L02-Q001",
+        "number": 1,
+        "question": "What does the word 'aromatic' mean when describing food?",
+        "options": {
+          "A": "Smelling strong and pleasant",
+          "B": "Very salty",
+          "C": "Extremely spicy",
+          "D": "Cold and refreshing"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Smelling strong and pleasant",
+        "difficulty": "easy",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Aromatic means having a pleasant, distinctive smell."
+          ],
+          "summary": "Aromatic describes a pleasant smell."
+        },
+        "explanation": "Aromatic means having a strong, pleasant smell."
+      },
+      {
+        "id": "U04-L02-Q002",
+        "number": 2,
+        "question": "Sushi is a traditional dish from which country?",
+        "options": {
+          "A": "Japan",
+          "B": "China",
+          "C": "Korea",
+          "D": "Thailand"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Japan",
+        "difficulty": "easy",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Sushi is a well-known Japanese dish made with vinegared rice."
+          ],
+          "summary": "Sushi originates from Japan."
+        },
+        "explanation": "Sushi is a traditional Japanese food."
+      },
+      {
+        "id": "U04-L02-Q003",
+        "number": 3,
+        "question": "What is the meaning of 'savoury'?",
+        "options": {
+          "A": "Having a salty or spicy taste, not sweet",
+          "B": "Very sweet and sugary",
+          "C": "Extremely bitter",
+          "D": "Plain and tasteless"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Having a salty or spicy taste, not sweet",
+        "difficulty": "easy",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Savoury describes food that is salty or spicy rather than sweet."
+          ],
+          "summary": "Savoury means not sweet."
+        },
+        "explanation": "Savoury food has a salty or spicy flavour."
+      },
+      {
+        "id": "U04-L02-Q004",
+        "number": 4,
+        "question": "Paella is a famous dish from which country?",
+        "options": {
+          "A": "Spain",
+          "B": "Italy",
+          "C": "France",
+          "D": "Portugal"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Spain",
+        "difficulty": "easy",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Paella is a Spanish rice dish, originally from Valencia."
+          ],
+          "summary": "Paella is a Spanish dish."
+        },
+        "explanation": "Paella is a traditional dish from Spain."
+      },
+      {
+        "id": "U04-L02-Q005",
+        "number": 5,
+        "question": "What does 'gourmet' mean?",
+        "options": {
+          "A": "Of high quality and fine taste",
+          "B": "Cheap and simple",
+          "C": "Very spicy",
+          "D": "Raw and uncooked"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Of high quality and fine taste",
+        "difficulty": "easy",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Gourmet describes high-quality food prepared with care."
+          ],
+          "summary": "Gourmet means high-quality food."
+        },
+        "explanation": "A gourmet meal is of fine quality."
+      },
+      {
+        "id": "U04-L02-Q006",
+        "number": 6,
+        "question": "Which of these is a cooking method using dry heat in an oven?",
+        "options": {
+          "A": "Baking",
+          "B": "Boiling",
+          "C": "Steaming",
+          "D": "Frying"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Baking",
+        "difficulty": "easy",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Baking uses dry heat, typically in an oven."
+          ],
+          "summary": "Baking uses oven heat."
+        },
+        "explanation": "Baking is a dry-heat cooking method."
+      },
+      {
+        "id": "U04-L02-Q007",
+        "number": 7,
+        "question": "What does 'appetising' mean?",
+        "options": {
+          "A": "Looking or smelling good enough to eat",
+          "B": "Very unhealthy",
+          "C": "Extremely large",
+          "D": "Frozen and cold"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Looking or smelling good enough to eat",
+        "difficulty": "easy",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Appetising means making you want to eat something."
+          ],
+          "summary": "Appetising means appealing to eat."
+        },
+        "explanation": "An appetising dish looks or smells delicious."
+      },
+      {
+        "id": "U04-L02-Q008",
+        "number": 8,
+        "question": "Kebab refers to meat cooked in what way?",
+        "options": {
+          "A": "On a skewer over heat",
+          "B": "In a microwave",
+          "C": "In cold water",
+          "D": "Raw with sauce"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "On a skewer over heat",
+        "difficulty": "easy",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Kebab is meat cooked on a skewer over an open flame."
+          ],
+          "summary": "Kebab is skewered meat."
+        },
+        "explanation": "Kebab is meat grilled on a skewer."
+      },
+      {
+        "id": "U04-L02-Q009",
+        "number": 9,
+        "question": "What is 'nutritious' food?",
+        "options": {
+          "A": "Food that contains nutrients good for health",
+          "B": "Food that tastes bad",
+          "C": "Food that is very expensive",
+          "D": "Food that is always spicy"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Food that contains nutrients good for health",
+        "difficulty": "easy",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Nutritious food provides essential nutrients for the body."
+          ],
+          "summary": "Nutritious means healthy."
+        },
+        "explanation": "Nutritious food is good for your health."
+      },
+      {
+        "id": "U04-L02-Q010",
+        "number": 10,
+        "question": "Fondue is a dish that originated in which country?",
+        "options": {
+          "A": "Switzerland",
+          "B": "Germany",
+          "C": "Austria",
+          "D": "France"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Switzerland",
+        "difficulty": "medium",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Fondue is a Swiss dish of melted cheese for dipping."
+          ],
+          "summary": "Fondue originated in Switzerland."
+        },
+        "explanation": "Fondue is a traditional Swiss dish."
+      },
+      {
+        "id": "U04-L02-Q011",
+        "number": 11,
+        "question": "Which adjective describes food that is very spicy?",
+        "options": {
+          "A": "Piquant",
+          "B": "Bland",
+          "C": "Sugary",
+          "D": "Creamy"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Piquant",
+        "difficulty": "medium",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Piquant means having a sharp, spicy taste."
+          ],
+          "summary": "Piquant means spicy."
+        },
+        "explanation": "Piquant describes a sharp, spicy flavour."
+      },
+      {
+        "id": "U04-L02-Q012",
+        "number": 12,
+        "question": "In the reading, which country is known for its curry dishes?",
+        "options": {
+          "A": "India",
+          "B": "Japan",
+          "C": "Mexico",
+          "D": "Greece"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "India",
+        "difficulty": "medium",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "India is famous for its wide variety of curry dishes."
+          ],
+          "summary": "India is known for curry."
+        },
+        "explanation": "Curry is strongly associated with Indian cuisine."
+      },
+      {
+        "id": "U04-L02-Q013",
+        "number": 13,
+        "question": "What does the word 'bland' mean when describing food?",
+        "options": {
+          "A": "Having very little flavour",
+          "B": "Extremely hot and spicy",
+          "C": "Very sweet",
+          "D": "Crunchy and fresh"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Having very little flavour",
+        "difficulty": "medium",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Bland means lacking strong flavour."
+          ],
+          "summary": "Bland means flavourless."
+        },
+        "explanation": "Bland food has no strong taste."
+      },
+      {
+        "id": "U04-L02-Q014",
+        "number": 14,
+        "question": "Which of these is a traditional Mexican food?",
+        "options": {
+          "A": "Taco",
+          "B": "Sushi",
+          "C": "Pizza",
+          "D": "Hamburger"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Taco",
+        "difficulty": "medium",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Taco is a traditional Mexican dish with a folded tortilla."
+          ],
+          "summary": "Taco is Mexican food."
+        },
+        "explanation": "A taco is a classic Mexican dish."
+      },
+      {
+        "id": "U04-L02-Q015",
+        "number": 15,
+        "question": "What does 'cuisine' mean?",
+        "options": {
+          "A": "A style of cooking from a particular country",
+          "B": "A type of kitchen tool",
+          "C": "A cooking competition",
+          "D": "A food delivery service"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A style of cooking from a particular country",
+        "difficulty": "medium",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Cuisine refers to a characteristic style of cooking."
+          ],
+          "summary": "Cuisine means cooking style."
+        },
+        "explanation": "Cuisine is a country's style of cooking."
+      },
+      {
+        "id": "U04-L02-Q016",
+        "number": 16,
+        "question": "Which word best describes a dish that is very filling?",
+        "options": {
+          "A": "Hearty",
+          "B": "Tiny",
+          "C": "Bland",
+          "D": "Light"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Hearty",
+        "difficulty": "medium",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Hearty means substantial and filling."
+          ],
+          "summary": "Hearty means filling."
+        },
+        "explanation": "A hearty meal makes you feel full."
+      },
+      {
+        "id": "U04-L02-Q017",
+        "number": 17,
+        "question": "What is the main ingredient in traditional Italian pizza dough?",
+        "options": {
+          "A": "Flour",
+          "B": "Rice",
+          "C": "Corn",
+          "D": "Potato"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Flour",
+        "difficulty": "medium",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Pizza dough is primarily made from flour, water, yeast, and salt."
+          ],
+          "summary": "Flour is the main pizza ingredient."
+        },
+        "explanation": "Pizza dough is made mainly from flour."
+      },
+      {
+        "id": "U04-L02-Q018",
+        "number": 18,
+        "question": "The reading mentions that Japanese food is often described as what?",
+        "options": {
+          "A": "Light and fresh",
+          "B": "Heavy and greasy",
+          "C": "Very sweet",
+          "D": "Extremely spicy"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Light and fresh",
+        "difficulty": "medium",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Japanese cuisine is known for being light, fresh, and healthy."
+          ],
+          "summary": "Japanese food is light and fresh."
+        },
+        "explanation": "Japanese cuisine emphasises freshness."
+      },
+      {
+        "id": "U04-L02-Q019",
+        "number": 19,
+        "question": "What does 'exotic' mean when describing food?",
+        "options": {
+          "A": "From a foreign country, unusual and interesting",
+          "B": "Very plain and simple",
+          "C": "Extremely salty",
+          "D": "Made at home"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "From a foreign country, unusual and interesting",
+        "difficulty": "medium",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Exotic means originating from a distant, foreign place."
+          ],
+          "summary": "Exotic means foreign and unusual."
+        },
+        "explanation": "Exotic food comes from far-away places."
+      },
+      {
+        "id": "U04-L02-Q020",
+        "number": 20,
+        "question": "Which of these is a type of pasta?",
+        "options": {
+          "A": "Spaghetti",
+          "B": "Rice",
+          "C": "Bread",
+          "D": "Noodle"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Spaghetti",
+        "difficulty": "medium",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Spaghetti is a long, thin type of Italian pasta."
+          ],
+          "summary": "Spaghetti is pasta."
+        },
+        "explanation": "Spaghetti is a popular Italian pasta."
+      },
+      {
+        "id": "U04-L02-Q021",
+        "number": 21,
+        "question": "What does it mean to 'season' food?",
+        "options": {
+          "A": "To add salt, pepper, or herbs for flavour",
+          "B": "To cook food very slowly",
+          "C": "To cut food into small pieces",
+          "D": "To freeze food for later"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "To add salt, pepper, or herbs for flavour",
+        "difficulty": "hard",
+        "source": {
+          "page": "41",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Seasoning means adding flavour with salt, spices, or herbs."
+          ],
+          "summary": "Seasoning adds flavour."
+        },
+        "explanation": "To season food means to add flavour enhancers."
+      },
+      {
+        "id": "U04-L02-Q022",
+        "number": 22,
+        "question": "Which adjective describes food with a rich, complex taste?",
+        "options": {
+          "A": "Flavoursome",
+          "B": "Tasteless",
+          "C": "Watery",
+          "D": "Frozen"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Flavoursome",
+        "difficulty": "hard",
+        "source": {
+          "page": "41",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Flavoursome means full of flavour and tasty."
+          ],
+          "summary": "Flavoursome means tasty."
+        },
+        "explanation": "Flavoursome food has a rich taste."
+      },
+      {
+        "id": "U04-L02-Q023",
+        "number": 23,
+        "question": "What does the phrase 'a acquired taste' mean?",
+        "options": {
+          "A": "A flavour you learn to enjoy over time",
+          "B": "A food everyone likes immediately",
+          "C": "A very popular dish",
+          "D": "A food that is easy to cook"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A flavour you learn to enjoy over time",
+        "difficulty": "hard",
+        "source": {
+          "page": "41",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "An acquired taste is something you don't like at first but learn to enjoy."
+          ],
+          "summary": "Acquired taste is learned enjoyment."
+        },
+        "explanation": "An acquired taste takes time to appreciate."
+      },
+      {
+        "id": "U04-L02-Q024",
+        "number": 24,
+        "question": "In food writing, what does 'mouth-watering' describe?",
+        "options": {
+          "A": "Food so delicious it makes you want to eat it",
+          "B": "Food that is very wet",
+          "C": "Food that is too salty",
+          "D": "Food served with soup"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Food so delicious it makes you want to eat it",
+        "difficulty": "hard",
+        "source": {
+          "page": "41",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Mouth-watering describes food that looks extremely appetising."
+          ],
+          "summary": "Mouth-watering means very appetising."
+        },
+        "explanation": "Mouth-watering food looks irresistibly delicious."
+      },
+      {
+        "id": "U04-L02-Q025",
+        "number": 25,
+        "question": "What is the term for food that contains no animal products?",
+        "options": {
+          "A": "Vegan",
+          "B": "Vegetarian",
+          "C": "Gluten-free",
+          "D": "Organic"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Vegan",
+        "difficulty": "hard",
+        "source": {
+          "page": "41",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Vegan food contains no animal products whatsoever."
+          ],
+          "summary": "Vegan means no animal products."
+        },
+        "explanation": "A vegan diet excludes all animal products."
+      },
+      {
+        "id": "U04-L02-Q026",
+        "number": 26,
+        "question": "What does 'gastronomy' refer to?",
+        "options": {
+          "A": "The art and culture of food and eating",
+          "B": "A type of cooking equipment",
+          "C": "A fast-food restaurant",
+          "D": "A food delivery company"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The art and culture of food and eating",
+        "difficulty": "hard",
+        "source": {
+          "page": "41",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Gastronomy is the study of food culture and fine eating."
+          ],
+          "summary": "Gastronomy is food culture."
+        },
+        "explanation": "Gastronomy relates to the art of fine eating."
+      },
+      {
+        "id": "U04-L02-Q027",
+        "number": 27,
+        "question": "Which word describes food that is crispy and golden from cooking?",
+        "options": {
+          "A": "Crispy",
+          "B": "Mushy",
+          "C": "Raw",
+          "D": "Frozen"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Crispy",
+        "difficulty": "hard",
+        "source": {
+          "page": "41",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Crispy describes food that has a hard, crunchy texture."
+          ],
+          "summary": "Crispy means crunchy."
+        },
+        "explanation": "Crispy food has a golden, crunchy texture."
+      },
+      {
+        "id": "U04-L02-Q028",
+        "number": 28,
+        "question": "What does 'culinary' mean?",
+        "options": {
+          "A": "Related to cooking and the kitchen",
+          "B": "Related to farming",
+          "C": "Related to eating quickly",
+          "D": "Related to food storage"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Related to cooking and the kitchen",
+        "difficulty": "hard",
+        "source": {
+          "page": "41",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Culinary relates to the art or practice of cooking."
+          ],
+          "summary": "Culinary means related to cooking."
+        },
+        "explanation": "Culinary refers to kitchen and cooking skills."
+      },
+      {
+        "id": "U04-L02-Q029",
+        "number": 29,
+        "question": "In a food review, what does 'subpar' mean?",
+        "options": {
+          "A": "Below the expected standard",
+          "B": "Excellent quality",
+          "C": "Very expensive",
+          "D": "Extremely popular"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Below the expected standard",
+        "difficulty": "hard",
+        "source": {
+          "page": "41",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Subpar means below average or not meeting standards."
+          ],
+          "summary": "Subpar means below standard."
+        },
+        "explanation": "Subpar food does not meet expectations."
+      },
+      {
+        "id": "U04-L02-Q030",
+        "number": 30,
+        "question": "What is the meaning of 'hearty' when used for a meal?",
+        "options": {
+          "A": "Large and satisfying, making you feel full",
+          "B": "Very small and light",
+          "C": "Extremely spicy",
+          "D": "Served cold"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Large and satisfying, making you feel full",
+        "difficulty": "hard",
+        "source": {
+          "page": "41",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Hearty describes a substantial, filling meal."
+          ],
+          "summary": "Hearty means satisfying and filling."
+        },
+        "explanation": "A hearty meal is substantial and satisfying."
+      },
+      {
+        "id": "U04-L02-Q031",
+        "number": 31,
+        "question": "Which food is traditionally associated with French cuisine?",
+        "options": {
+          "A": "Croissant",
+          "B": "Sushi",
+          "C": "Taco",
+          "D": "Hamburger"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Croissant",
+        "difficulty": "easy",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The croissant is a famous French pastry."
+          ],
+          "summary": "Croissant is French."
+        },
+        "explanation": "The croissant is a classic French pastry."
+      },
+      {
+        "id": "U04-L02-Q032",
+        "number": 32,
+        "question": "What does 'crumbly' describe about food texture?",
+        "options": {
+          "A": "Breaking apart into small pieces easily",
+          "B": "Very smooth and soft",
+          "C": "Extremely sticky",
+          "D": "Hard and solid"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Breaking apart into small pieces easily",
+        "difficulty": "medium",
+        "source": {
+          "page": "41",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Crumbly means easily broken into small crumbs."
+          ],
+          "summary": "Crumbly means easily broken."
+        },
+        "explanation": "Crumbly food breaks into small pieces."
+      },
+      {
+        "id": "U04-L02-Q033",
+        "number": 33,
+        "question": "What type of food is sushi classified as?",
+        "options": {
+          "A": "Seafood",
+          "B": "Dessert",
+          "C": "Soup",
+          "D": "Salad only"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Seafood",
+        "difficulty": "easy",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Sushi typically contains fish or seafood as a main ingredient."
+          ],
+          "summary": "Sushi is seafood-based."
+        },
+        "explanation": "Sushi is primarily a seafood dish."
+      },
+      {
+        "id": "U04-L02-Q034",
+        "number": 34,
+        "question": "What does the adjective 'zesty' mean?",
+        "options": {
+          "A": "Having a fresh, lively, and tangy taste",
+          "B": "Very plain and boring",
+          "C": "Extremely sweet",
+          "D": "Cold and frozen"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Having a fresh, lively, and tangy taste",
+        "difficulty": "medium",
+        "source": {
+          "page": "41",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Zesty describes food with a lively, tangy flavour."
+          ],
+          "summary": "Zesty means tangy and lively."
+        },
+        "explanation": "Zesty food has a fresh, sharp taste."
+      },
+      {
+        "id": "U04-L02-Q035",
+        "number": 35,
+        "question": "Which country is famous for its cheese and wine culture?",
+        "options": {
+          "A": "France",
+          "B": "Japan",
+          "C": "India",
+          "D": "China"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "France",
+        "difficulty": "easy",
+        "source": {
+          "page": "40",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "France is world-famous for its cheese and wine."
+          ],
+          "summary": "France is known for cheese."
+        },
+        "explanation": "France has a renowned cheese and wine culture."
+      },
+      {
+        "id": "U04-L02-Q036",
+        "number": 36,
+        "question": "What does 'indigenous' mean when describing food?",
+        "options": {
+          "A": "Originating naturally in a particular region",
+          "B": "Imported from another country",
+          "C": "Artificially flavoured",
+          "D": "Mass-produced"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Originating naturally in a particular region",
+        "difficulty": "hard",
+        "source": {
+          "page": "41",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Indigenous means native or originating in a specific area."
+          ],
+          "summary": "Indigenous means native."
+        },
+        "explanation": "Indigenous food originates from a local region."
+      },
+      {
+        "id": "U04-L02-Q037",
+        "number": 37,
+        "question": "What is a 'food critic'?",
+        "options": {
+          "A": "A person who reviews and judges food professionally",
+          "B": "A chef who cooks in a restaurant",
+          "C": "A person who delivers food",
+          "D": "A farmer who grows vegetables"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A person who reviews and judges food professionally",
+        "difficulty": "easy",
+        "source": {
+          "page": "41",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A food critic is a professional who writes reviews about food."
+          ],
+          "summary": "A food critic reviews food."
+        },
+        "explanation": "A food critic professionally evaluates food."
+      },
+      {
+        "id": "U04-L02-Q038",
+        "number": 38,
+        "question": "What does 'fermented' mean when describing food?",
+        "options": {
+          "A": "Processed by bacteria or yeast to develop flavour",
+          "B": "Cooked at very high temperature",
+          "C": "Cut into very thin slices",
+          "D": "Frozen for a long time"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Processed by bacteria or yeast to develop flavour",
+        "difficulty": "hard",
+        "source": {
+          "page": "41",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Fermented food is processed using microorganisms to change its flavour."
+          ],
+          "summary": "Fermented means processed by microorganisms."
+        },
+        "explanation": "Fermentation develops food flavour naturally."
+      },
+      {
+        "id": "U04-L02-Q039",
+        "number": 39,
+        "question": "What is a 'delicacy'?",
+        "options": {
+          "A": "A rare or special food considered a luxury",
+          "B": "A very cheap snack",
+          "C": "A type of fast food",
+          "D": "A cooking utensil"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A rare or special food considered a luxury",
+        "difficulty": "hard",
+        "source": {
+          "page": "41",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A delicacy is a rare or expensive food item considered a treat."
+          ],
+          "summary": "A delicacy is a special food."
+        },
+        "explanation": "A delicacy is an expensive or rare food."
+      },
+      {
+        "id": "U04-L02-Q040",
+        "number": 40,
+        "question": "Which word means 'cooked over an open flame'?",
+        "options": {
+          "A": "Grilled",
+          "B": "Steamed",
+          "C": "Blended",
+          "D": "Frozen"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Grilled",
+        "difficulty": "medium",
+        "source": {
+          "page": "41",
+          "reference": "L2"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Grilled means cooked over direct heat or open flame."
+          ],
+          "summary": "Grilled means flame-cooked."
+        },
+        "explanation": "Grilling uses direct open-flame heat."
+      }
+    ]
+  }
+}

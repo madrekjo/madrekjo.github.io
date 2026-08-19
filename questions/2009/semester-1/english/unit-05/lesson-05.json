@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "5",
+    "lesson_name": "Speaking",
+    "unit_number": 5,
+    "unit_name": "Do your best",
+    "page_start": 55,
+    "page_end": 56,
+    "questions": [
+      {
+        "id": "U05-L05-Q001",
+        "number": 1,
+        "question": "Which phrase do you say to wish someone success before a competition?",
+        "options": {
+          "A": "Good luck!",
+          "B": "Well done!",
+          "C": "Never mind!",
+          "D": "Take care!"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Good luck!",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Good luck is said before someone starts something difficult."
+          ],
+          "summary": "Good luck means I hope you succeed."
+        },
+        "explanation": "Before the race, she told her friend, Good luck!"
+      },
+      {
+        "id": "U05-L05-Q002",
+        "number": 2,
+        "question": "What do you say when someone does something well?",
+        "options": {
+          "A": "Well done!",
+          "B": "Good luck!",
+          "C": "Too bad!",
+          "D": "Come on!"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Well done!",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Well done is said to praise someone for doing something well."
+          ],
+          "summary": "Well done means you did a great job."
+        },
+        "explanation": "After the race, I said, Well done! You won!"
+      },
+      {
+        "id": "U05-L05-Q003",
+        "number": 3,
+        "question": "Which phrase encourages someone not to stop trying?",
+        "options": {
+          "A": "Never give up!",
+          "B": "Well done!",
+          "C": "Good luck!",
+          "D": "Take it easy!"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Never give up!",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Never give up means keep trying no matter what."
+          ],
+          "summary": "Never give up tells someone to keep going."
+        },
+        "explanation": "Even when it was hard, his coach said, Never give up!"
+      },
+      {
+        "id": "U05-L05-Q004",
+        "number": 4,
+        "question": "When you want to encourage someone, you can say ___.",
+        "options": {
+          "A": "You can do it!",
+          "B": "Too bad!",
+          "C": "Never mind!",
+          "D": "What a pity!"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "You can do it!",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "You can do it is a phrase used to encourage someone."
+          ],
+          "summary": "You can do it means I believe in you."
+        },
+        "explanation": "I told my friend, You can do it! Run faster!"
+      },
+      {
+        "id": "U05-L05-Q005",
+        "number": 5,
+        "question": "What does I am proud of you express?",
+        "options": {
+          "A": "pride in someone",
+          "B": "anger at someone",
+          "C": "disappointment",
+          "D": "confusion"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "pride in someone",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "I am proud of you expresses that you feel happy about someone's achievement."
+          ],
+          "summary": "Proud of you means you did something impressive."
+        },
+        "explanation": "After the competition, her mother said, I am proud of you!"
+      },
+      {
+        "id": "U05-L05-Q006",
+        "number": 6,
+        "question": "Which phrase means continue trying even if it is difficult?",
+        "options": {
+          "A": "Keep trying!",
+          "B": "Good luck!",
+          "C": "Well done!",
+          "D": "Forget it!"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Keep trying!",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Keep trying means do not stop making an effort."
+          ],
+          "summary": "Keep trying encourages persistence."
+        },
+        "explanation": "When she fell, her coach said, Keep trying!"
+      },
+      {
+        "id": "U05-L05-Q007",
+        "number": 7,
+        "question": "If your friend is nervous before a match, you should say ___.",
+        "options": {
+          "A": "Do not worry, you will be great!",
+          "B": "Too bad for you!",
+          "C": "You always lose!",
+          "D": "Give up now!"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Do not worry, you will be great!",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Comforting words help reduce someone's nervousness."
+          ],
+          "summary": "Encouraging words help a nervous person feel confident."
+        },
+        "explanation": "I said to calm her down before the match."
+      },
+      {
+        "id": "U05-L05-Q008",
+        "number": 8,
+        "question": "Which is the best response when someone says I passed the test?",
+        "options": {
+          "A": "Congratulations!",
+          "B": "Bad luck!",
+          "C": "Never mind!",
+          "D": "I am sorry!"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Congratulations!",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Congratulations is said when someone shares good news."
+          ],
+          "summary": "Congratulations expresses happiness for someone's success."
+        },
+        "explanation": "When he said he won, I said, Congratulations!"
+      },
+      {
+        "id": "U05-L05-Q009",
+        "number": 9,
+        "question": "What does Come on, you can do it express?",
+        "options": {
+          "A": "encouragement",
+          "B": "disappointment",
+          "C": "anger",
+          "D": "sadness"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "encouragement",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Come on is used to encourage and motivate someone."
+          ],
+          "summary": "Come on means you are giving someone support."
+        },
+        "explanation": "During the race, everyone shouted, Come on!"
+      },
+      {
+        "id": "U05-L05-Q010",
+        "number": 10,
+        "question": "Which phrase is used to comfort someone after a loss?",
+        "options": {
+          "A": "There is always next time.",
+          "B": "You are the best!",
+          "C": "Well done!",
+          "D": "Congratulations!"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "There is always next time.",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Comforting someone after a loss means making them feel better."
+          ],
+          "summary": "Next time means they can try again in the future."
+        },
+        "explanation": "After the loss, I told him, There is always next time."
+      },
+      {
+        "id": "U05-L05-Q011",
+        "number": 11,
+        "question": "When you want to praise someone's effort, you say ___.",
+        "options": {
+          "A": "You tried your best!",
+          "B": "You are terrible!",
+          "C": "Try harder!",
+          "D": "Give up!"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "You tried your best!",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Praising effort means recognizing that someone tried their best."
+          ],
+          "summary": "You tried your best means your effort was good."
+        },
+        "explanation": "Even though she lost, I said, You tried your best!"
+      },
+      {
+        "id": "U05-L05-Q012",
+        "number": 12,
+        "question": "Which is the correct way to ask someone about their sports experience?",
+        "options": {
+          "A": "How was the match?",
+          "B": "What is your name?",
+          "C": "Where do you live?",
+          "D": "How old are you?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "How was the match?",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Asking about a match shows interest in someone's experience."
+          ],
+          "summary": "How was the match asks about a sporting event."
+        },
+        "explanation": "When he came back, I asked, How was the match?"
+      },
+      {
+        "id": "U05-L05-Q013",
+        "number": 13,
+        "question": "What do you say to encourage a team before a big game?",
+        "options": {
+          "A": "Let us do our best!",
+          "B": "We will probably lose.",
+          "C": "It does not matter.",
+          "D": "I do not care."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Let us do our best!",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Let us do our best encourages everyone to try hard together."
+          ],
+          "summary": "Let us do our best is a team encouragement phrase."
+        },
+        "explanation": "Before the final, the captain said, Let us do our best!"
+      },
+      {
+        "id": "U05-L05-Q014",
+        "number": 14,
+        "question": "When someone is sad about losing, which phrase is most appropriate?",
+        "options": {
+          "A": "Better luck next time!",
+          "B": "Well done!",
+          "C": "Good luck!",
+          "D": "Congratulations!"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Better luck next time!",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Better luck next time is a kind phrase after a loss."
+          ],
+          "summary": "Better luck next time means try again next time."
+        },
+        "explanation": "After the match, I told her, Better luck next time!"
+      },
+      {
+        "id": "U05-L05-Q015",
+        "number": 15,
+        "question": "Which word best describes a person who never stops trying?",
+        "options": {
+          "A": "determined",
+          "B": "lazy",
+          "C": "careless",
+          "D": "quiet"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "determined",
+        "difficulty": "medium",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Determined means having strong resolve to continue."
+          ],
+          "summary": "Determined people never give up easily."
+        },
+        "explanation": "She was determined to win the race."
+      },
+      {
+        "id": "U05-L05-Q016",
+        "number": 16,
+        "question": "What does Give it your all mean?",
+        "options": {
+          "A": "try as hard as you can",
+          "B": "give up completely",
+          "C": "do nothing",
+          "D": "rest for a while"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "try as hard as you can",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Give it your all means put maximum effort into something."
+          ],
+          "summary": "Give it your all means do everything you can."
+        },
+        "explanation": "The coach told us to give it our all in the final."
+      },
+      {
+        "id": "U05-L05-Q017",
+        "number": 17,
+        "question": "When a teammate scores a goal, what should you say?",
+        "options": {
+          "A": "Great goal! Well done!",
+          "B": "That was terrible!",
+          "C": "You are so slow!",
+          "D": "Try again!"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Great goal! Well done!",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Celebrating a goal with praise builds team spirit."
+          ],
+          "summary": "Great goal shows excitement and happiness."
+        },
+        "explanation": "When she scored, everyone shouted, Great goal!"
+      },
+      {
+        "id": "U05-L05-Q018",
+        "number": 18,
+        "question": "Which phrase shows you believe someone will succeed?",
+        "options": {
+          "A": "I know you can do it!",
+          "B": "You will probably fail.",
+          "C": "Give up now.",
+          "D": "It is impossible."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I know you can do it!",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "I know you can do it shows belief in someone's ability."
+          ],
+          "summary": "Belief in someone boosts their confidence."
+        },
+        "explanation": "I told my brother, I know you can do it!"
+      },
+      {
+        "id": "U05-L05-Q019",
+        "number": 19,
+        "question": "What is the best way to describe winning a competition?",
+        "options": {
+          "A": "victory",
+          "B": "defeat",
+          "C": "failure",
+          "D": "loss"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "victory",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Victory means winning a competition or match."
+          ],
+          "summary": "Victory is the opposite of defeat."
+        },
+        "explanation": "The team celebrated their victory with a party."
+      },
+      {
+        "id": "U05-L05-Q020",
+        "number": 20,
+        "question": "When someone tries hard but does not win, you can say ___.",
+        "options": {
+          "A": "You made a great effort!",
+          "B": "You are a loser!",
+          "C": "You wasted your time!",
+          "D": "Why did you try?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "You made a great effort!",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Recognizing effort is important even when someone does not win."
+          ],
+          "summary": "Acknowledging effort keeps people motivated."
+        },
+        "explanation": "I told him, You made a great effort! after the race."
+      },
+      {
+        "id": "U05-L05-Q021",
+        "number": 21,
+        "question": "Which phrase is used to cheer for someone during a race?",
+        "options": {
+          "A": "Faster! You can win!",
+          "B": "Slow down!",
+          "C": "Stop now!",
+          "D": "You are too slow!"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Faster! You can win!",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Cheering phrases motivate athletes during competition."
+          ],
+          "summary": "Cheering during a race pushes athletes to go faster."
+        },
+        "explanation": "The crowd shouted, Faster! You can win!"
+      },
+      {
+        "id": "U05-L05-Q022",
+        "number": 22,
+        "question": "What does it mean to stay positive?",
+        "options": {
+          "A": "keep a good attitude",
+          "B": "think negatively",
+          "C": "give up",
+          "D": "be lazy"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "keep a good attitude",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Staying positive means maintaining a good attitude."
+          ],
+          "summary": "A positive attitude helps you perform better."
+        },
+        "explanation": "Even when losing, she stayed positive and kept playing."
+      },
+      {
+        "id": "U05-L05-Q023",
+        "number": 23,
+        "question": "When someone says I did my best, what are they expressing?",
+        "options": {
+          "A": "satisfaction with their effort",
+          "B": "regret about losing",
+          "C": "anger at the result",
+          "D": "disappointment with others"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "satisfaction with their effort",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "I did my best expresses that they tried as hard as they could."
+          ],
+          "summary": "I did my best means they are satisfied with their effort."
+        },
+        "explanation": "After the game, he said, I did my best."
+      },
+      {
+        "id": "U05-L05-Q024",
+        "number": 24,
+        "question": "Which is the correct way to describe someone who always supports their team?",
+        "options": {
+          "A": "loyal fan",
+          "B": "bad player",
+          "C": "lazy person",
+          "D": "rude spectator"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "loyal fan",
+        "difficulty": "medium",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A loyal fan always supports and cheers for their team."
+          ],
+          "summary": "A loyal fan is dedicated and supportive."
+        },
+        "explanation": "She is a loyal fan who never misses a game."
+      },
+      {
+        "id": "U05-L05-Q025",
+        "number": 25,
+        "question": "What should you say to encourage someone who fell during a race?",
+        "options": {
+          "A": "Get up! You can still finish!",
+          "B": "Just give up.",
+          "C": "You are clumsy.",
+          "D": "That was funny."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Get up! You can still finish!",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Encouraging someone after a fall helps them continue."
+          ],
+          "summary": "Encouragement after a fall motivates the athlete to continue."
+        },
+        "explanation": "When he fell, I shouted, Get up! You can still finish!"
+      },
+      {
+        "id": "U05-L05-Q026",
+        "number": 26,
+        "question": "Which word describes a person who supports and cheers for a sports team?",
+        "options": {
+          "A": "supporter",
+          "B": "opponent",
+          "C": "referee",
+          "D": "coach"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "supporter",
+        "difficulty": "medium",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A supporter is someone who encourages a team or person."
+          ],
+          "summary": "A supporter cheers for a team."
+        },
+        "explanation": "The supporters waved flags during the match."
+      },
+      {
+        "id": "U05-L05-Q027",
+        "number": 27,
+        "question": "What is the correct response when your friend says I won the match?",
+        "options": {
+          "A": "That is amazing! Congratulations!",
+          "B": "That is too bad.",
+          "C": "Who cares?",
+          "D": "Try again next time."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "That is amazing! Congratulations!",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A positive response celebrates your friend's success."
+          ],
+          "summary": "That is amazing shows excitement for your friend."
+        },
+        "explanation": "When she won, I said, That is amazing! Congratulations!"
+      },
+      {
+        "id": "U05-L05-Q028",
+        "number": 28,
+        "question": "Which phrase can be used to describe a team that never gives up?",
+        "options": {
+          "A": "They are persistent.",
+          "B": "They are lazy.",
+          "C": "They are quiet.",
+          "D": "They are rude."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "They are persistent.",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Persistent means continuing to do something despite difficulty."
+          ],
+          "summary": "Persistent teams keep trying no matter what."
+        },
+        "explanation": "They are persistent because they never give up."
+      },
+      {
+        "id": "U05-L05-Q029",
+        "number": 29,
+        "question": "What does a coach say to motivate players at half-time?",
+        "options": {
+          "A": "We can still win this! Keep going!",
+          "B": "Let us all go home.",
+          "C": "The game is over.",
+          "D": "I do not care anymore."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "We can still win this! Keep going!",
+        "difficulty": "medium",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A motivational speech at half-time inspires players to keep trying."
+          ],
+          "summary": "Motivational words help players feel confident."
+        },
+        "explanation": "At half-time, the coach said, We can still win this!"
+      },
+      {
+        "id": "U05-L05-Q030",
+        "number": 30,
+        "question": "Which is the best way to describe a close and exciting match?",
+        "options": {
+          "A": "a thrilling match",
+          "B": "a boring match",
+          "C": "a short match",
+          "D": "a simple match"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a thrilling match",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Thrilling means very exciting and enjoyable."
+          ],
+          "summary": "A thrilling match keeps everyone on the edge of their seats."
+        },
+        "explanation": "The final was a thrilling match that went to penalties."
+      },
+      {
+        "id": "U05-L05-Q031",
+        "number": 31,
+        "question": "When you want to congratulate a whole team, you say ___.",
+        "options": {
+          "A": "Well done, everyone!",
+          "B": "Too bad, everyone!",
+          "C": "You all failed!",
+          "D": "Try harder next time!"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Well done, everyone!",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Congratulating a team celebrates their collective achievement."
+          ],
+          "summary": "Well done, everyone praises the whole team."
+        },
+        "explanation": "After the victory, the captain said, Well done, everyone!"
+      },
+      {
+        "id": "U05-L05-Q032",
+        "number": 32,
+        "question": "Which phrase means to keep calm before a difficult moment?",
+        "options": {
+          "A": "Take a deep breath and relax.",
+          "B": "Run away quickly.",
+          "C": "Start shouting.",
+          "D": "Close your eyes and sleep."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Take a deep breath and relax.",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Taking a deep breath helps calm nerves before a challenge."
+          ],
+          "summary": "Calm breathing reduces anxiety before competition."
+        },
+        "explanation": "Before the penalty kick, he told himself to relax."
+      },
+      {
+        "id": "U05-L05-Q033",
+        "number": 33,
+        "question": "What is the best word to describe a player who works very hard?",
+        "options": {
+          "A": "hardworking",
+          "B": "lazy",
+          "C": "careless",
+          "D": "slow"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "hardworking",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Hardworking means putting a lot of effort into something."
+          ],
+          "summary": "A hardworking player trains and tries their best."
+        },
+        "explanation": "She is a hardworking player who practices every day."
+      },
+      {
+        "id": "U05-L05-Q034",
+        "number": 34,
+        "question": "When your team loses but played well, you should say ___.",
+        "options": {
+          "A": "We played well, better luck next time!",
+          "B": "We are the worst!",
+          "C": "Let us never play again!",
+          "D": "We should quit!"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "We played well, better luck next time!",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Acknowledging good play even after losing keeps morale high."
+          ],
+          "summary": "Focusing on positives after a loss is important."
+        },
+        "explanation": "After the match, I said, We played well, better luck next time!"
+      },
+      {
+        "id": "U05-L05-Q035",
+        "number": 35,
+        "question": "Which word describes someone who inspires others in sports?",
+        "options": {
+          "A": "role model",
+          "B": "opponent",
+          "C": "spectator",
+          "D": "stranger"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "role model",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A role model is someone others look up to and try to be like."
+          ],
+          "summary": "A role model inspires others through their actions."
+        },
+        "explanation": "The Olympic champion is a role model for young athletes."
+      },
+      {
+        "id": "U05-L05-Q036",
+        "number": 36,
+        "question": "What is the correct phrase to say when someone falls down?",
+        "options": {
+          "A": "Are you okay?",
+          "B": "You are stupid!",
+          "C": "Get out!",
+          "D": "Go away!"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Are you okay?",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Are you okay shows concern for someone who is hurt."
+          ],
+          "summary": "Asking Are you okay shows you care about someone."
+        },
+        "explanation": "When she fell, I asked, Are you okay?"
+      },
+      {
+        "id": "U05-L05-Q037",
+        "number": 37,
+        "question": "Which is the correct way to describe winning for the first time?",
+        "options": {
+          "A": "first victory",
+          "B": "last defeat",
+          "C": "final loss",
+          "D": "big mistake"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "first victory",
+        "difficulty": "easy",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "First victory means winning for the very first time."
+          ],
+          "summary": "A first victory is a very special achievement."
+        },
+        "explanation": "Winning the school race was her first victory."
+      },
+      {
+        "id": "U05-L05-Q038",
+        "number": 38,
+        "question": "What does the phrase keep your head up mean?",
+        "options": {
+          "A": "stay confident and positive",
+          "B": "look at the ceiling",
+          "C": "run very fast",
+          "D": "jump high"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "stay confident and positive",
+        "difficulty": "hard",
+        "source": {
+          "page": "56",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Keep your head up is an idiom meaning stay confident."
+          ],
+          "summary": "Keep your head up means do not lose confidence."
+        },
+        "explanation": "After losing the game, the coach told us to keep our heads up."
+      },
+      {
+        "id": "U05-L05-Q039",
+        "number": 39,
+        "question": "Which phrase is used to describe a team that always works together?",
+        "options": {
+          "A": "a great team player",
+          "B": "a lone wolf",
+          "C": "a bad sport",
+          "D": "a poor loser"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a great team player",
+        "difficulty": "medium",
+        "source": {
+          "page": "55",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A great team player cooperates well with others."
+          ],
+          "summary": "A team player supports and works with teammates."
+        },
+        "explanation": "She is a great team player who helps everyone."
+      },
+      {
+        "id": "U05-L05-Q040",
+        "number": 40,
+        "question": "What should you say to a friend who came second place?",
+        "options": {
+          "A": "Silver medal! That is still fantastic!",
+          "B": "Too bad you lost.",
+          "C": "You are a failure.",
+          "D": "Next time do not bother."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Silver medal! That is still fantastic!",
+        "difficulty": "medium",
+        "source": {
+          "page": "56",
+          "reference": "L5"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Celebrating second place shows that all achievements matter."
+          ],
+          "summary": "Coming second is still a great achievement."
+        },
+        "explanation": "When he won silver, I said, That is still fantastic!"
+      }
+    ]
+  }
+}

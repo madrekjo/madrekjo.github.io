@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "4",
+    "lesson_name": "Speaking",
+    "unit_number": 4,
+    "unit_name": "Tastes",
+    "page_start": 44,
+    "page_end": 44,
+    "questions": [
+      {
+        "id": "U04-L04-Q001",
+        "number": 1,
+        "question": "Which phrase is polite when ordering food in a restaurant?",
+        "options": {
+          "A": "I'd like a chicken salad, please.",
+          "B": "Give me a chicken salad.",
+          "C": "I want chicken salad.",
+          "D": "Bring me chicken salad."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I'd like a chicken salad, please.",
+        "difficulty": "easy",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'I'd like' is a polite way to order food."
+          ],
+          "summary": "'I'd like' is polite."
+        },
+        "explanation": "'I'd like' is the most polite option."
+      },
+      {
+        "id": "U04-L04-Q002",
+        "number": 2,
+        "question": "What does the waiter ask when you order steak?",
+        "options": {
+          "A": "How would you like it cooked?",
+          "B": "What colour do you want?",
+          "C": "How big is your plate?",
+          "D": "Where is the kitchen?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "How would you like it cooked?",
+        "difficulty": "easy",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Waiters ask how you want your steak cooked (rare, medium, well done)."
+          ],
+          "summary": "The waiter asks about cooking preference."
+        },
+        "explanation": "This is a standard restaurant question for steak."
+      },
+      {
+        "id": "U04-L04-Q003",
+        "number": 3,
+        "question": "Which phrase asks for a recommendation?",
+        "options": {
+          "A": "What do you recommend?",
+          "B": "Where is the toilet?",
+          "C": "How much is the bill?",
+          "D": "Can I see the menu?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "What do you recommend?",
+        "difficulty": "easy",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'What do you recommend?' asks for the waiter's suggestion."
+          ],
+          "summary": "This asks for a suggestion."
+        },
+        "explanation": "'What do you recommend?' is used for suggestions."
+      },
+      {
+        "id": "U04-L04-Q004",
+        "number": 4,
+        "question": "What does 'Could I have...?' express?",
+        "options": {
+          "A": "A polite request",
+          "B": "An angry demand",
+          "C": "A complaint",
+          "D": "A question about price"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A polite request",
+        "difficulty": "easy",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Could I have' is a polite way to make a request."
+          ],
+          "summary": "It is a polite request."
+        },
+        "explanation": "'Could I have' shows politeness."
+      },
+      {
+        "id": "U04-L04-Q005",
+        "number": 5,
+        "question": "How do you ask for the bill politely?",
+        "options": {
+          "A": "Could I have the bill, please?",
+          "B": "Give me the bill now.",
+          "C": "Where's the bill?",
+          "D": "I need the bill immediately."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Could I have the bill, please?",
+        "difficulty": "easy",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Could I have the bill, please?' is the polite way."
+          ],
+          "summary": "Use 'could I have' for the bill."
+        },
+        "explanation": "'Could I have the bill, please?' is polite."
+      },
+      {
+        "id": "U04-L04-Q006",
+        "number": 6,
+        "question": "What does 'It's delicious!' express?",
+        "options": {
+          "A": "A positive opinion about food",
+          "B": "A complaint about service",
+          "C": "A question about the menu",
+          "D": "A request for more food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A positive opinion about food",
+        "difficulty": "easy",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'It's delicious!' is a positive comment about taste."
+          ],
+          "summary": "It is a positive opinion."
+        },
+        "explanation": "'Delicious' means very tasty."
+      },
+      {
+        "id": "U04-L04-Q007",
+        "number": 7,
+        "question": "Which sentence correctly orders food?",
+        "options": {
+          "A": "I'd like the grilled salmon, please.",
+          "B": "I'd like the grilled salmon.",
+          "C": "I like the grilled salmon.",
+          "D": "I want the grilled salmon."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I'd like the grilled salmon, please.",
+        "difficulty": "easy",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'I'd like... please' is the most polite form."
+          ],
+          "summary": "Add 'please' for politeness."
+        },
+        "explanation": "The full polite form includes 'please'."
+      },
+      {
+        "id": "U04-L04-Q008",
+        "number": 8,
+        "question": "What is the waiter asking: 'How would you like your coffee?'",
+        "options": {
+          "A": "How do you want your coffee prepared?",
+          "B": "Do you like coffee?",
+          "C": "Is coffee expensive?",
+          "D": "Where is the coffee shop?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "How do you want your coffee prepared?",
+        "difficulty": "easy",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "This question asks about coffee preparation preferences."
+          ],
+          "summary": "Asking about coffee preference."
+        },
+        "explanation": "The waiter asks about coffee preparation."
+      },
+      {
+        "id": "U04-L04-Q009",
+        "number": 9,
+        "question": "Which word describes very tasty food?",
+        "options": {
+          "A": "Delicious",
+          "B": "Boring",
+          "C": "Heavy",
+          "D": "Simple"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Delicious",
+        "difficulty": "easy",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Delicious means extremely pleasant to taste."
+          ],
+          "summary": "Delicious means very tasty."
+        },
+        "explanation": "Delicious is a strong positive adjective for food."
+      },
+      {
+        "id": "U04-L04-Q010",
+        "number": 10,
+        "question": "How do you politely decline food?",
+        "options": {
+          "A": "No, thank you. I'm full.",
+          "B": "I don't want it.",
+          "C": "No way.",
+          "D": "That's horrible."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "No, thank you. I'm full.",
+        "difficulty": "easy",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'No, thank you' is the polite way to decline."
+          ],
+          "summary": "Decline politely with 'no, thank you'."
+        },
+        "explanation": "Politeness is key when declining food."
+      },
+      {
+        "id": "U04-L04-Q011",
+        "number": 11,
+        "question": "What does 'Could I see the menu?' ask for?",
+        "options": {
+          "A": "To look at the list of food options",
+          "B": "To pay the bill",
+          "C": "To speak to the chef",
+          "D": "To leave the restaurant"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "To look at the list of food options",
+        "difficulty": "medium",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "This question asks to see the restaurant's food list."
+          ],
+          "summary": "Asking to view the menu."
+        },
+        "explanation": "'Could I see the menu?' is a polite request."
+      },
+      {
+        "id": "U04-L04-Q012",
+        "number": 12,
+        "question": "Which is a polite way to complain about food?",
+        "options": {
+          "A": "I'm sorry, but this isn't what I ordered.",
+          "B": "This food is terrible!",
+          "C": "You made a mistake!",
+          "D": "I hate this meal."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I'm sorry, but this isn't what I ordered.",
+        "difficulty": "medium",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A polite complaint starts with an apology and states the problem."
+          ],
+          "summary": "Complain politely with an apology."
+        },
+        "explanation": "Start complaints with 'I'm sorry'."
+      },
+      {
+        "id": "U04-L04-Q013",
+        "number": 13,
+        "question": "What does the waiter mean by 'Are you ready to order?'",
+        "options": {
+          "A": "Do you know what you want to eat?",
+          "B": "Are you finished eating?",
+          "C": "Is the food ready?",
+          "D": "Do you want dessert?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Do you know what you want to eat?",
+        "difficulty": "medium",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The waiter is asking if you have decided on your meal."
+          ],
+          "summary": "Asking if you've decided."
+        },
+        "explanation": "This question asks if you're ready to choose."
+      },
+      {
+        "id": "U04-L04-Q014",
+        "number": 14,
+        "question": "How do you describe food that is not fresh?",
+        "options": {
+          "A": "This tastes a bit off.",
+          "B": "This is perfect.",
+          "C": "This is wonderful.",
+          "D": "I love this flavour."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "This tastes a bit off.",
+        "difficulty": "medium",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Tastes off' means the food doesn't taste fresh or right."
+          ],
+          "summary": "Off means not fresh."
+        },
+        "explanation": "'Tastes off' suggests food is not fresh."
+      },
+      {
+        "id": "U04-L04-Q015",
+        "number": 15,
+        "question": "Which phrase is used to ask about ingredients?",
+        "options": {
+          "A": "Does this contain any nuts?",
+          "B": "Can I have more?",
+          "C": "Where's the waiter?",
+          "D": "Is the kitchen clean?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Does this contain any nuts?",
+        "difficulty": "medium",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "This question asks about allergens in food."
+          ],
+          "summary": "Asking about ingredients."
+        },
+        "explanation": "This is an allergy-related question."
+      },
+      {
+        "id": "U04-L04-Q016",
+        "number": 16,
+        "question": "What does 'I'm allergic to...' mean?",
+        "options": {
+          "A": "I cannot eat something because it makes me ill",
+          "B": "I don't like the taste",
+          "C": "I want extra seasoning",
+          "D": "I prefer my food raw"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I cannot eat something because it makes me ill",
+        "difficulty": "medium",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "An allergy is a medical reaction to certain foods."
+          ],
+          "summary": "Allergy means a food reaction."
+        },
+        "explanation": "An allergy is a serious food intolerance."
+      },
+      {
+        "id": "U04-L04-Q017",
+        "number": 17,
+        "question": "How do you ask for a table for two?",
+        "options": {
+          "A": "A table for two, please.",
+          "B": "Give us two chairs.",
+          "C": "We need seats.",
+          "D": "Where can we sit?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "A table for two, please.",
+        "difficulty": "medium",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'A table for two, please' is the standard request."
+          ],
+          "summary": "Use 'a table for two'."
+        },
+        "explanation": "This is the standard restaurant seating request."
+      },
+      {
+        "id": "U04-L04-Q018",
+        "number": 18,
+        "question": "Which phrase describes food that is too spicy?",
+        "options": {
+          "A": "This is really burning my mouth.",
+          "B": "This is too sweet.",
+          "C": "This is too cold.",
+          "D": "This is too plain."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "This is really burning my mouth.",
+        "difficulty": "medium",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Burning my mouth describes very spicy food."
+          ],
+          "summary": "Burning means very spicy."
+        },
+        "explanation": "A burning sensation indicates spicy food."
+      },
+      {
+        "id": "U04-L04-Q019",
+        "number": 19,
+        "question": "What is the polite way to ask for more water?",
+        "options": {
+          "A": "Could I have some more water, please?",
+          "B": "Water. Now.",
+          "C": "I need water immediately.",
+          "D": "Bring me water."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Could I have some more water, please?",
+        "difficulty": "medium",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Could I have some more... please?' is the most polite form."
+          ],
+          "summary": "Use 'could I have' politely."
+        },
+        "explanation": "Polite requests use 'could I have'."
+      },
+      {
+        "id": "U04-L04-Q020",
+        "number": 20,
+        "question": "How do you describe food that is not cooked enough?",
+        "options": {
+          "A": "This is undercooked.",
+          "B": "This is overcooked.",
+          "C": "This is burnt.",
+          "D": "This is frozen."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "This is undercooked.",
+        "difficulty": "medium",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Undercooked means not cooked long enough."
+          ],
+          "summary": "Undercooked means insufficiently cooked."
+        },
+        "explanation": "Undercooked food needs more cooking time."
+      },
+      {
+        "id": "U04-L04-Q021",
+        "number": 21,
+        "question": "Which phrase asks about portion size?",
+        "options": {
+          "A": "How big are the portions?",
+          "B": "Where is the kitchen?",
+          "C": "Do you have tables?",
+          "D": "Is there parking?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "How big are the portions?",
+        "difficulty": "medium",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "This question asks about the size of food servings."
+          ],
+          "summary": "Asking about portion size."
+        },
+        "explanation": "Portions refer to food serving sizes."
+      },
+      {
+        "id": "U04-L04-Q022",
+        "number": 22,
+        "question": "What does 'I'd like to make a reservation' mean?",
+        "options": {
+          "A": "I want to book a table in advance",
+          "B": "I want to cancel my order",
+          "C": "I want to change my food",
+          "D": "I want to speak to the manager"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I want to book a table in advance",
+        "difficulty": "medium",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A reservation is a booking for a restaurant table."
+          ],
+          "summary": "Making a reservation means booking."
+        },
+        "explanation": "A reservation secures a table in advance."
+      },
+      {
+        "id": "U04-L04-Q023",
+        "number": 23,
+        "question": "How do you politely ask if a dish is vegetarian?",
+        "options": {
+          "A": "Is this dish suitable for vegetarians?",
+          "B": "Do you have vegetables?",
+          "C": "Is there meat in this?",
+          "D": "Can I have salad only?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Is this dish suitable for vegetarians?",
+        "difficulty": "medium",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "This is the polite way to check if food is vegetarian."
+          ],
+          "summary": "Ask politely about dietary needs."
+        },
+        "explanation": "Use 'suitable for' for dietary questions."
+      },
+      {
+        "id": "U04-L04-Q024",
+        "number": 24,
+        "question": "What does 'The food was served cold' describe?",
+        "options": {
+          "A": "The food was not warm when it arrived",
+          "B": "The food was very spicy",
+          "C": "The food was undercooked",
+          "D": "The food was too sweet"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The food was not warm when it arrived",
+        "difficulty": "medium",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "This means the food was at a low temperature when served."
+          ],
+          "summary": "Food served at low temperature."
+        },
+        "explanation": "Cold food means it was not warm."
+      },
+      {
+        "id": "U04-L04-Q025",
+        "number": 25,
+        "question": "Which is the correct response to 'How would you like your eggs?'",
+        "options": {
+          "A": "Scrambled, please.",
+          "B": "I like chickens.",
+          "C": "Eggs are cheap.",
+          "D": "From a farm."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Scrambled, please.",
+        "difficulty": "medium",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Scrambled' is a way eggs can be prepared."
+          ],
+          "summary": "Scrambled is a cooking style."
+        },
+        "explanation": "This answers the preparation question."
+      },
+      {
+        "id": "U04-L04-Q026",
+        "number": 26,
+        "question": "How do you politely ask for a different table?",
+        "options": {
+          "A": "Would it be possible to change our table?",
+          "B": "Move us now.",
+          "C": "This table is broken.",
+          "D": "I want another table."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Would it be possible to change our table?",
+        "difficulty": "medium",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Would it be possible' is a very polite way to ask."
+          ],
+          "summary": "Use 'would it be possible' politely."
+        },
+        "explanation": "This is a very polite way to request a change."
+      },
+      {
+        "id": "U04-L04-Q027",
+        "number": 27,
+        "question": "What does 'Well done' mean when ordering steak?",
+        "options": {
+          "A": "Cooked thoroughly with no pink inside",
+          "B": "A perfect meal",
+          "C": "Very expensive",
+          "D": "Served quickly"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Cooked thoroughly with no pink inside",
+        "difficulty": "hard",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Well done means the steak is cooked all the way through."
+          ],
+          "summary": "Well done is fully cooked."
+        },
+        "explanation": "Well done means no pink remains in the steak."
+      },
+      {
+        "id": "U04-L04-Q028",
+        "number": 28,
+        "question": "What does 'Medium rare' mean for a steak?",
+        "options": {
+          "A": "Slightly pink in the centre, warm throughout",
+          "B": "Raw and cold inside",
+          "C": "Completely cooked through",
+          "D": "Burnt on the outside"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Slightly pink in the centre, warm throughout",
+        "difficulty": "hard",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Medium rare means the centre is slightly pink and warm."
+          ],
+          "summary": "Medium rare has a pink centre."
+        },
+        "explanation": "Medium rare is between rare and medium."
+      },
+      {
+        "id": "U04-L04-Q029",
+        "number": 29,
+        "question": "Which phrase is used to give a polite complaint?",
+        "options": {
+          "A": "I'm afraid this soup is a bit cold.",
+          "B": "This soup is disgusting!",
+          "C": "Your chef is terrible!",
+          "D": "I want a refund right now."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I'm afraid this soup is a bit cold.",
+        "difficulty": "hard",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'I'm afraid' introduces a polite complaint."
+          ],
+          "summary": "Use 'I'm afraid' for polite complaints."
+        },
+        "explanation": "Polite complaints begin with 'I'm afraid'."
+      },
+      {
+        "id": "U04-L04-Q030",
+        "number": 30,
+        "question": "How do you describe food that is perfectly seasoned?",
+        "options": {
+          "A": "It's perfectly seasoned.",
+          "B": "It has no taste.",
+          "C": "It's very bland.",
+          "D": "It needs more salt."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "It's perfectly seasoned.",
+        "difficulty": "hard",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Perfectly seasoned means the flavour balance is just right."
+          ],
+          "summary": "Seasoned means flavour-balanced."
+        },
+        "explanation": "Perfect seasoning means the taste is balanced."
+      },
+      {
+        "id": "U04-L04-Q031",
+        "number": 31,
+        "question": "What does 'I'll have the house special' mean?",
+        "options": {
+          "A": "I'm ordering the restaurant's signature dish",
+          "B": "I want to cook my own meal",
+          "C": "I need a special table",
+          "D": "I want extra sauce"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I'm ordering the restaurant's signature dish",
+        "difficulty": "hard",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The house special is the restaurant's best-known dish."
+          ],
+          "summary": "House special is the signature dish."
+        },
+        "explanation": "The house special is a restaurant's recommended dish."
+      },
+      {
+        "id": "U04-L04-Q032",
+        "number": 32,
+        "question": "Which phrase politely asks about waiting time?",
+        "options": {
+          "A": "How long is the wait for a table?",
+          "B": "Hurry up with our table!",
+          "C": "Why is the service so slow?",
+          "D": "I've been waiting forever."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "How long is the wait for a table?",
+        "difficulty": "hard",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "This is the polite way to ask about waiting times."
+          ],
+          "summary": "Ask about wait time politely."
+        },
+        "explanation": "This question politely asks about wait time."
+      },
+      {
+        "id": "U04-L04-Q033",
+        "number": 33,
+        "question": "What does 'Could we split the bill?' mean?",
+        "options": {
+          "A": "Can we divide the total cost among the group?",
+          "B": "Can we break the plate?",
+          "C": "Can we share one meal?",
+          "D": "Can we leave now?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Can we divide the total cost among the group?",
+        "difficulty": "hard",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Splitting the bill means sharing the cost equally."
+          ],
+          "summary": "Splitting means dividing the cost."
+        },
+        "explanation": "Splitting the bill means each person pays their share."
+      },
+      {
+        "id": "U04-L04-Q034",
+        "number": 34,
+        "question": "How do you describe a dish that is too salty?",
+        "options": {
+          "A": "This is overseasoned.",
+          "B": "This is undercooked.",
+          "C": "This is burnt.",
+          "D": "This is frozen."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "This is overseasoned.",
+        "difficulty": "hard",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Overseasoned means too much salt or seasoning was added."
+          ],
+          "summary": "Overseasoned means too salty."
+        },
+        "explanation": "Overseasoned food has too much salt."
+      },
+      {
+        "id": "U04-L04-Q035",
+        "number": 35,
+        "question": "What does 'I'd like a doggy bag' mean?",
+        "options": {
+          "A": "I want to take my leftover food home",
+          "B": "I want food for my pet",
+          "C": "I need a bag for shopping",
+          "D": "I want to bring my dog to the restaurant"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I want to take my leftover food home",
+        "difficulty": "hard",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A doggy bag is a container for leftover restaurant food."
+          ],
+          "summary": "A doggy bag holds leftovers."
+        },
+        "explanation": "A doggy bag is for taking food home."
+      },
+      {
+        "id": "U04-L04-Q036",
+        "number": 36,
+        "question": "Which phrase asks about dietary restrictions?",
+        "options": {
+          "A": "Do you have any dietary requirements?",
+          "B": "Do you like spicy food?",
+          "C": "Are you hungry?",
+          "D": "Do you want dessert?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Do you have any dietary requirements?",
+        "difficulty": "hard",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "This question checks for food allergies or preferences."
+          ],
+          "summary": "Asking about dietary needs."
+        },
+        "explanation": "This checks for allergies or diet restrictions."
+      },
+      {
+        "id": "U04-L04-Q037",
+        "number": 37,
+        "question": "What does 'The portion was generous' mean?",
+        "options": {
+          "A": "The amount of food served was large",
+          "B": "The food was expensive",
+          "C": "The food was very spicy",
+          "D": "The food was cold"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The amount of food served was large",
+        "difficulty": "hard",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Generous means a large, satisfying amount."
+          ],
+          "summary": "Generous means a large portion."
+        },
+        "explanation": "A generous portion is a large serving."
+      },
+      {
+        "id": "U04-L04-Q038",
+        "number": 38,
+        "question": "How do you politely suggest a dish to a friend?",
+        "options": {
+          "A": "I'd really recommend the pasta.",
+          "B": "You must eat the pasta.",
+          "C": "The pasta is the only option.",
+          "D": "Don't order anything else."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I'd really recommend the pasta.",
+        "difficulty": "hard",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'I'd recommend' is a polite way to suggest."
+          ],
+          "summary": "Recommend politely."
+        },
+        "explanation": "'I'd recommend' is a gentle suggestion."
+      },
+      {
+        "id": "U04-L04-Q039",
+        "number": 39,
+        "question": "Which phrase correctly asks about allergens?",
+        "options": {
+          "A": "Does this dish contain any shellfish?",
+          "B": "Is this food free?",
+          "C": "Do you have a swimming pool?",
+          "D": "Can I park here?"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Does this dish contain any shellfish?",
+        "difficulty": "hard",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "This asks specifically about allergens in a dish."
+          ],
+          "summary": "Ask about specific allergens."
+        },
+        "explanation": "This question checks for shellfish allergen."
+      },
+      {
+        "id": "U04-L04-Q040",
+        "number": 40,
+        "question": "What does 'The service was impeccable' mean?",
+        "options": {
+          "A": "The service was perfect and without fault",
+          "B": "The service was slow",
+          "C": "The service was rude",
+          "D": "The service was confusing"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "The service was perfect and without fault",
+        "difficulty": "hard",
+        "source": {
+          "page": "44",
+          "reference": "L4"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Impeccable means absolutely perfect, with no mistakes."
+          ],
+          "summary": "Impeccable means faultless."
+        },
+        "explanation": "Impeccable service is perfect in every way."
+      }
+    ]
+  }
+}

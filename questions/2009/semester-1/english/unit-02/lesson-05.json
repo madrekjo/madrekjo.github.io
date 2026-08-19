@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "5",
+    "lesson_name": "Speaking",
+    "unit_number": 2,
+    "unit_name": "On the move",
+    "page_start": 21,
+    "page_end": 21,
+    "questions": [
+      {
+        "id": "U02-L05-Q001",
+        "number": 1,
+        "question": "What does 'There's a lot to be said for...' mean?",
+        "options": {
+          "A": "there are good reasons to support something",
+          "B": "something is difficult to say",
+          "C": "nobody wants to talk",
+          "D": "the speech is too long"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "there are good reasons to support something",
+        "difficulty": "easy",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Considering alternatives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'There's a lot to be said for X' means there are strong arguments in favour of X."
+          ],
+          "summary": "There are good reasons for it."
+        },
+        "explanation": "You use it to give a positive point."
+      },
+      {
+        "id": "U02-L05-Q002",
+        "number": 2,
+        "question": "Which phrase introduces the opposite side of an argument?",
+        "options": {
+          "A": "But on the other hand, ...",
+          "B": "I'd go for ... anytime!",
+          "C": "No two ways about it, ...",
+          "D": "It's pretty clear cut to me that ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "But on the other hand, ...",
+        "difficulty": "easy",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Considering alternatives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'But on the other hand' introduces the other point of view."
+          ],
+          "summary": "But on the other hand = the opposite side."
+        },
+        "explanation": "It balances an argument."
+      },
+      {
+        "id": "U02-L05-Q003",
+        "number": 3,
+        "question": "What does 'There are a lot of points in favour of...' mean?",
+        "options": {
+          "A": "there are many things that support it",
+          "B": "there are many people against it",
+          "C": "it is a lucky choice",
+          "D": "it is a very popular idea"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "there are many things that support it",
+        "difficulty": "easy",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Considering alternatives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Points in favour of' = reasons that support an option."
+          ],
+          "summary": "in favour of = supporting."
+        },
+        "explanation": "You list the advantages."
+      },
+      {
+        "id": "U02-L05-Q004",
+        "number": 4,
+        "question": "What does 'You have to consider the fact that...' mean?",
+        "options": {
+          "A": "you must think about the fact that",
+          "B": "you should forget the fact that",
+          "C": "the fact is not important",
+          "D": "you must prove the fact"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "you must think about the fact that",
+        "difficulty": "easy",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Considering alternatives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "It means you should take a particular fact into account."
+          ],
+          "summary": "You must think about it."
+        },
+        "explanation": "It draws attention to an important point."
+      },
+      {
+        "id": "U02-L05-Q005",
+        "number": 5,
+        "question": "What does 'Alternatively, we could put forward the idea of...' mean?",
+        "options": {
+          "A": "as another option, we could suggest...",
+          "B": "we should cancel the idea",
+          "C": "the idea is final",
+          "D": "nobody supports the idea"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "as another option, we could suggest...",
+        "difficulty": "medium",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Considering alternatives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Alternatively' introduces another option; 'put forward an idea' means to suggest it."
+          ],
+          "summary": "We could suggest another option."
+        },
+        "explanation": "It offers a different choice."
+      },
+      {
+        "id": "U02-L05-Q006",
+        "number": 6,
+        "question": "What does 'put forward an idea' mean?",
+        "options": {
+          "A": "to suggest or propose an idea",
+          "B": "to reject an idea",
+          "C": "to forget an idea",
+          "D": "to copy an idea"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to suggest or propose an idea",
+        "difficulty": "easy",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Considering alternatives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Put forward' means to propose or suggest."
+          ],
+          "summary": "put forward = suggest."
+        },
+        "explanation": "We could put forward the idea of a canal trip."
+      },
+      {
+        "id": "U02-L05-Q007",
+        "number": 7,
+        "question": "What does 'Well, you could argue that...' mean?",
+        "options": {
+          "A": "you could say that...",
+          "B": "you must fight for that...",
+          "C": "you are wrong about that...",
+          "D": "you have proved that..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "you could say that...",
+        "difficulty": "easy",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Considering alternatives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "It means 'it is possible to say that...'."
+          ],
+          "summary": "you could argue = you could say."
+        },
+        "explanation": "It introduces a point of view."
+      },
+      {
+        "id": "U02-L05-Q008",
+        "number": 8,
+        "question": "What does 'I'd go for ... anytime!' mean?",
+        "options": {
+          "A": "I'd choose it without hesitation",
+          "B": "I'd wait forever for it",
+          "C": "I'd never choose it",
+          "D": "I'd think about it for years"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I'd choose it without hesitation",
+        "difficulty": "medium",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Giving preferences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'I'd go for... anytime' means I'd choose that option immediately and happily."
+          ],
+          "summary": "I'd choose it at once."
+        },
+        "explanation": "It shows a strong preference."
+      },
+      {
+        "id": "U02-L05-Q009",
+        "number": 9,
+        "question": "What does 'Oh, a canal trip – no contest! Definitely!' mean?",
+        "options": {
+          "A": "there is no comparison; the canal trip is clearly best",
+          "B": "the canal trip is a competition",
+          "C": "nobody wants the canal trip",
+          "D": "the canal trip is very long"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "there is no comparison; the canal trip is clearly best",
+        "difficulty": "hard",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Giving preferences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'No contest' means one option is so much better that there is no real choice."
+          ],
+          "summary": "no contest = no comparison."
+        },
+        "explanation": "The speaker clearly prefers the canal trip."
+      },
+      {
+        "id": "U02-L05-Q010",
+        "number": 10,
+        "question": "What does 'It's pretty clear cut to me that...' mean?",
+        "options": {
+          "A": "the decision is very clear and obvious to me",
+          "B": "the decision is impossible to make",
+          "C": "I need more information",
+          "D": "the situation is confusing"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the decision is very clear and obvious to me",
+        "difficulty": "medium",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Giving preferences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Clear cut' means clear and definite."
+          ],
+          "summary": "clear cut = obvious and definite."
+        },
+        "explanation": "The speaker has no doubts."
+      },
+      {
+        "id": "U02-L05-Q011",
+        "number": 11,
+        "question": "What does 'On balance, I'd say...' mean?",
+        "options": {
+          "A": "after considering everything, I'd say...",
+          "B": "without thinking, I'd say...",
+          "C": "on one side only, I'd say...",
+          "D": "secretly, I'd say..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "after considering everything, I'd say...",
+        "difficulty": "medium",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Giving preferences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'On balance' means after weighing up all the pros and cons."
+          ],
+          "summary": "On balance = considering everything."
+        },
+        "explanation": "It gives a final, considered opinion."
+      },
+      {
+        "id": "U02-L05-Q012",
+        "number": 12,
+        "question": "What does 'No two ways about it, my choice would be...' mean?",
+        "options": {
+          "A": "there is no doubt about my choice",
+          "B": "I cannot decide between two options",
+          "C": "my choice depends on the weather",
+          "D": "two people must agree first"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "there is no doubt about my choice",
+        "difficulty": "hard",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Giving preferences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'No two ways about it' means it is certain, without doubt."
+          ],
+          "summary": "No two ways about it = without doubt."
+        },
+        "explanation": "The speaker is completely sure."
+      },
+      {
+        "id": "U02-L05-Q013",
+        "number": 13,
+        "question": "What does 'I'm split between the... and...' mean?",
+        "options": {
+          "A": "I can't decide between two options",
+          "B": "I have chosen the first option",
+          "C": "I reject both options",
+          "D": "I have two tickets"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I can't decide between two options",
+        "difficulty": "medium",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Giving preferences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'I'm split between X and Y' means I like both and find it hard to choose."
+          ],
+          "summary": "I'm split = undecided between two."
+        },
+        "explanation": "Both options attract the speaker."
+      },
+      {
+        "id": "U02-L05-Q014",
+        "number": 14,
+        "question": "What does 'I'm in two minds here' mean?",
+        "options": {
+          "A": "I'm undecided or uncertain",
+          "B": "I have two opinions that are wrong",
+          "C": "I'm sure about my choice",
+          "D": "two people share my mind"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I'm undecided or uncertain",
+        "difficulty": "medium",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Giving preferences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'In two minds' means unable to decide."
+          ],
+          "summary": "in two minds = undecided."
+        },
+        "explanation": "The speaker is hesitating between options."
+      },
+      {
+        "id": "U02-L05-Q015",
+        "number": 15,
+        "question": "What does 'There are pros and cons for each' mean?",
+        "options": {
+          "A": "each option has advantages and disadvantages",
+          "B": "each option is perfect",
+          "C": "each option is terrible",
+          "D": "only one option is possible"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "each option has advantages and disadvantages",
+        "difficulty": "easy",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Giving preferences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Pros and cons' are advantages and disadvantages."
+          ],
+          "summary": "pros = advantages; cons = disadvantages."
+        },
+        "explanation": "You consider both sides of each option."
+      },
+      {
+        "id": "U02-L05-Q016",
+        "number": 16,
+        "question": "What does 'If you really wanted to pin me down, I'd probably say...' mean?",
+        "options": {
+          "A": "if you forced me to give a definite answer, I'd say...",
+          "B": "if you helped me, I'd say...",
+          "C": "if you were angry, I'd say...",
+          "D": "if you asked nicely, I'd say..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "if you forced me to give a definite answer, I'd say...",
+        "difficulty": "hard",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Giving preferences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Pin someone down' means to force them to make a clear decision or give an answer."
+          ],
+          "summary": "pin me down = force a decision."
+        },
+        "explanation": "The speaker gives a final answer with some hesitation."
+      },
+      {
+        "id": "U02-L05-Q017",
+        "number": 17,
+        "question": "Which phrase is used to give a strong preference?",
+        "options": {
+          "A": "I'd go for ... anytime!",
+          "B": "Alternatively, we could ...",
+          "C": "Well, you could argue that ...",
+          "D": "But on the other hand, ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I'd go for ... anytime!",
+        "difficulty": "medium",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Giving preferences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'I'd go for... anytime!' expresses a strong preference."
+          ],
+          "summary": "It gives a preference."
+        },
+        "explanation": "The alternatives explore options."
+      },
+      {
+        "id": "U02-L05-Q018",
+        "number": 18,
+        "question": "Which phrase is used to consider an alternative?",
+        "options": {
+          "A": "Alternatively, we could put forward the idea of ...",
+          "B": "On balance, I'd say ...",
+          "C": "No contest!",
+          "D": "I'm in two minds here."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Alternatively, we could put forward the idea of ...",
+        "difficulty": "medium",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Considering alternatives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Alternatively...' introduces another option to consider."
+          ],
+          "summary": "It offers an alternative."
+        },
+        "explanation": "The others express a decision or hesitation."
+      },
+      {
+        "id": "U02-L05-Q019",
+        "number": 19,
+        "question": "Which phrase shows hesitation between options?",
+        "options": {
+          "A": "I'm in two minds here.",
+          "B": "I'd go for ... anytime!",
+          "C": "It's pretty clear cut to me that ...",
+          "D": "No two ways about it, ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I'm in two minds here.",
+        "difficulty": "easy",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Giving preferences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'In two minds' shows uncertainty or hesitation."
+          ],
+          "summary": "It shows hesitation."
+        },
+        "explanation": "The others show certainty."
+      },
+      {
+        "id": "U02-L05-Q020",
+        "number": 20,
+        "question": "Which phrase shows certainty about a choice?",
+        "options": {
+          "A": "No two ways about it, my choice would be ...",
+          "B": "I'm split between the ... and ...",
+          "C": "I'm in two minds here.",
+          "D": "There are pros and cons for each."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "No two ways about it, my choice would be ...",
+        "difficulty": "medium",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Giving preferences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'No two ways about it' shows there is no doubt."
+          ],
+          "summary": "It shows certainty."
+        },
+        "explanation": "The others express hesitation."
+      },
+      {
+        "id": "U02-L05-Q021",
+        "number": 21,
+        "question": "Complete: 'There's a lot to be ______ for the idea of a staycation.'",
+        "options": {
+          "A": "said",
+          "B": "done",
+          "C": "seen",
+          "D": "felt"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "said",
+        "difficulty": "easy",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Considering alternatives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The phrase is 'There's a lot to be said for...'."
+          ],
+          "summary": "said"
+        },
+        "explanation": "It means there are good reasons for it."
+      },
+      {
+        "id": "U02-L05-Q022",
+        "number": 22,
+        "question": "Complete: 'There are a lot of points in ______ of visiting other countries.'",
+        "options": {
+          "A": "favour",
+          "B": "help",
+          "C": "support",
+          "D": "need"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "favour",
+        "difficulty": "easy",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Considering alternatives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The phrase is 'points in favour of'."
+          ],
+          "summary": "favour"
+        },
+        "explanation": "It lists the positive points."
+      },
+      {
+        "id": "U02-L05-Q023",
+        "number": 23,
+        "question": "Complete: 'On ______, I'd say a small group is better.'",
+        "options": {
+          "A": "balance",
+          "B": "average",
+          "C": "general",
+          "D": "whole"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "balance",
+        "difficulty": "easy",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Giving preferences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The phrase is 'On balance'."
+          ],
+          "summary": "balance"
+        },
+        "explanation": "It means after weighing everything up."
+      },
+      {
+        "id": "U02-L05-Q024",
+        "number": 24,
+        "question": "Complete: 'If you really wanted to ______ me down, I'd probably say the reef.'",
+        "options": {
+          "A": "pin",
+          "B": "hold",
+          "C": "put",
+          "D": "set"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "pin",
+        "difficulty": "hard",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Giving preferences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The phrase is 'pin me down'."
+          ],
+          "summary": "pin"
+        },
+        "explanation": "It means force me to make a definite choice."
+      },
+      {
+        "id": "U02-L05-Q025",
+        "number": 25,
+        "question": "Complete: 'Oh, a canal trip – no ______! Definitely!'",
+        "options": {
+          "A": "contest",
+          "B": "competition",
+          "C": "match",
+          "D": "game"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "contest",
+        "difficulty": "medium",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Giving preferences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The phrase is 'no contest'."
+          ],
+          "summary": "contest"
+        },
+        "explanation": "It means there is no real comparison."
+      },
+      {
+        "id": "U02-L05-Q026",
+        "number": 26,
+        "question": "What are 'last chance holidays'?",
+        "options": {
+          "A": "holidays to places that may not exist in the same way for much longer",
+          "B": "holidays taken at the last minute",
+          "C": "the final holiday of the year",
+          "D": "holidays that are cancelled"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "holidays to places that may not exist in the same way for much longer",
+        "difficulty": "hard",
+        "source": {
+          "page": 21,
+          "reference": "Exercise 3: Discussion topics"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Last chance holidays' means travelling to see threatened places before they change or disappear."
+          ],
+          "summary": "Places that may not last much longer."
+        },
+        "explanation": "One of the discussion topics is last chance holidays."
+      },
+      {
+        "id": "U02-L05-Q027",
+        "number": 27,
+        "question": "Where can you visit 'The Great Barrier Reef'?",
+        "options": {
+          "A": "Australia",
+          "B": "Antarctica",
+          "C": "Jordan",
+          "D": "Chile"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Australia",
+        "difficulty": "easy",
+        "source": {
+          "page": 21,
+          "reference": "Exercise 1: Holiday options"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The Great Barrier Reef is in Australia; it was one of the holiday options discussed."
+          ],
+          "summary": "Australia"
+        },
+        "explanation": "The reef was one of the options."
+      },
+      {
+        "id": "U02-L05-Q028",
+        "number": 28,
+        "question": "Which famous place was offered as a holiday option in the listening?",
+        "options": {
+          "A": "Antarctica",
+          "B": "Sahara",
+          "C": "Himalayas",
+          "D": "Amazon"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Antarctica",
+        "difficulty": "medium",
+        "source": {
+          "page": 21,
+          "reference": "Exercise 1: Holiday options"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The options shown include The Great Barrier Reef and Antarctica."
+          ],
+          "summary": "Antarctica"
+        },
+        "explanation": "Students discuss which trip to choose."
+      },
+      {
+        "id": "U02-L05-Q029",
+        "number": 29,
+        "question": "Who said: 'Travelling leaves you speechless, then turns you into a storyteller'?",
+        "options": {
+          "A": "Ibn Battuta",
+          "B": "Anonymous",
+          "C": "Sultan",
+          "D": "Malek"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Ibn Battuta",
+        "difficulty": "medium",
+        "source": {
+          "page": 21,
+          "reference": "Exercise 4: Quotations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The quotation about travelling is attributed to Ibn Battuta."
+          ],
+          "summary": "Ibn Battuta"
+        },
+        "explanation": "He was a famous traveller."
+      },
+      {
+        "id": "U02-L05-Q030",
+        "number": 30,
+        "question": "What does 'Travelling leaves you speechless, then turns you into a storyteller' mean?",
+        "options": {
+          "A": "travel amazes you at first, and later gives you stories to tell",
+          "B": "travel makes you unable to speak forever",
+          "C": "only storytellers should travel",
+          "D": "travel is boring"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "travel amazes you at first, and later gives you stories to tell",
+        "difficulty": "hard",
+        "source": {
+          "page": 21,
+          "reference": "Exercise 4: Quotations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "It means the amazing experiences of travel become stories you share."
+          ],
+          "summary": "Travel gives you stories."
+        },
+        "explanation": "You are amazed first, then you tell others."
+      },
+      {
+        "id": "U02-L05-Q031",
+        "number": 31,
+        "question": "What does the quotation 'Fill your life with experiences, not things. Have stories to tell, not stuff to show' suggest?",
+        "options": {
+          "A": "experiences matter more than possessions",
+          "B": "you should buy more things",
+          "C": "stories are not important",
+          "D": "you should stay at home"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "experiences matter more than possessions",
+        "difficulty": "medium",
+        "source": {
+          "page": 21,
+          "reference": "Exercise 4: Quotations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The quotation values experiences and stories over material things."
+          ],
+          "summary": "Experiences are more valuable."
+        },
+        "explanation": "It encourages travel and new experiences."
+      },
+      {
+        "id": "U02-L05-Q032",
+        "number": 32,
+        "question": "Which phrase can you use to make a final decision after discussion?",
+        "options": {
+          "A": "On balance, I'd say ...",
+          "B": "There's a lot to be said for ...",
+          "C": "You have to consider the fact that ...",
+          "D": "Alternatively, ..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "On balance, I'd say ...",
+        "difficulty": "easy",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Giving preferences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'On balance, I'd say...' gives your final opinion after considering everything."
+          ],
+          "summary": "On balance gives the conclusion."
+        },
+        "explanation": "The others explore or add points."
+      },
+      {
+        "id": "U02-L05-Q033",
+        "number": 33,
+        "question": "Complete: '______, we could put forward the idea of a trip to the desert.'",
+        "options": {
+          "A": "Alternatively",
+          "B": "Definitely",
+          "C": "Clearly",
+          "D": "Surprisingly"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Alternatively",
+        "difficulty": "easy",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Considering alternatives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Alternatively' introduces another possible option."
+          ],
+          "summary": "Alternatively"
+        },
+        "explanation": "It offers an alternative choice."
+      },
+      {
+        "id": "U02-L05-Q034",
+        "number": 34,
+        "question": "Which phrase means 'there are advantages and disadvantages'?",
+        "options": {
+          "A": "There are pros and cons for each.",
+          "B": "No two ways about it.",
+          "C": "It's pretty clear cut to me.",
+          "D": "I'd go for it anytime!"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "There are pros and cons for each.",
+        "difficulty": "easy",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Giving preferences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Pros and cons' means advantages and disadvantages."
+          ],
+          "summary": "There are pros and cons = both sides."
+        },
+        "explanation": "It shows the speaker is weighing options."
+      },
+      {
+        "id": "U02-L05-Q035",
+        "number": 35,
+        "question": "In the speaking task, what is one suggested discussion topic?",
+        "options": {
+          "A": "holidaying in your own country instead of visiting other countries",
+          "B": "travelling by plane or train only",
+          "C": "the cost of passports",
+          "D": "packing a suitcase"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "holidaying in your own country instead of visiting other countries",
+        "difficulty": "medium",
+        "source": {
+          "page": 21,
+          "reference": "Exercise 3: Discussion topics"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "One topic is holidaying in your own country instead of abroad."
+          ],
+          "summary": "Holidaying at home is a topic."
+        },
+        "explanation": "Another topic is large or small groups."
+      },
+      {
+        "id": "U02-L05-Q036",
+        "number": 36,
+        "question": "What should you do before making a decision, according to the speaking lesson?",
+        "options": {
+          "A": "consider the pros and cons of each option",
+          "B": "choose the first option you hear",
+          "C": "let someone else decide",
+          "D": "avoid all opinions"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "consider the pros and cons of each option",
+        "difficulty": "medium",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Good decision-making involves weighing the pros and cons."
+          ],
+          "summary": "Consider pros and cons."
+        },
+        "explanation": "The speaking box helps structure this discussion."
+      },
+      {
+        "id": "U02-L05-Q037",
+        "number": 37,
+        "question": "Complete: 'You have to ______ the fact that the trip is very expensive.'",
+        "options": {
+          "A": "consider",
+          "B": "ignore",
+          "C": "forget",
+          "D": "invent"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "consider",
+        "difficulty": "easy",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Considering alternatives"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The phrase is 'You have to consider the fact that...'."
+          ],
+          "summary": "consider"
+        },
+        "explanation": "It asks you to think about an important fact."
+      },
+      {
+        "id": "U02-L05-Q038",
+        "number": 38,
+        "question": "What does 'I'm split between the reef and Antarctica' mean?",
+        "options": {
+          "A": "I like both and can't choose easily",
+          "B": "I reject both places",
+          "C": "I have visited both places",
+          "D": "I will visit both next year"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I like both and can't choose easily",
+        "difficulty": "medium",
+        "source": {
+          "page": 21,
+          "reference": "Speaking box: Giving preferences"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'I'm split between' means I find it hard to choose between the two."
+          ],
+          "summary": "The speaker can't choose easily."
+        },
+        "explanation": "Both options appeal."
+      },
+      {
+        "id": "U02-L05-Q039",
+        "number": 39,
+        "question": "Which is a suitable phrase to PREPARE a short presentation about the benefits of travelling?",
+        "options": {
+          "A": "There are a lot of points in favour of travelling.",
+          "B": "No contest! Antarctica!",
+          "C": "I'm in two minds here.",
+          "D": "Pin me down and I'll say..."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "There are a lot of points in favour of travelling.",
+        "difficulty": "hard",
+        "source": {
+          "page": 21,
+          "reference": "Exercise 4: Presentation"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A presentation would start by giving points in favour of travelling."
+          ],
+          "summary": "Giving points in favour fits a presentation."
+        },
+        "explanation": "The others are short replies, not presentation openers."
+      },
+      {
+        "id": "U02-L05-Q040",
+        "number": 40,
+        "question": "What does the speaking lesson help you do?",
+        "options": {
+          "A": "compare options and express preferences",
+          "B": "write formal letters",
+          "C": "understand grammar rules",
+          "D": "remember new vocabulary lists"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "compare options and express preferences",
+        "difficulty": "easy",
+        "source": {
+          "page": 21,
+          "reference": "Lesson 5A: Speaking"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The lesson focuses on considering options and giving preferences."
+          ],
+          "summary": "It helps you compare and choose."
+        },
+        "explanation": "The speaking box gives useful phrases."
+      }
+    ]
+  }
+}

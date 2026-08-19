@@ -1,0 +1,1302 @@
+[
+  {
+    "id": "U02-REV-Q001",
+    "number": 1,
+    "question": "Which country did Sultan visit?",
+    "options": {
+      "A": "Chile",
+      "B": "Argentina",
+      "C": "Peru",
+      "D": "Brazil"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "Chile",
+    "difficulty": "easy",
+    "source": {
+      "page": 25,
+      "reference": "Reading: The trip of my dreams"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Sultan describes Chile: the Atacama Desert and the edge of Antarctica."
+      ],
+      "summary": "Chile"
+    },
+    "explanation": "Santiago, Valparaiso and the desert are all in Chile."
+  },
+  {
+    "id": "U02-REV-Q002",
+    "number": 2,
+    "question": "What are the two contrasts of Chile mentioned in the blog?",
+    "options": {
+      "A": "the Atacama Desert at one end and the edge of Antarctica at the other",
+      "B": "old beaches and new mountains",
+      "C": "desert in the north and jungle in the south",
+      "D": "city in the east and ocean in the west"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "the Atacama Desert at one end and the edge of Antarctica at the other",
+    "difficulty": "easy",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Chile has amazing contrasts: the Atacama Desert at one end and the edge of Antarctica at the other."
+      ],
+      "summary": "Desert and Antarctica are the contrasts."
+    },
+    "explanation": "There are also old colonial towns and modern skyscrapers."
+  },
+  {
+    "id": "U02-REV-Q003",
+    "number": 3,
+    "question": "What does 'it had always been on my bucket list' mean?",
+    "options": {
+      "A": "it was something I always wanted to do before I die",
+      "B": "it was written on a shopping list",
+      "C": "it was a work duty",
+      "D": "it was a school project"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "it was something I always wanted to do before I die",
+    "difficulty": "medium",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A 'bucket list' is a list of things you want to do in your life."
+      ],
+      "summary": "bucket list = things to do in life."
+    },
+    "explanation": "Visiting Chile was a lifelong dream."
+  },
+  {
+    "id": "U02-REV-Q004",
+    "number": 4,
+    "question": "How long had Sultan and Adnan known each other?",
+    "options": {
+      "A": "not that long",
+      "B": "since childhood",
+      "C": "for ten years",
+      "D": "their whole lives"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "not that long",
+    "difficulty": "easy",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "The text says 'We hadn't known each other that long'."
+      ],
+      "summary": "They had not known each other long."
+    },
+    "explanation": "They had hit it off right from the start."
+  },
+  {
+    "id": "U02-REV-Q005",
+    "number": 5,
+    "question": "What does 'we'd really hit it off right from the start' mean?",
+    "options": {
+      "A": "we got on well with each other immediately",
+      "B": "we argued from the beginning",
+      "C": "we met by accident",
+      "D": "we were in the same class"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "we got on well with each other immediately",
+    "difficulty": "medium",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Hit it off' means to like each other and get on well from the first meeting."
+      ],
+      "summary": "hit it off = got on well at once."
+    },
+    "explanation": "They became friends quickly."
+  },
+  {
+    "id": "U02-REV-Q006",
+    "number": 6,
+    "question": "How does Sultan describe himself and Adnan?",
+    "options": {
+      "A": "Sultan is reserved; Adnan is a social butterfly",
+      "B": "Sultan is outgoing; Adnan is shy",
+      "C": "they are both quiet",
+      "D": "they are both very loud"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "Sultan is reserved; Adnan is a social butterfly",
+    "difficulty": "easy",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'I'm quite reserved, whereas he is a real social butterfly.'"
+      ],
+      "summary": "Sultan reserved, Adnan sociable."
+    },
+    "explanation": "They seemed to complement each other well."
+  },
+  {
+    "id": "U02-REV-Q007",
+    "number": 7,
+    "question": "What does 'they complement each other well' mean?",
+    "options": {
+      "A": "their characters balance and suit each other",
+      "B": "they pay each other compliments",
+      "C": "they are exactly the same",
+      "D": "they compete with each other"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "their characters balance and suit each other",
+    "difficulty": "hard",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Complement' means their different qualities fit together well."
+      ],
+      "summary": "Their qualities balance each other."
+    },
+    "explanation": "Reserved and sociable can work together."
+  },
+  {
+    "id": "U02-REV-Q008",
+    "number": 8,
+    "question": "What did Adnan become for Sultan's dream?",
+    "options": {
+      "A": "the driving force in making it happen",
+      "B": "a serious problem",
+      "C": "a careless companion",
+      "D": "a tour guide"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "the driving force in making it happen",
+    "difficulty": "medium",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Adnan 'became the driving force in actually making my dream happen'."
+      ],
+      "summary": "Adnan made the dream happen."
+    },
+    "explanation": "He pushed the trip forward."
+  },
+  {
+    "id": "U02-REV-Q009",
+    "number": 9,
+    "question": "What did Sultan love doing in Santiago?",
+    "options": {
+      "A": "walking around the neighbourhoods and trying typical dishes",
+      "B": "shopping in big malls",
+      "C": "sunbathing on the beach",
+      "D": "visiting museums all day"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "walking around the neighbourhoods and trying typical dishes",
+    "difficulty": "medium",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "He loved walking around the neighbourhoods, trying dishes like caldillo de congrio."
+      ],
+      "summary": "Walking and trying local food."
+    },
+    "explanation": "He soaked up the atmosphere."
+  },
+  {
+    "id": "U02-REV-Q010",
+    "number": 10,
+    "question": "What is 'caldillo de congrio'?",
+    "options": {
+      "A": "eel soup",
+      "B": "chicken rice",
+      "C": "fish and chips",
+      "D": "bread pudding"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "eel soup",
+    "difficulty": "hard",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "The text calls it 'caldillo de congrio (eel soup)'."
+      ],
+      "summary": "eel soup"
+    },
+    "explanation": "Sultan says don't knock it 'til you've tried it."
+  },
+  {
+    "id": "U02-REV-Q011",
+    "number": 11,
+    "question": "What does 'don't knock it 'til you've tried it' mean?",
+    "options": {
+      "A": "don't criticise something before you have tried it",
+      "B": "don't touch the door",
+      "C": "don't eat too fast",
+      "D": "don't talk with your mouth full"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "don't criticise something before you have tried it",
+    "difficulty": "hard",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Don't knock it' means don't criticise or reject it."
+      ],
+      "summary": "Try it before criticising."
+    },
+    "explanation": "The eel soup is worth trying."
+  },
+  {
+    "id": "U02-REV-Q012",
+    "number": 12,
+    "question": "What does 'things started to go downhill' mean?",
+    "options": {
+      "A": "the situation started to get worse",
+      "B": "they walked down a hill",
+      "C": "they started to ski",
+      "D": "the trip became cheaper"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "the situation started to get worse",
+    "difficulty": "medium",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Go downhill' means to get worse."
+      ],
+      "summary": "Things got worse."
+    },
+    "explanation": "After a few days, Adnan was bored."
+  },
+  {
+    "id": "U02-REV-Q013",
+    "number": 13,
+    "question": "What did Adnan want to do in the Valle Nevado?",
+    "options": {
+      "A": "go skiing",
+      "B": "go camping",
+      "C": "climb a volcano",
+      "D": "visit a museum"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "go skiing",
+    "difficulty": "easy",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'He wanted to go skiing in the Valle Nevado.'"
+      ],
+      "summary": "Go skiing"
+    },
+    "explanation": "It was a big problem for Sultan."
+  },
+  {
+    "id": "U02-REV-Q014",
+    "number": 14,
+    "question": "Why was the skiing trip a problem for Sultan?",
+    "options": {
+      "A": "he had never been skiing and it would blow his budget",
+      "B": "he had no warm clothes",
+      "C": "he was afraid of heights",
+      "D": "he had to work"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "he had never been skiing and it would blow his budget",
+    "difficulty": "medium",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Not only had Sultan never been skiing, but it would completely blow his budget."
+      ],
+      "summary": "Never skied + too expensive."
+    },
+    "explanation": "Both were problems for him."
+  },
+  {
+    "id": "U02-REV-Q015",
+    "number": 15,
+    "question": "What does 'blow my budget' mean?",
+    "options": {
+      "A": "spend much more money than I planned",
+      "B": "save a lot of money",
+      "C": "earn extra money",
+      "D": "lose my wallet"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "spend much more money than I planned",
+    "difficulty": "medium",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Blow your budget' means to spend far more than you had planned."
+      ],
+      "summary": "blow my budget = spend too much."
+    },
+    "explanation": "The skiing would be too expensive."
+  },
+  {
+    "id": "U02-REV-Q016",
+    "number": 16,
+    "question": "Why did Sultan agree to go skiing?",
+    "options": {
+      "A": "because he knew it meant a lot to Adnan",
+      "B": "because he loved skiing",
+      "C": "because Adnan paid for it",
+      "D": "because the guide insisted"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "because he knew it meant a lot to Adnan",
+    "difficulty": "medium",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Sultan knew it would mean a lot to Adnan, so he agreed."
+      ],
+      "summary": "It meant a lot to Adnan."
+    },
+    "explanation": "He felt bad and then Sultan felt bad too."
+  },
+  {
+    "id": "U02-REV-Q017",
+    "number": 17,
+    "question": "What happened when Adnan was in the mountains?",
+    "options": {
+      "A": "he made a whole load of new friends",
+      "B": "he stayed in his room",
+      "C": "he went home early",
+      "D": "he argued with everyone"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "he made a whole load of new friends",
+    "difficulty": "easy",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Being so social, Adnan soon made a whole load of new friends."
+      ],
+      "summary": "Adnan made many new friends."
+    },
+    "explanation": "Sultan did not click with the new crowd."
+  },
+  {
+    "id": "U02-REV-Q018",
+    "number": 18,
+    "question": "What does 'I didn't click with the new crowd' mean?",
+    "options": {
+      "A": "I did not get on well with them",
+      "B": "I pressed a button",
+      "C": "I took photos with them",
+      "D": "I made friends easily"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "I did not get on well with them",
+    "difficulty": "medium",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Click with someone' means to get on well with them."
+      ],
+      "summary": "didn't click = didn't get on."
+    },
+    "explanation": "Sultan felt out of place with the group."
+  },
+  {
+    "id": "U02-REV-Q019",
+    "number": 19,
+    "question": "What does 'I was itching to get on with our tour' mean?",
+    "options": {
+      "A": "I was very eager to continue the tour",
+      "B": "I felt ill during the tour",
+      "C": "I wanted to stop the tour",
+      "D": "I was bored with the tour"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "I was very eager to continue the tour",
+    "difficulty": "hard",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Be itching to do something' means to be very keen and impatient to do it."
+      ],
+      "summary": "itching to = very eager to."
+    },
+    "explanation": "Sultan wanted to visit the Atacama Desert."
+  },
+  {
+    "id": "U02-REV-Q020",
+    "number": 20,
+    "question": "What did Moon Valley and Mars Valley feel like?",
+    "options": {
+      "A": "being on another planet",
+      "B": "being at the beach",
+      "C": "being in a city",
+      "D": "being at home"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "being on another planet",
+    "difficulty": "easy",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'It really did feel as if we were on another planet.'"
+      ],
+      "summary": "Like another planet"
+    },
+    "explanation": "The landscape was extraordinary."
+  },
+  {
+    "id": "U02-REV-Q021",
+    "number": 21,
+    "question": "What problem 'reared its head' in the desert?",
+    "options": {
+      "A": "Adnan had posted unflattering photos of Sultan online",
+      "B": "the car broke down",
+      "C": "they got lost",
+      "D": "their money ran out"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "Adnan had posted unflattering photos of Sultan online",
+    "difficulty": "medium",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 7"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Another problem reared its head' when Sultan saw Adnan's photos online."
+      ],
+      "summary": "The photo problem appeared."
+    },
+    "explanation": "Some of the pictures were not very flattering."
+  },
+  {
+    "id": "U02-REV-Q022",
+    "number": 22,
+    "question": "What does 'another problem reared its head' mean?",
+    "options": {
+      "A": "another problem appeared",
+      "B": "another problem disappeared",
+      "C": "another problem was solved",
+      "D": "a headache started"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "another problem appeared",
+    "difficulty": "medium",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Reared its head' means appeared or came up."
+      ],
+      "summary": "A new problem appeared."
+    },
+    "explanation": "It caused tension between the friends."
+  },
+  {
+    "id": "U02-REV-Q023",
+    "number": 23,
+    "question": "What should Adnan have done before posting the photos?",
+    "options": {
+      "A": "asked Sultan's permission",
+      "B": "asked Sultan to pay",
+      "C": "shown Sultan how to take photos",
+      "D": "deleted his account"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "asked Sultan's permission",
+    "difficulty": "easy",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 7"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Sultan felt Adnan should have asked permission before posting the photos."
+      ],
+      "summary": "He should have asked permission."
+    },
+    "explanation": "Some photos of Sultan were unflattering."
+  },
+  {
+    "id": "U02-REV-Q024",
+    "number": 24,
+    "question": "What does 'unflattering' mean?",
+    "options": {
+      "A": "not attractive or not making someone look good",
+      "B": "very beautiful",
+      "C": "funny",
+      "D": "ancient"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "not attractive or not making someone look good",
+    "difficulty": "medium",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 7"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Unflattering' photos do not make the person look good."
+      ],
+      "summary": "unflattering = not attractive."
+    },
+    "explanation": "A few pictures of Sultan were unflattering."
+  },
+  {
+    "id": "U02-REV-Q025",
+    "number": 25,
+    "question": "What does 'I just bit my tongue' mean?",
+    "options": {
+      "A": "I did not say what I wanted to say",
+      "B": "I hurt myself accidentally",
+      "C": "I shouted loudly",
+      "D": "I ate something"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "I did not say what I wanted to say",
+    "difficulty": "medium",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 7"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Bite your tongue' means to stop yourself from saying something."
+      ],
+      "summary": "bit my tongue = stayed silent."
+    },
+    "explanation": "He kept quiet to protect the friendship."
+  },
+  {
+    "id": "U02-REV-Q026",
+    "number": 26,
+    "question": "What 'cast a shadow over the trip'?",
+    "options": {
+      "A": "the friendship problems between Sultan and Adnan",
+      "B": "the bad weather",
+      "C": "the long flights",
+      "D": "the expensive hotels"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "the friendship problems between Sultan and Adnan",
+    "difficulty": "medium",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 8"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Something happened which cast a shadow over the trip' - the friendship was strained."
+      ],
+      "summary": "The friendship problems spoiled it partly."
+    },
+    "explanation": "Cast a shadow = made it less happy."
+  },
+  {
+    "id": "U02-REV-Q027",
+    "number": 27,
+    "question": "Where is Valparaiso?",
+    "options": {
+      "A": "just north of Santiago, on the Pacific coast",
+      "B": "south of the Atacama Desert",
+      "C": "in Argentina",
+      "D": "on the Atlantic coast"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "just north of Santiago, on the Pacific coast",
+    "difficulty": "easy",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 8"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Valparaiso is a beautiful old city just north of Santiago, on the Pacific coast."
+      ],
+      "summary": "North of Santiago on the coast."
+    },
+    "explanation": "It is a gorgeous and special place."
+  },
+  {
+    "id": "U02-REV-Q028",
+    "number": 28,
+    "question": "What did Adnan want to do in Valparaiso?",
+    "options": {
+      "A": "hang out in the hotel room all day",
+      "B": "walk around and see the sights",
+      "C": "visit the museums",
+      "D": "go sailing"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "hang out in the hotel room all day",
+    "difficulty": "easy",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 8"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Adnan just wanted to hang out in the hotel room all day."
+      ],
+      "summary": "He wanted to stay in the hotel."
+    },
+    "explanation": "Sultan could not believe it."
+  },
+  {
+    "id": "U02-REV-Q029",
+    "number": 29,
+    "question": "What conclusion did the two friends reach at the end?",
+    "options": {
+      "A": "they were not very compatible travelling companions",
+      "B": "they would travel together again next year",
+      "C": "they would never speak again",
+      "D": "they were perfect travel partners"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "they were not very compatible travelling companions",
+    "difficulty": "easy",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 9"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'We finally understood that we weren't very compatible travelling companions.'"
+      ],
+      "summary": "They were not compatible as travel partners."
+    },
+    "explanation": "They had different ideas about being a tourist."
+  },
+  {
+    "id": "U02-REV-Q030",
+    "number": 30,
+    "question": "What does 'compatible' mean?",
+    "options": {
+      "A": "able to exist or work together well",
+      "B": "able to travel fast",
+      "C": "very rich",
+      "D": "very old"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "able to exist or work together well",
+    "difficulty": "medium",
+    "source": {
+      "page": 25,
+      "reference": "Reading: paragraph 9"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Compatible' means able to get along or work together well."
+      ],
+      "summary": "compatible = able to work together."
+    },
+    "explanation": "They had different ideas about tourism."
+  },
+  {
+    "id": "U02-REV-Q031",
+    "number": 31,
+    "question": "According to the Life Skills box, what is the first step to make a good decision?",
+    "options": {
+      "A": "gather relevant information - do your research",
+      "B": "make the decision immediately",
+      "C": "ask everyone else to decide",
+      "D": "ignore the facts"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "gather relevant information - do your research",
+    "difficulty": "easy",
+    "source": {
+      "page": 24,
+      "reference": "Life Skills: How to make a good decision"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "The first step is to gather relevant information."
+      ],
+      "summary": "Gather relevant information."
+    },
+    "explanation": "It is the foundation of good decisions."
+  },
+  {
+    "id": "U02-REV-Q032",
+    "number": 32,
+    "question": "According to the Life Skills box, what should you do with your list of options?",
+    "options": {
+      "A": "consider the pros and cons and drawbacks of each",
+      "B": "throw the list away",
+      "C": "choose the first option",
+      "D": "hide the list"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "consider the pros and cons and drawbacks of each",
+    "difficulty": "easy",
+    "source": {
+      "page": 24,
+      "reference": "Life Skills: How to make a good decision"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "You make a list of options and consider the pros and cons and drawbacks of each."
+      ],
+      "summary": "Consider pros, cons and drawbacks."
+    },
+    "explanation": "This helps you compare choices."
+  },
+  {
+    "id": "U02-REV-Q033",
+    "number": 33,
+    "question": "What should you do to get different perspectives before deciding?",
+    "options": {
+      "A": "ask others for their views or experience",
+      "B": "decide alone without help",
+      "C": "ignore other people's advice",
+      "D": "read only one opinion"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "ask others for their views or experience",
+    "difficulty": "easy",
+    "source": {
+      "page": 24,
+      "reference": "Life Skills: How to make a good decision"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "The box says 'Get some different perspectives - ask others for their views or experience'."
+      ],
+      "summary": "Ask others for their views."
+    },
+    "explanation": "Other perspectives help the decision."
+  },
+  {
+    "id": "U02-REV-Q034",
+    "number": 34,
+    "question": "After making the decision, what should you later consider?",
+    "options": {
+      "A": "what you learned from this experience",
+      "B": "what you spent on lunch",
+      "C": "whether to cancel the trip",
+      "D": "who to blame"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "what you learned from this experience",
+    "difficulty": "easy",
+    "source": {
+      "page": 24,
+      "reference": "Life Skills: How to make a good decision"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "You make the decision and later consider what you learned from this experience."
+      ],
+      "summary": "Consider what you learned."
+    },
+    "explanation": "It helps you make better decisions next time."
+  },
+  {
+    "id": "U02-REV-Q035",
+    "number": 35,
+    "question": "In the Life Skills project, what is the dilemma?",
+    "options": {
+      "A": "your best friend invites you on a holiday that may harm the environment",
+      "B": "you have no money for a holiday",
+      "C": "your friend wants to stay home",
+      "D": "the flights are cancelled"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "your best friend invites you on a holiday that may harm the environment",
+    "difficulty": "medium",
+    "source": {
+      "page": 24,
+      "reference": "Life Skills: Project"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "The friend invites you to an exciting destination, but tourism might harm the local environment."
+      ],
+      "summary": "Tourism may hurt the environment."
+    },
+    "explanation": "You must analyse the situation and decide."
+  },
+  {
+    "id": "U02-REV-Q036",
+    "number": 36,
+    "question": "Which verb of movement means 'walked with long, confident steps'?",
+    "options": {
+      "A": "strode",
+      "B": "shuffled",
+      "C": "wobbled",
+      "D": "lurched"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "strode",
+    "difficulty": "easy",
+    "source": {
+      "page": 14,
+      "reference": "Unit 2 Vocabulary review"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Strode' means walking with long, confident steps."
+      ],
+      "summary": "strode"
+    },
+    "explanation": "The angry father strode up to the manager."
+  },
+  {
+    "id": "U02-REV-Q037",
+    "number": 37,
+    "question": "Which verb of movement means 'walked with difficulty because of injury'?",
+    "options": {
+      "A": "hobbled",
+      "B": "surged",
+      "C": "staggered",
+      "D": "strode"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "hobbled",
+    "difficulty": "easy",
+    "source": {
+      "page": 14,
+      "reference": "Unit 2 Vocabulary review"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Hobbled' means walking with difficulty, e.g. with an injured ankle."
+      ],
+      "summary": "hobbled"
+    },
+    "explanation": "He hobbled off the pitch."
+  },
+  {
+    "id": "U02-REV-Q038",
+    "number": 38,
+    "question": "Which idiom means 'easy and without problems'?",
+    "options": {
+      "A": "plain sailing",
+      "B": "going downhill",
+      "C": "in the same boat",
+      "D": "up the wall"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "plain sailing",
+    "difficulty": "easy",
+    "source": {
+      "page": 15,
+      "reference": "Unit 2 Vocabulary review"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Plain sailing' means easy and trouble-free."
+      ],
+      "summary": "plain sailing"
+    },
+    "explanation": "It wasn't all plain sailing for the trainee pilot."
+  },
+  {
+    "id": "U02-REV-Q039",
+    "number": 39,
+    "question": "Which idiom means 'the main person or thing behind a project'?",
+    "options": {
+      "A": "the driving force",
+      "B": "a soft touch",
+      "C": "a dark horse",
+      "D": "a go-getter"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "the driving force",
+    "difficulty": "easy",
+    "source": {
+      "page": 15,
+      "reference": "Unit 2 Vocabulary review"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'The driving force' is the main person or thing making something happen."
+      ],
+      "summary": "the driving force"
+    },
+    "explanation": "Suha was the driving force behind the project."
+  },
+  {
+    "id": "U02-REV-Q040",
+    "number": 40,
+    "question": "Which idiom means 'to avoid'?",
+    "options": {
+      "A": "steer clear of",
+      "B": "fall into step with",
+      "C": "get a kick out of",
+      "D": "plump for"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "steer clear of",
+    "difficulty": "easy",
+    "source": {
+      "page": 15,
+      "reference": "Unit 2 Vocabulary review"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Steer clear of' means to avoid."
+      ],
+      "summary": "steer clear of"
+    },
+    "explanation": "Steer clear of the main junction."
+  },
+  {
+    "id": "U02-REV-Q041",
+    "number": 41,
+    "question": "What does 'in the same boat' mean?",
+    "options": {
+      "A": "in the same difficult situation",
+      "B": "in the same boat on a lake",
+      "C": "working on a ship",
+      "D": "sharing a meal"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "in the same difficult situation",
+    "difficulty": "easy",
+    "source": {
+      "page": 15,
+      "reference": "Unit 2 Vocabulary review"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'In the same boat' means sharing the same (usually difficult) situation."
+      ],
+      "summary": "in the same boat = same situation."
+    },
+    "explanation": "We're all in the same boat with the parking fees."
+  },
+  {
+    "id": "U02-REV-Q042",
+    "number": 42,
+    "question": "What does 'be taken for a ride' mean?",
+    "options": {
+      "A": "to be tricked or deceived",
+      "B": "to go on a fun trip",
+      "C": "to be driven around",
+      "D": "to be kidnapped"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to be tricked or deceived",
+    "difficulty": "medium",
+    "source": {
+      "page": 15,
+      "reference": "Unit 2 Vocabulary review"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Be taken for a ride' means to be deceived."
+      ],
+      "summary": "be taken for a ride = be tricked."
+    },
+    "explanation": "No one likes to be taken for a ride."
+  },
+  {
+    "id": "U02-REV-Q043",
+    "number": 43,
+    "question": "What does 'sailed through the interview' mean?",
+    "options": {
+      "A": "succeeded easily",
+      "B": "failed badly",
+      "C": "arrived late",
+      "D": "gave up"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "succeeded easily",
+    "difficulty": "medium",
+    "source": {
+      "page": 15,
+      "reference": "Unit 2 Vocabulary review"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Sail through' means to succeed at something easily."
+      ],
+      "summary": "sailed through = succeeded easily."
+    },
+    "explanation": "Reem sailed through her interview."
+  },
+  {
+    "id": "U02-REV-Q044",
+    "number": 44,
+    "question": "Which word means 'a major discovery or advance'?",
+    "options": {
+      "A": "breakthrough",
+      "B": "setback",
+      "C": "outcry",
+      "D": "outlay"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "breakthrough",
+    "difficulty": "easy",
+    "source": {
+      "page": 20,
+      "reference": "Unit 2 Vocabulary review"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A 'breakthrough' is a major advance."
+      ],
+      "summary": "breakthrough"
+    },
+    "explanation": "They made a breakthrough in driverless cars."
+  },
+  {
+    "id": "U02-REV-Q045",
+    "number": 45,
+    "question": "Which word means 'a problem that delays progress'?",
+    "options": {
+      "A": "setback",
+      "B": "breakaway",
+      "C": "outcome",
+      "D": "outlook"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "setback",
+    "difficulty": "easy",
+    "source": {
+      "page": 20,
+      "reference": "Unit 2 Vocabulary review"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A 'setback' delays progress."
+      ],
+      "summary": "setback"
+    },
+    "explanation": "Due to a setback, it won't be finished until next week."
+  },
+  {
+    "id": "U02-REV-Q046",
+    "number": 46,
+    "question": "Which word means 'a strong public protest'?",
+    "options": {
+      "A": "outcry",
+      "B": "outset",
+      "C": "outcome",
+      "D": "outlook"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "outcry",
+    "difficulty": "medium",
+    "source": {
+      "page": 20,
+      "reference": "Unit 2 Vocabulary review"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "An 'outcry' is a strong public reaction or protest."
+      ],
+      "summary": "outcry"
+    },
+    "explanation": "There would be an outcry if the company delayed too much."
+  },
+  {
+    "id": "U02-REV-Q047",
+    "number": 47,
+    "question": "Which phrase means 'after considering everything'?",
+    "options": {
+      "A": "On balance",
+      "B": "No contest",
+      "C": "In two minds",
+      "D": "At first"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "On balance",
+    "difficulty": "medium",
+    "source": {
+      "page": 21,
+      "reference": "Unit 2 Vocabulary review"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'On balance' means after weighing up all the facts."
+      ],
+      "summary": "On balance"
+    },
+    "explanation": "On balance, I'd say a small group is better."
+  },
+  {
+    "id": "U02-REV-Q048",
+    "number": 48,
+    "question": "Which phrase means 'I can't decide'?",
+    "options": {
+      "A": "I'm in two minds",
+      "B": "I'd go for it anytime",
+      "C": "No two ways about it",
+      "D": "It's clear cut"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "I'm in two minds",
+    "difficulty": "easy",
+    "source": {
+      "page": 21,
+      "reference": "Unit 2 Vocabulary review"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'In two minds' means undecided."
+      ],
+      "summary": "in two minds"
+    },
+    "explanation": "I'm in two minds about which trip to choose."
+  },
+  {
+    "id": "U02-REV-Q049",
+    "number": 49,
+    "question": "What does 'there is no contest' mean?",
+    "options": {
+      "A": "one option is clearly the best",
+      "B": "there is no game",
+      "C": "nobody wants to compete",
+      "D": "the decision is hard"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "one option is clearly the best",
+    "difficulty": "hard",
+    "source": {
+      "page": 21,
+      "reference": "Unit 2 Vocabulary review"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'No contest' means there is no real comparison; one choice is clearly better."
+      ],
+      "summary": "no contest = clearly best."
+    },
+    "explanation": "A canal trip - no contest! Definitely!"
+  },
+  {
+    "id": "U02-REV-Q050",
+    "number": 50,
+    "question": "Which phrase is formal?",
+    "options": {
+      "A": "in excess of 30 minutes late",
+      "B": "more than half an hour late",
+      "C": "so late!",
+      "D": "late by ages"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "in excess of 30 minutes late",
+    "difficulty": "medium",
+    "source": {
+      "page": 23,
+      "reference": "Unit 2 Vocabulary review"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'In excess of' is the formal version used in a formal complaint."
+      ],
+      "summary": "in excess of"
+    },
+    "explanation": "Email B uses formal equivalents."
+  }
+]

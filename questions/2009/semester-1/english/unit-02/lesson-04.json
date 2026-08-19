@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "4",
+    "lesson_name": "Listening and Vocabulary",
+    "unit_number": 2,
+    "unit_name": "On the move",
+    "page_start": 20,
+    "page_end": 20,
+    "questions": [
+      {
+        "id": "U02-L04-Q001",
+        "number": 1,
+        "question": "What is the lesson about?",
+        "options": {
+          "A": "space tourism",
+          "B": "farming",
+          "C": "public transport",
+          "D": "hotel management"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "space tourism",
+        "difficulty": "easy",
+        "source": {
+          "page": 20,
+          "reference": "Lesson 4A: Listening and Vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The lesson is about space tourism, based on three conversations."
+          ],
+          "summary": "The topic is space tourism."
+        },
+        "explanation": "The conversations discuss space travel."
+      },
+      {
+        "id": "U02-L04-Q002",
+        "number": 2,
+        "question": "Complete: 'Do you think the employees get their fair ______ of the money?'",
+        "options": {
+          "A": "share",
+          "B": "part",
+          "C": "half",
+          "D": "amount"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "share",
+        "difficulty": "easy",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 3: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The collocation is 'a fair share of something'."
+          ],
+          "summary": "fair share"
+        },
+        "explanation": "It means a fair amount that you deserve."
+      },
+      {
+        "id": "U02-L04-Q003",
+        "number": 3,
+        "question": "What does 'a fair share' mean?",
+        "options": {
+          "A": "a fair part or amount that someone deserves",
+          "B": "a share in a company",
+          "C": "an equal price",
+          "D": "a small piece"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a fair part or amount that someone deserves",
+        "difficulty": "easy",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 3: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'A fair share' means the amount that is fair for you to have."
+          ],
+          "summary": "fair share = fair amount."
+        },
+        "explanation": "Do the employees get their fair share of the money?"
+      },
+      {
+        "id": "U02-L04-Q004",
+        "number": 4,
+        "question": "Complete: 'What ______ might you have to overcome to be successful in your career?'",
+        "options": {
+          "A": "hurdles",
+          "B": "walls",
+          "C": "gates",
+          "D": "fences"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "hurdles",
+        "difficulty": "easy",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 3: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The collocation is 'overcome hurdles'."
+          ],
+          "summary": "hurdles"
+        },
+        "explanation": "Hurdles are problems or obstacles."
+      },
+      {
+        "id": "U02-L04-Q005",
+        "number": 5,
+        "question": "What does 'overcome hurdles' mean?",
+        "options": {
+          "A": "to deal with obstacles or difficulties",
+          "B": "to jump over fences",
+          "C": "to run a race",
+          "D": "to avoid problems"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to deal with obstacles or difficulties",
+        "difficulty": "easy",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 3: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Hurdles' are difficulties; to overcome them means to deal with them successfully."
+          ],
+          "summary": "overcome hurdles = deal with obstacles."
+        },
+        "explanation": "You may have hurdles to overcome in your career."
+      },
+      {
+        "id": "U02-L04-Q006",
+        "number": 6,
+        "question": "Complete: 'Do you think you would enjoy travelling at ______ speed?'",
+        "options": {
+          "A": "breakneck",
+          "B": "slow",
+          "C": "lightning",
+          "D": "gentle"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "breakneck",
+        "difficulty": "medium",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 3: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The collocation is 'breakneck speed'."
+          ],
+          "summary": "breakneck speed"
+        },
+        "explanation": "Breakneck means extremely fast and dangerous."
+      },
+      {
+        "id": "U02-L04-Q007",
+        "number": 7,
+        "question": "What does 'breakneck speed' mean?",
+        "options": {
+          "A": "extremely fast, dangerously fast",
+          "B": "a slow, steady speed",
+          "C": "the speed of walking",
+          "D": "average speed"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "extremely fast, dangerously fast",
+        "difficulty": "easy",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 3: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Breakneck speed' means dangerously fast."
+          ],
+          "summary": "breakneck = extremely fast."
+        },
+        "explanation": "Travelling in space would be at breakneck speed."
+      },
+      {
+        "id": "U02-L04-Q008",
+        "number": 8,
+        "question": "Complete: 'Do you think there are any areas on Earth where humans have not left their ______?'",
+        "options": {
+          "A": "mark",
+          "B": "sign",
+          "C": "footstep",
+          "D": "trace"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "mark",
+        "difficulty": "medium",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 3: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The collocation is 'leave your mark'."
+          ],
+          "summary": "left their mark"
+        },
+        "explanation": "It means having an effect or influence on a place."
+      },
+      {
+        "id": "U02-L04-Q009",
+        "number": 9,
+        "question": "What does 'leave your mark' mean?",
+        "options": {
+          "A": "to have a noticeable effect or influence",
+          "B": "to write your name",
+          "C": "to make a mess",
+          "D": "to lose something"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to have a noticeable effect or influence",
+        "difficulty": "medium",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 3: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Leave your mark' means to have an effect on something that lasts."
+          ],
+          "summary": "leave your mark = have an influence."
+        },
+        "explanation": "Humans have left their mark almost everywhere."
+      },
+      {
+        "id": "U02-L04-Q010",
+        "number": 10,
+        "question": "Complete: 'Have you done anything recently that you might be tempted to ______ about?'",
+        "options": {
+          "A": "brag",
+          "B": "complain",
+          "C": "forget",
+          "D": "apologise"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "brag",
+        "difficulty": "medium",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 3: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Brag' means to talk about yourself with too much pride."
+          ],
+          "summary": "brag"
+        },
+        "explanation": "You brag about things you are proud of."
+      },
+      {
+        "id": "U02-L04-Q011",
+        "number": 11,
+        "question": "What does 'brag' mean?",
+        "options": {
+          "A": "to talk proudly about yourself or your achievements",
+          "B": "to complain loudly",
+          "C": "to whisper secretly",
+          "D": "to ask questions"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to talk proudly about yourself or your achievements",
+        "difficulty": "easy",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 3: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Brag' means to boast, to talk proudly."
+          ],
+          "summary": "brag = boast."
+        },
+        "explanation": "People may brag about exciting experiences."
+      },
+      {
+        "id": "U02-L04-Q012",
+        "number": 12,
+        "question": "Complete: 'What might be the knock-on ______ of more spending on space research?'",
+        "options": {
+          "A": "effect",
+          "B": "causes",
+          "C": "answers",
+          "D": "benefits"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "effect",
+        "difficulty": "easy",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 3: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The collocation is 'knock-on effect'."
+          ],
+          "summary": "knock-on effect"
+        },
+        "explanation": "A knock-on effect is an indirect result."
+      },
+      {
+        "id": "U02-L04-Q013",
+        "number": 13,
+        "question": "What does 'knock-on effect' mean?",
+        "options": {
+          "A": "an indirect result caused by something else",
+          "B": "a small accident",
+          "C": "a direct order",
+          "D": "a sudden change of plan"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "an indirect result caused by something else",
+        "difficulty": "medium",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 3: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A knock-on effect happens as an indirect result of another action."
+          ],
+          "summary": "knock-on effect = indirect result."
+        },
+        "explanation": "More spending on research would have knock-on effects."
+      },
+      {
+        "id": "U02-L04-Q014",
+        "number": 14,
+        "question": "Complete: 'We're going for a quick ______ (away) to Amman at the weekend.'",
+        "options": {
+          "A": "breakaway",
+          "B": "breakdown",
+          "C": "breakthrough",
+          "D": "breakup"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "breakaway",
+        "difficulty": "medium",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Breakaway' = a short trip away from home."
+          ],
+          "summary": "breakaway"
+        },
+        "explanation": "A quick breakaway is a short holiday."
+      },
+      {
+        "id": "U02-L04-Q015",
+        "number": 15,
+        "question": "What does 'breakaway' mean in 'a quick breakaway to Amman'?",
+        "options": {
+          "A": "a short trip or holiday away",
+          "B": "a business deal",
+          "C": "a flight delay",
+          "D": "an argument"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a short trip or holiday away",
+        "difficulty": "medium",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Breakaway' here means a short holiday away from home."
+          ],
+          "summary": "breakaway = short trip away."
+        },
+        "explanation": "They are going for the weekend."
+      },
+      {
+        "id": "U02-L04-Q016",
+        "number": 16,
+        "question": "Complete: 'The ______ (out) of the investigation into the collision will not be known before March.'",
+        "options": {
+          "A": "outcome",
+          "B": "outlet",
+          "C": "outline",
+          "D": "outlook"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "outcome",
+        "difficulty": "medium",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Outcome' = the final result of something."
+          ],
+          "summary": "outcome"
+        },
+        "explanation": "The outcome of the investigation is the result."
+      },
+      {
+        "id": "U02-L04-Q017",
+        "number": 17,
+        "question": "What does 'outcome' mean?",
+        "options": {
+          "A": "the final result of an activity",
+          "B": "the beginning of a process",
+          "C": "a mistake in a plan",
+          "D": "a question"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the final result of an activity",
+        "difficulty": "easy",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Outcome' is the final result."
+          ],
+          "summary": "outcome = final result."
+        },
+        "explanation": "We will know the outcome of the investigation in March."
+      },
+      {
+        "id": "U02-L04-Q018",
+        "number": 18,
+        "question": "Complete: 'They've recently made an amazing ______ (through) in developing driverless cars.'",
+        "options": {
+          "A": "breakthrough",
+          "B": "breakdown",
+          "C": "breakaway",
+          "D": "breakout"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "breakthrough",
+        "difficulty": "easy",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Breakthrough' = an important discovery or development."
+          ],
+          "summary": "breakthrough"
+        },
+        "explanation": "Driverless cars had an amazing breakthrough."
+      },
+      {
+        "id": "U02-L04-Q019",
+        "number": 19,
+        "question": "What does 'breakthrough' mean?",
+        "options": {
+          "A": "an important discovery or advance",
+          "B": "a small accident",
+          "C": "an old-fashioned idea",
+          "D": "a broken machine"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "an important discovery or advance",
+        "difficulty": "easy",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A breakthrough is a major advance or discovery."
+          ],
+          "summary": "breakthrough = major advance."
+        },
+        "explanation": "It changed the development of driverless cars."
+      },
+      {
+        "id": "U02-L04-Q020",
+        "number": 20,
+        "question": "Complete: 'The weather ______ (out) for May sounds really good, so let's book a holiday.'",
+        "options": {
+          "A": "outlook",
+          "B": "outcome",
+          "C": "outcry",
+          "D": "outlay"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "outlook",
+        "difficulty": "medium",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Outlook' = the forecast or expected situation for the future."
+          ],
+          "summary": "outlook"
+        },
+        "explanation": "The weather outlook for May is good."
+      },
+      {
+        "id": "U02-L04-Q021",
+        "number": 21,
+        "question": "What does 'outlook' mean?",
+        "options": {
+          "A": "the expected situation for the future",
+          "B": "a view from a window",
+          "C": "a type of email",
+          "D": "a sudden problem"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the expected situation for the future",
+        "difficulty": "medium",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Outlook' can mean the forecast for the future, like the weather outlook."
+          ],
+          "summary": "outlook = forecast."
+        },
+        "explanation": "The weather outlook for May sounds good."
+      },
+      {
+        "id": "U02-L04-Q022",
+        "number": 22,
+        "question": "Complete: 'Due to a ______ (back), it won't be finished until next week.'",
+        "options": {
+          "A": "setback",
+          "B": "setoff",
+          "C": "setup",
+          "D": "setdown"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "setback",
+        "difficulty": "medium",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Setback' = a problem that delays progress."
+          ],
+          "summary": "setback"
+        },
+        "explanation": "The printing had a setback."
+      },
+      {
+        "id": "U02-L04-Q023",
+        "number": 23,
+        "question": "What does 'setback' mean?",
+        "options": {
+          "A": "a problem that delays progress",
+          "B": "a positive result",
+          "C": "a new beginning",
+          "D": "a quick decision"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a problem that delays progress",
+        "difficulty": "easy",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A setback is a difficulty that causes delay."
+          ],
+          "summary": "setback = a delaying problem."
+        },
+        "explanation": "The report won't be finished on time."
+      },
+      {
+        "id": "U02-L04-Q024",
+        "number": 24,
+        "question": "Complete: 'From the ______ (out), scientists have warned of the potential dangers of space junk.'",
+        "options": {
+          "A": "outset",
+          "B": "output",
+          "C": "outlook",
+          "D": "outbreak"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "outset",
+        "difficulty": "medium",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Outset' = the beginning."
+          ],
+          "summary": "outset"
+        },
+        "explanation": "From the outset = from the start."
+      },
+      {
+        "id": "U02-L04-Q025",
+        "number": 25,
+        "question": "What does 'from the outset' mean?",
+        "options": {
+          "A": "from the beginning",
+          "B": "from the end",
+          "C": "from outside",
+          "D": "from time to time"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "from the beginning",
+        "difficulty": "easy",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Outset' means the start or beginning."
+          ],
+          "summary": "from the outset = from the beginning."
+        },
+        "explanation": "Scientists warned of the dangers from the start."
+      },
+      {
+        "id": "U02-L04-Q026",
+        "number": 26,
+        "question": "Complete: 'The initial ______ (out) for developing a space tourist programme was immense.'",
+        "options": {
+          "A": "outlay",
+          "B": "outlet",
+          "C": "outcome",
+          "D": "outline"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "outlay",
+        "difficulty": "hard",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Outlay' = money spent on something."
+          ],
+          "summary": "outlay"
+        },
+        "explanation": "The initial outlay was immense."
+      },
+      {
+        "id": "U02-L04-Q027",
+        "number": 27,
+        "question": "What does 'outlay' mean?",
+        "options": {
+          "A": "money that you have to spend",
+          "B": "money that you earn",
+          "C": "a type of tax",
+          "D": "a discount"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "money that you have to spend",
+        "difficulty": "hard",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Outlay' is the amount of money spent, especially to start something."
+          ],
+          "summary": "outlay = money spent."
+        },
+        "explanation": "The start-up outlay was immense but it will make a profit."
+      },
+      {
+        "id": "U02-L04-Q028",
+        "number": 28,
+        "question": "Complete: 'There would be an ______ (out) if the company made too many comebacks.'",
+        "options": {
+          "A": "outcry",
+          "B": "outfit",
+          "C": "outlook",
+          "D": "outset"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "outcry",
+        "difficulty": "hard",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Outcry' = a strong public protest or reaction."
+          ],
+          "summary": "outcry"
+        },
+        "explanation": "People would protest strongly."
+      },
+      {
+        "id": "U02-L04-Q029",
+        "number": 29,
+        "question": "What does 'outcry' mean?",
+        "options": {
+          "A": "a strong public protest",
+          "B": "a loud shout of joy",
+          "C": "a quiet agreement",
+          "D": "a written complaint"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a strong public protest",
+        "difficulty": "medium",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "An outcry is an angry public reaction."
+          ],
+          "summary": "outcry = strong protest."
+        },
+        "explanation": "Too many delays would cause an outcry."
+      },
+      {
+        "id": "U02-L04-Q030",
+        "number": 30,
+        "question": "What does 'comeback' mean?",
+        "options": {
+          "A": "a return or a way of returning",
+          "B": "a new product",
+          "C": "a holiday",
+          "D": "a mistake"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a return or a way of returning",
+        "difficulty": "hard",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Comeback' means a return to an activity or situation, or a quick answer."
+          ],
+          "summary": "comeback = a return."
+        },
+        "explanation": "The company should not make too many comebacks (delays)."
+      },
+      {
+        "id": "U02-L04-Q031",
+        "number": 31,
+        "question": "What are 'phrasal nouns'?",
+        "options": {
+          "A": "nouns formed from a verb and a preposition",
+          "B": "verbs formed from nouns",
+          "C": "adjectives formed from verbs",
+          "D": "nouns that never change form"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "nouns formed from a verb and a preposition",
+        "difficulty": "medium",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Phrasal nouns are made from a verb and a preposition, e.g. breakaway from 'break away'."
+          ],
+          "summary": "phrasal nouns = verb + preposition."
+        },
+        "explanation": "Examples: breakaway, outcome, breakthrough."
+      },
+      {
+        "id": "U02-L04-Q032",
+        "number": 32,
+        "question": "Complete: 'They've made an amazing ______ in developing driverless cars.'",
+        "options": {
+          "A": "breakthrough",
+          "B": "breakaway",
+          "C": "breakdown",
+          "D": "breakup"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "breakthrough",
+        "difficulty": "easy",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 4: Phrasal nouns"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Breakthrough' is the right phrasal noun here."
+          ],
+          "summary": "breakthrough"
+        },
+        "explanation": "It is a major advance in technology."
+      },
+      {
+        "id": "U02-L04-Q033",
+        "number": 33,
+        "question": "What topic is discussed in the space tourism conversations?",
+        "options": {
+          "A": "the costs of tickets to go into space",
+          "B": "the best space hotels",
+          "C": "how to become an astronaut quickly",
+          "D": "space food recipes"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the costs of tickets to go into space",
+        "difficulty": "medium",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 1: Space tourism topics"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The topics include costs of tickets, collisions, life on the Space Station and space junk."
+          ],
+          "summary": "The costs of tickets is a topic."
+        },
+        "explanation": "One of the five topics is ticket costs."
+      },
+      {
+        "id": "U02-L04-Q034",
+        "number": 34,
+        "question": "What is 'space junk'?",
+        "options": {
+          "A": "old spacecraft and debris left in space",
+          "B": "litter left by tourists on Earth",
+          "C": "rubbish in the ocean",
+          "D": "space food wrappers"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "old spacecraft and debris left in space",
+        "difficulty": "easy",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 1: Space tourism topics"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Space junk is debris or old objects orbiting the Earth."
+          ],
+          "summary": "space junk = debris in orbit."
+        },
+        "explanation": "There are projects to clear space junk."
+      },
+      {
+        "id": "U02-L04-Q035",
+        "number": 35,
+        "question": "What is one problem caused by space junk mentioned in the lesson?",
+        "options": {
+          "A": "possible collisions of objects in space",
+          "B": "higher ticket prices",
+          "C": "fewer flights to the moon",
+          "D": "noisy launches"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "possible collisions of objects in space",
+        "difficulty": "medium",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 1: Space tourism topics"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "One topic is possible collisions of objects in space."
+          ],
+          "summary": "Space junk could cause collisions."
+        },
+        "explanation": "Objects in space travel at high speed."
+      },
+      {
+        "id": "U02-L04-Q036",
+        "number": 36,
+        "question": "Which of these is a topic in the lesson?",
+        "options": {
+          "A": "likelihood of future settlements on planets",
+          "B": "building hotels under the sea",
+          "C": "farming on Earth",
+          "D": "holidays at the beach"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "likelihood of future settlements on planets",
+        "difficulty": "medium",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 1: Space tourism topics"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The topics include future settlements on planets."
+          ],
+          "summary": "Future settlements is a topic."
+        },
+        "explanation": "The lesson also covers life on the Space Station."
+      },
+      {
+        "id": "U02-L04-Q037",
+        "number": 37,
+        "question": "What might be a 'knock-on effect' of more spending on space research?",
+        "options": {
+          "A": "new technologies that benefit people on Earth",
+          "B": "fewer jobs for scientists",
+          "C": "less money for food",
+          "D": "bigger traffic jams"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "new technologies that benefit people on Earth",
+        "difficulty": "hard",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 3: Knock-on effect"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A knock-on effect is an indirect result; research often leads to new useful technologies."
+          ],
+          "summary": "New technologies would be a knock-on effect."
+        },
+        "explanation": "It is an indirect result of the spending."
+      },
+      {
+        "id": "U02-L04-Q038",
+        "number": 38,
+        "question": "Complete: 'Do you think you would enjoy travelling at breakneck ______?'",
+        "options": {
+          "A": "speed",
+          "B": "rate",
+          "C": "pace",
+          "D": "tempo"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "speed",
+        "difficulty": "easy",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 3: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The collocation is 'breakneck speed'."
+          ],
+          "summary": "speed"
+        },
+        "explanation": "Breakneck speed = extremely fast."
+      },
+      {
+        "id": "U02-L04-Q039",
+        "number": 39,
+        "question": "In space, what speed do objects travel at?",
+        "options": {
+          "A": "very high speed",
+          "B": "no speed at all",
+          "C": "walking speed",
+          "D": "the speed of light exactly"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "very high speed",
+        "difficulty": "hard",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 2: Listening focus"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The listening mentions the speed at which items in space are travelling."
+          ],
+          "summary": "Objects travel at great speed."
+        },
+        "explanation": "Speed is a key detail in the conversations."
+      },
+      {
+        "id": "U02-L04-Q040",
+        "number": 40,
+        "question": "Complete: 'What hurdles might you have to ______ to be successful in your chosen career?'",
+        "options": {
+          "A": "overcome",
+          "B": "undermine",
+          "C": "ignore",
+          "D": "create"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "overcome",
+        "difficulty": "easy",
+        "source": {
+          "page": 20,
+          "reference": "Exercise 3: Collocations"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The collocation is 'overcome hurdles'."
+          ],
+          "summary": "overcome"
+        },
+        "explanation": "Hurdles are obstacles to overcome."
+      }
+    ]
+  }
+}

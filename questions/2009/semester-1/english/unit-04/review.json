@@ -1,0 +1,1302 @@
+[
+  {
+    "id": "U04-REV-Q001",
+    "number": 1,
+    "question": "What does 'to be fond of' mean when talking about food?",
+    "options": {
+      "A": "to like something very much",
+      "B": "to hate something",
+      "C": "to avoid something",
+      "D": "to cook something"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to like something very much",
+    "difficulty": "easy",
+    "source": {
+      "page": 38,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Be fond of' means to have a liking for something."
+      ],
+      "summary": "be fond of = like very much"
+    },
+    "explanation": "I am fond of Italian food."
+  },
+  {
+    "id": "U04-REV-Q002",
+    "number": 2,
+    "question": "What does 'to have a sweet tooth' mean?",
+    "options": {
+      "A": "to enjoy sweet food very much",
+      "B": "to have a toothache",
+      "C": "to brush your teeth",
+      "D": "to eat healthily"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to enjoy sweet food very much",
+    "difficulty": "medium",
+    "source": {
+      "page": 38,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Have a sweet tooth' means you love sweet things like cakes and chocolate."
+      ],
+      "summary": "sweet tooth = loves sweets"
+    },
+    "explanation": "My sister has a sweet tooth."
+  },
+  {
+    "id": "U04-REV-Q003",
+    "number": 3,
+    "question": "Which phrase means 'I strongly dislike'?",
+    "options": {
+      "A": "I can't stand",
+      "B": "I'm into",
+      "C": "I'm fond of",
+      "D": "I'm keen on"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "I can't stand",
+    "difficulty": "easy",
+    "source": {
+      "page": 38,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Can't stand' expresses strong dislike for something."
+      ],
+      "summary": "can't stand = hate"
+    },
+    "explanation": "I can't stand boiled eggs."
+  },
+  {
+    "id": "U04-REV-Q004",
+    "number": 4,
+    "question": "What does 'junk food' mean?",
+    "options": {
+      "A": "unhealthy food with lots of fat, sugar or salt",
+      "B": "recycled food",
+      "C": "very expensive food",
+      "D": "home-cooked food"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "unhealthy food with lots of fat, sugar or salt",
+    "difficulty": "easy",
+    "source": {
+      "page": 38,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Junk food is unhealthy food that is high in fat, sugar or salt."
+      ],
+      "summary": "junk food = unhealthy food"
+    },
+    "explanation": "Burgers and chips are junk food."
+  },
+  {
+    "id": "U04-REV-Q005",
+    "number": 5,
+    "question": "What does 'to be vegetarian' mean?",
+    "options": {
+      "A": "to not eat meat or fish",
+      "B": "to not eat vegetables",
+      "C": "to only eat fruit",
+      "D": "to not eat at all"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to not eat meat or fish",
+    "difficulty": "easy",
+    "source": {
+      "page": 38,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A vegetarian does not eat meat or fish."
+      ],
+      "summary": "vegetarian = no meat or fish"
+    },
+    "explanation": "She is vegetarian."
+  },
+  {
+    "id": "U04-REV-Q006",
+    "number": 6,
+    "question": "What does 'organic' mean when describing food?",
+    "options": {
+      "A": "grown without using chemicals",
+      "B": "very expensive",
+      "C": "very sweet",
+      "D": "very spicy"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "grown without using chemicals",
+    "difficulty": "medium",
+    "source": {
+      "page": 38,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Organic' food is grown without artificial chemicals or pesticides."
+      ],
+      "summary": "organic = natural, chemical-free"
+    },
+    "explanation": "Organic vegetables are healthier."
+  },
+  {
+    "id": "U04-REV-Q007",
+    "number": 7,
+    "question": "Which phrase means 'I prefer one choice over another'?",
+    "options": {
+      "A": "I'd rather have",
+      "B": "I'm sick of",
+      "C": "I'm bored with",
+      "D": "I've had enough of"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "I'd rather have",
+    "difficulty": "medium",
+    "source": {
+      "page": 39,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'I'd rather have' expresses a preference for one option."
+      ],
+      "summary": "I'd rather have = I prefer"
+    },
+    "explanation": "I'd rather have salad than chips."
+  },
+  {
+    "id": "U04-REV-Q008",
+    "number": 8,
+    "question": "What does 'to eat out' mean?",
+    "options": {
+      "A": "to eat at a restaurant instead of at home",
+      "B": "to eat outside in the garden",
+      "C": "to eat on the floor",
+      "D": "to eat at a friend's house"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to eat at a restaurant instead of at home",
+    "difficulty": "easy",
+    "source": {
+      "page": 39,
+      "reference": "Review: L1"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Eat out' means to go to a restaurant to eat."
+      ],
+      "summary": "eat out = dine at a restaurant"
+    },
+    "explanation": "We eat out on Fridays."
+  },
+  {
+    "id": "U04-REV-Q009",
+    "number": 9,
+    "question": "What is 'cuisine'?",
+    "options": {
+      "A": "a style of cooking from a particular country or region",
+      "B": "a kitchen tool",
+      "C": "a type of restaurant",
+      "D": "a food ingredient"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "a style of cooking from a particular country or region",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Cuisine' refers to the style of cooking typical of a country or region."
+      ],
+      "summary": "cuisine = style of cooking"
+    },
+    "explanation": "French cuisine is famous worldwide."
+  },
+  {
+    "id": "U04-REV-Q010",
+    "number": 10,
+    "question": "What does 'bland' mean when describing food?",
+    "options": {
+      "A": "having very little flavour",
+      "B": "very spicy",
+      "C": "very sweet",
+      "D": "very salty"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "having very little flavour",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Bland' describes food that has very little flavour."
+      ],
+      "summary": "bland = tasteless"
+    },
+    "explanation": "The soup was bland."
+  },
+  {
+    "id": "U04-REV-Q011",
+    "number": 11,
+    "question": "What does 'crispy' mean when describing food?",
+    "options": {
+      "A": "hard and crunchy",
+      "B": "soft and smooth",
+      "C": "sweet and sour",
+      "D": "hot and spicy"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "hard and crunchy",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Crispy' describes food that is firm and crunches when you bite it."
+      ],
+      "summary": "crispy = crunchy"
+    },
+    "explanation": "Crispy fried chicken is popular."
+  },
+  {
+    "id": "U04-REV-Q012",
+    "number": 12,
+    "question": "What does 'creamy' mean when describing food?",
+    "options": {
+      "A": "smooth and thick like cream",
+      "B": "very hard",
+      "C": "very spicy",
+      "D": "very sour"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "smooth and thick like cream",
+    "difficulty": "easy",
+    "source": {
+      "page": 40,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Creamy' describes food that is smooth and thick like cream."
+      ],
+      "summary": "creamy = smooth like cream"
+    },
+    "explanation": "The sauce was thick and creamy."
+  },
+  {
+    "id": "U04-REV-Q013",
+    "number": 13,
+    "question": "Which cuisine is known for sushi and ramen?",
+    "options": {
+      "A": "Japanese",
+      "B": "Mexican",
+      "C": "Italian",
+      "D": "Indian"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "Japanese",
+    "difficulty": "easy",
+    "source": {
+      "page": 41,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Sushi and ramen are traditional Japanese dishes."
+      ],
+      "summary": "Japanese cuisine"
+    },
+    "explanation": "Japan is famous for its seafood dishes."
+  },
+  {
+    "id": "U04-REV-Q014",
+    "number": 14,
+    "question": "Which cuisine is known for tacos and burritos?",
+    "options": {
+      "A": "Mexican",
+      "B": "Chinese",
+      "C": "French",
+      "D": "Greek"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "Mexican",
+    "difficulty": "easy",
+    "source": {
+      "page": 41,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Tacos and burritos are staples of Mexican cuisine."
+      ],
+      "summary": "Mexican cuisine"
+    },
+    "explanation": "Mexican food often uses corn tortillas."
+  },
+  {
+    "id": "U04-REV-Q015",
+    "number": 15,
+    "question": "What does 'spicy' mean when describing food?",
+    "options": {
+      "A": "containing strong flavours from herbs and spices",
+      "B": "very sweet",
+      "C": "very cold",
+      "D": "very bland"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "containing strong flavours from herbs and spices",
+    "difficulty": "easy",
+    "source": {
+      "page": 41,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Spicy' describes food seasoned with strong-tasting herbs or spices."
+      ],
+      "summary": "spicy = strongly seasoned"
+    },
+    "explanation": "Indian food is often spicy."
+  },
+  {
+    "id": "U04-REV-Q016",
+    "number": 16,
+    "question": "What does 'sour' mean when describing taste?",
+    "options": {
+      "A": "a sharp acidic taste like lemon",
+      "B": "very sweet",
+      "C": "salty",
+      "D": "bitter"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "a sharp acidic taste like lemon",
+    "difficulty": "easy",
+    "source": {
+      "page": 41,
+      "reference": "Review: L2"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Sour' describes a sharp, acidic taste."
+      ],
+      "summary": "sour = acidic taste"
+    },
+    "explanation": "Lemons are sour."
+  },
+  {
+    "id": "U04-REV-Q017",
+    "number": 17,
+    "question": "Which noun is uncountable?",
+    "options": {
+      "A": "rice",
+      "B": "apple",
+      "C": "egg",
+      "D": "sandwich"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "rice",
+    "difficulty": "easy",
+    "source": {
+      "page": 42,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Rice' is uncountable — we cannot say 'a rice' or 'two rices'."
+      ],
+      "summary": "rice = uncountable"
+    },
+    "explanation": "We say 'some rice', not 'a rice'."
+  },
+  {
+    "id": "U04-REV-Q018",
+    "number": 18,
+    "question": "Which noun is countable?",
+    "options": {
+      "A": "bread",
+      "B": "water",
+      "C": "banana",
+      "D": "milk"
+    },
+    "correct_answer": "C",
+    "correct_answer_text": "banana",
+    "difficulty": "easy",
+    "source": {
+      "page": 42,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Banana' is countable — we can say 'a banana' or 'two bananas'."
+      ],
+      "summary": "banana = countable"
+    },
+    "explanation": "I ate two bananas."
+  },
+  {
+    "id": "U04-REV-Q019",
+    "number": 19,
+    "question": "Which quantifier is used with uncountable nouns?",
+    "options": {
+      "A": "much",
+      "B": "many",
+      "C": "few",
+      "D": "several"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "much",
+    "difficulty": "medium",
+    "source": {
+      "page": 42,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Much' is used with uncountable nouns: much water, much time."
+      ],
+      "summary": "much + uncountable"
+    },
+    "explanation": "How much sugar do you need?"
+  },
+  {
+    "id": "U04-REV-Q020",
+    "number": 20,
+    "question": "Which quantifier is used with countable nouns?",
+    "options": {
+      "A": "many",
+      "B": "much",
+      "C": "little",
+      "D": "a bit of"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "many",
+    "difficulty": "medium",
+    "source": {
+      "page": 42,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Many' is used with countable plural nouns: many apples, many people."
+      ],
+      "summary": "many + countable plural"
+    },
+    "explanation": "How many eggs do we have?"
+  },
+  {
+    "id": "U04-REV-Q021",
+    "number": 21,
+    "question": "Choose the correct sentence:",
+    "options": {
+      "A": "There isn't much butter left.",
+      "B": "There aren't much butter left.",
+      "C": "There isn't many butter left.",
+      "D": "There aren't many butter left."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "There isn't much butter left.",
+    "difficulty": "medium",
+    "source": {
+      "page": 43,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Butter' is uncountable, so we use 'much' with the negative form 'isn't'."
+      ],
+      "summary": "isn't much + uncountable"
+    },
+    "explanation": "Butter is uncountable."
+  },
+  {
+    "id": "U04-REV-Q022",
+    "number": 22,
+    "question": "Choose the correct sentence:",
+    "options": {
+      "A": "There are many tomatoes on the table.",
+      "B": "There is many tomatoes on the table.",
+      "C": "There are much tomatoes on the table.",
+      "D": "There is much tomatoes on the table."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "There are many tomatoes on the table.",
+    "difficulty": "medium",
+    "source": {
+      "page": 43,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Tomatoes' are countable and plural, so we use 'are' and 'many'."
+      ],
+      "summary": "many + countable plural"
+    },
+    "explanation": "Tomatoes are countable."
+  },
+  {
+    "id": "U04-REV-Q023",
+    "number": 23,
+    "question": "Which sentence is correct?",
+    "options": {
+      "A": "I'd like some water, please.",
+      "B": "I'd like a water, please.",
+      "C": "I'd like waters, please.",
+      "D": "I'd like any water, please."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "I'd like some water, please.",
+    "difficulty": "easy",
+    "source": {
+      "page": 43,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Water' is uncountable, so we use 'some' in polite requests."
+      ],
+      "summary": "some + uncountable"
+    },
+    "explanation": "'Some' works for both countable and uncountable nouns."
+  },
+  {
+    "id": "U04-REV-Q024",
+    "number": 24,
+    "question": "How much / How many — complete: '___ apples do we need for the cake?'",
+    "options": {
+      "A": "How many",
+      "B": "How much",
+      "C": "How few",
+      "D": "How little"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "How many",
+    "difficulty": "easy",
+    "source": {
+      "page": 43,
+      "reference": "Review: L3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Apples' is countable and plural, so we use 'How many'."
+      ],
+      "summary": "How many + countable"
+    },
+    "explanation": "Apples are countable nouns."
+  },
+  {
+    "id": "U04-REV-Q025",
+    "number": 25,
+    "question": "Which is a polite way to order food in a restaurant?",
+    "options": {
+      "A": "Could I have the chicken salad, please?",
+      "B": "Give me the chicken salad.",
+      "C": "I want the chicken salad now.",
+      "D": "Bring me the chicken salad."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "Could I have the chicken salad, please?",
+    "difficulty": "easy",
+    "source": {
+      "page": 44,
+      "reference": "Review: L4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Could I have... please?' is a polite way to order."
+      ],
+      "summary": "polite ordering"
+    },
+    "explanation": "Use 'Could I have' or 'I'd like' to be polite."
+  },
+  {
+    "id": "U04-REV-Q026",
+    "number": 26,
+    "question": "What does 'I'd like' mean in a restaurant?",
+    "options": {
+      "A": "I would like to order",
+      "B": "I don't like",
+      "C": "I can't eat",
+      "D": "I have eaten"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "I would like to order",
+    "difficulty": "easy",
+    "source": {
+      "page": 44,
+      "reference": "Review: L4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'I'd like' is a short form of 'I would like', used for ordering."
+      ],
+      "summary": "I'd like = I want to order"
+    },
+    "explanation": "I'd like the pasta, please."
+  },
+  {
+    "id": "U04-REV-Q027",
+    "number": 27,
+    "question": "Which phrase asks for the bill in a restaurant?",
+    "options": {
+      "A": "Could we have the bill, please?",
+      "B": "Where is my money?",
+      "C": "Give me the price.",
+      "D": "How much do you owe me?"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "Could we have the bill, please?",
+    "difficulty": "easy",
+    "source": {
+      "page": 44,
+      "reference": "Review: L4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Could we have the bill, please?' is the standard polite request."
+      ],
+      "summary": "asking for the bill"
+    },
+    "explanation": "You say this at the end of your meal."
+  },
+  {
+    "id": "U04-REV-Q028",
+    "number": 28,
+    "question": "What does 'a starter' mean in a restaurant?",
+    "options": {
+      "A": "a small dish served before the main course",
+      "B": "the main dish",
+      "C": "the dessert",
+      "D": "a drink"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "a small dish served before the main course",
+    "difficulty": "medium",
+    "source": {
+      "page": 44,
+      "reference": "Review: L4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A starter is a small dish served before the main course."
+      ],
+      "summary": "starter = first course"
+    },
+    "explanation": "I'll have soup as a starter."
+  },
+  {
+    "id": "U04-REV-Q029",
+    "number": 29,
+    "question": "What does 'a main course' mean?",
+    "options": {
+      "A": "the largest and most important dish in a meal",
+      "B": "a small snack",
+      "C": "a dessert",
+      "D": "a drink before the meal"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "the largest and most important dish in a meal",
+    "difficulty": "easy",
+    "source": {
+      "page": 44,
+      "reference": "Review: L4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "The main course is the principal dish of a meal."
+      ],
+      "summary": "main course = principal dish"
+    },
+    "explanation": "The steak is our main course."
+  },
+  {
+    "id": "U04-REV-Q030",
+    "number": 30,
+    "question": "Which phrase is used to make a special request about food?",
+    "options": {
+      "A": "Could I have it without cheese, please?",
+      "B": "No cheese.",
+      "C": "Remove cheese.",
+      "D": "I hate cheese."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "Could I have it without cheese, please?",
+    "difficulty": "medium",
+    "source": {
+      "page": 44,
+      "reference": "Review: L4"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Could I have it without...?' is a polite way to request a change."
+      ],
+      "summary": "special requests"
+    },
+    "explanation": "Restaurants often accommodate dietary needs."
+  },
+  {
+    "id": "U04-REV-Q031",
+    "number": 31,
+    "question": "What does 'to chop' mean in the kitchen?",
+    "options": {
+      "A": "to cut food into pieces with a knife",
+      "B": "to heat food on the stove",
+      "C": "to mix ingredients together",
+      "D": "to serve food"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to cut food into pieces with a knife",
+    "difficulty": "easy",
+    "source": {
+      "page": 45,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Chop' means to cut food into rough pieces."
+      ],
+      "summary": "chop = cut into pieces"
+    },
+    "explanation": "Chop the onions finely."
+  },
+  {
+    "id": "U04-REV-Q032",
+    "number": 32,
+    "question": "What does 'to boil' mean?",
+    "options": {
+      "A": "to heat a liquid until it reaches 100°C and bubbles",
+      "B": "to cook food in hot oil",
+      "C": "to freeze food",
+      "D": "to wash food"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to heat a liquid until it reaches 100°C and bubbles",
+    "difficulty": "easy",
+    "source": {
+      "page": 45,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Boil' means to heat a liquid until it reaches boiling point and bubbles."
+      ],
+      "summary": "boil = heat to bubbling"
+    },
+    "explanation": "Boil the water before adding the pasta."
+  },
+  {
+    "id": "U04-REV-Q033",
+    "number": 33,
+    "question": "What does 'to fry' mean?",
+    "options": {
+      "A": "to cook food in hot oil or fat",
+      "B": "to boil food in water",
+      "C": "to bake food in an oven",
+      "D": "to freeze food"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to cook food in hot oil or fat",
+    "difficulty": "easy",
+    "source": {
+      "page": 45,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Fry' means to cook food in a pan with hot oil or fat."
+      ],
+      "summary": "fry = cook in oil"
+    },
+    "explanation": "Fry the eggs in a little butter."
+  },
+  {
+    "id": "U04-REV-Q034",
+    "number": 34,
+    "question": "What does 'to bake' mean?",
+    "options": {
+      "A": "to cook food in an oven using dry heat",
+      "B": "to cook in boiling water",
+      "C": "to cook in hot oil",
+      "D": "to cook on a grill"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to cook food in an oven using dry heat",
+    "difficulty": "easy",
+    "source": {
+      "page": 45,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Bake' means to cook food in an oven with dry heat."
+      ],
+      "summary": "bake = oven cooking"
+    },
+    "explanation": "Bake the cake at 180°C for 30 minutes."
+  },
+  {
+    "id": "U04-REV-Q035",
+    "number": 35,
+    "question": "What does 'to grill' mean?",
+    "options": {
+      "A": "to cook food on a metal frame over direct heat",
+      "B": "to cook in boiling water",
+      "C": "to freeze food quickly",
+      "D": "to cut food into slices"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to cook food on a metal frame over direct heat",
+    "difficulty": "easy",
+    "source": {
+      "page": 46,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Grill' means to cook food on a metal rack under or over direct heat."
+      ],
+      "summary": "grill = cook over direct heat"
+    },
+    "explanation": "Grill the chicken for ten minutes on each side."
+  },
+  {
+    "id": "U04-REV-Q036",
+    "number": 36,
+    "question": "What does 'a whisk' do in the kitchen?",
+    "options": {
+      "A": "mixes ingredients together quickly by hand",
+      "B": "cuts food into pieces",
+      "C": "measures liquid ingredients",
+      "D": "stores food"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "mixes ingredients together quickly by hand",
+    "difficulty": "medium",
+    "source": {
+      "page": 46,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A whisk is a kitchen tool used to mix and beat ingredients."
+      ],
+      "summary": "whisk = mix quickly"
+    },
+    "explanation": "Whisk the eggs and sugar together."
+  },
+  {
+    "id": "U04-REV-Q037",
+    "number": 37,
+    "question": "What does 'to peel' mean?",
+    "options": {
+      "A": "to remove the outer skin of a fruit or vegetable",
+      "B": "to cut food into pieces",
+      "C": "to cook food slowly",
+      "D": "to serve food"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to remove the outer skin of a fruit or vegetable",
+    "difficulty": "medium",
+    "source": {
+      "page": 46,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Peel' means to remove the outer covering of fruit or vegetables."
+      ],
+      "summary": "peel = remove skin"
+    },
+    "explanation": "Peel the potatoes before boiling them."
+  },
+  {
+    "id": "U04-REV-Q038",
+    "number": 38,
+    "question": "What does 'a chopping board' used for?",
+    "options": {
+      "A": "a surface for cutting food with a knife",
+      "B": "a plate for serving food",
+      "C": "a pan for frying food",
+      "D": "a container for storing food"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "a surface for cutting food with a knife",
+    "difficulty": "easy",
+    "source": {
+      "page": 46,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A chopping board is a flat board used as a surface for cutting food."
+      ],
+      "summary": "chopping board = cutting surface"
+    },
+    "explanation": "Always use a chopping board to protect the countertop."
+  },
+  {
+    "id": "U04-REV-Q039",
+    "number": 39,
+    "question": "What does 'to stir' mean?",
+    "options": {
+      "A": "to move a spoon or tool around in a liquid or mixture",
+      "B": "to cut food into pieces",
+      "C": "to apply heat to food",
+      "D": "to serve food on a plate"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to move a spoon or tool around in a liquid or mixture",
+    "difficulty": "easy",
+    "source": {
+      "page": 46,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Stir' means to move a spoon or utensil in circles inside a mixture."
+      ],
+      "summary": "stir = mix by moving in circles"
+    },
+    "explanation": "Stir the sauce until it thickens."
+  },
+  {
+    "id": "U04-REV-Q040",
+    "number": 40,
+    "question": "What does 'to season' food mean?",
+    "options": {
+      "A": "to add salt, pepper or spices to improve taste",
+      "B": "to cook food slowly",
+      "C": "to cut food into pieces",
+      "D": "to serve food hot"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "to add salt, pepper or spices to improve taste",
+    "difficulty": "medium",
+    "source": {
+      "page": 46,
+      "reference": "Review: L5"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Season' means to add salt, pepper, herbs or spices to improve flavour."
+      ],
+      "summary": "season = add flavour"
+    },
+    "explanation": "Season the soup with salt and pepper."
+  },
+  {
+    "id": "U04-REV-Q041",
+    "number": 41,
+    "question": "What is the first step you usually write in a recipe?",
+    "options": {
+      "A": "List the ingredients",
+      "B": "Write the conclusion",
+      "C": "Describe the taste",
+      "D": "Give a rating"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "List the ingredients",
+    "difficulty": "easy",
+    "source": {
+      "page": 47,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A recipe begins by listing all the ingredients needed."
+      ],
+      "summary": "first step = list ingredients"
+    },
+    "explanation": "The ingredients list tells you what you need."
+  },
+  {
+    "id": "U04-REV-Q042",
+    "number": 42,
+    "question": "Which imperative verb is commonly used in recipes?",
+    "options": {
+      "A": "Add",
+      "B": "Added",
+      "C": "Adding",
+      "D": "Adds"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "Add",
+    "difficulty": "easy",
+    "source": {
+      "page": 47,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Recipes use imperative verbs: 'Add the eggs', 'Stir the mixture'."
+      ],
+      "summary": "imperative verb = command form"
+    },
+    "explanation": "Recipe instructions are commands."
+  },
+  {
+    "id": "U04-REV-Q043",
+    "number": 43,
+    "question": "What does 'First' do in a recipe?",
+    "options": {
+      "A": "it introduces the first step",
+      "B": "it gives a rating",
+      "C": "it describes the taste",
+      "D": "it lists the ingredients"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "it introduces the first step",
+    "difficulty": "easy",
+    "source": {
+      "page": 47,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'First' is a sequencing word used to introduce step one."
+      ],
+      "summary": "First = step 1"
+    },
+    "explanation": "First, preheat the oven to 180°C."
+  },
+  {
+    "id": "U04-REV-Q044",
+    "number": 44,
+    "question": "What does 'Meanwhile' mean in a recipe?",
+    "options": {
+      "A": "at the same time",
+      "B": "before",
+      "C": "after",
+      "D": "never"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "at the same time",
+    "difficulty": "medium",
+    "source": {
+      "page": 48,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Meanwhile' means 'during the same time period'."
+      ],
+      "summary": "Meanwhile = at the same time"
+    },
+    "explanation": "Meanwhile, prepare the salad."
+  },
+  {
+    "id": "U04-REV-Q045",
+    "number": 45,
+    "question": "What does 'Then' do in a recipe?",
+    "options": {
+      "A": "it introduces the next step",
+      "B": "it introduces the final step",
+      "C": "it lists ingredients",
+      "D": "it gives a rating"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "it introduces the next step",
+    "difficulty": "easy",
+    "source": {
+      "page": 47,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Then' introduces the next action in a sequence."
+      ],
+      "summary": "Then = next step"
+    },
+    "explanation": "Then, add the flour and mix well."
+  },
+  {
+    "id": "U04-REV-Q046",
+    "number": 46,
+    "question": "Which is an example of writing a food review?",
+    "options": {
+      "A": "The pasta was overcooked and bland.",
+      "B": "Add two eggs to the bowl.",
+      "C": "Peel the potatoes first.",
+      "D": "Preheat the oven to 200°C."
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "The pasta was overcooked and bland.",
+    "difficulty": "easy",
+    "source": {
+      "page": 48,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "A food review describes and evaluates the quality of food."
+      ],
+      "summary": "food review = evaluates taste"
+    },
+    "explanation": "Reviews help other diners choose restaurants."
+  },
+  {
+    "id": "U04-REV-Q047",
+    "number": 47,
+    "question": "What does 'On the other hand' introduce in a food review?",
+    "options": {
+      "A": "an opposite or contrasting point",
+      "B": "the first argument",
+      "C": "the conclusion",
+      "D": "a supporting detail"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "an opposite or contrasting point",
+    "difficulty": "medium",
+    "source": {
+      "page": 48,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'On the other hand' introduces a contrasting or different point."
+      ],
+      "summary": "on the other hand = contrast"
+    },
+    "explanation": "The starters were good; on the other hand, the desserts were poor."
+  },
+  {
+    "id": "U04-REV-Q048",
+    "number": 48,
+    "question": "Which word is used to list ingredients in a recipe?",
+    "options": {
+      "A": "you will need",
+      "B": "you will eat",
+      "C": "you will love",
+      "D": "you will enjoy"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "you will need",
+    "difficulty": "easy",
+    "source": {
+      "page": 47,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'You will need' introduces the list of ingredients."
+      ],
+      "summary": "you will need = ingredients list"
+    },
+    "explanation": "You will need flour, sugar, and eggs."
+  },
+  {
+    "id": "U04-REV-Q049",
+    "number": 49,
+    "question": "What does 'Finally' mean in a recipe?",
+    "options": {
+      "A": "it introduces the last step",
+      "B": "it introduces the first step",
+      "C": "it introduces a pause",
+      "D": "it introduces an ingredient"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "it introduces the last step",
+    "difficulty": "easy",
+    "source": {
+      "page": 47,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'Finally' signals the last step in the instructions."
+      ],
+      "summary": "Finally = last step"
+    },
+    "explanation": "Finally, garnish with fresh herbs."
+  },
+  {
+    "id": "U04-REV-Q050",
+    "number": 50,
+    "question": "What does 'To sum up' mean in a food review?",
+    "options": {
+      "A": "it introduces the conclusion",
+      "B": "it introduces the first point",
+      "C": "it introduces a contrasting point",
+      "D": "it lists ingredients"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "it introduces the conclusion",
+    "difficulty": "medium",
+    "source": {
+      "page": 48,
+      "reference": "Review: L6"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "'To sum up' introduces the final summary or conclusion."
+      ],
+      "summary": "to sum up = conclusion"
+    },
+    "explanation": "To sum up, it was an excellent meal."
+  }
+]

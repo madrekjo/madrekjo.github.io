@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "6",
+    "lesson_name": "Writing and Vocabulary",
+    "unit_number": 1,
+    "unit_name": "Identity",
+    "page_start": 12,
+    "page_end": 13,
+    "questions": [
+      {
+        "id": "U01-L06-Q001",
+        "number": 1,
+        "question": "What is a personal profile?",
+        "options": {
+          "A": "a short description of a person's character, interests and qualities",
+          "B": "a long essay about history",
+          "C": "a type of exam",
+          "D": "a recipe for food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "a short description of a person's character, interests and qualities",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: introduction"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A personal profile is a brief description of who you are, your interests and qualities."
+          ],
+          "summary": "A personal profile = a self-description."
+        },
+        "explanation": "It is used on social media, job applications and websites."
+      },
+      {
+        "id": "U01-L06-Q002",
+        "number": 2,
+        "question": "What should a personal profile include?",
+        "options": {
+          "A": "your name, age, interests, personality traits and goals",
+          "B": "your bank details and passwords",
+          "C": "only your phone number",
+          "D": "a list of your enemies"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "your name, age, interests, personality traits and goals",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: structure"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A good profile includes basic information, interests, personality and goals."
+          ],
+          "summary": "Name, age, interests, traits, goals."
+        },
+        "explanation": "It gives a clear picture of who you are."
+      },
+      {
+        "id": "U01-L06-Q003",
+        "number": 3,
+        "question": "Which of these is a good opening sentence for a personal profile?",
+        "options": {
+          "A": "Hi, I'm Sarah and I'm a passionate, creative person who loves reading.",
+          "B": "The weather is nice today.",
+          "C": "I went to the shop yesterday.",
+          "D": "My cat is black."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "Hi, I'm Sarah and I'm a passionate, creative person who loves reading.",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: opening"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A strong opening introduces your name and key personality traits."
+          ],
+          "summary": "Introduce yourself with personality."
+        },
+        "explanation": "The opening should grab the reader's attention."
+      },
+      {
+        "id": "U01-L06-Q004",
+        "number": 4,
+        "question": "What is the purpose of a personal profile?",
+        "options": {
+          "A": "to introduce yourself and share your key qualities with others",
+          "B": "to hide your identity",
+          "C": "to write a letter to a friend",
+          "D": "to describe a place you visited"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to introduce yourself and share your key qualities with others",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: purpose"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "The purpose is to present yourself positively and clearly to others."
+          ],
+          "summary": "To introduce yourself."
+        },
+        "explanation": "It helps others understand who you are quickly."
+      },
+      {
+        "id": "U01-L06-Q005",
+        "number": 5,
+        "question": "Which adjective best describes a good personal profile?",
+        "options": {
+          "A": "honest and positive",
+          "B": "long and complicated",
+          "C": "negative and boring",
+          "D": "secret and hidden"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "honest and positive",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: style"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A good profile is honest about who you are while presenting you positively."
+          ],
+          "summary": "Honest and positive."
+        },
+        "explanation": "It should be authentic but also appealing."
+      },
+      {
+        "id": "U01-L06-Q006",
+        "number": 6,
+        "question": "What is a 'first impression'?",
+        "options": {
+          "A": "the opinion someone forms about you when they first meet you",
+          "B": "the first time you eat a meal",
+          "C": "your first day at school",
+          "D": "the first book you read"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "the opinion someone forms about you when they first meet you",
+        "difficulty": "medium",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A first impression is the initial opinion someone forms about you."
+          ],
+          "summary": "first impression = initial opinion."
+        },
+        "explanation": "First impressions are formed very quickly."
+      },
+      {
+        "id": "U01-L06-Q007",
+        "number": 7,
+        "question": "Why are first impressions important?",
+        "options": {
+          "A": "they are formed quickly and can be hard to change",
+          "B": "they are always wrong",
+          "C": "they don't matter at all",
+          "D": "they change every minute"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "they are formed quickly and can be hard to change",
+        "difficulty": "medium",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "First impressions are formed in seconds and can be difficult to change."
+          ],
+          "summary": "First impressions last."
+        },
+        "explanation": "Research shows they form within seconds."
+      },
+      {
+        "id": "U01-L06-Q008",
+        "number": 8,
+        "question": "What does 'to come across as' mean?",
+        "options": {
+          "A": "to give the impression of being a certain way",
+          "B": "to walk across a road",
+          "C": "to find something",
+          "D": "to understand something"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to give the impression of being a certain way",
+        "difficulty": "medium",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Come across as' means to give a particular impression to others."
+          ],
+          "summary": "come across as = appear to be."
+        },
+        "explanation": "You come across as friendly and approachable."
+      },
+      {
+        "id": "U01-L06-Q009",
+        "number": 9,
+        "question": "What does 'to get on well with' mean?",
+        "options": {
+          "A": "to have a good relationship with someone",
+          "B": "to travel on a bus",
+          "C": "to finish a task",
+          "D": "to wake up early"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to have a good relationship with someone",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Get on well with' means to have a friendly, harmonious relationship."
+          ],
+          "summary": "get on well with = have a good relationship."
+        },
+        "explanation": "I get on well with my classmates."
+      },
+      {
+        "id": "U01-L06-Q010",
+        "number": 10,
+        "question": "What does 'to be into' something mean?",
+        "options": {
+          "A": "to be very interested in or enjoy something",
+          "B": "to enter a room",
+          "C": "to be inside a building",
+          "D": "to fall into water"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to be very interested in or enjoy something",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Be into' means to have a strong interest in or enjoyment of something."
+          ],
+          "summary": "be into = be interested in."
+        },
+        "explanation": "I'm into music and reading."
+      },
+      {
+        "id": "U01-L06-Q011",
+        "number": 11,
+        "question": "What does 'to look forward to' mean?",
+        "options": {
+          "A": "to feel excited about something that will happen in the future",
+          "B": "to look in front of you",
+          "C": "to think about the past",
+          "D": "to forget about something"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to feel excited about something that will happen in the future",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Look forward to' means to feel pleased and excited about something coming."
+          ],
+          "summary": "look forward to = be excited about."
+        },
+        "explanation": "I look forward to meeting new people."
+      },
+      {
+        "id": "U01-L06-Q012",
+        "number": 12,
+        "question": "What does 'to be keen on' mean?",
+        "options": {
+          "A": "to be very interested in and enthusiastic about something",
+          "B": "to be sharp",
+          "C": "to be angry",
+          "D": "to be tired"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to be very interested in and enthusiastic about something",
+        "difficulty": "medium",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Be keen on' means to have a strong interest in and enthusiasm for something."
+          ],
+          "summary": "be keen on = be enthusiastic about."
+        },
+        "explanation": "She is keen on photography and painting."
+      },
+      {
+        "id": "U01-L06-Q013",
+        "number": 13,
+        "question": "What does 'to get along with' mean?",
+        "options": {
+          "A": "to have a friendly relationship with someone",
+          "B": "to walk along a road",
+          "C": "to finish something",
+          "D": "to understand a lesson"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to have a friendly relationship with someone",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Get along with' means to have a good, friendly relationship."
+          ],
+          "summary": "get along with = get on well with."
+        },
+        "explanation": "I get along with everyone in my class."
+      },
+      {
+        "id": "U01-L06-Q014",
+        "number": 14,
+        "question": "What is a 'hobby'?",
+        "options": {
+          "A": "an activity you do regularly for enjoyment in your free time",
+          "B": "a type of job",
+          "C": "a school subject",
+          "D": "a type of food"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "an activity you do regularly for enjoyment in your free time",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A hobby is an activity done regularly for pleasure in free time."
+          ],
+          "summary": "hobby = leisure activity."
+        },
+        "explanation": "Reading and painting are common hobbies."
+      },
+      {
+        "id": "U01-L06-Q015",
+        "number": 15,
+        "question": "What does 'open-minded' mean?",
+        "options": {
+          "A": "willing to listen to new ideas and consider different opinions",
+          "B": "having an open door",
+          "C": "not thinking at all",
+          "D": "being very angry"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "willing to listen to new ideas and consider different opinions",
+        "difficulty": "medium",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Open-minded' means willing to accept and consider new ideas."
+          ],
+          "summary": "open-minded = receptive to new ideas."
+        },
+        "explanation": "An open-minded person listens to different views."
+      },
+      {
+        "id": "U01-L06-Q016",
+        "number": 16,
+        "question": "What does 'adaptable' mean?",
+        "options": {
+          "A": "able to adjust easily to new situations",
+          "B": "unable to change",
+          "C": "very slow",
+          "D": "extremely loud"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "able to adjust easily to new situations",
+        "difficulty": "medium",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Adaptable' means able to change and adjust to new conditions."
+          ],
+          "summary": "adaptable = flexible."
+        },
+        "explanation": "Adaptable people handle change well."
+      },
+      {
+        "id": "U01-L06-Q017",
+        "number": 17,
+        "question": "What does 'to set goals' mean?",
+        "options": {
+          "A": "to decide what you want to achieve in the future",
+          "B": "to play a sport",
+          "C": "to cook a meal",
+          "D": "to read a book"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to decide what you want to achieve in the future",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Set goals' means to decide on specific targets you want to reach."
+          ],
+          "summary": "set goals = plan targets."
+        },
+        "explanation": "Setting goals helps you stay focused and motivated."
+      },
+      {
+        "id": "U01-L06-Q018",
+        "number": 18,
+        "question": "What does 'self-confident' mean?",
+        "options": {
+          "A": "believing in your own abilities and qualities",
+          "B": "not believing in yourself",
+          "C": "being very shy",
+          "D": "being afraid of everything"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "believing in your own abilities and qualities",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Self-confident' means having confidence in your own abilities and judgement."
+          ],
+          "summary": "self-confident = believing in yourself."
+        },
+        "explanation": "A self-confident person speaks clearly and calmly."
+      },
+      {
+        "id": "U01-L06-Q019",
+        "number": 19,
+        "question": "What does 'motivated' mean?",
+        "options": {
+          "A": "having a strong desire and energy to achieve something",
+          "B": "feeling tired and lazy",
+          "C": "not interested in anything",
+          "D": "always complaining"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "having a strong desire and energy to achieve something",
+        "difficulty": "medium",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Motivated' means having the desire and energy to do something."
+          ],
+          "summary": "motivated = driven/determined."
+        },
+        "explanation": "Motivated students work hard to achieve their goals."
+      },
+      {
+        "id": "U01-L06-Q020",
+        "number": 20,
+        "question": "What does 'creative' mean?",
+        "options": {
+          "A": "having the ability to use imagination to produce new ideas",
+          "B": "following rules exactly",
+          "C": "being very quiet",
+          "D": "being extremely tall"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "having the ability to use imagination to produce new ideas",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Creative' means having the ability to think of new and original ideas."
+          ],
+          "summary": "creative = imaginative."
+        },
+        "explanation": "Creative people enjoy art, music and writing."
+      },
+      {
+        "id": "U01-L06-Q021",
+        "number": 21,
+        "question": "What does 'reliable' mean?",
+        "options": {
+          "A": "dependable and able to be trusted",
+          "B": "always late",
+          "C": "very expensive",
+          "D": "extremely fast"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "dependable and able to be trusted",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Reliable' means trustworthy and able to be depended on."
+          ],
+          "summary": "reliable = dependable."
+        },
+        "explanation": "A reliable person always keeps their promises."
+      },
+      {
+        "id": "U01-L06-Q022",
+        "number": 22,
+        "question": "What does 'to be good at' mean?",
+        "options": {
+          "A": "to have a natural ability or skill in something",
+          "B": "to be kind to something",
+          "C": "to be near something",
+          "D": "to be angry about something"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to have a natural ability or skill in something",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Be good at' means to have a natural skill or ability in a particular area."
+          ],
+          "summary": "be good at = have skill in."
+        },
+        "explanation": "She is good at mathematics and science."
+      },
+      {
+        "id": "U01-L06-Q023",
+        "number": 23,
+        "question": "What does 'to be afraid of' mean?",
+        "options": {
+          "A": "to feel fear or worry about something",
+          "B": "to be angry with something",
+          "C": "to be happy about something",
+          "D": "to be close to something"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to feel fear or worry about something",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Be afraid of' means to feel fear or anxiety about something."
+          ],
+          "summary": "be afraid of = fear."
+        },
+        "explanation": "Some people are afraid of spiders or the dark."
+      },
+      {
+        "id": "U01-L06-Q024",
+        "number": 24,
+        "question": "What does 'to be proud of' mean?",
+        "options": {
+          "A": "to feel pleased and satisfied about something you have achieved",
+          "B": "to feel sad about something",
+          "C": "to be angry about something",
+          "D": "to be tired of something"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to feel pleased and satisfied about something you have achieved",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Be proud of' means to feel pleasure and satisfaction about an achievement."
+          ],
+          "summary": "be proud of = feel satisfied about."
+        },
+        "explanation": "I am proud of my exam results."
+      },
+      {
+        "id": "U01-L06-Q025",
+        "number": 25,
+        "question": "Which sentence is a good way to describe a hobby?",
+        "options": {
+          "A": "I'm really into playing football and I play every weekend.",
+          "B": "Football is a ball.",
+          "C": "I don't like football.",
+          "D": "Football exists."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I'm really into playing football and I play every weekend.",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: describing hobbies"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A good description uses interest phrases like 'be into' and adds detail."
+          ],
+          "summary": "Use interest phrases + detail."
+        },
+        "explanation": "This makes the description more interesting."
+      },
+      {
+        "id": "U01-L06-Q026",
+        "number": 26,
+        "question": "What is the correct structure for a personal profile?",
+        "options": {
+          "A": "introduction, hobbies and interests, personality traits, goals",
+          "B": "a list of numbers",
+          "C": "only your name and age",
+          "D": "a poem about the weather"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "introduction, hobbies and interests, personality traits, goals",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: structure"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A personal profile typically has four main sections: intro, hobbies, personality and goals."
+          ],
+          "summary": "Intro → hobbies → personality → goals."
+        },
+        "explanation": "This structure gives a clear, complete picture."
+      },
+      {
+        "id": "U01-L06-Q027",
+        "number": 27,
+        "question": "Which phrase is used to describe personality?",
+        "options": {
+          "A": "I would describe myself as hard-working and friendly.",
+          "B": "I went to the park.",
+          "C": "The weather is cold.",
+          "D": "I like pizza."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I would describe myself as hard-working and friendly.",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: describing personality"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'I would describe myself as...' introduces personality traits clearly."
+          ],
+          "summary": "I would describe myself as..."
+        },
+        "explanation": "This is a standard way to present personality."
+      },
+      {
+        "id": "U01-L06-Q028",
+        "number": 28,
+        "question": "What does 'to be interested in' mean?",
+        "options": {
+          "A": "to want to learn more about something",
+          "B": "to be inside something",
+          "C": "to be frightened of something",
+          "D": "to be angry about something"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to want to learn more about something",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Be interested in' means to want to know more about or enjoy something."
+          ],
+          "summary": "be interested in = want to learn about."
+        },
+        "explanation": "I am interested in science and technology."
+      },
+      {
+        "id": "U01-L06-Q029",
+        "number": 29,
+        "question": "What does 'to be fond of' mean?",
+        "options": {
+          "A": "to like something or someone very much",
+          "B": "to be afraid of something",
+          "C": "to be tired of something",
+          "D": "to be angry with someone"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to like something or someone very much",
+        "difficulty": "medium",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Be fond of' means to have a liking or affection for something."
+          ],
+          "summary": "be fond of = like very much."
+        },
+        "explanation": "She is fond of animals and nature."
+      },
+      {
+        "id": "U01-L06-Q030",
+        "number": 30,
+        "question": "What does 'to take part in' mean?",
+        "options": {
+          "A": "to join in an activity or event",
+          "B": "to take something away",
+          "C": "to give something to someone",
+          "D": "to break something"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to join in an activity or event",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Take part in' means to participate in an activity or event."
+          ],
+          "summary": "take part in = participate."
+        },
+        "explanation": "I take part in school drama productions."
+      },
+      {
+        "id": "U01-L06-Q031",
+        "number": 31,
+        "question": "What does 'to be able to' mean?",
+        "options": {
+          "A": "to have the skill or opportunity to do something",
+          "B": "to be unable to do something",
+          "C": "to be very tired",
+          "D": "to be very hungry"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to have the skill or opportunity to do something",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Be able to' means to have the ability or opportunity to do something."
+          ],
+          "summary": "be able to = can."
+        },
+        "explanation": "I am able to speak two languages."
+      },
+      {
+        "id": "U01-L06-Q032",
+        "number": 32,
+        "question": "What does 'to be good at dealing with' mean?",
+        "options": {
+          "A": "to handle difficult situations well",
+          "B": "to be bad at handling things",
+          "C": "to avoid all problems",
+          "D": "to ignore everything"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to handle difficult situations well",
+        "difficulty": "medium",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Good at dealing with' means skilled at handling or managing situations."
+          ],
+          "summary": "good at dealing with = handle well."
+        },
+        "explanation": "I am good at dealing with pressure."
+      },
+      {
+        "id": "U01-L06-Q033",
+        "number": 33,
+        "question": "What does 'to be well-known for' mean?",
+        "options": {
+          "A": "to be famous or recognised for a particular quality or action",
+          "B": "to be unknown",
+          "C": "to be lost",
+          "D": "to be confused"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to be famous or recognised for a particular quality or action",
+        "difficulty": "medium",
+        "source": {
+          "page": 12,
+          "reference": "Writing: vocabulary"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Well-known for' means famous or recognised because of something."
+          ],
+          "summary": "well-known for = famous for."
+        },
+        "explanation": "She is well-known for her kindness."
+      },
+      {
+        "id": "U01-L06-Q034",
+        "number": 34,
+        "question": "Which is the best way to end a personal profile?",
+        "options": {
+          "A": "I'm looking forward to meeting new people and learning new things.",
+          "B": "Goodbye forever.",
+          "C": "I hate everything.",
+          "D": "The end."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "I'm looking forward to meeting new people and learning new things.",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: closing"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "A positive closing statement leaves a good final impression."
+          ],
+          "summary": "End with a positive statement."
+        },
+        "explanation": "It shows enthusiasm and openness."
+      },
+      {
+        "id": "U01-L06-Q035",
+        "number": 35,
+        "question": "What does 'to be creative' mean in a personal profile?",
+        "options": {
+          "A": "to enjoy coming up with new ideas and expressing yourself",
+          "B": "to follow rules exactly",
+          "C": "to be very quiet",
+          "D": "to be very old"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to enjoy coming up with new ideas and expressing yourself",
+        "difficulty": "medium",
+        "source": {
+          "page": 12,
+          "reference": "Writing: describing personality"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Being creative means enjoying new ideas and original thinking."
+          ],
+          "summary": "creative = imaginative."
+        },
+        "explanation": "It is a positive personality trait to mention."
+      },
+      {
+        "id": "U01-L06-Q036",
+        "number": 36,
+        "question": "What does 'to be hard-working' mean?",
+        "options": {
+          "A": "to put a lot of effort into your work",
+          "B": "to work very little",
+          "C": "to avoid work completely",
+          "D": "to only work on holidays"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to put a lot of effort into your work",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: describing personality"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Hard-working' means putting a lot of effort and time into tasks."
+          ],
+          "summary": "hard-working = diligent."
+        },
+        "explanation": "Hard-working students achieve more."
+      },
+      {
+        "id": "U01-L06-Q037",
+        "number": 37,
+        "question": "What does 'to be honest' mean in a personal profile?",
+        "options": {
+          "A": "to tell the truth and be sincere about who you are",
+          "B": "to lie about yourself",
+          "C": "to keep secrets",
+          "D": "to be rude to others"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to tell the truth and be sincere about who you are",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: describing personality"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Being honest means telling the truth and being genuine."
+          ],
+          "summary": "honest = truthful."
+        },
+        "explanation": "Honesty is an important quality in a profile."
+      },
+      {
+        "id": "U01-L06-Q038",
+        "number": 38,
+        "question": "What does 'to be curious' mean?",
+        "options": {
+          "A": "to want to learn and know more about things",
+          "B": "to be bored with everything",
+          "C": "to be angry about everything",
+          "D": "to be afraid of everything"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to want to learn and know more about things",
+        "difficulty": "medium",
+        "source": {
+          "page": 12,
+          "reference": "Writing: describing personality"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Curious' means wanting to learn and discover new things."
+          ],
+          "summary": "curious = wanting to know."
+        },
+        "explanation": "Curious people ask lots of questions."
+      },
+      {
+        "id": "U01-L06-Q039",
+        "number": 39,
+        "question": "What does 'to be sociable' mean?",
+        "options": {
+          "A": "to enjoy being with other people and making friends",
+          "B": "to avoid other people",
+          "C": "to be very quiet",
+          "D": "to be very angry"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to enjoy being with other people and making friends",
+        "difficulty": "easy",
+        "source": {
+          "page": 12,
+          "reference": "Writing: describing personality"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Sociable' means enjoying the company of other people."
+          ],
+          "summary": "sociable = friendly and outgoing."
+        },
+        "explanation": "Sociable people enjoy parties and gatherings."
+      },
+      {
+        "id": "U01-L06-Q040",
+        "number": 40,
+        "question": "What does 'to be dependable' mean?",
+        "options": {
+          "A": "to be reliable and trustworthy",
+          "B": "to be unreliable",
+          "C": "to be very lazy",
+          "D": "to be very rude"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "to be reliable and trustworthy",
+        "difficulty": "medium",
+        "source": {
+          "page": 12,
+          "reference": "Writing: describing personality"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "'Dependable' means reliable and worthy of trust."
+          ],
+          "summary": "dependable = reliable."
+        },
+        "explanation": "A dependable friend always keeps promises."
+      }
+    ]
+  }
+}
