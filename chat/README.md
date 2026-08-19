@@ -46,7 +46,7 @@ npm run build
 ```
 مجلد `dist/` جاهز للرفع على Vercel / Netlify / Cloudflare Pages.
 
----
+----
 
 ## سجل التعديلات
 
