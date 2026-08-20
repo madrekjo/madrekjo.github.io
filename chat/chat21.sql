@@ -83,3 +83,6 @@ CREATE TRIGGER trg_set_posts_channel
 -- 6. فهارس
 CREATE INDEX IF NOT EXISTS idx_posts_channel ON public.posts(channel);
 CREATE INDEX IF NOT EXISTS idx_profiles_gender ON public.profiles(gender);
+
+-- 7. عمود الثيم لكل مستخدم
+ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS theme text DEFAULT 'light';

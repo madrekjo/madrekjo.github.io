@@ -218,6 +218,12 @@ const Admin = () => {
     if (error) toast.error("فشل تغيير الجنس");
     else { toast.success(`تم تغيير الجنس إلى ${newGender === "male" ? "ذكر" : "أنثى"}`); logAction("change_gender", uid, `→ ${newGender}`); fetchUsers(); }
   };
+
+  const setUserTheme = async (uid: string, newTheme: string) => {
+    const { error } = await supabase.from("profiles").update({ theme: newTheme } as any).eq("user_id", uid);
+    if (error) toast.error("فشل تغيير الثيم");
+    else { toast.success(`تم تغيير الثيم`); logAction("change_theme", uid, `→ ${newTheme}`); fetchUsers(); }
+  };
   const addBannedWord = async () => {
     if (!newWord.trim()) return;
     const { error } = await supabase.from("banned_words").insert({ word: newWord.trim().toLowerCase() });
@@ -403,6 +409,17 @@ const Admin = () => {
                       <Button variant="ghost" size="sm" onClick={() => toggleUserGender(u.user_id, (u as any).gender)} className="gap-1" title="تغيير الجنس">
                         {(u as any).gender === "male" ? "♂ ذكر" : (u as any).gender === "female" ? "♀ أنثى" : "؟"}
                       </Button>
+                    )}
+                    {isAdmin && (
+                      <div className="flex gap-0.5">
+                        {(["light", "dark", "blue", "pink"] as const).map(t => (
+                          <Button key={t} variant="ghost" size="sm" onClick={() => setUserTheme(u.user_id, t)}
+                            className={`px-1.5 py-0.5 h-auto text-[10px] ${(u as any).theme === t ? "bg-primary/20 text-primary font-bold" : "text-muted-foreground"}`}
+                            title={`ثيم ${t}`}>
+                            {t === "light" ? "☀️" : t === "dark" ? "🌙" : t === "blue" ? "💙" : "🩷"}
+                          </Button>
+                        ))}
+                      </div>
                     )}
                     {isAdmin && (
                       <Button variant="ghost" size="sm" onClick={() => { setRenameUserId(u.user_id); setNewName(u.full_name); }} className="gap-1" title="تغيير الاسم">

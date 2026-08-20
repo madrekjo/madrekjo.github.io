@@ -20,6 +20,7 @@ interface Profile {
   generation?: string | null;
   field?: string | null;
   gender?: string | null;
+  theme?: string | null;
 }
 
 type Permission =

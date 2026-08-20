@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { useTheme } from "@/contexts/ThemeContext";
+import { useTheme, type Theme } from "@/contexts/ThemeContext";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -17,9 +17,23 @@ import { supabase } from "@/integrations/supabase/client";
 
 const Navbar = () => {
   const { user, profile, isAdmin, isModerator, signOut } = useAuth();
-  const { theme, toggleTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const location = useLocation();
   const isStaff = isAdmin || isModerator;
+
+  const cycleTheme = () => {
+    const order: Theme[] = profile?.gender === "female"
+      ? ["light", "dark", "pink"]
+      : ["light", "dark", "blue"];
+    const idx = order.indexOf(theme);
+    const next = order[(idx + 1) % order.length];
+    setTheme(next);
+  };
+
+  const themeIcon = theme === "dark" ? <Sun className="w-5 h-5" />
+    : theme === "blue" ? <Moon className="w-5 h-5 text-blue-400" />
+    : theme === "pink" ? <Moon className="w-5 h-5 text-pink-400" />
+    : <Moon className="w-5 h-5" />;
 
   const [unreadSuggestions, setUnreadSuggestions] = useState(0);
   const [unreadSupport, setUnreadSupport] = useState(0);
@@ -167,8 +181,8 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" onClick={toggleTheme}>
-            {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+          <Button variant="ghost" size="icon" onClick={cycleTheme} title="تغيير الثيم">
+            {themeIcon}
           </Button>
           {user && <span data-tour="notifications"><NotificationBell /></span>}
 

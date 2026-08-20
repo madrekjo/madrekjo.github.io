@@ -13,9 +13,11 @@ import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { compressImage } from "@/lib/mediaCompression";
 import { FIELD_LABEL_AR, FIELD_PREFIX, formatDisplayName } from "@/lib/displayName";
+import { useTheme, type Theme } from "@/contexts/ThemeContext";
 
 const Profile = () => {
   const { user, profile, refreshProfile } = useAuth();
+  const { theme, setTheme } = useTheme();
   const [fullName, setFullName] = useState(profile?.full_name || "");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -232,6 +234,32 @@ const Profile = () => {
               </span>
             </div>
             <p className="text-xs text-muted-foreground">لا يمكنك تغيير القناة من هنا. تواصل مع الإدارة إذا كنت بحاجة للتعديل.</p>
+          </div>
+
+          {/* Theme Picker */}
+          <div className="space-y-2">
+            <Label>الثيم</Label>
+            <div className="grid grid-cols-2 gap-2">
+              {([
+                { key: "light" as Theme, label: "☀️ صباحي", bg: "bg-amber-50", border: "border-amber-200" },
+                { key: "dark" as Theme, label: "🌙 ليلي", bg: "bg-slate-800", border: "border-slate-600", text: "text-white" },
+                ...(profile.gender !== "female" ? [{ key: "blue" as Theme, label: "💙 أزرق", bg: "bg-blue-900", border: "border-blue-600", text: "text-white" }] : []),
+                ...(profile.gender !== "male" ? [{ key: "pink" as Theme, label: "🩷 زهري", bg: "bg-pink-50", border: "border-pink-200" }] : []),
+              ]).map(opt => (
+                <button key={opt.key} onClick={async () => {
+                  await setTheme(opt.key);
+                  await refreshProfile();
+                  toast.success("تم تغيير الثيم");
+                }} className={`p-3 rounded-lg border-2 text-center text-sm font-medium transition-all ${
+                  theme === opt.key
+                    ? "border-primary ring-2 ring-primary/30 bg-primary/10"
+                    : `${opt.border} ${opt.bg} ${opt.text || ""} hover:ring-2 hover:ring-primary/20`
+                }`}>
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+            <p className="text-xs text-muted-foreground">اختر المظهر الذي يعجبك</p>
           </div>
 
 

@@ -115,8 +115,8 @@ function AppRoutes() {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider>
-      <AuthProvider>
+    <AuthProvider>
+      <ThemeProvider>
         <PresenceProvider>
         <TooltipProvider>
           <Toaster />
@@ -126,8 +126,8 @@ const App = () => (
           </BrowserRouter>
         </TooltipProvider>
         </PresenceProvider>
-      </AuthProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </AuthProvider>
   </QueryClientProvider>
 );
 
