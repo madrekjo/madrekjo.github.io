@@ -3,10 +3,11 @@ import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { containsBannedWord, loadBannedWords } from "@/lib/bannedWords";
 import PostCard from "@/components/PostCard";
+import ActivityPanel from "@/components/ActivityPanel";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Send, Image as ImageIcon, Video, Loader2 } from "lucide-react";
+import { Send, Image as ImageIcon, Video, Loader2, Users } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { compressMedia } from "@/lib/mediaCompression";
 
@@ -22,7 +23,7 @@ interface Post {
   updated_at: string;
   generation: string | null;
   channel: string | null;
-  profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null } | null;
+  profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null; gender?: string | null } | null;
   likes: { user_id: string }[];
   comments: {
     id: string;
@@ -31,7 +32,7 @@ interface Post {
     parent_comment_id: string | null;
     created_at: string;
     is_pinned: boolean;
-    profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null } | null;
+    profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null; gender?: string | null } | null;
   }[];
 }
 
@@ -52,9 +53,10 @@ const Chat = () => {
   const hasScrolled = useRef(false);
   const loaderRef = useRef<HTMLDivElement | null>(null);
   const [channelFilter, setChannelFilter] = useState<string>("all");
-  const [postTarget, setPostTarget] = useState<"all" | "gender" | "gen">("all");
-  const [staffPostTarget, setStaffPostTarget] = useState<"shared" | "09" | "10">("shared");
+  const [postTarget, setPostTarget] = useState<"all" | "gender">("all");
   const [staffChannelTarget, setStaffChannelTarget] = useState<string>("all");
+  const [showActivity, setShowActivity] = useState(false);
+  const [channelSettings, setChannelSettings] = useState<Record<string, boolean>>({ male: true, female: true, all: true });
 
   const fetchPosts = useCallback(async (offset = 0, append = false) => {
     if (append) setLoadingMore(true);
@@ -106,9 +108,19 @@ const Chat = () => {
     }
   }, []);
 
+  const fetchChannelSettings = useCallback(async () => {
+    const { data } = await supabase.from("channel_settings" as any).select("*");
+    if (data) {
+      const map: Record<string, boolean> = { male: true, female: true, all: true };
+      (data as any[]).forEach((r: any) => { map[r.channel] = r.enabled; });
+      setChannelSettings(map);
+    }
+  }, []);
+
   useEffect(() => {
     loadBannedWords();
     fetchPosts(0, false);
+    fetchChannelSettings();
 
     const channel = supabase
       .channel("posts-realtime")
@@ -118,7 +130,7 @@ const Chat = () => {
       .subscribe();
 
     return () => { supabase.removeChannel(channel); };
-  }, [fetchPosts]);
+  }, [fetchPosts, fetchChannelSettings]);
 
   useEffect(() => {
     if (highlightPostId && !hasScrolled.current && posts.length > 0) {
@@ -165,17 +177,12 @@ const Chat = () => {
     }
 
     let targetChannel: string = "all";
-    let targetGen: string | null = null;
 
     if (isStaff) {
       targetChannel = staffChannelTarget;
-      targetGen = staffPostTarget === "shared" ? null : staffPostTarget;
     } else {
       if (postTarget === "gender") {
         targetChannel = profile?.gender === "male" ? "male" : "female";
-      } else if (postTarget === "gen") {
-        targetChannel = `gen_${profile?.generation || "2009"}`;
-        targetGen = profile?.generation ?? null;
       } else {
         targetChannel = "all";
       }
@@ -184,7 +191,6 @@ const Chat = () => {
     const insertData: any = {
       user_id: user.id, content: content.trim(), image_url: imageUrl, video_url: videoUrl,
       channel: targetChannel,
-      generation: targetGen,
     };
 
     const { error } = await supabase.from("posts").insert(insertData);
@@ -225,22 +231,17 @@ const Chat = () => {
   }
 
   const channelLabel = profile?.gender === "male" ? "شباب" : profile?.gender === "female" ? "بنات" : "الدردشة";
-
   const myGenderChannel = profile?.gender === "male" ? "male" : profile?.gender === "female" ? "female" : null;
-  const myGenChannel = profile?.generation ? `gen_${profile.generation}` : null;
 
   const channelTabs = isStaff
     ? [
         { key: "all", label: "الجميع" },
         { key: "male", label: "شباب" },
         { key: "female", label: "بنات" },
-        ...(profile?.generation === "09" ? [{ key: "gen_09", label: "طلاب 2009" }] : []),
-        ...(profile?.generation === "10" ? [{ key: "gen_10", label: "طلاب 2010" }] : []),
       ]
     : [
         { key: "all", label: "الجميع" },
-        ...(myGenderChannel ? [{ key: myGenderChannel, label: profile?.gender === "male" ? "شباب" : "بنات" }] : []),
-        ...(myGenChannel ? [{ key: myGenChannel, label: `طلاب ${profile?.generation === "09" ? "2009" : "2010"}` }] : []),
+        ...(myGenderChannel && channelSettings[myGenderChannel] ? [{ key: myGenderChannel, label: profile?.gender === "male" ? "شباب" : "بنات" }] : []),
       ];
 
   return (
@@ -254,7 +255,7 @@ const Chat = () => {
               <Button variant="ghost" size="sm" onClick={() => { setMediaFile(null); setMediaType(null); }}>إزالة</Button>
             </div>
           )}
-          {!isStaff && profile?.generation && (
+          {!isStaff && (
             <div className="flex items-center gap-2 mb-3">
               <span className="text-xs text-muted-foreground">نشر إلى:</span>
               <div className="flex gap-1 bg-muted/60 rounded-lg p-1">
@@ -265,20 +266,15 @@ const Chat = () => {
                 >
                   الجميع
                 </button>
-                <button
-                  type="button"
-                  onClick={() => setPostTarget("gender")}
-                  className={`text-xs px-3 py-1 rounded-md transition-colors ${postTarget === "gender" ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
-                >
-                  {profile.gender === "male" ? "شباب" : "بنات"}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setPostTarget("gen")}
-                  className={`text-xs px-3 py-1 rounded-md transition-colors ${postTarget === "gen" ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
-                >
-                  طلاب {profile.generation === "09" ? "2009" : "2010"}
-                </button>
+                {myGenderChannel && channelSettings[myGenderChannel] && (
+                  <button
+                    type="button"
+                    onClick={() => setPostTarget("gender")}
+                    className={`text-xs px-3 py-1 rounded-md transition-colors ${postTarget === "gender" ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
+                  >
+                    {profile.gender === "male" ? "شباب" : "بنات"}
+                  </button>
+                )}
               </div>
             </div>
           )}
@@ -291,33 +287,12 @@ const Chat = () => {
                     { key: "all", label: "الجميع" },
                     { key: "male", label: "شباب" },
                     { key: "female", label: "بنات" },
-                    { key: "gen_09", label: "طلاب 2009" },
-                    { key: "gen_10", label: "طلاب 2010" },
                   ].map(opt => (
                     <button
                       key={opt.key}
                       type="button"
                       onClick={() => setStaffChannelTarget(opt.key)}
                       className={`text-xs px-3 py-1 rounded-md transition-colors ${staffChannelTarget === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
-                    >
-                      {opt.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-xs text-muted-foreground">الجيل:</span>
-                <div className="flex gap-1 bg-muted/60 rounded-lg p-1">
-                  {[
-                    { key: "shared", label: "الجميع" },
-                    { key: "09", label: "جيل 09" },
-                    { key: "10", label: "جيل 10" },
-                  ].map(opt => (
-                    <button
-                      key={opt.key}
-                      type="button"
-                      onClick={() => setStaffPostTarget(opt.key as any)}
-                      className={`text-xs px-3 py-1 rounded-md transition-colors ${staffPostTarget === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
                     >
                       {opt.label}
                     </button>
@@ -340,19 +315,30 @@ const Chat = () => {
         </div>
       )}
 
-      {/* Channel filter tabs */}
-      <div className="flex items-center gap-1 mb-4 bg-muted/60 rounded-lg p-1 w-fit flex-wrap">
-        <span className="text-xs text-muted-foreground px-2">عرض:</span>
-        {channelTabs.map(opt => (
-          <button
-            key={opt.key}
-            onClick={() => setChannelFilter(opt.key)}
-            className={`text-xs px-3 py-1 rounded-md transition-colors ${channelFilter === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
-          >
-            {opt.label}
-          </button>
-        ))}
+      <div className="flex items-center gap-2 mb-4">
+        <div className="flex items-center gap-1 bg-muted/60 rounded-lg p-1 w-fit flex-wrap flex-1">
+          <span className="text-xs text-muted-foreground px-2">عرض:</span>
+          {channelTabs.map(opt => (
+            <button
+              key={opt.key}
+              onClick={() => setChannelFilter(opt.key)}
+              className={`text-xs px-3 py-1 rounded-md transition-colors ${channelFilter === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
+            >
+              {opt.label}
+            </button>
+          ))}
+        </div>
+        {isAdmin && (
+          <Button variant="outline" size="sm" onClick={() => setShowActivity(!showActivity)} className="gap-1 shrink-0">
+            <Users className="w-4 h-4" />
+            نشاط
+          </Button>
+        )}
       </div>
+
+      {isAdmin && showActivity && (
+        <ActivityPanel onClose={() => setShowActivity(false)} />
+      )}
 
       {loading ? (
         <div className="text-center py-12"><Loader2 className="w-8 h-8 animate-spin mx-auto text-primary" /></div>

@@ -12,6 +12,7 @@ import GenerationOnboardingDialog from "@/components/GenerationOnboardingDialog"
 import GenderOnboardingDialog from "@/components/GenderOnboardingDialog";
 import SectionGate from "@/components/SectionGate";
 import WarningNotice from "@/components/WarningNotice";
+import PresenceTracker from "@/components/PresenceTracker";
 import SsoSyncDialog from "@/components/SsoSyncDialog";
 
 const Landing = lazy(() => import("@/pages/Landing"));
@@ -73,6 +74,7 @@ function AppRoutes() {
       <Navbar />
       {user && <GenerationOnboardingDialog />}
       {user && <GenderOnboardingDialog />}
+      {user && <PresenceTracker />}
       {user && <Onboarding />}
       {user && <WarningNotice />}
       <SsoSyncDialog />

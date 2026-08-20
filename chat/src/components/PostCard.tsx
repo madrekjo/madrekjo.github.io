@@ -18,13 +18,13 @@ import { ShieldCheck } from "lucide-react";
 
 const VerificationBadge = ({ gender, isAuthorAdmin }: { gender?: string | null; isAuthorAdmin: boolean }) => {
   if (isAuthorAdmin) {
-    return <span title="مدير" className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-green-500 text-white shrink-0"><ShieldCheck className="w-3 h-3" /></span>;
+    return <span title="مدير" className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-green-500 shrink-0"><ShieldCheck className="w-3 h-3 text-white" /></span>;
   }
   if (gender === "male") {
-    return <span title="طالب" className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-blue-500 text-white shrink-0 text-[10px] font-bold">ش</span>;
+    return <span title="طالب" className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-blue-500 shrink-0" />;
   }
   if (gender === "female") {
-    return <span title="طالبة" className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-pink-500 text-white shrink-0 text-[10px] font-bold">ب</span>;
+    return <span title="طالبة" className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-pink-500 shrink-0" />;
   }
   return null;
 };
@@ -354,8 +354,8 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
                       <button onClick={() => setProfileUserId(comment.user_id)} className="text-xs font-semibold hover:underline">
                         {formatDisplayName(comment.profiles)}
                       </button>
-                      {comment.profiles?.gender === "male" && <span className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-blue-500 text-white shrink-0 text-[8px] font-bold">ش</span>}
-                      {comment.profiles?.gender === "female" && <span className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-pink-500 text-white shrink-0 text-[8px] font-bold">ب</span>}
+                      {comment.profiles?.gender === "male" && <span className="inline-flex items-center justify-center w-3 h-3 rounded-full bg-blue-500 shrink-0" />}
+                      {comment.profiles?.gender === "female" && <span className="inline-flex items-center justify-center w-3 h-3 rounded-full bg-pink-500 shrink-0" />}
                       <RoundsBadge userId={comment.user_id} />
                       {comment.is_pinned && (
                         <span className="text-xs text-primary flex items-center gap-0.5">
@@ -423,8 +423,8 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
                     <div className="flex items-center justify-between">
                       <button onClick={() => setProfileUserId(reply.user_id)} className="text-xs font-semibold hover:underline flex items-center gap-1">
                         {formatDisplayName(reply.profiles)}
-                        {reply.profiles?.gender === "male" && <span className="inline-flex items-center justify-center w-3 h-3 rounded-full bg-blue-500 text-white shrink-0 text-[7px] font-bold">ش</span>}
-                        {reply.profiles?.gender === "female" && <span className="inline-flex items-center justify-center w-3 h-3 rounded-full bg-pink-500 text-white shrink-0 text-[7px] font-bold">ب</span>}
+                        {reply.profiles?.gender === "male" && <span className="inline-flex items-center justify-center w-2.5 h-2.5 rounded-full bg-blue-500 shrink-0" />}
+                        {reply.profiles?.gender === "female" && <span className="inline-flex items-center justify-center w-2.5 h-2.5 rounded-full bg-pink-500 shrink-0" />}
                         <RoundsBadge userId={reply.user_id} />
                       </button>
                       <div className="flex items-center gap-1">
