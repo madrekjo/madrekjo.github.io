@@ -125,10 +125,14 @@ const Admin = () => {
   };
 
   const toggleChannel = async (ch: string, enabled: boolean) => {
-    const { error } = await (supabase as any)
+    const { data, error } = await (supabase as any)
       .from("channel_settings")
-      .upsert({ channel: ch, enabled }, { onConflict: "channel" });
-    if (error) { toast.error("فشل الحفظ"); return; }
+      .upsert({ channel: ch, enabled, updated_at: new Date().toISOString() }, { onConflict: "channel" });
+    if (error) {
+      console.error("toggleChannel error:", error);
+      toast.error("فشل الحفظ: " + (error.message || error.details || "خطأ غير معروف"));
+      return;
+    }
     setChannelSettings(prev => ({ ...prev, [ch]: enabled }));
     toast.success(enabled ? "تم تفعيل القناة" : "تم تعطيل القناة");
   };

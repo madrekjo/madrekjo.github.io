@@ -1,9 +1,9 @@
 -- ============================================================================
--- chat21.sql — إضافات على قاعدة الدردشة: قنوات + إعدادات + علامات
+-- chat21.sql — قنوات + إعدادات + علامات
 -- ============================================================================
--- شغّل هذا الملف من Supabase SQL Editor (ملف إضافي فقط، لا يحذف أي شيء)
+-- شغّل هذا الملف من Supabase SQL Editor
 
--- 1. جدول إعدادات القنوات (للأدمن يقدر يطفي قناة)
+-- 1. جدول إعدادات القنوات
 CREATE TABLE IF NOT EXISTS public.channel_settings (
   channel TEXT PRIMARY KEY,
   enabled BOOLEAN NOT NULL DEFAULT true,
@@ -43,34 +43,40 @@ INSERT INTO public.channel_settings (channel, enabled) VALUES
   ('10', true)
 ON CONFLICT (channel) DO NOTHING;
 
--- 2. إضافة الأعمدة إذا لم تكن موجودة
+-- 2. الأعمدة
 ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS gender text;
 ALTER TABLE public.posts ADD COLUMN IF NOT EXISTS channel text;
 
--- 3. تحديث القيود
+-- 3. القيود
 ALTER TABLE public.profiles DROP CONSTRAINT IF EXISTS profiles_gender_check;
 ALTER TABLE public.profiles ADD CONSTRAINT profiles_gender_check CHECK (gender IN ('male', 'female'));
 
 ALTER TABLE public.posts DROP CONSTRAINT IF EXISTS posts_channel_check;
 ALTER TABLE public.posts ADD CONSTRAINT posts_channel_check CHECK (channel IN ('all', 'male', 'female', '09', '10'));
 
--- 4. دالة التحقق من القناة
-CREATE OR REPLACE FUNCTION public.can_see_channel(target_channel text, user_gender text)
+-- 4. دالة التحقق من القناة (تتحقق من الجنس + الجيل)
+CREATE OR REPLACE FUNCTION public.can_see_channel(target_channel text, user_gender text, user_generation text)
 RETURNS boolean AS $$
 BEGIN
     IF target_channel IS NULL OR target_channel = 'all' THEN RETURN true; END IF;
     IF target_channel = 'male' THEN RETURN user_gender = 'male'; END IF;
     IF target_channel = 'female' THEN RETURN user_gender = 'female'; END IF;
+    IF target_channel = '09' THEN RETURN user_generation = '09'; END IF;
+    IF target_channel = '10' THEN RETURN user_generation = '10'; END IF;
     RETURN false;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
--- 5. تحديث سياسة SELECT على المنشورات
+-- 5. سياسة SELECT على المنشورات
 DROP POLICY IF EXISTS "posts select by generation" ON public.posts;
 DROP POLICY IF EXISTS "posts select by channel" ON public.posts;
 
 CREATE POLICY "posts select by channel" ON public.posts FOR SELECT
-USING (can_see_channel(channel, (SELECT gender FROM profiles WHERE user_id = auth.uid())));
+USING (can_see_channel(
+  channel,
+  (SELECT gender FROM profiles WHERE user_id = auth.uid()),
+  (SELECT generation FROM profiles WHERE user_id = auth.uid())
+));
 
 -- 6. Trigger لملء القناة تلقائياً
 CREATE OR REPLACE FUNCTION public.set_posts_channel()
