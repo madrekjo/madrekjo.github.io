@@ -25,7 +25,9 @@ export function PresenceProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!user) return;
 
-    const channel = supabase.channel("chat-presence");
+    const channel = supabase.channel("chat-presence", {
+      config: { key: user.id },
+    });
 
     channel.on("presence", { event: "sync" }, () => {
       const state = channel.presenceState();
@@ -36,6 +38,17 @@ export function PresenceProvider({ children }: { children: ReactNode }) {
         });
       });
       setActiveUsers(users);
+    }).on("presence", { event: "join" }, ({ key, newPresences }: any) => {
+      setActiveUsers(prev => {
+        const existing = new Set(prev.map(u => u.user_id));
+        const newUsers = newPresences.filter((p: any) => p.user_id && !existing.has(p.user_id));
+        return [...prev, ...newUsers];
+      });
+    }).on("presence", { event: "leave" }, ({ key, leftPresences }: any) => {
+      setActiveUsers(prev => {
+        const leftIds = new Set(leftPresences.map((p: any) => p.user_id));
+        return prev.filter(u => !leftIds.has(u.user_id));
+      });
     });
 
     const track = async () => {
