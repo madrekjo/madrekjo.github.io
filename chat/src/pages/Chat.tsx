@@ -308,7 +308,7 @@ const Chat = () => {
       ) : (
         <div className="space-y-4">
           {posts
-            .filter(p => p.channel === channelFilter)
+            .filter(p => channelFilter === "all" ? (p.channel === "all" || p.channel === null) : p.channel === channelFilter)
             .map(post => (
               <PostCard
                 key={post.id}
