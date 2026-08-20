@@ -57,16 +57,16 @@ const GenderOnboardingDialog = () => {
                 className="rounded-xl border-2 border-blue-500/30 hover:border-blue-500 hover:bg-blue-500/5 p-6 transition-all group"
               >
                 <div className="text-3xl mb-2">👦</div>
-                <div className="font-bold text-lg">ذكور</div>
-                <div className="text-xs text-muted-foreground">قناة الذكور</div>
+                <div className="font-bold text-lg">شباب</div>
+                <div className="text-xs text-muted-foreground">قناة الشباب</div>
               </button>
               <button
                 onClick={() => chooseGender("female")}
                 className="rounded-xl border-2 border-pink-500/30 hover:border-pink-500 hover:bg-pink-500/5 p-6 transition-all group"
               >
                 <div className="text-3xl mb-2">👧</div>
-                <div className="font-bold text-lg">إناث</div>
-                <div className="text-xs text-muted-foreground">قناة الإناث</div>
+                <div className="font-bold text-lg">بنات</div>
+                <div className="text-xs text-muted-foreground">قناة البنات</div>
               </button>
             </div>
           </div>

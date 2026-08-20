@@ -14,6 +14,20 @@ import RoundsBadge from "@/components/RoundsBadge";
 import Lightbox from "@/components/Lightbox";
 import ReportDialog from "@/components/ReportDialog";
 import { formatDisplayName } from "@/lib/displayName";
+import { ShieldCheck } from "lucide-react";
+
+const VerificationBadge = ({ gender, isAuthorAdmin }: { gender?: string | null; isAuthorAdmin: boolean }) => {
+  if (isAuthorAdmin) {
+    return <span title="مدير" className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-green-500 text-white shrink-0"><ShieldCheck className="w-3 h-3" /></span>;
+  }
+  if (gender === "male") {
+    return <span title="طالب" className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-blue-500 text-white shrink-0 text-[10px] font-bold">ش</span>;
+  }
+  if (gender === "female") {
+    return <span title="طالبة" className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-pink-500 text-white shrink-0 text-[10px] font-bold">ب</span>;
+  }
+  return null;
+};
 
 interface PostProps {
   post: {
@@ -23,7 +37,7 @@ interface PostProps {
     image_url: string | null;
     video_url: string | null;
     created_at: string;
-    profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null } | null;
+    profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null; gender?: string | null } | null;
     likes: { user_id: string }[];
     comments: {
       id: string;
@@ -32,7 +46,7 @@ interface PostProps {
       parent_comment_id: string | null;
       created_at: string;
       is_pinned: boolean;
-      profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null } | null;
+      profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null; gender?: string | null } | null;
     }[];
   };
   onRefresh: () => void;
@@ -53,10 +67,23 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
   const [editCommentText, setEditCommentText] = useState("");
   const [lightbox, setLightbox] = useState<{ src: string; type: "image" | "video" } | null>(null);
   const [reportOpen, setReportOpen] = useState(false);
+  const [authorIsAdmin, setAuthorIsAdmin] = useState(false);
 
   const canDelete = isAdmin || isModerator;
   const isOwner = user?.id === post.user_id;
   const isLiked = post.likes.some(l => l.user_id === user?.id);
+
+  // Fetch author admin status
+  useEffect(() => {
+    const fetchAuthorRole = async () => {
+      const { data } = await supabase
+        .from("user_roles")
+        .select("role")
+        .eq("user_id", post.user_id);
+      setAuthorIsAdmin((data || []).some((r: any) => r.role === "admin"));
+    };
+    fetchAuthorRole();
+  }, [post.user_id]);
 
   // Fetch comment likes
   useEffect(() => {
@@ -227,6 +254,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
             <button onClick={() => setProfileUserId(post.user_id)} className="font-semibold text-sm hover:underline text-right">
               {formatDisplayName(post.profiles)}
             </button>
+            <VerificationBadge gender={post.profiles?.gender} isAuthorAdmin={authorIsAdmin} />
             <RoundsBadge userId={post.user_id} />
           </div>
           <p className="text-xs text-muted-foreground">
@@ -326,6 +354,8 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
                       <button onClick={() => setProfileUserId(comment.user_id)} className="text-xs font-semibold hover:underline">
                         {formatDisplayName(comment.profiles)}
                       </button>
+                      {comment.profiles?.gender === "male" && <span className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-blue-500 text-white shrink-0 text-[8px] font-bold">ش</span>}
+                      {comment.profiles?.gender === "female" && <span className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-pink-500 text-white shrink-0 text-[8px] font-bold">ب</span>}
                       <RoundsBadge userId={comment.user_id} />
                       {comment.is_pinned && (
                         <span className="text-xs text-primary flex items-center gap-0.5">
@@ -393,6 +423,8 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
                     <div className="flex items-center justify-between">
                       <button onClick={() => setProfileUserId(reply.user_id)} className="text-xs font-semibold hover:underline flex items-center gap-1">
                         {formatDisplayName(reply.profiles)}
+                        {reply.profiles?.gender === "male" && <span className="inline-flex items-center justify-center w-3 h-3 rounded-full bg-blue-500 text-white shrink-0 text-[7px] font-bold">ش</span>}
+                        {reply.profiles?.gender === "female" && <span className="inline-flex items-center justify-center w-3 h-3 rounded-full bg-pink-500 text-white shrink-0 text-[7px] font-bold">ب</span>}
                         <RoundsBadge userId={reply.user_id} />
                       </button>
                       <div className="flex items-center gap-1">

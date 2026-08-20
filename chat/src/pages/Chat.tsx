@@ -51,18 +51,17 @@ const Chat = () => {
   const postRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const hasScrolled = useRef(false);
   const loaderRef = useRef<HTMLDivElement | null>(null);
-  const [genFilter, setGenFilter] = useState<"shared" | "09" | "10">("shared");
-  const [channelFilter, setChannelFilter] = useState<"all" | "male" | "female">("all");
-  const [postTarget, setPostTarget] = useState<"shared" | "own">("shared");
+  const [channelFilter, setChannelFilter] = useState<string>("all");
+  const [postTarget, setPostTarget] = useState<"all" | "gender" | "gen">("all");
   const [staffPostTarget, setStaffPostTarget] = useState<"shared" | "09" | "10">("shared");
-  const [staffChannelTarget, setStaffChannelTarget] = useState<"shared" | "male" | "female">("shared");
+  const [staffChannelTarget, setStaffChannelTarget] = useState<string>("all");
 
   const fetchPosts = useCallback(async (offset = 0, append = false) => {
     if (append) setLoadingMore(true);
     try {
       const { data: rows, error } = await supabase
         .from("posts")
-        .select("*, profiles!posts_user_id_profiles_fkey(full_name, avatar_url, generation, field)")
+        .select("*, profiles!posts_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
         .is("deleted_at", null)
         .order("created_at", { ascending: false })
         .range(offset, offset + PAGE_SIZE - 1);
@@ -76,7 +75,7 @@ const Chat = () => {
             supabase.from("likes").select("post_id, user_id").in("post_id", postIds),
             supabase
               .from("comments")
-              .select("id, post_id, content, user_id, parent_comment_id, created_at, is_pinned, profiles:profiles!comments_user_id_profiles_fkey(full_name, avatar_url, generation, field)")
+              .select("id, post_id, content, user_id, parent_comment_id, created_at, is_pinned, profiles:profiles!comments_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
               .in("post_id", postIds)
               .is("deleted_at", null)
               .order("created_at", { ascending: true }),
@@ -165,23 +164,28 @@ const Chat = () => {
       else videoUrl = urlData.publicUrl;
     }
 
+    let targetChannel: string = "all";
     let targetGen: string | null = null;
-    let targetChannel: string | null = null;
 
     if (isStaff) {
+      targetChannel = staffChannelTarget;
       targetGen = staffPostTarget === "shared" ? null : staffPostTarget;
-      targetChannel = staffChannelTarget === "shared" ? null : staffChannelTarget;
     } else {
-      targetGen = postTarget === "own" ? (profile?.generation ?? null) : null;
+      if (postTarget === "gender") {
+        targetChannel = profile?.gender === "male" ? "male" : "female";
+      } else if (postTarget === "gen") {
+        targetChannel = `gen_${profile?.generation || "2009"}`;
+        targetGen = profile?.generation ?? null;
+      } else {
+        targetChannel = "all";
+      }
     }
 
     const insertData: any = {
       user_id: user.id, content: content.trim(), image_url: imageUrl, video_url: videoUrl,
+      channel: targetChannel,
       generation: targetGen,
     };
-    if (isStaff) {
-      insertData.channel = targetChannel;
-    }
 
     const { error } = await supabase.from("posts").insert(insertData);
     if (error) {
@@ -220,7 +224,24 @@ const Chat = () => {
     );
   }
 
-  const channelLabel = profile?.gender === "male" ? "ذكور" : profile?.gender === "female" ? "إناث" : "الدردشة";
+  const channelLabel = profile?.gender === "male" ? "شباب" : profile?.gender === "female" ? "بنات" : "الدردشة";
+
+  const myGenderChannel = profile?.gender === "male" ? "male" : profile?.gender === "female" ? "female" : null;
+  const myGenChannel = profile?.generation ? `gen_${profile.generation}` : null;
+
+  const channelTabs = isStaff
+    ? [
+        { key: "all", label: "الجميع" },
+        { key: "male", label: "شباب" },
+        { key: "female", label: "بنات" },
+        ...(profile?.generation === "09" ? [{ key: "gen_09", label: "طلاب 2009" }] : []),
+        ...(profile?.generation === "10" ? [{ key: "gen_10", label: "طلاب 2010" }] : []),
+      ]
+    : [
+        { key: "all", label: "الجميع" },
+        ...(myGenderChannel ? [{ key: myGenderChannel, label: profile?.gender === "male" ? "شباب" : "بنات" }] : []),
+        ...(myGenChannel ? [{ key: myGenChannel, label: `طلاب ${profile?.generation === "09" ? "2009" : "2010"}` }] : []),
+      ];
 
   return (
     <div className="container mx-auto px-4 py-6 max-w-2xl">
@@ -239,17 +260,24 @@ const Chat = () => {
               <div className="flex gap-1 bg-muted/60 rounded-lg p-1">
                 <button
                   type="button"
-                  onClick={() => setPostTarget("shared")}
-                  className={`text-xs px-3 py-1 rounded-md transition-colors ${postTarget === "shared" ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
+                  onClick={() => setPostTarget("all")}
+                  className={`text-xs px-3 py-1 rounded-md transition-colors ${postTarget === "all" ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
                 >
-                  دردشة الجميع
+                  الجميع
                 </button>
                 <button
                   type="button"
-                  onClick={() => setPostTarget("own")}
-                  className={`text-xs px-3 py-1 rounded-md transition-colors ${postTarget === "own" ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
+                  onClick={() => setPostTarget("gender")}
+                  className={`text-xs px-3 py-1 rounded-md transition-colors ${postTarget === "gender" ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
                 >
-                  دردشة جيل {profile.generation}
+                  {profile.gender === "male" ? "شباب" : "بنات"}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setPostTarget("gen")}
+                  className={`text-xs px-3 py-1 rounded-md transition-colors ${postTarget === "gen" ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
+                >
+                  طلاب {profile.generation === "09" ? "2009" : "2010"}
                 </button>
               </div>
             </div>
@@ -260,14 +288,16 @@ const Chat = () => {
                 <span className="text-xs text-muted-foreground">القناة:</span>
                 <div className="flex gap-1 bg-muted/60 rounded-lg p-1">
                   {[
-                    { key: "shared", label: "الجميع" },
-                    { key: "male", label: "ذكور" },
-                    { key: "female", label: "إناث" },
+                    { key: "all", label: "الجميع" },
+                    { key: "male", label: "شباب" },
+                    { key: "female", label: "بنات" },
+                    { key: "gen_09", label: "طلاب 2009" },
+                    { key: "gen_10", label: "طلاب 2010" },
                   ].map(opt => (
                     <button
                       key={opt.key}
                       type="button"
-                      onClick={() => setStaffChannelTarget(opt.key as any)}
+                      onClick={() => setStaffChannelTarget(opt.key)}
                       className={`text-xs px-3 py-1 rounded-md transition-colors ${staffChannelTarget === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
                     >
                       {opt.label}
@@ -310,44 +340,14 @@ const Chat = () => {
         </div>
       )}
 
-      {/* Staff channel filter */}
-      {isStaff && (
-        <div className="flex items-center gap-1 mb-2 bg-muted/60 rounded-lg p-1 w-fit flex-wrap">
-          <span className="text-xs text-muted-foreground px-2">القناة:</span>
-          {[
-            { key: "all", label: "الكل" },
-            { key: "male", label: "ذكور" },
-            { key: "female", label: "إناث" },
-          ].map(opt => (
-            <button
-              key={opt.key}
-              onClick={() => setChannelFilter(opt.key as any)}
-              className={`text-xs px-3 py-1 rounded-md transition-colors ${channelFilter === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
-      )}
-
-      {/* Generation filter */}
+      {/* Channel filter tabs */}
       <div className="flex items-center gap-1 mb-4 bg-muted/60 rounded-lg p-1 w-fit flex-wrap">
         <span className="text-xs text-muted-foreground px-2">عرض:</span>
-        {(isStaff
-          ? [
-              { key: "shared", label: "الجميع" },
-              { key: "09", label: "جيل 09" },
-              { key: "10", label: "جيل 10" },
-            ]
-          : [
-              { key: "shared", label: "دردشة الجميع" },
-              ...(profile?.generation ? [{ key: profile.generation, label: `دردشة جيل ${profile.generation}` }] : []),
-            ]
-        ).map(opt => (
+        {channelTabs.map(opt => (
           <button
             key={opt.key}
-            onClick={() => setGenFilter(opt.key as any)}
-            className={`text-xs px-3 py-1 rounded-md transition-colors ${genFilter === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
+            onClick={() => setChannelFilter(opt.key)}
+            className={`text-xs px-3 py-1 rounded-md transition-colors ${channelFilter === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
           >
             {opt.label}
           </button>
@@ -362,11 +362,8 @@ const Chat = () => {
         <div className="space-y-4">
           {posts
             .filter(p => {
-              if (isStaff && channelFilter !== "all") {
-                if (p.channel !== null && p.channel !== channelFilter) return false;
-              }
-              if (genFilter === "shared") return p.generation == null;
-              return p.generation === genFilter;
+              if (channelFilter === "all") return true;
+              return p.channel === channelFilter;
             })
             .map(post => (
               <PostCard
