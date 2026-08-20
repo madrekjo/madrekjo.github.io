@@ -1,20 +1,12 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { usePresence } from "@/contexts/PresenceContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { X, Clock, UserX, Trophy, Medal } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
-interface ActiveUser {
-  user_id: string;
-  name: string;
-  avatar_url: string | null;
-  gender: string | null;
-  joined_at: number;
-  is_admin: boolean;
-}
 
 const RANK_ICONS = [
   <Trophy key="1" className="w-3.5 h-3.5 text-yellow-500" />,
@@ -24,29 +16,12 @@ const RANK_ICONS = [
 
 const ActivityPanel = ({ onClose }: { onClose: () => void }) => {
   const { user } = useAuth();
-  const [activeUsers, setActiveUsers] = useState<ActiveUser[]>([]);
-  const [selectedUser, setSelectedUser] = useState<ActiveUser | null>(null);
+  const { activeUsers } = usePresence();
+  const [selectedUser, setSelectedUser] = useState<any>(null);
   const [timeoutMinutes, setTimeoutMinutes] = useState(30);
   const [timeoutReason, setTimeoutReason] = useState(" قضيت وقت كثير في الدردشة");
   const [givingTimeout, setGivingTimeout] = useState(false);
   const [now, setNow] = useState(Date.now());
-
-  useEffect(() => {
-    if (!user) return;
-    const channel = supabase.channel("chat-presence");
-    channel.on("presence", { event: "sync" }, () => {
-      const state = channel.presenceState();
-      const users: ActiveUser[] = [];
-      Object.values(state).forEach((presences: any) => {
-        presences.forEach((p: any) => {
-          if (p.user_id) users.push(p);
-        });
-      });
-      setActiveUsers(users);
-    });
-    channel.subscribe();
-    return () => { supabase.removeChannel(channel); };
-  }, [user]);
 
   useEffect(() => {
     const timer = setInterval(() => setNow(Date.now()), 1000);
@@ -81,8 +56,8 @@ const ActivityPanel = ({ onClose }: { onClose: () => void }) => {
     setGivingTimeout(false);
   };
 
-  const sortedUsers = [...activeUsers].sort((a, b) => a.joined_at - b.joined_at);
-  const nonAdminUsers = sortedUsers.filter(u => !u.is_admin);
+  const sortedUsers = [...activeUsers].sort((a: any, b: any) => a.joined_at - b.joined_at);
+  const nonAdminUsers = sortedUsers.filter((u: any) => !u.is_admin);
   const top10 = nonAdminUsers.slice(0, 10);
   const restCount = nonAdminUsers.length - top10.length;
 
@@ -99,7 +74,7 @@ const ActivityPanel = ({ onClose }: { onClose: () => void }) => {
         <p className="text-xs text-muted-foreground text-center py-4">لا يوجد متصلون حالياً</p>
       ) : (
         <div className="space-y-1.5 max-h-[350px] overflow-y-auto">
-          {top10.map((u, i) => (
+          {top10.map((u: any, i: number) => (
             <div
               key={u.user_id}
               className={`flex items-center gap-2 p-2 rounded-lg cursor-pointer transition-colors ${selectedUser?.user_id === u.user_id ? "bg-primary/10 ring-1 ring-primary/30" : "hover:bg-muted/50"}`}
@@ -111,7 +86,7 @@ const ActivityPanel = ({ onClose }: { onClose: () => void }) => {
               <Avatar className="w-7 h-7 shrink-0">
                 <AvatarImage src={u.avatar_url || ""} />
                 <AvatarFallback className="bg-primary/10 text-primary text-xs">
-                  {u.name.charAt(0)}
+                  {u.name?.charAt(0)}
                 </AvatarFallback>
               </Avatar>
               {u.gender === "male" && <span className="w-2.5 h-2.5 rounded-full bg-blue-500 shrink-0" />}

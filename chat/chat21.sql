@@ -13,13 +13,26 @@ CREATE TABLE IF NOT EXISTS public.channel_settings (
 
 ALTER TABLE public.channel_settings ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "channel settings viewable by everyone" ON public.channel_settings;
 CREATE POLICY "channel settings viewable by everyone"
-  ON public.channel_settings FOR SELECT USING (true);
+  ON public.channel_settings FOR SELECT
+  USING (true);
 
-CREATE POLICY "admins manage channel settings"
-  ON public.channel_settings FOR ALL TO authenticated
+DROP POLICY IF EXISTS "channel settings insert for admins" ON public.channel_settings;
+CREATE POLICY "channel settings insert for admins"
+  ON public.channel_settings FOR INSERT TO authenticated
+  WITH CHECK (has_role(auth.uid(), 'admin'::app_role));
+
+DROP POLICY IF EXISTS "channel settings update for admins" ON public.channel_settings;
+CREATE POLICY "channel settings update for admins"
+  ON public.channel_settings FOR UPDATE TO authenticated
   USING (has_role(auth.uid(), 'admin'::app_role))
   WITH CHECK (has_role(auth.uid(), 'admin'::app_role));
+
+DROP POLICY IF EXISTS "channel settings delete for admins" ON public.channel_settings;
+CREATE POLICY "channel settings delete for admins"
+  ON public.channel_settings FOR DELETE TO authenticated
+  USING (has_role(auth.uid(), 'admin'::app_role));
 
 -- إدخال القنوات الافتراضية
 INSERT INTO public.channel_settings (channel, enabled) VALUES

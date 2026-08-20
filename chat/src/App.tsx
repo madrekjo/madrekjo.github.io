@@ -5,6 +5,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider, useAuth } from "@/contexts/AuthContext";
+import { PresenceProvider } from "@/contexts/PresenceContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import Navbar from "@/components/Navbar";
 import Onboarding from "@/components/Onboarding";
@@ -12,7 +13,6 @@ import GenerationOnboardingDialog from "@/components/GenerationOnboardingDialog"
 import GenderOnboardingDialog from "@/components/GenderOnboardingDialog";
 import SectionGate from "@/components/SectionGate";
 import WarningNotice from "@/components/WarningNotice";
-import PresenceTracker from "@/components/PresenceTracker";
 import SsoSyncDialog from "@/components/SsoSyncDialog";
 
 const Landing = lazy(() => import("@/pages/Landing"));
@@ -74,7 +74,6 @@ function AppRoutes() {
       <Navbar />
       {user && <GenerationOnboardingDialog />}
       {user && <GenderOnboardingDialog />}
-      {user && <PresenceTracker />}
       {user && <Onboarding />}
       {user && <WarningNotice />}
       <SsoSyncDialog />
@@ -118,6 +117,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider>
       <AuthProvider>
+        <PresenceProvider>
         <TooltipProvider>
           <Toaster />
           <Sonner />
@@ -125,6 +125,7 @@ const App = () => (
             <AppRoutes />
           </BrowserRouter>
         </TooltipProvider>
+        </PresenceProvider>
       </AuthProvider>
     </ThemeProvider>
   </QueryClientProvider>

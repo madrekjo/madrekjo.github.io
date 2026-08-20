@@ -260,6 +260,21 @@ const Admin = () => {
         <h1 className="text-2xl font-bold">{isAdmin ? "لوحة الإدارة" : isModerator ? "لوحة المشرف" : "لوحة المسؤول"}</h1>
       </div>
 
+      {isAdmin && (
+        <div className="mb-4">
+          <Button variant={showActivity ? "default" : "outline"} onClick={() => setShowActivity(!showActivity)} className="gap-2 w-full">
+            <Activity className="w-4 h-4" />
+            {showActivity ? "إخفاء النشاط والمتصلين" : "عرض النشاط والمتصلين"}
+          </Button>
+        </div>
+      )}
+
+      {isAdmin && showActivity && (
+        <div className="mb-4">
+          <ActivityPanel onClose={() => setShowActivity(false)} />
+        </div>
+      )}
+
       <Link to="/staff-meeting" className="block mb-4">
         <Button variant="secondary" className="w-full gap-2">
           <Lock className="w-4 h-4" /> فتح اجتماع الإدارة
@@ -600,15 +615,6 @@ const Admin = () => {
               </CardContent>
             </Card>
           ))}
-
-          <div className="mt-4">
-            <Button variant={showActivity ? "default" : "outline"} onClick={() => setShowActivity(!showActivity)} className="gap-2 w-full">
-              <Activity className="w-4 h-4" />
-              {showActivity ? "إخفاء النشاط" : "عرض النشاط والمتصلين"}
-            </Button>
-          </div>
-
-          {showActivity && <ActivityPanel onClose={() => setShowActivity(false)} />}
         </div>
       )}
 
