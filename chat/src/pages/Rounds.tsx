@@ -495,8 +495,8 @@ const Rounds = () => {
         </div>
       </div>
 
-      {/* Meetings widget */}
-      {user && (
+      {/* Meetings widget — admins only */}
+      {user && isAdmin && (
         <Card className="mb-4 border-primary/30 bg-primary/5">
           <CardHeader className="pb-2">
             <div className="flex items-center justify-between">
