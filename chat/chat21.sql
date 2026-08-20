@@ -55,6 +55,9 @@ ALTER TABLE public.posts DROP CONSTRAINT IF EXISTS posts_channel_check;
 ALTER TABLE public.posts ADD CONSTRAINT posts_channel_check CHECK (channel IN ('all', 'male', 'female', '09', '10'));
 
 -- 4. دالة التحقق من القناة (تتحقق من الجنس + الجيل)
+DROP FUNCTION IF EXISTS public.can_see_channel(text, text);
+DROP FUNCTION IF EXISTS public.can_see_channel(text, text, text);
+
 CREATE OR REPLACE FUNCTION public.can_see_channel(target_channel text, user_gender text, user_generation text)
 RETURNS boolean AS $$
 BEGIN
