@@ -59,6 +59,7 @@ ALTER TABLE public.posts ADD CONSTRAINT posts_channel_check CHECK (channel IN ('
 -- 4. إزالة سياسة القناة القديمة (الكل يشوف كل المنشورات — الفلتر ع الواجهة)
 DROP POLICY IF EXISTS "posts select by generation" ON public.posts;
 DROP POLICY IF EXISTS "posts select by channel" ON public.posts;
+DROP POLICY IF EXISTS "posts select all for authenticated" ON public.posts;
 
 CREATE POLICY "posts select all for authenticated" ON public.posts FOR SELECT
   TO authenticated USING (true);
