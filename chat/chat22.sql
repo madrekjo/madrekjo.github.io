@@ -82,5 +82,14 @@ CREATE POLICY "Authenticated users can like comment_likes" ON public.comment_lik
   FOR INSERT TO authenticated
   WITH CHECK (auth.uid() = user_id);
 
--- 6. تعبئة المنشورات القديمة التي بدون قناة
+-- 6. حذف trigger chat20.sql التي تفرض قناة الجنس على المستخدمين العاديين
+DROP TRIGGER IF EXISTS set_posts_channel ON public.posts;
+DROP FUNCTION IF EXISTS public.set_post_channel() CASCADE;
+
+-- 7. تحديث CHECK constraint للسماح بكل القنوات
+ALTER TABLE public.posts DROP CONSTRAINT IF EXISTS posts_channel_check;
+ALTER TABLE public.posts ADD CONSTRAINT posts_channel_check
+  CHECK (channel IS NULL OR channel IN ('all', 'male', 'female', '09', '10'));
+
+-- 8. تعبئة المنشورات القديمة التي بدون قناة
 UPDATE public.posts SET channel = 'all' WHERE channel IS NULL;
