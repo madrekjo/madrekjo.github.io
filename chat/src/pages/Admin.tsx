@@ -211,6 +211,13 @@ const Admin = () => {
     if (error) toast.error("فشل تغيير الاسم");
     else { toast.success("تم تغيير الاسم"); logAction("rename", renameUserId, `→ ${newName.trim()}`); setRenameUserId(null); setNewName(""); fetchUsers(); }
   };
+
+  const toggleUserGender = async (uid: string, currentGender: string | null) => {
+    const newGender = currentGender === "male" ? "female" : "male";
+    const { error } = await supabase.from("profiles").update({ gender: newGender } as any).eq("user_id", uid);
+    if (error) toast.error("فشل تغيير الجنس");
+    else { toast.success(`تم تغيير الجنس إلى ${newGender === "male" ? "ذكر" : "أنثى"}`); logAction("change_gender", uid, `→ ${newGender}`); fetchUsers(); }
+  };
   const addBannedWord = async () => {
     if (!newWord.trim()) return;
     const { error } = await supabase.from("banned_words").insert({ word: newWord.trim().toLowerCase() });
@@ -392,6 +399,11 @@ const Admin = () => {
                     </div>
                   </div>
                   <div className="flex gap-1 flex-wrap justify-end">
+                    {isAdmin && (
+                      <Button variant="ghost" size="sm" onClick={() => toggleUserGender(u.user_id, (u as any).gender)} className="gap-1" title="تغيير الجنس">
+                        {(u as any).gender === "male" ? "♂ ذكر" : (u as any).gender === "female" ? "♀ أنثى" : "؟"}
+                      </Button>
+                    )}
                     {isAdmin && (
                       <Button variant="ghost" size="sm" onClick={() => { setRenameUserId(u.user_id); setNewName(u.full_name); }} className="gap-1" title="تغيير الاسم">
                         <Edit2 className="w-4 h-4" />

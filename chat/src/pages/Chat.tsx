@@ -227,8 +227,8 @@ const Chat = () => {
       ]
     : [
         { key: "all", label: "الجميع" },
-        ...(myGen === "male" && channelSettings["male"] ? [{ key: "male", label: "شباب" }] : []),
-        ...(myGen === "female" && channelSettings["female"] ? [{ key: "female", label: "بنات" }] : []),
+        ...(profile?.gender === "male" && channelSettings["male"] ? [{ key: "male", label: "شباب" }] : []),
+        ...(profile?.gender === "female" && channelSettings["female"] ? [{ key: "female", label: "بنات" }] : []),
         ...(myGen && channelSettings[myGen] ? [{ key: myGen, label: `20${myGen}` }] : []),
       ];
 

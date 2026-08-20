@@ -11,19 +11,24 @@ CREATE TABLE IF NOT EXISTS public.channel_settings (
   updated_by UUID
 );
 
+-- صلاحيات الجدول
 ALTER TABLE public.channel_settings ENABLE ROW LEVEL SECURITY;
+GRANT SELECT ON public.channel_settings TO authenticated;
+GRANT SELECT ON public.channel_settings TO anon;
+GRANT INSERT, UPDATE, DELETE ON public.channel_settings TO authenticated;
 
 DROP POLICY IF EXISTS "channel settings viewable by everyone" ON public.channel_settings;
 CREATE POLICY "channel settings viewable by everyone"
   ON public.channel_settings FOR SELECT
   USING (true);
 
+DROP POLICY IF EXISTS "channel settings manage for admins" ON public.channel_settings;
 DROP POLICY IF EXISTS "channel settings insert for admins" ON public.channel_settings;
 DROP POLICY IF EXISTS "channel settings update for admins" ON public.channel_settings;
 DROP POLICY IF EXISTS "channel settings delete for admins" ON public.channel_settings;
 
 CREATE POLICY "channel settings manage for admins"
-  ON public.channel_settings FOR ALL TO authenticated
+  ON public.channel_settings FOR ALL
   USING (
     EXISTS (SELECT 1 FROM user_roles WHERE user_id = auth.uid() AND role = 'admin')
   )
