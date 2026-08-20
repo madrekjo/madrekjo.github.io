@@ -25,7 +25,9 @@ CREATE POLICY "admins manage channel settings"
 INSERT INTO public.channel_settings (channel, enabled) VALUES
   ('all', true),
   ('male', true),
-  ('female', true)
+  ('female', true),
+  ('09', true),
+  ('10', true)
 ON CONFLICT (channel) DO NOTHING;
 
 -- 2. إضافة الأعمدة إذا لم تكن موجودة
@@ -37,7 +39,7 @@ ALTER TABLE public.profiles DROP CONSTRAINT IF EXISTS profiles_gender_check;
 ALTER TABLE public.profiles ADD CONSTRAINT profiles_gender_check CHECK (gender IN ('male', 'female'));
 
 ALTER TABLE public.posts DROP CONSTRAINT IF EXISTS posts_channel_check;
-ALTER TABLE public.posts ADD CONSTRAINT posts_channel_check CHECK (channel IN ('all', 'male', 'female'));
+ALTER TABLE public.posts ADD CONSTRAINT posts_channel_check CHECK (channel IN ('all', 'male', 'female', '09', '10'));
 
 -- 4. دالة التحقق من القناة
 CREATE OR REPLACE FUNCTION public.can_see_channel(target_channel text, user_gender text)

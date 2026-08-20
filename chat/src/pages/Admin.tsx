@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { toast } from "sonner";
-import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, Lock, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key } from "lucide-react";
+import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, Lock, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key, Activity } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { Navigate, Link } from "react-router-dom";
@@ -16,6 +16,7 @@ import BanDialog from "@/components/BanDialog";
 import RolesDialog from "@/components/RolesDialog";
 import PermissionsPanel from "@/components/PermissionsPanel";
 import AdminReportsPanel from "@/components/AdminReportsPanel";
+import ActivityPanel from "@/components/ActivityPanel";
 
 interface UserProfile {
   id: string;
@@ -59,6 +60,8 @@ const Admin = () => {
   const [pendingReports, setPendingReports] = useState(0);
   const [banDialogUser, setBanDialogUser] = useState<string | null>(null);
   const [rolesDialogUser, setRolesDialogUser] = useState<{ id: string; name: string } | null>(null);
+  const [showActivity, setShowActivity] = useState(false);
+  const [channelSettings, setChannelSettings] = useState<Record<string, boolean>>({ all: true, male: true, female: true, "09": true, "10": true });
 
   const canManageWords = hasPermission("can_manage_words");
   const canLockSections = hasPermission("can_lock_sections");
@@ -107,10 +110,28 @@ const Admin = () => {
     if (isAdmin || isModerator || isSupervisor) {
       fetchUsers();
       fetchUserRoles();
-      if (isAdmin) { fetchBannedWords(); fetchDeleted(); fetchSectionLocks(); }
+      if (isAdmin) { fetchBannedWords(); fetchDeleted(); fetchSectionLocks(); fetchChannelSettings(); }
       (supabase as any).from("post_reports").select("*", { count: "exact", head: true }).eq("status", "pending").then((r: any) => setPendingReports(r.count || 0));
     }
   }, [isAdmin, isModerator, isSupervisor]);
+
+  const fetchChannelSettings = async () => {
+    const { data } = await supabase.from("channel_settings" as any).select("*");
+    if (data) {
+      const map: Record<string, boolean> = { all: true, male: true, female: true, "09": true, "10": true };
+      (data as any[]).forEach((r: any) => { map[r.channel] = r.enabled; });
+      setChannelSettings(map);
+    }
+  };
+
+  const toggleChannel = async (ch: string, enabled: boolean) => {
+    const { error } = await (supabase as any)
+      .from("channel_settings")
+      .upsert({ channel: ch, enabled }, { onConflict: "channel" });
+    if (error) { toast.error("فشل الحفظ"); return; }
+    setChannelSettings(prev => ({ ...prev, [ch]: enabled }));
+    toast.success(enabled ? "تم تفعيل القناة" : "تم تعطيل القناة");
+  };
 
   const toggleSelect = (uid: string) => {
     setSelectedIds(prev => { const n = new Set(prev); if (n.has(uid)) n.delete(uid); else n.add(uid); return n; });
@@ -563,6 +584,31 @@ const Admin = () => {
               </Card>
             );
           })}
+
+          <p className="text-sm font-medium text-muted-foreground mt-4">قنوات الدردشة ( تفعيل / تعطيل ):</p>
+          {[
+            { key: "male", label: "قناة شباب", color: "text-blue-500" },
+            { key: "female", label: "قناة بنات", color: "text-pink-500" },
+          ].map(ch => (
+            <Card key={ch.key}>
+              <CardContent className="py-3">
+                <div className="flex items-center justify-between">
+                  <p className={`font-semibold ${ch.color}`}>{ch.label}</p>
+                  <Switch checked={channelSettings[ch.key] ?? true} onCheckedChange={(v) => toggleChannel(ch.key, v)} />
+                </div>
+                <p className="text-xs text-muted-foreground mt-1">{channelSettings[ch.key] ?? true ? "مفعّلة — المستخدمون يرونها وينشرون فيها" : "معطّلة — لا يظهر لأحد"}</p>
+              </CardContent>
+            </Card>
+          ))}
+
+          <div className="mt-4">
+            <Button variant={showActivity ? "default" : "outline"} onClick={() => setShowActivity(!showActivity)} className="gap-2 w-full">
+              <Activity className="w-4 h-4" />
+              {showActivity ? "إخفاء النشاط" : "عرض النشاط والمتصلين"}
+            </Button>
+          </div>
+
+          {showActivity && <ActivityPanel onClose={() => setShowActivity(false)} />}
         </div>
       )}
 

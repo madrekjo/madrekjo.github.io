@@ -3,11 +3,10 @@ import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { containsBannedWord, loadBannedWords } from "@/lib/bannedWords";
 import PostCard from "@/components/PostCard";
-import ActivityPanel from "@/components/ActivityPanel";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Send, Image as ImageIcon, Video, Loader2, Users } from "lucide-react";
+import { Send, Image as ImageIcon, Video, Loader2 } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { compressMedia } from "@/lib/mediaCompression";
 
@@ -53,10 +52,10 @@ const Chat = () => {
   const hasScrolled = useRef(false);
   const loaderRef = useRef<HTMLDivElement | null>(null);
   const [channelFilter, setChannelFilter] = useState<string>("all");
-  const [postTarget, setPostTarget] = useState<"all" | "gender">("all");
-  const [staffChannelTarget, setStaffChannelTarget] = useState<string>("all");
-  const [showActivity, setShowActivity] = useState(false);
-  const [channelSettings, setChannelSettings] = useState<Record<string, boolean>>({ male: true, female: true, all: true });
+  const [postTarget, setPostTarget] = useState<string>("all");
+  const [channelSettings, setChannelSettings] = useState<Record<string, boolean>>({ all: true, male: true, female: true, "09": true, "10": true });
+
+  const myGen = profile?.generation as string | null;
 
   const fetchPosts = useCallback(async (offset = 0, append = false) => {
     if (append) setLoadingMore(true);
@@ -111,7 +110,7 @@ const Chat = () => {
   const fetchChannelSettings = useCallback(async () => {
     const { data } = await supabase.from("channel_settings" as any).select("*");
     if (data) {
-      const map: Record<string, boolean> = { male: true, female: true, all: true };
+      const map: Record<string, boolean> = { all: true, male: true, female: true, "09": true, "10": true };
       (data as any[]).forEach((r: any) => { map[r.channel] = r.enabled; });
       setChannelSettings(map);
     }
@@ -176,21 +175,9 @@ const Chat = () => {
       else videoUrl = urlData.publicUrl;
     }
 
-    let targetChannel: string = "all";
-
-    if (isStaff) {
-      targetChannel = staffChannelTarget;
-    } else {
-      if (postTarget === "gender") {
-        targetChannel = profile?.gender === "male" ? "male" : "female";
-      } else {
-        targetChannel = "all";
-      }
-    }
-
     const insertData: any = {
       user_id: user.id, content: content.trim(), image_url: imageUrl, video_url: videoUrl,
-      channel: targetChannel,
+      channel: postTarget,
     };
 
     const { error } = await supabase.from("posts").insert(insertData);
@@ -230,77 +217,63 @@ const Chat = () => {
     );
   }
 
-  const channelLabel = profile?.gender === "male" ? "شباب" : profile?.gender === "female" ? "بنات" : "الدردشة";
-  const myGenderChannel = profile?.gender === "male" ? "male" : profile?.gender === "female" ? "female" : null;
-
   const channelTabs = isStaff
     ? [
         { key: "all", label: "الجميع" },
         { key: "male", label: "شباب" },
         { key: "female", label: "بنات" },
+        { key: "09", label: "2009" },
+        { key: "10", label: "2010" },
+      ]
+    : [
+        { key: "all", label: "الجميع" },
+        ...(myGen === "male" && channelSettings["male"] ? [{ key: "male", label: "شباب" }] : []),
+        ...(myGen === "female" && channelSettings["female"] ? [{ key: "female", label: "بنات" }] : []),
+        ...(myGen && channelSettings[myGen] ? [{ key: myGen, label: `20${myGen}` }] : []),
+      ];
+
+  const myGenderChannel = profile?.gender === "male" ? "male" : profile?.gender === "female" ? "female" : null;
+
+  const postTargets = isStaff
+    ? [
+        { key: "all", label: "الجميع" },
+        { key: "male", label: "شباب" },
+        { key: "female", label: "بنات" },
+        { key: "09", label: "2009" },
+        { key: "10", label: "2010" },
       ]
     : [
         { key: "all", label: "الجميع" },
         ...(myGenderChannel && channelSettings[myGenderChannel] ? [{ key: myGenderChannel, label: profile?.gender === "male" ? "شباب" : "بنات" }] : []),
+        ...(myGen && channelSettings[myGen] ? [{ key: myGen, label: `20${myGen}` }] : []),
       ];
 
   return (
     <div className="container mx-auto px-4 py-6 max-w-2xl">
       {user && (
         <div className="bg-card border rounded-xl p-4 mb-6 animate-fade-in">
-          <Textarea value={content} onChange={e => setContent(e.target.value)} placeholder={`شارك أفكارك مع ${channelLabel}...`} className="min-h-[80px] resize-none mb-3" />
+          <Textarea value={content} onChange={e => setContent(e.target.value)} placeholder="شارك أفكارك..." className="min-h-[80px] resize-none mb-3" />
           {mediaFile && (
             <div className="mb-3 p-2 bg-muted rounded-lg flex items-center justify-between">
               <span className="text-sm text-muted-foreground truncate">{mediaFile.name}</span>
               <Button variant="ghost" size="sm" onClick={() => { setMediaFile(null); setMediaType(null); }}>إزالة</Button>
             </div>
           )}
-          {!isStaff && (
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-xs text-muted-foreground">نشر إلى:</span>
-              <div className="flex gap-1 bg-muted/60 rounded-lg p-1">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-xs text-muted-foreground">نشر إلى:</span>
+            <div className="flex gap-1 bg-muted/60 rounded-lg p-1 flex-wrap">
+              {postTargets.map(opt => (
                 <button
+                  key={opt.key}
                   type="button"
-                  onClick={() => setPostTarget("all")}
-                  className={`text-xs px-3 py-1 rounded-md transition-colors ${postTarget === "all" ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
+                  onClick={() => setPostTarget(opt.key)}
+                  className={`text-xs px-3 py-1 rounded-md transition-colors ${postTarget === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
                 >
-                  الجميع
+                  {opt.label}
                 </button>
-                {myGenderChannel && channelSettings[myGenderChannel] && (
-                  <button
-                    type="button"
-                    onClick={() => setPostTarget("gender")}
-                    className={`text-xs px-3 py-1 rounded-md transition-colors ${postTarget === "gender" ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
-                  >
-                    {profile.gender === "male" ? "شباب" : "بنات"}
-                  </button>
-                )}
-              </div>
+              ))}
             </div>
-          )}
-          {isStaff && (
-            <div className="space-y-2 mb-3">
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-xs text-muted-foreground">القناة:</span>
-                <div className="flex gap-1 bg-muted/60 rounded-lg p-1">
-                  {[
-                    { key: "all", label: "الجميع" },
-                    { key: "male", label: "شباب" },
-                    { key: "female", label: "بنات" },
-                  ].map(opt => (
-                    <button
-                      key={opt.key}
-                      type="button"
-                      onClick={() => setStaffChannelTarget(opt.key)}
-                      className={`text-xs px-3 py-1 rounded-md transition-colors ${staffChannelTarget === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
-                    >
-                      {opt.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
+          </div>
           <div className="flex items-center justify-between">
             <div className="flex gap-1">
               <Button variant="ghost" size="sm" onClick={() => handleFileSelect("image")} className="gap-1"><ImageIcon className="w-4 h-4" /> صورة</Button>
@@ -315,30 +288,18 @@ const Chat = () => {
         </div>
       )}
 
-      <div className="flex items-center gap-2 mb-4">
-        <div className="flex items-center gap-1 bg-muted/60 rounded-lg p-1 w-fit flex-wrap flex-1">
-          <span className="text-xs text-muted-foreground px-2">عرض:</span>
-          {channelTabs.map(opt => (
-            <button
-              key={opt.key}
-              onClick={() => setChannelFilter(opt.key)}
-              className={`text-xs px-3 py-1 rounded-md transition-colors ${channelFilter === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
-        {isAdmin && (
-          <Button variant="outline" size="sm" onClick={() => setShowActivity(!showActivity)} className="gap-1 shrink-0">
-            <Users className="w-4 h-4" />
-            نشاط
-          </Button>
-        )}
+      <div className="flex items-center gap-1 bg-muted/60 rounded-lg p-1 w-fit flex-wrap mb-4">
+        <span className="text-xs text-muted-foreground px-2">عرض:</span>
+        {channelTabs.map(opt => (
+          <button
+            key={opt.key}
+            onClick={() => setChannelFilter(opt.key)}
+            className={`text-xs px-3 py-1 rounded-md transition-colors ${channelFilter === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
+          >
+            {opt.label}
+          </button>
+        ))}
       </div>
-
-      {isAdmin && showActivity && (
-        <ActivityPanel onClose={() => setShowActivity(false)} />
-      )}
 
       {loading ? (
         <div className="text-center py-12"><Loader2 className="w-8 h-8 animate-spin mx-auto text-primary" /></div>
