@@ -1,0 +1,1312 @@
+{
+  "lesson": {
+    "lesson_number": "3",
+    "lesson_name": "الطفرات والاختلالات الوراثية",
+    "unit_number": "3",
+    "unit_name": "الوراثة",
+    "page_start": 124,
+    "page_end": 141,
+    "questions": [
+      {
+        "id": "U03-L03-Q001",
+        "number": 1,
+        "question": "الطفرة الجينية هي تغيُّر في:",
+        "options": {
+          "A": "عدد الكروموسومات",
+          "B": "تسلسل الأزواج النووية في DNA",
+          "C": "البروتينات فقط",
+          "D": "البلاستيدات الخضراء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تسلسل الأزواج النووية في DNA",
+        "difficulty": "easy",
+        "source": {
+          "page": 124,
+          "reference": "الطفرات الجينية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تغيير في تسلسل nucleotide pairs"
+          ],
+          "summary": "تسلسل الأزواج النووية."
+        },
+        "explanation": "تغيير في تسلسل nucleotide pairs."
+      },
+      {
+        "id": "U03-L03-Q002",
+        "number": 2,
+        "question": "طفرة الاستبدال هي استبدال:",
+        "options": {
+          "A": "كودون كامل",
+          "B": "زوج من نيوكليوتيدات بآخر",
+          "C": "كروموسوم كامل",
+          "D": "جين كامل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "زوج من نيوكليوتيدات بآخر",
+        "difficulty": "easy",
+        "source": {
+          "page": 124,
+          "reference": "طفرة الاستبدال"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "استبدال زوج بزوج آخر"
+          ],
+          "summary": "زوج بآخر."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q003",
+        "number": 3,
+        "question": "في الطفرة الصامتة، النتيجة هي:",
+        "options": {
+          "A": "حمض أميني جديد",
+          "B": "لا يتغير الحمض الأميني",
+          "C": "سلسلة غير مكتملة",
+          "D": "لا يحدث تغيير في الكودون"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا يتغير الحمض الأميني",
+        "difficulty": "medium",
+        "source": {
+          "page": 125,
+          "reference": "طفرة الاستبدال"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "الكودون الجديد يُترجم لنفس الحمض الأميني"
+          ],
+          "summary": "لا يتغير."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q004",
+        "number": 4,
+        "question": "طفرة مخطئة التعبير تؤدي إلى:",
+        "options": {
+          "A": "حمض أميني جديد في السلسلة",
+          "B": "سلسلة غير مكتملة",
+          "C": "لا تغيير في السلسلة",
+          "D": "حذف كودون كامل"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "حمض أميني جديد في السلسلة",
+        "difficulty": "medium",
+        "source": {
+          "page": 125,
+          "reference": "طفرة الاستبدال"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "يُنتج حمض أميني مختلف"
+          ],
+          "summary": "حمض أميني جديد."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q005",
+        "number": 5,
+        "question": "طفرة غير المُعبِّرة ناتجها:",
+        "options": {
+          "A": "كودون وقف",
+          "B": "كودون بداية",
+          "C": "حمض أميني جديد",
+          "D": "لا شيء"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "كودون وقف",
+        "difficulty": "medium",
+        "source": {
+          "page": 125,
+          "reference": "طفرة الاستبدال"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "يُحوِّل إلى كودون وقف"
+          ],
+          "summary": "كودون وقف."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q006",
+        "number": 6,
+        "question": "طفرة الإزاحة تُغيِّر:",
+        "options": {
+          "A": "زوجاً واحداً فقط",
+          "B": "إطار قراءة جميع الكودونات من نقطة الإزاحة",
+          "C": "الكروموسومات فقط",
+          "D": "عدد الجينات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إطار قراءة جميع الكودونات من نقطة الإزاحة",
+        "difficulty": "medium",
+        "source": {
+          "page": 127,
+          "reference": "طفرة الإزاحة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تُغيِّر إطار القراءة"
+          ],
+          "summary": "إطار القراءة."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q007",
+        "number": 7,
+        "question": "الإطار القراءة في DNA يتكون من:",
+        "options": {
+          "A": "زوجين من النيوكليوتيدات",
+          "B": "3 أزواج من النيوكليوتيدات",
+          "C": "5 أزواج من النيوكليوتيدات",
+          "D": "زوج واحد فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "3 أزواج من النيوكليوتيدات",
+        "difficulty": "easy",
+        "source": {
+          "page": 127,
+          "reference": "الإطار القراءة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "كل 3 أزواج = كودون واحد"
+          ],
+          "summary": "3 أزواج."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q008",
+        "number": 8,
+        "question": "في الطفرة الصامتة، الكودون الأصلي والجديد يُترجمان إلى:",
+        "options": {
+          "A": "حمضين مختلفين",
+          "B": "نفس الحمض الأميني",
+          "C": "لا يُترجمان",
+          "D": "حمض أميني في الجديد فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نفس الحمض الأميني",
+        "difficulty": "easy",
+        "source": {
+          "page": 125,
+          "reference": "طفرة الاستبدال"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "كلاهما لنفس الحمض الأميني"
+          ],
+          "summary": "نفس الحمض الأميني."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q009",
+        "number": 9,
+        "question": "طفرة الإزاحة قد تُنتج كودون وقف في:",
+        "options": {
+          "A": "بداية السلسلة فقط",
+          "B": "منتصف السلسلة أو نهايتها",
+          "C": "لا تُنتج كودون وقف",
+          "D": "أبداً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "منتصف السلسلة أو نهايتها",
+        "difficulty": "medium",
+        "source": {
+          "page": 127,
+          "reference": "طفرة الإزاحة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "قد تُ停产 في أي مكان"
+          ],
+          "summary": "منتصف أو نهايتها."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q010",
+        "number": 10,
+        "question": "الطفرات الكروموسومية هي تغيُّرات في:",
+        "options": {
+          "A": "تسلسل النيوكليوتيدات",
+          "B": "عدد أو تركيب الكروموسومات",
+          "C": "الحموض النووية فقط",
+          "D": "البروتينات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عدد أو تركيب الكروموسومات",
+        "difficulty": "easy",
+        "source": {
+          "page": 128,
+          "reference": "الطفرات الكروموسومية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تغيير في عدد أو تركيب الكروموسومات"
+          ],
+          "summary": "عدد أو تركيب الكروموسومات."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q011",
+        "number": 11,
+        "question": "تعتُدُّد المجموعات الكروموسومية (Polyploidy) يعني:",
+        "options": {
+          "A": "فقدان كروموسوم واحد",
+          "B": "زيادة في عدد مجموعات الكروموسومات",
+          "C": "حذف جزء من الكروموسوم",
+          "D": "قلب جزء من الكروموسوم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "زيادة في عدد مجموعات الكروموسومات",
+        "difficulty": "medium",
+        "source": {
+          "page": 129,
+          "reference": "الطفرات الكروموسومية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "زيادة في عدد المجموعات"
+          ],
+          "summary": "زيادة في عدد المجموعات."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q012",
+        "number": 12,
+        "question": "نقص العدد الصبغي (Aneuploidy) يعني:",
+        "options": {
+          "A": "زيادة في عدد المجموعات",
+          "B": "فقدان أو زيادة كروموسوم واحد من مجموعة",
+          "C": "لا تغيير في العدد",
+          "D": "حذف مجموعة كاملة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فقدان أو زيادة كروموسوم واحد من مجموعة",
+        "difficulty": "medium",
+        "source": {
+          "page": 129,
+          "reference": "الطفرات الكروموسومية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تغيير في عدد الكروموسومات"
+          ],
+          "summary": "فقدان أو زيادة كروموسوم واحد."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q013",
+        "number": 13,
+        "question": "متلازمة داون (Trisomy 21) ناتجة عن:",
+        "options": {
+          "A": "فقدان كروموسوم 21",
+          "B": "ثلاثة نسخ من الكروموسوم 21",
+          "C": "قلب جزء من الكروموسوم 21",
+          "D": "حذف جزء من الكروموسوم 21"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ثلاثة نسخ من الكروموسوم 21",
+        "difficulty": "medium",
+        "source": {
+          "page": 130,
+          "reference": "الطفرات الكروموسومية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "3n21 بدلاً من 2n21"
+          ],
+          "summary": "ثلاثة نسخ من الكروموسوم 21."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q014",
+        "number": 14,
+        "question": "متلازمة تيرنر (Monosomy X) تعني أن الأنثى تحمل:",
+        "options": {
+          "A": "XX",
+          "B": "XO",
+          "C": "XXX",
+          "D": "XY"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "XO",
+        "difficulty": "medium",
+        "source": {
+          "page": 130,
+          "reference": "الطفرات الكروموسومية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "انعدام كروموسوم X واحد"
+          ],
+          "summary": "XO."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q015",
+        "number": 15,
+        "question": "من أنواع الطفرات الكروموسومية الهيكلية:",
+        "options": {
+          "A": "الحذف والتكرار والقلب والتبديل",
+          "B": "طفرة الاستبدال فقط",
+          "C": "طفرة الإزاحة فقط",
+          "D": "لا توجد أنواع"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الحذف والتكرار والقلب والتبديل",
+        "difficulty": "medium",
+        "source": {
+          "page": 131,
+          "reference": "الطفرات الكروموسومية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "حذف، تكرار، قلب، تبديل"
+          ],
+          "summary": "حذف، تكرار، قلب، تبديل."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q016",
+        "number": 16,
+        "question": "الحذف الكروموسومي يعني:",
+        "options": {
+          "A": "تكرار جزء من الكروموسوم",
+          "B": "فقدان جزء من الكروموسوم",
+          "C": "قلب جزء من الكروموسوم",
+          "D": "انتقال جزء لكروموسوم آخر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فقدان جزء من الكروموسوم",
+        "difficulty": "easy",
+        "source": {
+          "page": 131,
+          "reference": "الطفرات الكروموسومية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "فقدان جزء من الكروموسوم"
+          ],
+          "summary": " فقدان جزء."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q017",
+        "number": 17,
+        "question": "التكرار الكروموسومي يعني:",
+        "options": {
+          "A": "حذف جزء",
+          "B": "تكرار جزء من الكروموسوم عدة مرات",
+          "C": "قلب جزء",
+          "D": "تبديل أجزاء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تكرار جزء من الكروموسوم عدة مرات",
+        "difficulty": "medium",
+        "source": {
+          "page": 131,
+          "reference": "الطفرات الكروموسومية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تكرار جزء من الكروموسوم"
+          ],
+          "summary": "تكرار جزء."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q018",
+        "number": 18,
+        "question": "قلب جزء من الكروموسوم يُسمّى:",
+        "options": {
+          "A": "حذف",
+          "B": "تكرار",
+          "C": "قلب (Inversion)",
+          "D": "تبديل"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "قلب (Inversion)",
+        "difficulty": "medium",
+        "source": {
+          "page": 131,
+          "reference": "الطفرات الكروموسومية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "قلب أ orientations لجزء"
+          ],
+          "summary": "قلب."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q019",
+        "number": 19,
+        "question": "التبديل الكروموسومي (Translocation) يعني:",
+        "options": {
+          "A": "حذف جزء",
+          "B": "انتقال جزء من كروموسوم لكروموسوم آخر",
+          "C": "تكرار جزء",
+          "D": "قلب جزء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "انتقال جزء من كروموسوم لكروموسوم آخر",
+        "difficulty": "medium",
+        "source": {
+          "page": 131,
+          "reference": "الطفرات الكروموسومية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "انتقال جزء لكروموسوم آخر"
+          ],
+          "summary": "انتقال جزء لكروموسوم آخر."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q020",
+        "number": 20,
+        "question": "السكري من النوع الأول ناتج عن:",
+        "options": {
+          "A": "عوامل بيئية فقط",
+          "B": "عوامل وراثية وبيئية",
+          "C": "طفرة كروموسومية فقط",
+          "D": "لا علاقة للوراثة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عوامل وراثية وبيئية",
+        "difficulty": "medium",
+        "source": {
+          "page": 135,
+          "reference": "الاختلالات الوراثية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "mutation في جين + عوامل بيئية"
+          ],
+          "summary": "وراثي وبيئي."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q021",
+        "number": 21,
+        "question": "السكري من النوع الأول هو اختلال:",
+        "options": {
+          "A": "متنحي",
+          "B": "سائد",
+          "C": "مُرتبط بالجنس",
+          "D": "لا وراثة فيه"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "متنحي",
+        "difficulty": "medium",
+        "source": {
+          "page": 135,
+          "reference": "الاختلالات الوراثية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "mutation وراثية متنحية"
+          ],
+          "summary": "متنحي."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q022",
+        "number": 22,
+        "question": "فقر الدم المنجلي ناتج عن:",
+        "options": {
+          "A": "طفرة في جين الهموغلوبين",
+          "B": "فقدان كروموسوم",
+          "C": "متلازمة داون",
+          "D": "لا علاقة للوراثة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "طفرة في جين الهموغلوبين",
+        "difficulty": "medium",
+        "source": {
+          "page": 136,
+          "reference": "الاختلالات الوراثية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "mutation في جين hemoglobin"
+          ],
+          "summary": "طفرة في جين hemoglobin."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q023",
+        "number": 23,
+        "question": "فقر الدم المنجلي هو اختلال:",
+        "options": {
+          "A": "متنحي",
+          "B": "سائد",
+          "C": "مُرتبط بالجنس",
+          "D": "لا وراثة فيه"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "متنحي",
+        "difficulty": "medium",
+        "source": {
+          "page": 136,
+          "reference": "الاختلالات الوراثية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "mutation وراثية متنحية"
+          ],
+          "summary": "متنحي."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q024",
+        "number": 24,
+        "question": "العلبة هي اختلال:",
+        "options": {
+          "A": "متنحي",
+          "B": "سائد",
+          "C": "مُرتبط بالجنس",
+          "D": "لا وراثة فيه"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "مُرتبط بالجنس",
+        "difficulty": "medium",
+        "source": {
+          "page": 137,
+          "reference": "الاختلالات الوراثية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "محمولة على الكروموسومات الجنسية"
+          ],
+          "summary": "مُرتبط بالجنس."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q025",
+        "number": 25,
+        "question": "في الاختلالات المتنحية، يظهر المرض في:",
+        "options": {
+          "A": "جميع الأفراد",
+          "B": "الذكور فقط",
+          "C": "الأفراد الذين يحملون الأليلين المتنحيين",
+          "D": "الإناث فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الأفراد الذين يحملون الأليلين المتنحيين",
+        "difficulty": "medium",
+        "source": {
+          "page": 135,
+          "reference": "الاختلالات الوراثية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "يظهر فقط في aa"
+          ],
+          "summary": "الأفراد الذين يحملون الأليلين المتنحيين."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q026",
+        "number": 26,
+        "question": "في الاختلالات السائدة، يظهر المرض في:",
+        "options": {
+          "A": "فقط غير المتماثلين",
+          "B": "غير المتماثلين والمتماثلين السائدين",
+          "C": "فقط المتنحيين",
+          "D": "لا أحد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "غير المتماثلين والمتماثلين السائدين",
+        "difficulty": "medium",
+        "source": {
+          "page": 137,
+          "reference": "الاختلالات الوراثية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "يظهر في AA وAa"
+          ],
+          "summary": "غير المتماثلين والمتماثلين السائدين."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q027",
+        "number": 27,
+        "question": "من طرق الكشف عن الاختلالات الوراثية:",
+        "options": {
+          "A": "التحاليل الجينية فقط",
+          "B": "التحاليل الجينية والبروتينية والسريرية",
+          "C": "التحاليل الدموية فقط",
+          "D": "لا توجد طرق"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التحاليل الجينية والبروتينية والسريرية",
+        "difficulty": "medium",
+        "source": {
+          "page": 138,
+          "reference": "طرق الكشف"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "عدة طرق"
+          ],
+          "summary": "تحاليل جينية وبروتينية وسريرية."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q028",
+        "number": 28,
+        "question": "طفرة الإزاحة أخطر من طفرة الاستبدال لأنها:",
+        "options": {
+          "A": "تُغيِّر حمض أميني واحداً فقط",
+          "B": "تُغيِّر إطار القراءة لجميع الكودونات التالية",
+          "C": "لا تُغيِّر شيئاً",
+          "D": "تُ停产 الترجمة فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تُغيِّر إطار القراءة لجميع الكودونات التالية",
+        "difficulty": "hard",
+        "source": {
+          "page": 127,
+          "reference": "طفرة الإزاحة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تُغيِّر جميع الكودونات"
+          ],
+          "summary": "جميع الكودونات."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q029",
+        "number": 29,
+        "question": "في طفرة الاستبدال، إذا كان الكودون الأصلي AUG وحدث استبدال أجاب: ACG، فإن:",
+        "options": {
+          "A": "الحمض الأميني يتغير",
+          "B": "الحمض الأميني لا يتغير",
+          "C": "يحدث وقف للترجمة",
+          "D": "يتم حذف الكودون"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحمض الأميني لا يتغير",
+        "difficulty": "hard",
+        "source": {
+          "page": 125,
+          "reference": "طفرة الاستبدال"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "ACG يُترجم نفس الحمض الأميني"
+          ],
+          "summary": "لا يتغير."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q030",
+        "number": 30,
+        "question": "الكروموسومات المتماثلة هي كروموسومات:",
+        "options": {
+          "A": "ذات حجم وشكل مختلف",
+          "B": "ذات حجم وشكل متماثل وتحمل جينات متماثلة",
+          "C": "لا تحمل جينات",
+          "D": "موجودة في الخلايا النسائية فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ذات حجم وشكل متماثل وتحمل جينات متماثلة",
+        "difficulty": "easy",
+        "source": {
+          "page": 128,
+          "reference": "الكروموسومات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "متماثلة في الشكل والحجم"
+          ],
+          "summary": "متماثلة."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q031",
+        "number": 31,
+        "question": "في الكشف عن فقر الدم المنجلي بالتحليل البروتيني، نجد:",
+        "options": {
+          "A": "الهموغلوبين الطبيعي فقط",
+          "B": "الهموغلوبين الطبيعي والمريض معاً",
+          "C": "الهموغلوبين المريض فقط",
+          "D": "لا يوجد هموغلوبين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الهموغلوبين الطبيعي والمريض معاً",
+        "difficulty": "hard",
+        "source": {
+          "page": 139,
+          "reference": "طرق الكشف"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تحليل يُظهر النوعين"
+          ],
+          "summary": "الطبيعي والمريض معاً."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q032",
+        "number": 32,
+        "question": "الكروموسومات الجنسية في الإنسان هي:",
+        "options": {
+          "A": "22 زوجاً",
+          "B": "زوج واحد (XX أو XY)",
+          "C": "44 كروموسوماً",
+          "D": "لا توجد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "زوج واحد (XX أو XY)",
+        "difficulty": "easy",
+        "source": {
+          "page": 128,
+          "reference": "الكروموسومات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "الكروموسومات الجنسية زوج واحد"
+          ],
+          "summary": "زوج واحد."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q033",
+        "number": 33,
+        "question": "في متلازمة داون، عدد الكروموسومات الكلي هو:",
+        "options": {
+          "A": "46",
+          "B": "47",
+          "C": "45",
+          "D": "48"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "47",
+        "difficulty": "medium",
+        "source": {
+          "page": 130,
+          "reference": "الطفرات الكروموسومية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "2n+1 = 47"
+          ],
+          "summary": "47."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q034",
+        "number": 34,
+        "question": "في متلازمة تيرنر، عدد الكروموسومات الكلي هو:",
+        "options": {
+          "A": "46",
+          "B": "47",
+          "C": "45",
+          "D": "48"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "45",
+        "difficulty": "medium",
+        "source": {
+          "page": 130,
+          "reference": "الطفرات الكروموسومية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "2n-1 = 45"
+          ],
+          "summary": "45."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q035",
+        "number": 35,
+        "question": "التبديل غير المتماثل يعني نقل جزء من:",
+        "options": {
+          "A": "كروموسوم لكروموسوم متماثل",
+          "B": "كروموسوم لكروموسوم غير متماثل",
+          "C": "جين لجين آخر",
+          "D": "لا شيء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كروموسوم لكروموسوم غير متماثل",
+        "difficulty": "hard",
+        "source": {
+          "page": 131,
+          "reference": "الطفرات الكروموسومية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "نقل لكروموسوم غير متماثل"
+          ],
+          "summary": "للكروموسوم غير المتماثل."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q036",
+        "number": 36,
+        "question": "في وراثة السكري النوع الأول، إذا كان كلا الأبوين (Aa):",
+        "options": {
+          "A": "جميع الأطفال مصابون",
+          "B": "25% مصابون",
+          "C": "50% مصابون",
+          "D": "لا أحد مصاب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "25% مصابون",
+        "difficulty": "hard",
+        "source": {
+          "page": 135,
+          "reference": "الاختلالات الوراثية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Aa x Aa -> 25% aa"
+          ],
+          "summary": "25%."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q037",
+        "number": 37,
+        "question": "في فقر الدم المنجلي، الطراز (ss) يعني:",
+        "options": {
+          "A": "سليم",
+          "B": "حامل للمرض",
+          "C": "مصاب بالمرض",
+          "D": "لا علاقة للجين"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "مصاب بالمرض",
+        "difficulty": "medium",
+        "source": {
+          "page": 136,
+          "reference": "الاختلالات الوراثية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "ss = مصاب"
+          ],
+          "summary": "مصاب."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q038",
+        "number": 38,
+        "question": "في فقر الدم المنجلي، الطراز (Ss) يعني:",
+        "options": {
+          "A": "سليم",
+          "B": "حامل للمرض",
+          "C": "مصاب بالمرض",
+          "D": "لا علاقة للجين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حامل للمرض",
+        "difficulty": "medium",
+        "source": {
+          "page": 136,
+          "reference": "الاختلالات الوراثية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Ss = حامل"
+          ],
+          "summary": "حامل للمرض."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q039",
+        "number": 39,
+        "question": "في العلبة، الأب مصاب (XbY) والأم سليمة (XBXB):",
+        "options": {
+          "A": "جميع الأبناء مصابون",
+          "B": "جميع الذكور سليمون",
+          "C": "جميع الإناث حاملات",
+          "D": "B وC معاً"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "B وC معاً",
+        "difficulty": "hard",
+        "source": {
+          "page": 137,
+          "reference": "الاختلالات الوراثية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "الذكور XBY سليمون، الإناث XBXb حاملات"
+          ],
+          "summary": "B وC معاً."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q040",
+        "number": 40,
+        "question": "في العلبة، الأب سليم (XBY) والأم حاملة (XBXb):",
+        "options": {
+          "A": "نصف الذكور مصابون",
+          "B": "جميع الذكور مصابون",
+          "C": "جميع الإناث سليمات",
+          "D": "لا أحد مصاب"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "نصف الذكور مصابون",
+        "difficulty": "hard",
+        "source": {
+          "page": 137,
+          "reference": "الاختلالات الوراثية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "نصف الذكور XbY = مصابون"
+          ],
+          "summary": "نصف الذكور."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q041",
+        "number": 41,
+        "question": "الكروموسومات الجسمية في الإنسان عددها:",
+        "options": {
+          "A": "22 زوجاً",
+          "B": "23 زوجاً",
+          "C": "44 كروموسوماً",
+          "D": "A وC معاً"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "A وC معاً",
+        "difficulty": "easy",
+        "source": {
+          "page": 128,
+          "reference": "الكروموسومات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "22 زوجاً = 44 كروموسوماً"
+          ],
+          "summary": "A وC معاً."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q042",
+        "number": 42,
+        "question": "في فقر الدم المنجلي، إذا كان أحد الأبوين (Ss) والآخر (ss):",
+        "options": {
+          "A": "جميع الأبناء مصابون",
+          "B": "50% مصابون",
+          "C": "25% مصابون",
+          "D": "لا أحد مصاب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "50% مصابون",
+        "difficulty": "hard",
+        "source": {
+          "page": 136,
+          "reference": "الاختلالات الوراثية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Ss x ss -> 50% ss"
+          ],
+          "summary": "50%."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q043",
+        "number": 43,
+        "question": "الحذف الكروموسومي قد يؤدي إلى:",
+        "options": {
+          "A": "زيادة في عدد الجينات",
+          "B": "فقدان جينات مهمة",
+          "C": "تكرار جينات",
+          "D": "لا تغيير"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فقدان جينات مهمة",
+        "difficulty": "medium",
+        "source": {
+          "page": 131,
+          "reference": "الطفرات الكروموسومية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "فقدان جينات مهمة"
+          ],
+          "summary": "فقدان جينات مهمة."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q044",
+        "number": 44,
+        "question": "طفرة الاستبدال غير المُعبِّرة تؤدي إلى:",
+        "options": {
+          "A": "حمض أميني جديد",
+          "B": "سلسلة غير مكتملة",
+          "C": "لا تغيير",
+          "D": "تكرار حمض أميني"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "سلسلة غير مكتملة",
+        "difficulty": "medium",
+        "source": {
+          "page": 125,
+          "reference": "طفرة الاستبدال"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "كودون وقف = سلسلة غير مكتملة"
+          ],
+          "summary": "غير مكتملة."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q045",
+        "number": 45,
+        "question": "التبديل غير المتماثل يعني نقل جزء من كروموسوم:",
+        "options": {
+          "A": "لمتماثل",
+          "B": "لغير متماثل",
+          "C": "لنفس الكروموسوم",
+          "D": "لا شيء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لغير متماثل",
+        "difficulty": "hard",
+        "source": {
+          "page": 131,
+          "reference": "الطفرات الكروموسومية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "للكروموسوم غير المتماثل"
+          ],
+          "summary": "لغير متماثل."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q046",
+        "number": 46,
+        "question": "تحليل الكarya type يكشف عن:",
+        "options": {
+          "A": "الطفرات الجينية فقط",
+          "B": "الطفرات الكروموسومية",
+          "C": "البروتينات فقط",
+          "D": "لا شيء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الطفرات الكروموسومية",
+        "difficulty": "medium",
+        "source": {
+          "page": 138,
+          "reference": "طرق الكشف"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "يكشف تغيرات الكروموسومات"
+          ],
+          "summary": "الطفرات الكروموسومية."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q047",
+        "number": 47,
+        "question": "في متلازمة داون، السبب هو:",
+        "options": {
+          "A": "فقدان كروموسوم",
+          "B": "ثلاثية صبغية (Trisomy)",
+          "C": "تبديل كروموسوم",
+          "D": "قلب كروموسوم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ثلاثية صبغية (Trisomy)",
+        "difficulty": "easy",
+        "source": {
+          "page": 130,
+          "reference": "الطفرات الكروموسومية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "Trisomy 21"
+          ],
+          "summary": "ثلاثية صبغية."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q048",
+        "number": 48,
+        "question": "في طفرة الإزاحة بإضافة زوج واحد، تتغير:",
+        "options": {
+          "A": "حمض أميني واحد فقط",
+          "B": "إطار القراءة لجميع الكودونات التالية",
+          "C": "لا يتغير شيء",
+          "D": "يحدث وقف للترجمة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إطار القراءة لجميع الكودونات التالية",
+        "difficulty": "hard",
+        "source": {
+          "page": 127,
+          "reference": "طفرة الإزاحة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تُغيِّر جميع الكودونات"
+          ],
+          "summary": "جميع الكودونات."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q049",
+        "number": 49,
+        "question": "في العلبة، الذكر المصاب له طراز جيني:",
+        "options": {
+          "A": "XBXB",
+          "B": "XBXb",
+          "C": "XbY",
+          "D": "XBY"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "XbY",
+        "difficulty": "easy",
+        "source": {
+          "page": 137,
+          "reference": "الاختلالات الوراثية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "الذكر المصاب XbY"
+          ],
+          "summary": "XbY."
+        },
+        "explanation": ""
+      },
+      {
+        "id": "U03-L03-Q050",
+        "number": 50,
+        "question": "من أخطر أنواع الطفرات الكروموسومية هي:",
+        "options": {
+          "A": "التكرار",
+          "B": "الحذف",
+          "C": "القلب",
+          "D": "التبديل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحذف",
+        "difficulty": "hard",
+        "source": {
+          "page": 131,
+          "reference": "الطفرات الكروموسومية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "الحذف ي丢失 جينات مهمة"
+          ],
+          "summary": "الحذف."
+        },
+        "explanation": ""
+      }
+    ]
+  }
+}

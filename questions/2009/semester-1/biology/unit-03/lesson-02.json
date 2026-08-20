@@ -1,0 +1,1312 @@
+{
+  "lesson": {
+    "lesson_number": "2",
+    "lesson_name": "الوراثة بعد مندل",
+    "unit_number": "3",
+    "unit_name": "الوراثة",
+    "page_start": 106,
+    "page_end": 123,
+    "questions": [
+      {
+        "id": "U03-L02-Q001",
+        "number": 1,
+        "question": "السيادة غير التامة تعني:",
+        "options": {
+          "A": "يظهر أثر السائد فقط",
+          "B": "يظهر أثر الأليلين معاً بشكل وسطي",
+          "C": "لا يظهر أي أليل",
+          "D": "يختفي أحد الأليلين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يظهر أثر الأليلين معاً بشكل وسطي",
+        "difficulty": "medium",
+        "source": {
+          "page": 106,
+          "reference": "السيادة غير التامة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "يظهر فرد غير متماثل صفة وسطية"
+          ],
+          "summary": "الصفة وسطية."
+        },
+        "explanation": "في السيادة غير التامة يظهر تأثير كلا الأليلين في صفة وسطية."
+      },
+      {
+        "id": "U03-L02-Q002",
+        "number": 2,
+        "question": "في نبات فم السمكة، تلقيح أحمر RR مع أبيض WW ينتج F1:",
+        "options": {
+          "A": "أحمر",
+          "B": "أبيض",
+          "C": "وردي",
+          "D": "أحمر وأبيض"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "وردي",
+        "difficulty": "easy",
+        "source": {
+          "page": 106,
+          "reference": "السيادة غير التامة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "RW = وردي"
+          ],
+          "summary": "وردي."
+        },
+        "explanation": "يكون اللون الوردي وسطاً بين الأحمر والأبيض."
+      },
+      {
+        "id": "U03-L02-Q003",
+        "number": 3,
+        "question": "في نبات فم السمكة، نسبة F2 من تلقيح ذاتي RW x RW:",
+        "options": {
+          "A": "1:1",
+          "B": "1:2:1",
+          "C": "3:1",
+          "D": "2:1"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1:2:1",
+        "difficulty": "medium",
+        "source": {
+          "page": 106,
+          "reference": "السيادة غير التامة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "1 أحمر : 2 وردي : 1 أبيض"
+          ],
+          "summary": "1:2:1."
+        },
+        "explanation": "النسبة الشكلية 1:2:1 لأن الصفة وسطية."
+      },
+      {
+        "id": "U03-L02-Q004",
+        "number": 4,
+        "question": "في السيادة المُشترَكة، كل أليل يظهر تأثيره بشكل:",
+        "options": {
+          "A": "مستقل",
+          "B": "واحد فقط",
+          "C": "互相强烈影响",
+          "D": "互相取消"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مستقل",
+        "difficulty": "medium",
+        "source": {
+          "page": 107,
+          "reference": "السيادة المُشترَكة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "يظهر تأثير كل أليل بشكل مستقل"
+          ],
+          "summary": "مستقل."
+        },
+        "explanation": "في السيادة المُشترَكة يظهر تأثير كل أليل بشكل مستقل."
+      },
+      {
+        "id": "U03-L02-Q005",
+        "number": 5,
+        "question": "في نبات الكاميليا، تلقيح أبيض CW CW مع أحمر مُوشَّح CR CR ينتج F1:",
+        "options": {
+          "A": "أبيض",
+          "B": "أحمر مُوشَّح",
+          "C": "أبيض مُوشَّح بالأحمر",
+          "D": "وردي"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "أبيض مُوشَّح بالأحمر",
+        "difficulty": "medium",
+        "source": {
+          "page": 107,
+          "reference": "السيادة المُشترَكة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "يظهر اللونان معاً"
+          ],
+          "summary": "أبيض مُوشَّح بالأحمر."
+        },
+        "explanation": "يظهر تأثير كلا الأليلين."
+      },
+      {
+        "id": "U03-L02-Q006",
+        "number": 6,
+        "question": "نظام فصائل الدم ABO: الأليل IA مسؤول عن إنتاج:",
+        "options": {
+          "A": "مولد الضد A فقط",
+          "B": "مولد الضد B فقط",
+          "C": "لا ينتج شيئاً",
+          "D": "مولد الضد A وB معاً"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مولد الضد A فقط",
+        "difficulty": "easy",
+        "source": {
+          "page": 108,
+          "reference": "الأليلات المُتعدِّدة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "IA يُنتج مولد الضد A"
+          ],
+          "summary": "A فقط."
+        },
+        "explanation": "IA يُنتج مولد الضد A."
+      },
+      {
+        "id": "U03-L02-Q007",
+        "number": 7,
+        "question": "نظام فصائل الدم ABO: الأليل i لا يُنتج:",
+        "options": {
+          "A": "مولد الضد A",
+          "B": "مولد الضد B",
+          "C": "أي منهما",
+          "D": "الاثنين معاً"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "أي منهما",
+        "difficulty": "easy",
+        "source": {
+          "page": 108,
+          "reference": "الأليلات المُتعدِّدة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "i لا يُنتج أي مولد ضد"
+          ],
+          "summary": "أي منهما."
+        },
+        "explanation": "الأليل i صامت لا يُنتج أي مولد ضد."
+      },
+      {
+        "id": "U03-L02-Q008",
+        "number": 8,
+        "question": "الفرد الذي فصيلة دمه AB يكون طرازه الجيني:",
+        "options": {
+          "A": "IAIA",
+          "B": "IBIB",
+          "C": "IAIB",
+          "D": "ii"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "IAIB",
+        "difficulty": "medium",
+        "source": {
+          "page": 108,
+          "reference": "الأليلات المُتعدِّدة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "IA وIB معاناً"
+          ],
+          "summary": "IAIB."
+        },
+        "explanation": "يحمل الأليلين IA وIB."
+      },
+      {
+        "id": "U03-L02-Q009",
+        "number": 9,
+        "question": "الفرد الذي فصيلة دمه O يكون طرازه الجيني:",
+        "options": {
+          "A": "IAIA",
+          "B": "IBi",
+          "C": "IAi",
+          "D": "ii"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "ii",
+        "difficulty": "easy",
+        "source": {
+          "page": 108,
+          "reference": "الأليلات المُتعدِّدة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "لا يحمل أي أليل سائد"
+          ],
+          "summary": "ii."
+        },
+        "explanation": "O هو فقط ii."
+      },
+      {
+        "id": "U03-L02-Q010",
+        "number": 10,
+        "question": "السيادة بين IA و i هي سيادة:",
+        "options": {
+          "A": "غير تامة",
+          "B": "مُشترَكة",
+          "C": "تامة",
+          "D": "متعددة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "تامة",
+        "difficulty": "medium",
+        "source": {
+          "page": 109,
+          "reference": "نظام ABO"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "IA يسود على i"
+          ],
+          "summary": "تامة."
+        },
+        "explanation": "IA يسود على i بشكل تام."
+      },
+      {
+        "id": "U03-L02-Q011",
+        "number": 11,
+        "question": "السيادة بين IA و IB هي سيادة:",
+        "options": {
+          "A": "تامة",
+          "B": "غير تامة",
+          "C": "مُشترَكة",
+          "D": "مندلية"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "مُشترَكة",
+        "difficulty": "medium",
+        "source": {
+          "page": 109,
+          "reference": "نظام ABO"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "يظهر الاثنان معاً"
+          ],
+          "summary": "مُشترَكة."
+        },
+        "explanation": "IA وIB يظهران معاً."
+      },
+      {
+        "id": "U03-L02-Q012",
+        "number": 12,
+        "question": "في الوراثة مُتعدِّدة الجينات، لون الجلد في الإنسان يتحكَّم فيه:",
+        "options": {
+          "A": "جين واحد",
+          "B": "جينان",
+          "C": "أكثر من جينين",
+          "D": "لا جينات"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "أكثر من جينين",
+        "difficulty": "medium",
+        "source": {
+          "page": 110,
+          "reference": "الوراثة مُتعدِّدة الجينات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "أكثر من جينين يتحكمون"
+          ],
+          "summary": "أكثر من جينين."
+        },
+        "explanation": "تحتكم عدة جينات في لون الجلد."
+      },
+      {
+        "id": "U03-L02-Q013",
+        "number": 13,
+        "question": "في وراثة لون الجلد، الأليلات السائدة تُنتج لوناً:",
+        "options": {
+          "A": "فاتحاً",
+          "B": "غامقاً",
+          "C": "متوسطاً",
+          "D": "أبيض"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "غامقاً",
+        "difficulty": "medium",
+        "source": {
+          "page": 111,
+          "reference": "الوراثة مُتعدِّدة الجينات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "كل أليل سائد يزيد الغمق"
+          ],
+          "summary": "غامقاً."
+        },
+        "explanation": "كلما زاد عدد الأليلات السائدة زاد غمق اللون."
+      },
+      {
+        "id": "U03-L02-Q014",
+        "number": 14,
+        "question": "التراتبية في لون الجلد سببها:",
+        "options": {
+          "A": "عوامل بيئية فقط",
+          "B": "تراكم تأثير الأليلات السائدة",
+          "C": "طفرة عشوائية",
+          "D": "أليل واحد فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تراكم تأثير الأليلات السائدة",
+        "difficulty": "medium",
+        "source": {
+          "page": 111,
+          "reference": "الوراثة مُتعدِّدة الجينات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تأثير تراكمي"
+          ],
+          "summary": "تراكم تأثير الأليلات."
+        },
+        "explanation": "التأثير تراكمي ومتساوٍ."
+      },
+      {
+        "id": "U03-L02-Q015",
+        "number": 15,
+        "question": "يتحدد الجنس في الإنسان وفق نظام:",
+        "options": {
+          "A": "XX/XY",
+          "B": "ZW/ZZ",
+          "C": "XO",
+          "D": "YY"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "XX/XY",
+        "difficulty": "easy",
+        "source": {
+          "page": 112,
+          "reference": "تحديد الجنس"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "الجنس في الإنسان XX/XY"
+          ],
+          "summary": "XX/XY."
+        },
+        "explanation": "الأنثى XX والذكر XY."
+      },
+      {
+        "id": "U03-L02-Q016",
+        "number": 16,
+        "question": "في الطيور، الطراز الكروموسومي الجنسي المُتماثل يكون لل:",
+        "options": {
+          "A": "أنثى",
+          "B": "ذكر",
+          "C": "كلاهما",
+          "D": "لا أحد"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أنثى",
+        "difficulty": "medium",
+        "source": {
+          "page": 112,
+          "reference": "تحديد الجنس في الطيور"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "في الطيور العكس ZW/ZZ"
+          ],
+          "summary": "الأنثى."
+        },
+        "explanation": "في الطيور ZZ ذكر وZW أنثى."
+      },
+      {
+        "id": "U03-L02-Q017",
+        "number": 17,
+        "question": "جين SRY المسؤول عن تحديد الذكورة يوجد على:",
+        "options": {
+          "A": "الكروموسوم X",
+          "B": "الكروموسوم Y",
+          "C": "الكروموسوم 1",
+          "D": "الكروموسوم 22"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الكروموسوم Y",
+        "difficulty": "medium",
+        "source": {
+          "page": 113,
+          "reference": "تحديد الجنس"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "SRY على Y"
+          ],
+          "summary": "Y."
+        },
+        "explanation": "يوجد على الكروموسوم Y."
+      },
+      {
+        "id": "U03-L02-Q018",
+        "number": 18,
+        "question": "في ذبابة الفاكهة، تلقيح ذكر أبيض العينين مع أنثى حمراء ينتج:",
+        "options": {
+          "A": "جميعهم أبيض",
+          "B": "جميعهم أحمر",
+          "C": "نصف أحمر ونصف أبيض",
+          "D": "3/4 أحمر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "جميعهم أحمر",
+        "difficulty": "medium",
+        "source": {
+          "page": 113,
+          "reference": "الصفات المرتبطة بالجنس"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "الأحمر سائد على الأبيض"
+          ],
+          "summary": "جميعهم أحمر."
+        },
+        "explanation": "اللون الأحمر للعينين سائد."
+      },
+      {
+        "id": "U03-L02-Q019",
+        "number": 19,
+        "question": "في ذبابة الفاكهة، من تلقيح F1 (XRXr x XRY)، نسبة الذكور البيضاء:",
+        "options": {
+          "A": "25%",
+          "B": "50%",
+          "C": "75%",
+          "D": "100%"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "50%",
+        "difficulty": "hard",
+        "source": {
+          "page": 113,
+          "reference": "الصفات المرتبطة بالجنس"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "نصف الذكور XrY = أبيض"
+          ],
+          "summary": "50%."
+        },
+        "explanation": "نصف الذكور XrY بيضاء."
+      },
+      {
+        "id": "U03-L02-Q020",
+        "number": 20,
+        "question": "الصفات المُرتبِطة بالجنس هي صفات محمولة على:",
+        "options": {
+          "A": "الكروموسومات الجسمية",
+          "B": "الكروموسومات الجنسية",
+          "C": "الميتوكوندريا",
+          "D": "البلاستيدات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الكروموسومات الجنسية",
+        "difficulty": "easy",
+        "source": {
+          "page": 113,
+          "reference": "الصفات المرتبطة بالجنس"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "محمولة على الجنسية"
+          ],
+          "summary": "الجنسية."
+        },
+        "explanation": "محمولة على الكروموسومات الجنسية."
+      },
+      {
+        "id": "U03-L02-Q021",
+        "number": 21,
+        "question": "الجينات المُرتبِطة هي جينات موجودة على:",
+        "options": {
+          "A": "كروموسومات مختلفة",
+          "B": "نفس الكروموسوم",
+          "C": "الكروموسومات الجنسية فقط",
+          "D": "البلاستيدات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نفس الكروموسوم",
+        "difficulty": "medium",
+        "source": {
+          "page": 115,
+          "reference": "الجينات المُرتبِطة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "موجودة على نفس الكروموسوم"
+          ],
+          "summary": "نفس الكروموسوم."
+        },
+        "explanation": "تميل إلى الوراثة معاً."
+      },
+      {
+        "id": "U03-L02-Q022",
+        "number": 22,
+        "question": "الخريطة الجينية تُعبِّر عن:",
+        "options": {
+          "A": "شكل الكروموسوم",
+          "B": "مسافات الجينات على الكروموسوم",
+          "C": "عدد الكروموسومات",
+          "D": "نوع الطفرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مسافات الجينات على الكروموسوم",
+        "difficulty": "medium",
+        "source": {
+          "page": 116,
+          "reference": "الخريطة الجينية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تُحدد المسافات بين الجينات"
+          ],
+          "summary": "المسافات بين الجينات."
+        },
+        "explanation": "تُحدد المسافات النسبية بين الجينات."
+      },
+      {
+        "id": "U03-L02-Q023",
+        "number": 23,
+        "question": "في الخريطة الجينية، المسافة بين جينين تُقاس بوحدة:",
+        "options": {
+          "A": "nm",
+          "B": "واحد سنتي مورغان",
+          "C": "bp",
+          "D": "KB"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "واحد سنتي مورغان",
+        "difficulty": "medium",
+        "source": {
+          "page": 116,
+          "reference": "الخريطة الجينية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "واحد سنتي مورغان"
+          ],
+          "summary": "سنتي مورغان."
+        },
+        "explanation": "تُقاس بوحدة cM."
+      },
+      {
+        "id": "U03-L02-Q024",
+        "number": 24,
+        "question": "الوراثة فوق الجينية تعني:",
+        "options": {
+          "A": "تغيير تسلسل DNA",
+          "B": "تغيير في التعبير الجيني دون تغيير تسلسل DNA",
+          "C": "طفرة جينية",
+          "D": "طفرة كروموسومية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تغيير في التعبير الجيني دون تغيير تسلسل DNA",
+        "difficulty": "medium",
+        "source": {
+          "page": 117,
+          "reference": "الوراثة فوق الجينية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تغيير في التعبير دون تغيير التسلسل"
+          ],
+          "summary": "تغيير التعبير فقط."
+        },
+        "explanation": "التسلسل لا يتغير."
+      },
+      {
+        "id": "U03-L02-Q025",
+        "number": 25,
+        "question": "في السيادة غير التامة من نبات فم السمكة، الطراز الجيني RW يظهر شكل:",
+        "options": {
+          "A": "أحمر",
+          "B": "أبيض",
+          "C": "وردي",
+          "D": "أحمر مُوشَّح"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "وردي",
+        "difficulty": "easy",
+        "source": {
+          "page": 106,
+          "reference": "السيادة غير التامة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "RW = وردي"
+          ],
+          "summary": "وردي."
+        },
+        "explanation": "الصفة وسطية."
+      },
+      {
+        "id": "U03-L02-Q026",
+        "number": 26,
+        "question": "في فصائل الدم MN، فصيلة MLN تعني:",
+        "options": {
+          "A": "فصيلة M",
+          "B": "فصيلة N",
+          "C": "فصيلة MN",
+          "D": "فصيلة O"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "فصيلة MN",
+        "difficulty": "medium",
+        "source": {
+          "page": 108,
+          "reference": "السيادة المُشترَكة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "يظهر الاثنان معاً"
+          ],
+          "summary": "MN."
+        },
+        "explanation": "سيادة مُشترَكة."
+      },
+      {
+        "id": "U03-L02-Q027",
+        "number": 27,
+        "question": "في فصائل الدم MN، فصيلة LM LM تعني:",
+        "options": {
+          "A": "M",
+          "B": "N",
+          "C": "MN",
+          "D": "O"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "M",
+        "difficulty": "easy",
+        "source": {
+          "page": 108,
+          "reference": "السيادة المُشترَكة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "مولد الضد M فقط"
+          ],
+          "summary": "M."
+        },
+        "explanation": "يحتوي على M فقط."
+      },
+      {
+        "id": "U03-L02-Q028",
+        "number": 28,
+        "question": "في وراثة لون الجلد، إذا كان كلا الأبوين AaBbCc، عدد الأليلات السائدة الممكنة يتراوح بين:",
+        "options": {
+          "A": "0 إلى 3",
+          "B": "0 إلى 6",
+          "C": "1 إلى 6",
+          "D": "3 إلى 6"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "0 إلى 6",
+        "difficulty": "hard",
+        "source": {
+          "page": 111,
+          "reference": "الوراثة مُتعدِّدة الجينات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "6 أليلات ممكنة للاثنين معاً"
+          ],
+          "summary": "0 إلى 6."
+        },
+        "explanation": "أبويان AaBbCc -> 0-6 أليلات سائدة."
+      },
+      {
+        "id": "U03-L02-Q029",
+        "number": 29,
+        "question": "في الطيور، ZZ ذكر وZW أنثى، ففي الطيور تحديد الجنس يختلف عن الإنسان في:",
+        "options": {
+          "A": "الأنثى تحمل الكروموسومين المختلفين",
+          "B": "الذكر يحوي ZW",
+          "C": "لا يوجد كروموسومات جنسية",
+          "D": "الجنس يُحدد بالبيئة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الأنثى تحمل الكروموسومين المختلفين",
+        "difficulty": "medium",
+        "source": {
+          "page": 112,
+          "reference": "تحديد الجنس في الطيور"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "الأنثى ZW والذكر ZZ"
+          ],
+          "summary": "الأنثى تحمل الكروموسومين المختلفين."
+        },
+        "explanation": "في الطيور الأنتى ZW."
+      },
+      {
+        "id": "U03-L02-Q030",
+        "number": 30,
+        "question": "في ذبابة الفاكهة، صفة لون العينين مُرتبطة بالكروموسوم:",
+        "options": {
+          "A": "X فقط",
+          "B": "Y فقط",
+          "C": "X وY معاً",
+          "D": "الجسمية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "X فقط",
+        "difficulty": "medium",
+        "source": {
+          "page": 113,
+          "reference": "الصفات المرتبطة بالجنس"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "لا يوجد أليل على Y"
+          ],
+          "summary": "X فقط."
+        },
+        "explanation": "لا يوجد أليل لهذه الصفة على Y."
+      },
+      {
+        "id": "U03-L02-Q031",
+        "number": 31,
+        "question": "في الوراثة المُتعدِّدة الجينات، عدد الأفراد الذين يحملون نفس عدد الأليلات السائدة قد يتساوى بسبب:",
+        "options": {
+          "A": "تأثير متساوٍ للأليلات السائدة",
+          "B": "اختلاف الأليلات",
+          "C": "عوامل بيئية",
+          "D": "طفرات"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "تأثير متساوٍ للأليلات السائدة",
+        "difficulty": "medium",
+        "source": {
+          "page": 111,
+          "reference": "الوراثة مُتعدِّدة الجينات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "التأثير متساوٍ وتراكمي"
+          ],
+          "summary": "تأثير متساوٍ."
+        },
+        "explanation": "لأن التأثير متساوٍ وتراكمي."
+      },
+      {
+        "id": "U03-L02-Q032",
+        "number": 32,
+        "question": "في الأليلات المُتعدِّدة، وجود أكثر من أليلين للصفة الواحدة يُسمّى:",
+        "options": {
+          "A": "سيادة مُشترَكة",
+          "B": "أليلات مُتعدِّدة",
+          "C": "سيادة تامة",
+          "D": "تعدد صبغي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أليلات مُتعدِّدة",
+        "difficulty": "easy",
+        "source": {
+          "page": 108,
+          "reference": "الأليلات المُتعدِّدة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "أكثر من أليلين"
+          ],
+          "summary": "أليلات مُتعدِّدة."
+        },
+        "explanation": "وجود أكثر من أليلين."
+      },
+      {
+        "id": "U03-L02-Q033",
+        "number": 33,
+        "question": "في وراثة فصائل الدم ABO، أليل i يُسمّى:",
+        "options": {
+          "A": "سائد",
+          "B": "متنحي",
+          "C": "صامت",
+          "D": "مُتعدِّد"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "صامت",
+        "difficulty": "medium",
+        "source": {
+          "page": 108,
+          "reference": "الأليلات المُتعدِّدة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "لا يُنتج مولد ضد"
+          ],
+          "summary": "صامت."
+        },
+        "explanation": "لا يُنتج أي مولد ضد."
+      },
+      {
+        "id": "U03-L02-Q034",
+        "number": 34,
+        "question": "في تلقيح فصيلة IAi x IBi، نسبة فصائل الدم المتوقعة:",
+        "options": {
+          "A": "1A:1B:1AB:1O",
+          "B": "2A:1B:1O",
+          "C": "1A:2B:1O",
+          "D": "2AB:1A:1B"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1A:1B:1AB:1O",
+        "difficulty": "hard",
+        "source": {
+          "page": 109,
+          "reference": "نظام ABO"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "IAi x IBi -> IAIB, IAi, IBi, ii"
+          ],
+          "summary": "1:1:1:1."
+        },
+        "explanation": "جميع الفصائل الأربعة ممكنة."
+      },
+      {
+        "id": "U03-L02-Q035",
+        "number": 35,
+        "question": "في الوراثة فوق الجينية، آليَّة التشذير قد تُغيِّر:",
+        "options": {
+          "A": "تسلسل DNA",
+          "B": "تطعيم الجينات",
+          "C": "عدد الكروموسومات",
+          "D": "نوع القواعد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تطعيم الجينات",
+        "difficulty": "medium",
+        "source": {
+          "page": 117,
+          "reference": "الوراثة فوق الجينية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "يُغيِّر تطعيم الجينات"
+          ],
+          "summary": "تطعيم الجينات."
+        },
+        "explanation": "لا يُغيِّر التسلسل."
+      },
+      {
+        "id": "U03-L02-Q036",
+        "number": 36,
+        "question": "الجينات المُرتبِطة لا تتبع قانون التوزيع الحر لأنها:",
+        "options": {
+          "A": "على كروموسومات مختلفة",
+          "B": "على نفس الكروموسوم",
+          "C": "على الكروموسومات الجنسية فقط",
+          "D": "صامتة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "على نفس الكروموسوم",
+        "difficulty": "medium",
+        "source": {
+          "page": 115,
+          "reference": "الجينات المُرتبِطة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تميل للوراثة معاً"
+          ],
+          "summary": "نفس الكروموسوم."
+        },
+        "explanation": "تميل للوراثة معاً."
+      },
+      {
+        "id": "U03-L02-Q037",
+        "number": 37,
+        "question": "في الخريطة الجينية، كلما كانت المسافة بين جينين أكبر:",
+        "options": {
+          "A": "احتمالية الوراثة معاً أكبر",
+          "B": "احتمالية الوراثة معاً أصغر",
+          "C": "لا علاقة للمسافة",
+          "D": "الجينان متماثلان"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "احتمالية الوراثة معاً أصغر",
+        "difficulty": "medium",
+        "source": {
+          "page": 116,
+          "reference": "الخريطة الجينية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "المسافة البعيدة = احتمالية عبور أكبر"
+          ],
+          "summary": "أصغر."
+        },
+        "explanation": "المسافة تزيد احتمالية العبور."
+      },
+      {
+        "id": "U03-L02-Q038",
+        "number": 38,
+        "question": "في ذبابة الفاكهة، أليل العيون الحمراء (XR) هو:",
+        "options": {
+          "A": "متنحي",
+          "B": "سائد",
+          "C": "صامت",
+          "D": "مُتعدِّد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "سائد",
+        "difficulty": "easy",
+        "source": {
+          "page": 113,
+          "reference": "الصفات المرتبطة بالجنس"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "أحمر سائد على أبيض"
+          ],
+          "summary": "سائد."
+        },
+        "explanation": "اللون الأحمر سائد."
+      },
+      {
+        "id": "U03-L02-Q039",
+        "number": 39,
+        "question": "في وراثة فصائل الدم ABO، عدد الأليلات المُتعدِّدة هو:",
+        "options": {
+          "A": "2",
+          "B": "3",
+          "C": "4",
+          "D": "6"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "3",
+        "difficulty": "easy",
+        "source": {
+          "page": 108,
+          "reference": "الأليلات المُتعدِّدة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "IA, IB, i三个"
+          ],
+          "summary": "3."
+        },
+        "explanation": "IA, IB, i."
+      },
+      {
+        "id": "U03-L02-Q040",
+        "number": 40,
+        "question": "في السيادة غير التامة من فم السمكة، نسبة الأحمر في F2 هي:",
+        "options": {
+          "A": "1/4",
+          "B": "1/2",
+          "C": "3/4",
+          "D": "1/3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1/4",
+        "difficulty": "medium",
+        "source": {
+          "page": 106,
+          "reference": "السيادة غير التامة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "1 من 4 = RR = أحمر"
+          ],
+          "summary": "1/4."
+        },
+        "explanation": "1/4 أحمر."
+      },
+      {
+        "id": "U03-L02-Q041",
+        "number": 41,
+        "question": "في الوراثة مُتعدِّدة الجينات، فرد به 6 أليلات سائدة (AABBCC):",
+        "options": {
+          "A": "فاتح جداً",
+          "B": "غامق جداً",
+          "C": "متوسط",
+          "D": "أبيض"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "غامق جداً",
+        "difficulty": "medium",
+        "source": {
+          "page": 111,
+          "reference": "الوراثة مُتعدِّدة الجينات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "كل سائد يزيد الغمق"
+          ],
+          "summary": "غامق جداً."
+        },
+        "explanation": "6 أليلات سائدة."
+      },
+      {
+        "id": "U03-L02-Q042",
+        "number": 42,
+        "question": "في الطيور، تحديد الجنس يختلف عن الإنسان في أن:",
+        "options": {
+          "A": "الأنثى تحمل الكروموسومين المختلفين",
+          "B": "الذكر يحوي ZW",
+          "C": "لا يوجد كروموسومات جنسية",
+          "D": "الجنس يُحدد بالبيئة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الأنثى تحمل الكروموسومين المختلفين",
+        "difficulty": "medium",
+        "source": {
+          "page": 112,
+          "reference": "تحديد الجنس في الطيور"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "الأنثى ZW والذكر ZZ"
+          ],
+          "summary": "الأنثى تحمل الكروموسومين المختلفين."
+        },
+        "explanation": "في الطيور الأنتى ZW."
+      },
+      {
+        "id": "U03-L02-Q043",
+        "number": 43,
+        "question": "في ذبابة الفاكهة، جميع إناث F1 من تلقيح أبيض x أحمر حمراء لأنها:",
+        "options": {
+          "A": "XR XR",
+          "B": "XR Xr",
+          "C": "Xr Xr",
+          "D": "XR Y"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "XR Xr",
+        "difficulty": "medium",
+        "source": {
+          "page": 113,
+          "reference": "الصفات المرتبطة بالجنس"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "أنثى xr من أم حمراء + ذكر أبيض"
+          ],
+          "summary": "XR Xr."
+        },
+        "explanation": "أنثى من أم حمراء وأب أبيض."
+      },
+      {
+        "id": "U03-L02-Q044",
+        "number": 44,
+        "question": "في ذبابة الفاكهة، جميع ذكور F1 من تلقيح أبيض x أحمر سيكونون:",
+        "options": {
+          "A": "بيض",
+          "B": "حمر",
+          "C": "نصف حمر ونصف بيض",
+          "D": "وردي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حمر",
+        "difficulty": "medium",
+        "source": {
+          "page": 113,
+          "reference": "الصفات المرتبطة بالجنس"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "XR من الأم + Y من الأب = أحمر"
+          ],
+          "summary": "حمر."
+        },
+        "explanation": "XR Y = أحمر."
+      },
+      {
+        "id": "U03-L02-Q045",
+        "number": 45,
+        "question": "الوراثة فوق الجينية لا تُورَّث لأنها:",
+        "options": {
+          "A": "تحدث في DNA",
+          "B": "تُغيِّر التسلسل",
+          "C": "تؤثر في التعبير فقط",
+          "D": "تُعدِّل الكروموسومات"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "تؤثر في التعبير فقط",
+        "difficulty": "medium",
+        "source": {
+          "page": 117,
+          "reference": "الوراثة فوق الجينية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تغيير في التعبير فقط"
+          ],
+          "summary": "التعبير فقط."
+        },
+        "explanation": "لا تُورَّث بشكل دائم."
+      },
+      {
+        "id": "U03-L02-Q046",
+        "number": 46,
+        "question": "في فصائل الدم ABO، فصيلة O لا تحتوي على:",
+        "options": {
+          "A": "مولد الضد A",
+          "B": "مولد الضد B",
+          "C": "أي منهما",
+          "D": "الاثنين معاً"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "أي منهما",
+        "difficulty": "easy",
+        "source": {
+          "page": 108,
+          "reference": "الأليلات المُتعدِّدة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "ii لا يُنتج شيئاً"
+          ],
+          "summary": "أي منهما."
+        },
+        "explanation": "لا يحتوي على أي مولد ضد."
+      },
+      {
+        "id": "U03-L02-Q047",
+        "number": 47,
+        "question": "في الخريطة الجينية، إذا كانت المسافة بين A وB = 10 cM و B وC = 20 cM، المسافة بين A وC تقريباً:",
+        "options": {
+          "A": "10 cM",
+          "B": "20 cM",
+          "C": "30 cM",
+          "D": "40 cM"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "30 cM",
+        "difficulty": "hard",
+        "source": {
+          "page": 116,
+          "reference": "الخريطة الجينية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "المسافات تتراكم"
+          ],
+          "summary": "30 cM."
+        },
+        "explanation": "المسافات تتراكم."
+      },
+      {
+        "id": "U03-L02-Q048",
+        "number": 48,
+        "question": "في الوراثة فوق الجينية، مثيلة DNA تُعدِّل:",
+        "options": {
+          "A": "التسلسل",
+          "B": "تعبير الجينات",
+          "C": "الكروموسومات",
+          "D": "عدد الجينات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تعبير الجينات",
+        "difficulty": "medium",
+        "source": {
+          "page": 117,
+          "reference": "الوراثة فوق الجينية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تُعدِّل التعبير فقط"
+          ],
+          "summary": "تعبير الجينات."
+        },
+        "explanation": "تؤثر في التعبير."
+      },
+      {
+        "id": "U03-L02-Q049",
+        "number": 49,
+        "question": "في تلقيح ذبابة الفاكهة XR Xr x XR Y، نسبة الذكور البيضاء في F2:",
+        "options": {
+          "A": "25%",
+          "B": "50%",
+          "C": "75%",
+          "D": "100%"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "25%",
+        "difficulty": "hard",
+        "source": {
+          "page": 113,
+          "reference": "الصفات المرتبطة بالجنس"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "1/4 من الذكور XrY = أبيض"
+          ],
+          "summary": "25%."
+        },
+        "explanation": "1/4 من الأبناء XrY."
+      },
+      {
+        "id": "U03-L02-Q050",
+        "number": 50,
+        "question": "السبب في أن خصائص الجينات المُرتبِطة لا تتبع التوزيع الحر هو:",
+        "options": {
+          "A": "وجودها على كروموسومات مختلفة",
+          "B": "تميلها للوراثة معاً لأنها على نفس الكروموسوم",
+          "C": "تأثرها بالبيئة",
+          "D": "طفراتها"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تميلها للوراثة معاً لأنها على نفس الكروموسوم",
+        "difficulty": "medium",
+        "source": {
+          "page": 115,
+          "reference": "الجينات المُرتبِطة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تميل للوراثة معاً"
+          ],
+          "summary": "لأنها على نفس الكروموسوم."
+        },
+        "explanation": "تميل للوراثة معاً."
+      }
+    ]
+  }
+}

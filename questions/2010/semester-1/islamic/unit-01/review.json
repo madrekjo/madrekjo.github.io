@@ -1,0 +1,1212 @@
+{
+  "lesson": {
+    "lesson_number": "1.review",
+    "lesson_name": "مراجعة الوحدة 1",
+    "unit_number": 1,
+    "unit_name": "الوحدة الأولى: واعتصموا بحبل الله جميعاً",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "تعتبر سورة آل عمران من السور:",
+        "options": {
+          "A": "المكية",
+          "B": "المدنية",
+          "C": "المكية التي نزلت في السفر",
+          "D": "المدنية التي نزلت قبل الهجرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المدنية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المدنية"
+        },
+        "explanation": "المدنية",
+        "number": 1,
+        "id": "U01-L99-Q001"
+      },
+      {
+        "question": "ما المقصود بلفظ 'الزهراء' كاسم لسورة آل عمران؟",
+        "options": {
+          "A": "القديمة",
+          "B": "المضيئة",
+          "C": "الطويلة",
+          "D": "المباركة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المضيئة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المضيئة"
+        },
+        "explanation": "المضيئة",
+        "number": 2,
+        "id": "U01-L99-Q002"
+      },
+      {
+        "question": "معنى قوله تعالى (حق تقاته) هو التزام أوامر الله واجتناب نواهيه في:",
+        "options": {
+          "A": "العبادات فقط",
+          "B": "األقوال فقط",
+          "C": "األقوال واألفعال والمعاملات",
+          "D": "القلب فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "األقوال واألفعال والمعاملات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "األقوال واألفعال والمعاملات"
+        },
+        "explanation": "األقوال واألفعال والمعاملات",
+        "number": 3,
+        "id": "U01-L99-Q003"
+      },
+      {
+        "question": "يدل قوله تعالى (واعتصموا بحبل الله جميعاً) على أن التمسك بالدين هو:",
+        "options": {
+          "A": "عصمة للأمة وحماية لها",
+          "B": "مسؤولية القادة فقط",
+          "C": "أمر مخير فيه",
+          "D": "خاص بالعبادات"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "عصمة للأمة وحماية لها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عصمة للأمة وحماية لها"
+        },
+        "explanation": "عصمة للأمة وحماية لها",
+        "number": 4,
+        "id": "U01-L99-Q004"
+      },
+      {
+        "question": "استخدم اليهودي شاس بن قيس أسلوباً للتفريق بين الأوس والخزرج يعتمد على:",
+        "options": {
+          "A": "القوة العسكرية",
+          "B": "إذكاء الفتن وتذكيرهم بحروب الجاهلية",
+          "C": "الحصار الاقتصادي",
+          "D": "السحر والشعوذة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إذكاء الفتن وتذكيرهم بحروب الجاهلية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إذكاء الفتن وتذكيرهم بحروب الجاهلية"
+        },
+        "explanation": "إذكاء الفتن وتذكيرهم بحروب الجاهلية",
+        "number": 5,
+        "id": "U01-L99-Q005"
+      },
+      {
+        "question": "المقصود بـ 'المعروف' في الدعوة إلى الخير هو:",
+        "options": {
+          "A": "كل ما تعارف عليه الناس وإن خالف الشرع",
+          "B": "كل ما أمر به الشرع واستحسنه",
+          "C": "التقاليد القديمة",
+          "D": "الصدقة المالية فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كل ما أمر به الشرع واستحسنه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل ما أمر به الشرع واستحسنه"
+        },
+        "explanation": "كل ما أمر به الشرع واستحسنه",
+        "number": 6,
+        "id": "U01-L99-Q006"
+      },
+      {
+        "question": "حذرت الآيات (105) من سورة آل عمران من الوقوع في أخطاء الأمم السابقة المتمثلة في:",
+        "options": {
+          "A": "التجارة مع المشركين",
+          "B": "التنازع والتفرق بعد وضوح البينات",
+          "C": "بناء الحصون",
+          "D": "السفر لطلب العلم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التنازع والتفرق بعد وضوح البينات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التنازع والتفرق بعد وضوح البينات"
+        },
+        "explanation": "التنازع والتفرق بعد وضوح البينات",
+        "number": 7,
+        "id": "U01-L99-Q007"
+      },
+      {
+        "question": "من مظاهر وحدة المجتمع التي أرساها النبي ﷺ في المدينة:",
+        "options": {
+          "A": "المؤاخاة بين المهاجرين والأنصار",
+          "B": "وثيقة المدينة",
+          "C": "بناء المسجد",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر"
+        },
+        "explanation": "جميع ما ذكر",
+        "number": 8,
+        "id": "U01-L99-Q008"
+      },
+      {
+        "question": "الصحابي راوي حديث (اتقاء الشبهات) هو:",
+        "options": {
+          "A": "عبد الله بن عمر",
+          "B": "النعمان بن بشير",
+          "C": "أبو هريرة",
+          "D": "أنس بن مالك"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "النعمان بن بشير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النعمان بن بشير"
+        },
+        "explanation": "النعمان بن بشير",
+        "number": 9,
+        "id": "U01-L99-Q009"
+      },
+      {
+        "question": "تولى الصحابي النعمان بن بشير منصب القضاء في:",
+        "options": {
+          "A": "المدينة",
+          "B": "دمشق",
+          "C": "الكوفة",
+          "D": "مكة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "دمشق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "دمشق"
+        },
+        "explanation": "دمشق",
+        "number": 10,
+        "id": "U01-L99-Q010"
+      },
+      {
+        "question": "معنى 'استبرأ لدينه وعرضه' الوارد في الحديث:",
+        "options": {
+          "A": "بحث عن المال",
+          "B": "طلب السالمة لدينه وسمعته",
+          "C": "اشتهر بين الناس",
+          "D": "ترك العمل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "طلب السالمة لدينه وسمعته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طلب السالمة لدينه وسمعته"
+        },
+        "explanation": "طلب السالمة لدينه وسمعته",
+        "number": 11,
+        "id": "U01-L99-Q011"
+      },
+      {
+        "question": "ما هي الفئة التي تستطيع تمييز حكم الأمور 'المشتبهات'؟",
+        "options": {
+          "A": "عامة الناس",
+          "B": "التجار",
+          "C": "الراسخون في العلم",
+          "D": "لا أحد"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الراسخون في العلم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الراسخون في العلم"
+        },
+        "explanation": "الراسخون في العلم",
+        "number": 12,
+        "id": "U01-L99-Q012"
+      },
+      {
+        "question": "شبه النبي ﷺ الذي يقع في الشبهات بـ:",
+        "options": {
+          "A": "المسافر التائه",
+          "B": "الراعي يرعى حول الحمى",
+          "C": "الأسد الجائع",
+          "D": "التاجر المفلس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الراعي يرعى حول الحمى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الراعي يرعى حول الحمى"
+        },
+        "explanation": "الراعي يرعى حول الحمى",
+        "number": 13,
+        "id": "U01-L99-Q013"
+      },
+      {
+        "question": "حمى الله تعالى في الأرض هو:",
+        "options": {
+          "A": "المساجد",
+          "B": "محارمه (المعاصي)",
+          "C": "بيت المقدس",
+          "D": "الكعبة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "محارمه (المعاصي)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "محارمه (المعاصي)"
+        },
+        "explanation": "محارمه (المعاصي)",
+        "number": 14,
+        "id": "U01-L99-Q014"
+      },
+      {
+        "question": "العضو الذي بصلاحه يصلح الجسد كله هو:",
+        "options": {
+          "A": "العقل",
+          "B": "القلب",
+          "C": "اليد",
+          "D": "اللسان"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "القلب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القلب"
+        },
+        "explanation": "القلب",
+        "number": 15,
+        "id": "U01-L99-Q015"
+      },
+      {
+        "question": "من الوسائل المعينة على صلاح القلب كما ورد في الدرس الثاني:",
+        "options": {
+          "A": "كثرة النوم",
+          "B": "قراءة القرآن والتدبر فيه",
+          "C": "مجالسة أهل الدنيا",
+          "D": "هجر العبادات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "قراءة القرآن والتدبر فيه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قراءة القرآن والتدبر فيه"
+        },
+        "explanation": "قراءة القرآن والتدبر فيه",
+        "number": 16,
+        "id": "U01-L99-Q016"
+      },
+      {
+        "question": "أعلى مراتب الدين الثلاث هي:",
+        "options": {
+          "A": "الإسلام",
+          "B": "الإيمان",
+          "C": "الإحسان",
+          "D": "التقوى"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الإحسان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإحسان"
+        },
+        "explanation": "الإحسان",
+        "number": 17,
+        "id": "U01-L99-Q017"
+      },
+      {
+        "question": "المرتبة التي تعني 'استشعار مراقبة الله تعالى في السر والعلن' هي:",
+        "options": {
+          "A": "الإيمان",
+          "B": "الإحسان",
+          "C": "الإسلام",
+          "D": "الصبر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الإحسان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإحسان"
+        },
+        "explanation": "الإحسان",
+        "number": 18,
+        "id": "U01-L99-Q018"
+      },
+      {
+        "question": "الكفر الذي يخرج صاحبه من الملة هو:",
+        "options": {
+          "A": "الكفر العملي",
+          "B": "الكفر الاعتقادي (الأكبر)",
+          "C": "نفاق العمل",
+          "D": "الظلم الأصغر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الكفر الاعتقادي (الأكبر)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الكفر الاعتقادي (الأكبر)"
+        },
+        "explanation": "الكفر الاعتقادي (الأكبر)",
+        "number": 19,
+        "id": "U01-L99-Q019"
+      },
+      {
+        "question": "من صور 'الكفر العملي' (الأصغر) الذي لا يخرج من الإسلام:",
+        "options": {
+          "A": "شتم الذات الإلهية",
+          "B": "قتال المسلم لأخيه المسلم",
+          "C": "إنكار وجود الله",
+          "D": "السجود للصنم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "قتال المسلم لأخيه المسلم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قتال المسلم لأخيه المسلم"
+        },
+        "explanation": "قتال المسلم لأخيه المسلم",
+        "number": 20,
+        "id": "U01-L99-Q020"
+      },
+      {
+        "question": "الشرك الأصغر (الخفي) يتمثل غالباً في:",
+        "options": {
+          "A": "عبادة الكواكب",
+          "B": "الرياء (قصد مدح الناس)",
+          "C": "الاعتقاد بوجود خالقين",
+          "D": "إنكار البعث"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الرياء (قصد مدح الناس)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الرياء (قصد مدح الناس)"
+        },
+        "explanation": "الرياء (قصد مدح الناس)",
+        "number": 21,
+        "id": "U01-L99-Q021"
+      },
+      {
+        "question": "إظهار الإيمان وإخفاء الكفر هو تعريف لـ:",
+        "options": {
+          "A": "النفاق العملي",
+          "B": "النفاق الاعتقادي",
+          "C": "البدعة",
+          "D": "الشرك الأصغر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "النفاق الاعتقادي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النفاق الاعتقادي"
+        },
+        "explanation": "النفاق الاعتقادي",
+        "number": 22,
+        "id": "U01-L99-Q022"
+      },
+      {
+        "question": "من صفات 'النفاق العملي' كما ورد في الحديث الشريف:",
+        "options": {
+          "A": "خيانة الأمانة",
+          "B": "إخلاف الوعد",
+          "C": "الكذب في الحديث",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر"
+        },
+        "explanation": "جميع ما ذكر",
+        "number": 23,
+        "id": "U01-L99-Q023"
+      },
+      {
+        "question": "تعريف 'البدعة السيئة' هو:",
+        "options": {
+          "A": "استخدام التكنولوجيا في الدين",
+          "B": "كل أمر مستحدث في الدين ليس له أصل في الشرع",
+          "C": "بناء مساجد حديثة",
+          "D": "ترجمة القرآن"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كل أمر مستحدث في الدين ليس له أصل في الشرع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل أمر مستحدث في الدين ليس له أصل في الشرع"
+        },
+        "explanation": "كل أمر مستحدث في الدين ليس له أصل في الشرع",
+        "number": 24,
+        "id": "U01-L99-Q024"
+      },
+      {
+        "question": "من الذي يملك حق الحكم بتكفير شخص معين؟",
+        "options": {
+          "A": "عامة الناس",
+          "B": "الجهات القضائية والعلماء الراسخون",
+          "C": "أي طالب علم",
+          "D": "الصحف والمجلات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الجهات القضائية والعلماء الراسخون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الجهات القضائية والعلماء الراسخون"
+        },
+        "explanation": "الجهات القضائية والعلماء الراسخون",
+        "number": 25,
+        "id": "U01-L99-Q025"
+      },
+      {
+        "question": "الآية الكريمة الأصل في تكريم الإنسان هي قوله تعالى:",
+        "options": {
+          "A": "(إنا نحن نزلنا الذكر)",
+          "B": "(ولقد كرمنا بني آدم)",
+          "C": "(وأقيموا الصلاة)",
+          "D": "(يا أيها الذين آمنوا)"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "(ولقد كرمنا بني آدم)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "(ولقد كرمنا بني آدم)"
+        },
+        "explanation": "(ولقد كرمنا بني آدم)",
+        "number": 26,
+        "id": "U01-L99-Q026"
+      },
+      {
+        "question": "من المبادئ التي أقرها الإسلام لتحقيق الكرامة الإنسانية:",
+        "options": {
+          "A": "العدل والمساواة",
+          "B": "الحرية والمسؤولية",
+          "C": "وحدة الأصل البشري",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر"
+        },
+        "explanation": "جميع ما ذكر",
+        "number": 27,
+        "id": "U01-L99-Q027"
+      },
+      {
+        "question": "مبدأ 'المساواة' في الكرامة الإنسانية يعني عدم التمييز بناءً على:",
+        "options": {
+          "A": "اللون والعرق",
+          "B": "الدين والإعاقة",
+          "C": "المرض",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر"
+        },
+        "explanation": "جميع ما ذكر",
+        "number": 28,
+        "id": "U01-L99-Q028"
+      },
+      {
+        "question": "حفظ كرامة الإنسان 'بعد موته' يكون من خلال:",
+        "options": {
+          "A": "تغسيله وتكفينه",
+          "B": "الصلاة عليه ودفنه",
+          "C": "النهي عن الإساءة لجثته",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر"
+        },
+        "explanation": "جميع ما ذكر",
+        "number": 29,
+        "id": "U01-L99-Q029"
+      },
+      {
+        "question": "منع الإسلام الغيبة والنميمة والسخرية حمايةً لـ:",
+        "options": {
+          "A": "مال الإنسان",
+          "B": "عرض الإنسان وسمعته",
+          "C": "بيته",
+          "D": "وظيفته"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عرض الإنسان وسمعته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عرض الإنسان وسمعته"
+        },
+        "explanation": "عرض الإنسان وسمعته",
+        "number": 30,
+        "id": "U01-L99-Q030"
+      },
+      {
+        "question": "يدل قوله ﷺ (الناس بنو آدم، وآدم خلق من تراب) على:",
+        "options": {
+          "A": "وحدة الأصل البشري",
+          "B": "أهمية الزراعة",
+          "C": "وصف القبور",
+          "D": "فضل العرب"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "وحدة الأصل البشري",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وحدة الأصل البشري"
+        },
+        "explanation": "وحدة الأصل البشري",
+        "number": 31,
+        "id": "U01-L99-Q031"
+      },
+      {
+        "question": "حرمة جسد الميت في الإسلام كحرمته وهو:",
+        "options": {
+          "A": "نائم",
+          "B": "حي",
+          "C": "مسافر",
+          "D": "مريض"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حي"
+        },
+        "explanation": "حي",
+        "number": 32,
+        "id": "U01-L99-Q032"
+      },
+      {
+        "question": "أي المبادئ الآتية تعني 'إعطاء كل ذي حق حقه'؟",
+        "options": {
+          "A": "المساواة",
+          "B": "العدالة",
+          "C": "المسؤولية",
+          "D": "الحرية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العدالة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العدالة"
+        },
+        "explanation": "العدالة",
+        "number": 33,
+        "id": "U01-L99-Q033"
+      },
+      {
+        "question": "عقد الزواج في الإسلام هو عقد بين رجل وامرأة هتدف إلى:",
+        "options": {
+          "A": "التجارة",
+          "B": "تكوين أسرة مستقرة",
+          "C": "السفر",
+          "D": "جمع المال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تكوين أسرة مستقرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تكوين أسرة مستقرة"
+        },
+        "explanation": "تكوين أسرة مستقرة",
+        "number": 34,
+        "id": "U01-L99-Q034"
+      },
+      {
+        "question": "ما حكم الزواج في حق من يقدر على تكاليفه؟",
+        "options": {
+          "A": "واجب",
+          "B": "مندوب",
+          "C": "مباح",
+          "D": "مكروه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مندوب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مندوب"
+        },
+        "explanation": "مندوب",
+        "number": 35,
+        "id": "U01-L99-Q035"
+      },
+      {
+        "question": "المعيار الأول في اختيار الزوج أو الزوجة هو:",
+        "options": {
+          "A": "المال",
+          "B": "الحسب والنسب",
+          "C": "الدين والخلق",
+          "D": "الجمال"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الدين والخلق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدين والخلق"
+        },
+        "explanation": "الدين والخلق",
+        "number": 36,
+        "id": "U01-L99-Q036"
+      },
+      {
+        "question": "المقصود بلفظ (الباءة) في حديث الحث على الزواج:",
+        "options": {
+          "A": "الرغبة فقط",
+          "B": "القدرة على تكاليف الزواج وتبعاته",
+          "C": "البيت الكبير",
+          "D": "السفر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "القدرة على تكاليف الزواج وتبعاته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القدرة على تكاليف الزواج وتبعاته"
+        },
+        "explanation": "القدرة على تكاليف الزواج وتبعاته",
+        "number": 37,
+        "id": "U01-L99-Q037"
+      },
+      {
+        "question": "تُعرف 'الخِطبة' (بكسر الخاء) بأنها:",
+        "options": {
+          "A": "عقد الزواج",
+          "B": "طلب الرجل المرأة للزواج وهي وعد به",
+          "C": "مراسم الزفاف",
+          "D": "المهر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "طلب الرجل المرأة للزواج وهي وعد به",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طلب الرجل المرأة للزواج وهي وعد به"
+        },
+        "explanation": "طلب الرجل المرأة للزواج وهي وعد به",
+        "number": 38,
+        "id": "U01-L99-Q038"
+      },
+      {
+        "question": "يُسن في الخطبة أن:",
+        "options": {
+          "A": "ينظر الخاطبان لبعضهما",
+          "B": "يتم الزواج سراً",
+          "C": "يُدفع المهر كاملاً فوراً",
+          "D": "يسكنا معاً فوراً"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "ينظر الخاطبان لبعضهما",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ينظر الخاطبان لبعضهما"
+        },
+        "explanation": "ينظر الخاطبان لبعضهما",
+        "number": 39,
+        "id": "U01-L99-Q039"
+      },
+      {
+        "question": "هل يُعد العدول عن الخطبة 'طلاقاً'؟",
+        "options": {
+          "A": "نعم",
+          "B": "لا، لأن عقد الزواج لم يتم بعد",
+          "C": "نعم إذا قرئت الفاتحة",
+          "D": "نعم في حالة دفع المهر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا، لأن عقد الزواج لم يتم بعد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا، لأن عقد الزواج لم يتم بعد"
+        },
+        "explanation": "لا، لأن عقد الزواج لم يتم بعد",
+        "number": 40,
+        "id": "U01-L99-Q040"
+      },
+      {
+        "question": "الهدف من الفحص الطبي الإلزامي قبل الزواج في الأردن هو:",
+        "options": {
+          "A": "زيادة الرسوم",
+          "B": "الحد من انتشار الأمراض الوراثية",
+          "C": "معرفة الطول والوزن",
+          "D": "تحديد جنس الجنين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحد من انتشار الأمراض الوراثية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحد من انتشار الأمراض الوراثية"
+        },
+        "explanation": "الحد من انتشار الأمراض الوراثية",
+        "number": 41,
+        "id": "U01-L99-Q041"
+      },
+      {
+        "question": "وصف النبي ﷺ الجهاد بأنه 'ذروة سنام الإسلام'، ومعنى ذلك أنه:",
+        "options": {
+          "A": "أقل الأعمال",
+          "B": "أعلى الأعمال وأرفعها",
+          "C": "بداية الدين",
+          "D": "خاص بالصحابة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أعلى الأعمال وأرفعها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أعلى الأعمال وأرفعها"
+        },
+        "explanation": "أعلى الأعمال وأرفعها",
+        "number": 42,
+        "id": "U01-L99-Q042"
+      },
+      {
+        "question": "الأصل في حكم الجهاد (القتال) أنه:",
+        "options": {
+          "A": "فرض عين دائماً",
+          "B": "فرض كفاية",
+          "C": "سنة",
+          "D": "مباح"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فرض كفاية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فرض كفاية"
+        },
+        "explanation": "فرض كفاية",
+        "number": 43,
+        "id": "U01-L99-Q043"
+      },
+      {
+        "question": "يصبح الجهاد 'فرض عين' في حالات منها:",
+        "options": {
+          "A": "عند السفر",
+          "B": "عند إعلان ولي الأمر النفير العام",
+          "C": "في أيام الجمعة",
+          "D": "عند كثرة المال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عند إعلان ولي الأمر النفير العام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عند إعلان ولي الأمر النفير العام"
+        },
+        "explanation": "عند إعلان ولي الأمر النفير العام",
+        "number": 44,
+        "id": "U01-L99-Q044"
+      },
+      {
+        "question": "خوض القتال (الجهاد بالنفس) هو مسؤولية:",
+        "options": {
+          "A": "الأفراد والجماعات",
+          "B": "الدولة (ولي الأمر)",
+          "C": "الجمعيات الخيرية",
+          "D": "كل فرد يرى ذلك مناسباً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الدولة (ولي الأمر)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدولة (ولي الأمر)"
+        },
+        "explanation": "الدولة (ولي الأمر)",
+        "number": 45,
+        "id": "U01-L99-Q045"
+      },
+      {
+        "question": "يكون 'الجهاد بالمال' من خلال:",
+        "options": {
+          "A": "تجهيز الجيش والسلاح",
+          "B": "رعاية عائلات المجاهدين",
+          "C": "بناء المصانع الحربية",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر"
+        },
+        "explanation": "جميع ما ذكر",
+        "number": 46,
+        "id": "U01-L99-Q046"
+      },
+      {
+        "question": "المرحلة الأولى من تشريع الجهاد في مكة كانت تعتمد على:",
+        "options": {
+          "A": "القتال فوراً",
+          "B": "الدعوة والكلمة والصبر",
+          "C": "المقاطعة الاقتصادية",
+          "D": "بناء الحصون"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الدعوة والكلمة والصبر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدعوة والكلمة والصبر"
+        },
+        "explanation": "الدعوة والكلمة والصبر",
+        "number": 47,
+        "id": "U01-L99-Q047"
+      },
+      {
+        "question": "من أخلاقيات الجهاد في الإسلام النهي عن قتل:",
+        "options": {
+          "A": "المحاربين",
+          "B": "الولدان والنساء والشيوخ",
+          "C": "قادة العدو",
+          "D": "الجواسيس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الولدان والنساء والشيوخ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الولدان والنساء والشيوخ"
+        },
+        "explanation": "الولدان والنساء والشيوخ",
+        "number": 48,
+        "id": "U01-L99-Q048"
+      },
+      {
+        "question": "معركة 'الكرامة' (1968م) تعد أنموذجاً معاصراً لـ:",
+        "options": {
+          "A": "الهزيمة",
+          "B": "الدفاع عن الوطن وحماية الأرض",
+          "C": "الانسحاب",
+          "D": "التجارة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الدفاع عن الوطن وحماية الأرض",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدفاع عن الوطن وحماية الأرض"
+        },
+        "explanation": "الدفاع عن الوطن وحماية الأرض",
+        "number": 49,
+        "id": "U01-L99-Q049"
+      },
+      {
+        "question": "الحكمة من تشريع الجهاد هي:",
+        "options": {
+          "A": "حب السيطرة",
+          "B": "دفع العدوان وحماية الدين والوطن والمقدسات",
+          "C": "جمع الغنائم",
+          "D": "إكراه الناس على الدين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "دفع العدوان وحماية الدين والوطن والمقدسات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "دفع العدوان وحماية الدين والوطن والمقدسات"
+        },
+        "explanation": "دفع العدوان وحماية الدين والوطن والمقدسات",
+        "number": 50,
+        "id": "U01-L99-Q050"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1106 @@
+{
+  "lesson": {
+    "lesson_number": 2,
+    "lesson_name": "الرقم الهيدروجيني ومحاليل الحموض والقواعد القوية",
+    "unit_number": 4,
+    "unit_name": "الحموض والقواعد",
+    "page_start": 131,
+    "page_end": 146,
+    "questions": [
+      {
+        "id": "U04-L02-Q001",
+        "number": 1,
+        "question": "التأين الذاتي للماء يُعبر عنه بالمعادلة:",
+        "options": {
+          "A": "H2O(l) + H2O(l) ⇌ H3O+(aq) + OH-(aq)",
+          "B": "H2O(l) → H2(g) + O2(g)",
+          "C": "H2O(l) ⇌ H+(aq) + O2-(aq)",
+          "D": "2H2O(l) → H2O2(l) + H2(g)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "H2O(l) + H2O(l) ⇌ H3O+(aq) + OH-(aq)",
+        "difficulty": "easy",
+        "source": {
+          "page": 131,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "H2O(l) + H2O(l) ⇌ H3O+(aq) + OH-(aq)",
+          "steps": [
+            "بعض جزيئات الماء تسلك كحموض وبعضها يسلك كقواعد",
+            "جزيء ماء يمنح بروتونًا ويصبح OH- وجزيء آخر يستقبله ويصبح H3O+"
+          ],
+          "summary": "التأين الذاتي للماء ينتج H3O+ وOH-"
+        },
+        "explanation": "التأين الذاتي للماء هو سلوك بعض جزيئاته كحموض وبعضها الآخر كقواعد، وينتج H3O+ وOH-."
+      },
+      {
+        "id": "U04-L02-Q002",
+        "number": 2,
+        "question": "قيمة ثابت تأين الماء Kw عند درجة حرارة 25°C تساوي:",
+        "options": {
+          "A": "1×10^-7",
+          "B": "1×10^-14",
+          "C": "1×10^-10",
+          "D": "1×10^-5"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1×10^-14",
+        "difficulty": "easy",
+        "source": {
+          "page": 132,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "Kw = [H3O+][OH-] = 1×10^-14",
+          "steps": [
+            "ثابت تأين الماء هو ثابت الاتزان لتأين الماء",
+            "وجد أنه يساوي 1×10^-14 عند 25°C"
+          ],
+          "summary": "Kw = 1×10^-14"
+        },
+        "explanation": "ثابت تأين الماء Kw = [H3O+][OH-] = 1×10^-14 عند درجة حرارة 25°C."
+      },
+      {
+        "id": "U04-L02-Q003",
+        "number": 3,
+        "question": "في الماء النقي عند درجة حرارة 25°C فإن تركيز كلٍّ من H3O+ وOH- يساوي:",
+        "options": {
+          "A": "1×10^-14 M",
+          "B": "1×10^-9 M",
+          "C": "1×10^-7 M",
+          "D": "1×10^-5 M"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "1×10^-7 M",
+        "difficulty": "easy",
+        "source": {
+          "page": 132,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "[H3O+] = [OH-] = 1×10^-7 M",
+          "steps": [
+            "في الماء النقي يتساوى تركيز H3O+ مع OH-",
+            "وبما أن حاصل ضربهما = 1×10^-14 فإن كلًا منهما = 1×10^-7 M"
+          ],
+          "summary": "كل أيون بتركيز 1×10^-7 M"
+        },
+        "explanation": "في الماء النقي [H3O+] = [OH-] = 1×10^-7 M لأن حاصل ضربهما يساوي Kw."
+      },
+      {
+        "id": "U04-L02-Q004",
+        "number": 4,
+        "question": "الرقم الهيدروجيني للمحلول المتعادل عند 25°C يساوي:",
+        "options": {
+          "A": "0",
+          "B": "14",
+          "C": "1",
+          "D": "7"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "7",
+        "difficulty": "easy",
+        "source": {
+          "page": 138,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "pH = -log[H3O+] = -log(1×10^-7) = 7",
+          "steps": [
+            "في المحلول المتعادل [H3O+] = 1×10^-7 M",
+            "pH = -log(1×10^-7) = 7"
+          ],
+          "summary": "pH للمحلول المتعادل = 7"
+        },
+        "explanation": "الرقم الهيدروجيني للمحلول المتعادل عند 25°C يساوي 7."
+      },
+      {
+        "id": "U04-L02-Q005",
+        "number": 5,
+        "question": "المحلول الحمضي هو المحلول الذي يكون فيه تركيز أيونات H3O+:",
+        "options": {
+          "A": "أكبر من 1×10^-7 M",
+          "B": "أقل من 1×10^-7 M",
+          "C": "مساويًا لـ1×10^-7 M",
+          "D": "صفرًا"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أكبر من 1×10^-7 M",
+        "difficulty": "easy",
+        "source": {
+          "page": 132,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "[H3O+] > 1×10^-7 M",
+          "steps": [
+            "المحلول الحمضي تركيز H3O+ فيه أكبر من تركيزه في الماء النقي",
+            "أي أكبر من 1×10^-7 M"
+          ],
+          "summary": "الحمضي: [H3O+] أكبر من 1×10^-7"
+        },
+        "explanation": "المحلول الحمضي هو الذي يكون فيه تركيز أيونات H3O+ أكبر من 1×10^-7 M."
+      },
+      {
+        "id": "U04-L02-Q006",
+        "number": 6,
+        "question": "العلاقة الرياضية للرقم الهيدروجيني pH هي:",
+        "options": {
+          "A": "pH = -log[OH-]",
+          "B": "pH = -log[H3O+]",
+          "C": "pH = log[H3O+]",
+          "D": "pH = 14 + pOH"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "pH = -log[H3O+]",
+        "difficulty": "easy",
+        "source": {
+          "page": 139,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "pH = -log[H3O+]",
+          "steps": [
+            "الرقم الهيدروجيني هو اللوغاريتم السالب لتركيز أيون الهيدرونيوم",
+            "pH = -log[H3O+]"
+          ],
+          "summary": "pH = -log[H3O+]"
+        },
+        "explanation": "الرقم الهيدروجيني pH هو اللوغاريتم السالب لتركيز أيونات H3O+ للأساس 10."
+      },
+      {
+        "id": "U04-L02-Q007",
+        "number": 7,
+        "question": "يحسب الرقم الهيدروكسيلي pOH من العلاقة:",
+        "options": {
+          "A": "pOH = -log[H3O+]",
+          "B": "pOH = log[OH-]",
+          "C": "pOH = -log[OH-]",
+          "D": "pOH = log[H3O+]"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "pOH = -log[OH-]",
+        "difficulty": "easy",
+        "source": {
+          "page": 141,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "pOH = -log[OH-]",
+          "steps": [
+            "الرقم الهيدروكسيلي هو اللوغاريتم السالب لتركيز أيون الهيدروكسيد",
+            "pOH = -log[OH-]"
+          ],
+          "summary": "pOH = -log[OH-]"
+        },
+        "explanation": "الرقم الهيدروكسيلي pOH هو اللوغاريتم السالب لتركيز أيونات OH- للأساس 10."
+      },
+      {
+        "id": "U04-L02-Q008",
+        "number": 8,
+        "question": "قيمة pOH للمحلول المتعادل عند 25°C تساوي:",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "14",
+          "D": "7"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "7",
+        "difficulty": "easy",
+        "source": {
+          "page": 143,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "pH + pOH = 14",
+          "steps": [
+            "للمحلول المتعادل pH = 7",
+            "وبما أن pH + pOH = 14 فإن pOH = 7"
+          ],
+          "summary": "pOH للمتعادل = 7"
+        },
+        "explanation": "بما أن pH + pOH = 14 وللمحلول المتعادل pH = 7، فإن pOH = 7."
+      },
+      {
+        "id": "U04-L02-Q009",
+        "number": 9,
+        "question": "العلاقة بين الرقم الهيدروجيني والرقم الهيدروكسيلي في أي محلول مائي:",
+        "options": {
+          "A": "pH + pOH = 14",
+          "B": "pH - pOH = 14",
+          "C": "pH × pOH = 14",
+          "D": "pH = pOH دائمًا"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "pH + pOH = 14",
+        "difficulty": "easy",
+        "source": {
+          "page": 142,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "pH + pOH = 14",
+          "steps": [
+            "بأخذ لوغاريتم Kw = 1×10^-14",
+            "نجد أن pH + pOH = 14"
+          ],
+          "summary": "pH + pOH = 14"
+        },
+        "explanation": "حاصل ضرب تركيز الأيونين يساوي Kw، ومنه نحصل على العلاقة pH + pOH = 14."
+      },
+      {
+        "id": "U04-L02-Q010",
+        "number": 10,
+        "question": "من أشهر الحموض القوية:",
+        "options": {
+          "A": "CH3COOH",
+          "B": "HNO3",
+          "C": "H2CO3",
+          "D": "H3PO4"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "HNO3",
+        "difficulty": "easy",
+        "source": {
+          "page": 134,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "N/A",
+          "steps": [
+            "أشهر الحموض القوية: HClO4 وHI وHBr وHCl وHNO3",
+            "حمض النيتريك HNO3 من هذه الحموض"
+          ],
+          "summary": "HNO3 حمض قوي"
+        },
+        "explanation": "حمض النيتريك HNO3 من أشهر الحموض القوية التي تتأين كليًا في الماء."
+      },
+      {
+        "id": "U04-L02-Q011",
+        "number": 11,
+        "question": "من أشهر القواعد القوية:",
+        "options": {
+          "A": "NH3",
+          "B": "Mg(OH)2",
+          "C": "NaOH",
+          "D": "CH3NH2"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "NaOH",
+        "difficulty": "easy",
+        "source": {
+          "page": 136,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "N/A",
+          "steps": [
+            "أشهر القواعد القوية: KOH وLiOH وNaOH",
+            "هيدروكسيد الصوديوم NaOH منها"
+          ],
+          "summary": "NaOH قاعدة قوية"
+        },
+        "explanation": "هيدروكسيد الصوديوم NaOH من أشهر القواعد القوية التي تتأين كليًا في الماء."
+      },
+      {
+        "id": "U04-L02-Q012",
+        "number": 12,
+        "question": "في محلول حمض قوي يتأين كليًا يكون تركيز H3O+:",
+        "options": {
+          "A": "نصف تركيز الحمض",
+          "B": "ضعف تركيز الحمض",
+          "C": "أقل من تركيز الحمض",
+          "D": "مساويًا لتركيز الحمض"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "مساويًا لتركيز الحمض",
+        "difficulty": "easy",
+        "source": {
+          "page": 134,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "[H3O+] = [Acid]",
+          "steps": [
+            "الحمض القوي يتأين كليًا في الماء",
+            "التركيز الناتج من تأينه الذاتي للماء صغير ويُهمل",
+            "إذن [H3O+] = تركيز الحمض"
+          ],
+          "summary": "[H3O+] = [Acid]"
+        },
+        "explanation": "في محلول الحمض القوي [H3O+] = [Acid] لأن الحمض هو المصدر الرئيس لأيونات الهيدرونيوم."
+      },
+      {
+        "id": "U04-L02-Q013",
+        "number": 13,
+        "question": "في محلول قاعدة قوية تتأين كليًا يكون تركيز OH-:",
+        "options": {
+          "A": "أقل من تركيز القاعدة",
+          "B": "نصف تركيز القاعدة",
+          "C": "ضعف تركيز القاعدة",
+          "D": "مساويًا لتركيز القاعدة"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "مساويًا لتركيز القاعدة",
+        "difficulty": "easy",
+        "source": {
+          "page": 136,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "[OH-] = [Base]",
+          "steps": [
+            "القاعدة القوية تتأين كليًا في الماء",
+            "التركيز الناتج من التأين الذاتي للماء صغير ويُهمل",
+            "إذن [OH-] = تركيز القاعدة"
+          ],
+          "summary": "[OH-] = [Base]"
+        },
+        "explanation": "في محلول القاعدة القوية [OH-] = [Base] لأن القاعدة هي المصدر الرئيس لأيونات الهيدروكسيد."
+      },
+      {
+        "id": "U04-L02-Q014",
+        "number": 14,
+        "question": "عند تحضير محلول حمضي في الماء فإن تركيز أيونات OH- في المحلول:",
+        "options": {
+          "A": "يزداد",
+          "B": "يقل",
+          "C": "لا يتغير",
+          "D": "يتضاعف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يقل",
+        "difficulty": "easy",
+        "source": {
+          "page": 134,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "N/A",
+          "steps": [
+            "إضافة حمض قوي تزيد تركيز H3O+",
+            "وفق مبدأ لوتشاتلييه يُزاح اتزان الماء نحو اليسار",
+            "فيقل تركيز OH- ويبقى Kw ثابتًا"
+          ],
+          "summary": "إضافة حمض يقلل OH-"
+        },
+        "explanation": "عند تحضير محلول حمضي يزداد H3O+ فيُزاح اتزان الماء نحو اليسار ويقل تركيز OH-."
+      },
+      {
+        "id": "U04-L02-Q015",
+        "number": 15,
+        "question": "الكاشف هو مادة كيميائية:",
+        "options": {
+          "A": "يتغير لونها بثبات درجة الحرارة",
+          "B": "تذوب في الماء فقط",
+          "C": "يتغير لونها حسب الرقم الهيدروجيني للوسط",
+          "D": "تزيد من تركيز الأيونات"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "يتغير لونها حسب الرقم الهيدروجيني للوسط",
+        "difficulty": "easy",
+        "source": {
+          "page": 144,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "N/A",
+          "steps": [
+            "الكواشف مواد كيميائية تتكون من حموض أو قواعد عضوية ضعيفة",
+            "يتغير لونها في مدى معين من الرقم الهيدروجيني"
+          ],
+          "summary": "الكاشف يتغير لونه حسب pH"
+        },
+        "explanation": "الكاشف مادة كيميائية يتغير لونها حسب الرقم الهيدروجيني للوسط الذي توجد فيه."
+      },
+      {
+        "id": "U04-L02-Q016",
+        "number": 16,
+        "question": "في محلول تركيز أيونات H3O+ فيه يساوي 1×10^-9 M فإن تركيز أيونات OH- يساوي (Kw = 1×10^-14):",
+        "options": {
+          "A": "1×10^-5 M",
+          "B": "1×10^-9 M",
+          "C": "1×10^-7 M",
+          "D": "1×10^-14 M"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1×10^-5 M",
+        "difficulty": "medium",
+        "source": {
+          "page": 133,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "[OH-] = Kw / [H3O+]",
+          "steps": [
+            "[OH-] = 1×10^-14 / 1×10^-9",
+            "[OH-] = 1×10^-5 M"
+          ],
+          "summary": "[OH-] = 1×10^-5 M"
+        },
+        "explanation": "من العلاقة Kw = [H3O+][OH-] نجد أن [OH-] = 1×10^-14 / 1×10^-9 = 1×10^-5 M."
+      },
+      {
+        "id": "U04-L02-Q017",
+        "number": 17,
+        "question": "في محلول يحتوي أيونات OH- بتركيز 1×10^-3 M فإن تركيز أيونات H3O+ يساوي (Kw = 1×10^-14):",
+        "options": {
+          "A": "1×10^-3 M",
+          "B": "1×10^-11 M",
+          "C": "1×10^-14 M",
+          "D": "1×10^-7 M"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1×10^-11 M",
+        "difficulty": "medium",
+        "source": {
+          "page": 133,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "[H3O+] = Kw / [OH-]",
+          "steps": [
+            "[H3O+] = 1×10^-14 / 1×10^-3",
+            "[H3O+] = 1×10^-11 M"
+          ],
+          "summary": "[H3O+] = 1×10^-11 M"
+        },
+        "explanation": "من العلاقة Kw = [H3O+][OH-] نجد أن [H3O+] = 1×10^-14 / 1×10^-3 = 1×10^-11 M."
+      },
+      {
+        "id": "U04-L02-Q018",
+        "number": 18,
+        "question": "في محلول حمض الهيدروبروميك HBr بتركيز 1×10^-3 M فإن تركيز أيونات OH- يساوي:",
+        "options": {
+          "A": "1×10^-3 M",
+          "B": "1×10^-7 M",
+          "C": "1×10^-11 M",
+          "D": "1×10^-14 M"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "1×10^-11 M",
+        "difficulty": "medium",
+        "source": {
+          "page": 135,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "[H3O+] = [HBr]",
+          "steps": [
+            "[H3O+] = 1×10^-3 M",
+            "[OH-] = 1×10^-14 / 1×10^-3",
+            "[OH-] = 1×10^-11 M"
+          ],
+          "summary": "[OH-] = 1×10^-11 M"
+        },
+        "explanation": "بما أن [H3O+] = [HBr] = 1×10^-3 M، فإن [OH-] = 1×10^-14 / 1×10^-3 = 1×10^-11 M."
+      },
+      {
+        "id": "U04-L02-Q019",
+        "number": 19,
+        "question": "محلول حُضّر بإذابة 0.02mol من حمض البيركلوريك HClO4 في 400mL من الماء فإن تركيز H3O+ فيه يساوي:",
+        "options": {
+          "A": "0.02 M",
+          "B": "0.4 M",
+          "C": "0.08 M",
+          "D": "0.05 M"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "0.05 M",
+        "difficulty": "medium",
+        "source": {
+          "page": 135,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "M = n / V",
+          "steps": [
+            "M = 0.02 mol / 0.4 L = 5×10^-2 M",
+            "[H3O+] = [HClO4] = 5×10^-2 M"
+          ],
+          "summary": "[H3O+] = 0.05 M"
+        },
+        "explanation": "تركيز الحمض = 0.02/0.4 = 0.05M، وبما أنه حمض قوي فإن [H3O+] = 0.05M."
+      },
+      {
+        "id": "U04-L02-Q020",
+        "number": 20,
+        "question": "في محلول هيدروكسيد الليثيوم LiOH بتركيز 5×10^-4 M فإن تركيز أيونات H3O+ يساوي:",
+        "options": {
+          "A": "2×10^-11 M",
+          "B": "5×10^-4 M",
+          "C": "1×10^-14 M",
+          "D": "2×10^-10 M"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2×10^-11 M",
+        "difficulty": "medium",
+        "source": {
+          "page": 137,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "[OH-] = [LiOH]",
+          "steps": [
+            "[OH-] = 5×10^-4 M",
+            "[H3O+] = 1×10^-14 / 5×10^-4",
+            "[H3O+] = 2×10^-11 M"
+          ],
+          "summary": "[H3O+] = 2×10^-11 M"
+        },
+        "explanation": "بما أن [OH-] = [LiOH] = 5×10^-4 M، فإن [H3O+] = 1×10^-14 / 5×10^-4 = 2×10^-11 M."
+      },
+      {
+        "id": "U04-L02-Q021",
+        "number": 21,
+        "question": "الرقم الهيدروجيني لمحلول حمض النيتريك HNO3 بتركيز 0.25M يساوي (log2.5 = 0.4):",
+        "options": {
+          "A": "0.4",
+          "B": "0.6",
+          "C": "1.4",
+          "D": "0.25"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "0.6",
+        "difficulty": "medium",
+        "source": {
+          "page": 139,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "pH = -log[H3O+]",
+          "steps": [
+            "[H3O+] = [HNO3] = 0.25 = 2.5×10^-1 M",
+            "pH = -log(2.5×10^-1) = 1 - log 2.5 = 1 - 0.4 = 0.6"
+          ],
+          "summary": "pH = 0.6"
+        },
+        "explanation": "pH = -log(2.5×10^-1) = 1 - 0.4 = 0.6."
+      },
+      {
+        "id": "U04-L02-Q022",
+        "number": 22,
+        "question": "قيمة pH لمحلول حمض البيركلوريك HClO4 بتركيز 0.04M تساوي (log4 = 0.6):",
+        "options": {
+          "A": "0.6",
+          "B": "2",
+          "C": "1.4",
+          "D": "0.4"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "1.4",
+        "difficulty": "medium",
+        "source": {
+          "page": 139,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "pH = -log[H3O+]",
+          "steps": [
+            "[H3O+] = [HClO4] = 0.04 = 4×10^-2 M",
+            "pH = -log(4×10^-2) = 2 - log 4 = 2 - 0.6 = 1.4"
+          ],
+          "summary": "pH = 1.4"
+        },
+        "explanation": "pH = -log(4×10^-2) = 2 - 0.6 = 1.4."
+      },
+      {
+        "id": "U04-L02-Q023",
+        "number": 23,
+        "question": "عبوة خل مكتوب عليها الرقم الهيدروجيني pH = 4 فإن تركيز أيونات H3O+ فيها يساوي:",
+        "options": {
+          "A": "4 M",
+          "B": "1×10^-14 M",
+          "C": "1×10^-7 M",
+          "D": "1×10^-4 M"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "1×10^-4 M",
+        "difficulty": "medium",
+        "source": {
+          "page": 140,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "[H3O+] = 10^-pH",
+          "steps": [
+            "[H3O+] = 10^-4",
+            "[H3O+] = 1×10^-4 M"
+          ],
+          "summary": "[H3O+] = 1×10^-4 M"
+        },
+        "explanation": "باستخدام العلاقة [H3O+] = 10^-pH = 10^-4 = 1×10^-4 M."
+      },
+      {
+        "id": "U04-L02-Q024",
+        "number": 24,
+        "question": "قيمة pH لمحلول هيدروكسيد الصوديوم NaOH بتركيز 0.02M تساوي (log5 = 0.7):",
+        "options": {
+          "A": "12.3",
+          "B": "13",
+          "C": "12.7",
+          "D": "1.7"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "12.3",
+        "difficulty": "medium",
+        "source": {
+          "page": 140,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "pH = -log[H3O+]",
+          "steps": [
+            "[OH-] = [NaOH] = 2×10^-2 M",
+            "[H3O+] = 1×10^-14 / 2×10^-2 = 5×10^-13 M",
+            "pH = -log(5×10^-13) = 13 - log 5 = 13 - 0.7 = 12.3"
+          ],
+          "summary": "pH = 12.3"
+        },
+        "explanation": "pH = 13 - log 5 = 13 - 0.7 = 12.3."
+      },
+      {
+        "id": "U04-L02-Q025",
+        "number": 25,
+        "question": "الرقم الهيدروكسيلي pOH لمحلول هيدروكسيد البوتاسيوم KOH بتركيز 0.01M يساوي:",
+        "options": {
+          "A": "1",
+          "B": "2",
+          "C": "12",
+          "D": "14"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "2",
+        "difficulty": "medium",
+        "source": {
+          "page": 141,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "pOH = -log[OH-]",
+          "steps": [
+            "[OH-] = [KOH] = 1×10^-2 M",
+            "pOH = -log(1×10^-2) = 2"
+          ],
+          "summary": "pOH = 2"
+        },
+        "explanation": "pOH = -log(1×10^-2) = 2."
+      },
+      {
+        "id": "U04-L02-Q026",
+        "number": 26,
+        "question": "عينة من حليب المغنيسيا رقمها الهيدروكسيلي pOH = 4 فإن تركيز أيونات OH- فيها يساوي:",
+        "options": {
+          "A": "1×10^-14 M",
+          "B": "1×10^-7 M",
+          "C": "1×10^-4 M",
+          "D": "4 M"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "1×10^-4 M",
+        "difficulty": "medium",
+        "source": {
+          "page": 142,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "[OH-] = 10^-pOH",
+          "steps": [
+            "[OH-] = 10^-4",
+            "[OH-] = 1×10^-4 M"
+          ],
+          "summary": "[OH-] = 1×10^-4 M"
+        },
+        "explanation": "باستخدام العلاقة [OH-] = 10^-pOH = 10^-4 = 1×10^-4 M."
+      },
+      {
+        "id": "U04-L02-Q027",
+        "number": 27,
+        "question": "لمحلول حمض الهيدروكلوريك HCl بتركيز 1×10^-3 M يكون الرقم الهيدروكسيلي pOH مساويًا:",
+        "options": {
+          "A": "3",
+          "B": "14",
+          "C": "10",
+          "D": "11"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "11",
+        "difficulty": "medium",
+        "source": {
+          "page": 143,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "pH + pOH = 14",
+          "steps": [
+            "pH = -log(1×10^-3) = 3",
+            "pOH = 14 - 3 = 11"
+          ],
+          "summary": "pOH = 11"
+        },
+        "explanation": "بما أن pH = 3 فإن pOH = 14 - 3 = 11."
+      },
+      {
+        "id": "U04-L02-Q028",
+        "number": 28,
+        "question": "المحلول الذي تكون قيمة pH فيه أقل من 7 عند 25°C يُصنف:",
+        "options": {
+          "A": "حمضيًا",
+          "B": "قاعديًا",
+          "C": "متعادلًا",
+          "D": "مالحيًا"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "حمضيًا",
+        "difficulty": "medium",
+        "source": {
+          "page": 138,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "pH < 7",
+          "steps": [
+            "المحلول الحمضي pH أقل من 7",
+            "المتعادل pH = 7 والقاعدي pH أكبر من 7"
+          ],
+          "summary": "pH < 7 محلول حمضي"
+        },
+        "explanation": "المحلول الحمضي عند 25°C هو الذي تكون قيمة pH فيه أقل من 7."
+      },
+      {
+        "id": "U04-L02-Q029",
+        "number": 29,
+        "question": "المحلول القاعدي هو الذي يكون فيه تركيز أيونات H3O+:",
+        "options": {
+          "A": "أكبر من 1×10^-7 M",
+          "B": "أقل من 1×10^-7 M",
+          "C": "مساويًا لـ1×10^-7 M",
+          "D": "مساويًا لصفر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أقل من 1×10^-7 M",
+        "difficulty": "medium",
+        "source": {
+          "page": 132,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "[H3O+] < 1×10^-7 M",
+          "steps": [
+            "المحلول القاعدي تركيز H3O+ فيه أقل من الماء النقي",
+            "أي أقل من 1×10^-7 M"
+          ],
+          "summary": "القاعدي: [H3O+] أقل من 1×10^-7"
+        },
+        "explanation": "المحلول القاعدي هو الذي يكون فيه تركيز H3O+ أقل من 1×10^-7 M."
+      },
+      {
+        "id": "U04-L02-Q030",
+        "number": 30,
+        "question": "لون كاشف الميثيل البرتقالي في محلول قاعدي (رقمه الهيدروجيني أكبر من 4):",
+        "options": {
+          "A": "أحمر",
+          "B": "أزرق",
+          "C": "أصفر",
+          "D": "زهري"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "أصفر",
+        "difficulty": "medium",
+        "source": {
+          "page": 144,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "N/A",
+          "steps": [
+            "مدى تغير لون الميثيل البرتقالي بين 2.9 - 4.0",
+            "في المحلول القاعدي pH أكبر من 4 يكون لونه أصفر"
+          ],
+          "summary": "الميثيل البرتقالي في القاعدي أصفر"
+        },
+        "explanation": "الميثيل البرتقالي يتغير لونه من الأحمر إلى الأصفر في مدى 2.9-4.0، ففي الوسط القاعدي يكون أصفر."
+      },
+      {
+        "id": "U04-L02-Q031",
+        "number": 31,
+        "question": "لون كاشف الفينولفثالين في محلول قاعدي رقمه الهيدروجيني 11:",
+        "options": {
+          "A": "عديم اللون",
+          "B": "أحمر",
+          "C": "أزرق",
+          "D": "زهري"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "زهري",
+        "difficulty": "medium",
+        "source": {
+          "page": 144,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "N/A",
+          "steps": [
+            "مدى تغير لون الفينولفثالين بين 8.2 - 10.0",
+            "في المحلول قاعدي pH=11 يكون اللون زهريًا"
+          ],
+          "summary": "الفينولفثالين في القاعدي زهري"
+        },
+        "explanation": "الفينولفثالين يتغير من عديم اللون إلى زهري في مدى 8.2-10.0، ففي المحلول القاعدي يكون زهريًا."
+      },
+      {
+        "id": "U04-L02-Q032",
+        "number": 32,
+        "question": "عند إضافة الكاشف HIn إلى محلول حمضي فإن التفاعل يندفع وفق مبدأ لوتشاتلييه نحو:",
+        "options": {
+          "A": "اليسار فيزداد تركيز HIn ويظهر لونه الأول",
+          "B": "اليمين فيزداد تركيز In-",
+          "C": "لا يتحرك الاتزان",
+          "D": "اليمين ثم اليسار"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "اليسار فيزداد تركيز HIn ويظهر لونه الأول",
+        "difficulty": "medium",
+        "source": {
+          "page": 144,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "HIn(aq) + H2O(l) ⇌ In-(aq) + H3O+(aq)",
+          "steps": [
+            "المحلول الحمضي يحتوي تركيزًا عاليًا من H3O+",
+            "يزاح الاتزان نحو اليسار للتقليل من H3O+",
+            "يقل In- ويزداد HIn فيظهر لونه الأول"
+          ],
+          "summary": "في الحمضي يظهر لون HIn الأول"
+        },
+        "explanation": "عند إضافة الكاشف لمحلول حمضي يزداد H3O+ فيُزاح الاتزان نحو اليسار ويظهر لون HIn."
+      },
+      {
+        "id": "U04-L02-Q033",
+        "number": 33,
+        "question": "تركيز أيونات H3O+ في محلول رقمه الهيدروجيني pH يُحسب بالعلاقة:",
+        "options": {
+          "A": "[H3O+] = 10^pH",
+          "B": "[H3O+] = 10^-pH",
+          "C": "[H3O+] = -log(pH)",
+          "D": "[H3O+] = log(pH)"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "[H3O+] = 10^-pH",
+        "difficulty": "medium",
+        "source": {
+          "page": 140,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "[H3O+] = 10^-pH",
+          "steps": [
+            "بأخذ معكوس اللوغاريتم من pH = -log[H3O+]",
+            "نحصل على [H3O+] = 10^-pH"
+          ],
+          "summary": "[H3O+] = 10^-pH"
+        },
+        "explanation": "من العلاقة pH = -log[H3O+] نجد أن [H3O+] = 10^-pH."
+      },
+      {
+        "id": "U04-L02-Q034",
+        "number": 34,
+        "question": "محلول حمض الهيدروبروميك HBr حُضّر بإذابة 0.2mol منه في 2L من الماء فإن قيمة pH للمحلول تساوي:",
+        "options": {
+          "A": "1",
+          "B": "0.5",
+          "C": "3",
+          "D": "5"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1",
+        "difficulty": "hard",
+        "source": {
+          "page": 146,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "M = n / V",
+          "steps": [
+            "M = 0.2 / 2 = 0.1 M",
+            "[H3O+] = [HBr] = 0.1 M",
+            "pH = -log(1×10^-1) = 1"
+          ],
+          "summary": "pH = 1"
+        },
+        "explanation": "تركيز الحمض = 0.2/2 = 0.1M، وبما أنه حمض قوي فـ [H3O+] = 0.1M وpH = 1."
+      },
+      {
+        "id": "U04-L02-Q035",
+        "number": 35,
+        "question": "محلول حمض الهيدروكلوريك HCl قيمة pH له تساوي صفرًا فإن تركيز الحمض فيه يساوي:",
+        "options": {
+          "A": "0.1 M",
+          "B": "1 M",
+          "C": "0 M",
+          "D": "2 M"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1 M",
+        "difficulty": "hard",
+        "source": {
+          "page": 146,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "[H3O+] = 10^-pH",
+          "steps": [
+            "[H3O+] = 10^-0 = 1 M",
+            "بما أن HCl حمض قوي فإن تركيزه = [H3O+] = 1 M"
+          ],
+          "summary": "تركيز HCl = 1 M"
+        },
+        "explanation": "عندما pH = 0 يكون [H3O+] = 1 M، وبما أن HCl حمض قوي فتركيزه يساوي 1M."
+      },
+      {
+        "id": "U04-L02-Q036",
+        "number": 36,
+        "question": "كتلة هيدروكسيد الصوديوم NaOH اللازمة لإذابتها في 5L من الماء للحصول على محلول رقمه الهيدروجيني 11 (Mr NaOH = 40 g/mol) تساوي:",
+        "options": {
+          "A": "0.02 g",
+          "B": "0.1 g",
+          "C": "0.2 g",
+          "D": "0.01 g"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "0.2 g",
+        "difficulty": "hard",
+        "source": {
+          "page": 146,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "m = n × Mr",
+          "steps": [
+            "pH = 11 إذن pOH = 3",
+            "[OH-] = 1×10^-3 M = [NaOH]",
+            "n = 1×10^-3 × 5 = 0.005 mol",
+            "m = 0.005 × 40 = 0.2 g"
+          ],
+          "summary": "الكتلة = 0.2 g"
+        },
+        "explanation": "عند pH=11 يكون pOH=3 فـ [OH-]=1×10^-3 M، وعدد المولات = 5×10^-3 مول، والكتلة = 0.005×40 = 0.2g."
+      },
+      {
+        "id": "U04-L02-Q037",
+        "number": 37,
+        "question": "قيمة pOH تكون أعلى ما يمكن في محلول:",
+        "options": {
+          "A": "NaOH بتركيز 1M",
+          "B": "KOH بتركيز 0.4M",
+          "C": "HCl بتركيز 0.1M",
+          "D": "HBr بتركيز 0.2M"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "HBr بتركيز 0.2M",
+        "difficulty": "hard",
+        "source": {
+          "page": 146,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "pOH = 14 - pH",
+          "steps": [
+            "أعلى pOH يعني أقل [OH-] أي المحلول الأكثر حموضة",
+            "HBr بتركيز 0.2M: pH = -log(2×10^-1) = 0.7",
+            "pOH = 14 - 0.7 = 13.3 وهي الأعلى"
+          ],
+          "summary": "HBr 0.2M له أعلى pOH"
+        },
+        "explanation": "أعلى pOH في HBr بتركيز 0.2M لأن pOH = 13.3، وهو الأعلى بين المحاليل المعطاة."
+      },
+      {
+        "id": "U04-L02-Q038",
+        "number": 38,
+        "question": "أي العلاقات الآتية صحيحة للمحلول الحمضي عند 25°C؟",
+        "options": {
+          "A": "[H3O+] أكبر من 1×10^-7 M وpH أقل من 7",
+          "B": "[H3O+] أقل من 1×10^-7 M وpH أكبر من 7",
+          "C": "[H3O+] = 1×10^-7 M وpH = 7",
+          "D": "[H3O+] أكبر من 1×10^-7 M وpH أكبر من 7"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "[H3O+] أكبر من 1×10^-7 M وpH أقل من 7",
+        "difficulty": "hard",
+        "source": {
+          "page": 138,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "pH < 7 و[H3O+] > 1×10^-7",
+          "steps": [
+            "المحلول الحمضي تركيز H3O+ فيه أكبر من 1×10^-7",
+            "كلما زاد تركيز H3O+ قل الرقم الهيدروجيني",
+            "فيكون pH أقل من 7"
+          ],
+          "summary": "الحمضي: [H3O+] أكبر وpH أقل"
+        },
+        "explanation": "المحلول الحمضي له [H3O+] أكبر من 1×10^-7 M وpH أقل من 7."
+      },
+      {
+        "id": "U04-L02-Q039",
+        "number": 39,
+        "question": "وفق مبدأ لوتشاتلييه عند إضافة حمض قوي إلى الماء يُزاح موضع الاتزان في التأين الذاتي للماء نحو:",
+        "options": {
+          "A": "اليمين فيزداد تركيز OH-",
+          "B": "اليسار فيقل تركيز OH-",
+          "C": "لا يزاح الاتزان",
+          "D": "اليمين فيزداد H3O+ وOH- معًا"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اليسار فيقل تركيز OH-",
+        "difficulty": "hard",
+        "source": {
+          "page": 134,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "H2O + H2O ⇌ H3O+ + OH-",
+          "steps": [
+            "إضافة حمض تزيد تركيز H3O+",
+            "وفق لوتشاتلييه يُزاح الاتزان نحو اليسار",
+            "للتقليل من H3O+ فيقل تركيز OH- ويبقى Kw ثابتًا"
+          ],
+          "summary": "يزاح نحو اليسار فيقل OH-"
+        },
+        "explanation": "إضافة حمض قوي تزيد H3O+ فتُزاح اتزان الماء نحو اليسار، فيقل تركيز OH- ويبقى Kw ثابتًا."
+      },
+      {
+        "id": "U04-L02-Q040",
+        "number": 40,
+        "question": "يتغير لون الكاشف في مدى معين من الرقم الهيدروجيني يعتمد على:",
+        "options": {
+          "A": "حجم المحلول",
+          "B": "كتلة الكاشف",
+          "C": "النسبة بين تركيز ما يتأين منه إلى تركيزه الأصلي",
+          "D": "درجة حرارة الغرفة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "النسبة بين تركيز ما يتأين منه إلى تركيزه الأصلي",
+        "difficulty": "hard",
+        "source": {
+          "page": 144,
+          "reference": "الكتاب المدرسي"
+        },
+        "solution": {
+          "formula": "N/A",
+          "steps": [
+            "الكاشف يتأين في المحلول وفق معادلة اتزان",
+            "تغير اللون يعتمد على النسبة بين ما تأين منه إلى تركيزه الأصلي",
+            "عند pH معين يظهر اللون الثاني"
+          ],
+          "summary": "تغير اللون حسب نسبة التأين"
+        },
+        "explanation": "يتغير لون الكاشف في مدى معين من الرقم الهيدروجيني يعتمد على النسبة بين تركيز ما يتأين منه إلى تركيزه الأصلي."
+      }
+    ]
+  }
+}

@@ -1,0 +1,1212 @@
+{
+  "lesson": {
+    "lesson_number": "2.review",
+    "lesson_name": "مراجعة الوحدة 2",
+    "unit_number": 2,
+    "unit_name": "الوحدة الثانية: خدم القرآن الكريم",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "تم جمع القرآن الكريم في مصحف واحد لأول مرة في عهد الخليفة:",
+        "options": {
+          "A": "عمر بن الخطاب",
+          "B": "أبو بكر الصديق",
+          "C": "عثمان بن عفان",
+          "D": "علي بن أبي طالب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أبو بكر الصديق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أبو بكر الصديق"
+        },
+        "explanation": "أبو بكر الصديق",
+        "number": 1,
+        "id": "U02-L99-Q001"
+      },
+      {
+        "question": "الصحابي الذي كلفه أبو بكر الصديق بمهمة جمع القرآن الكريم هو:",
+        "options": {
+          "A": "زيد بن ثابت",
+          "B": "أُبي بن كعب",
+          "C": "عبد الله بن مسعود",
+          "D": "أبو موسى الأشعري"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "زيد بن ثابت",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "زيد بن ثابت"
+        },
+        "explanation": "زيد بن ثابت",
+        "number": 2,
+        "id": "U02-L99-Q002"
+      },
+      {
+        "question": "السبب الرئيس لنسخ المصحف وإرساله للأقاليم في عهد عثمان بن عفان هو:",
+        "options": {
+          "A": "موت الحفاظ",
+          "B": "اختلاف الناس في وجوه القراءة وخوف الفتنة",
+          "C": "ترجمته للغات أخرى",
+          "D": "تزيين المصاحف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اختلاف الناس في وجوه القراءة وخوف الفتنة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اختلاف الناس في وجوه القراءة وخوف الفتنة"
+        },
+        "explanation": "اختلاف الناس في وجوه القراءة وخوف الفتنة",
+        "number": 3,
+        "id": "U02-L99-Q003"
+      },
+      {
+        "question": "العالم الذي وضع 'نقط الإعجام' لتمييز الحروف المتشابهة (كالباء والتاء) هو:",
+        "options": {
+          "A": "أبو الأسود الدؤلي",
+          "B": "الخليل بن أحمد الفراهيدي",
+          "C": "نصر بن عاصم الليثي ويحيى بن يعمر",
+          "D": "ابن جرير الطبري"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "نصر بن عاصم الليثي ويحيى بن يعمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نصر بن عاصم الليثي ويحيى بن يعمر"
+        },
+        "explanation": "نصر بن عاصم الليثي ويحيى بن يعمر",
+        "number": 4,
+        "id": "U02-L99-Q004"
+      },
+      {
+        "question": "العالم الذي طور علامات الإعراب إلى شكلها الحالي (َ ُ ِ) هو:",
+        "options": {
+          "A": "أبو الأسود الدؤلي",
+          "B": "الخليل بن أحمد الفراهيدي",
+          "C": "سيبويه",
+          "D": "زيد بن ثابت"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الخليل بن أحمد الفراهيدي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الخليل بن أحمد الفراهيدي"
+        },
+        "explanation": "الخليل بن أحمد الفراهيدي",
+        "number": 5,
+        "id": "U02-L99-Q005"
+      },
+      {
+        "question": "يُعد كتاب (جامع البيان عن تأويل آي القرآن) من أشهر كتب التفسير، ومؤلفه هو:",
+        "options": {
+          "A": "ابن كثير",
+          "B": "القرطبي",
+          "C": "ابن جرير الطبري",
+          "D": "الجلالين"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "ابن جرير الطبري",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ابن جرير الطبري"
+        },
+        "explanation": "ابن جرير الطبري",
+        "number": 6,
+        "id": "U02-L99-Q006"
+      },
+      {
+        "question": "ما تعريف 'العزيمة' في الاصطلاح الشرعي؟",
+        "options": {
+          "A": "الأحكام التي شرعها الله لعذر طارئ",
+          "B": "الأخذ بالأحكام الأصلية التي شرعها الله لجميع المسلمين",
+          "C": "ترك العبادة عند السفر",
+          "D": "الاجتهاد الشخصي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأخذ بالأحكام الأصلية التي شرعها الله لجميع المسلمين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأخذ بالأحكام الأصلية التي شرعها الله لجميع المسلمين"
+        },
+        "explanation": "الأخذ بالأحكام الأصلية التي شرعها الله لجميع المسلمين",
+        "number": 7,
+        "id": "U02-L99-Q007"
+      },
+      {
+        "question": "ما المقصود بـ 'الرخصة' شرعاً؟",
+        "options": {
+          "A": "الأحكام الأصلية العامة",
+          "B": "أحكام شرعها الله لأعذار طارئة تيسيراً على المكلفين",
+          "C": "التشدد في الدين",
+          "D": "العبادات النافلة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أحكام شرعها الله لأعذار طارئة تيسيراً على المكلفين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أحكام شرعها الله لأعذار طارئة تيسيراً على المكلفين"
+        },
+        "explanation": "أحكام شرعها الله لأعذار طارئة تيسيراً على المكلفين",
+        "number": 8,
+        "id": "U02-L99-Q008"
+      },
+      {
+        "question": "أي من الآتية يعد مثالاً على 'الرخصة'؟",
+        "options": {
+          "A": "أداء الصلوات الخمس تامة",
+          "B": "قصر الصلاة الرباعية في السفر",
+          "C": "صيام رمضان للمقيم الصحيح",
+          "D": "غسل القدمين في الوضوء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "قصر الصلاة الرباعية في السفر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قصر الصلاة الرباعية في السفر"
+        },
+        "explanation": "قصر الصلاة الرباعية في السفر",
+        "number": 9,
+        "id": "U02-L99-Q009"
+      },
+      {
+        "question": "القاعدة الفقهية المستنبطة من درس الرخصة والعزيمة هي:",
+        "options": {
+          "A": "الأمور بمقاصدها",
+          "B": "المشقة تجلب التيسير",
+          "C": "اليقين لا يزول بالشك",
+          "D": "العادة محكمة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المشقة تجلب التيسير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المشقة تجلب التيسير"
+        },
+        "explanation": "المشقة تجلب التيسير",
+        "number": 10,
+        "id": "U02-L99-Q010"
+      },
+      {
+        "question": "الصحابي الذي أخذ بالرخصة ونطق بكلمة الكفر بلسانه وقلبه مطمئن بالإيمان هو:",
+        "options": {
+          "A": "بلال بن رباح",
+          "B": "عمار بن ياسر",
+          "C": "ياسر والد عمار",
+          "D": "سمية أم عمار"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عمار بن ياسر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عمار بن ياسر"
+        },
+        "explanation": "عمار بن ياسر",
+        "number": 11,
+        "id": "U02-L99-Q011"
+      },
+      {
+        "question": "رفضت السيدة سمية أم عمار رضي الله عنها النطق بالكفر تحت التعذيب، وهذا يُعد أخذاً بـ:",
+        "options": {
+          "A": "الرخصة",
+          "B": "العزيمة",
+          "C": "المباح",
+          "D": "المكروه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العزيمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العزيمة"
+        },
+        "explanation": "العزيمة",
+        "number": 12,
+        "id": "U02-L99-Q012"
+      },
+      {
+        "question": "ما هو سبب وقوع معركة مؤتة (8 هـ)؟",
+        "options": {
+          "A": "الرغبة في الغنائم",
+          "B": "قتل رسول النبي الحارث بن عمير الأزدي",
+          "C": "احتلال بلاد الشام",
+          "D": "نقض صلح الحديبية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "قتل رسول النبي الحارث بن عمير الأزدي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قتل رسول النبي الحارث بن عمير الأزدي"
+        },
+        "explanation": "قتل رسول النبي الحارث بن عمير الأزدي",
+        "number": 13,
+        "id": "U02-L99-Q013"
+      },
+      {
+        "question": "من هو أمير الروم الذي قتل الحارث بن عمير الأزدي في أرض الطفيلة؟",
+        "options": {
+          "A": "هرقل",
+          "B": "شرحبيل بن عمرو الغساني",
+          "C": "أبو سفيان",
+          "D": "كسرى"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "شرحبيل بن عمرو الغساني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "شرحبيل بن عمرو الغساني"
+        },
+        "explanation": "شرحبيل بن عمرو الغساني",
+        "number": 14,
+        "id": "U02-L99-Q014"
+      },
+      {
+        "question": "الترتيب الصحيح للقادة الثلاثة الذين عينهم النبي لجيش مؤتة هو:",
+        "options": {
+          "A": "جعفر، زيد، عبد الله بن رواحة",
+          "B": "زيد بن حارثة، جعفر بن أبي طالب، عبد الله بن رواحة",
+          "C": "خالد بن الوليد، زيد، جعفر",
+          "D": "عبد الله بن رواحة، زيد، جعفر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "زيد بن حارثة، جعفر بن أبي طالب، عبد الله بن رواحة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "زيد بن حارثة، جعفر بن أبي طالب، عبد الله بن رواحة"
+        },
+        "explanation": "زيد بن حارثة، جعفر بن أبي طالب، عبد الله بن رواحة",
+        "number": 15,
+        "id": "U02-L99-Q015"
+      },
+      {
+        "question": "لقب النبي صلى الله عليه وسلم الصحابي خالد بن الوليد بـ:",
+        "options": {
+          "A": "أمين الأمة",
+          "B": "سيف الله المسلول",
+          "C": "سيد القراء",
+          "D": "أسد الله"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "سيف الله المسلول",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "سيف الله المسلول"
+        },
+        "explanation": "سيف الله المسلول",
+        "number": 16,
+        "id": "U02-L99-Q016"
+      },
+      {
+        "question": "نجح خالد بن الوليد في إنقاذ جيش المسلمين في مؤتة من خلال:",
+        "options": {
+          "A": "الهجوم الشامل",
+          "B": "طلب المدد",
+          "C": "الانسحاب التدريجي بخدعة ذكية",
+          "D": "الاستسلام"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الانسحاب التدريجي بخدعة ذكية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الانسحاب التدريجي بخدعة ذكية"
+        },
+        "explanation": "الانسحاب التدريجي بخدعة ذكية",
+        "number": 17,
+        "id": "U02-L99-Q017"
+      },
+      {
+        "question": "تقع مقامات قادة معركة مؤتة (زيد وجعفر وعبد الله) في بلدة المزار بمحافظة:",
+        "options": {
+          "A": "معان",
+          "B": "الطفيلة",
+          "C": "الكرك",
+          "D": "عمان"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الكرك",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الكرك"
+        },
+        "explanation": "الكرك",
+        "number": 18,
+        "id": "U02-L99-Q018"
+      },
+      {
+        "question": "تنقسم النساء المحرمات في الإسلام إلى نوعين:",
+        "options": {
+          "A": "محرمات بالنسب والرضاع",
+          "B": "محرمات مؤبدة ومحرمات مؤقتة",
+          "C": "محرمات مكية ومدنية",
+          "D": "محرمات بالسن والدين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "محرمات مؤبدة ومحرمات مؤقتة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "محرمات مؤبدة ومحرمات مؤقتة"
+        },
+        "explanation": "محرمات مؤبدة ومحرمات مؤقتة",
+        "number": 19,
+        "id": "U02-L99-Q019"
+      },
+      {
+        "question": "أي من الآتية تعد من المحرمات بسبب 'القرابة' (النسب)؟",
+        "options": {
+          "A": "زوجة الأب",
+          "B": "الأم والجدات",
+          "C": "أخت الزوجة",
+          "D": "زوجة الابن"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأم والجدات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأم والجدات"
+        },
+        "explanation": "الأم والجدات",
+        "number": 20,
+        "id": "U02-L99-Q020"
+      },
+      {
+        "question": "تعتبر 'زوجة الأب وزوجة الجد' محرمات مؤبداً بسبب:",
+        "options": {
+          "A": "القرابة",
+          "B": "المصاهرة",
+          "C": "الرضاع",
+          "D": "الدين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المصاهرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المصاهرة"
+        },
+        "explanation": "المصاهرة",
+        "number": 21,
+        "id": "U02-L99-Q021"
+      },
+      {
+        "question": "بمجرد العقد على امرأة، تحرم 'أمها وجداتها' على الزوج تحريماً:",
+        "options": {
+          "A": "مؤقتاً",
+          "B": "مؤبداً بمجرد العقد",
+          "C": "بشرط الدخول بالزوجة",
+          "D": "بسبب الرضاع"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مؤبداً بمجرد العقد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مؤبداً بمجرد العقد"
+        },
+        "explanation": "مؤبداً بمجرد العقد",
+        "number": 22,
+        "id": "U02-L99-Q022"
+      },
+      {
+        "question": "تحرم 'بنت الزوجة' (الربيبة) على زوج أمها بشرط:",
+        "options": {
+          "A": "العقد على أمها فقط",
+          "B": "الدخول بأمها بعد العقد",
+          "C": "موافقة الأب",
+          "D": "الرضاعة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الدخول بأمها after العقد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدخول بأمها after العقد"
+        },
+        "explanation": "الدخول بأمها after العقد",
+        "number": 23,
+        "id": "U02-L99-Q023"
+      },
+      {
+        "question": "الجمع بين الأختين في وقت واحد يعد تحريماً:",
+        "options": {
+          "A": "مؤبداً",
+          "B": "مؤقتاً",
+          "C": "رضاعياً",
+          "D": "مباحاً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مؤقتاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مؤقتاً"
+        },
+        "explanation": "مؤقتاً",
+        "number": 24,
+        "id": "U02-L99-Q024"
+      },
+      {
+        "question": "يحرم على المسلم الزواج من 'غير الكتابية' (كالملحدة)، وهذا التحريم:",
+        "options": {
+          "A": "مؤبد",
+          "B": "مؤقت حتى تسلم",
+          "C": "بسبب المصاهرة",
+          "D": "بسبب الرضاع"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مؤقت حتى تسلم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مؤقت حتى تسلم"
+        },
+        "explanation": "مؤقت حتى تسلم",
+        "number": 25,
+        "id": "U02-L99-Q025"
+      },
+      {
+        "question": "يُقصد بالتعايش الإنساني في الإسلام:",
+        "options": {
+          "A": "الانعزال",
+          "B": "احترام الآخرين والتعامل معهم مع بقاء كل طرف على دينه",
+          "C": "إكراه الناس على الإسلام",
+          "D": "تجاهل الحقوق"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "احترام الآخرين والتعامل معهم مع بقاء كل طرف على دينه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "احترام الآخرين والتعامل معهم مع بقاء كل طرف على دينه"
+        },
+        "explanation": "احترام الآخرين والتعامل معهم مع بقاء كل طرف على دينه",
+        "number": 26,
+        "id": "U02-L99-Q026"
+      },
+      {
+        "question": "من مبادئ التعايش 'وحدة الأصل البشري'، ومعناها أن الناس جميعاً:",
+        "options": {
+          "A": "من لغات مختلفة",
+          "B": "بنو آدم، وآدم خلق من تراب",
+          "C": "متساوون في الثروة",
+          "D": "من قبيلة واحدة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بنو آدم، وآدم خلق من تراب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بنو آدم، وآدم خلق من تراب"
+        },
+        "explanation": "بنو آدم، وآدم خلق من تراب",
+        "number": 27,
+        "id": "U02-L99-Q027"
+      },
+      {
+        "question": "استقبل النبي صلى الله عليه وسلم وفد نصارى نجران والتقى بهم في:",
+        "options": {
+          "A": "بيته",
+          "B": "السوق",
+          "C": "المسجد النبوي",
+          "D": "دار الأرقم"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "المسجد النبوي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المسجد النبوي"
+        },
+        "explanation": "المسجد النبوي",
+        "number": 28,
+        "id": "U02-L99-Q028"
+      },
+      {
+        "question": "الوثيقة التي أعطاها عمر بن الخطاب لأهل القدس لتأمينهم على كنائسهم وأموالهم تسمى:",
+        "options": {
+          "A": "وثيقة المدينة",
+          "B": "العهدة العمرية",
+          "C": "رسالة عمان",
+          "D": "صلح الحديبية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العهدة العمرية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العهدة العمرية"
+        },
+        "explanation": "العهدة العمرية",
+        "number": 29,
+        "id": "U02-L99-Q029"
+      },
+      {
+        "question": "مبادرة 'الأسبوع العالمي للوئام بين الأديان' أطلقها جلالة الملك:",
+        "options": {
+          "A": "الحسين بن طلال",
+          "B": "عبد الله الثاني",
+          "C": "طلال بن عبد الله",
+          "D": "عبد الله الأول"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عبد الله الثاني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد الله الثاني"
+        },
+        "explanation": "عبد الله الثاني",
+        "number": 30,
+        "id": "U02-L99-Q030"
+      },
+      {
+        "question": "من هو الصحابي الذي سأل النبي عن أحق الناس بحسن الصحبة فقال له 'أمك' ثلاث مرات؟",
+        "options": {
+          "A": "أبو هريرة",
+          "B": "رجل جاء يسأل",
+          "C": "عمر بن الخطاب",
+          "D": "علي بن أبي طالب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "رجل جاء يسأل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رجل جاء يسأل"
+        },
+        "explanation": "رجل جاء يسأل",
+        "number": 31,
+        "id": "U02-L99-Q031"
+      },
+      {
+        "question": "من الحقوق الاجتماعية للمرأة 'حق إبداء الرأي'، ومن أمثلته موقف:",
+        "options": {
+          "A": "أم سلمة في الحديبية",
+          "B": "رفيدة الأسلمية في التمريض",
+          "C": "هند بنت عتبة في مؤتة",
+          "D": "أسماء في الهجرة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أم سلمة في الحديبية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أم سلمة في الحديبية"
+        },
+        "explanation": "أم سلمة في الحديبية",
+        "number": 32,
+        "id": "U02-L99-Q032"
+      },
+      {
+        "question": "اعترضت امرأة على عمر بن الخطاب في المسجد عندما أراد تحديد المهور، فكان رد عمر:",
+        "options": {
+          "A": "أخطأتِ",
+          "B": "كل الناس أفقه من عمر",
+          "C": "اصمتي",
+          "D": "لا رأي لكِ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كل الناس أفقه من عمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل الناس أفقه من عمر"
+        },
+        "explanation": "كل الناس أفقه من عمر",
+        "number": 33,
+        "id": "U02-L99-Q033"
+      },
+      {
+        "question": "أول ممرضة في الإسلام هي الصحابية:",
+        "options": {
+          "A": "نسيبة المازنية",
+          "B": "رفيدة الأسلمية",
+          "C": "فاطمة الزهراء",
+          "D": "خديجة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "رفيدة الأسلمية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رفيدة الأسلمية"
+        },
+        "explanation": "رفيدة الأسلمية",
+        "number": 34,
+        "id": "U02-L99-Q034"
+      },
+      {
+        "question": "حق القيام بشؤون الطفل ورعايته في حالة فرقة الوالدين يسمى:",
+        "options": {
+          "A": "الولاية",
+          "B": "الحضانة",
+          "C": "الوصاية",
+          "D": "الكفالة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحضانة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحضانة"
+        },
+        "explanation": "الحضانة",
+        "number": 35,
+        "id": "U02-L99-Q035"
+      },
+      {
+        "question": "في حال فرقة الوالدين، أولى الأشخاص بحضانة الطفل هي:",
+        "options": {
+          "A": "الأب",
+          "B": "الأم",
+          "C": "الجدة",
+          "D": "الخالة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأم"
+        },
+        "explanation": "الأم",
+        "number": 36,
+        "id": "U02-L99-Q036"
+      },
+      {
+        "question": "أي من الآتية يعتبر من 'الحقوق المالية' للمرأة وليس الاجتماعية؟",
+        "options": {
+          "A": "حق التعليم",
+          "B": "حق النفقة والميراث",
+          "C": "حق إبداء الرأي",
+          "D": "حق الحضانة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حق النفقة والميراث",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حق النفقة والميراث"
+        },
+        "explanation": "حق النفقة والميراث",
+        "number": 37,
+        "id": "U02-L99-Q037"
+      },
+      {
+        "question": "يدل قوله صلى الله عليه وسلم (الزم رجلها فثم الجنة) على عظم منزلة:",
+        "options": {
+          "A": "الأب",
+          "B": "الأم",
+          "C": "الخالة",
+          "D": "الزوجة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأم"
+        },
+        "explanation": "الأم",
+        "number": 38,
+        "id": "U02-L99-Q038"
+      },
+      {
+        "question": "ما حكم زواج المسلم من 'اليهودية أو النصرانية'؟",
+        "options": {
+          "A": "حرام مؤبد",
+          "B": "مباح (لأنهن من أهل الكتاب)",
+          "C": "حرام مؤقت",
+          "D": "مكروه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مباح (لأنهن من أهل الكتاب)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مباح (لأنهن من أهل الكتاب)"
+        },
+        "explanation": "مباح (لأنهن من أهل الكتاب)",
+        "number": 39,
+        "id": "U02-L99-Q039"
+      },
+      {
+        "question": "نهى النبي صلى الله عليه وسلم في معركة مؤتة عن قتل:",
+        "options": {
+          "A": "المحاربين",
+          "B": "الوليد (الطفل)",
+          "C": "الجواسيس",
+          "D": "قادة العدو"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الوليد (الطفل)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الوليد (الطفل)"
+        },
+        "explanation": "الوليد (الطفل)",
+        "number": 40,
+        "id": "U02-L99-Q040"
+      },
+      {
+        "question": "توفي النبي صلى الله عليه وسلم ودرعه مرهونة عند يهودي، وهذا دليل على التعايش:",
+        "options": {
+          "A": "الديني",
+          "B": "الاقتصادي",
+          "C": "السياسي",
+          "D": "الدولي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الاقتصادي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاقتصادي"
+        },
+        "explanation": "الاقتصادي",
+        "number": 41,
+        "id": "U02-L99-Q041"
+      },
+      {
+        "question": "من مظاهر تكريم المرأة بنتاً أن النبي جعل الإحسان لثلاث بنات حجاباً من:",
+        "options": {
+          "A": "الفقر",
+          "B": "النار",
+          "C": "الدين",
+          "D": "المرض"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "النار",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النار"
+        },
+        "explanation": "النار",
+        "number": 42,
+        "id": "U02-L99-Q042"
+      },
+      {
+        "question": "تحرم 'الأخت من الرضاع' تحريماً مؤبداً، لقوله صلى الله عليه وسلم:",
+        "options": {
+          "A": "(لا ضرر ولا ضرار)",
+          "B": "(يحرم من الرضاع ما يحرم من النسب)",
+          "C": "(الدين النصيحة)",
+          "D": "(الكلمة الطيبة صدقة)"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "(يحرم من الرضاع ما يحرم من النسب)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "(يحرم من الرضاع ما يحرم من النسب)"
+        },
+        "explanation": "(يحرم من الرضاع ما يحرم من النسب)",
+        "number": 43,
+        "id": "U02-L99-Q043"
+      },
+      {
+        "question": "يُعد 'المسح على الخفين' بدلاً من غسل القدمين في الوضوء مثالاً على:",
+        "options": {
+          "A": "العزيمة",
+          "B": "الرخصة",
+          "C": "البدعة",
+          "D": "الواجب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الرخصة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الرخصة"
+        },
+        "explanation": "الرخصة",
+        "number": 44,
+        "id": "U02-L99-Q044"
+      },
+      {
+        "question": "لقب 'ترجمان القرآن' أطلق على الصحابي:",
+        "options": {
+          "A": "زيد بن ثابت",
+          "B": "عبد الله بن عباس",
+          "C": "أُبي بن كعب",
+          "D": "عبد الله بن مسعود"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عبد الله بن عباس",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد الله بن عباس"
+        },
+        "explanation": "عبد الله بن عباس",
+        "number": 45,
+        "id": "U02-L99-Q045"
+      },
+      {
+        "question": "المقصود بـ 'البر' في التعامل مع غير المسلمين هو:",
+        "options": {
+          "A": "العداء",
+          "B": "الإحسان إليهم وفعل الجميل معهم",
+          "C": "تجاهلهم",
+          "D": "أخذ أموالهم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الإحسان إليهم وفعل الجميل معهم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإحسان إليهم وفعل الجميل معهم"
+        },
+        "explanation": "الإحسان إليهم وفعل الجميل معهم",
+        "number": 46,
+        "id": "U02-L99-Q046"
+      },
+      {
+        "question": "من شروط حضانة الأم لطفلها في القانون الأردني أن تكون:",
+        "options": {
+          "A": "غنية",
+          "B": "قادرة على تربيته وصيانته",
+          "C": "عاملة",
+          "D": "كبيرة في السن"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "قادرة على تربيته وصيانته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قادرة على تربيته وصيانته"
+        },
+        "explanation": "قادرة على تربيته وصيانته",
+        "number": 47,
+        "id": "U02-L99-Q047"
+      },
+      {
+        "question": "في معركة مؤتة، الصحابي الذي شجع المسلمين في 'معان' على القتال هو:",
+        "options": {
+          "A": "زيد بن حارثة",
+          "B": "عبد الله بن رواحة",
+          "C": "خالد بن الوليد",
+          "D": "جعفر بن أبي طالب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عبد الله بن رواحة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد الله بن رواحة"
+        },
+        "explanation": "عبد الله بن رواحة",
+        "number": 48,
+        "id": "U02-L99-Q048"
+      },
+      {
+        "question": "أي من الآتية 'ليست' محرماً مؤبداً؟",
+        "options": {
+          "A": "الأم",
+          "B": "الخالة",
+          "C": "بنت الأخت",
+          "D": "بنت العم"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "بنت العم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بنت العم"
+        },
+        "explanation": "بنت العم",
+        "number": 49,
+        "id": "U02-L99-Q049"
+      },
+      {
+        "question": "الهدف من نظام 'الحسبة' قديماً والمؤسسات الرقابية حديثاً في الأسواق هو:",
+        "options": {
+          "A": "زيادة الأسعار",
+          "B": "منع الغش واحتكار السلع وحماية الناس",
+          "C": "تقليل الواردات",
+          "D": "تشجيع السفر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "منع الغش واحتكار السلع وحماية الناس",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "منع الغش واحتكار السلع وحماية الناس"
+        },
+        "explanation": "منع الغش واحتكار السلع وحماية الناس",
+        "number": 50,
+        "id": "U02-L99-Q050"
+      }
+    ]
+  }
+}

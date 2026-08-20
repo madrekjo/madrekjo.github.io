@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "1.5",
+    "lesson_name": "الزواج: مشروعيته ومقدماته",
+    "unit_number": 1,
+    "unit_name": "الوحدة الأولى: واعتصموا بحبل الله جميعاً",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "يُعرف الزواج بأنه عقد بين رجل وامرأة:",
+        "options": {
+          "A": "تحل له شرعاً لتكوين أسرة",
+          "B": "من أقاربه فقط",
+          "C": "لفترة زمنية محددة",
+          "D": "دون حاجة لشهود"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "تحل له شرعاً لتكوين أسرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تحل له شرعاً لتكوين أسرة"
+        },
+        "explanation": "تحل له شرعاً لتكوين أسرة",
+        "number": 1,
+        "id": "U01-L05-Q001"
+      },
+      {
+        "question": "ما حكم الزواج في حق من يقدر على تكاليفه؟",
+        "options": {
+          "A": "واجب",
+          "B": "مندوب",
+          "C": "مباح",
+          "D": "مكروه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مندوب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مندوب"
+        },
+        "explanation": "مندوب",
+        "number": 2,
+        "id": "U01-L05-Q002"
+      },
+      {
+        "question": "من غايات الزواج الكبرى الحفاظ على النسل البشري لتحقيق غاية:",
+        "options": {
+          "A": "التجارة",
+          "B": "إعمار الأرض",
+          "C": "السفر",
+          "D": "القوة العسكرية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إعمار الأرض",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إعمار الأرض"
+        },
+        "explanation": "إعمار الأرض",
+        "number": 3,
+        "id": "U01-L05-Q003"
+      },
+      {
+        "question": "يساهم الزواج في حفظ الزوجين من الوقوع في:",
+        "options": {
+          "A": "الديون",
+          "B": "المحرمات والآثام",
+          "C": "المرض",
+          "D": "الاختلاف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المحرمات والآثام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المحرمات والآثام"
+        },
+        "explanation": "المحرمات والآثام",
+        "number": 4,
+        "id": "U01-L05-Q004"
+      },
+      {
+        "question": "حث النبي ﷺ الشباب على الزواج لمن استطاع (الباءة) لأن الزواج:",
+        "options": {
+          "A": "أغض للبصر وأحصن للفرج",
+          "B": "يزيد من الرزق المادي فقط",
+          "C": "وسيلة للسلطة",
+          "D": "يمنع السفر"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أغض للبصر وأحصن للفرج",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أغض للبصر وأحصن للفرج"
+        },
+        "explanation": "أغض للبصر وأحصن للفرج",
+        "number": 5,
+        "id": "U01-L05-Q005"
+      },
+      {
+        "question": "المقصود بلفظ (الباءة) في الحديث الشريف هو القدرة على:",
+        "options": {
+          "A": "القراءة والكتابة",
+          "B": "تكاليف الزواج وتبعاته",
+          "C": "السفر بعيداً",
+          "D": "الحديث العلني"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تكاليف الزواج وتبعاته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تكاليف الزواج وتبعاته"
+        },
+        "explanation": "تكاليف الزواج وتبعاته",
+        "number": 6,
+        "id": "U01-L05-Q006"
+      },
+      {
+        "question": "قال ﷺ: 'ومن لم يستطع فعليه بـ..... فإنه له وجاء'.",
+        "options": {
+          "A": "العمل",
+          "B": "الصوم",
+          "C": "النوم",
+          "D": "الصدقة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الصوم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الصوم"
+        },
+        "explanation": "الصوم",
+        "number": 7,
+        "id": "U01-L05-Q007"
+      },
+      {
+        "question": "معنى كلمة (وجاء) الواردة في حديث الصوم هي:",
+        "options": {
+          "A": "مرض",
+          "B": "وقاية وحماية",
+          "C": "تعب",
+          "D": "زيادة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "وقاية وحماية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وقاية وحماية"
+        },
+        "explanation": "وقاية وحماية",
+        "number": 8,
+        "id": "U01-L05-Q008"
+      },
+      {
+        "question": "المعيار الأساسي لاختيار الزوجة كما ورد في الحديث هو:",
+        "options": {
+          "A": "المال والجمال فقط",
+          "B": "الدين والخلق",
+          "C": "الحسب والنسب فقط",
+          "D": "الجاه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الدين والخلق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدين والخلق"
+        },
+        "explanation": "الدين والخلق",
+        "number": 9,
+        "id": "U01-L05-Q009"
+      },
+      {
+        "question": "قال ﷺ: 'فاظفر بذات الدين....':",
+        "options": {
+          "A": "تفلح",
+          "B": "تربح",
+          "C": "تربت يداك",
+          "D": "تنجح"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "تربت يداك",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تربت يداك"
+        },
+        "explanation": "تربت يداك",
+        "number": 10,
+        "id": "U01-L05-Q010"
+      },
+      {
+        "question": "المعيار الأساسي لاختيار الزوج هو ما ورد في قول النبي ﷺ:",
+        "options": {
+          "A": "إذا جاءكم من ترضون ماله",
+          "B": "إذا جاءكم من ترضون دينه وخلقه",
+          "C": "إذا جاءكم من ترضون نسبه",
+          "D": "إذا جاءكم من ترضون قوته"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إذا جاءكم من ترضون دينه وخلقه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إذا جاءكم من ترضون دينه وخلقه"
+        },
+        "explanation": "إذا جاءكم من ترضون دينه وخلقه",
+        "number": 11,
+        "id": "U01-L05-Q011"
+      },
+      {
+        "question": "ما هي نتيجة رفض الخاطب صاحب الدين والخلق كما أشار الحديث؟",
+        "options": {
+          "A": "الراحة",
+          "B": "تكن فتنة في الأرض وفساد عريض",
+          "C": "زيادة الأموال",
+          "D": "تحسن الأحوال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تكن فتنة في الأرض وفساد عريض",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تكن فتنة في الأرض وفساد عريض"
+        },
+        "explanation": "تكن فتنة في الأرض وفساد عريض",
+        "number": 12,
+        "id": "U01-L05-Q012"
+      },
+      {
+        "question": "تُعد السيدة ..... رضي الله عنها أنموذجاً للزوجة التي واست زوجها بمالها ونفسها.",
+        "options": {
+          "A": "عائشة",
+          "B": "خديجة",
+          "C": "حفصة",
+          "D": "زينب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "خديجة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خديجة"
+        },
+        "explanation": "خديجة",
+        "number": 13,
+        "id": "U01-L05-Q013"
+      },
+      {
+        "question": "تُعرف الخطبة (بكسر الخاء) بأنها:",
+        "options": {
+          "A": "عقد الزواج الرسمي",
+          "B": "طلب الرجل المرأة للزواج وهي وعد بذلك",
+          "C": "مراسم الزفاف",
+          "D": "المهر المؤجل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "طلب الرجل المرأة للزواج وهي وعد بذلك",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طلب الرجل المرأة للزواج وهي وعد بذلك"
+        },
+        "explanation": "طلب الرجل المرأة للزواج وهي وعد بذلك",
+        "number": 14,
+        "id": "U01-L05-Q014"
+      },
+      {
+        "question": "ما حكم الخطبة لمن أراد الزواج؟",
+        "options": {
+          "A": "واجبة",
+          "B": "مندوبة",
+          "C": "محرمة",
+          "D": "مكروهة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مندوبة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مندوبة"
+        },
+        "explanation": "مندوبة",
+        "number": 15,
+        "id": "U01-L05-Q015"
+      },
+      {
+        "question": "من الحِكم من مشروعية الخطبة:",
+        "options": {
+          "A": "تعرف الخاطبين إلى بعضهما وحصول الألفة",
+          "B": "إجبار المرأة على الزواج",
+          "C": "تحديد نوع المولود",
+          "D": "زيادة تكاليف الزواج"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "تعرف الخاطبين إلى بعضهما وحصول الألفة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تعرف الخاطبين إلى بعضهما وحصول الألفة"
+        },
+        "explanation": "تعرف الخاطبين إلى بعضهما وحصول الألفة",
+        "number": 16,
+        "id": "U01-L05-Q016"
+      },
+      {
+        "question": "هل ينعقد الزواج بمجرد الخطبة وقراءة الفاتحة؟",
+        "options": {
+          "A": "نعم، يعتبر زواجاً كاملاً",
+          "B": "لا، هي فقط مقدمة ووعد بالزواج",
+          "C": "نعم، إذا وافق الأب",
+          "D": "نعم، إذا دفع المهر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا، هي فقط مقدمة ووعد بالزواج",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا، هي فقط مقدمة ووعد بالزواج"
+        },
+        "explanation": "لا، هي فقط مقدمة ووعد بالزواج",
+        "number": 17,
+        "id": "U01-L05-Q017"
+      },
+      {
+        "question": "من الأحكام الشرعية في الخطبة أنه يُسن:",
+        "options": {
+          "A": "أن ينظر الخاطبان أحدهما إلى الآخر",
+          "B": "إخفاء العيوب الصحية",
+          "C": "المغالاة في المهور",
+          "D": "السكن معاً فوراً"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أن ينظر الخاطبان أحدهما إلى الآخر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أن ينظر الخاطبان أحدهما إلى الآخر"
+        },
+        "explanation": "أن ينظر الخاطبان أحدهما إلى الآخر",
+        "number": 18,
+        "id": "U01-L05-Q018"
+      },
+      {
+        "question": "الحكمة من نظر الخاطبين لبعضهما أن ذلك:",
+        "options": {
+          "A": "يقلل التكاليف",
+          "B": "أدعى إلى الألفة والمحبة والمودة",
+          "C": "ينهي الخطبة سريعاً",
+          "D": "لا حكمة منه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أدعى إلى الألفة والمحبة والمودة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أدعى إلى الألفة والمحبة والمودة"
+        },
+        "explanation": "أدعى إلى الألفة والمحبة والمودة",
+        "number": 19,
+        "id": "U01-L05-Q019"
+      },
+      {
+        "question": "معنى قوله ﷺ (يؤدم بينكما) في حديث الخطبة هو:",
+        "options": {
+          "A": "تحدث الفرقة",
+          "B": "تكون بينكما المحبة والاتفاق",
+          "C": "يكون بينكما المهر",
+          "D": "تكون بينكما تجارة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تكون بينكما المحبة والاتفاق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تكون بينكما المحبة والاتفاق"
+        },
+        "explanation": "تكون بينكما المحبة والاتفاق",
+        "number": 20,
+        "id": "U01-L05-Q020"
+      },
+      {
+        "question": "ما حكم عدول أي من الخاطبين عن الخطبة إذا لم يجد مصلحة في الزواج؟",
+        "options": {
+          "A": "حرام",
+          "B": "مباح",
+          "C": "مكروه تحريماً",
+          "D": "واجب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مباح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مباح"
+        },
+        "explanation": "مباح",
+        "number": 21,
+        "id": "U01-L05-Q021"
+      },
+      {
+        "question": "هل يُعد العدول عن الخطبة (فسخ الخطبة) طلاقاً؟",
+        "options": {
+          "A": "نعم، طلقة واحدة",
+          "B": "لا، لأن عقد الزواج لم يتم بعد",
+          "C": "نعم، طلاق بائن",
+          "D": "نعم، إذا قرئت الفاتحة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا، لأن عقد الزواج لم يتم بعد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا، لأن عقد الزواج لم يتم بعد"
+        },
+        "explanation": "لا، لأن عقد الزواج لم يتم بعد",
+        "number": 22,
+        "id": "U01-L05-Q022"
+      },
+      {
+        "question": "ما هو الفرق بين الخِطبة (بكسر الخاء) والخُطبة (بضم الخاء)؟",
+        "options": {
+          "A": "لا فرق بينهما",
+          "B": "الخِطبة للزواج، والخُطبة كلام يلقى في مناسبة كالجمعة",
+          "C": "الخُطبة للزواج، والخِطبة للجمعة",
+          "D": "الخِطبة واجبة والخُطبة سنة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الخِطبة للزواج، والخُطبة كلام يلقى في مناسبة كالجمعة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الخِطبة للزواج، والخُطبة كلام يلقى في مناسبة كالجمعة"
+        },
+        "explanation": "الخِطبة للزواج، والخُطبة كلام يلقى في مناسبة كالجمعة",
+        "number": 23,
+        "id": "U01-L05-Q023"
+      },
+      {
+        "question": "يُلزم المقبلون على الزواج في الأردن بعمل فحص طبي بهدف:",
+        "options": {
+          "A": "زيادة التكاليف",
+          "B": "ضمان استقرار الزواج ومنع انتشار الأمراض الوراثية",
+          "C": "تحديد جنس الجنين",
+          "D": "معرفة فصيلة الدم فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ضمان استقرار الزواج ومنع انتشار الأمراض الوراثية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ضمان استقرار الزواج ومنع انتشار الأمراض الوراثية"
+        },
+        "explanation": "ضمان استقرار الزواج ومنع انتشار الأمراض الوراثية",
+        "number": 24,
+        "id": "U01-L05-Q024"
+      },
+      {
+        "question": "علاج الأمراض الوراثية الناتجة عن عدم الفحص الطبي يُعد مكلفاً من الناحية:",
+        "options": {
+          "A": "الاقتصادية فقط",
+          "B": "النفسية فقط",
+          "C": "الاقتصادية والنفسية والاجتماعية",
+          "D": "البدنية فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الاقتصادية والنفسية والاجتماعية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاقتصادية والنفسية والاجتماعية"
+        },
+        "explanation": "الاقتصادية والنفسية والاجتماعية",
+        "number": 25,
+        "id": "U01-L05-Q025"
+      },
+      {
+        "question": "من أساسيات نجاح الحياة الزوجية الوعي بقضايا:",
+        "options": {
+          "A": "الصحة الإنجابية والإدارة المالية",
+          "B": "السفر والسياحة",
+          "C": "الموضة والأزياء",
+          "D": "الأخبار العالمية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الصحة الإنجابية والإدارة المالية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الصحة الإنجابية والإدارة المالية"
+        },
+        "explanation": "الصحة الإنجابية والإدارة المالية",
+        "number": 26,
+        "id": "U01-L05-Q026"
+      },
+      {
+        "question": "أي من الآتية يعتبر من 'الطيبات' التي أباحها الله للناس؟",
+        "options": {
+          "A": "المخدرات",
+          "B": "الزواج الشرعي",
+          "C": "السرقة",
+          "D": "الغيبة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الزواج الشرعي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الزواج الشرعي"
+        },
+        "explanation": "الزواج الشرعي",
+        "number": 27,
+        "id": "U01-L05-Q027"
+      },
+      {
+        "question": "من القيم المستفادة من الدرس تقدير مشروعية الزواج و:",
+        "options": {
+          "A": "غاياته المثلى",
+          "B": "تكاليفه الباهظة",
+          "C": "تعقيداته",
+          "D": "إهماله"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "غاياته المثلى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "غاياته المثلى"
+        },
+        "explanation": "غاياته المثلى",
+        "number": 28,
+        "id": "U01-L05-Q028"
+      },
+      {
+        "question": "قال تعالى: (ومن آياته أن خلق لكم من أنفسكم أزواجاً لتسكنوا إليها)، تدل الآية على:",
+        "options": {
+          "A": "مشروعية الزواج وتحقيق السكينة",
+          "B": "وجوب الخطبة",
+          "C": "تحريم الطلاق",
+          "D": "أهمية المال"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مشروعية الزواج وتحقيق السكينة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مشروعية الزواج وتحقيق السكينة"
+        },
+        "explanation": "مشروعية الزواج وتحقيق السكينة",
+        "number": 29,
+        "id": "U01-L05-Q029"
+      },
+      {
+        "question": "تعتبر الخطبة مرحلة ..... لإجراء عقد الزواج.",
+        "options": {
+          "A": "تالية",
+          "B": "تسبق",
+          "C": "بديلة",
+          "D": "تنهي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تسبق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تسبق"
+        },
+        "explanation": "تسبق",
+        "number": 30,
+        "id": "U01-L05-Q030"
+      },
+      {
+        "question": "يهدف الفحص الطبي قبل الزواج إلى حماية:",
+        "options": {
+          "A": "النسل",
+          "B": "الدين",
+          "C": "الوطن",
+          "D": "التجارة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "النسل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النسل"
+        },
+        "explanation": "النسل",
+        "number": 31,
+        "id": "U01-L05-Q031"
+      },
+      {
+        "question": "إذا كان الشاب صاحب خلق ودين ولكن ظروفه المادية متعثرة، فموقف الفتاة المسلمة الإيجابي هو:",
+        "options": {
+          "A": "الرفض فوراً",
+          "B": "الموافقة بناءً على دينه وخلقه",
+          "C": "طلب مبالغ طائلة",
+          "D": "الانتظار لسنوات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الموافقة بناءً على دينه وخلقه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الموافقة بناءً على دينه وخلقه"
+        },
+        "explanation": "الموافقة بناءً على دينه وخلقه",
+        "number": 32,
+        "id": "U01-L05-Q032"
+      },
+      {
+        "question": "الزواج وسيلة لتوثيق الصلة بين الناس عن طريق:",
+        "options": {
+          "A": "المصاهرة",
+          "B": "البيع",
+          "C": "العمل",
+          "D": "الجوار"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "المصاهرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المصاهرة"
+        },
+        "explanation": "المصاهرة",
+        "number": 33,
+        "id": "U01-L05-Q033"
+      },
+      {
+        "question": "أي من الأحاديث الآتية يحث على اختيار صاحب الدين والخلق؟",
+        "options": {
+          "A": "(إذا جاءكم من ترضون دينه وخلقه فزوجوه)",
+          "B": "(الكلمة الطيبة صدقة)",
+          "C": "(لا ضرر ولا ضرار)",
+          "D": "(الدين النصيحة)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(إذا جاءكم من ترضون دينه وخلقه فزوجوه)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "(إذا جاءكم من ترضون دينه وخلقه فزوجوه)"
+        },
+        "explanation": "(إذا جاءكم من ترضون دينه وخلقه فزوجوه)",
+        "number": 34,
+        "id": "U01-L05-Q034"
+      },
+      {
+        "question": "من نتائج عدم القيام بالفحص الطبي قبل الزواج احتمال ظهور أمراض:",
+        "options": {
+          "A": "معدية فقط",
+          "B": "وراثية تضر بالنسل",
+          "C": "بسيطة",
+          "D": "نفسية عابرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "وراثية تضر بالنسل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وراثية تضر بالنسل"
+        },
+        "explanation": "وراثية تضر بالنسل",
+        "number": 35,
+        "id": "U01-L05-Q035"
+      },
+      {
+        "question": "تربية الأطفال ورعايتهم تُعد جزءاً من:",
+        "options": {
+          "A": "مسؤوليات الحياة الزوجية",
+          "B": "الخطبة فقط",
+          "C": "العمل الخارجي",
+          "D": "الهوايات"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مسؤوليات الحياة الزوجية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مسؤوليات الحياة الزوجية"
+        },
+        "explanation": "مسؤوليات الحياة الزوجية",
+        "number": 36,
+        "id": "U01-L05-Q036"
+      },
+      {
+        "question": "استخدام الـ (QR Code) في صفحة 56 يهدف لتعرف حكم:",
+        "options": {
+          "A": "الزواج",
+          "B": "العدول عن الخطبة",
+          "C": "الطلاق",
+          "D": "الميراث"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العدول عن الخطبة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العدول عن الخطبة"
+        },
+        "explanation": "العدول عن الخطبة",
+        "number": 37,
+        "id": "U01-L05-Q037"
+      },
+      {
+        "question": "الزواج يحقق مقاصد الشريعة في حفظ:",
+        "options": {
+          "A": "المال فقط",
+          "B": "العرض والنسل",
+          "C": "الطرقات",
+          "D": "اللغة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العرض والنسل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العرض والنسل"
+        },
+        "explanation": "العرض والنسل",
+        "number": 38,
+        "id": "U01-L05-Q038"
+      },
+      {
+        "question": "اعتنت الشريعة الإسلامية بالزواج من خلال:",
+        "options": {
+          "A": "إهمال أحكامه",
+          "B": "بيان أحكامه على نحو مفصل",
+          "C": "جعله سرياً",
+          "D": "منعه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بيان أحكامه على نحو مفصل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بيان أحكامه على نحو مفصل"
+        },
+        "explanation": "بيان أحكامه على نحو مفصل",
+        "number": 39,
+        "id": "U01-L05-Q039"
+      },
+      {
+        "question": "تُعد السكينة والمودة والرحمة من ثمار:",
+        "options": {
+          "A": "الزواج الناجح",
+          "B": "الخطبة الفاشلة",
+          "C": "العمل الفردي",
+          "D": "الخلافات"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الزواج الناجح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الزواج الناجح"
+        },
+        "explanation": "الزواج الناجح",
+        "number": 40,
+        "id": "U01-L05-Q040"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1212 @@
+{
+  "lesson": {
+    "lesson_number": "5.review",
+    "lesson_name": "مراجعة الوحدة 5",
+    "unit_number": 5,
+    "unit_name": "الوحدة الخامسة",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "كيف كانت نظرة الحضارات القديمة (كالفرعونية واليونانية) للعمل اليدوي؟",
+        "options": {
+          "A": "نظرة إجلال",
+          "B": "نظرة دونية واحتقار",
+          "C": "نظرة مساواة",
+          "D": "لم تهتم به"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نظرة دونية واحتقار",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نظرة دونية واحتقار"
+        },
+        "explanation": "نظرة دونية واحتقار",
+        "number": 1,
+        "id": "U05-L99-Q001"
+      },
+      {
+        "question": "ما النظرة التي جاءت بها الحضارة الإسلامية تجاه العمل والعامل؟",
+        "options": {
+          "A": "نظرة إهمال",
+          "B": "نظرة تمجيد وتشجيع وتقدير",
+          "C": "نظرة دونية",
+          "D": "نظرة ترفيهية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نظرة تمجيد وتشجيع وتقدير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نظرة تمجيد وتشجيع وتقدير"
+        },
+        "explanation": "نظرة تمجيد وتشجيع وتقدير",
+        "number": 2,
+        "id": "U05-L99-Q002"
+      },
+      {
+        "question": "من كان يشرف على تنظيم الشؤون العمرانية والمهنية في المدينة الإسلامية قديماً؟",
+        "options": {
+          "A": "الوالي",
+          "B": "القاضي",
+          "C": "شيخ الصنعة",
+          "D": "المحتسب"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "شيخ الصنعة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "شيخ الصنعة"
+        },
+        "explanation": "شيخ الصنعة",
+        "number": 3,
+        "id": "U05-L99-Q003"
+      },
+      {
+        "question": "ما نوع (ما) في جملة (إنّما الحياةُ البرلمانيّةُ نوعٌ مِنَ التَّطوُّر)؟",
+        "options": {
+          "A": "موصولة",
+          "B": "نافية",
+          "C": "كافّة",
+          "D": "شرطية"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "كافّة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كافّة"
+        },
+        "explanation": "كافّة",
+        "number": 4,
+        "id": "U05-L99-Q004"
+      },
+      {
+        "question": "ما المعنى البلاغي للاستفهام في قوله تعالى (أَلَيْسَ اللَّهُ بِكَافٍ عَبْدَهُ)؟",
+        "options": {
+          "A": "النفي",
+          "B": "التقرير",
+          "C": "التعجب",
+          "D": "التشويق"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التقرير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التقرير"
+        },
+        "explanation": "التقرير",
+        "number": 5,
+        "id": "U05-L99-Q005"
+      },
+      {
+        "question": "ما المقصود بـ (التلمذة التقليدية)؟",
+        "options": {
+          "A": "الدراسة الجامعية",
+          "B": "نقل الصنعة من المعلم للمتعلم في موقع العمل",
+          "C": "قراءة الكتب",
+          "D": "التدريب العسكري"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نقل الصنعة من المعلم للمتعلم في موقع العمل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نقل الصنعة من المعلم للمتعلم في موقع العمل"
+        },
+        "explanation": "نقل الصنعة من المعلم للمتعلم في موقع العمل",
+        "number": 6,
+        "id": "U05-L99-Q006"
+      },
+      {
+        "question": "بمَ ترتبط نظم التعليم المهني والتقني بشكل أساسي؟",
+        "options": {
+          "A": "بالتطور الاقتصادي",
+          "B": "بالتطور الرياضي",
+          "C": "بعدد السكان",
+          "D": "بالمناخ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "بالتطور الاقتصادي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالتطور الاقتصادي"
+        },
+        "explanation": "بالتطور الاقتصادي",
+        "number": 7,
+        "id": "U05-L99-Q007"
+      },
+      {
+        "question": "في جملة (سأعملُ الخيرَ ما دمتُ حيًّا)، نوع (ما) هو:",
+        "options": {
+          "A": "نافية",
+          "B": "مصدرية ظرفية",
+          "C": "استفهامية",
+          "D": "زائدة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مصدرية ظرفية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مصدرية ظرفية"
+        },
+        "explanation": "مصدرية ظرفية",
+        "number": 8,
+        "id": "U05-L99-Q008"
+      },
+      {
+        "question": "في قولنا (وهلْ يَخفى القَمرُ؟)، ما المعنى البلاغي للاستفهام؟",
+        "options": {
+          "A": "التشويق",
+          "B": "التقرير",
+          "C": "النفي",
+          "D": "التحقير"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "النفي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النفي"
+        },
+        "explanation": "النفي",
+        "number": 9,
+        "id": "U05-L99-Q009"
+      },
+      {
+        "question": "متى أصبحت فكرة (التلمذة) أبرز نظم الإعداد المهني في أوروبا؟",
+        "options": {
+          "A": "العصور الوسطى",
+          "B": "مع الثورة الصناعية",
+          "C": "بعد الحرب العالمية",
+          "D": "العصر الحديث"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مع الثورة الصناعية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مع الثورة الصناعية"
+        },
+        "explanation": "مع الثورة الصناعية",
+        "number": 10,
+        "id": "U05-L99-Q010"
+      },
+      {
+        "question": "ما نوع (ما) في قوله تعالى (وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ)؟",
+        "options": {
+          "A": "موصولة",
+          "B": "شرطية جازمة",
+          "C": "تعجبية",
+          "D": "كافة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "شرطية جازمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "شرطية جازمة"
+        },
+        "explanation": "شرطية جازمة",
+        "number": 11,
+        "id": "U05-L99-Q011"
+      },
+      {
+        "question": "ما المعنى البلاغي في قوله تعالى (وَمَا أَدْرَاكَ مَا الْحَرْبُ؟)؟",
+        "options": {
+          "A": "التقرير",
+          "B": "التهويل",
+          "C": "النفي",
+          "D": "التمني"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التهويل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التهويل"
+        },
+        "explanation": "التهويل",
+        "number": 12,
+        "id": "U05-L99-Q012"
+      },
+      {
+        "question": "في المناطق الأقل نمواً، من الذي يتحمل العبء الأكبر من تمويل التعليم المهني؟",
+        "options": {
+          "A": "الشركات",
+          "B": "الحكومات",
+          "C": "الطلاب",
+          "D": "المنظمات الدولية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحكومات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحكومات"
+        },
+        "explanation": "الحكومات",
+        "number": 13,
+        "id": "U05-L99-Q013"
+      },
+      {
+        "question": "حدد نوع (ما) في (ستقومُ المهندسةُ بما طُلِبَ إليها):",
+        "options": {
+          "A": "اسم موصول",
+          "B": "نافية",
+          "C": "كافة",
+          "D": "نكرة مبهمة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "اسم موصول",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم موصول"
+        },
+        "explanation": "اسم موصول",
+        "number": 14,
+        "id": "U05-L99-Q014"
+      },
+      {
+        "question": "الاستفهام الذي يهدف لإثارة الفضول مثل (أفلا أَدُلُّكُمْ عَلَى شيءٍ...) يفيد:",
+        "options": {
+          "A": "التقرير",
+          "B": "التشويق",
+          "C": "الإنكار",
+          "D": "التحقير"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التشويق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التشويق"
+        },
+        "explanation": "التشويق",
+        "number": 15,
+        "id": "U05-L99-Q015"
+      },
+      {
+        "question": "ما الفائدة الأساسية للتعليم التقني في محاربة الفقر؟",
+        "options": {
+          "A": "توزيع المساعدات",
+          "B": "إكساب الأفراد مهارات تؤهلهم للكسب والإنتاج",
+          "C": "زيادة الضرائب",
+          "D": "تشجيع الاستهلاك"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إكساب الأفراد مهارات تؤهلهم للكسب والإنتاج",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إكساب الأفراد مهارات تؤهلهم للكسب والإنتاج"
+        },
+        "explanation": "إكساب الأفراد مهارات تؤهلهم للكسب والإنتاج",
+        "number": 16,
+        "id": "U05-L99-Q016"
+      },
+      {
+        "question": "في أسلوب التعجب (ما أعظمَ شهداءَنا!)، تعرب (ما) في محل:",
+        "options": {
+          "A": "رفع خبر",
+          "B": "رفع مبتدأ",
+          "C": "نصب مفعول به",
+          "D": "جر مضاف إليه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "رفع مبتدأ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رفع مبتدأ"
+        },
+        "explanation": "رفع مبتدأ",
+        "number": 17,
+        "id": "U05-L99-Q017"
+      },
+      {
+        "question": "ما المعنى البلاغي للاستفهام في (كيفَ يُمكِنُ أَنْ يَخونَ الخائنون؟)؟",
+        "options": {
+          "A": "التقرير",
+          "B": "التعجب",
+          "C": "النفي",
+          "D": "التحقير"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التعجب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التعجب"
+        },
+        "explanation": "التعجب",
+        "number": 18,
+        "id": "U05-L99-Q018"
+      },
+      {
+        "question": "ما هو (النظام الثنائي) في التدريب المهني؟",
+        "options": {
+          "A": "دراسة لغتين",
+          "B": "الجمع بين التدريب في المدرسة ومواقع العمل",
+          "C": "التدريب ليل نهار",
+          "D": "الدراسة في بلدين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الجمع بين التدريب في المدرسة ومواقع العمل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الجمع بين التدريب في المدرسة ومواقع العمل"
+        },
+        "explanation": "الجمع بين التدريب في المدرسة ومواقع العمل",
+        "number": 19,
+        "id": "U05-L99-Q019"
+      },
+      {
+        "question": "ما نوع (ما) في جملة (ما رَبِحَ تاجرٌ أَقامَ تجارتَهُ على الغشِّ)؟",
+        "options": {
+          "A": "موصولة",
+          "B": "نافية",
+          "C": "كافة",
+          "D": "استفهامية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نافية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نافية"
+        },
+        "explanation": "نافية",
+        "number": 20,
+        "id": "U05-L99-Q020"
+      },
+      {
+        "question": "ما الأداة التي يسأل بها عن (العدد)؟",
+        "options": {
+          "A": "متى",
+          "B": "أين",
+          "C": "كم",
+          "D": "كيف"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "كم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كم"
+        },
+        "explanation": "كم",
+        "number": 21,
+        "id": "U05-L99-Q021"
+      },
+      {
+        "question": "بمَ شبه الكاتب التعليم التقني في نهاية النص؟",
+        "options": {
+          "A": "بطريق مسدود",
+          "B": "ببوابة المستقبل في عالم متغير",
+          "C": "بخيار ثانوي",
+          "D": "بحلم قديم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ببوابة المستقبل في عالم متغير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ببوابة المستقبل في عالم متغير"
+        },
+        "explanation": "ببوابة المستقبل في عالم متغير",
+        "number": 22,
+        "id": "U05-L99-Q022"
+      },
+      {
+        "question": "عندما تسبق (ما) الاستفهامية بحرف جر، ماذا يحدث لألفها؟",
+        "options": {
+          "A": "تبقى",
+          "B": "تُحذف (فيمَ، عمَّ)",
+          "C": "تتحول لواو",
+          "D": "تُضاعف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تُحذف (فيمَ، عمَّ)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تُحذف (فيمَ، عمَّ)"
+        },
+        "explanation": "تُحذف (فيمَ، عمَّ)",
+        "number": 23,
+        "id": "U05-L99-Q023"
+      },
+      {
+        "question": "في جملة (أأنتَ تدّعي التَّطويرَ وأنتَ جاهلٌ؟)، المعنى البلاغي هو:",
+        "options": {
+          "A": "التقرير",
+          "B": "التحقير والإنكار",
+          "C": "التشويق",
+          "D": "التمني"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التحقير والإنكار",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التحقير والإنكار"
+        },
+        "explanation": "التحقير والإنكار",
+        "number": 24,
+        "id": "U05-L99-Q024"
+      },
+      {
+        "question": "كلمة (كوادر) تعني:",
+        "options": {
+          "A": "أدوات",
+          "B": "طاقة بشرية تساعد على التنمية",
+          "C": "كتب",
+          "D": "أراضي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "طاقة بشرية تساعد على التنمية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طاقة بشرية تساعد على التنمية"
+        },
+        "explanation": "طاقة بشرية تساعد على التنمية",
+        "number": 25,
+        "id": "U05-L99-Q025"
+      },
+      {
+        "question": "ما نوع (ما) في عبارة (ألمرٍ ما تقدَّمَ الجنديُّ)؟",
+        "options": {
+          "A": "كافة",
+          "B": "نكرة مبهمة",
+          "C": "موصولة",
+          "D": "شرطية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نكرة مبهمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نكرة مبهمة"
+        },
+        "explanation": "نكرة مبهمة",
+        "number": 26,
+        "id": "U05-L99-Q026"
+      },
+      {
+        "question": "المعنى البلاغي في (متى نرى القدس محررَة؟) الموجه في المستحيل هو:",
+        "options": {
+          "A": "التقرير",
+          "B": "النفي",
+          "C": "التمني",
+          "D": "التشويق"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "التمني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التمني"
+        },
+        "explanation": "التمني",
+        "number": 27,
+        "id": "U05-L99-Q027"
+      },
+      {
+        "question": "في أي سنة تم توقيع اتفاقية التعليم المهني والتقني المعتمدة من اليونسكو؟",
+        "options": {
+          "A": "1901م",
+          "B": "1989م",
+          "C": "2011م",
+          "D": "2050م"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1989م",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "1989م"
+        },
+        "explanation": "1989م",
+        "number": 28,
+        "id": "U05-L99-Q028"
+      },
+      {
+        "question": "الاسم بعد (إنّما) يعرب دائماً:",
+        "options": {
+          "A": "اسم إن",
+          "B": "مبتدأ مرفوع",
+          "C": "مفعول به",
+          "D": "مضاف إليه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مبتدأ مرفوع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مبتدأ مرفوع"
+        },
+        "explanation": "مبتدأ مرفوع",
+        "number": 29,
+        "id": "U05-L99-Q029"
+      },
+      {
+        "question": "يسأل بـ (أيّ) عن:",
+        "options": {
+          "A": "الزمان فقط",
+          "B": "المكان فقط",
+          "C": "كل ما تضاف إليه",
+          "D": "الحال فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "كل ما تضاف إليه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل ما تضاف إليه"
+        },
+        "explanation": "كل ما تضاف إليه",
+        "number": 30,
+        "id": "U05-L99-Q030"
+      },
+      {
+        "question": "ما هو ميزان التفاضل الذي أقرته الحضارة الإسلامية حسب النص؟",
+        "options": {
+          "A": "النسب",
+          "B": "المال",
+          "C": "العمل والإنتاج والكسب الحلال",
+          "D": "القوة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "العمل والإنتاج والكسب الحلال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العمل والإنتاج والكسب الحلال"
+        },
+        "explanation": "العمل والإنتاج والكسب الحلال",
+        "number": 31,
+        "id": "U05-L99-Q031"
+      },
+      {
+        "question": "تعتبر (ما) في جملة (التزمْ كما التزمَ الناسُ) نوعها:",
+        "options": {
+          "A": "مصدرية",
+          "B": "كافة",
+          "C": "نافية",
+          "D": "شرطية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مصدرية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مصدرية"
+        },
+        "explanation": "مصدرية",
+        "number": 32,
+        "id": "U05-L99-Q032"
+      },
+      {
+        "question": "في قوله تعالى (هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ؟)، المعنى البلاغي هو:",
+        "options": {
+          "A": "التقرير",
+          "B": "النفي",
+          "C": "التشويق",
+          "D": "التهويل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "النفي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النفي"
+        },
+        "explanation": "النفي",
+        "number": 33,
+        "id": "U05-L99-Q033"
+      },
+      {
+        "question": "ما الجذر اللغوي لكلمة (باسقة)؟",
+        "options": {
+          "A": "سَبَقَ",
+          "B": "بَسَقَ",
+          "C": "قَبَسَ",
+          "D": "بَسَكَ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بَسَقَ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بَسَقَ"
+        },
+        "explanation": "بَسَقَ",
+        "number": 34,
+        "id": "U05-L99-Q034"
+      },
+      {
+        "question": "نوع (ما) في (فبما رحمةٍ من الله لنتَ لهم) هي:",
+        "options": {
+          "A": "كافة",
+          "B": "نافية",
+          "C": "زائدة للتوكيد",
+          "D": "موصولة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "زائدة للتوكيد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "زائدة للتوكيد"
+        },
+        "explanation": "زائدة للتوكيد",
+        "number": 35,
+        "id": "U05-L99-Q035"
+      },
+      {
+        "question": "أي الجمل الآتية تمثل استفهاماً حقيقياً؟",
+        "options": {
+          "A": "أين تقع جامعة آل البيت؟",
+          "B": "وهل يرحل الشتاء؟",
+          "C": "كيف تكفرون بالله؟",
+          "D": "ألم نشرح لك صدرك؟"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أين تقع جامعة آل البيت؟",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أين تقع جامعة آل البيت؟"
+        },
+        "explanation": "أين تقع جامعة آل البيت؟",
+        "number": 36,
+        "id": "U05-L99-Q036"
+      },
+      {
+        "question": "تعتبر اليونسكو أن التعليم المهني يشمل دراسة:",
+        "options": {
+          "A": "اللغات",
+          "B": "التكنولوجيات والمهارات العملية",
+          "C": "التاريخ",
+          "D": "الفلسفة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التكنولوجيات والمهارات العملية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التكنولوجيات والمهارات العملية"
+        },
+        "explanation": "التكنولوجيات والمهارات العملية",
+        "number": 37,
+        "id": "U05-L99-Q037"
+      },
+      {
+        "question": "تأتي (ما) بمعنى (الذي) إذا كانت:",
+        "options": {
+          "A": "شرطية",
+          "B": "موصولة",
+          "C": "استفهامية",
+          "D": "كافة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "موصولة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "موصولة"
+        },
+        "explanation": "موصولة",
+        "number": 38,
+        "id": "U05-L99-Q038"
+      },
+      {
+        "question": "عندما نسأل عن (الحال)، نستخدم الأداة:",
+        "options": {
+          "A": "من",
+          "B": "ما",
+          "C": "كيف",
+          "D": "متى"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "كيف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كيف"
+        },
+        "explanation": "كيف",
+        "number": 39,
+        "id": "U05-L99-Q039"
+      },
+      {
+        "question": "ما العاطفة البارزة في نص 'التعليم المهني'؟",
+        "options": {
+          "A": "الحزن",
+          "B": "الاعتزاز بالعمل والسعي للنهضة",
+          "C": "الغضب",
+          "D": "اليأس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الاعتزاز بالعمل والسعي للنهضة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاعتزاز بالعمل والسعي للنهضة"
+        },
+        "explanation": "الاعتزاز بالعمل والسعي للنهضة",
+        "number": 40,
+        "id": "U05-L99-Q040"
+      },
+      {
+        "question": "في جملة (ما تبذله من جهد تعد ثمرته)، نوع (ما):",
+        "options": {
+          "A": "استفهامية",
+          "B": "شرطية",
+          "C": "موصولة",
+          "D": "تعجبية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "شرطية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "شرطية"
+        },
+        "explanation": "شرطية",
+        "number": 41,
+        "id": "U05-L99-Q041"
+      },
+      {
+        "question": "في قول الشاعر (أَلَسْتَ خَيْرَ مَنْ رَكِبَ المَطايا؟)، المعنى البلاغي هو:",
+        "options": {
+          "A": "النفي",
+          "B": "التقرير",
+          "C": "الإنكار",
+          "D": "التحقير"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التقرير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التقرير"
+        },
+        "explanation": "التقرير",
+        "number": 42,
+        "id": "U05-L99-Q042"
+      },
+      {
+        "question": "المقصود بكلمة (يَنعه) في سياق الثمر:",
+        "options": {
+          "A": "جفافه",
+          "B": "نضجه واستواؤه",
+          "C": "فساده",
+          "D": "صغره"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نضجه واستواؤه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نضجه واستواؤه"
+        },
+        "explanation": "نضجه واستواؤه",
+        "number": 43,
+        "id": "U05-L99-Q043"
+      },
+      {
+        "question": "المقصود بـ (ما) المصدرية الظرفية أنها تؤول بـ:",
+        "options": {
+          "A": "اسم موصول",
+          "B": "كلمة (مدة) + المصدر",
+          "C": "أداة نفي",
+          "D": "أداة شرط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كلمة (مدة) + المصدر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كلمة (مدة) + المصدر"
+        },
+        "explanation": "كلمة (مدة) + المصدر",
+        "number": 44,
+        "id": "U05-L99-Q044"
+      },
+      {
+        "question": "تستخدم (أنى) في اللغة العربية لتفيد معاني:",
+        "options": {
+          "A": "كيف، ومن أين، ومتى",
+          "B": "العدد فقط",
+          "C": "التعجب فقط",
+          "D": "الزمان فقط"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "كيف، ومن أين، ومتى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كيف، ومن أين، ومتى"
+        },
+        "explanation": "كيف، ومن أين، ومتى",
+        "number": 45,
+        "id": "U05-L99-Q045"
+      },
+      {
+        "question": "أي نظام تدريبي يكتفي بالتعليم داخل أسوار المدرسة فقط؟",
+        "options": {
+          "A": "التدريب الثنائي",
+          "B": "التدريب داخل المدرسة",
+          "C": "التلمذة الصناعية",
+          "D": "التدريب داخل العمل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التدريب داخل المدرسة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التدريب داخل المدرسة"
+        },
+        "explanation": "التدريب داخل المدرسة",
+        "number": 46,
+        "id": "U05-L99-Q046"
+      },
+      {
+        "question": "إعراب كلمة (الحياة) في (إنما الحياةُ تعب) هو:",
+        "options": {
+          "A": "اسم إن",
+          "B": "مبتدأ مرفوع",
+          "C": "خبر",
+          "D": "مفعول به"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مبتدأ مرفوع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مبتدأ مرفوع"
+        },
+        "explanation": "مبتدأ مرفوع",
+        "number": 47,
+        "id": "U05-L99-Q047"
+      },
+      {
+        "question": "تعتبر (هل) و (الهمزة) في الاستفهام:",
+        "options": {
+          "A": "أسماء",
+          "B": "حروف",
+          "C": "أفعال",
+          "D": "ظروف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حروف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حروف"
+        },
+        "explanation": "حروف",
+        "number": 48,
+        "id": "U05-L99-Q048"
+      },
+      {
+        "question": "ما هو الحل المقترح لتغيير واقع التعليم المهني في الدول النامية؟",
+        "options": {
+          "A": "إلغاؤه",
+          "B": "تكاتف الحكومات والمنظمات لرفع قيمته",
+          "C": "زيادة الساعات النظرية",
+          "D": "منع العمل اليدوي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تكاتف الحكومات والمنظمات لرفع قيمته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تكاتف الحكومات والمنظمات لرفع قيمته"
+        },
+        "explanation": "تكاتف الحكومات والمنظمات لرفع قيمته",
+        "number": 49,
+        "id": "U05-L99-Q049"
+      },
+      {
+        "question": "في جملة (أعطني ما عندك)، نوع (ما):",
+        "options": {
+          "A": "موصولة",
+          "B": "نافية",
+          "C": "استفهامية",
+          "D": "كافة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "موصولة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "موصولة"
+        },
+        "explanation": "موصولة",
+        "number": 50,
+        "id": "U05-L99-Q050"
+      }
+    ]
+  }
+}

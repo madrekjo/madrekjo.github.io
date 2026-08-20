@@ -1,0 +1,966 @@
+{
+  "lesson": {
+    "lesson_number": "3.2",
+    "lesson_name": "قواعد (المبتدأ والخبر والجمل)",
+    "unit_number": 3,
+    "unit_name": "الوحدة الثالثة",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما التعريف الدقيق للمبتدأ في الجملة الاسمية؟",
+        "options": {
+          "A": "فعل نبدأ به الكلام",
+          "B": "اسم يكون موضوع الكلام والمتحدث عنه",
+          "C": "اسم منصوب يقع بعد الخبر",
+          "D": "حرف يفيد التوكيد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اسم يكون موضوع الكلام والمتحدث عنه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم يكون موضوع الكلام والمتحدث عنه"
+        },
+        "explanation": "اسم يكون موضوع الكلام والمتحدث عنه",
+        "number": 1,
+        "id": "U03-L02-Q001"
+      },
+      {
+        "question": "ما صورة المبتدأ في جملة (العملُ التطوعيُّ شعارنا)؟",
+        "options": {
+          "A": "اسم ظاهر",
+          "B": "ضمير منفصل",
+          "C": "اسم إشارة",
+          "D": "مصدر مؤول"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "اسم ظاهر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم ظاهر"
+        },
+        "explanation": "اسم ظاهر",
+        "number": 2,
+        "id": "U03-L02-Q002"
+      },
+      {
+        "question": "حدد المبتدأ وصورته في جملة (أنْ تُعدَّ البرنامجَ خيرٌ من الارتجال).",
+        "options": {
+          "A": "المبتدأ: البرنامج / اسم ظاهر",
+          "B": "المبتدأ: خير / اسم ظاهر",
+          "C": "المبتدأ: أن تعدّ / مصدر مؤول",
+          "D": "المبتدأ: الارتجال / اسم مجرور"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "المبتدأ: أن تعدّ / مصدر مؤول",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المبتدأ: أن تعدّ / مصدر مؤول"
+        },
+        "explanation": "المبتدأ: أن تعدّ / مصدر مؤول",
+        "number": 3,
+        "id": "U03-L02-Q003"
+      },
+      {
+        "question": "ما صورة المبتدأ (مَنْ) في جملة (مَنْ يحرمِ الرفقَ يُحرمِ الخيرَ)؟",
+        "options": {
+          "A": "اسم استفهام",
+          "B": "اسم شرط",
+          "C": "اسم موصول",
+          "D": "اسم إشارة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اسم شرط",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم شرط"
+        },
+        "explanation": "اسم شرط",
+        "number": 4,
+        "id": "U03-L02-Q004"
+      },
+      {
+        "question": "في جملة (أنا في جناحيْكَ)، جاء المبتدأ على صورة:",
+        "options": {
+          "A": "اسم ظاهر",
+          "B": "ضمير رفع منفصل",
+          "C": "اسم إشارة",
+          "D": "مصدر مؤول"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ضمير رفع منفصل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ضمير رفع منفصل"
+        },
+        "explanation": "ضمير رفع منفصل",
+        "number": 5,
+        "id": "U03-L02-Q005"
+      },
+      {
+        "question": "ما نوع المبتدأ في جملة (هذا وطني الأردن)؟",
+        "options": {
+          "A": "اسم موصول",
+          "B": "اسم إشارة",
+          "C": "ضمير متصل",
+          "D": "نكرة تامة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اسم إشارة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم إشارة"
+        },
+        "explanation": "اسم إشارة",
+        "number": 6,
+        "id": "U03-L02-Q006"
+      },
+      {
+        "question": "في جملة (ما أجملَ الصدقَ!)، تعرب (ما) التعجبية في محل:",
+        "options": {
+          "A": "رفع خبر",
+          "B": "نصب مفعول به",
+          "C": "رفع مبتدأ",
+          "D": "جر مضاف إليه"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "رفع مبتدأ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رفع مبتدأ"
+        },
+        "explanation": "رفع مبتدأ",
+        "number": 7,
+        "id": "U03-L02-Q007"
+      },
+      {
+        "question": "ما صورة المبتدأ في جملة (كمْ من مُتَّهمٍ بريءٌ)؟",
+        "options": {
+          "A": "كم الاستفهامية",
+          "B": "كم الخبرية",
+          "C": "اسم ظاهر",
+          "D": "ضمير مستتر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كم الخبرية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كم الخبرية"
+        },
+        "explanation": "كم الخبرية",
+        "number": 8,
+        "id": "U03-L02-Q008"
+      },
+      {
+        "question": "الخبر هو الجزء الذي يكمل الجملة و........ به عن المبتدأ.",
+        "options": {
+          "A": "يُسأل",
+          "B": "يُبنى",
+          "C": "يُتحدث",
+          "D": "يُنصب"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "يُتحدث",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يُتحدث"
+        },
+        "explanation": "يُتحدث",
+        "number": 9,
+        "id": "U03-L02-Q009"
+      },
+      {
+        "question": "ما صورة الخبر في جملة (المعلمونَ جنودٌ)؟",
+        "options": {
+          "A": "جملة فعلية",
+          "B": "جملة اسمية",
+          "C": "اسم مفرد",
+          "D": "شبه جملة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "اسم مفرد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم مفرد"
+        },
+        "explanation": "اسم مفرد",
+        "number": 10,
+        "id": "U03-L02-Q010"
+      },
+      {
+        "question": "حدد الخبر ونوعه في (شبكاتُ التواصلِ جعلتِ العالمَ قريةً).",
+        "options": {
+          "A": "الخبر: التواصل / اسم ظاهر",
+          "B": "الخبر: جعلت / جملة فعلية",
+          "C": "الخبر: العالم / اسم مفرد",
+          "D": "الخبر: قرية / اسم مفرد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الخبر: جعلت / جملة فعلية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الخبر: جعلت / جملة فعلية"
+        },
+        "explanation": "الخبر: جعلت / جملة فعلية",
+        "number": 11,
+        "id": "U03-L02-Q011"
+      },
+      {
+        "question": "ما صورة الخبر في جملة (الظلمُ مرتعُه وخيمٌ)؟",
+        "options": {
+          "A": "اسم مفرد",
+          "B": "جملة فعلية",
+          "C": "جملة اسمية",
+          "D": "شبه جملة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "جملة اسمية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جملة اسمية"
+        },
+        "explanation": "جملة اسمية",
+        "number": 12,
+        "id": "U03-L02-Q012"
+      },
+      {
+        "question": "في جملة (الجنةُ تحتَ أقدامِ الأمهاتِ)، الخبر (تحت أقدام) هو:",
+        "options": {
+          "A": "جملة فعلية",
+          "B": "شبه جملة ظرفية",
+          "C": "شبه جملة من الجار والمجرور",
+          "D": "اسم مفرد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "شبه جملة ظرفية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "شبه جملة ظرفية"
+        },
+        "explanation": "شبه جملة ظرفية",
+        "number": 13,
+        "id": "U03-L02-Q013"
+      },
+      {
+        "question": "ما التقدير الصحيح للخبر المصدر المؤول في (الوطنيّةُ أنْ نسعى لرفعِ اسمِ الوطنِ)؟",
+        "options": {
+          "A": "الوطنيةُ سعيُنا",
+          "B": "الوطنيةُ مسعى",
+          "C": "الوطنيةُ سعيٌ",
+          "D": "الوطنيةُ الساعية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الوطنيةُ سعيُنا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الوطنيةُ سعيُنا"
+        },
+        "explanation": "الوطنيةُ سعيُنا",
+        "number": 14,
+        "id": "U03-L02-Q014"
+      },
+      {
+        "question": "ما إعراب كلمة (عظيمٌ) في جملة (المعلمةُ عطاؤُها عظيمٌ)؟",
+        "options": {
+          "A": "خبر للمبتدأ الأول (المعلمة)",
+          "B": "خبر للمبتدأ الثاني (عطاؤها)",
+          "C": "نعت مرفوع",
+          "D": "مبتدأ ثالث"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "خبر للمبتدأ الثاني (عطاؤها)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خبر للمبتدأ الثاني (عطاؤها)"
+        },
+        "explanation": "خبر للمبتدأ الثاني (عطاؤها)",
+        "number": 15,
+        "id": "U03-L02-Q015"
+      },
+      {
+        "question": "يكون المبتدأ دائماً مرفوعاً أو في محل رفع.",
+        "options": {
+          "A": "صح",
+          "B": "خطأ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "صح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صح"
+        },
+        "explanation": "صح",
+        "number": 16,
+        "id": "U03-L02-Q016"
+      },
+      {
+        "question": "في جملة (الصدقُ منجاةٌ)، كلمة (منجاة) هي خبر مرفوع بالضمة، وصورته:",
+        "options": {
+          "A": "مفرد",
+          "B": "جملة",
+          "C": "شبه جملة",
+          "D": "مصدر مؤول"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مفرد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مفرد"
+        },
+        "explanation": "مفرد",
+        "number": 17,
+        "id": "U03-L02-Q017"
+      },
+      {
+        "question": "ما الرابط الذي يربط جملة الخبر (عطاؤها عظيم) بالمبتدأ (المعلمة)؟",
+        "options": {
+          "A": "اسم الإشارة",
+          "B": "الضمير (ها) في عطاؤها",
+          "C": "حرف العطف الواو",
+          "D": "لا يوجد رابط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الضمير (ها) في عطاؤها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الضمير (ها) في عطاؤها"
+        },
+        "explanation": "الضمير (ها) في عطاؤها",
+        "number": 18,
+        "id": "U03-L02-Q018"
+      },
+      {
+        "question": "أي من الجمل الآتية جاء فيها الخبر (شبه جملة من الجار والمجرور)؟",
+        "options": {
+          "A": "الوطن يزهو بأبنائه",
+          "B": "الوطن في قلوبنا",
+          "C": "الوطن حبه ساكن فينا",
+          "D": "الوطن عزيز"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الوطن في قلوبنا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الوطن في قلوبنا"
+        },
+        "explanation": "الوطن في قلوبنا",
+        "number": 19,
+        "id": "U03-L02-Q019"
+      },
+      {
+        "question": "عندما يكون الخبر جملة فعليّة، فإنه يكون في محل نصب.",
+        "options": {
+          "A": "صح",
+          "B": "خطأ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "خطأ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خطأ"
+        },
+        "explanation": "خطأ",
+        "number": 20,
+        "id": "U03-L02-Q020"
+      },
+      {
+        "question": "ما هو الخبر في علم البلاغة؟",
+        "options": {
+          "A": "كلام لا يحتمل الصدق أو الكذب",
+          "B": "كلام يحتمل الصدق أو الكذب لذاته",
+          "C": "أسلوب نداء فقط",
+          "D": "فعل أمر صريح"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كلام يحتمل الصدق أو الكذب لذاته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كلام يحتمل الصدق أو الكذب لذاته"
+        },
+        "explanation": "كلام يحتمل الصدق أو الكذب لذاته",
+        "number": 21,
+        "id": "U03-L02-Q021"
+      },
+      {
+        "question": "ما الغرض من الخبر (فائدة الخبر)؟",
+        "options": {
+          "A": "إفادة المخاطب حكماً يجهله",
+          "B": "إظهار الضعف",
+          "C": "التوبيخ",
+          "D": "الاسترحام"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "إفادة المخاطب حكماً يجهله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إفادة المخاطب حكماً يجهله"
+        },
+        "explanation": "إفادة المخاطب حكماً يجهله",
+        "number": 22,
+        "id": "U03-L02-Q022"
+      },
+      {
+        "question": "يسمى الغرض من الخبر (لازم الفائدة) عندما يكون المخاطب:",
+        "options": {
+          "A": "جاهلاً بالحكم",
+          "B": "عالماً بالحكم ويراد إعلامه بأن المتكلم يعلمه أيضاً",
+          "C": "منكراً للحكم",
+          "D": "شاكاً في الحكم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عالماً بالحكم ويراد إعلامه بأن المتكلم يعلمه أيضاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عالماً بالحكم ويراد إعلامه بأن المتكلم يعلمه أيضاً"
+        },
+        "explanation": "عالماً بالحكم ويراد إعلامه بأن المتكلم يعلمه أيضاً",
+        "number": 23,
+        "id": "U03-L02-Q023"
+      },
+      {
+        "question": "ما الغرض البلاغي من قول ابن الرومي: (طواهُ الرّد￯ عنِّي فأضحى مزارُه... بعيداً على قربٍ)؟",
+        "options": {
+          "A": "الفخر",
+          "B": "إظهار التحسر والحزن",
+          "C": "المدح",
+          "D": "التقرير"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إظهار التحسر والحزن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إظهار التحسر والحزن"
+        },
+        "explanation": "إظهار التحسر والحزن",
+        "number": 24,
+        "id": "U03-L02-Q024"
+      },
+      {
+        "question": "في قوله تعالى (رَبِّ إِنِّي وَهَنَ الْعَظْمُ مِنِّي)، الغرض من الخبر هو:",
+        "options": {
+          "A": "الفخر",
+          "B": "التحقير",
+          "C": "إظهار الضعف والاسترحام",
+          "D": "النصح"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "إظهار الضعف والاسترحام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إظهار الضعف والاسترحام"
+        },
+        "explanation": "إظهار الضعف والاسترحام",
+        "number": 25,
+        "id": "U03-L02-Q025"
+      },
+      {
+        "question": "يضرب الخبر (ابتدائياً) إذا كان المخاطب:",
+        "options": {
+          "A": "متردداً في الحكم",
+          "B": "منكراً للحكم",
+          "C": "خالي الذهن من الحكم",
+          "D": "موافقاً للحكم"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "خالي الذهن من الحكم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خالي الذهن من الحكم"
+        },
+        "explanation": "خالي الذهن من الحكم",
+        "number": 26,
+        "id": "U03-L02-Q026"
+      },
+      {
+        "question": "ما نوع ضرب الخبر في جملة (إنّ السعادةَ في تعليمِ الآخرين)؟",
+        "options": {
+          "A": "ابتدائي",
+          "B": "طلبي",
+          "C": "إنكاري",
+          "D": "إنشائي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "طلبي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طلبي"
+        },
+        "explanation": "طلبي",
+        "number": 27,
+        "id": "U03-L02-Q027"
+      },
+      {
+        "question": "يُؤكد الخبر (الإنكاري) بـ:",
+        "options": {
+          "A": "أداة توكيد واحدة",
+          "B": "أداتي توكيد أو أكثر",
+          "C": "لا يحتاج توكيد",
+          "D": "أدوات نفي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أداتي توكيد أو أكثر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أداتي توكيد أو أكثر"
+        },
+        "explanation": "أداتي توكيد أو أكثر",
+        "number": 28,
+        "id": "U03-L02-Q028"
+      },
+      {
+        "question": "في جملة (واللهِ إنَّ الفتاةَ لَقادرةٌ)، ضرب الخبر هو:",
+        "options": {
+          "A": "ابتدائي",
+          "B": "طلبي",
+          "C": "إنكاري",
+          "D": "طلبي مؤكد"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "إنكاري",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إنكاري"
+        },
+        "explanation": "إنكاري",
+        "number": 29,
+        "id": "U03-L02-Q029"
+      },
+      {
+        "question": "ما هو (الإنشاء) في البلاغة؟",
+        "options": {
+          "A": "كلام يحتمل الصدق",
+          "B": "كلام لا يحتمل الصدق أو الكذب لذاته",
+          "C": "شعر قديم",
+          "D": "مقالة علمية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كلام لا يحتمل الصدق أو الكذب لذاته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كلام لا يحتمل الصدق أو الكذب لذاته"
+        },
+        "explanation": "كلام لا يحتمل الصدق أو الكذب لذاته",
+        "number": 30,
+        "id": "U03-L02-Q030"
+      },
+      {
+        "question": "الإنشاء الطلبي هو ما يستدعي مطلوباً غير حاصل وقت الطلب، ومن صيغه:",
+        "options": {
+          "A": "التعجب والمدح",
+          "B": "الأمر والنهي والاستفهام والنداء والتمني",
+          "C": "القسم والرجاء",
+          "D": "الذم والدعاء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأمر والنهي والاستفهام والنداء والتمني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأمر والنهي والاستفهام والنداء والتمني"
+        },
+        "explanation": "الأمر والنهي والاستفهام والنداء والتمني",
+        "number": 31,
+        "id": "U03-L02-Q031"
+      },
+      {
+        "question": "حدد نوع الإنشاء في (يا أيَّتُها الشاباتُ شاركْنَ في الحياةِ النيابيةِ).",
+        "options": {
+          "A": "إنشاء غير طلبي (مدح)",
+          "B": "إنشاء طلبي (نداء وأمر)",
+          "C": "إنشاء طلبي (تمني)",
+          "D": "جملة خبرية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إنشاء طلبي (نداء وأمر)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إنشاء طلبي (نداء وأمر)"
+        },
+        "explanation": "إنشاء طلبي (نداء وأمر)",
+        "number": 32,
+        "id": "U03-L02-Q032"
+      },
+      {
+        "question": "من صيغ الإنشاء (غير الطلبي):",
+        "options": {
+          "A": "الاستفهام والنداء",
+          "B": "التعجب والمدح والذم والقسم والرجاء",
+          "C": "الأمر والنهي",
+          "D": "التمني فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التعجب والمدح والذم والقسم والرجاء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التعجب والمدح والذم والقسم والرجاء"
+        },
+        "explanation": "التعجب والمدح والذم والقسم والرجاء",
+        "number": 33,
+        "id": "U03-L02-Q033"
+      },
+      {
+        "question": "ما نوع الإنشاء وصيغته في جملة (نِعْمَ البديلُ الاعتذارُ)؟",
+        "options": {
+          "A": "طلبي / أمر",
+          "B": "غير طلبي / مدح",
+          "C": "غير طلبي / ذم",
+          "D": "طلبي / تمني"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "غير طلبي / مدح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "غير طلبي / مدح"
+        },
+        "explanation": "غير طلبي / مدح",
+        "number": 34,
+        "id": "U03-L02-Q034"
+      },
+      {
+        "question": "في جملة (لَعَمْرُكَ هذا مماتُ الرجالِ)، نوع الإنشاء وصيغته:",
+        "options": {
+          "A": "غير طلبي / تعجب",
+          "B": "غير طلبي / قسم",
+          "C": "طلبي / نداء",
+          "D": "طلبي / استفهام"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "غير طلبي / قسم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "غير طلبي / قسم"
+        },
+        "explanation": "غير طلبي / قسم",
+        "number": 35,
+        "id": "U03-L02-Q035"
+      },
+      {
+        "question": "أي الجمل الآتية تعتبر (إنشاءً طلبياً بصيغة التمني)؟",
+        "options": {
+          "A": "ما أكرم أهل الأردن!",
+          "B": "فليتَ الليلَ فيه كان شهراً",
+          "C": "عسى الله أن يرحمهم",
+          "D": "بئس الرجل المنافق"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فليتَ الليلَ فيه كان شهراً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فليتَ الليلَ فيه كان شهراً"
+        },
+        "explanation": "فليتَ الليلَ فيه كان شهراً",
+        "number": 36,
+        "id": "U03-L02-Q036"
+      },
+      {
+        "question": "تعتبر (عسى) من أدوات الإنشاء غير الطلبي وصيغتها:",
+        "options": {
+          "A": "المدح",
+          "B": "الرجاء",
+          "C": "القسم",
+          "D": "التعجب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الرجاء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الرجاء"
+        },
+        "explanation": "الرجاء",
+        "number": 37,
+        "id": "U03-L02-Q037"
+      },
+      {
+        "question": "ما الفرق بين التمني والرجاء؟",
+        "options": {
+          "A": "لا فرق بينهما",
+          "B": "التمني في المستحيل أو البعيد والرجاء في الممكن",
+          "C": "الرجاء دائماً مستحيل",
+          "D": "التمني إنشاء غير طلبي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التمني في المستحيل أو البعيد والرجاء في الممكن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التمني في المستحيل أو البعيد والرجاء في الممكن"
+        },
+        "explanation": "التمني في المستحيل أو البعيد والرجاء في الممكن",
+        "number": 38,
+        "id": "U03-L02-Q038"
+      },
+      {
+        "question": "جملة (أنا مريضٌ) تعتبر ضرب خبر:",
+        "options": {
+          "A": "ابتدائي",
+          "B": "طلبي",
+          "C": "إنكاري",
+          "D": "إنشائي"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "ابتدائي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ابتدائي"
+        },
+        "explanation": "ابتدائي",
+        "number": 39,
+        "id": "U03-L02-Q039"
+      },
+      {
+        "question": "في قوله تعالى (إِنَّا أَنزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ)، ضرب الخبر هو (طلبي) لوجود المؤكد (إنّ).",
+        "options": {
+          "A": "صح",
+          "B": "خطأ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "صح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صح"
+        },
+        "explanation": "صح",
+        "number": 40,
+        "id": "U03-L02-Q040"
+      }
+    ]
+  }
+}

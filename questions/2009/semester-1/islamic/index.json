@@ -1,0 +1,141 @@
+{
+  "subject": "islamic",
+  "name": "التربية الإسلامية",
+  "generation": "2009",
+  "semester": "semester-1",
+  "units": [
+    {
+      "number": 1,
+      "name": "علاقة الإنسان بربه سبحانه",
+      "lessons": [
+        {
+          "number": "lesson-01",
+          "name": "lesson-01.json",
+          "file": "lesson-01.json"
+        },
+        {
+          "number": "lesson-02",
+          "name": "lesson-02.json",
+          "file": "lesson-02.json"
+        },
+        {
+          "number": "lesson-03",
+          "name": "lesson-03.json",
+          "file": "lesson-03.json"
+        },
+        {
+          "number": "lesson-04",
+          "name": "lesson-04.json",
+          "file": "lesson-04.json"
+        },
+        {
+          "number": "lesson-05",
+          "name": "lesson-05.json",
+          "file": "lesson-05.json"
+        },
+        {
+          "number": "lesson-06",
+          "name": "lesson-06.json",
+          "file": "lesson-06.json"
+        },
+        {
+          "number": "review",
+          "name": "review.json",
+          "file": "review.json"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "name": "علاقة الإنسان بنفسه",
+      "lessons": [
+        {
+          "number": "lesson-01",
+          "name": "lesson-01.json",
+          "file": "lesson-01.json"
+        },
+        {
+          "number": "lesson-02",
+          "name": "lesson-02.json",
+          "file": "lesson-02.json"
+        },
+        {
+          "number": "lesson-03",
+          "name": "lesson-03.json",
+          "file": "lesson-03.json"
+        },
+        {
+          "number": "lesson-04",
+          "name": "lesson-04.json",
+          "file": "lesson-04.json"
+        },
+        {
+          "number": "lesson-05",
+          "name": "lesson-05.json",
+          "file": "lesson-05.json"
+        },
+        {
+          "number": "lesson-06",
+          "name": "lesson-06.json",
+          "file": "lesson-06.json"
+        },
+        {
+          "number": "lesson-07",
+          "name": "lesson-07.json",
+          "file": "lesson-07.json"
+        },
+        {
+          "number": "review",
+          "name": "review.json",
+          "file": "review.json"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "name": "علاقة الإنسان بمَنْ حوله",
+      "lessons": [
+        {
+          "number": "lesson-01",
+          "name": "lesson-01.json",
+          "file": "lesson-01.json"
+        },
+        {
+          "number": "lesson-02",
+          "name": "lesson-02.json",
+          "file": "lesson-02.json"
+        },
+        {
+          "number": "lesson-03",
+          "name": "lesson-03.json",
+          "file": "lesson-03.json"
+        },
+        {
+          "number": "lesson-04",
+          "name": "lesson-04.json",
+          "file": "lesson-04.json"
+        },
+        {
+          "number": "lesson-05",
+          "name": "lesson-05.json",
+          "file": "lesson-05.json"
+        },
+        {
+          "number": "lesson-06",
+          "name": "lesson-06.json",
+          "file": "lesson-06.json"
+        },
+        {
+          "number": "lesson-07",
+          "name": "lesson-07.json",
+          "file": "lesson-07.json"
+        },
+        {
+          "number": "review",
+          "name": "review.json",
+          "file": "review.json"
+        }
+      ]
+    }
+  ]
+}

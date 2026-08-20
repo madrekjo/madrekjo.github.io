@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "2.5",
+    "lesson_name": "التعايش الإنساني",
+    "unit_number": 2,
+    "unit_name": "الوحدة الثانية: خدم القرآن الكريم",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "يُقصد بالتعايش الإنساني في الإسلام:",
+        "options": {
+          "A": "الانعزال عن الآخرين",
+          "B": "احترام الآخرين على اختلاف معتقداتهم وأعراقهم وثقافاتهم والتعامل معهم في جوانب الحياة",
+          "C": "إجبار الآخرين على اعتناق الإسلام",
+          "D": "تجاهل حقوق غير المسلمين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "احترام الآخرين على اختلاف معتقداتهم وأعراقهم وثقافاتهم والتعامل معهم في جوانب الحياة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "احترام الآخرين على اختلاف معتقداتهم وأعراقهم وثقافاتهم والتعامل معهم في جوانب الحياة"
+        },
+        "explanation": "احترام الآخرين على اختلاف معتقداتهم وأعراقهم وثقافاتهم والتعامل معهم في جوانب الحياة",
+        "number": 1,
+        "id": "U02-L05-Q001"
+      },
+      {
+        "question": "يقوم التعايش الإنساني في الإسلام على عدة مبادئ، منها:",
+        "options": {
+          "A": "وحدة الأصل البشري والعدالة",
+          "B": "الكرامة الإنسانية والحوار",
+          "C": "البر والإحسان",
+          "D": "جميع ما ذكر صحيح"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر صحيح"
+        },
+        "explanation": "جميع ما ذكر صحيح",
+        "number": 2,
+        "id": "U02-L05-Q002"
+      },
+      {
+        "question": "مبدأ 'وحدة الأصل البشري' يعني أن الناس جميعاً يرجعون في وجودهم إلى:",
+        "options": {
+          "A": "أصول مختلفة",
+          "B": "أصل واحد (آدم عليه السلام)",
+          "C": "ديانات مختلفة",
+          "D": "لغات متباينة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أصل واحد (آدم عليه السلام)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أصل واحد (آدم عليه السلام)"
+        },
+        "explanation": "أصل واحد (آدم عليه السلام)",
+        "number": 3,
+        "id": "U02-L05-Q003"
+      },
+      {
+        "question": "العدالة كمبدأ للتعايش تعني:",
+        "options": {
+          "A": "إعطاء كل ذي حق حقه",
+          "B": "محاباة الأصدقاء",
+          "C": "ظلم الأعداء",
+          "D": "تجاهل حقوق الفقراء"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "إعطاء كل ذي حق حقه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إعطاء كل ذي حق حقه"
+        },
+        "explanation": "إعطاء كل ذي حق حقه",
+        "number": 4,
+        "id": "U02-L05-Q004"
+      },
+      {
+        "question": "أوجب الإسلام معاملة الناس بالعدل حتى لو كانوا:",
+        "options": {
+          "A": "أقارب",
+          "B": "أصدقاء",
+          "C": "أعداءً ومخالفين",
+          "D": "تجاراً"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "أعداءً ومخالفين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أعداءً ومخالفين"
+        },
+        "explanation": "أعداءً ومخالفين",
+        "number": 5,
+        "id": "U02-L05-Q005"
+      },
+      {
+        "question": "من مبادئ التعايش 'الكرامة الإنسانية'، وهي هبة من الله تعالى لـ:",
+        "options": {
+          "A": "المسلمين فقط",
+          "B": "بني آدم جميعاً",
+          "C": "العرب فقط",
+          "D": "الأغنياء فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بني آدم جميعاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بني آدم جميعاً"
+        },
+        "explanation": "بني آدم جميعاً",
+        "number": 6,
+        "id": "U02-L05-Q006"
+      },
+      {
+        "question": "دعا الإسلام إلى أن يكون أسلوب التواصل مع الآخرين قائماً على:",
+        "options": {
+          "A": "العنف",
+          "B": "الحوار بالتي هي أحسن",
+          "C": "الإكراه",
+          "D": "التعالي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحوار بالتي هي أحسن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحوار بالتي هي أحسن"
+        },
+        "explanation": "الحوار بالتي هي أحسن",
+        "number": 7,
+        "id": "U02-L05-Q007"
+      },
+      {
+        "question": "المقصود بـ 'البر' في التعامل مع غير المسلمين هو:",
+        "options": {
+          "A": "العداء",
+          "B": "الإحسان إليهم وقول الخير لهم وفعل الجميل معهم",
+          "C": "تجاهلهم",
+          "D": "أخذ أموالهم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الإحسان إليهم وقول الخير لهم وفعل الجميل معهم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإحسان إليهم وقول الخير لهم وفعل الجميل معهم"
+        },
+        "explanation": "الإحسان إليهم وقول الخير لهم وفعل الجميل معهم",
+        "number": 8,
+        "id": "U02-L05-Q008"
+      },
+      {
+        "question": "يشتمل التعايش الإنساني على مجالات عدة، منها:",
+        "options": {
+          "A": "المجال الديني والاجتماعي",
+          "B": "المجال الاقتصادي والسياسي",
+          "C": "المجال الدولي",
+          "D": "جميع ما ذكر صحيح"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر صحيح"
+        },
+        "explanation": "جميع ما ذكر صحيح",
+        "number": 9,
+        "id": "U02-L05-Q009"
+      },
+      {
+        "question": "من مظاهر التعايش في 'المجال الديني':",
+        "options": {
+          "A": "عدم الإكراه في الدين",
+          "B": "حماية أماكن العبادة (الكنائس والشرائع)",
+          "C": "حرية ممارسة الشعائر الدينية",
+          "D": "جميع ما ذكر صحيح"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر صحيح"
+        },
+        "explanation": "جميع ما ذكر صحيح",
+        "number": 10,
+        "id": "U02-L05-Q010"
+      },
+      {
+        "question": "استقبل النبي ﷺ وفد نصارى نجران والتقى بهم في:",
+        "options": {
+          "A": "بيته",
+          "B": "السوق",
+          "C": "المسجد النبوي",
+          "D": "دار الأرقم"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "المسجد النبوي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المسجد النبوي"
+        },
+        "explanation": "المسجد النبوي",
+        "number": 11,
+        "id": "U02-L05-Q011"
+      },
+      {
+        "question": "يدل استقبال النبي ﷺ لنصارى نجران في المسجد على:",
+        "options": {
+          "A": "ضعف المسلمين",
+          "B": "سماحة الإسلام والتعايش الديني",
+          "C": "الرغبة في التجارة",
+          "D": "اتفاق عسكري"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "سماحة الإسلام والتعايش الديني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "سماحة الإسلام والتعايش الديني"
+        },
+        "explanation": "سماحة الإسلام والتعايش الديني",
+        "number": 12,
+        "id": "U02-L05-Q012"
+      },
+      {
+        "question": "من صور التعايش في 'المجال الاجتماعي' التي قام بها النبي ﷺ:",
+        "options": {
+          "A": "عيادة (زيارة) مرضاهم",
+          "B": "مشاركتهم في مناسباتهم الاجتماعية بما لا يخالف الدين",
+          "C": "حسن الجوار",
+          "D": "جميع ما ذكر صحيح"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر صحيح"
+        },
+        "explanation": "جميع ما ذكر صحيح",
+        "number": 13,
+        "id": "U02-L05-Q013"
+      },
+      {
+        "question": "توفي النبي ﷺ ودرعه مرهونة عند يهودي مقابل طعام لأهله، وهذا دليل على التعايش:",
+        "options": {
+          "A": "الديني",
+          "B": "الاقتصادي",
+          "C": "السياسي",
+          "D": "الدولي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الاقتصادي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاقتصادي"
+        },
+        "explanation": "الاقتصادي",
+        "number": 14,
+        "id": "U02-L05-Q014"
+      },
+      {
+        "question": "أباح الإسلام التعامل المالي مع غير المسلمين (بيعاً وشراءً) بشرط:",
+        "options": {
+          "A": "أن يكونوا أغنياء",
+          "B": "عدم الإضرار بمصالح الدولة والمجتمع",
+          "C": "أن يسلموا فوراً",
+          "D": "أن يتركوا بلادهم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عدم الإضرار بمصالح الدولة والمجتمع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عدم الإضرار بمصالح الدولة والمجتمع"
+        },
+        "explanation": "عدم الإضرار بمصالح الدولة والمجتمع",
+        "number": 15,
+        "id": "U02-L05-Q015"
+      },
+      {
+        "question": "مظهر التعايش الدال على 'حق المواطنة' لغير المسلمين داخل المجتمع هو التعايش:",
+        "options": {
+          "A": "الاقتصادي",
+          "B": "السياسي",
+          "C": "الدولي",
+          "D": "الديني"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "السياسي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السياسي"
+        },
+        "explanation": "السياسي",
+        "number": 16,
+        "id": "U02-L05-Q016"
+      },
+      {
+        "question": "من الوثائق التاريخية التي أرست قواعد التعايش السياسي وحقوق غير المسلمين:",
+        "options": {
+          "A": "وثيقة المدينة المنورة",
+          "B": "العهدة العمرية لأهل إيلياء (القدس)",
+          "C": "أ + ب",
+          "D": "لا شيء مما ذكر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "أ + ب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أ + ب"
+        },
+        "explanation": "أ + ب",
+        "number": 17,
+        "id": "U02-L05-Q017"
+      },
+      {
+        "question": "ما المقصود بـ 'العهدة العمرية'؟",
+        "options": {
+          "A": "اتفاقية تجارية",
+          "B": "كتاب أمان أعطاه عمر بن الخطاب لأهل القدس على أنفسهم وأموالهم وكنائسهم",
+          "C": "قانون للضرائب",
+          "D": "وصية في الميراث"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كتاب أمان أعطاه عمر بن الخطاب لأهل القدس على أنفسهم وأموالهم وكنائسهم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كتاب أمان أعطاه عمر بن الخطاب لأهل القدس على أنفسهم وأموالهم وكنائسهم"
+        },
+        "explanation": "كتاب أمان أعطاه عمر بن الخطاب لأهل القدس على أنفسهم وأموالهم وكنائسهم",
+        "number": 18,
+        "id": "U02-L05-Q018"
+      },
+      {
+        "question": "يقوم التعايش في 'المجال الدولي' على مبدأ:",
+        "options": {
+          "A": "التعامل بالمثل والوفاء بالعهود",
+          "B": "الحرب الدائمة",
+          "C": "نقض المواثيق",
+          "D": "السيطرة بالقوة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "التعامل بالمثل والوفاء بالعهود",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التعامل بالمثل والوفاء بالعهود"
+        },
+        "explanation": "التعامل بالمثل والوفاء بالعهود",
+        "number": 19,
+        "id": "U02-L05-Q019"
+      },
+      {
+        "question": "قال ﷺ: (من قتل معاهداً لم يرح رائحة الجنة)؛ المعاهد هو:",
+        "options": {
+          "A": "المسلم العاصي",
+          "B": "غير المسلم الذي بينه وبين المسلمين عهد وأمان",
+          "C": "المحارب في أرض المعركة",
+          "D": "الجاسوس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "غير المسلم الذي بينه وبين المسلمين عهد وأمان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "غير المسلم الذي بينه وبين المسلمين عهد وأمان"
+        },
+        "explanation": "غير المسلم الذي بينه وبين المسلمين عهد وأمان",
+        "number": 20,
+        "id": "U02-L05-Q020"
+      },
+      {
+        "question": "تعتبر 'رسالة عمان' أنموذجاً أردنياً معاصراً يدعو إلى:",
+        "options": {
+          "A": "الحوار والسلم العالمي والوئام بين الأديان",
+          "B": "التشدد",
+          "C": "الانغلاق الثقافي",
+          "D": "الخلافات المذهبية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الحوار والسلم العالمي والوئام بين الأديان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحوار والسلم العالمي والوئام بين الأديان"
+        },
+        "explanation": "الحوار والسلم العالمي والوئام بين الأديان",
+        "number": 21,
+        "id": "U02-L05-Q021"
+      },
+      {
+        "question": "مبادرة 'الأسبوع العالمي للوئام بين الأديان' هي مبادرة أطلقها:",
+        "options": {
+          "A": "الأمم المتحدة ابتداءً",
+          "B": "جلالة الملك عبد الله الثاني ابن الحسين وتبنتها الأمم المتحدة",
+          "C": "منظمة الصحة العالمية",
+          "D": "جامعة الدول العربية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "جلالة الملك عبد الله الثاني ابن الحسين وتبنتها الأمم المتحدة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جلالة الملك عبد الله الثاني ابن الحسين وتبنتها الأمم المتحدة"
+        },
+        "explanation": "جلالة الملك عبد الله الثاني ابن الحسين وتبنتها الأمم المتحدة",
+        "number": 22,
+        "id": "U02-L05-Q022"
+      },
+      {
+        "question": "يُحتفل بالأسبوع العالمي للوئام بين الأديان في الأسبوع الأول من شهر ..... من كل عام.",
+        "options": {
+          "A": "كانون الثاني",
+          "B": "شباط",
+          "C": "آذار",
+          "D": "نيسان"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "شباط",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "شباط"
+        },
+        "explanation": "شباط",
+        "number": 23,
+        "id": "U02-L05-Q023"
+      },
+      {
+        "question": "الهدف من مبادرة 'وئام الأديان' هو تعزيز قيم:",
+        "options": {
+          "A": "التعاطف والتسامح والرحمة والعيش المشترك",
+          "B": "التنافس المادي",
+          "C": "التباعد الاجتماعي",
+          "D": "القوة العسكرية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "التعاطف والتسامح والرحمة والعيش المشترك",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التعاطف والتسامح والرحمة والعيش المشترك"
+        },
+        "explanation": "التعاطف والتسامح والرحمة والعيش المشترك",
+        "number": 24,
+        "id": "U02-L05-Q024"
+      },
+      {
+        "question": "أي من الآيات الآتية تدل على 'وحدة الأصل البشري'؟",
+        "options": {
+          "A": "(يا أيها الناس إنا خلقناكم من ذكر وأنثى)",
+          "B": "(أقيموا الصلاة)",
+          "C": "(إن الله يأمر بالعدل)",
+          "D": "(ولله على الناس حج البيت)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(يا أيها الناس إنا خلقناكم من ذكر وأنثى)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "(يا أيها الناس إنا خلقناكم من ذكر وأنثى)"
+        },
+        "explanation": "(يا أيها الناس إنا خلقناكم من ذكر وأنثى)",
+        "number": 25,
+        "id": "U02-L05-Q025"
+      },
+      {
+        "question": "النهي عن إكراه الناس على اعتناق الدين الإسلامي ورد في قوله تعالى:",
+        "options": {
+          "A": "(لا إكراه في الدين)",
+          "B": "(إنا نحن نزلنا الذكر)",
+          "C": "(يا أيها الذين آمنوا)",
+          "D": "(الحمد لله رب العالمين)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(لا إكراه في الدين)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "(لا إكراه في الدين)"
+        },
+        "explanation": "(لا إكراه في الدين)",
+        "number": 26,
+        "id": "U02-L05-Q026"
+      },
+      {
+        "question": "أباح الإسلام للمسلم الزواج من نساء 'أهل الكتاب'، وهم:",
+        "options": {
+          "A": "المشركات",
+          "B": "اليهوديات والنصرانيات",
+          "C": "الملحدات",
+          "D": "البوذيات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اليهوديات والنصرانيات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اليهوديات والنصرانيات"
+        },
+        "explanation": "اليهوديات والنصرانيات",
+        "number": 27,
+        "id": "U02-L05-Q027"
+      },
+      {
+        "question": "من صور تكريم الجنازة التي تدل على التعايش والكرامة، قيام النبي ﷺ لـ:",
+        "options": {
+          "A": "جنازة جاره المسلم فقط",
+          "B": "جنازة يهودي مرت به",
+          "C": "جنازة أحد أقاربه",
+          "D": "لا شيء مما ذكر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "جنازة يهودي مرت به",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جنازة يهودي مرت به"
+        },
+        "explanation": "جنازة يهودي مرت به",
+        "number": 28,
+        "id": "U02-L05-Q028"
+      },
+      {
+        "question": "استخدام الرسوم التوضيحية (الميزان) في صفحة 105 يرمز إلى مبدأ:",
+        "options": {
+          "A": "الحوار",
+          "B": "العدالة",
+          "C": "وحدة الأصل",
+          "D": "الكرامة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العدالة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العدالة"
+        },
+        "explanation": "العدالة",
+        "number": 29,
+        "id": "U02-L05-Q029"
+      },
+      {
+        "question": "في العهدة العمرية، تعهد عمر بن الخطاب لأهل إيلياء ألا تُسكن كنائسهم ولا:",
+        "options": {
+          "A": "تُهدم",
+          "B": "تُباع",
+          "C": "تُغلق",
+          "D": "تُزين"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "تُهدم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تُهدم"
+        },
+        "explanation": "تُهدم",
+        "number": 30,
+        "id": "U02-L05-Q030"
+      },
+      {
+        "question": "التعايش في الإسلام لا يعني ذوبان شخصية المسلم، بل يعني:",
+        "options": {
+          "A": "التخلي عن الثوابت",
+          "B": "التعاون المشترك مع بقاء كل طرف على دينه ومعتقداته",
+          "C": "ترك العبادات",
+          "D": "تغيير القبلة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التعاون المشترك مع بقاء كل طرف على دينه ومعتقداته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التعاون المشترك مع بقاء كل طرف على دينه ومعتقداته"
+        },
+        "explanation": "التعاون المشترك مع بقاء كل طرف على دينه ومعتقداته",
+        "number": 31,
+        "id": "U02-L05-Q031"
+      },
+      {
+        "question": "أمر الله تعالى بالبر والإقساط (العدل) مع غير المسلمين ما داموا:",
+        "options": {
+          "A": "لم يقاتلوا المسلمين في الدين ولم يخرجوهم من ديارهم",
+          "B": "أغنياء",
+          "C": "يتحدثون العربية",
+          "D": "يسكنون في نفس الحي"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "لم يقاتلوا المسلمين في الدين ولم يخرجوهم من ديارهم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لم يقاتلوا المسلمين في الدين ولم يخرجوهم من ديارهم"
+        },
+        "explanation": "لم يقاتلوا المسلمين في الدين ولم يخرجوهم من ديارهم",
+        "number": 32,
+        "id": "U02-L05-Q032"
+      },
+      {
+        "question": "من القيم المستفادة من الدرس تقدير حرص الإسلام على مراعاة:",
+        "options": {
+          "A": "التنوع والتعددية الثقافية والدينية",
+          "B": "الرأي الواحد فقط",
+          "C": "الانغلاق",
+          "D": "الصراعات"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "التنوع والتعددية الثقافية والدينية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التنوع والتعددية الثقافية والدينية"
+        },
+        "explanation": "التنوع والتعددية الثقافية والدينية",
+        "number": 33,
+        "id": "U02-L05-Q033"
+      },
+      {
+        "question": "أي من الكتب الآتية يوثق أحداث التاريخ والعهود مثل العهدة العمرية؟",
+        "options": {
+          "A": "تاريخ الطبري",
+          "B": "كتاب العلوم",
+          "C": "ديوان الشعر",
+          "D": "الأطلس الجغرافي"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "تاريخ الطبري",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تاريخ الطبري"
+        },
+        "explanation": "تاريخ الطبري",
+        "number": 34,
+        "id": "U02-L05-Q034"
+      },
+      {
+        "question": "يُعد 'الصدق والوفاء بالوعد' من أخلاقيات التعايش في المجال:",
+        "options": {
+          "A": "الدولي والسياسي",
+          "B": "الشخصي فقط",
+          "C": "التجاري فقط",
+          "D": "لا أثر له"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الدولي والسياسي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدولي والسياسي"
+        },
+        "explanation": "الدولي والسياسي",
+        "number": 35,
+        "id": "U02-L05-Q035"
+      },
+      {
+        "question": "مبدأ 'التعامل بالمثل' في المجال الدولي يحفظ للدولة:",
+        "options": {
+          "A": "هيبتها ومكانتها",
+          "B": "أموالها فقط",
+          "C": "حدودها فقط",
+          "D": "لغتها"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "هيبتها ومكانتها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "هيبتها ومكانتها"
+        },
+        "explanation": "هيبتها ومكانتها",
+        "number": 36,
+        "id": "U02-L05-Q036"
+      },
+      {
+        "question": "حث الإسلام على إطعام المحتاجين من غير المسلمين كجزء من التعايش:",
+        "options": {
+          "A": "الديني",
+          "B": "الاجتماعي والإنساني",
+          "C": "السياسي",
+          "D": "الاقتصادي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الاجتماعي والإنساني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاجتماعي والإنساني"
+        },
+        "explanation": "الاجتماعي والإنساني",
+        "number": 37,
+        "id": "U02-L05-Q037"
+      },
+      {
+        "question": "استخدام الـ (QR Code) في صفحة 108 يهدف للاستماع لكلمة جلالة الملك في مؤتمر:",
+        "options": {
+          "A": "البيئة",
+          "B": "التراث الإسلامي: تعزيز الوئام والعيش المشترك",
+          "C": "الاقتصاد العالمي",
+          "D": "الرياضة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التراث الإسلامي: تعزيز الوئام والعيش المشترك",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التراث الإسلامي: تعزيز الوئام والعيش المشترك"
+        },
+        "explanation": "التراث الإسلامي: تعزيز الوئام والعيش المشترك",
+        "number": 38,
+        "id": "U02-L05-Q038"
+      },
+      {
+        "question": "من ثمرات التعايش الإنساني في المجتمع:",
+        "options": {
+          "A": "النزاعات",
+          "B": "تحقيق الأمن والاستقرار والتعاون لنفع البشرية",
+          "C": "الفرقة",
+          "D": "الضعف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تحقيق الأمن والاستقرار والتعاون لنفع البشرية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تحقيق الأمن والاستقرار والتعاون لنفع البشرية"
+        },
+        "explanation": "تحقيق الأمن والاستقرار والتعاون لنفع البشرية",
+        "number": 39,
+        "id": "U02-L05-Q039"
+      },
+      {
+        "question": "تعتبر مدينة نجران مثالاً تاريخياً على التعايش، وهي تقع الآن في:",
+        "options": {
+          "A": "الأردن",
+          "B": "جنوب المملكة العربية السعودية",
+          "C": "العراق",
+          "D": "سوريا"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "جنوب المملكة العربية السعودية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جنوب المملكة العربية السعودية"
+        },
+        "explanation": "جنوب المملكة العربية السعودية",
+        "number": 40,
+        "id": "U02-L05-Q040"
+      }
+    ]
+  }
+}

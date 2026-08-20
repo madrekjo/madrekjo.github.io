@@ -1,0 +1,990 @@
+{
+  "lesson": {
+    "lesson_number": "1.2",
+    "lesson_name": "متباينات القيمة المطلقة",
+    "unit_number": 1,
+    "unit_name": "الوحدة الأولى",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما هو التعريف الرياضي لمعادلة القيمة المطلقة؟",
+        "options": {
+          "A": "معادلة تحتوي على أسس تربيعية.",
+          "B": "معادلة تحتوي على مقدار جبري داخل رمز القيمة المطلقة.",
+          "C": "معادلة نتيجتها دائماً صفر.",
+          "D": "معادلة لا يمكن حلها جبرياً."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "معادلة تحتوي على مقدار جبري داخل رمز القيمة المطلقة.",
+        "difficulty": "easy",
+        "source": {
+          "page": 40,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حسب الكتاب، معادلة القيمة المطلقة هي معادلة تحتوي على قيمة مطلقة لمقدار جبري."
+        },
+        "explanation": "حسب الكتاب، معادلة القيمة المطلقة هي معادلة تحتوي على قيمة مطلقة لمقدار جبري.",
+        "number": 1,
+        "id": "U01-L02-Q001"
+      },
+      {
+        "question": "لحل المعادلة |ax + b| = c حيث c ≥ 0، ما هما المعادلتان المرتبطتان اللتان يجب حلهما؟",
+        "options": {
+          "A": "ax + b = c فقط",
+          "B": "ax + b = -c فقط",
+          "C": "ax + b = c أو ax + b = -c",
+          "D": "ax + b > c أو ax + b < -c"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "ax + b = c أو ax + b = -c",
+        "difficulty": "medium",
+        "source": {
+          "page": 41,
+          "reference": "مفهوم أساسي في حل معادلات القيمة المطلقة"
+        },
+        "solution": {
+          "formula": "مفهوم أساسي في حل معادلات القيمة المطلقة",
+          "steps": [],
+          "summary": "بما أن القيمة المطلقة للعدد ومعكوسه متساويتان، يتم تحويل المعادلة إلى احتمالي الموجب والسالب."
+        },
+        "explanation": "بما أن القيمة المطلقة للعدد ومعكوسه متساويتان، يتم تحويل المعادلة إلى احتمالي الموجب والسالب.",
+        "number": 2,
+        "id": "U01-L02-Q002"
+      },
+      {
+        "question": "ما معنى المعادلة |x - 8| = 2 هندسياً على خط الأعداد؟",
+        "options": {
+          "A": "المسافة بين x و 0 تساوي 2.",
+          "B": "المسافة بين x و 8 تساوي 2.",
+          "C": "المسافة بين x و 2 تساوي 8.",
+          "D": "المسافة بين 8 و 2 تساوي x."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المسافة بين x و 8 تساوي 2.",
+        "difficulty": "medium",
+        "source": {
+          "page": 42,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تعبير القيمة المطلقة |x - a| يمثل المسافة بين النقطة x والنقطة a."
+        },
+        "explanation": "تعبير القيمة المطلقة |x - a| يمثل المسافة بين النقطة x والنقطة a.",
+        "number": 3,
+        "id": "U01-L02-Q003"
+      },
+      {
+        "question": "أوجد مجموعة حل المعادلة |x - 8| = 2.",
+        "options": {
+          "A": "{10, 6}",
+          "B": "{6, -6}",
+          "C": "{10, -10}",
+          "D": "∅"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "{10, 6}",
+        "difficulty": "medium",
+        "source": {
+          "page": 41,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "x - 8 = 2 => x = 10. أو x - 8 = -2 => x = 6."
+          ],
+          "summary": "بحل المعادلتين المرتبطتين نجد القيمتين اللتين تبعدان وحدتين عن الرقم 8."
+        },
+        "explanation": "بحل المعادلتين المرتبطتين نجد القيمتين اللتين تبعدان وحدتين عن الرقم 8.",
+        "number": 4,
+        "id": "U01-L02-Q004"
+      },
+      {
+        "question": "ما هي مجموعة حل المعادلة |3x + 1| = -5؟",
+        "options": {
+          "A": "{-2, 4/3}",
+          "B": "{0}",
+          "C": "R",
+          "D": "∅"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "∅",
+        "difficulty": "easy",
+        "source": {
+          "page": 43,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا يمكن أن تكون المسافة (القيمة المطلقة) سالبة، لذا لا يوجد حل."
+        },
+        "explanation": "لا يمكن أن تكون المسافة (القيمة المطلقة) سالبة، لذا لا يوجد حل.",
+        "number": 5,
+        "id": "U01-L02-Q005"
+      },
+      {
+        "question": "لحل المعادلة 2|x - 4| + 10 = 16، ما هي الخطوة الأولى الصحيحة؟",
+        "options": {
+          "A": "توزيع الرقم 2 داخل المطلق.",
+          "B": "طرح 10 من طرفي المعادلة لعزل المطلق.",
+          "C": "قسمة المعادلة كاملة على 10.",
+          "D": "تحويلها مباشرة لمعادلتين مرتبتين."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "طرح 10 من طرفي المعادلة لعزل المطلق.",
+        "difficulty": "medium",
+        "source": {
+          "page": 42,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يجب عزل رمز القيمة المطلقة في طرف واحد قبل البدء بالحل."
+        },
+        "explanation": "يجب عزل رمز القيمة المطلقة في طرف واحد قبل البدء بالحل.",
+        "number": 6,
+        "id": "U01-L02-Q006"
+      },
+      {
+        "question": "ما هي مجموعة حل المعادلة |x + 4| = -10؟",
+        "options": {
+          "A": "{6, -14}",
+          "B": "{-14}",
+          "C": "∅",
+          "D": "{14, -6}"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "∅",
+        "difficulty": "easy",
+        "source": {
+          "page": 43,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القيمة المطلقة لا تعطي ناتجاً سالباً أبداً."
+        },
+        "explanation": "القيمة المطلقة لا تعطي ناتجاً سالباً أبداً.",
+        "number": 7,
+        "id": "U01-L02-Q007"
+      },
+      {
+        "question": "أوجد مجموعة حل المعادلة 4|2x + 7| = 16.",
+        "options": {
+          "A": "{-1.5, -5.5}",
+          "B": "{1.5, 5.5}",
+          "C": "{-3, -11}",
+          "D": "{-4, 4}"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "{-1.5, -5.5}",
+        "difficulty": "hard",
+        "source": {
+          "page": 43,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "|2x+7|=4. إما 2x+7=4 => 2x=-3 => x=-1.5. أو 2x+7=-4 => 2x=-11 => x=-5.5."
+          ],
+          "summary": "بعد عزل المطلق بالقسمة على 4، نقوم بحل المعادلتين الناتجتين."
+        },
+        "explanation": "بعد عزل المطلق بالقسمة على 4، نقوم بحل المعادلتين الناتجتين.",
+        "number": 8,
+        "id": "U01-L02-Q008"
+      },
+      {
+        "question": "ماذا تعني متباينة القيمة المطلقة |x| ≤ 5؟",
+        "options": {
+          "A": "المسافة بين x و 0 أكبر من 5.",
+          "B": "المسافة بين x و 0 أقل من أو تساوي 5.",
+          "C": "x تساوي دائماً 5.",
+          "D": "x لا يمكن أن تكون سالبة."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المسافة بين x و 0 أقل من أو تساوي 5.",
+        "difficulty": "easy",
+        "source": {
+          "page": 44,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تعريف المتباينة |x| ≤ c يعني البعد عن الصفر بمسافة لا تتجاوز c."
+        },
+        "explanation": "تعريف المتباينة |x| ≤ c يعني البعد عن الصفر بمسافة لا تتجاوز c.",
+        "number": 9,
+        "id": "U01-L02-Q009"
+      },
+      {
+        "question": "لحل المتباينة |ax + b| < c حيث c > 0، نحولها إلى المتباينة المركبة:",
+        "options": {
+          "A": "ax + b < c",
+          "B": "ax + b > -c",
+          "C": "-c < ax + b < c",
+          "D": "ax + b > c أو ax + b < -c"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "-c < ax + b < c",
+        "difficulty": "medium",
+        "source": {
+          "page": 44,
+          "reference": "حل متباينات القيمة المطلقة (<)"
+        },
+        "solution": {
+          "formula": "حل متباينات القيمة المطلقة (<)",
+          "steps": [],
+          "summary": "المتباينة التي تحتوي على أصغر من تتحول إلى متباينة مركبة بأداة الربط (و)."
+        },
+        "explanation": "المتباينة التي تحتوي على أصغر من تتحول إلى متباينة مركبة بأداة الربط (و).",
+        "number": 10,
+        "id": "U01-L02-Q010"
+      },
+      {
+        "question": "ما هي مجموعة حل المتباينة |x + 5| < 9؟",
+        "options": {
+          "A": "(-14, 4)",
+          "B": "[-14, 4]",
+          "C": "(-∞, -14) ∪ (4, ∞)",
+          "D": "(-4, 14)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(-14, 4)",
+        "difficulty": "medium",
+        "source": {
+          "page": 45,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "-9 < x + 5 < 9 => -14 < x < 4."
+          ],
+          "summary": "بطرح 5 من جميع أطراف المتباينة المركبة نحصل على الفترة المفتوحة."
+        },
+        "explanation": "بطرح 5 من جميع أطراف المتباينة المركبة نحصل على الفترة المفتوحة.",
+        "number": 11,
+        "id": "U01-L02-Q011"
+      },
+      {
+        "question": "عند حل المتباينة -4|x + 3| - 2 ≥ 6، نصل بعد التبسيط إلى |x + 3| ≤ -2. ما هو الحل؟",
+        "options": {
+          "A": "x ≤ -5",
+          "B": "x ≥ -1",
+          "C": "R",
+          "D": "∅"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "∅",
+        "difficulty": "hard",
+        "source": {
+          "page": 46,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المطلق دائماً غير سالب، فلا يمكن أن يكون أقل من عدد سالب (-2)."
+        },
+        "explanation": "المطلق دائماً غير سالب، فلا يمكن أن يكون أقل من عدد سالب (-2).",
+        "number": 12,
+        "id": "U01-L02-Q012"
+      },
+      {
+        "question": "ما هي مجموعة حل المتباينة |x - 2| ≤ 1؟",
+        "options": {
+          "A": "(1, 3)",
+          "B": "[1, 2]",
+          "C": "[-1, 1]",
+          "D": "∅"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "[1, 2]",
+        "difficulty": "medium",
+        "source": {
+          "page": 47,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "-1 ≤ x - 2 ≤ 1 => 1 ≤ x ≤ 3."
+          ],
+          "summary": "إضافة 2 لجميع الأطراف تعطي الفترة المغلقة [1, 2]."
+        },
+        "explanation": "إضافة 2 لجميع الأطراف تعطي الفترة المغلقة [1, 2].",
+        "number": 13,
+        "id": "U01-L02-Q013"
+      },
+      {
+        "question": "لحل المتباينة |ax + b| > c حيث c > 0، نحولها إلى المتباينة المركبة:",
+        "options": {
+          "A": "-c < ax + b < c",
+          "B": "ax + b < -c أو ax + b > c",
+          "C": "ax + b > c فقط",
+          "D": "ax + b < -c فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ax + b < -c أو ax + b > c",
+        "difficulty": "medium",
+        "source": {
+          "page": 48,
+          "reference": "حل متباينات القيمة المطلقة (>)"
+        },
+        "solution": {
+          "formula": "حل متباينات القيمة المطلقة (>)",
+          "steps": [],
+          "summary": "المتباينة التي تحتوي على أكبر من تتحول إلى متباينة مركبة بأداة الربط (أو)."
+        },
+        "explanation": "المتباينة التي تحتوي على أكبر من تتحول إلى متباينة مركبة بأداة الربط (أو).",
+        "number": 14,
+        "id": "U01-L02-Q014"
+      },
+      {
+        "question": "أوجد مجموعة حل المتباينة |2x + 1| ≥ 5.",
+        "options": {
+          "A": "[-3, 2]",
+          "B": "(-∞, -3] ∪ [2, ∞)",
+          "C": "(-3, 2)",
+          "D": "R"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "(-∞, -3] ∪ [2, ∞)",
+        "difficulty": "medium",
+        "source": {
+          "page": 48,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "2x+1 ≥ 5 => 2x ≥ 4 => x ≥ 2. أو 2x+1 ≤ -5 => 2x ≤ -6 => x ≤ -3."
+          ],
+          "summary": "الحل هو اتحاد فترتين منفصلتين تمثلان القيم البعيدة عن المركز."
+        },
+        "explanation": "الحل هو اتحاد فترتين منفصلتين تمثلان القيم البعيدة عن المركز.",
+        "number": 15,
+        "id": "U01-L02-Q015"
+      },
+      {
+        "question": "ما هي مجموعة حل المتباينة |4x + 8| ≥ -3؟",
+        "options": {
+          "A": "∅",
+          "B": "R (كل الأعداد الحقيقية)",
+          "C": "x ≥ -11/4",
+          "D": "x ≤ 5/4"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "R (كل الأعداد الحقيقية)",
+        "difficulty": "medium",
+        "source": {
+          "page": 49,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بما أن المطلق دائماً ≥ 0، فإنه بالتأكيد دائماً أكبر من -3."
+        },
+        "explanation": "بما أن المطلق دائماً ≥ 0، فإنه بالتأكيد دائماً أكبر من -3.",
+        "number": 16,
+        "id": "U01-L02-Q016"
+      },
+      {
+        "question": "إذا كان القطر المثالي لبرغي هو 0.625 mm مسموح بزيادة أو نقصان 0.005 mm، ما المتباينة التي تمثل ذلك؟",
+        "options": {
+          "A": "|x - 0.005| ≤ 0.625",
+          "B": "|x + 0.625| ≤ 0.005",
+          "C": "|x - 0.625| ≤ 0.005",
+          "D": "|x - 0.625| ≥ 0.005"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "|x - 0.625| ≤ 0.005",
+        "difficulty": "medium",
+        "source": {
+          "page": 51,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الفرق بين القيمة الفعلية والمثالية يجب أن لا يتجاوز هامش الخطأ."
+        },
+        "explanation": "الفرق بين القيمة الفعلية والمثالية يجب أن لا يتجاوز هامش الخطأ.",
+        "number": 17,
+        "id": "U01-L02-Q017"
+      },
+      {
+        "question": "أوجد مجموعة حل المتباينة |x - 3| ≥ 4.",
+        "options": {
+          "A": "[-1, 7]",
+          "B": "(-∞, -1] ∪ [7, ∞)",
+          "C": "(-∞, 1] ∪ [7, ∞)",
+          "D": "∅"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "(-∞, -1] ∪ [7, ∞)",
+        "difficulty": "medium",
+        "source": {
+          "page": 49,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "x-3 ≥ 4 تعطي x ≥ 7، و x-3 ≤ -4 تعطي x ≤ -1."
+        },
+        "explanation": "x-3 ≥ 4 تعطي x ≥ 7، و x-3 ≤ -4 تعطي x ≤ -1.",
+        "number": 18,
+        "id": "U01-L02-Q018"
+      },
+      {
+        "question": "ما الرمز الرياضي المستخدم لمجموعة الأعداد الحقيقية؟",
+        "options": {
+          "A": "N",
+          "B": "Z",
+          "C": "Q",
+          "D": "R"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "R",
+        "difficulty": "easy",
+        "source": {
+          "page": 49,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يرمز لها بالحرف R اختصاراً لـ Real Numbers."
+        },
+        "explanation": "يرمز لها بالحرف R اختصاراً لـ Real Numbers.",
+        "number": 19,
+        "id": "U01-L02-Q019"
+      },
+      {
+        "question": "في مسألة مريم (ص 40)، الميزان به هامش خطأ ±0.1 g. إذا استعملت 8 g، ما متباينة الكتلة الحقيقية؟",
+        "options": {
+          "A": "|x - 8| ≤ 0.1",
+          "B": "|x - 0.1| ≤ 8",
+          "C": "|x + 8| ≤ 0.1",
+          "D": "|x - 8| > 0.1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "|x - 8| ≤ 0.1",
+        "difficulty": "medium",
+        "source": {
+          "page": 40,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الفرق بين الكتلة المقاسة والكتلة الحقيقية يقع ضمن هامش الخطأ."
+        },
+        "explanation": "الفرق بين الكتلة المقاسة والكتلة الحقيقية يقع ضمن هامش الخطأ.",
+        "number": 20,
+        "id": "U01-L02-Q020"
+      },
+      {
+        "question": "حل المعادلة |x + 3| = 7.",
+        "options": {
+          "A": "{4, -10}",
+          "B": "{4, 10}",
+          "C": "{-4, 10}",
+          "D": "{-4, -10}"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "{4, -10}",
+        "difficulty": "medium",
+        "source": {
+          "page": 52,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "x+3=7 تعطي x=4، و x+3=-7 تعطي x=-10."
+        },
+        "explanation": "x+3=7 تعطي x=4، و x+3=-7 تعطي x=-10.",
+        "number": 21,
+        "id": "U01-L02-Q021"
+      },
+      {
+        "question": "حل المتباينة |2x - 5| < 9.",
+        "options": {
+          "A": "-2 < x < 7",
+          "B": "2 < x < 7",
+          "C": "x < 7",
+          "D": "x > -2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-2 < x < 7",
+        "difficulty": "hard",
+        "source": {
+          "page": 52,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "-9 < 2x-5 < 9 => -4 < 2x < 14 => -2 < x < 7."
+          ],
+          "summary": "بإضافة 5 ثم القسمة على 2 لجميع الأطراف."
+        },
+        "explanation": "بإضافة 5 ثم القسمة على 2 لجميع الأطراف.",
+        "number": 22,
+        "id": "U01-L02-Q022"
+      },
+      {
+        "question": "ما مجموعة حل المتباينة |6x + 2| < -4؟",
+        "options": {
+          "A": "x < -1",
+          "B": "x > 1/3",
+          "C": "∅",
+          "D": "R"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "∅",
+        "difficulty": "easy",
+        "source": {
+          "page": 52,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المطلق لا يمكن أن يكون أقل من عدد سالب."
+        },
+        "explanation": "المطلق لا يمكن أن يكون أقل من عدد سالب.",
+        "number": 23,
+        "id": "U01-L02-Q023"
+      },
+      {
+        "question": "أي من الخيارات التالية يمثل حلاً للمتباينة |x + 8| ≤ 3؟",
+        "options": {
+          "A": "[-11, -5]",
+          "B": "[-5, 5]",
+          "C": "[3, 4]",
+          "D": "∅"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "[-11, -5]",
+        "difficulty": "medium",
+        "source": {
+          "page": 52,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "-3 ≤ x+8 ≤ 3 بتنقيص 8 تصبح -11 ≤ x ≤ -5."
+        },
+        "explanation": "-3 ≤ x+8 ≤ 3 بتنقيص 8 تصبح -11 ≤ x ≤ -5.",
+        "number": 24,
+        "id": "U01-L02-Q024"
+      },
+      {
+        "question": "المسافة بين عدد و 2 على الأكثر 13. ما المتباينة؟",
+        "options": {
+          "A": "|x - 2| ≥ 13",
+          "B": "|x - 2| ≤ 13",
+          "C": "|x + 2| ≤ 13",
+          "D": "|x - 13| ≤ 2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "|x - 2| ≤ 13",
+        "difficulty": "medium",
+        "source": {
+          "page": 381,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كلمة 'على الأكثر' تعني أصغر من أو يساوي."
+        },
+        "explanation": "كلمة 'على الأكثر' تعني أصغر من أو يساوي.",
+        "number": 25,
+        "id": "U01-L02-Q025"
+      },
+      {
+        "question": "المسافة بين عدد والصفر على الأقل 6. ما المتباينة؟",
+        "options": {
+          "A": "|x| < 6",
+          "B": "|x| ≤ 6",
+          "C": "|x| ≥ 6",
+          "D": "|x| > 6"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "|x| ≥ 6",
+        "difficulty": "medium",
+        "source": {
+          "page": 381,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كلمة 'على الأقل' تعني أكبر من أو يساوي."
+        },
+        "explanation": "كلمة 'على الأقل' تعني أكبر من أو يساوي.",
+        "number": 26,
+        "id": "U01-L02-Q026"
+      },
+      {
+        "question": "حل المعادلة |5x - 8| + 14 = 12.",
+        "options": {
+          "A": "{2, 1.2}",
+          "B": "{2}",
+          "C": "∅",
+          "D": "R"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "∅",
+        "difficulty": "medium",
+        "source": {
+          "page": 381,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عند طرح 14 تصبح |5x-8| = -2، وهذا مستحيل."
+        },
+        "explanation": "عند طرح 14 تصبح |5x-8| = -2، وهذا مستحيل.",
+        "number": 27,
+        "id": "U01-L02-Q027"
+      },
+      {
+        "question": "ما مجموعة حل المتباينة |x - 6| + 4 > 1؟",
+        "options": {
+          "A": "∅",
+          "B": "R",
+          "C": "x > 3",
+          "D": "x < 9"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "R",
+        "difficulty": "hard",
+        "source": {
+          "page": 381,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تصبح |x-6| > -3. وبما أن المطلق دائماً ≥ 0، فهو دائماً أكبر من -3 لجميع قيم x."
+        },
+        "explanation": "تصبح |x-6| > -3. وبما أن المطلق دائماً ≥ 0، فهو دائماً أكبر من -3 لجميع قيم x.",
+        "number": 28,
+        "id": "U01-L02-Q028"
+      },
+      {
+        "question": "في متباينة الفلك (ص 381)، إذا كان المتوسط 92.95 والتغير 1.55، ما المدى؟",
+        "options": {
+          "A": "[91.4, 94.5]",
+          "B": "[92.95, 94.5]",
+          "C": "[91.4, 92.95]",
+          "D": "[1.55, 92.95]"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "[91.4, 94.5]",
+        "difficulty": "hard",
+        "source": {
+          "page": 381,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "92.95 - 1.55 = 91.4. و 92.95 + 1.55 = 94.5."
+          ],
+          "summary": "المدى يحسب بطرح وإضافة مقدار التغير من المتوسط."
+        },
+        "explanation": "المدى يحسب بطرح وإضافة مقدار التغير من المتوسط.",
+        "number": 29,
+        "id": "U01-L02-Q029"
+      },
+      {
+        "question": "ما الخطأ في حل مريم للمعادلة |2x - 1| = -9؟",
+        "options": {
+          "A": "أنها لم تجمع 1 للطرفين.",
+          "B": "أنها وضعت احتمالين لمعادلة ناتجها سالب (مستحيلة الحل).",
+          "C": "أنها قسمت على 2 بشكل خاطئ.",
+          "D": "لا يوجد خطأ."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أنها وضعت احتمالين لمعادلة ناتجها سالب (مستحيلة الحل).",
+        "difficulty": "medium",
+        "source": {
+          "page": 382,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حسب الكتاب، معادلة المطلق التي تساوي سالباً ليس لها حل، ولا نفتح لها احتمالين."
+        },
+        "explanation": "حسب الكتاب، معادلة المطلق التي تساوي سالباً ليس لها حل، ولا نفتح لها احتمالين.",
+        "number": 30,
+        "id": "U01-L02-Q030"
+      },
+      {
+        "question": "حل المتباينة |3x - 1| + 6 > 0.",
+        "options": {
+          "A": "R",
+          "B": "∅",
+          "C": "x > 7/3",
+          "D": "x < -5/3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "R",
+        "difficulty": "medium",
+        "source": {
+          "page": 52,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "|3x-1| > -6 محققة دائماً للأعداد الحقيقية."
+        },
+        "explanation": "|3x-1| > -6 محققة دائماً للأعداد الحقيقية.",
+        "number": 31,
+        "id": "U01-L02-Q031"
+      },
+      {
+        "question": "إذا كانت كتلة كرة القدم المثالية 430g والتغير المسموح 20g، ما أكبر كتلة؟",
+        "options": {
+          "A": "410 g",
+          "B": "450 g",
+          "C": "430 g",
+          "D": "470 g"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "450 g",
+        "difficulty": "easy",
+        "source": {
+          "page": 53,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "430 + 20 = 450."
+        },
+        "explanation": "430 + 20 = 450.",
+        "number": 32,
+        "id": "U01-L02-Q032"
+      },
+      {
+        "question": "ما قيمة x التي تحقق |x + 5| = 6.5؟",
+        "options": {
+          "A": "{1.5, -11.5}",
+          "B": "{1.5, 11.5}",
+          "C": "{1.5}",
+          "D": "∅"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "{1.5, -11.5}",
+        "difficulty": "medium",
+        "source": {
+          "page": 107,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "x = 6.5 - 5 = 1.5. أو x = -6.5 - 5 = -11.5."
+        },
+        "explanation": "x = 6.5 - 5 = 1.5. أو x = -6.5 - 5 = -11.5.",
+        "number": 33,
+        "id": "U01-L02-Q033"
+      },
+      {
+        "question": "حل المتباينة |x - 1/2| = 5/2.",
+        "options": {
+          "A": "{3, -2}",
+          "B": "{3, 2}",
+          "C": "{2, -3}",
+          "D": "{5, -5}"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "{3, -2}",
+        "difficulty": "hard",
+        "source": {
+          "page": 107,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "x - 0.5 = 2.5 => x=3. أو x - 0.5 = -2.5 => x=-2."
+          ],
+          "summary": "بتحويل الكسور العادية إلى عشرية أو توحيد المقامات."
+        },
+        "explanation": "بتحويل الكسور العادية إلى عشرية أو توحيد المقامات.",
+        "number": 34,
+        "id": "U01-L02-Q034"
+      },
+      {
+        "question": "ما هي المتباينة التي تمثل التمثيل البياني: فجوة عند -3، سهم لليسار، وفجوة عند 1، سهم لليمين؟ (ص 54)",
+        "options": {
+          "A": "|x + 1| > 2",
+          "B": "|x - 1| > 2",
+          "C": "|x + 2| > 1",
+          "D": "|x + 1| < 2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "|x + 1| > 2",
+        "difficulty": "hard",
+        "source": {
+          "page": 54,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المركز هو منتصف المسافة (-1) والبعد عن المركز هو 2."
+        },
+        "explanation": "المركز هو منتصف المسافة (-1) والبعد عن المركز هو 2.",
+        "number": 35,
+        "id": "U01-L02-Q035"
+      },
+      {
+        "question": "حل المتباينة |x + 7| + 10 < 2.",
+        "options": {
+          "A": "∅",
+          "B": "R",
+          "C": "(-15, 1)",
+          "D": "x < -15"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "∅",
+        "difficulty": "medium",
+        "source": {
+          "page": 47,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تصبح |x+7| < -8، وهذا مستحيل."
+        },
+        "explanation": "تصبح |x+7| < -8، وهذا مستحيل.",
+        "number": 36,
+        "id": "U01-L02-Q036"
+      },
+      {
+        "question": "ما حل المتباينة |10 - x| > -5؟",
+        "options": {
+          "A": "R",
+          "B": "∅",
+          "C": "x > 15",
+          "D": "x < 5"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "R",
+        "difficulty": "medium",
+        "source": {
+          "page": 49,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القيمة المطلقة دائماً أكبر من أي عدد سالب."
+        },
+        "explanation": "القيمة المطلقة دائماً أكبر من أي عدد سالب.",
+        "number": 37,
+        "id": "U01-L02-Q037"
+      },
+      {
+        "question": "حل المتباينة |3x + 1| > 8.",
+        "options": {
+          "A": "x > 7/3 أو x < -3",
+          "B": "-3 < x < 7/3",
+          "C": "x > 3 أو x < -7/3",
+          "D": "R"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "x > 7/3 أو x < -3",
+        "difficulty": "hard",
+        "source": {
+          "page": 52,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "3x+1 > 8 تعطي x > 7/3. و 3x+1 < -8 تعطي x < -3."
+        },
+        "explanation": "3x+1 > 8 تعطي x > 7/3. و 3x+1 < -8 تعطي x < -3.",
+        "number": 38,
+        "id": "U01-L02-Q038"
+      },
+      {
+        "question": "حل المتباينة 2|3x + 8| - 13 ≤ -5.",
+        "options": {
+          "A": "[-4, -4/3]",
+          "B": "[-4, 4/3]",
+          "C": "(-∞, -4] ∪ [-4/3, ∞)",
+          "D": "∅"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "[-4, -4/3]",
+        "difficulty": "hard",
+        "source": {
+          "page": 52,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "2|3x+8| ≤ 8 => |3x+8| ≤ 4. => -4 ≤ 3x+8 ≤ 4 => -12 ≤ 3x ≤ -4 => -4 ≤ x ≤ -4/3."
+          ],
+          "summary": "بعزل المطلق أولاً ثم حل المتباينة المركبة الناتجة."
+        },
+        "explanation": "بعزل المطلق أولاً ثم حل المتباينة المركبة الناتجة.",
+        "number": 39,
+        "id": "U01-L02-Q039"
+      },
+      {
+        "question": "إذا كانت درجة حرارة البيئة T التي لا تعيش فيها الأفاعي تحقق |T - 82.5| > 7.5، ما هذا المدى؟",
+        "options": {
+          "A": "T < 75 أو T > 90",
+          "B": "75 < T < 90",
+          "C": "T < 82.5",
+          "D": "T > 82.5"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "T < 75 أو T > 90",
+        "difficulty": "hard",
+        "source": {
+          "page": 53,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأفاعي تعيش بين 75 و 90، لذا الموت أو عدم العيش يكون خارج هذا النطاق."
+        },
+        "explanation": "الأفاعي تعيش بين 75 و 90، لذا الموت أو عدم العيش يكون خارج هذا النطاق.",
+        "number": 40,
+        "id": "U01-L02-Q040"
+      }
+    ]
+  }
+}

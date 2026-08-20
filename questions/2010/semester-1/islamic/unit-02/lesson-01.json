@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "2.1",
+    "lesson_name": "جهود علماء المسلمين في خدمة القرآن الكريم",
+    "unit_number": 2,
+    "unit_name": "الوحدة الثانية: خدم القرآن الكريم",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "الآية الكريمة التي تؤكد تكفل الله تعالى بحفظ القرآن الكريم هي:",
+        "options": {
+          "A": "(إنا نحن نزلنا الذكر وإنا له لحافظون)",
+          "B": "(ورتبل القرآن ترتيلاً)",
+          "C": "(إن هذا القرآن يهدي للتي هي أقوم)",
+          "D": "(الله نزل أحسن الحديث)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(إنا نحن نزلنا الذكر وإنا له لحافظون)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "(إنا نحن نزلنا الذكر وإنا له لحافظون)"
+        },
+        "explanation": "(إنا نحن نزلنا الذكر وإنا له لحافظون)",
+        "number": 1,
+        "id": "U02-L01-Q001"
+      },
+      {
+        "question": "من الصحابة الذين اشتهروا بتعليم الناس القرآن الكريم وتلاوته:",
+        "options": {
+          "A": "عبد الله بن مسعود",
+          "B": "أبي بن كعب",
+          "C": "أبو موسى الأشعري",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر"
+        },
+        "explanation": "جميع ما ذكر",
+        "number": 2,
+        "id": "U02-L01-Q002"
+      },
+      {
+        "question": "الصحابي الذي لقب بـ (سيد القراء) هو:",
+        "options": {
+          "A": "أبي بن كعب",
+          "B": "عبد الله بن عباس",
+          "C": "زيد بن ثابت",
+          "D": "معاذ بن جبل"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أبي بن كعب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أبي بن كعب"
+        },
+        "explanation": "أبي بن كعب",
+        "number": 3,
+        "id": "U02-L01-Q003"
+      },
+      {
+        "question": "تم جمع القرآن الكريم في 'مصحف واحد' لأول مرة في عهد الخليفة:",
+        "options": {
+          "A": "أبي بكر الصديق",
+          "B": "عمر بن الخطاب",
+          "C": "عثمان بن عفان",
+          "D": "علي بن أبي طالب"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أبي بكر الصديق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أبي بكر الصديق"
+        },
+        "explanation": "أبي بكر الصديق",
+        "number": 4,
+        "id": "U02-L01-Q004"
+      },
+      {
+        "question": "الصحابي الذي كلفه أبو بكر الصديق بمهمة جمع القرآن هو:",
+        "options": {
+          "A": "زيد بن ثابت",
+          "B": "خالد بن الوليد",
+          "C": "عبد الله بن عمر",
+          "D": "عثمان بن عفان"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "زيد بن ثابت",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "زيد بن ثابت"
+        },
+        "explanation": "زيد بن ثابت",
+        "number": 5,
+        "id": "U02-L01-Q005"
+      },
+      {
+        "question": "السبب الرئيس لجمع القرآن في عهد أبي بكر الصديق رضي الله عنه هو:",
+        "options": {
+          "A": "استشهاد عدد كبير من الحفاظ في معركة اليمامة",
+          "B": "رغبة الصحابة في الكتابة",
+          "C": "انتشار الإسلام في بلاد الروم",
+          "D": "تسهيل القراءة للأعاجم"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "استشهاد عدد كبير من الحفاظ في معركة اليمامة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "استشهاد عدد كبير من الحفاظ في معركة اليمامة"
+        },
+        "explanation": "استشهاد عدد كبير من الحفاظ في معركة اليمامة",
+        "number": 6,
+        "id": "U02-L01-Q006"
+      },
+      {
+        "question": "تم 'نسخ' المصحف وإرسال نسخ منه إلى الأقاليم في عهد الخليفة:",
+        "options": {
+          "A": "عثمان بن عفان",
+          "B": "عمر بن الخطاب",
+          "C": "أبي بكر الصديق",
+          "D": "معاوية بن أبي سفيان"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "عثمان بن عفان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عثمان بن عفان"
+        },
+        "explanation": "عثمان بن عفان",
+        "number": 7,
+        "id": "U02-L01-Q007"
+      },
+      {
+        "question": "السبب الرئيس لنسخ المصحف في عهد عثمان بن عفان رضي الله عنه هو:",
+        "options": {
+          "A": "اختلاف الناس في وجوه القراءة وخوف الفتنة",
+          "B": "ضياع المصحف الأول",
+          "C": "الحاجة لترجمة القرآن",
+          "D": "تزيين المصاحف"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "اختلاف الناس في وجوه القراءة وخوف الفتنة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اختلاف الناس في وجوه القراءة وخوف الفتنة"
+        },
+        "explanation": "اختلاف الناس في وجوه القراءة وخوف الفتنة",
+        "number": 8,
+        "id": "U02-L01-Q008"
+      },
+      {
+        "question": "تم اختيار زيد بن ثابت لمهمة الجمع والنسخ بسبب:",
+        "options": {
+          "A": "ملازمته للنبي صلى الله عليه وسلم",
+          "B": "فهمه الدقيق وحفظه الكامل للقرآن",
+          "C": "همته العالية",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر"
+        },
+        "explanation": "جميع ما ذكر",
+        "number": 9,
+        "id": "U02-L01-Q009"
+      },
+      {
+        "question": "المقصود بـ (رسم المصحف) أو الرسم العثماني هو:",
+        "options": {
+          "A": "الطريقة التي كتبت بها حروف القرآن في عهد عثمان",
+          "B": "تزيين المصحف بالرسومات",
+          "C": "تلوين الكلمات",
+          "D": "كتابة التفسير على الهامش"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الطريقة التي كتبت بها حروف القرآن في عهد عثمان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الطريقة التي كتبت بها حروف القرآن في عهد عثمان"
+        },
+        "explanation": "الطريقة التي كتبت بها حروف القرآن في عهد عثمان",
+        "number": 10,
+        "id": "U02-L01-Q010"
+      },
+      {
+        "question": "العالم الذي وضع 'نقط الإعجام' (نقط الحروف كالباء والتاء) هو:",
+        "options": {
+          "A": "نصر بن عاصم الليثي ويحيى بن يعمر",
+          "B": "الخليل بن أحمد الفراهيدي",
+          "C": "أبو الأسود الدؤلي",
+          "D": "سيبويه"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "نصر بن عاصم الليثي ويحيى بن يعمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نصر بن عاصم الليثي ويحيى بن يعمر"
+        },
+        "explanation": "نصر بن عاصم الليثي ويحيى بن يعمر",
+        "number": 11,
+        "id": "U02-L01-Q011"
+      },
+      {
+        "question": "العالم الذي وضع 'نقط الإعراب' (الفتح والضم والكسر) لأول مرة هو:",
+        "options": {
+          "A": "أبو الأسود الدؤلي",
+          "B": "نصر بن عاصم",
+          "C": "الفراهيدي",
+          "D": "ابن كثير"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أبو الأسود الدؤلي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أبو الأسود الدؤلي"
+        },
+        "explanation": "أبو الأسود الدؤلي",
+        "number": 12,
+        "id": "U02-L01-Q012"
+      },
+      {
+        "question": "العالم الذي طور علامات الإعراب إلى شكلها الحالي (َ ُ ِ) هو:",
+        "options": {
+          "A": "الخليل بن أحمد الفراهيدي",
+          "B": "سيبويه",
+          "C": "أبو الأسود الدؤلي",
+          "D": "يحيى بن يعمر"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخليل بن أحمد الفراهيدي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الخليل بن أحمد الفراهيدي"
+        },
+        "explanation": "الخليل بن أحمد الفراهيدي",
+        "number": 13,
+        "id": "U02-L01-Q013"
+      },
+      {
+        "question": "المعلم الأول للقرآن الكريم هو:",
+        "options": {
+          "A": "النبي محمد صلى الله عليه وسلم",
+          "B": "جبريل عليه السلام",
+          "C": "أبو بكر الصديق",
+          "D": "عمر بن الخطاب"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "النبي محمد صلى الله عليه وسلم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النبي محمد صلى الله عليه وسلم"
+        },
+        "explanation": "النبي محمد صلى الله عليه وسلم",
+        "number": 14,
+        "id": "U02-L01-Q014"
+      },
+      {
+        "question": "العلم الذي يعنى ببيان معاني آيات القرآن الكريم هو:",
+        "options": {
+          "A": "علم التفسير",
+          "B": "علم القراءات",
+          "C": "علم التجويد",
+          "D": "علم الناسخ والمنسوخ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "علم التفسير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "علم التفسير"
+        },
+        "explanation": "علم التفسير",
+        "number": 15,
+        "id": "U02-L01-Q015"
+      },
+      {
+        "question": "من أشهر المفسرين من الصحابة رضي الله عنهم:",
+        "options": {
+          "A": "عبد الله بن عباس",
+          "B": "علي بن أبي طالب",
+          "C": "عبد الله بن مسعود",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر"
+        },
+        "explanation": "جميع ما ذكر",
+        "number": 16,
+        "id": "U02-L01-Q016"
+      },
+      {
+        "question": "لقب الصحابي عبد الله بن عباس رضي الله عنهما بـ:",
+        "options": {
+          "A": "ترجمان القرآن",
+          "B": "سيف الله",
+          "C": "أمين الأمة",
+          "D": "ذو النورين"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "ترجمان القرآن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ترجمان القرآن"
+        },
+        "explanation": "ترجمان القرآن",
+        "number": 17,
+        "id": "U02-L01-Q017"
+      },
+      {
+        "question": "من مفسري التابعين (تلاميذ الصحابة):",
+        "options": {
+          "A": "مجاهد بن جبر وعكرمة مولى ابن عباس",
+          "B": "زيد بن ثابت",
+          "C": "أبو هريرة",
+          "D": "أنس بن مالك"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مجاهد بن جبر وعكرمة مولى ابن عباس",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مجاهد بن جبر وعكرمة مولى ابن عباس"
+        },
+        "explanation": "مجاهد بن جبر وعكرمة مولى ابن عباس",
+        "number": 18,
+        "id": "U02-L01-Q018"
+      },
+      {
+        "question": "العلم الذي يعنى بضبط مخارج الحروف وصفاتها هو:",
+        "options": {
+          "A": "علم التجويد",
+          "B": "علم التفسير",
+          "C": "علم القراءات",
+          "D": "علم النحو"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "علم التجويد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "علم التجويد"
+        },
+        "explanation": "علم التجويد",
+        "number": 19,
+        "id": "U02-L01-Q019"
+      },
+      {
+        "question": "من الكتب الشهيرة في علم التفسير (جامع البيان عن تأويل آي القرآن) للمؤلف:",
+        "options": {
+          "A": "ابن جرير الطبري",
+          "B": "ابن كثير",
+          "C": "القرطبي",
+          "D": "الجلالين"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "ابن جرير الطبري",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ابن جرير الطبري"
+        },
+        "explanation": "ابن جرير الطبري",
+        "number": 20,
+        "id": "U02-L01-Q020"
+      },
+      {
+        "question": "كان الصحابة في عهد النبي يكتبون الوحي على:",
+        "options": {
+          "A": "الرقاع والعظام وسعف النخل",
+          "B": "الورق المصقول",
+          "C": "الألواح الإلكترونية",
+          "D": "الكتب المجلدة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الرقاع والعظام وسعف النخل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الرقاع والعظام وسعف النخل"
+        },
+        "explanation": "الرقاع والعظام وسعف النخل",
+        "number": 21,
+        "id": "U02-L01-Q021"
+      },
+      {
+        "question": "أول مطبعة طبعت القرآن الكريم في العالم الإسلامي كانت في:",
+        "options": {
+          "A": "القاهرة (مطبعة بولاق)",
+          "B": "دمشق",
+          "C": "بغداد",
+          "D": "إسطنبول"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "القاهرة (مطبعة بولاق)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القاهرة (مطبعة بولاق)"
+        },
+        "explanation": "القاهرة (مطبعة بولاق)",
+        "number": 22,
+        "id": "U02-L01-Q022"
+      },
+      {
+        "question": "تأسست 'الهيئة المستقلة لطباعة المصحف الشريف' في عهد الملك:",
+        "options": {
+          "A": "الحسين بن طلال",
+          "B": "عبد الله الثاني",
+          "C": "طلال بن عبد الله",
+          "D": "عبد الله الأول"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عبد الله الثاني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد الله الثاني"
+        },
+        "explanation": "عبد الله الثاني",
+        "number": 23,
+        "id": "U02-L01-Q023"
+      },
+      {
+        "question": "أرسل عثمان بن عفان النسخ المكتوبة إلى الأقاليم ومع كل نسخة:",
+        "options": {
+          "A": "قارئ يعلم الناس",
+          "B": "مفسر",
+          "C": "قائد عسكري",
+          "D": "تاجر"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "قارئ يعلم الناس",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قارئ يعلم الناس"
+        },
+        "explanation": "قارئ يعلم الناس",
+        "number": 24,
+        "id": "U02-L01-Q024"
+      },
+      {
+        "question": "من الوسائل الحديثة في خدمة القرآن الكريم:",
+        "options": {
+          "A": "تطبيقات القرآن الإلكترونية",
+          "B": "المصاحف المسموعة (الإذاعات)",
+          "C": "المواقع التعليمية للتجويد",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر"
+        },
+        "explanation": "جميع ما ذكر",
+        "number": 25,
+        "id": "U02-L01-Q025"
+      },
+      {
+        "question": "المقصود بـ (الإعجاز العلمي) في القرآن الكريم هو:",
+        "options": {
+          "A": "إخبار القرآن بحقائق علمية أثبتها العلم الحديث",
+          "B": "تزيين الآيات",
+          "C": "كتابة القرآن باللغة اللاتينية",
+          "D": "ترجمة القرآن"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "إخبار القرآن بحقائق علمية أثبتها العلم الحديث",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إخبار القرآن بحقائق علمية أثبتها العلم الحديث"
+        },
+        "explanation": "إخبار القرآن بحقائق علمية أثبتها العلم الحديث",
+        "number": 26,
+        "id": "U02-L01-Q026"
+      },
+      {
+        "question": "حفظ القرآن الكريم في 'الصدور' يعني:",
+        "options": {
+          "A": "استظهاره غيباً",
+          "B": "وضعه في صناديق",
+          "C": "كتابته على الورق",
+          "D": "تعليقه على الحائط"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "استظهاره غيباً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "استظهاره غيباً"
+        },
+        "explanation": "استظهاره غيباً",
+        "number": 27,
+        "id": "U02-L01-Q027"
+      },
+      {
+        "question": "دعا القرآن الكريم إلى 'التدبر'، ومعناه:",
+        "options": {
+          "A": "التفكر في معاني الآيات ومقاصدها",
+          "B": "سرعة القراءة",
+          "C": "تحسين الصوت فقط",
+          "D": "القراءة دون فهم"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "التفكر في معاني الآيات ومقاصدها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التفكر في معاني الآيات ومقاصدها"
+        },
+        "explanation": "التفكر في معاني الآيات ومقاصدها",
+        "number": 28,
+        "id": "U02-L01-Q028"
+      },
+      {
+        "question": "ساهم علماء المسلمين في ترجمة 'معاني' القرآن الكريم إلى اللغات العالمية بهدف:",
+        "options": {
+          "A": "تبليغ رسالة الإسلام للعالم",
+          "B": "تغيير لغة القرآن",
+          "C": "الاستغناء عن العربية",
+          "D": "المفاخرة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "تبليغ رسالة الإسلام للعالم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تبليغ رسالة الإسلام للعالم"
+        },
+        "explanation": "تبليغ رسالة الإسلام للعالم",
+        "number": 29,
+        "id": "U02-L01-Q029"
+      },
+      {
+        "question": "يُعد 'المصحف المعلم' وسيلة حديثة تهدف إلى:",
+        "options": {
+          "A": "تعليم الناس النطق الصحيح والتجويد",
+          "B": "الزينة",
+          "C": "زيادة سعر المصحف",
+          "D": "تغيير الرسم العثماني"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "تعليم الناس النطق الصحيح والتجويد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تعليم الناس النطق الصحيح والتجويد"
+        },
+        "explanation": "تعليم الناس النطق الصحيح والتجويد",
+        "number": 30,
+        "id": "U02-L01-Q030"
+      },
+      {
+        "question": "من مظاهر عناية المسلمين بالقرآن 'التجويد'، وحكم تعلم أحكامه (نظرياً):",
+        "options": {
+          "A": "فرض كفاية",
+          "B": "فرض عين",
+          "C": "محرم",
+          "D": "مكروه"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "فرض كفاية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فرض كفاية"
+        },
+        "explanation": "فرض كفاية",
+        "number": 31,
+        "id": "U02-L01-Q031"
+      },
+      {
+        "question": "الالتزام بالتلاوة الصحيحة للقرآن الكريم (عملياً) هو:",
+        "options": {
+          "A": "واجب على كل قارئ",
+          "B": "مستحب فقط",
+          "C": "خاص بالعلماء",
+          "D": "غير ضروري"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "واجب على كل قارئ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "واجب على كل قارئ"
+        },
+        "explanation": "واجب على كل قارئ",
+        "number": 32,
+        "id": "U02-L01-Q032"
+      },
+      {
+        "question": "ساعد (الذكاء الاصطناعي) في العصر الحديث في:",
+        "options": {
+          "A": "تطوير برامج لتصحيح التلاوة آلياً",
+          "B": "تحريف القرآن",
+          "C": "منع القراءة",
+          "D": "إلغاء المصاحف الورقية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "تطوير برامج لتصحيح التلاوة آلياً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تطوير برامج لتصحيح التلاوة آلياً"
+        },
+        "explanation": "تطوير برامج لتصحيح التلاوة آلياً",
+        "number": 33,
+        "id": "U02-L01-Q033"
+      },
+      {
+        "question": "أي من الآتية ليس من 'كتاب الوحي' في عهد النبي؟",
+        "options": {
+          "A": "أبو جهل",
+          "B": "زيد بن ثابت",
+          "C": "علي بن أبي طالب",
+          "D": "معاوية بن أبي سفيان"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أبو جهل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أبو جهل"
+        },
+        "explanation": "أبو جهل",
+        "number": 34,
+        "id": "U02-L01-Q034"
+      },
+      {
+        "question": "تم الاحتفاظ بالمصحف الذي جمعه أبو بكر الصديق عند السيدة:",
+        "options": {
+          "A": "حفصة بنت عمر",
+          "B": "عائشة بنت أبي بكر",
+          "C": "خديجة بنت خويلد",
+          "D": "فاطمة الزهراء"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "حفصة بنت عمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حفصة بنت عمر"
+        },
+        "explanation": "حفصة بنت عمر",
+        "number": 35,
+        "id": "U02-L01-Q035"
+      },
+      {
+        "question": "اعتنت الدولة الأموية والعباسية بـ 'الكتاتيب'، وهي أماكن لـ:",
+        "options": {
+          "A": "تعليم الأطفال حفظ القرآن والكتابة",
+          "B": "البيع والشراء",
+          "C": "تدريب الجيش",
+          "D": "السكن"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "تعليم الأطفال حفظ القرآن والكتابة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تعليم الأطفال حفظ القرآن والكتابة"
+        },
+        "explanation": "تعليم الأطفال حفظ القرآن والكتابة",
+        "number": 36,
+        "id": "U02-L01-Q036"
+      },
+      {
+        "question": "يُعد كتاب (تفسير القرآن العظيم) لابن كثير من أشهر كتب التفسير بـ:",
+        "options": {
+          "A": "المنقول (المأثور)",
+          "B": "الرأي فقط",
+          "C": "اللغة فقط",
+          "D": "الفلسفة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "المنقول (المأثور)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المنقول (المأثور)"
+        },
+        "explanation": "المنقول (المأثور)",
+        "number": 37,
+        "id": "U02-L01-Q037"
+      },
+      {
+        "question": "من جهود الأردن الحديثة في خدمة القرآن إنشاء 'المسابقات الهاشمية لـ':",
+        "options": {
+          "A": "حفظ القرآن الكريم وتلاوته",
+          "B": "الشعر",
+          "C": "الرياضة",
+          "D": "العلوم"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "حفظ القرآن الكريم وتلاوته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حفظ القرآن الكريم وتلاوته"
+        },
+        "explanation": "حفظ القرآن الكريم وتلاوته",
+        "number": 38,
+        "id": "U02-L01-Q038"
+      },
+      {
+        "question": "يُقصد بـ 'القراءات السبع' أو 'العشر' هي:",
+        "options": {
+          "A": "وجوه التلاوة الثابتة عن النبي صلى الله عليه وسلم",
+          "B": "تأليف قصص عن القرآن",
+          "C": "أجزاء القرآن",
+          "D": "عدد السور"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "وجوه التلاوة الثابتة عن النبي صلى الله عليه وسلم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وجوه التلاوة الثابتة عن النبي صلى الله عليه وسلم"
+        },
+        "explanation": "وجوه التلاوة الثابتة عن النبي صلى الله عليه وسلم",
+        "number": 39,
+        "id": "U02-L01-Q039"
+      },
+      {
+        "question": "من القيم المستفادة من الدرس الحرص على القرآن الكريم:",
+        "options": {
+          "A": "تلاوة وحفظاً وتدبراً وعملاً",
+          "B": "للزينة فقط",
+          "C": "في المناسبات الحزينة فقط",
+          "D": "عند الحاجة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "تلاوة وحفظاً وتدبراً وعملاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تلاوة وحفظاً وتدبراً وعملاً"
+        },
+        "explanation": "تلاوة وحفظاً وتدبراً وعملاً",
+        "number": 40,
+        "id": "U02-L01-Q040"
+      }
+    ]
+  }
+}

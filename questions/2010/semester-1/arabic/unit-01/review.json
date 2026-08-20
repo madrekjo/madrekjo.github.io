@@ -1,0 +1,1210 @@
+{
+  "lesson": {
+    "lesson_number": "1.review",
+    "lesson_name": "مراجعة الوحدة 1",
+    "unit_number": 1,
+    "unit_name": "الوحدة الأولى",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما هما القيمتان اللتان أمر الله بهما في الآية (58) من سورة النساء؟",
+        "options": {
+          "A": "الصدق والأمانة",
+          "B": "العدل وأداء الأمانات",
+          "C": "الشورى والعفو",
+          "D": "التقوى والمساواة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العدل وأداء الأمانات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العدل وأداء الأمانات"
+        },
+        "explanation": "العدل وأداء الأمانات",
+        "number": 1,
+        "id": "U01-L99-Q001"
+      },
+      {
+        "question": "ما المقصود بكلمة (تؤفكون) في قوله تعالى: (فأنى تؤفكون)؟",
+        "options": {
+          "A": "تصدقون بالحق",
+          "B": "تنصرفون عن الحق",
+          "C": "تختبئون من العقاب",
+          "D": "تتساءلون عن الغيب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تنصرفون عن الحق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تنصرفون عن الحق"
+        },
+        "explanation": "تنصرفون عن الحق",
+        "number": 2,
+        "id": "U01-L99-Q002"
+      },
+      {
+        "question": "ما ميزان التفاضل بين الناس عند الله تعالى كما ورد في سورة الحجرات؟",
+        "options": {
+          "A": "كثرة المال",
+          "B": "قوة القبيلة",
+          "C": "التقوى",
+          "D": "المنصب والجاه"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "التقوى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التقوى"
+        },
+        "explanation": "التقوى",
+        "number": 3,
+        "id": "U01-L99-Q003"
+      },
+      {
+        "question": "ما علامة جزم الفعل المضارع (ترَ) في جملة: (كنْ جميلاً ترَ الوجود جميلاً)؟",
+        "options": {
+          "A": "السكون",
+          "B": "الفتحة",
+          "C": "حذف حرف العلة",
+          "D": "حذف النون"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "حذف حرف العلة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حذف حرف العلة"
+        },
+        "explanation": "حذف حرف العلة",
+        "number": 4,
+        "id": "U01-L99-Q004"
+      },
+      {
+        "question": "التشبيه الذي حُذفت منه الأداة ووجه الشبه يسمى:",
+        "options": {
+          "A": "مرسل مجمل",
+          "B": "مؤكد مفصل",
+          "C": "تشبيه بليغ",
+          "D": "مرسل مفصل"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "تشبيه بليغ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تشبيه بليغ"
+        },
+        "explanation": "تشبيه بليغ",
+        "number": 5,
+        "id": "U01-L99-Q005"
+      },
+      {
+        "question": "ما الغرض من جعل الناس شعوباً وقبائل كما ورد في سورة الحجرات؟",
+        "options": {
+          "A": "للتفاخر بالأنساب",
+          "B": "للتعارف",
+          "C": "للنزاع والقتال",
+          "D": "للتمييز الطبقي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "للتعارف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "للتعارف"
+        },
+        "explanation": "للتعارف",
+        "number": 6,
+        "id": "U01-L99-Q006"
+      },
+      {
+        "question": "كلمة (باسقة) في وصف نخل سورة الأنعام تعني:",
+        "options": {
+          "A": "مثمرة",
+          "B": "مرتفعة الأغصان",
+          "C": "كثيفة الظل",
+          "D": "يابسة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مرتفعة الأغصان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مرتفعة الأغصان"
+        },
+        "explanation": "مرتفعة الأغصان",
+        "number": 7,
+        "id": "U01-L99-Q007"
+      },
+      {
+        "question": "في جملة (زرْ عجلون تنعمْ بالراحة)، الفعل المجزوم في جواب الطلب هو:",
+        "options": {
+          "A": "زر",
+          "B": "عجلون",
+          "C": "تنعم",
+          "D": "الراحة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "تنعم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تنعم"
+        },
+        "explanation": "تنعم",
+        "number": 8,
+        "id": "U01-L99-Q008"
+      },
+      {
+        "question": "حدد أركان التشبيه في جملة: (محمد كالأسد في القوة).",
+        "options": {
+          "A": "مشبه وأداة فقط",
+          "B": "مشبه ومشبه به فقط",
+          "C": "الأركان الأربعة كاملة",
+          "D": "أداة ووجه شبه فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الأركان الأربعة كاملة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأركان الأربعة كاملة"
+        },
+        "explanation": "الأركان الأربعة كاملة",
+        "number": 9,
+        "id": "U01-L99-Q009"
+      },
+      {
+        "question": "ما دلالة اقتران (العفو) بـ (الإصلاح) في سورة الشورى؟",
+        "options": {
+          "A": "للتزيين اللفظي",
+          "B": "أن العفو المحمود هو ما كان فيه إصلاح",
+          "C": "أن العفو واجب دائماً",
+          "D": "صعوبة العفو"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أن العفو المحمود هو ما كان فيه إصلاح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أن العفو المحمود هو ما كان فيه إصلاح"
+        },
+        "explanation": "أن العفو المحمود هو ما كان فيه إصلاح",
+        "number": 10,
+        "id": "U01-L99-Q010"
+      },
+      {
+        "question": "ما علامة جزم الفعل (تجدوا) في (صلوا في المسجد تجدوا الراحة)؟",
+        "options": {
+          "A": "السكون",
+          "B": "حذف حرف العلة",
+          "C": "حذف النون",
+          "D": "ثبوت النون"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "حذف النون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حذف النون"
+        },
+        "explanation": "حذف النون",
+        "number": 11,
+        "id": "U01-L99-Q011"
+      },
+      {
+        "question": "المقصود بـ (فالق الإصباح) هو:",
+        "options": {
+          "A": "خالق الليل",
+          "B": "الذي يشق ظلمة الليل بنور الصباح",
+          "C": "الذي ينهي اليوم",
+          "D": "وصف للشمس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الذي يشق ظلمة الليل بنور الصباح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الذي يشق ظلمة الليل بنور الصباح"
+        },
+        "explanation": "الذي يشق ظلمة الليل بنور الصباح",
+        "number": 12,
+        "id": "U01-L99-Q012"
+      },
+      {
+        "question": "يسمى التشبيه الذي ذُكرت فيه الأداة بـ:",
+        "options": {
+          "A": "مؤكد",
+          "B": "مرسل",
+          "C": "بليغ",
+          "D": "مجمل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مرسل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مرسل"
+        },
+        "explanation": "مرسل",
+        "number": 13,
+        "id": "U01-L99-Q013"
+      },
+      {
+        "question": "ما الوظيفة الفنية لتوظيف (الطباق) في الآيات القرآنية؟",
+        "options": {
+          "A": "إطالة النص",
+          "B": "توضيح المعنى وتوكيده",
+          "C": "تعقيد المعنى",
+          "D": "للزينة فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "توضيح المعنى وتوكيده",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "توضيح المعنى وتوكيده"
+        },
+        "explanation": "توضيح المعنى وتوكيده",
+        "number": 14,
+        "id": "U01-L99-Q014"
+      },
+      {
+        "question": "متى يجزم الفعل المضارع بالسكون في جواب الطلب؟",
+        "options": {
+          "A": "إذا كان معتل الآخر",
+          "B": "إذا كان من الأفعال الخمسة",
+          "C": "إذا كان صحيح الآخر",
+          "D": "إذا كان مبنياً"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "إذا كان صحيح الآخر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إذا كان صحيح الآخر"
+        },
+        "explanation": "إذا كان صحيح الآخر",
+        "number": 15,
+        "id": "U01-L99-Q015"
+      },
+      {
+        "question": "ما المعنى اللغوي لكلمة (نِعِمّا) الواردة في سورة النساء؟",
+        "options": {
+          "A": "بئس ما",
+          "B": "نِعْمَ ما",
+          "C": "لا تفعل",
+          "D": "ما أجمل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نِعْمَ ما",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نِعْمَ ما"
+        },
+        "explanation": "نِعْمَ ما",
+        "number": 16,
+        "id": "U01-L99-Q016"
+      },
+      {
+        "question": "في جملة (المعلمة كالنحلة)، نوع التشبيه هو:",
+        "options": {
+          "A": "مرسل مجمل",
+          "B": "مرسل مفصل",
+          "C": "مؤكد مجمل",
+          "D": "بليغ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مرسل مجمل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مرسل مجمل"
+        },
+        "explanation": "مرسل مجمل",
+        "number": 17,
+        "id": "U01-L99-Q017"
+      },
+      {
+        "question": "ما الغرض من ذكر خلق النجوم في سورة الأنعام؟",
+        "options": {
+          "A": "للتجارة",
+          "B": "للتزيين فقط",
+          "C": "للاهتداء بها في الظلمات",
+          "D": "للمفاخرة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "للاهتداء بها في الظلمات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "للاهتداء بها في الظلمات"
+        },
+        "explanation": "للاهتداء بها في الظلمات",
+        "number": 18,
+        "id": "U01-L99-Q018"
+      },
+      {
+        "question": "الفعل (اعتنِ) في بداية جملة الطلب هو فعل أمر مبني على:",
+        "options": {
+          "A": "السكون",
+          "B": "الفتح",
+          "C": "حذف حرف العلة",
+          "D": "حذف النون"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "حذف حرف العلة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حذف حرف العلة"
+        },
+        "explanation": "حذف حرف العلة",
+        "number": 19,
+        "id": "U01-L99-Q019"
+      },
+      {
+        "question": "ما المقصود بـ (ولي حميم) في سورة فصلت؟",
+        "options": {
+          "A": "عدو لدود",
+          "B": "قريب مشفق ومحسن إليك",
+          "C": "شخص غريب",
+          "D": "خادم مطيع"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "قريب مشفق ومحسن إليك",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قريب مشفق ومحسن إليك"
+        },
+        "explanation": "قريب مشفق ومحسن إليك",
+        "number": 20,
+        "id": "U01-L99-Q020"
+      },
+      {
+        "question": "جملة جواب الطلب في الحقيقة هي جملة شرطية:",
+        "options": {
+          "A": "ذكرت أداتها وفعلها",
+          "B": "حذفت أداتها وفعلها",
+          "C": "اسمية دائماً",
+          "D": "لا علاقة لها بالشرط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حذفت أداتها وفعلها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حذفت أداتها وفعلها"
+        },
+        "explanation": "حذفت أداتها وفعلها",
+        "number": 21,
+        "id": "U01-L99-Q021"
+      },
+      {
+        "question": "ما هما ركنا التشبيه اللذان لا يجوز حذفهما أبداً؟",
+        "options": {
+          "A": "الأداة ووجه الشبه",
+          "B": "المشبه والمشبه به",
+          "C": "المشبه والأداة",
+          "D": "المشبه به ووجه الشبه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المشبه والمشبه به",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المشبه والمشبه به"
+        },
+        "explanation": "المشبه والمشبه به",
+        "number": 22,
+        "id": "U01-L99-Q022"
+      },
+      {
+        "question": "بماذا أمر الله أن تُدفع الإساءة كما ورد في سورة فصلت؟",
+        "options": {
+          "A": "بالانتقام",
+          "B": "بالإساءة مثلها",
+          "C": "بالتي هي أحسن",
+          "D": "بالتجاهل"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "بالتي هي أحسن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالتي هي أحسن"
+        },
+        "explanation": "بالتي هي أحسن",
+        "number": 23,
+        "id": "U01-L99-Q023"
+      },
+      {
+        "question": "حدد جواب الطلب في جملة: (أَلِنْ جانبك لقومك يحبّوك).",
+        "options": {
+          "A": "أَلِنْ",
+          "B": "جانبك",
+          "C": "لقومك",
+          "D": "يحبّوك"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "يحبّوك",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يحبّوك"
+        },
+        "explanation": "يحبّوك",
+        "number": 24,
+        "id": "U01-L99-Q024"
+      },
+      {
+        "question": "ما معنى (لا جناح عليه) في قوله تعالى (فمن انتصر بعد ظلمه فأولئك ما عليهم من سبيل)؟",
+        "options": {
+          "A": "عليه ذنب كبير",
+          "B": "لا إثم ولا لوم عليه",
+          "C": "يجب أن يعتذر",
+          "D": "سيدخل السجن"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا إثم ولا لوم عليه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا إثم ولا لوم عليه"
+        },
+        "explanation": "لا إثم ولا لوم عليه",
+        "number": 25,
+        "id": "U01-L99-Q025"
+      },
+      {
+        "question": "التشبيه 'المؤكد المفصل' هو ما حذفت منه:",
+        "options": {
+          "A": "الأداة وذكر وجه الشبه",
+          "B": "الأداة ووجه الشبه",
+          "C": "المشبه به",
+          "D": "المشبه"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الأداة وذكر وجه الشبه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأداة وذكر وجه الشبه"
+        },
+        "explanation": "الأداة وذكر وجه الشبه",
+        "number": 26,
+        "id": "U01-L99-Q026"
+      },
+      {
+        "question": "إلامَ تدعو آيات سورة الأنعام عند ذكر ثمر النبات وينعه؟",
+        "options": {
+          "A": "للأكل فقط",
+          "B": "للتأمل والتفكر في قدرة الله",
+          "C": "للزراعة",
+          "D": "للبيع"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "للتأمل والتفكر في قدرة الله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "للتأمل والتفكر في قدرة الله"
+        },
+        "explanation": "للتأمل والتفكر في قدرة الله",
+        "number": 27,
+        "id": "U01-L99-Q027"
+      },
+      {
+        "question": "ما الحركة الإعرابية للفعل (يؤلف) في (تسامحوا يؤلفِ الله بينكم)؟",
+        "options": {
+          "A": "الكسرة الأصلية",
+          "B": "السكون وحرك بالكسر لالتقاء الساكنين",
+          "C": "الفتحة",
+          "D": "الضمة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "السكون وحرك بالكسر لالتقاء الساكنين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السكون وحرك بالكسر لالتقاء الساكنين"
+        },
+        "explanation": "السكون وحرك بالكسر لالتقاء الساكنين",
+        "number": 28,
+        "id": "U01-L99-Q028"
+      },
+      {
+        "question": "ما المقصود بعبارة (عزم الأمور) في سورة الشورى؟",
+        "options": {
+          "A": "الأمور السهلة",
+          "B": "الأمور التي تحتاج صبر وحزم",
+          "C": "الأمور التافهة",
+          "D": "التراجع عن القرار"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأمور التي تحتاج صبر وحزم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأمور التي تحتاج صبر وحزم"
+        },
+        "explanation": "الأمور التي تحتاج صبر وحزم",
+        "number": 29,
+        "id": "U01-L99-Q029"
+      },
+      {
+        "question": "نوع التشبيه في (أنت شمس) هو:",
+        "options": {
+          "A": "مرسل مجمل",
+          "B": "تشبيه بليغ",
+          "C": "مؤكد مفصل",
+          "D": "مرسل مفصل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تشبيه بليغ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تشبيه بليغ"
+        },
+        "explanation": "تشبيه بليغ",
+        "number": 30,
+        "id": "U01-L99-Q030"
+      },
+      {
+        "question": "ما دلالة قوله تعالى (جعل الشمس والقمر حسباناً)؟",
+        "options": {
+          "A": "للزينة",
+          "B": "جريانهما بحساب دقيق منظم",
+          "C": "ظهورهما صدفة",
+          "D": "صعوبة رؤيتهما"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "جريانهما بحساب دقيق منظم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جريانهما بحساب دقيق منظم"
+        },
+        "explanation": "جريانهما بحساب دقيق منظم",
+        "number": 31,
+        "id": "U01-L99-Q031"
+      },
+      {
+        "question": "أي من الأفعال الآتية يعتبر فعل أمر مبنياً على حذف النون؟",
+        "options": {
+          "A": "أخلصْ",
+          "B": "أخلصا",
+          "C": "تخلصوا",
+          "D": "أخلصُ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أخلصا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أخلصا"
+        },
+        "explanation": "أخلصا",
+        "number": 32,
+        "id": "U01-L99-Q032"
+      },
+      {
+        "question": "من هم الذين يستحقون (الحظ العظيم) حسب سورة فصلت؟",
+        "options": {
+          "A": "الأغنياء",
+          "B": "الصابرون والمتسامحون",
+          "C": "القادة",
+          "D": "المسافرون"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الصابرون والمتسامحون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الصابرون والمتسامحون"
+        },
+        "explanation": "الصابرون والمتسامحون",
+        "number": 33,
+        "id": "U01-L99-Q033"
+      },
+      {
+        "question": "في (أنت كالبحر في العطاء)، وجه الشبه هو:",
+        "options": {
+          "A": "أنت",
+          "B": "الكاف",
+          "C": "البحر",
+          "D": "العطاء"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "العطاء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العطاء"
+        },
+        "explanation": "العطاء",
+        "number": 34,
+        "id": "U01-L99-Q034"
+      },
+      {
+        "question": "في قوله تعالى (وجزاء سيئة سيئة مثلها)، الفن البديعي في تكرار الكلمة هو:",
+        "options": {
+          "A": "طباق",
+          "B": "سجع",
+          "C": "مشاكلة",
+          "D": "جناس"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "مشاكلة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مشاكلة"
+        },
+        "explanation": "مشاكلة",
+        "number": 35,
+        "id": "U01-L99-Q035"
+      },
+      {
+        "question": "ما إعراب الياء في الفعل (شاركي)؟",
+        "options": {
+          "A": "مفعول به",
+          "B": "اسم مجرور",
+          "C": "ضمير متصل في محل رفع فاعل",
+          "D": "حرف زائد"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "ضمير متصل في محل رفع فاعل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ضمير متصل في محل رفع فاعل"
+        },
+        "explanation": "ضمير متصل في محل رفع فاعل",
+        "number": 36,
+        "id": "U01-L99-Q036"
+      },
+      {
+        "question": "ما معنى كلمة (مستقر) الواردة في آيات خلق البشر؟",
+        "options": {
+          "A": "مكان الرحيل",
+          "B": "موضع العبادة",
+          "C": "مكان الاستقرار والعيش في الدنيا",
+          "D": "الموت"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "مكان الاستقرار والعيش في الدنيا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مكان الاستقرار والعيش في الدنيا"
+        },
+        "explanation": "مكان الاستقرار والعيش في الدنيا",
+        "number": 37,
+        "id": "U01-L99-Q037"
+      },
+      {
+        "question": "التشبيه الذي يحذف منه وجه الشبه يسمى دائماً:",
+        "options": {
+          "A": "مفصلاً",
+          "B": "مجملاً",
+          "C": "مرسلاً",
+          "D": "مؤكداً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مجملاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مجملاً"
+        },
+        "explanation": "مجملاً",
+        "number": 38,
+        "id": "U01-L99-Q038"
+      },
+      {
+        "question": "لماذا خص الله تعالى (أولي الألباب) بالذكر في القرآن؟",
+        "options": {
+          "A": "لأنهم أغنياء",
+          "B": "لأنهم أصحاب عقول قادرة على التدبر",
+          "C": "لأنهم أقوياء جسدياً",
+          "D": "لا يوجد سبب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لأنهم أصحاب عقول قادرة على التدبر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لأنهم أصحاب عقول قادرة على التدبر"
+        },
+        "explanation": "لأنهم أصحاب عقول قادرة على التدبر",
+        "number": 39,
+        "id": "U01-L99-Q039"
+      },
+      {
+        "question": "أي الجمل الآتية تحتوي على جواب طلب مجزوم بحذف حرف العلة؟",
+        "options": {
+          "A": "أخلصْ تنلْ رضا الله",
+          "B": "اجتهدْ ترَ ثمار عملك",
+          "C": "تسامحوا تسعدوا",
+          "D": "ادعُ الله يستجبْ لك"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اجتهدْ ترَ ثمار عملك",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اجتهدْ ترَ ثمار عملك"
+        },
+        "explanation": "اجتهدْ ترَ ثمار عملك",
+        "number": 40,
+        "id": "U01-L99-Q040"
+      },
+      {
+        "question": "بمَ نعت الله تعالى (القنوان) في سورة الأنعام؟",
+        "options": {
+          "A": "عالية",
+          "B": "دانية (سهلة التناول)",
+          "C": "يابسة",
+          "D": "بعيدة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "دانية (سهلة التناول)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "دانية (سهلة التناول)"
+        },
+        "explanation": "دانية (سهلة التناول)",
+        "number": 41,
+        "id": "U01-L99-Q041"
+      },
+      {
+        "question": "نوع التشبيه في (العمر ضيف) هو:",
+        "options": {
+          "A": "مرسل مجمل",
+          "B": "مؤكد مفصل",
+          "C": "تشبيه بليغ",
+          "D": "مرسل مفصل"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "تشبيه بليغ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تشبيه بليغ"
+        },
+        "explanation": "تشبيه بليغ",
+        "number": 42,
+        "id": "U01-L99-Q042"
+      },
+      {
+        "question": "ما المقصود بـ (فالق الحب والنوى)؟",
+        "options": {
+          "A": "زارعها",
+          "B": "شقها لإخراج النبات منها",
+          "C": "جامعها",
+          "D": "بائعها"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "شقها لإخراج النبات منها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "شقها لإخراج النبات منها"
+        },
+        "explanation": "شقها لإخراج النبات منها",
+        "number": 43,
+        "id": "U01-L99-Q043"
+      },
+      {
+        "question": "الفعل المضارع (تساهمي) في (شاركي في الانتخابات تُساهمي) علامة جزمه:",
+        "options": {
+          "A": "السكون",
+          "B": "حذف حرف العلة",
+          "C": "حذف النون",
+          "D": "الكسرة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "حذف النون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حذف النون"
+        },
+        "explanation": "حذف النون",
+        "number": 44,
+        "id": "U01-L99-Q044"
+      },
+      {
+        "question": "العدل في الإسلام يجب أن يطبق على:",
+        "options": {
+          "A": "الأصدقاء فقط",
+          "B": "المسلمين فقط",
+          "C": "الجميع حتى مع الأعداء",
+          "D": "الأقوياء فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الجميع حتى مع الأعداء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الجميع حتى مع الأعداء"
+        },
+        "explanation": "الجميع حتى مع الأعداء",
+        "number": 45,
+        "id": "U01-L99-Q045"
+      },
+      {
+        "question": "أي من الأدوات الآتية تعتبر حرف تشبيه؟",
+        "options": {
+          "A": "مثل",
+          "B": "كأنّ",
+          "C": "شبه",
+          "D": "يماثل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كأنّ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كأنّ"
+        },
+        "explanation": "كأنّ",
+        "number": 46,
+        "id": "U01-L99-Q046"
+      },
+      {
+        "question": "ما العاطفة البارزة في آيات سورة الأنعام عند وصف الكون؟",
+        "options": {
+          "A": "الحزن",
+          "B": "الإجلال والتعظيم للخالق",
+          "C": "الخوف",
+          "D": "الغضب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الإجلال والتعظيم للخالق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإجلال والتعظيم للخالق"
+        },
+        "explanation": "الإجلال والتعظيم للخالق",
+        "number": 47,
+        "id": "U01-L99-Q047"
+      },
+      {
+        "question": "يجزم المضارع بـ (حذف حرف العلة) إذا كان آخره:",
+        "options": {
+          "A": "صحيحاً",
+          "B": "ألفاً أو واواً أو ياءً",
+          "C": "نوناً",
+          "D": "تاءً مربوطة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ألفاً أو واواً أو ياءً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ألفاً أو واواً أو ياءً"
+        },
+        "explanation": "ألفاً أو واواً أو ياءً",
+        "number": 48,
+        "id": "U01-L99-Q048"
+      },
+      {
+        "question": "ما مبدأ الحكم الذي أكدت عليه سورة الشورى؟",
+        "options": {
+          "A": "القوة",
+          "B": "الشورى",
+          "C": "الفردية",
+          "D": "المال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الشورى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الشورى"
+        },
+        "explanation": "الشورى",
+        "number": 49,
+        "id": "U01-L99-Q049"
+      },
+      {
+        "question": "في التشبيه، يجب أن يكون وجه الشبه في (المشبه به) أقوى منه في (المشبه).",
+        "options": {
+          "A": "صح",
+          "B": "خطأ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "صح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صح"
+        },
+        "explanation": "صح",
+        "number": 50,
+        "id": "U01-L99-Q050"
+      }
+    ]
+  }
+}

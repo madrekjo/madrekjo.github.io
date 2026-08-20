@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "1.3",
+    "lesson_name": "من صور الضلال",
+    "unit_number": 1,
+    "unit_name": "الوحدة الأولى: واعتصموا بحبل الله جميعاً",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "رتب الإسلام مراتب الدين، وأعلاها مرتبة هي:",
+        "options": {
+          "A": "الإسلام",
+          "B": "الإيمان",
+          "C": "الإحسان",
+          "D": "التقوى"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الإحسان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإحسان"
+        },
+        "explanation": "الإحسان",
+        "number": 1,
+        "id": "U01-L03-Q001"
+      },
+      {
+        "question": "ما المقصود بمرتبة الإحسان؟",
+        "options": {
+          "A": "الخضوع لله تعالى",
+          "B": "التصديق الجازم بوجود الله",
+          "C": "استشعار مراقبة الله في السر والعلن",
+          "D": "أداء الصلاة فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "استشعار مراقبة الله في السر والعلن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "استشعار مراقبة الله في السر والعلن"
+        },
+        "explanation": "استشعار مراقبة الله في السر والعلن",
+        "number": 2,
+        "id": "U01-L03-Q002"
+      },
+      {
+        "question": "تتحقق مرتبة 'الإسلام' من خلال:",
+        "options": {
+          "A": "الخضوع لله وتنفيذ أوامره واجتناب نواهيه",
+          "B": "التصديق الجازم بالقلب",
+          "C": "الإحسان للناس",
+          "D": "قراءة القرآن فقط"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخضوع لله وتنفيذ أوامره واجتناب نواهيه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الخضوع لله وتنفيذ أوامره واجتناب نواهيه"
+        },
+        "explanation": "الخضوع لله وتنفيذ أوامره واجتناب نواهيه",
+        "number": 3,
+        "id": "U01-L03-Q003"
+      },
+      {
+        "question": "يُعرف الإيمان بأنه:",
+        "options": {
+          "A": "القيام بالأعمال الظاهرة",
+          "B": "التصديق الجازم بكل ما جاء من عند الله وما ثبت عن رسوله",
+          "C": "مراقبة الله في السر",
+          "D": "مساعدة الفقراء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التصديق الجازم بكل ما جاء من عند الله وما ثبت عن رسوله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التصديق الجازم بكل ما جاء من عند الله وما ثبت عن رسوله"
+        },
+        "explanation": "التصديق الجازم بكل ما جاء من عند الله وما ثبت عن رسوله",
+        "number": 4,
+        "id": "U01-L03-Q004"
+      },
+      {
+        "question": "من صور الضلال التي ذكرها الدرس:",
+        "options": {
+          "A": "الكفر والشرك",
+          "B": "النفاق والبدعة السيئة",
+          "C": "كل ما سبق",
+          "D": "الصدق والأمانة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "كل ما سبق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل ما سبق"
+        },
+        "explanation": "كل ما سبق",
+        "number": 5,
+        "id": "U01-L03-Q005"
+      },
+      {
+        "question": "الكفر الذي يخرج صاحبه من الإسلام يسمى:",
+        "options": {
+          "A": "كفراً اعتقادياً (أكبر)",
+          "B": "كفراً عملياً (أصغر)",
+          "C": "نفاقاً عملياً",
+          "D": "شركاً خفياً"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "كفراً اعتقادياً (أكبر)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كفراً اعتقادياً (أكبر)"
+        },
+        "explanation": "كفراً اعتقادياً (أكبر)",
+        "number": 6,
+        "id": "U01-L03-Q006"
+      },
+      {
+        "question": "أي من الآتية يعد مثالاً على الكفر الاعتقادي (الأكبر)؟",
+        "options": {
+          "A": "السجود لصنم",
+          "B": "شتم الذات الإلهية",
+          "C": "التعريض بالقرآن الكريم",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر"
+        },
+        "explanation": "جميع ما ذكر",
+        "number": 7,
+        "id": "U01-L03-Q007"
+      },
+      {
+        "question": "الكفر العملي (الأصغر) هو الكفر الذي:",
+        "options": {
+          "A": "يخرج فاعله من الإسلام",
+          "B": "لا يخرج فاعله من الإسلام ولكنه معصية كبيرة",
+          "C": "يعد نفاقاً اعتقادياً",
+          "D": "ليس له عقوبة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا يخرج فاعله من الإسلام ولكنه معصية كبيرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا يخرج فاعله من الإسلام ولكنه معصية كبيرة"
+        },
+        "explanation": "لا يخرج فاعله من الإسلام ولكنه معصية كبيرة",
+        "number": 8,
+        "id": "U01-L03-Q008"
+      },
+      {
+        "question": "قال صلى الله عليه وسلم: (سِبابُ المُسلم فُسوق، وقتاله كفر). نوع الكفر المقصود هنا هو:",
+        "options": {
+          "A": "كفر اعتقادي",
+          "B": "كفر عملي (أصغر)",
+          "C": "شرك أكبر",
+          "D": "نفاق اعتقادي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كفر عملي (أصغر)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كفر عملي (أصغر)"
+        },
+        "explanation": "كفر عملي (أصغر)",
+        "number": 9,
+        "id": "U01-L03-Q009"
+      },
+      {
+        "question": "ما حكم من ارتكب معصية كبيرة مثل شرب الخمر مع إقراره بأنها حرام؟",
+        "options": {
+          "A": "كافر خارج من الملة",
+          "B": "عاصٍ ومذنب وليس بكافر",
+          "C": "منافق اعتقادي",
+          "D": "مبتدع"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عاصٍ ومذنب وليس بكافر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عاصٍ ومذنب وليس بكافر"
+        },
+        "explanation": "عاصٍ ومذنب وليس بكافر",
+        "number": 10,
+        "id": "U01-L03-Q010"
+      },
+      {
+        "question": "الشرك الذي يعني جعل إله آخر مع الله في العبادة هو:",
+        "options": {
+          "A": "الشرك الأكبر",
+          "B": "الشرك الأصغر",
+          "C": "الرياء",
+          "D": "البدعة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الشرك الأكبر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الشرك الأكبر"
+        },
+        "explanation": "الشرك الأكبر",
+        "number": 11,
+        "id": "U01-L03-Q011"
+      },
+      {
+        "question": "عقوبة الشرك الأكبر كما ورد في سورة المائدة هي:",
+        "options": {
+          "A": "حرمان الجنة ومأواه النار",
+          "B": "دخول الجنة بعد العذاب",
+          "C": "ليس عليه عقوبة",
+          "D": "خسارة المال فقط"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "حرمان الجنة ومأواه النار",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حرمان الجنة ومأواه النار"
+        },
+        "explanation": "حرمان الجنة ومأواه النار",
+        "number": 12,
+        "id": "U01-L03-Q012"
+      },
+      {
+        "question": "الشرك الأصغر (الخفي) يتمثل في:",
+        "options": {
+          "A": "عبادة الأصنام",
+          "B": "الرياء",
+          "C": "إنكار وجود الله",
+          "D": "السجود لغير الله"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الرياء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الرياء"
+        },
+        "explanation": "الرياء",
+        "number": 13,
+        "id": "U01-L03-Q013"
+      },
+      {
+        "question": "ما المقصود بـ (الرياء)؟",
+        "options": {
+          "A": "عبادة الله وحده",
+          "B": "قصد مدح الناس بالعبادة",
+          "C": "ترك العبادة تكاسلاً",
+          "D": "فعل الخير سراً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "قصد مدح الناس بالعبادة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قصد مدح الناس بالعبادة"
+        },
+        "explanation": "قصد مدح الناس بالعبادة",
+        "number": 14,
+        "id": "U01-L03-Q014"
+      },
+      {
+        "question": "أي من الآتية يعد مثالاً على الشرك الأصغر؟",
+        "options": {
+          "A": "الحلف بالآباء",
+          "B": "تعليق التميمة لجلب الحظ",
+          "C": "إطالة الصلاة لنيل ثناء الناس",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر"
+        },
+        "explanation": "جميع ما ذكر",
+        "number": 15,
+        "id": "U01-L03-Q015"
+      },
+      {
+        "question": "التميمة هي:",
+        "options": {
+          "A": "ملابس جديدة",
+          "B": "ما يعلق على الشخص أو الشيء لجلب الحظ أو دفع الضر",
+          "C": "نوع من أنواع الطيب",
+          "D": "كتاب علمي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ما يعلق على الشخص أو الشيء لجلب الحظ أو دفع الضر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ما يعلق على الشخص أو الشيء لجلب الحظ أو دفع الضر"
+        },
+        "explanation": "ما يعلق على الشخص أو الشيء لجلب الحظ أو دفع الضر",
+        "number": 16,
+        "id": "U01-L03-Q016"
+      },
+      {
+        "question": "النفاق الذي يعني إظهار الإيمان وإخفاء الكفر هو:",
+        "options": {
+          "A": "النفاق الاعتقادي",
+          "B": "النفاق العملي",
+          "C": "الشرك الخفي",
+          "D": "البدعة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "النفاق الاعتقادي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النفاق الاعتقادي"
+        },
+        "explanation": "النفاق الاعتقادي",
+        "number": 17,
+        "id": "U01-L03-Q017"
+      },
+      {
+        "question": "من هو زعيم المنافقين في المدينة المنورة؟",
+        "options": {
+          "A": "أبو جهل",
+          "B": "عبد الله بن أُبي بن سلول",
+          "C": "شاس بن قيس",
+          "D": "مسيلمة الكذاب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عبد الله بن أُبي بن سلول",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد الله بن أُبي بن سلول"
+        },
+        "explanation": "عبد الله بن أُبي بن سلول",
+        "number": 18,
+        "id": "U01-L03-Q018"
+      },
+      {
+        "question": "ما جزاء المنافق اعتقادياً إذا مات على نفاقه؟",
+        "options": {
+          "A": "يدخل الجنة",
+          "B": "يستحق أشد العذاب في النار",
+          "C": "يعامل كالمسلم في الآخرة",
+          "D": "تغفر له ذنوبه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يستحق أشد العذاب في النار",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يستحق أشد العذاب في النار"
+        },
+        "explanation": "يستحق أشد العذاب في النار",
+        "number": 19,
+        "id": "U01-L03-Q019"
+      },
+      {
+        "question": "النفاق العملي هو:",
+        "options": {
+          "A": "إخفاء الكفر",
+          "B": "الاتصاف ببعض صفات المنافقين مع بقاء الإيمان في القلب",
+          "C": "ترك الصلاة نهائياً",
+          "D": "عبادة غير الله"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الاتصاف ببعض صفات المنافقين مع بقاء الإيمان في القلب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاتصاف ببعض صفات المنافقين مع بقاء الإيمان في القلب"
+        },
+        "explanation": "الاتصاف ببعض صفات المنافقين مع بقاء الإيمان في القلب",
+        "number": 20,
+        "id": "U01-L03-Q020"
+      },
+      {
+        "question": "من أمثلة النفاق العملي كما ورد في الحديث الشريف:",
+        "options": {
+          "A": "خيانة الأمانة",
+          "B": "الكذب في الحديث",
+          "C": "إخلاف الوعد",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر"
+        },
+        "explanation": "جميع ما ذكر",
+        "number": 21,
+        "id": "U01-L03-Q021"
+      },
+      {
+        "question": "هل يخرج النفاق العملي صاحبه من الإسلام؟",
+        "options": {
+          "A": "نعم",
+          "B": "لا، ولكنه يجعل صاحبه عاصياً",
+          "C": "نعم إذا تكرر",
+          "D": "يخرجه في حالة الكذب فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا، ولكنه يجعل صاحبه عاصياً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا، ولكنه يجعل صاحبه عاصياً"
+        },
+        "explanation": "لا، ولكنه يجعل صاحبه عاصياً",
+        "number": 22,
+        "id": "U01-L03-Q022"
+      },
+      {
+        "question": "ما تعريف (البدعة السيئة)؟",
+        "options": {
+          "A": "كل فعل جديد في الحياة",
+          "B": "كل أمر مستحدث في الدين ليس له أصل في الشرع",
+          "C": "استخدام التكنولوجيا",
+          "D": "بناء المساجد الجديدة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كل أمر مستحدث في الدين ليس له أصل في الشرع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل أمر مستحدث في الدين ليس له أصل في الشرع"
+        },
+        "explanation": "كل أمر مستحدث في الدين ليس له أصل في الشرع",
+        "number": 23,
+        "id": "U01-L03-Q023"
+      },
+      {
+        "question": "أي من الآتية يعد مثالاً على البدعة السيئة؟",
+        "options": {
+          "A": "استخدام QR Code للتعلم",
+          "B": "استحداث صلاة ليس لها أصل في الشرع",
+          "C": "استخدام المسبحة الإلكترونية",
+          "D": "تدوين السنة في الكتب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "استحداث صلاة ليس لها أصل في الشرع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "استحداث صلاة ليس لها أصل في الشرع"
+        },
+        "explanation": "استحداث صلاة ليس لها أصل في الشرع",
+        "number": 24,
+        "id": "U01-L03-Q024"
+      },
+      {
+        "question": "لماذا لا تُعد المسبحة الإلكترونية بدعة ضلالة؟",
+        "options": {
+          "A": "لأنها من الوسائل المعينة على العبادة ولا تتعارض مع الشرع",
+          "B": "لأن النبي استخدمها",
+          "C": "لأنها غالية الثمن",
+          "D": "لأنها تعمل بالكهرباء"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "لأنها من الوسائل المعينة على العبادة ولا تتعارض مع الشرع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لأنها من الوسائل المعينة على العبادة ولا تتعارض مع الشرع"
+        },
+        "explanation": "لأنها من الوسائل المعينة على العبادة ولا تتعارض مع الشرع",
+        "number": 25,
+        "id": "U01-L03-Q025"
+      },
+      {
+        "question": "قال صلى الله عليه وسلم: (من سن في الإسلام سنة حسنة..). يدل هذا الحديث على:",
+        "options": {
+          "A": "تحريم كل جديد",
+          "B": "جواز استحداث الوسائل المعينة على الدين",
+          "C": "وجوب الابتكار في العقيدة",
+          "D": "ترك العبادات القديمة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "جواز استحداث الوسائل المعينة على الدين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جواز استحداث الوسائل المعينة على الدين"
+        },
+        "explanation": "جواز استحداث الوسائل المعينة على الدين",
+        "number": 26,
+        "id": "U01-L03-Q026"
+      },
+      {
+        "question": "حذر النبي صلى الله عليه وسلم من فتنة (التكفير) لأنها تؤدي إلى:",
+        "options": {
+          "A": "استباحة الدماء والأموال وتمزيق وحدة المجتمع",
+          "B": "زيادة التقوى",
+          "C": "تحسين الأخلاق",
+          "D": "قوة الدولة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "استباحة الدماء والأموال وتمزيق وحدة المجتمع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "استباحة الدماء والأموال وتمزيق وحدة المجتمع"
+        },
+        "explanation": "استباحة الدماء والأموال وتمزيق وحدة المجتمع",
+        "number": 27,
+        "id": "U01-L03-Q027"
+      },
+      {
+        "question": "من هو الشخص الذي يحق له الحكم بـ (كفر) شخص معين؟",
+        "options": {
+          "A": "عامة الناس",
+          "B": "طلاب المدارس",
+          "C": "الجهات القضائية والعلماء الراسخون",
+          "D": "لا أحد أبداً"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الجهات القضائية والعلماء الراسخون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الجهات القضائية والعلماء الراسخون"
+        },
+        "explanation": "الجهات القضائية والعلماء الراسخون",
+        "number": 28,
+        "id": "U01-L03-Q028"
+      },
+      {
+        "question": "ما حكم من أنكر أمراً معلوماً من الدين بالضرورة (كالصلاة أو الصيام)؟",
+        "options": {
+          "A": "عاصٍ فقط",
+          "B": "يعد كافراً (كفر اعتقادي)",
+          "C": "مبتدع",
+          "D": "مؤمن كامل الإيمان"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يعد كافراً (كفر اعتقادي)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يعد كافراً (كفر اعتقادي)"
+        },
+        "explanation": "يعد كافراً (كفر اعتقادي)",
+        "number": 29,
+        "id": "U01-L03-Q029"
+      },
+      {
+        "question": "عبادة الشيطان تعد صورة من صور:",
+        "options": {
+          "A": "الشرك الأكبر",
+          "B": "الشرك الأصغر",
+          "C": "النفاق العملي",
+          "D": "البدعة الحسنة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الشرك الأكبر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الشرك الأكبر"
+        },
+        "explanation": "الشرك الأكبر",
+        "number": 30,
+        "id": "U01-L03-Q030"
+      },
+      {
+        "question": "من القيم المستفادة من الدرس تجنب كل ما:",
+        "options": {
+          "A": "ينفع الناس",
+          "B": "يغضب الله تعالى",
+          "C": "يزيد من المعرفة",
+          "D": "يؤدي للوحدة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يغضب الله تعالى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يغضب الله تعالى"
+        },
+        "explanation": "يغضب الله تعالى",
+        "number": 31,
+        "id": "U01-L03-Q031"
+      },
+      {
+        "question": "أهمية بقاء الدين نقياً تكمن في:",
+        "options": {
+          "A": "تنظيم علاقة العبد بربه ونفسه وغيره",
+          "B": "زيادة التجارة",
+          "C": "تغيير العادات",
+          "D": "إهمال التقاليد"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "تنظيم علاقة العبد بربه ونفسه وغيره",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تنظيم علاقة العبد بربه ونفسه وغيره"
+        },
+        "explanation": "تنظيم علاقة العبد بربه ونفسه وغيره",
+        "number": 32,
+        "id": "U01-L03-Q032"
+      },
+      {
+        "question": "أي من الأفعال التالية يعتبر (كفراً عملياً)؟",
+        "options": {
+          "A": "قتل المسلم لمسلم",
+          "B": "جحد فريضة الزكاة",
+          "C": "السجود لصنم",
+          "D": "الاعتقاد بوجود خالق آخر"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "قتل المسلم لمسلم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قتل المسلم لمسلم"
+        },
+        "explanation": "قتل المسلم لمسلم",
+        "number": 33,
+        "id": "U01-L03-Q033"
+      },
+      {
+        "question": "ما موقف المسلم تجاه التكفير؟",
+        "options": {
+          "A": "المسارعة لتكفير العاصي",
+          "B": "الحذر الشديد وعدم تكفير من نطق بالشهادتين",
+          "C": "تكفير كل من يرتكب ذنباً",
+          "D": "تجاهل الموضوع تماماً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحذر الشديد وعدم تكفير من نطق بالشهادتين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحذر الشديد وعدم تكفير من نطق بالشهادتين"
+        },
+        "explanation": "الحذر الشديد وعدم تكفير من نطق بالشهادتين",
+        "number": 34,
+        "id": "U01-L03-Q034"
+      },
+      {
+        "question": "إظهار الإيمان وإخفاء الكفر هو تعريف لـ:",
+        "options": {
+          "A": "الشرك الأصغر",
+          "B": "النفاق الاعتقادي",
+          "C": "النفاق العملي",
+          "D": "الكفر العملي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "النفاق الاعتقادي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النفاق الاعتقادي"
+        },
+        "explanation": "النفاق الاعتقادي",
+        "number": 35,
+        "id": "U01-L03-Q035"
+      },
+      {
+        "question": "من يرتكب الذنوب مع إقراره بشرعية الأحكام وجب عليه:",
+        "options": {
+          "A": "تغيير دينه",
+          "B": "التوبة والاستغفار والإقلاع عنها",
+          "C": "الاستمرار فيها",
+          "D": "لا شيء عليه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التوبة والاستغفار والإقلاع عنها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التوبة والاستغفار والإقلاع عنها"
+        },
+        "explanation": "التوبة والاستغفار والإقلاع عنها",
+        "number": 36,
+        "id": "U01-L03-Q036"
+      },
+      {
+        "question": "قال تعالى (إن الشرك لظلم عظيم). نوع الشرك هنا هو:",
+        "options": {
+          "A": "أصغر",
+          "B": "أكبر",
+          "C": "خفي",
+          "D": "بدعة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أكبر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أكبر"
+        },
+        "explanation": "أكبر",
+        "number": 37,
+        "id": "U01-L03-Q037"
+      },
+      {
+        "question": "استخدام مكبرات الصوت في الأذان يعد مثالاً على:",
+        "options": {
+          "A": "بدعة سيئة",
+          "B": "أمر مستحدث يعين على الدين وليس بدعة سيئة",
+          "C": "شرك أصغر",
+          "D": "نفاق عملي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أمر مستحدث يعين على الدين وليس بدعة سيئة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أمر مستحدث يعين على الدين وليس بدعة سيئة"
+        },
+        "explanation": "أمر مستحدث يعين على الدين وليس بدعة سيئة",
+        "number": 38,
+        "id": "U01-L03-Q038"
+      },
+      {
+        "question": "ما الفرق الجوهري بين النفاق الاعتقادي والعملي؟",
+        "options": {
+          "A": "الاعتقادي مخرج من الملة والعملي لا",
+          "B": "الاعتقادي في الأفعال فقط",
+          "C": "العملي أشد عذاباً",
+          "D": "لا فرق بينهما"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الاعتقادي مخرج من الملة والعملي لا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاعتقادي مخرج من الملة والعملي لا"
+        },
+        "explanation": "الاعتقادي مخرج من الملة والعملي لا",
+        "number": 39,
+        "id": "U01-L03-Q039"
+      },
+      {
+        "question": "الهدف من إطلاق لفظ 'كفر' على بعض المعاصي في الأحاديث هو:",
+        "options": {
+          "A": "بيان خطورتها والتحذير منها",
+          "B": "إخراج فاعلها من الدين فوراً",
+          "C": "تشجيع الناس عليها",
+          "D": "لا هدف له"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "بيان خطورتها والتحذير منها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بيان خطورتها والتحذير منها"
+        },
+        "explanation": "بيان خطورتها والتحذير منها",
+        "number": 40,
+        "id": "U01-L03-Q040"
+      }
+    ]
+  }
+}

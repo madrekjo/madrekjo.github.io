@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "4.4",
+    "lesson_name": "الحقوق الزوجية في الإسلام",
+    "unit_number": 4,
+    "unit_name": "الوحدة الرابعة: الزواج والحياة الزوجية",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما هي الغاية الأساسية التي اعتنى بها الإسلام من خلال تشريع الزواج؟",
+        "options": {
+          "A": "تحقيق الثراء",
+          "B": "بناء الأسرة وإيجاد النسل لإعمار الأرض",
+          "C": "المفاخرة بين الناس",
+          "D": "السفر والتنقل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بناء الأسرة وإيجاد النسل لإعمار الأرض",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بناء الأسرة وإيجاد النسل لإعمار الأرض"
+        },
+        "explanation": "بناء الأسرة وإيجاد النسل لإعمار الأرض",
+        "number": 1,
+        "id": "U04-L04-Q001"
+      },
+      {
+        "question": "تنقسم الحقوق الزوجية في الإسلام إلى حقوق مشتركة وحقوق:",
+        "options": {
+          "A": "خاصة بكل من الزوجين",
+          "B": "دولية",
+          "C": "مؤقتة",
+          "D": "اختيارية فقط"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "خاصة بكل من الزوجين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خاصة بكل من الزوجين"
+        },
+        "explanation": "خاصة بكل من الزوجين",
+        "number": 2,
+        "id": "U04-L04-Q002"
+      },
+      {
+        "question": "أي مما يلي يعد من الحقوق المشتركة بين الزوجين؟",
+        "options": {
+          "A": "دفع المهر",
+          "B": "النفقة",
+          "C": "المعاشرة بالمعروف",
+          "D": "تولي القوامة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "المعاشرة بالمعروف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المعاشرة بالمعروف"
+        },
+        "explanation": "المعاشرة بالمعروف",
+        "number": 3,
+        "id": "U04-L04-Q003"
+      },
+      {
+        "question": "ماذا تشمل 'المعاشرة بالمعروف' كحق مشترك؟",
+        "options": {
+          "A": "الاحترام والرفق وانتقاء أجمل الألفاظ",
+          "B": "السيطرة التامة",
+          "C": "إهمال المشاعر",
+          "D": "الإنفاق فقط"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الاحترام والرفق وانتقاء أجمل الألفاظ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاحترام والرفق وانتقاء أجمل الألفاظ"
+        },
+        "explanation": "الاحترام والرفق وانتقاء أجمل الألفاظ",
+        "number": 4,
+        "id": "U04-L04-Q004"
+      },
+      {
+        "question": "قال ابن عباس رضي الله عنهما: (إني لأحب أن أتزين للمرأة كما أحب أن تتزين لي)، هذا يدل على:",
+        "options": {
+          "A": "حق النفقة",
+          "B": "الاهتمام المتبادل والتجمل لكل منهما",
+          "C": "وجوب الطاعة",
+          "D": "حق الميراث"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الاهتمام المتبادل والتجمل لكل منهما",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاهتمام المتبادل والتجمل لكل منهما"
+        },
+        "explanation": "الاهتمام المتبادل والتجمل لكل منهما",
+        "number": 5,
+        "id": "U04-L04-Q005"
+      },
+      {
+        "question": "ما هو أثر الصبر والاحتمال بين الزوجين؟",
+        "options": {
+          "A": "زيادة المشاكل",
+          "B": "استمرار الحياة الزوجية وتحقيق السكينة",
+          "C": "الطلاق السريع",
+          "D": "التجاهل التام"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "استمرار الحياة الزوجية وتحقيق السكينة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "استمرار الحياة الزوجية وتحقيق السكينة"
+        },
+        "explanation": "استمرار الحياة الزوجية وتحقيق السكينة",
+        "number": 6,
+        "id": "U04-L04-Q006"
+      },
+      {
+        "question": "حق 'حفظ خصوصية العلاقة الزوجية' يعني:",
+        "options": {
+          "A": "إخبار الجيران بكل شيء",
+          "B": "عدم إفشاء أسرار وعيوب الطرف الآخر",
+          "C": "كتابة اليوميات علناً",
+          "D": "إطلاع الأقارب على الخلافات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عدم إفشاء أسرار وعيوب الطرف الآخر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عدم إفشاء أسرار وعيوب الطرف الآخر"
+        },
+        "explanation": "عدم إفشاء أسرار وعيوب الطرف الآخر",
+        "number": 7,
+        "id": "U04-L04-Q007"
+      },
+      {
+        "question": "وصف النبي صلى الله عليه وسلم من ينشر أسرار بيته بأنه من:",
+        "options": {
+          "A": "أذكى الناس",
+          "B": "أشر الناس منزلة عند الله يوم القيامة",
+          "C": "أكثر الناس ثقافة",
+          "D": "أفضل الناس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أشر الناس منزلة عند الله يوم القيامة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أشر الناس منزلة عند الله يوم القيامة"
+        },
+        "explanation": "أشر الناس منزلة عند الله يوم القيامة",
+        "number": 8,
+        "id": "U04-L04-Q008"
+      },
+      {
+        "question": "ما هو التعريف الشرعي لـ 'المهر'؟",
+        "options": {
+          "A": "قرض مالي",
+          "B": "مبلغ من المال يدفعه الزوج لزوجته تكريماً لها",
+          "C": "ضريبة للدولة",
+          "D": "هدية اختيارية للأب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مبلغ من المال يدفعه الزوج لزوجته تكريماً لها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مبلغ من المال يدفعه الزوج لزوجته تكريماً لها"
+        },
+        "explanation": "مبلغ من المال يدفعه الزوج لزوجته تكريماً لها",
+        "number": 9,
+        "id": "U04-L04-Q009"
+      },
+      {
+        "question": "متى يجب المهر للزوجة شرعاً؟",
+        "options": {
+          "A": "قبل الخطبة",
+          "B": "عند عقد الزواج",
+          "C": "بعد سنة من الزواج",
+          "D": "عند الطلاق فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عند عقد الزواج",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عند عقد الزواج"
+        },
+        "explanation": "عند عقد الزواج",
+        "number": 10,
+        "id": "U04-L04-Q010"
+      },
+      {
+        "question": "من الذي يملك الحق في التصرف بالمهر؟",
+        "options": {
+          "A": "الزوج",
+          "B": "والد الزوجة",
+          "C": "الزوجة نفسها",
+          "D": "إخوة الزوجة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الزوجة نفسها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الزوجة نفسها"
+        },
+        "explanation": "الزوجة نفسها",
+        "number": 11,
+        "id": "U04-L04-Q011"
+      },
+      {
+        "question": "ما هو موقف الإسلام من مقدار المهر؟",
+        "options": {
+          "A": "حدد حداً أدنى كبيراً",
+          "B": "حدد حداً أعلى لا يجوز تجاوزه",
+          "C": "حث على التيسير ولم يحدد حداً أعلى أو أدنى",
+          "D": "أوجب أن يكون ذهباً فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "حث على التيسير ولم يحدد حداً أعلى أو أدنى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حث على التيسير ولم يحدد حداً أعلى أو أدنى"
+        },
+        "explanation": "حث على التيسير ولم يحدد حداً أعلى أو أدنى",
+        "number": 12,
+        "id": "U04-L04-Q012"
+      },
+      {
+        "question": "أي من الآتية يعد من 'حقوق الزوجة' الخالصة؟",
+        "options": {
+          "A": "الطاعة",
+          "B": "النفقة",
+          "C": "رعاية شؤون البيت",
+          "D": "السماح بدخول البيت"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "النفقة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النفقة"
+        },
+        "explanation": "النفقة",
+        "number": 13,
+        "id": "U04-L04-Q013"
+      },
+      {
+        "question": "متى تجب نفقة الزوجة على زوجها؟",
+        "options": {
+          "A": "إذا كانت فقيرة فقط",
+          "B": "تجب بمجرد كتابة العقد حتى لو كانت غنية",
+          "C": "بعد إنجاب أول طفل",
+          "D": "إذا طلب والدها ذلك"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تجب بمجرد كتابة العقد حتى لو كانت غنية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تجب بمجرد كتابة العقد حتى لو كانت غنية"
+        },
+        "explanation": "تجب بمجرد كتابة العقد حتى لو كانت غنية",
+        "number": 14,
+        "id": "U04-L04-Q014"
+      },
+      {
+        "question": "ما هي المجالات التي تشملها النفقة الزوجية؟",
+        "options": {
+          "A": "السفر للسياحة فقط",
+          "B": "المأكل والملبس والمسكن والدواء بالمعروف",
+          "C": "المجوهرات الثمينة فقط",
+          "D": "لا تشمل الدواء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المأكل والملبس والمسكن والدواء بالمعروف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المأكل والملبس والمسكن والدواء بالمعروف"
+        },
+        "explanation": "المأكل والملبس والمسكن والدواء بالمعروف",
+        "number": 15,
+        "id": "U04-L04-Q015"
+      },
+      {
+        "question": "يثبت حق 'الميراث' لكل من الزوجين بمجرد:",
+        "options": {
+          "A": "الخطبة",
+          "B": "كتابة عقد الزواج",
+          "C": "إنجاب الأطفال",
+          "D": "شراء بيت مشترك"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كتابة عقد الزواج",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كتابة عقد الزواج"
+        },
+        "explanation": "كتابة عقد الزواج",
+        "number": 16,
+        "id": "U04-L04-Q016"
+      },
+      {
+        "question": "من هو زوج السيدة زينب ابنة الرسول صلى الله عليه وسلم؟",
+        "options": {
+          "A": "أبو سفيان",
+          "B": "أبو العاص بن الربيع",
+          "C": "خالد بن الوليد",
+          "D": "زيد بن حارثة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أبو العاص بن الربيع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أبو العاص بن الربيع"
+        },
+        "explanation": "أبو العاص بن الربيع",
+        "number": 17,
+        "id": "U04-L04-Q017"
+      },
+      {
+        "question": "بماذا فدت السيدة زينب زوجها عندما وقع أسيراً في بدر؟",
+        "options": {
+          "A": "بالمال الكثير",
+          "B": "بقلادة كانت لأمها خديجة رضي الله عنها",
+          "C": "بالذهب",
+          "D": "بخيول عربية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بقلادة كانت لأمها خديجة رضي الله عنها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بقلادة كانت لأمها خديجة رضي الله عنها"
+        },
+        "explanation": "بقلادة كانت لأمها خديجة رضي الله عنها",
+        "number": 18,
+        "id": "U04-L04-Q018"
+      },
+      {
+        "question": "ما هي القيمة التي أثنى بها النبي على أبي العاص بن الربيع؟",
+        "options": {
+          "A": "ثراؤه",
+          "B": "الصدق في الحديث والوفاء بالوعد",
+          "C": "قوته الجسدية",
+          "D": "شجاعته في الحروب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الصدق في الحديث والوفاء بالوعد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الصدق في الحديث والوفاء بالوعد"
+        },
+        "explanation": "الصدق في الحديث والوفاء بالوعد",
+        "number": 19,
+        "id": "U04-L04-Q019"
+      },
+      {
+        "question": "أي مما يلي يعد من 'حقوق الزوج' على زوجته؟",
+        "options": {
+          "A": "دفع المهر لها",
+          "B": "الطاعة بالمعروف",
+          "C": "الإنفاق عليها",
+          "D": "توفير المسكن لها"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الطاعة بالمعروف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الطاعة بالمعروف"
+        },
+        "explanation": "الطاعة بالمعروف",
+        "number": 20,
+        "id": "U04-L04-Q020"
+      },
+      {
+        "question": "ما هي ضوابط طاعة الزوجة لزوجها؟",
+        "options": {
+          "A": "أن تكون في غير معصية الله تعالى وفي حدود الاستطاعة",
+          "B": "أن تكون طاعة مطلقة حتى في الحرام",
+          "C": "أن تطيع أهله فقط",
+          "D": "لا توجد ضوابط"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أن تكون في غير معصية الله تعالى وفي حدود الاستطاعة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أن تكون في غير معصية الله تعالى وفي حدود الاستطاعة"
+        },
+        "explanation": "أن تكون في غير معصية الله تعالى وفي حدود الاستطاعة",
+        "number": 21,
+        "id": "U04-L04-Q021"
+      },
+      {
+        "question": "من واجبات الزوجة 'المحافظة على عرض الزوج وماله'، وهذا يعني:",
+        "options": {
+          "A": "صيانة نفسها وحفظ أسراره وحماية ممتلكاته",
+          "B": "صرف أمواله كلها",
+          "C": "السفر دون علمه",
+          "D": "إهمال البيت"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "صيانة نفسها وحفظ أسراره وحماية ممتلكاته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صيانة نفسها وحفظ أسراره وحماية ممتلكاته"
+        },
+        "explanation": "صيانة نفسها وحفظ أسراره وحماية ممتلكاته",
+        "number": 22,
+        "id": "U04-L04-Q022"
+      },
+      {
+        "question": "إدارة شؤون البيت ورعاية الأطفال تعتبر من مسؤوليات:",
+        "options": {
+          "A": "الجيران",
+          "B": "الزوجة (كحق للزوج وواجب أسري)",
+          "C": "الدولة فقط",
+          "D": "الأصدقاء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الزوجة (كحق للزوج وواجب أسري)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الزوجة (كحق للزوج وواجب أسري)"
+        },
+        "explanation": "الزوجة (كحق للزوج وواجب أسري)",
+        "number": 23,
+        "id": "U04-L04-Q023"
+      },
+      {
+        "question": "قال صلى الله عليه وسلم: (ولا تأذن في بيته إلا بإذنه)، هذا الحديث ينظم حق الزوج في:",
+        "options": {
+          "A": "النفقة",
+          "B": "المحافظة على خصوصية البيت ومن يدخله",
+          "C": "الميراث",
+          "D": "المهر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المحافظة على خصوصية البيت ومن يدخله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المحافظة على خصوصية البيت ومن يدخله"
+        },
+        "explanation": "المحافظة على خصوصية البيت ومن يدخله",
+        "number": 24,
+        "id": "U04-L04-Q024"
+      },
+      {
+        "question": "أي من الأفعال التالية يتنافى مع 'المعاشرة بالمعروف'؟",
+        "options": {
+          "A": "الحوار الهادئ",
+          "B": "التعنيف اللفظي أو الجسدي",
+          "C": "تقديم النصيحة بلطف",
+          "D": "التجاوز عن الأخطاء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التعنيف اللفظي أو الجسدي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التعنيف اللفظي أو الجسدي"
+        },
+        "explanation": "التعنيف اللفظي أو الجسدي",
+        "number": 25,
+        "id": "U04-L04-Q025"
+      },
+      {
+        "question": "الهدف من تشريع 'المهر' هو إظهار:",
+        "options": {
+          "A": "التفاخر المالي",
+          "B": "صدق رغبة الزوج في الارتباط وبناء أسرة",
+          "C": "السيطرة على الزوجة",
+          "D": "القدرة على الديون"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "صدق رغبة الزوج في الارتباط وبناء أسرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صدق رغبة الزوج في الارتباط وبناء أسرة"
+        },
+        "explanation": "صدق رغبة الزوج في الارتباط وبناء أسرة",
+        "number": 26,
+        "id": "U04-L04-Q026"
+      },
+      {
+        "question": "إذا اختلف الزوجان في المهر، المرجع يكون لـ:",
+        "options": {
+          "A": "رأي الناس",
+          "B": "عقد الزواج الموثق والشرع",
+          "C": "الأقوى منهما",
+          "D": "إلغاء الزواج"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عقد الزواج الموثق والشرع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عقد الزواج الموثق والشرع"
+        },
+        "explanation": "عقد الزواج الموثق والشرع",
+        "number": 27,
+        "id": "U04-L04-Q027"
+      },
+      {
+        "question": "حق الزوجة في 'الميراث' لا يسقط بـ:",
+        "options": {
+          "A": "وجود أطفال",
+          "B": "غنى الزوجة",
+          "C": "موت الزوج فوراً بعد العقد",
+          "D": "كل ما ذكر صحيح"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "كل ما ذكر صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل ما ذكر صحيح"
+        },
+        "explanation": "كل ما ذكر صحيح",
+        "number": 28,
+        "id": "U04-L04-Q028"
+      },
+      {
+        "question": "تعتبر 'النفقة' واجباً على الزوج يقابله حق الزوجة في:",
+        "options": {
+          "A": "العمل الشاق",
+          "B": "الكفاية والعيش الكريم",
+          "C": "ترك البيت",
+          "D": "السيطرة على مال الزوج"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الكفاية والعيش الكريم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الكفاية والعيش الكريم"
+        },
+        "explanation": "الكفاية والعيش الكريم",
+        "number": 29,
+        "id": "U04-L04-Q029"
+      },
+      {
+        "question": "أي من الصفات التالية يجب أن تتحلى بها الزوجة تجاه زوجها كما ورد في 'الإثراء'؟",
+        "options": {
+          "A": "التكبر",
+          "B": "السمع والطاعة في المعروف وإدخال السرور عليه",
+          "C": "العناد",
+          "D": "إهمال المنزل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "السمع والطاعة في المعروف وإدخال السرور عليه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السمع والطاعة في المعروف وإدخال السرور عليه"
+        },
+        "explanation": "السمع والطاعة في المعروف وإدخال السرور عليه",
+        "number": 30,
+        "id": "U04-L04-Q030"
+      },
+      {
+        "question": "حق 'الاحترام المتبادل' يقتضي من الزوجين:",
+        "options": {
+          "A": "السخرية من عيوب الآخر",
+          "B": "عدم تحقير أفكار أو مشاعر الطرف الآخر",
+          "C": "التحدث بسوء أمام الأبناء",
+          "D": "التجاهل التام عند الغضب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عدم تحقير أفكار أو مشاعر الطرف الآخر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عدم تحقير أفكار أو مشاعر الطرف الآخر"
+        },
+        "explanation": "عدم تحقير أفكار أو مشاعر الطرف الآخر",
+        "number": 31,
+        "id": "U04-L04-Q031"
+      },
+      {
+        "question": "في قوله صلى الله عليه وسلم: (ألا إن لكم على نسائكم حقاً ولنسائكم عليكم حقاً)، دلالة على:",
+        "options": {
+          "A": "التوازن وتبادل الحقوق والواجبات",
+          "B": "تفضيل الرجل مطلقاً",
+          "C": "إلغاء حقوق المرأة",
+          "D": "أن الحقوق اختيارية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "التوازن وتبادل الحقوق والواجبات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التوازن وتبادل الحقوق والواجبات"
+        },
+        "explanation": "التوازن وتبادل الحقوق والواجبات",
+        "number": 32,
+        "id": "U04-L04-Q032"
+      },
+      {
+        "question": "تحقيق 'السكينة والمودة' في البيت هو مسؤولية:",
+        "options": {
+          "A": "الزوج وحده",
+          "B": "الزوجة وحدها",
+          "C": "الزوجين معاً",
+          "D": "الأبناء فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الزوجين معاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الزوجين معاً"
+        },
+        "explanation": "الزوجين معاً",
+        "number": 33,
+        "id": "U04-L04-Q033"
+      },
+      {
+        "question": "ما هو أثر التزام الزوجين بحقوقهما الشرعية على المجتمع؟",
+        "options": {
+          "A": "تفكك الأسر",
+          "B": "بناء مجتمع قوي متماسك ومستقر",
+          "C": "زيادة نسبة الجريمة",
+          "D": "لا أثر له"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بناء مجتمع قوي متماسك ومستقر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بناء مجتمع قوي متماسك ومستقر"
+        },
+        "explanation": "بناء مجتمع قوي متماسك ومستقر",
+        "number": 34,
+        "id": "U04-L04-Q034"
+      },
+      {
+        "question": "من مظاهر 'رعاية الزوجة لبيتها' حماية الأطفال من:",
+        "options": {
+          "A": "الدراسة",
+          "B": "الأخطار الجسدية والأخلاقية وتربيتهم تربية صالحة",
+          "C": "اللعب",
+          "D": "الخروج نهاراً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأخطار الجسدية والأخلاقية وتربيتهم تربية صالحة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأخطار الجسدية والأخلاقية وتربيتهم تربية صالحة"
+        },
+        "explanation": "الأخطار الجسدية والأخلاقية وتربيتهم تربية صالحة",
+        "number": 35,
+        "id": "U04-L04-Q035"
+      },
+      {
+        "question": "حق الزوج في 'القوامة' يعني قيامه بـ:",
+        "options": {
+          "A": "الاستبداد بالرأي",
+          "B": "رعاية الأسرة وحمايتها والإنفاق عليها وتحمل المسؤولية",
+          "C": "إهمال شؤون البيت",
+          "D": "ضرب الزوجة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "رعاية الأسرة وحمايتها والإنفاق عليها وتحمل المسؤولية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رعاية الأسرة وحمايتها والإنفاق عليها وتحمل المسؤولية"
+        },
+        "explanation": "رعاية الأسرة وحمايتها والإنفاق عليها وتحمل المسؤولية",
+        "number": 36,
+        "id": "U04-L04-Q036"
+      },
+      {
+        "question": "عند وقوع خلاف، ينبغي على الزوجين اللجوء إلى:",
+        "options": {
+          "A": "العنف",
+          "B": "التفاهم والحوار أو التحكيم الإصلاحي",
+          "C": "الفضيحة في التواصل الاجتماعي",
+          "D": "الهجر الطويل بلا سبب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التفاهم والحوار أو التحكيم الإصلاحي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التفاهم والحوار أو التحكيم الإصلاحي"
+        },
+        "explanation": "التفاهم والحوار أو التحكيم الإصلاحي",
+        "number": 37,
+        "id": "U04-L04-Q037"
+      },
+      {
+        "question": "أي من هؤلاء الصحابة كان قدوة في التعامل مع زوجته بتقدير وتجمل؟",
+        "options": {
+          "A": "أبو هريرة",
+          "B": "عبد الله بن عباس",
+          "C": "خالد بن الوليد",
+          "D": "زيد بن ثابت"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عبد الله بن عباس",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد الله بن عباس"
+        },
+        "explanation": "عبد الله بن عباس",
+        "number": 38,
+        "id": "U04-L04-Q038"
+      },
+      {
+        "question": "العلاقة الزوجية في الإسلام تقوم أساساً على:",
+        "options": {
+          "A": "المنافسة المادية",
+          "B": "التعاون والتراحم والتكامل",
+          "C": "الصراع على السلطة",
+          "D": "التبعية المطلقة للزوجة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التعاون والتراحم والتكامل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التعاون والتراحم والتكامل"
+        },
+        "explanation": "التعاون والتراحم والتكامل",
+        "number": 39,
+        "id": "U04-L04-Q039"
+      },
+      {
+        "question": "أوصى النبي صلى الله عليه وسلم بالنساء خيراً في:",
+        "options": {
+          "A": "غزوة بدر",
+          "B": "خطبة حجة الوداع",
+          "C": "فتح مكة",
+          "D": "عند الهجرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "خطبة حجة الوداع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خطبة حجة الوداع"
+        },
+        "explanation": "خطبة حجة الوداع",
+        "number": 40,
+        "id": "U04-L04-Q040"
+      }
+    ]
+  }
+}

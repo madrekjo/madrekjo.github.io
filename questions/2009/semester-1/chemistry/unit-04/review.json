@@ -1,0 +1,1353 @@
+[
+  {
+    "id": "U04-REV-Q001",
+    "number": 1,
+    "question": "الأحماض وفقاً لأرهينيوس هي المواد التي ت toushi في الماء لتعطي:",
+    "options": {
+      "A": "أيونات الهيدروكسيد OH⁻ فقط",
+      "B": "أيونات الهيدروجين H⁺ فقط",
+      "C": "أيونات الهيدروجين H⁺ وأيونات الهيدروكسيد OH⁻ معاً",
+      "D": "أيونات الملح فقط"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "أيونات الهيدروجين H⁺ فقط",
+    "difficulty": "easy",
+    "source": {
+      "page": 171,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "HA → H⁺ + A⁻",
+      "steps": [
+        "وفقاً لأرهينيوس، الأحماض تطلق أيونات H⁺ في المحلول المائي",
+        "مثال: HCl → H⁺ + Cl⁻"
+      ],
+      "summary": "الأحماض وفقاً لأرهينيوس تطلق أيونات H⁺ في الماء"
+    },
+    "explanation": "وفقاً لنظرية أرهينيوس، الأحماض هي المواد التي تنحل في الماء لتعطي أيونات الهيدروجين H⁺ فقط. مثال: HCl → H⁺ + Cl⁻"
+  },
+  {
+    "id": "U04-REV-Q002",
+    "number": 2,
+    "question": "أي من الأحماض التالية يُعتبر حمض قوي:",
+    "options": {
+      "A": "حمض الخليك CH₃COOH",
+      "B": "حمض الكربونيك H₂CO₃",
+      "C": "حمض الهيدروكلوريك HCl",
+      "D": "حمض الهيدروفلوريك HF"
+    },
+    "correct_answer": "C",
+    "correct_answer_text": "حمض الهيدروكلوريك HCl",
+    "difficulty": "easy",
+    "source": {
+      "page": 171,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "HCl → H⁺ + Cl⁻",
+      "steps": [
+        "الأحماض القوية تتأين بالكامل في المحلول المائي",
+        "HCl ينفك تماماً إلى أيوناته"
+      ],
+      "summary": "حمض الهيدروكلوريك حمض قوي يتأين بالكامل"
+    },
+    "explanation": "حمض الهيدروكلوريك HCl ينفصل بالكامل في الماء إلى أيونات H⁺ و Cl⁻، لذلك يُعتبر حمض قوي. أما بقية الخيارات فهي أحماض ضعيفة."
+  },
+  {
+    "id": "U04-REV-Q003",
+    "number": 3,
+    "question": "صيغة حمض الكبريتيك هي:",
+    "options": {
+      "A": "HNO₃",
+      "B": "H₂SO₄",
+      "C": "H₃PO₄",
+      "D": "HClO₄"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "H₂SO₄",
+    "difficulty": "easy",
+    "source": {
+      "page": 171,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "H₂SO₄",
+      "steps": [
+        "حمض الكبريتيك من الأحماض القوية الشائعة",
+        "صيغته الجزيئية H₂SO₄"
+      ],
+      "summary": "حمض الكبريتيك صيغته H₂SO₄ وهو حمض قوي ثنائي القاعد"
+    },
+    "explanation": "حمض الكبريتيك H₂SO₄ هو حمض قوي ثنائي البروتون (يحتوي على ذرتي هيدروجين قابلة للتأين)، وهو من الأحماض القوية التي تتأين بالكامل في الماء."
+  },
+  {
+    "id": "U04-REV-Q004",
+    "number": 4,
+    "question": "الحمض وفقاً لبرونستد و-lowry هو المادة التي:",
+    "options": {
+      "A": "تتلقى بروتون H⁺",
+      "B": "تمنحي بروتون H⁺",
+      "C": "تتلقى إلكترونات",
+      "D": "تمنحي إلكترونات"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "تمنحي بروتون H⁺",
+    "difficulty": "easy",
+    "source": {
+      "page": 171,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "HA → A⁻ + H⁺",
+      "steps": [
+        "برونستد و-lowry عرفا الحمض بأنه مانح للبروتون",
+        "القاعدة هي المتلقية للبروتون"
+      ],
+      "summary": "الحمض وفقاً لبرونستد هو مانح البروتون H⁺"
+    },
+    "explanation": "وفقاً لنظرية برونستد-لوبري، الأحماض هي المواد التي تمنح بروتونات H⁺ إلى المواد الأخرى، والقواعد هي المواد التي تتلقى البروتونات."
+  },
+  {
+    "id": "U04-REV-Q005",
+    "number": 5,
+    "question": "المحلول الذي له رقم حموضة pH يساوي 3 هو محلول:",
+    "options": {
+      "A": "متعادل",
+      "B": "قلوي",
+      "C": "حمضي",
+      "D": "ماء نقي"
+    },
+    "correct_answer": "C",
+    "correct_answer_text": "حمضي",
+    "difficulty": "easy",
+    "source": {
+      "page": 172,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "pH < 7 = حمضي",
+      "steps": [
+        "pH = 3 وهو أقل من 7",
+        "أي محلول pH أقل من 7 يكون حمضياً"
+      ],
+      "summary": "pH = 3 أقل من 7 فيكون المحلول حمضياً"
+    },
+    "explanation": "مقياس pH يتراوح من صفر إلى 14. المحلول متعادل عند pH = 7، حمضي إذا كان pH < 7، وقاعدي إذا كان pH > 7. لذا فإن pH = 3 يدل على محلول حمضي."
+  },
+  {
+    "id": "U04-REV-Q006",
+    "number": 6,
+    "question": "القاعدة وفقاً لأرهينيوس هي المادة التي تnicki في الماء لتعطي:",
+    "options": {
+      "A": "أيونات الهيدروجين H⁺ فقط",
+      "B": "أيونات الهيدروكسيد OH⁻ فقط",
+      "C": "أيونات الهيدروجين H⁺ وأيونات الهيدروكسيد OH⁻ معاً",
+      "D": "أيونات البروتونات فقط"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "أيونات الهيدروكسيد OH⁻ فقط",
+    "difficulty": "easy",
+    "source": {
+      "page": 172,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "BOH → B⁺ + OH⁻",
+      "steps": [
+        "القواعد وفقاً لأرهينيوس تطلق أيونات OH⁻ في الماء",
+        "مثال: NaOH → Na⁺ + OH⁻"
+      ],
+      "summary": "القاعدة وفقاً لأرهينيوس تطلق أيونات OH⁻ في الماء"
+    },
+    "explanation": "وفقاً لنظرية أرهينيوس، القواعد هي المواد التي تنحل في الماء لتعطي أيونات الهيدروكسيد OH⁻ فقط. مثال: NaOH → Na⁺ + OH⁻."
+  },
+  {
+    "id": "U04-REV-Q007",
+    "number": 7,
+    "question": "مؤشر فينولفثالين يتغير لونه:",
+    "options": {
+      "A": "من أزرق إلى أحمر في الوسط الحمضي",
+      "B": "من عديم اللون إلى وردي في الوسط القاعدي",
+      "C": "من أحمر إلى أزرق في الوسط القاعدي",
+      "D": "لا يتغير لونه أبداً"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "من عديم اللون إلى وردي في الوسط القاعدي",
+    "difficulty": "easy",
+    "source": {
+      "page": 172,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "N/A",
+      "steps": [
+        "فينولفثالين عديم اللون في الوسط الحمضي والمتعادل",
+        "يتغير لونه إلى وردي في الوسط القاعدي"
+      ],
+      "summary": "فينولفثالين يتحول من عديم اللون إلى وردي في القواعد"
+    },
+    "explanation": "مؤشر فينولفثالين عديم اللون في الوسط الحمضي والمتعادل، ويتحول لونه إلى وردي فاتح في الوسط القاعدي (pH > 8.2)."
+  },
+  {
+    "id": "U04-REV-Q008",
+    "number": 8,
+    "question": "محلول حمض الهيدروكلوريك من 강度 الحمض:",
+    "options": {
+      "A": "ضعبف التأين vì لا ينفك بالكامل في الماء",
+      "B": "قوي التأين vì ينفك بالكامل في الماء",
+      "C": "متعادل vì لا يتفاعل مع الماء",
+      "D": "قوي التأين vì لا ينفك في الماء أصلاً"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "قوي التأين vì ينفك بالكامل في الماء",
+    "difficulty": "easy",
+    "source": {
+      "page": 172,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "HCl → H⁺ + Cl⁻",
+      "steps": [
+        "حمض الهيدروكلوريك حمض قوي",
+        "ينفصل بالكامل في الماء إلى أيوناته"
+      ],
+      "summary": "حمض الهيدروكلوريك قوي التأين ينفك بالكامل"
+    },
+    "explanation": "حمض الهيدروكلوريك من الأحماض القوية التي تتأين (تنفصل) بالكامل في الماء، لذلك حموضته قوية جداً."
+  },
+  {
+    "id": "U04-REV-Q009",
+    "number": 9,
+    "question": "أي من الآتي يُعتبر من الخصائص الفيزيائية للأحماض:",
+    "options": {
+      "A": "تفاعلها مع الفلزات لإنتاج الهيدروجين",
+      "B": "لديها طعم حاد لاذع ورائحة كريهة",
+      "C": "تحلل الأملاح إلى مكوناتها",
+      "D": "تتفاعل مع القواعد في تفاعل تعادل"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "لديها طعم حاد لاذع ورائحة كريهة",
+    "difficulty": "easy",
+    "source": {
+      "page": 172,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "N/A",
+      "steps": [
+        "الخصائص الفيزيائية هي ما يمكن ملاحظته بالحواس",
+        "طعم حاد ورائحة كريهة من الخصائص الفيزيائية"
+      ],
+      "summary": "طعم حاد لاذع ورائحة كريهة من الخصائص الفيزيائية للأحماض"
+    },
+    "explanation": "الخصائص الفيزيائية للأحماض تشمل الطعم الحاد اللاذع، الرائحة الكريهة، وال ability to change litmus to red. أما التفاعل مع الفلزات والأملاح والقواعد فهي خصائص كيميائية."
+  },
+  {
+    "id": "U04-REV-Q010",
+    "number": 10,
+    "question": "مؤشر الكוץان الأحمر (مكسول) يتغير لونه من الأحمر إلى:",
+    "options": {
+      "A": "أصفر في الوسط القاعدي",
+      "B": "برتقالي في الوسط القاعدي",
+      "C": "أزرق في الوسط القاعدي",
+      "D": "أخضر في الوسط القاعدي"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "أصفر في الوسط القاعدي",
+    "difficulty": "easy",
+    "source": {
+      "page": 172,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "N/A",
+      "steps": [
+        "مكسول يتغير لونه من الأحمر إلى البرتقالي ثم الأصفر",
+        "في الوسط القاعدي يتغير إلى الأصفر"
+      ],
+      "summary": "مكسول يتغير من الأحمر إلى الأصفر في القواعد"
+    },
+    "explanation": "مؤشر مكسول (الكتسون الأحمر) يتغير لونه من الأحمر في الأحماض إلى البرتقالي في المحلول المتعادل ثم إلى الأصفر في القواعد."
+  },
+  {
+    "id": "U04-REV-Q011",
+    "number": 11,
+    "question": "حمض الخليك CH₃COOH يُصنف ك:",
+    "options": {
+      "A": "حمض قوي لا يتأين بالكامل",
+      "B": "حمض ضعبف لا يتأين بالكامل",
+      "C": "قاعدة قوية",
+      "D": "ملح متعادل"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "حمض ضعبف لا يتأين بالكامل",
+    "difficulty": "medium",
+    "source": {
+      "page": 172,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "CH₃COOH ⇌ CH₃COO⁻ + H⁺",
+      "steps": [
+        "حمض الخليك يتأين جزئياً في الماء",
+        "السهم المزدوج يدل على اتجاهين للتفاعل"
+      ],
+      "summary": "حمض الخليك حمض ضعبف لا يتأين بالكامل"
+    },
+    "explanation": "حمض الخليك حمض ضعبف لا يتأين بالكامل في الماء، فجزء فقط من جزيئاته يتفكك إلى أيونات، لذلك السهم مزدوج (⇌) للدلالة على أن التفاعل обрат قابل للرجوع."
+  },
+  {
+    "id": "U04-REV-Q012",
+    "number": 12,
+    "question": "العلاقة بين pH و pOH في أي محلول مائي عند درجة حرارة الغرفة:",
+    "options": {
+      "A": "pH + pOH = 14",
+      "B": "pH - pOH = 7",
+      "C": "pH × pOH = 14",
+      "D": "pH = pOH دائماً"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "pH + pOH = 14",
+    "difficulty": "medium",
+    "source": {
+      "page": 173,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "pH + pOH = 14",
+      "steps": [
+        "عند 25 درجة مئوية، Kw = 10⁻¹⁴",
+        "pH + pOH = -log[H⁺] - log[OH⁻] = -log(Kw) = 14"
+      ],
+      "summary": "pH + pOH = 14 عند درجة حرارة الغرفة"
+    },
+    "explanation": "عند درجة حرارة 25 درجة مئوية، حاصل ضرب أيونات الماء Kw = [H⁺][OH⁻] = 10⁻¹⁴. أخذ السالب لللوغاريتم لطريقتين يعطي pH + pOH = 14."
+  },
+  {
+    "id": "U04-REV-Q013",
+    "number": 13,
+    "question": "أي من المحلولات التالية له أعلى تركيز لأيونات الهيدروجين H⁺:",
+    "options": {
+      "A": "محلول pH = 9",
+      "B": "محلول pH = 7",
+      "C": "محلول pH = 3",
+      "D": "محلول pH = 12"
+    },
+    "correct_answer": "C",
+    "correct_answer_text": "محلول pH = 3",
+    "difficulty": "medium",
+    "source": {
+      "page": 173,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "[H⁺] = 10^(-pH)",
+      "steps": [
+        "pH = 3 يعني [H⁺] = 10⁻³ مول/ل",
+        "pH كلما قلّ زاد تركيز H⁺"
+      ],
+      "summary": "pH = 3 يدل على أعلى تركيز H⁺ بين الخيارات"
+    },
+    "explanation": "pH = -log[H⁺]، فكلما قلّ رقم pH زاد تركيز أيونات H⁺. pH = 3 يعني [H⁺] = 10⁻³ مول/ل وهو أعلى تركيز بين الخيارات."
+  },
+  {
+    "id": "U04-REV-Q014",
+    "number": 14,
+    "question": "تفاعلاً التحام الحمض مع القاعدة لإنتاج ملح وماء يسمى تفاعل:",
+    "options": {
+      "A": "أكسدة واختزال",
+      "B": "تعادل",
+      "C": "تحلل",
+      "D": "استبدال"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "تعادل",
+    "difficulty": "medium",
+    "source": {
+      "page": 173,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "HCl + NaOH → NaCl + H₂O",
+      "steps": [
+        "تفاعل الحمض مع القاعدة ينتج ملح وماء",
+        "هذا التفاعل يسمى تفاعل التعادل"
+      ],
+      "summary": "تفاعل الحمض مع القاعدة يسمى تفاعل تعادل"
+    },
+    "explanation": "تفاعل التعادل هو التفاعل بين الحمض والقاعدة لإنتاج ملح وماء. مثال: HCl + NaOH → NaCl + H₂O."
+  },
+  {
+    "id": "U04-REV-Q015",
+    "number": 15,
+    "question": "ocalcium hydroxide Ca(OH)₂ يُصنف ك:",
+    "options": {
+      "A": "حمض قوي",
+      "B": "قاعدة قوية",
+      "C": "حمض ضعبف",
+      "D": "ملح"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "قاعدة قوية",
+    "difficulty": "medium",
+    "source": {
+      "page": 173,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "Ca(OH)₂ → Ca²⁺ + 2OH⁻",
+      "steps": [
+        "هيدروكسيد الكالسيوم قاعدة قوية تتأين بالكامل",
+        "تطلق أيونين OH⁻ لكل جزيء"
+      ],
+      "summary": "Ca(OH)₂ قاعدة قوية تطلق أيونات OH⁻ بالكامل"
+    },
+    "explanation": "هيدروكسيد الكالسيوم Ca(OH)₂ هو قاعدة قوية تنفصل بالكامل في الماء إلى أيون Ca²⁺ وأيونين OH⁻. وهو أحد القواعد الشائعة في المختبر."
+  },
+  {
+    "id": "U04-REV-Q016",
+    "number": 16,
+    "question": "الزوج الحمض-القاعدة المترافق في التفاعل: NH₃ + H₂O ⇌ NH₄⁺ + OH⁻ هو:",
+    "options": {
+      "A": "NH₃ / NH₄⁺ فقط",
+      "B": "H₂O / OH⁻ فقط",
+      "C": "NH₃ / NH₄⁺ و H₂O / OH⁻",
+      "D": "NH₃ / OH⁻ و H₂O / NH₄⁺"
+    },
+    "correct_answer": "C",
+    "correct_answer_text": "NH₃ / NH₄⁺ و H₂O / OH⁻",
+    "difficulty": "medium",
+    "source": {
+      "page": 173,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "NH₃ + H₂O ⇌ NH₄⁺ + OH⁻",
+      "steps": [
+        "NH₃ تتلقى بروتون فتصبح NH₄⁺ (زوجها المترافق)",
+        "H₂O تمنح بروتون فتصبح OH⁻ (زوجها المترافق)"
+      ],
+      "summary": "الأزواج المترافقة: NH₃/NH₄⁺ و H₂O/OH⁻"
+    },
+    "explanation": "في هذا التفاعل، NH₃ تتلقى بروتون فتصبح NH₄⁺ (زوجها المترافق)، و H₂O تمنح بروتون فتصبح OH⁻ (زوجها المترافق). الزوج المترافق يختلف عن زوجته ببروتون واحد فقط."
+  },
+  {
+    "id": "U04-REV-Q017",
+    "number": 17,
+    "question": "استخدام مؤشر الك_managementality (عقار كوري) في تحديد نقطة التعادل:",
+    "options": {
+      "A": "يتحول لونه من الأزرق إلى الأحمر عند التعادل",
+      "B": "يتغير لونه من الأحمر إلى الأزرق عند التعادل",
+      "C": "يتغير لونه من الأصفر إلى البرتقالي",
+      "D": "لا يتغير لونه أثناء التفاعل"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "يتحول لونه من الأزرق إلى الأحمر عند التعادل",
+    "difficulty": "medium",
+    "source": {
+      "page": 173,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "N/A",
+      "steps": [
+        "عقار كوري يتغير لونه من الأزرق إلى الأحمر",
+        "يستخدم في الت擿titration لتحديد نقطة التعادل"
+      ],
+      "summary": "عقار كوري يتغير من الأزرق إلى الأحمر عند نقطة التعادل"
+    },
+    "explanation": "يتم استخدام عقار كوري (Methyl orange) كمؤشر في الت搐titration. يتغير لونه من الأزرق في الوسط القاعدي إلى الأحمر في الوسط الحمضي عند نقطة التعادل."
+  },
+  {
+    "id": "U04-REV-Q018",
+    "number": 18,
+    "question": "Koncentration حمض الهيدروكلوريك HCl في محلولITES ثابتة في الماء它是:",
+    "options": {
+      "A": "azeotropic تتأين بالكامل",
+      "B": "لا تتأين أبداً",
+      "C": "تتأين جزئياً فقط",
+      "D": "تتفكك قبل أن تصل إلى الماء"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "azeotropic تتأين بالكامل",
+    "difficulty": "medium",
+    "source": {
+      "page": 174,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "HCl(g) → H⁺(aq) + Cl⁻(aq)",
+      "steps": [
+        "حمض الهيدروكلوريك من الأحماض القوية",
+        "ينفصل بالكامل في الماء إلى أيوناته"
+      ],
+      "summary": "HCl حمض قوي يتأين بالكامل في الماء"
+    },
+    "explanation": "حمض الهيدروكلوريك من الأحماض القوية التي تتأين بالكامل في المحلول المائي، أي جميع جزيئاته تنفصل إلى أيونات H⁺ و Cl⁻."
+  },
+  {
+    "id": "U04-REV-Q019",
+    "number": 19,
+    "question": "ما هو الكاتيون الناتج عن تأين حمض النتريك HNO₃:",
+    "options": {
+      "A": "NO₃⁻",
+      "B": "H⁺",
+      "C": "OH⁻",
+      "D": "NO₂⁺"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "H⁺",
+    "difficulty": "easy",
+    "source": {
+      "page": 174,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "HNO₃ → H⁺ + NO₃⁻",
+      "steps": [
+        "حمض النتريك يتأين بالكامل في الماء",
+        "يطلق أيون H⁺ أيوني"
+      ],
+      "summary": "HNO₃ يطلق أيون H⁺ عند التأين"
+    },
+    "explanation": "حمض النتريك HNO₃ حمض قوي يتأين بالكامل في الماء لإنتاج أيون الهيدروجين H⁺ (كاتيون) وأيون النترات NO₃⁻ (أنيون)."
+  },
+  {
+    "id": "U04-REV-Q020",
+    "number": 20,
+    "question": "koncentration محلول قاعدي له pOH يساوي 2 تكون:",
+    "options": {
+      "A": "pH = 2",
+      "B": "pH = 7",
+      "C": "pH = 12",
+      "D": "pH = 9"
+    },
+    "correct_answer": "C",
+    "correct_answer_text": "pH = 12",
+    "difficulty": "medium",
+    "source": {
+      "page": 174,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "pH + pOH = 14",
+      "steps": [
+        "pH = 14 - pOH",
+        "pH = 14 - 2 = 12"
+      ],
+      "summary": "pH = 14 - pOH = 14 - 2 = 12"
+    },
+    "explanation": "باستخدام العلاقة pH + pOH = 14، فإن pH = 14 - pOH = 14 - 2 = 12. هذا يعني أن المحلول قاعدي بقوة."
+  },
+  {
+    "id": "U04-REV-Q021",
+    "number": 21,
+    "question": "koncentration محلول حمضي له pH = 1 يكون تركيز أيونات H⁺:",
+    "options": {
+      "A": "0.1 mol/L",
+      "B": "0.01 mol/L",
+      "C": "1 mol/L",
+      "D": "0.001 mol/L"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "0.1 mol/L",
+    "difficulty": "medium",
+    "source": {
+      "page": 174,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "[H⁺] = 10^(-pH)",
+      "steps": [
+        "[H⁺] = 10⁻¹ mol/L",
+        "10⁻¹ = 0.1 mol/L"
+      ],
+      "summary": "[H⁺] = 0.1 mol/L عند pH = 1"
+    },
+    "explanation": "[H⁺] = 10^(-pH) = 10⁻¹ = 0.1 mol/L. هذا التركيز العالي يدل على أن الم溶液 حمضي بقوة."
+  },
+  {
+    "id": "U04-REV-Q022",
+    "number": 22,
+    "question": "koncentration ملح كلوريد الصوديوم NaCl ينتج عن تفاعل:",
+    "options": {
+      "A": "حمض الكبريتيك مع كاوية الصوديوم",
+      "B": "حمض الهيدروكلوريك مع هيدروكسيد الصوديوم",
+      "C": "حمض النتريك مع كربونات الصوديوم",
+      "D": "حمض الفوسفوريك مع هيدروكسيد البوتاسيوم"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "حمض الهيدروكلوريك مع هيدروكسيد الصوديوم",
+    "difficulty": "medium",
+    "source": {
+      "page": 174,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "HCl + NaOH → NaCl + H₂O",
+      "steps": [
+        "HCl حمض قوي و NaOH قاعدة قوية",
+        "النتيجة ملح متعادل وماء"
+      ],
+      "summary": "NaCl ينتج من تفاعل HCl مع NaOH"
+    },
+    "explanation": "كلوريد الصوديوم NaCl ينتج عن تفاعل التعادل بين حمض الهيدروكلوريك HCl وهيدروكسيد الصوديوم NaOH: HCl + NaOH → NaCl + H₂O."
+  },
+  {
+    "id": "U04-REV-Q023",
+    "number": 23,
+    "question": "koncentration ملح كبريتات الألومنيوم Al₂(SO₄)₃ في الماء يكون المحلول:",
+    "options": {
+      "A": "متعادل pH = 7",
+      "B": "حمضي pH < 7",
+      "C": "قاعدي pH > 7",
+      "D": "لا يذوب في الماء"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "حمضي pH < 7",
+    "difficulty": "medium",
+    "source": {
+      "page": 174,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "Al³⁺ + 3H₂O ⇌ Al(OH)₃ + 3H⁺",
+      "steps": [
+        "أيون الألومنيوم Al³⁺ يتفاعل مع الماء (التحلل المائي)",
+        "يطلق أيونات H⁺ فيجعل المحلول حمضياً"
+      ],
+      "summary": "ملح Al₂(SO₄)₃ يعطي محلولاً حمضياً بسبب تحلل Al³⁺"
+    },
+    "explanation": "أيون الألومنيوم Al³⁺ يخضع للتحلل المائي: Al³⁺ + 3H₂O ⇌ Al(OH)₃ + 3H⁺. إطلاق أيونات H⁺ يجعل المحلول حمضياً. هذا يدل على أن الملح من أملاح حمضية."
+  },
+  {
+    "id": "U04-REV-Q024",
+    "number": 24,
+    "question": "koncentration ملح كربونات الصوديوم Na₂CO₃ في الماء:",
+    "options": {
+      "A": "يكون pH محايداً等于7",
+      "B": "يكون pH < 7因为它是酸性盐",
+      "C": "يكون pH > 7因为它是碱性盐",
+      "D": "لا يذوب في الماء"
+    },
+    "correct_answer": "C",
+    "correct_answer_text": "يكون pH > 7因为它是碱性盐",
+    "difficulty": "medium",
+    "source": {
+      "page": 174,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "CO₃²⁻ + H₂O ⇌ HCO₃⁻ + OH⁻",
+      "steps": [
+        "أيون الكربونات يتفاعل مع الماء ويطلق أيونات OH⁻",
+        "هذا يسمى تحلل مائي للأنيون"
+      ],
+      "summary": "Na₂CO₃ ملح قاعدي لأن CO₃²⁻ يطلق OH⁻ في الماء"
+    },
+    "explanation": "أيون الكربونات CO₃²⁻ يخضع للتحلل المائي: CO₃²⁻ + H₂O ⇌ HCO₃⁻ + OH⁻. إطلاق أيونات OH⁻ يجعل المحلول قاعدياً، مما يدل على أن الملح قاعدي."
+  },
+  {
+    "id": "U04-REV-Q025",
+    "number": 25,
+    "question": "koncentration التأثير للأيون المشترك (المؤثر المشترك) عبارة عن:",
+    "options": {
+      "A": "زيادة ذوبانية ملح بadding أيون مشترك",
+      "B": "إنقاص ذوبانية ملح بـ added أيون مشترك",
+      "C": "لا يؤثر على الذوبانية",
+      "D": "يغير لون المحلول فقط"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "إنقاص ذوبانية ملح بـ added أيون مشترك",
+    "difficulty": "medium",
+    "source": {
+      "page": 175,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "AB(s) ⇌ A⁺(aq) + B⁻(aq)",
+      "steps": [
+        "إذا أضفنا أيون A⁺ أو B⁻ يتحرك الاتزان لليمين",
+        "هذا يقلل من ذوبانية AB"
+      ],
+      "summary": "إضافة أيون مشترك تنقص ذوبانية الملح"
+    },
+    "explanation": "التأثير للأيون المشترك هو انخفاض ذوبانية ملح ضعيف في محلول يحتوي على أيون مشترك مع ذلك الملح. وفقاً لمبدأ لو شاتليه، إضافة منتج (أيون مشترك) تدفع الاتزان للخلف لتقليل الذوبانية."
+  },
+  {
+    "id": "U04-REV-Q026",
+    "number": 26,
+    "question": "koncentration الكتلة الذرية لحمض الهيدروكلوريك HCl هي:",
+    "options": {
+      "A": "36.5 g/mol",
+      "B": "40 g/mol",
+      "C": "98 g/mol",
+      "D": "63 g/mol"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "36.5 g/mol",
+    "difficulty": "medium",
+    "source": {
+      "page": 174,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "HCl = 1 + 35.5 = 36.5",
+      "steps": [
+        "الكتلة الذرية للهيدروجين = 1 g/mol",
+        "الكتلة الذرية للكلور = 35.5 g/mol"
+      ],
+      "summary": "كتلة HCl = 36.5 g/mol"
+    },
+    "explanation": "الكتلة الذرية لـ HCl = 1 (H) + 35.5 (Cl) = 36.5 g/mol."
+  },
+  {
+    "id": "U04-REV-Q027",
+    "number": 27,
+    "question": "koncentration كتلة القاعدة (هيدروكسيد الصوديوم) اللازمة للتفاعل مع 36.5 جرام من HCl:",
+    "options": {
+      "A": "20 g",
+      "B": "40 g",
+      "C": "36.5 g",
+      "D": "56 g"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "40 g",
+    "difficulty": "hard",
+    "source": {
+      "page": 175,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "HCl + NaOH → NaCl + H₂O",
+      "steps": [
+        "36.5 g HCl = 1 mol HCl",
+        "1 mol NaOH = 40 g",
+        "النسبة 1:1 في المعادلة الموزونة"
+      ],
+      "summary": "40 g من NaOH تتفاعل مع 36.5 g من HCl"
+    },
+    "explanation": "من المعادلة الموزونة HCl + NaOH → NaCl + H₂O، النسبة المولية 1:1. 36.5 g HCl = 1 mol. إذن نحتاج 1 mol NaOH = 40 g."
+  },
+  {
+    "id": "U04-REV-Q028",
+    "number": 28,
+    "question": "koncentration المؤشر المنiversal (الشامل) يتغير لونه:",
+    "options": {
+      "A": "أحمر → برتقالي → أصفر → أخضر → أزرق → نيلي",
+      "B": "أزرق → أخضر → أصفر → برتقالي → أحمر",
+      "C": "أحمر → وردي → عديم اللون",
+      "D": "أخضر → أزرق → بنفسجي"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "أحمر → برتقالي → أصفر → أخضر → أزرق → نيلي",
+    "difficulty": "medium",
+    "source": {
+      "page": 175,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "N/A",
+      "steps": [
+        "المؤشر الشامل يتغير تدريجياً مع تغير pH",
+        "يتدرج من أحمر (حمضي قوي) إلى نيلي (قاعدي قوي)"
+      ],
+      "summary": "المؤشر الشامل يعطي ألواناً متعددة تتدرج من الأحمر للنيلي"
+    },
+    "explanation": "المؤشر الشامل (Universal Indicator) يتغير لونه تدريجياً مع تغير pH: أحمر (pH 1-3) → برتقالي (4) → أصفر (5-6) → أخضر (7) → أزرق (8-9) → نيلي (10-14)."
+  },
+  {
+    "id": "U04-REV-Q029",
+    "number": 29,
+    "question": "koncentration عيار الحمض والقاعدة هو:",
+    "options": {
+      "A": "عدد مولات القاعدة في لتر واحد من المحلول",
+      "B": "عدد مولات الحمض في لتر واحد من المحلول",
+      "C": "عدد جرامات القاعدة في لتر واحد",
+      "D": "نسبة الحمض إلى القاعدة في المحلول"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "عدد مولات الحمض في لتر واحد من المحلول",
+    "difficulty": "medium",
+    "source": {
+      "page": 175,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "المركز المولي = mol/L",
+      "steps": [
+        "الcentration (الcentration) = عدد المولات / الحجم باللتر",
+        "يُقاس بوحدة مول لكل لتر"
+      ],
+      "summary": "centration الحمض = عدد مولات الحمض في لتر من المحلول"
+    },
+    "explanation": "centration الحمض أوcentration القاعدة هي عدد المولات في لتر واحد من المحلول، وتُقاس بوحدة mol/L."
+  },
+  {
+    "id": "U04-REV-Q030",
+    "number": 30,
+    "question": "koncentration 신solution acidity of a solution with [H⁺] = 0.001 mol/L:",
+    "options": {
+      "A": "pH = 4",
+      "B": "pH = 2",
+      "C": "pH = 3",
+      "D": "pH = 5"
+    },
+    "correct_answer": "C",
+    "correct_answer_text": "pH = 3",
+    "difficulty": "medium",
+    "source": {
+      "page": 175,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "pH = -log[H⁺]",
+      "steps": [
+        "pH = -log(0.001)",
+        "0.001 = 10⁻³، لذا pH = 3"
+      ],
+      "summary": "pH = -log(0.001) = 3"
+    },
+    "explanation": "pH = -log[H⁺] = -log(10⁻³) = 3. أي أن المحلول حمضي بقوة."
+  },
+  {
+    "id": "U04-REV-Q031",
+    "number": 31,
+    "question": "koncentration الأحماض القوية البين الأحماض القوية التي تتأين بالكامل مثل:",
+    "options": {
+      "A": "حمض الخليك وحمض الستريك",
+      "B": "HCl و H₂SO₄ و HNO₃",
+      "C": "HF و H₂CO₃",
+      "D": "CH₃COOH و H₃PO₄"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "HCl و H₂SO₄ و HNO₃",
+    "difficulty": "easy",
+    "source": {
+      "page": 171,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "N/A",
+      "steps": [
+        "HCl و H₂SO₄ و HNO₃ من الأحماض القوية",
+        "تتأين بالكامل في الماء"
+      ],
+      "summary": "HCl و H₂SO₄ و HNO₃ أحماض قوية تتأين بالكامل"
+    },
+    "explanation": "حمض الهيدروكلوريك HCl وحمض الكبريتيك H₂SO₄ وحمض النتريك HNO₃ من الأحماض القوية التي تتأين بالكامل في الماء."
+  },
+  {
+    "id": "U04-REV-Q032",
+    "number": 32,
+    "question": "koncentration if a solution has pOH = 5, what is its [OH⁻]:",
+    "options": {
+      "A": "5 × 10⁻¹ mol/L",
+      "B": "1 × 10⁻⁵ mol/L",
+      "C": "1 × 10⁻⁹ mol/L",
+      "D": "5 mol/L"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "1 × 10⁻⁵ mol/L",
+    "difficulty": "medium",
+    "source": {
+      "page": 175,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "[OH⁻] = 10^(-pOH)",
+      "steps": [
+        "[OH⁻] = 10⁻⁵ mol/L",
+        "لأن pOH = 5"
+      ],
+      "summary": "[OH⁻] = 10⁻⁵ mol/L"
+    },
+    "explanation": "[OH⁻] = 10^(-pOH) = 10⁻⁵ mol/L. أي أن تركيز أيونات الهيدروكسيد ضعيف."
+  },
+  {
+    "id": "U04-REV-Q033",
+    "number": 33,
+    "question": "koncentration which salt produces a basic solution when dissolved in water:",
+    "options": {
+      "A": "NaCl",
+      "B": "KNO₃",
+      "C": "NaCH₃COO",
+      "D": "NH₄Cl"
+    },
+    "correct_answer": "C",
+    "correct_answer_text": "NaCH₃COO",
+    "difficulty": "medium",
+    "source": {
+      "page": 175,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "CH₃COO⁻ + H₂O ⇌ CH₃COOH + OH⁻",
+      "steps": [
+        "أيونCH₃COO⁻ هوأنيون حمض ضعبف",
+        "يتفاعل مع الماء ويطلق OH⁻"
+      ],
+      "summary": "NaCH₃COO يذوب في الماء ويكون المحلول قاعدياً"
+    },
+    "explanation": "أيون الأسيتات CH₃COO⁻ هوأنيون حمض ضعبف (حمض الخليك)، لذا يخضع للتحلل المائي وينطلق OH⁻ مما يجعل المحلول قاعدياً."
+  },
+  {
+    "id": "U04-REV-Q034",
+    "number": 34,
+    "question": "koncentration in a titration, the point at which the acid and base have completely reacted is called:",
+    "options": {
+      "A": "نقطة بدء التفاعل",
+      "B": "نقطة التعادل (نقطة التكافؤ)",
+      "C": "نقطة التحول اللوني",
+      "D": "نقطة الإشباع"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "نقطة التعادل (نقطة التكافؤ)",
+    "difficulty": "easy",
+    "source": {
+      "page": 175,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "N/A",
+      "steps": [
+        "في الت搐titration، نقطة التعادل هي حيث يتفاعل الحمض والقاعدة بالكامل",
+        "يتم تحديدها باستخدام مؤشر مناسب"
+      ],
+      "summary": "نقطة التعادل حيث يتفاعل الحمض والقاعدة بالكامل"
+    },
+    "explanation": "نقطة التعادل (نقطة التكافؤ) هي النقطة التي يكون فيها قد تفاعل مقدار كافٍ من القاعدة مع الحمض (أو العكس) لإتمام التفاعل بالكامل."
+  },
+  {
+    "id": "U04-REV-Q035",
+    "number": 35,
+    "question": "koncentration which of the following is a conjugate acid-base pair:",
+    "options": {
+      "A": "HCl and NaOH",
+      "B": "HCl and Cl⁻",
+      "C": "Na⁺ and Cl⁻",
+      "D": "H₂O and HCl"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "HCl and Cl⁻",
+    "difficulty": "medium",
+    "source": {
+      "page": 175,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "HCl → H⁺ + Cl⁻",
+      "steps": [
+        "الزوج المترافق يختلف ببروتون واحد فقط",
+        "HCl (حمض) و Cl⁻ (زوجه القاعدي)"
+      ],
+      "summary": "HCl و Cl⁻ زوج مترافق because differs by one proton"
+    },
+    "explanation": "الزوج المترافق (conjugate pair) يختلف بينه وبين زوجه ببروتون واحد فقط. HCl يفقد H⁺ ليصبح Cl⁻، لذا هما زوج مترافق."
+  },
+  {
+    "id": "U04-REV-Q036",
+    "number": 36,
+    "question": "koncentration when NaOH dissolves in water, the solution becomes:",
+    "options": {
+      "A": "حمضي لأن NaOH حمض",
+      "B": "قاعدي لأن NaOH يطلق OH⁻",
+      "C": "متعادل لأن NaOH ملح",
+      "D": "بني لأن NaOH لونه بني"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "قاعدي لأن NaOH يطلق OH⁻",
+    "difficulty": "easy",
+    "source": {
+      "page": 172,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "NaOH → Na⁺ + OH⁻",
+      "steps": [
+        "NaOH قاعدة قوية تتأين بالكامل",
+        "تطلق أيونات OH⁻"
+      ],
+      "summary": "NaOH يصبح قاعداً في الماء vì يطلق OH⁻"
+    },
+    "explanation": "هيدروكسيد الصوديوم NaOH قاعدة قوية تنفصل بالكامل في الماء إلى Na⁺ و OH⁻. إطلاق OH⁻ يجعل المحلول قاعدياً (pH > 7)."
+  },
+  {
+    "id": "U04-REV-Q037",
+    "number": 37,
+    "question": "koncentration when acid is added to pure water, the pH:",
+    "options": {
+      "A": "يزيد (يصبح أكبر)",
+      "B": "ينقص (يصبح أصغر)",
+      "C": "ي remained the same",
+      "D": "يصبح مساوياً لـ 7"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "ينقص (يصبح أصغر)",
+    "difficulty": "easy",
+    "source": {
+      "page": 173,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "pH = -log[H⁺]",
+      "steps": [
+        "إضافة الحمض تزيد تركيز H⁺",
+        "زيادة H⁺ تنقص قيمة pH"
+      ],
+      "summary": "إضافة الحمض تنقص pH"
+    },
+    "explanation": "عند إضافة حمض إلى الماء النقي (pH = 7)، يزداد تركيز H⁺ فينخفض pH (يصبح أقل من 7)، أي يصبح المحلول حمضياً."
+  },
+  {
+    "id": "U04-REV-Q038",
+    "number": 38,
+    "question": "koncentration which indicator changes from red to yellow between pH 1 and pH 3:",
+    "options": {
+      "A": "phenolphthalein",
+      "B": "methyl orange",
+      "C": "bromothymol blue",
+      "D": "universal indicator"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "methyl orange",
+    "difficulty": "medium",
+    "source": {
+      "page": 175,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "N/A",
+      "steps": [
+        "ميتيل أورانج يتغير من الأحمر إلى الأصفر",
+        "في المجال الحمضي (pH 1-3)"
+      ],
+      "summary": "ميتيل أورانج يتغير من الأحمر إلى الأصفر في pH 1-3"
+    },
+    "explanation": "ميتيل أورانج (Methyl Orange) يتغير لونه من الأحمر في الوسط الحمضي القوي (pH أقل من 3.1) إلى الأصفر في الوسط القاعدي أو المتعادل."
+  },
+  {
+    "id": "U04-REV-Q039",
+    "number": 39,
+    "question": "koncentration a buffer solution is one that:",
+    "options": {
+      "A": "يتغير pH بشكل كبير عند إضافة قليل من الحمض أو القاعدة",
+      "B": "يحافظ على ثبات pH نسبياً عند إضافة قليل من الحمض أو القاعدة",
+      "C": "pH always 7",
+      "D": "يتغير لونه دائماً"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "يحافظ على ثبات pH نسبياً عند إضافة قليل من الحمض أو القاعدة",
+    "difficulty": "hard",
+    "source": {
+      "page": 175,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "N/A",
+      "steps": [
+        "محلول التخزين (الbuffer) يحتوي على حمض ضعبف وsalt محتوية على زوجه القاعدي",
+        "يحافظ على pH ثابت نسبياً"
+      ],
+      "summary": "محلول التخزين يحافظ على ثبات pH عند إضافة كميات قليلة من الحمض أو القاعدة"
+    },
+    "explanation": "محلول التخزين (buffer solution) يحتوي على حمض ضعبف ومحتوية على زوجه القاعدي (أو العكس)، ويحافظ على ثبات pH عند إضافة كميات قليلة من الحمض أو القاعدة."
+  },
+  {
+    "id": "U04-REV-Q040",
+    "number": 40,
+    "question": "koncentration Which of the following solutions is acidic with pH = 2:",
+    "options": {
+      "A": "[H⁺] = 10⁻² mol/L",
+      "B": "[H⁺] = 10⁻¹² mol/L",
+      "C": "[OH⁻] = 10⁻² mol/L",
+      "D": "[H⁺] = 10⁻⁷ mol/L"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "[H⁺] = 10⁻² mol/L",
+    "difficulty": "medium",
+    "source": {
+      "page": 175,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "pH = -log[H⁺] = -log(10⁻²) = 2",
+      "steps": [
+        "pH = -log[H⁺]",
+        "10⁻² = 0.01 mol/L"
+      ],
+      "summary": "[H⁺] = 10⁻² mol/L يعطي pH = 2"
+    },
+    "explanation": "pH = -log[H⁺] = -log(10⁻²) = 2. أي أن [H⁺] = 0.01 mol/L تقابل pH = 2."
+  },
+  {
+    "id": "U04-REV-Q041",
+    "number": 41,
+    "question": "koncentration Which acid is classified as a weak acid:",
+    "options": {
+      "A": "HCl",
+      "B": "H₂SO₄",
+      "C": "HNO₃",
+      "D": "CH₃COOH"
+    },
+    "correct_answer": "D",
+    "correct_answer_text": "CH₃COOH",
+    "difficulty": "easy",
+    "source": {
+      "page": 171,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "CH₃COOH ⇌ CH₃COO⁻ + H⁺",
+      "steps": [
+        "CH₃COOH حمض ضعبف لا يتأين بالكامل",
+        "السهم المزدوج يدل على عدم اكتمال التأين"
+      ],
+      "summary": "حمض الخليك CH₃COOH حمض ضعبف"
+    },
+    "explanation": "حمض الخليك CH₃COOH حمض ضعبف لا يتأين بالكامل في الماء، بينما HCl و H₂SO₄ و HNO₃ أحماض قوية تتأين بالكامل."
+  },
+  {
+    "id": "U04-REV-Q042",
+    "number": 42,
+    "question": "koncentration the pH of a neutral solution at 25°C is:",
+    "options": {
+      "A": "pH = 0",
+      "B": "pH = 7",
+      "C": "pH = 14",
+      "D": "pH = 1"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "pH = 7",
+    "difficulty": "easy",
+    "source": {
+      "page": 173,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "pH = 7 at 25°C",
+      "steps": [
+        "في المحلول المتعادل [H⁺] = [OH⁻] = 10⁻⁷ mol/L",
+        "pH = -log(10⁻⁷) = 7"
+      ],
+      "summary": "pH = 7 في المحلول المتعادل عند 25°C"
+    },
+    "explanation": "في الماء النقي عند 25°C، [H⁺] = [OH⁻] = 10⁻⁷ mol/L، لذا pH = 7 وهو المحلول المتعادل."
+  },
+  {
+    "id": "U04-REV-Q043",
+    "number": 43,
+    "question": "koncentration if pH of a solution is 4, then pOH is:",
+    "options": {
+      "A": "4",
+      "B": "10",
+      "C": "11",
+      "D": "14"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "10",
+    "difficulty": "easy",
+    "source": {
+      "page": 173,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "pOH = 14 - pH",
+      "steps": [
+        "pOH = 14 - 4 = 10",
+        "العلاقة pH + pOH = 14"
+      ],
+      "summary": "pOH = 14 - pH = 14 - 4 = 10"
+    },
+    "explanation": "باستخدام العلاقة pH + pOH = 14، فإن pOH = 14 - 4 = 10."
+  },
+  {
+    "id": "U04-REV-Q044",
+    "number": 44,
+    "question": "koncentration The reaction between H₂SO₄ and NaOH is:",
+    "options": {
+      "A": "H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O",
+      "B": "H₂SO₄ + NaOH → NaHSO₄ + H₂O",
+      "C": "H₂SO₄ + NaOH → Na₂SO₄ + H₂O",
+      "D": "H₂SO₄ + 2NaOH → Na₂SO₄ + H₂O"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O",
+    "difficulty": "hard",
+    "source": {
+      "page": 175,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O",
+      "steps": [
+        "H₂SO₄ حمض ثنائي البروتون",
+        "يحتاج مولين من NaOH لكل مول من H₂SO₄"
+      ],
+      "summary": "H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O التعادل الكامل"
+    },
+    "explanation": "حمض الكبريتيك ثنائي البروتون، لذا يحتاج مولين من هيدروكسيد الصوديوم NaOH لكل مول منه للتعادل الكامل: H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O."
+  },
+  {
+    "id": "U04-REV-Q045",
+    "number": 45,
+    "question": "koncentration when a strong acid reacts with a strong base:",
+    "options": {
+      "A": "يتم نزع بروتون من القاعدة",
+      "B": "يتم نزع بروتون من الحمض",
+      "C": "يتم التحاق بروتون بالحمض",
+      "D": "يتم التحاق بروتون بالقاعدة"
+    },
+    "correct_answer": "D",
+    "correct_answer_text": "يتم التحاق بروتون بالقاعدة",
+    "difficulty": "hard",
+    "source": {
+      "page": 175,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "H⁺ + OH⁻ → H₂O",
+      "steps": [
+        "الحمض القوي يمنح H⁺ والقاعدة القوية تتلقاها",
+        "النتيجة ماء فقط"
+      ],
+      "summary": "الحمض يمنح H⁺ والقاعدة تتلقاها لتكوين ماء"
+    },
+    "explanation": "في تفاعل التعادل بين حمض قوي وقاعدة قوية، الحمض يمنح بروتون H⁺ والقاعدة تتلقاه. Net reaction: H⁺ + OH⁻ → H₂O."
+  },
+  {
+    "id": "U04-REV-Q046",
+    "number": 46,
+    "question": "koncentration NH₄Cl in water produces an acidic solution because:",
+    "options": {
+      "A": "Cl⁻ hydrolyzes to produce OH⁻",
+      "B": "NH₄⁺ hydrolyzes to produce H⁺",
+      "C": "Both ions hydrolyze equally",
+      "D": "NH₄Cl does not dissolve in water"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "NH₄⁺ hydrolyzes to produce H⁺",
+    "difficulty": "hard",
+    "source": {
+      "page": 175,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺",
+      "steps": [
+        "NH₄⁺ هوأنيون حمض ضعبف (زوجه NH₃)",
+        "يخضع للتحلل المائي ويطلق H⁺"
+      ],
+      "summary": "NH₄⁺ يتحلل مائياً ويطلق H⁺ فالمحلول حمضي"
+    },
+    "explanation": "أيون الأمونيوم NH₄⁺ هوأنيون حمض ضعبف، يخضع للتحلل المائي: NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺. هذا يزيد تركيز H⁺ فيجعل المحلول حمضياً."
+  },
+  {
+    "id": "U04-REV-Q047",
+    "number": 47,
+    "question": "koncentration Ka of a weak acid measures:",
+    "options": {
+      "A": "strength of the acid in water",
+      "B": "the total concentration of the acid",
+      "C": "the pH of the solution only",
+      "D": "the boiling point of the acid"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "strength of the acid in water",
+    "difficulty": "hard",
+    "source": {
+      "page": 175,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "Ka = [H⁺][A⁻] / [HA]",
+      "steps": [
+        "Ka ثابت انحلال الحمض",
+        "كلما زاد Ka زادت قوة الحمض"
+      ],
+      "summary": "Ka يقيس قوة الحمض في الماء"
+    },
+    "explanation": "Ka (ثابت انحلال الحمض) يقيس ميل الحمض الضعبف للتأين في الماء. كلما زادت قيمة Ka زادت قوة الحمض."
+  },
+  {
+    "id": "U04-REV-Q048",
+    "number": 48,
+    "question": "koncentration which base is considered a weak base:",
+    "options": {
+      "A": "NaOH",
+      "B": "KOH",
+      "C": "NH₃",
+      "D": "Ca(OH)₂"
+    },
+    "correct_answer": "C",
+    "correct_answer_text": "NH₃",
+    "difficulty": "medium",
+    "source": {
+      "page": 172,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "NH₃ + H₂O ⇌ NH₄⁺ + OH⁻",
+      "steps": [
+        "NH₃ أمونيا قاعدة ضعبة لا تتأين بالكامل",
+        "السهم المزدوج يدل على عدم اكتمال التأين"
+      ],
+      "summary": "NH₃ قاعدة ضعبة لا تتأين بالكامل"
+    },
+    "explanation": "الأمونيا NH₃ قاعدة ضعبة لا تتأين بالكامل في الماء، بينما NaOH و KOH و Ca(OH)₂ قواعد قوية تتأين بالكامل."
+  },
+  {
+    "id": "U04-REV-Q049",
+    "number": 49,
+    "question": "koncentration to prepare 500 mL of 0.2 mol/L HCl solution, we need:",
+    "options": {
+      "A": "3.65 g HCl",
+      "B": "7.3 g HCl",
+      "C": "1.825 g HCl",
+      "D": "14.6 g HCl"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "3.65 g HCl",
+    "difficulty": "hard",
+    "source": {
+      "page": 175,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "m = C × V × M",
+      "steps": [
+        "n = C × V = 0.2 × 0.5 = 0.1 mol",
+        "m = n × M = 0.1 × 36.5 = 3.65 g"
+      ],
+      "summary": "نحتاج 3.65 g من HCl"
+    },
+    "explanation": "الnumber المولي = concentration × الحجم = 0.2 mol/L × 0.5 L = 0.1 mol. الكتلة = 0.1 mol × 36.5 g/mol = 3.65 g."
+  },
+  {
+    "id": "U04-REV-Q050",
+    "number": 50,
+    "question": "koncentration in the common ion effect, adding NaCl to a saturated solution of AgCl will:",
+    "options": {
+      "A": "increase the solubility of AgCl",
+      "B": "decrease the solubility of AgCl",
+      "C": "not affect the solubility of AgCl",
+      "D": "dissolve all the AgCl"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "decrease the solubility of AgCl",
+    "difficulty": "hard",
+    "source": {
+      "page": 175,
+      "reference": "الكتاب المدرسي"
+    },
+    "solution": {
+      "formula": "AgCl(s) ⇌ Ag⁺(aq) + Cl⁻(aq)",
+      "steps": [
+        "NaCl يعطي أيون Cl⁻ مشترك مع AgCl",
+        "زيادة [Cl⁻] تدفع الاتزان للخلف تقليل الذوبانية"
+      ],
+      "summary": "إضافة NaCl تنقص ذوبانية AgCl due to common ion effect"
+    },
+    "explanation": "عند إضافة NaCl إلى محلول مشبع من AgCl، يزداد تركيز أيون Cl⁻ المشترك. وفقاً لمبدأ لو شاتليه، يتحرك الاتزان نحو اليسار لتقليل أيون Cl⁻ الزائد، مما ينقص ذوبانية AgCl."
+  }
+]

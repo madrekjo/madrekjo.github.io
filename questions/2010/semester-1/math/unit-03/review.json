@@ -1,0 +1,1262 @@
+{
+  "lesson": {
+    "lesson_number": "3.review",
+    "lesson_name": "مراجعة الوحدة 3",
+    "unit_number": 3,
+    "unit_name": "الوحدة الثالثة",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما قيمة lim (2x^4 - 5x^3 + 2) عندما x تقترب من -4؟",
+        "options": {
+          "A": "834",
+          "B": "512",
+          "C": "2",
+          "D": "0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "834",
+        "difficulty": "medium",
+        "source": {
+          "page": 158,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "2(-4)^4 - 5(-4)^3 + 2 = 2(256) - 5(-64) + 2 = 512 + 320 + 2 = 834."
+          ],
+          "summary": "التعويض المباشر في كثير الحدود [1]."
+        },
+        "explanation": "التعويض المباشر في كثير الحدود [1].",
+        "number": 1,
+        "id": "U03-L99-Q001"
+      },
+      {
+        "question": "أوجد مشتقة الاقتران y = 2x^4 - 5x^3 + 2.",
+        "options": {
+          "A": "8x^3 - 15x^2 + 2",
+          "B": "8x^3 - 15x^2",
+          "C": "4x^3 - 15x",
+          "D": "8x^4 - 5x^2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "8x^3 - 15x^2",
+        "difficulty": "easy",
+        "source": {
+          "page": 158,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تطبيق قاعدة القوة؛ مشتقة الثابت 2 هي صفر [237، 329]."
+        },
+        "explanation": "تطبيق قاعدة القوة؛ مشتقة الثابت 2 هي صفر [237، 329].",
+        "number": 2,
+        "id": "U03-L99-Q002"
+      },
+      {
+        "question": "ما قيمة lim (x^2 + 5x + 4) / (x^2 + 3x - 4) عندما x تقترب من -4؟",
+        "options": {
+          "A": "0.6",
+          "B": "0.8",
+          "C": "1.2",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "0.6",
+        "difficulty": "hard",
+        "source": {
+          "page": 158,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "التحليل: (x+4)(x+1) / (x+4)(x-1) = (x+1)/(x-1). بالتعويض: (-3)/(-5) = 0.6."
+          ],
+          "summary": "حل الصيغة غير المحددة 0/0 بالتحليل والاختصار [217، 331]."
+        },
+        "explanation": "حل الصيغة غير المحددة 0/0 بالتحليل والاختصار [217، 331].",
+        "number": 3,
+        "id": "U03-L99-Q003"
+      },
+      {
+        "question": "مشتقة الاقتران y = (2x^4 + 9x^2) / (3x) هي:",
+        "options": {
+          "A": "2x^2 + 3",
+          "B": "6x^2 + 3",
+          "C": "2x^3 + 3x",
+          "D": "8x^3 + 18x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2x^2 + 3",
+        "difficulty": "medium",
+        "source": {
+          "page": 158,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "y = (2/3)x^3 + 3x. y' = 2x^2 + 3."
+          ],
+          "summary": "تبسيط المقدار بقسمة كل حد على المقام قبل الاشتقاق [2]."
+        },
+        "explanation": "تبسيط المقدار بقسمة كل حد على المقام قبل الاشتقاق [2].",
+        "number": 4,
+        "id": "U03-L99-Q004"
+      },
+      {
+        "question": "أوجد القيمة الحرجة للاقتران y = 4x^2 + 6x + 3.",
+        "options": {
+          "A": "-0.75",
+          "B": "0.75",
+          "C": "1.5",
+          "D": "0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-0.75",
+        "difficulty": "medium",
+        "source": {
+          "page": 158,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "y' = 8x + 6 = 0 => x = -6/8 = -0.75."
+          ],
+          "summary": "القيمة الحرجة هي التي تجعل المشتقة الأولى صفراً [251، 330]."
+        },
+        "explanation": "القيمة الحرجة هي التي تجعل المشتقة الأولى صفراً [251، 330].",
+        "number": 5,
+        "id": "U03-L99-Q005"
+      },
+      {
+        "question": "ما هي المشتّقة الثانية للاقتران f(x) = (1 - x)^3؟",
+        "options": {
+          "A": "-3(1 - x)^2",
+          "B": "6(1 - x)",
+          "C": "-6(1 - x)",
+          "D": "3(1 - x)^2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "6(1 - x)",
+        "difficulty": "hard",
+        "source": {
+          "page": 158,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(x) = 3(1-x)^2 * (-1) = -3(1-x)^2. f''(x) = -6(1-x) * (-1) = 6(1-x)."
+          ],
+          "summary": "تطبيق قاعدة السلسلة مرتين متتاليتين [317، 330]."
+        },
+        "explanation": "تطبيق قاعدة السلسلة مرتين متتاليتين [317، 330].",
+        "number": 6,
+        "id": "U03-L99-Q006"
+      },
+      {
+        "question": "أوجد قيمة lim [|x - 4| / (x - 4)] عندما x تقتري من 4 من جهة اليمين.",
+        "options": {
+          "A": "1",
+          "B": "-1",
+          "C": "0",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1",
+        "difficulty": "medium",
+        "source": {
+          "page": 158,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "من جهة اليمين يكون المطلق موجب (x-4)، وبالقسمة نجد 1 [219، 331]."
+        },
+        "explanation": "من جهة اليمين يكون المطلق موجب (x-4)، وبالقسمة نجد 1 [219، 331].",
+        "number": 7,
+        "id": "U03-L99-Q007"
+      },
+      {
+        "question": "متى يكون الجسم في حالة سكون لحظي حسب اقتران الموقع s(t)؟",
+        "options": {
+          "A": "عندما s(t) = 0",
+          "B": "عندما v(t) = 0",
+          "C": "عندما a(t) = 0",
+          "D": "عندما t = 0"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عندما v(t) = 0",
+        "difficulty": "easy",
+        "source": {
+          "page": 131,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السكون اللحظي يعني أن السرعة المتجهة تساوي صفراً [279، 331]."
+        },
+        "explanation": "السكون اللحظي يعني أن السرعة المتجهة تساوي صفراً [279، 331].",
+        "number": 8,
+        "id": "U03-L99-Q008"
+      },
+      {
+        "question": "أوجد قيمة lim [(√(x+2) - 3) / (x - 7)] عندما x تقتري من 7.",
+        "options": {
+          "A": "1/6",
+          "B": "1/3",
+          "C": "0",
+          "D": "6"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1/6",
+        "difficulty": "hard",
+        "source": {
+          "page": 158,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "الضرب بالمرافق (√(x+2)+3). ينتج (x-7) / [(x-7)(√(x+2)+3)]. بالتعويض: 1/(3+3) = 1/6."
+          ],
+          "summary": "استخدام طريقة إنطاق البسط لحل النهاية [218، 331]."
+        },
+        "explanation": "استخدام طريقة إنطاق البسط لحل النهاية [218، 331].",
+        "number": 9,
+        "id": "U03-L99-Q009"
+      },
+      {
+        "question": "ما هو ميل مماس منحنى الاقتران f(x) = x^3 + 3 عندما يكون الميل يساوي 12؟",
+        "options": {
+          "A": "x = 2 و x = -2",
+          "B": "x = 4",
+          "C": "x = 12",
+          "D": "x = 0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "x = 2 و x = -2",
+        "difficulty": "hard",
+        "source": {
+          "page": 159,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(x) = 3x^2. بمساواة المشتقة بالميل: 3x^2 = 12 => x^2 = 4 => x = ±2."
+          ],
+          "summary": "إيجاد الإحداثي السيني لنقطة التماس بمعلومية الميل [245، 333]."
+        },
+        "explanation": "إيجاد الإحداثي السيني لنقطة التماس بمعلومية الميل [245، 333].",
+        "number": 10,
+        "id": "U03-L99-Q010"
+      },
+      {
+        "question": "أوجد القيمة العظمى المحلية للاقتران f(x) = 9 + 24x - 2x^3.",
+        "options": {
+          "A": "41",
+          "B": "9",
+          "C": "2",
+          "D": "-23"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "41",
+        "difficulty": "hard",
+        "source": {
+          "page": 159,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(x) = 24 - 6x^2 = 0 => x = ±2. f''(x) = -12x. عند x=2 (عظمى لأن المشتقة الثانية سالبة). f(2) = 9 + 48 - 16 = 41."
+          ],
+          "summary": "استعمال اختبار المشتقة الثانية لإيجاد وتصنيف القيمة القصوى [277، 333]."
+        },
+        "explanation": "استعمال اختبار المشتقة الثانية لإيجاد وتصنيف القيمة القصوى [277، 333].",
+        "number": 11,
+        "id": "U03-L99-Q011"
+      },
+      {
+        "question": "إذا كان pV = 1200، فما معدل تغير V بالنسبة لـ t عندما p = 20 و dp/dt = 0.02؟",
+        "options": {
+          "A": "-0.12",
+          "B": "-0.06",
+          "C": "1.2",
+          "D": "0.12"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-0.06",
+        "difficulty": "hard",
+        "source": {
+          "page": 159,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "V = 1200/p. dV/dt = (-1200/p^2) * dp/dt. تعويض: (-1200/400) * 0.02 = -3 * 0.02 = -0.06."
+          ],
+          "summary": "تطبيق قاعدة السلسلة على علاقة الضغط والحجم [3]."
+        },
+        "explanation": "تطبيق قاعدة السلسلة على علاقة الضغط والحجم [3].",
+        "number": 12,
+        "id": "U03-L99-Q012"
+      },
+      {
+        "question": "ما قيمة x التي تجعل حجم الصندوق أكبر ما يمكن إذا كان مجموع أطوال أحرفه 144 cm وقاعدته مربعة (x*x)؟",
+        "options": {
+          "A": "12 cm",
+          "B": "24 cm",
+          "C": "6 cm",
+          "D": "18 cm"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "12 cm",
+        "difficulty": "hard",
+        "source": {
+          "page": 159,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "8x + 4h = 144 => h = 36 - 2x. V = x^2(36-2x). V' = 72x - 6x^2 = 0 => x = 12."
+          ],
+          "summary": "تطبيقات القيم القصوى لإيجاد الأبعاد التي تزيد الحجم [301، 334]."
+        },
+        "explanation": "تطبيقات القيم القصوى لإيجاد الأبعاد التي تزيد الحجم [301، 334].",
+        "number": 13,
+        "id": "U03-L99-Q013"
+      },
+      {
+        "question": "أي مما يلي هو شرط اتصال الاقتران f(x) عند x = c؟",
+        "options": {
+          "A": "f(c) معرفة",
+          "B": "النهاية موجودة",
+          "C": "النهاية تساوي f(c)",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "easy",
+        "source": {
+          "page": 104,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يجب تحقق الشروط الثلاثة معاً ليكون الاقتران متصلاً [222، 331]."
+        },
+        "explanation": "يجب تحقق الشروط الثلاثة معاً ليكون الاقتران متصلاً [222، 331].",
+        "number": 14,
+        "id": "U03-L99-Q014"
+      },
+      {
+        "question": "أوجد فترات التناقص للاقتران g(x) = 3x^2 - 12x + 4.",
+        "options": {
+          "A": "x < 2",
+          "B": "x > 2",
+          "C": "x < 0",
+          "D": "لا يوجد تناقص"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "x < 2",
+        "difficulty": "medium",
+        "source": {
+          "page": 159,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "g'(x) = 6x - 12. القيمة الحرجة x = 2. بدراسة الإشارة، المشتقة سالبة عندما x < 2."
+          ],
+          "summary": "اختبار التزايد والتناقص باستخدام المشتقة الأولى [257، 334]."
+        },
+        "explanation": "اختبار التزايد والتناقص باستخدام المشتقة الأولى [257، 334].",
+        "number": 15,
+        "id": "U03-L99-Q015"
+      },
+      {
+        "question": "ماذا يمثل هندسياً التعريف العام للمشتقة f'(x)؟",
+        "options": {
+          "A": "ميل القاطع",
+          "B": "ميل المماس",
+          "C": "المساحة تحت المنحنى",
+          "D": "طول القوس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ميل المماس",
+        "difficulty": "easy",
+        "source": {
+          "page": 113,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نهاية ميل القاطع عندما h تؤول للصفر هي ميل المماس [4]."
+        },
+        "explanation": "نهاية ميل القاطع عندما h تؤول للصفر هي ميل المماس [4].",
+        "number": 16,
+        "id": "U03-L99-Q016"
+      },
+      {
+        "question": "أوجد المشتّقة الثانية للاقتران f(x) = ∛x.",
+        "options": {
+          "A": "(-2/9)x^(-5/3)",
+          "B": "(1/3)x^(-2/3)",
+          "C": "(-1/3)x^(-2/3)",
+          "D": "(2/9)x^(5/3)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(-2/9)x^(-5/3)",
+        "difficulty": "hard",
+        "source": {
+          "page": 425,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(x) = (1/3)x^(-2/3). f''(x) = (1/3)(-2/3)x^(-5/3) = -2/9 x^(-5/3)."
+          ],
+          "summary": "تطبيق قاعدة القوة مرتين على الأسس الكسرية [5]."
+        },
+        "explanation": "تطبيق قاعدة القوة مرتين على الأسس الكسرية [5].",
+        "number": 17,
+        "id": "U03-L99-Q017"
+      },
+      {
+        "question": "في حركة الأجسام، التسارع a(t) هو:",
+        "options": {
+          "A": "مشتقة الموقع s(t)",
+          "B": "مشتقة السرعة v(t)",
+          "C": "القيمة المطلقة للسرعة",
+          "D": "تكامل السرعة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مشتقة السرعة v(t)",
+        "difficulty": "easy",
+        "source": {
+          "page": 131,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التسارع هو معدل تغير السرعة بالنسبة للزمن [6]."
+        },
+        "explanation": "التسارع هو معدل تغير السرعة بالنسبة للزمن [6].",
+        "number": 18,
+        "id": "U03-L99-Q018"
+      },
+      {
+        "question": "ما قيمة lim √(1 + 3x^2) / (3x - 2) عندما x تقتري من 1؟",
+        "options": {
+          "A": "2",
+          "B": "4",
+          "C": "1",
+          "D": "0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2",
+        "difficulty": "medium",
+        "source": {
+          "page": 100,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "√(1+3(1)^2) / (3(1)-2) = √4 / 1 = 2."
+          ],
+          "summary": "تطبيق خصائص النهايات والتعويض المباشر [7]."
+        },
+        "explanation": "تطبيق خصائص النهايات والتعويض المباشر [7].",
+        "number": 19,
+        "id": "U03-L99-Q019"
+      },
+      {
+        "question": "إذا كان الربح الحدي P'(x) = -2x + 980، فكم قطعة تحقق أكبر ربح؟",
+        "options": {
+          "A": "490",
+          "B": "980",
+          "C": "1000",
+          "D": "20"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "490",
+        "difficulty": "medium",
+        "source": {
+          "page": 145,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أكبر ربح يحدث عندما يكون الربح الحدي صفراً [8]."
+        },
+        "explanation": "أكبر ربح يحدث عندما يكون الربح الحدي صفراً [8].",
+        "number": 20,
+        "id": "U03-L99-Q020"
+      },
+      {
+        "question": "أوجد مشتقة الاقتران f(x) = (x^2 + 1)^3 باستعمال قاعدة السلسلة.",
+        "options": {
+          "A": "6x(x^2 + 1)^2",
+          "B": "3(x^2 + 1)^2",
+          "C": "2x(x^2 + 1)^2",
+          "D": "6x^2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "6x(x^2 + 1)^2",
+        "difficulty": "medium",
+        "source": {
+          "page": 149,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مشتقة الخارج (القوس) ضرب مشتقة الداخل (2x) [9]."
+        },
+        "explanation": "مشتقة الخارج (القوس) ضرب مشتقة الداخل (2x) [9].",
+        "number": 21,
+        "id": "U03-L99-Q021"
+      },
+      {
+        "question": "متى يفشل اختبار المشتّقة الثانية في تصنيف القيم القصوى؟",
+        "options": {
+          "A": "إذا كانت f''(c) > 0",
+          "B": "إذا كانت f''(c) < 0",
+          "C": "إذا كانت f''(c) = 0",
+          "D": "إذا كانت المشتقة الأولى غير موجودة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "إذا كانت f''(c) = 0",
+        "difficulty": "medium",
+        "source": {
+          "page": 129,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عندما تساوي المشتّقة الثانية صفراً، لا يمكن الجزم بنوع النقطة ويجب العودة لاختبار المشتّقة الأولى [10]."
+        },
+        "explanation": "عندما تساوي المشتّقة الثانية صفراً، لا يمكن الجزم بنوع النقطة ويجب العودة لاختبار المشتّقة الأولى [10].",
+        "number": 22,
+        "id": "U03-L99-Q022"
+      },
+      {
+        "question": "ما قيمة lim (2x - 2) / (1 - x) عندما x تقترب من 1؟",
+        "options": {
+          "A": "2",
+          "B": "-2",
+          "C": "0",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-2",
+        "difficulty": "medium",
+        "source": {
+          "page": 420,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "2(x-1) / -(x-1) = -2."
+          ],
+          "summary": "تبسيط المقدار بإخراج عامل مشترك وسالب [11]."
+        },
+        "explanation": "تبسيط المقدار بإخراج عامل مشترك وسالب [11].",
+        "number": 23,
+        "id": "U03-L99-Q023"
+      },
+      {
+        "question": "الاقتران f(x) = (x^2 - 16) / (x - 4) يكون غير متصل عند x = 4 لأن:",
+        "options": {
+          "A": "النهاية غير موجودة",
+          "B": "f(4) غير معرفة",
+          "C": "المنحنى له قفزة",
+          "D": "الميل يساوي صفراً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "f(4) غير معرفة",
+        "difficulty": "medium",
+        "source": {
+          "page": 105,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القيمة 4 تجعل المقام صفراً، مما يجعل الاقتران غير معرف عندها [12]."
+        },
+        "explanation": "القيمة 4 تجعل المقام صفراً، مما يجعل الاقتران غير معرف عندها [12].",
+        "number": 24,
+        "id": "U03-L99-Q024"
+      },
+      {
+        "question": "أوجد تسارع الجسم s(t) = 6t^2 - 2t.",
+        "options": {
+          "A": "12",
+          "B": "12t - 2",
+          "C": "6",
+          "D": "0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "12",
+        "difficulty": "easy",
+        "source": {
+          "page": 426,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "v(t) = 12t - 2. a(t) = 12."
+          ],
+          "summary": "التسارع هو المشتّقة الثانية للموقع، وهو ثابت هنا [13]."
+        },
+        "explanation": "التسارع هو المشتّقة الثانية للموقع، وهو ثابت هنا [13].",
+        "number": 25,
+        "id": "U03-L99-Q025"
+      },
+      {
+        "question": "ما أكبر مساحة لمستطيل محيطه 54 m؟",
+        "options": {
+          "A": "182.25 m2",
+          "B": "128 m2",
+          "C": "25 m2",
+          "D": "54 m2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "182.25 m2",
+        "difficulty": "hard",
+        "source": {
+          "page": 140,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "أكبر مساحة تحدث عندما يكون المستطيل مربعاً. الضلع = 54/4 = 13.5. المساحة = 13.5^2 = 182.25."
+          ],
+          "summary": "استخدام تطبيقات القيم القصوى للمساحة [14]."
+        },
+        "explanation": "استخدام تطبيقات القيم القصوى للمساحة [14].",
+        "number": 26,
+        "id": "U03-L99-Q026"
+      },
+      {
+        "question": "أوجد مشتقة f(x) = √(7 - x).",
+        "options": {
+          "A": "-1 / (2√(7 - x))",
+          "B": "1 / (2√(7 - x))",
+          "C": "-1 / √(7 - x)",
+          "D": "1 / √(7 - x)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-1 / (2√(7 - x))",
+        "difficulty": "medium",
+        "source": {
+          "page": 155,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تطبيق قاعدة اشتقاق الجذر التربيعي (مشتقة ما تحت الجذر / 2*الجذر) [318، 324]."
+        },
+        "explanation": "تطبيق قاعدة اشتقاق الجذر التربيعي (مشتقة ما تحت الجذر / 2*الجذر) [318، 324].",
+        "number": 27,
+        "id": "U03-L99-Q027"
+      },
+      {
+        "question": "ما نوع القيمة الحرجة عند x = -2 للاقتران f(x) = x^3 - 12x + 4؟",
+        "options": {
+          "A": "عظمى محلية",
+          "B": "صغرى محلية",
+          "C": "ليست قصوى",
+          "D": "نقطة انعطاف"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "عظمى محلية",
+        "difficulty": "hard",
+        "source": {
+          "page": 412,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(x) = 3x^2 - 12. f''(x) = 6x. عند x = -2: f''(-2) = -12 < 0."
+          ],
+          "summary": "استخدام اختبار المشتقة الثانية للتصنيف [275، 412]."
+        },
+        "explanation": "استخدام اختبار المشتقة الثانية للتصنيف [275، 412].",
+        "number": 28,
+        "id": "U03-L99-Q028"
+      },
+      {
+        "question": "أي رمز مما يلي يعبر عن التسارع؟",
+        "options": {
+          "A": "s''(t)",
+          "B": "v'(t)",
+          "C": "d^2s / dt^2",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "easy",
+        "source": {
+          "page": 131,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "هذه جميعها رموز رياضية صحيحة للتسارع [6]."
+        },
+        "explanation": "هذه جميعها رموز رياضية صحيحة للتسارع [6].",
+        "number": 29,
+        "id": "U03-L99-Q029"
+      },
+      {
+        "question": "أوجد قيمة f'(1) للاقتران f(x) = (2x^4 - x)^3.",
+        "options": {
+          "A": "21",
+          "B": "3",
+          "C": "7",
+          "D": "0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "21",
+        "difficulty": "hard",
+        "source": {
+          "page": 151,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(x) = 3(2x^4 - x)^2 * (8x^3 - 1). f'(1) = 3(1)^2 * 7 = 21."
+          ],
+          "summary": "الاشتقاق باستعمال قاعدة سلسلة القوة ثم التعويض [15]."
+        },
+        "explanation": "الاشتقاق باستعمال قاعدة سلسلة القوة ثم التعويض [15].",
+        "number": 30,
+        "id": "U03-L99-Q030"
+      },
+      {
+        "question": "ما هو خط الوسط للاقتران الجيبي المزاح رأسياً d وحدة؟",
+        "options": {
+          "A": "y = d",
+          "B": "x = d",
+          "C": "y = 0",
+          "D": "y = a"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "y = d",
+        "difficulty": "easy",
+        "source": {
+          "page": 180,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خط الوسط هو المستقيم الأفقي الذي يتوسط الحركة الموجية [16]."
+        },
+        "explanation": "خط الوسط هو المستقيم الأفقي الذي يتوسط الحركة الموجية [16].",
+        "number": 31,
+        "id": "U03-L99-Q031"
+      },
+      {
+        "question": "أوجد قيمة lim (x^2 - 1) / (x + 1) عندما x تقترب من -1.",
+        "options": {
+          "A": "-2",
+          "B": "0",
+          "C": "2",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-2",
+        "difficulty": "medium",
+        "source": {
+          "page": 97,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "(x-1)(x+1)/(x+1) = x-1. بالتعويض: -1-1 = -2."
+          ],
+          "summary": "حل النهاية بالتحليل والاختصار [17]."
+        },
+        "explanation": "حل النهاية بالتحليل والاختصار [17].",
+        "number": 32,
+        "id": "U03-L99-Q032"
+      },
+      {
+        "question": "مشتقة الاقتران الثابت f(x) = π^2 تساوي:",
+        "options": {
+          "A": "0",
+          "B": "2π",
+          "C": "1",
+          "D": "π"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "0",
+        "difficulty": "easy",
+        "source": {
+          "page": 112,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أي مقدار ثابت مشتقته صفر بغض النظر عن صورته [18]."
+        },
+        "explanation": "أي مقدار ثابت مشتقته صفر بغض النظر عن صورته [18].",
+        "number": 33,
+        "id": "U03-L99-Q033"
+      },
+      {
+        "question": "أوجد قيمة x التي تجعل الإيراد الحدي R'(x) = 0 إذا كان R(x) = 1000x - x^2.",
+        "options": {
+          "A": "500",
+          "B": "1000",
+          "C": "250",
+          "D": "0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "500",
+        "difficulty": "medium",
+        "source": {
+          "page": 145,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "R'(x) = 1000 - 2x = 0 => x = 500."
+          ],
+          "summary": "إيجاد القيمة الحرجة لاقتران الإيراد [19]."
+        },
+        "explanation": "إيجاد القيمة الحرجة لاقتران الإيراد [19].",
+        "number": 34,
+        "id": "U03-L99-Q034"
+      },
+      {
+        "question": "في أي ربع تقع النقطة الحرجة للاقتران f(x) = (x-2)^2 + 3؟",
+        "options": {
+          "A": "الأول",
+          "B": "الثاني",
+          "C": "الثالث",
+          "D": "الرابع"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الأول",
+        "difficulty": "easy",
+        "source": {
+          "page": 119,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النقطة الحرجة هي الرأس (2, 3) وهي في الربع الأول [20]."
+        },
+        "explanation": "النقطة الحرجة هي الرأس (2, 3) وهي في الربع الأول [20].",
+        "number": 35,
+        "id": "U03-L99-Q035"
+      },
+      {
+        "question": "ما هي المشتّقة الثانية للاقتران f(x) = 2x^6؟",
+        "options": {
+          "A": "60x^4",
+          "B": "12x^5",
+          "C": "12x^4",
+          "D": "30x^4"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "60x^4",
+        "difficulty": "easy",
+        "source": {
+          "page": 128,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(x) = 12x^5. f''(x) = 60x^4."
+          ],
+          "summary": "تطبيق متكرر لقاعدة القوة [21]."
+        },
+        "explanation": "تطبيق متكرر لقاعدة القوة [21].",
+        "number": 36,
+        "id": "U03-L99-Q036"
+      },
+      {
+        "question": "أوجد قيمة lim (x^3 - 27) / (x - 3) عندما x تقترب من 3.",
+        "options": {
+          "A": "27",
+          "B": "9",
+          "C": "0",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "27",
+        "difficulty": "hard",
+        "source": {
+          "page": 106,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "التحليل: (x-3)(x^2+3x+9) / (x-3). بالتعويض: 9+9+9 = 27."
+          ],
+          "summary": "تحليل فرق المكعبين لحل النهاية [22]."
+        },
+        "explanation": "تحليل فرق المكعبين لحل النهاية [22].",
+        "number": 37,
+        "id": "U03-L99-Q037"
+      },
+      {
+        "question": "إذا كان f(x) متناقصاً في فترة، فإن إشارة f'(x) تكون:",
+        "options": {
+          "A": "سالبة",
+          "B": "موجبة",
+          "C": "صفر",
+          "D": "غير معرفة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "سالبة",
+        "difficulty": "easy",
+        "source": {
+          "page": 121,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المشتقة السالبة تعني أن منحنى الاقتران ينخفض لليمين [23]."
+        },
+        "explanation": "المشتقة السالبة تعني أن منحنى الاقتران ينخفض لليمين [23].",
+        "number": 38,
+        "id": "U03-L99-Q038"
+      },
+      {
+        "question": "أوجد معدل تغير عدد السكان C(p) = 0.6√(0.5p^2 + 17) عندما p = 4.",
+        "options": {
+          "A": "0.24",
+          "B": "0.6",
+          "C": "1.2",
+          "D": "0.3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "0.24",
+        "difficulty": "hard",
+        "source": {
+          "page": 155,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تطبيق قاعدة السلسلة والتعويض في مسألة تلوث الهواء [24]."
+        },
+        "explanation": "تطبيق قاعدة السلسلة والتعويض في مسألة تلوث الهواء [24].",
+        "number": 39,
+        "id": "U03-L99-Q039"
+      },
+      {
+        "question": "ما هي النقطة الحرجة للاقتران f(x) = x^2 - 6x + 9؟",
+        "options": {
+          "A": "(3, 0)",
+          "B": "(0, 9)",
+          "C": "(6, 9)",
+          "D": "(3, 3)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(3, 0)",
+        "difficulty": "medium",
+        "source": {
+          "page": 119,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(x) = 2x-6 = 0 => x=3. f(3) = 9-18+9 = 0."
+          ],
+          "summary": "إيجاد صفر المشتقة وصورته [25]."
+        },
+        "explanation": "إيجاد صفر المشتقة وصورته [25].",
+        "number": 40,
+        "id": "U03-L99-Q040"
+      },
+      {
+        "question": "ميل العمودي على المماس عند نقطة يكون ميله m هو:",
+        "options": {
+          "A": "-1/m",
+          "B": "m",
+          "C": "1/m",
+          "D": "-m"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-1/m",
+        "difficulty": "easy",
+        "source": {
+          "page": 113,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ميل العمودي هو سالب مقلوب ميل المماس [26]."
+        },
+        "explanation": "ميل العمودي هو سالب مقلوب ميل المماس [26].",
+        "number": 41,
+        "id": "U03-L99-Q041"
+      },
+      {
+        "question": "أوجد قيمة lim (x + 7) عندما x تقترب من 3.",
+        "options": {
+          "A": "10",
+          "B": "4",
+          "C": "7",
+          "D": "21"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "10",
+        "difficulty": "easy",
+        "source": {
+          "page": 106,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التعويض المباشر في الاقتران الخطي [27]."
+        },
+        "explanation": "التعويض المباشر في الاقتران الخطي [27].",
+        "number": 42,
+        "id": "U03-L99-Q042"
+      },
+      {
+        "question": "إذا كان f'(c) = 0 و f''(c) > 0، فإن x = c هي:",
+        "options": {
+          "A": "صغرى محلية",
+          "B": "عظمى محلية",
+          "C": "نقطة انعطاف",
+          "D": "ليست نقطة حرجة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "صغرى محلية",
+        "difficulty": "medium",
+        "source": {
+          "page": 129,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المشتقة الثانية الموجبة تعني تقعراً للأعلى (قاع) [10]."
+        },
+        "explanation": "المشتقة الثانية الموجبة تعني تقعراً للأعلى (قاع) [10].",
+        "number": 43,
+        "id": "U03-L99-Q043"
+      },
+      {
+        "question": "أوجد مشتقة f(x) = (1 + 2x)^4.",
+        "options": {
+          "A": "8(1 + 2x)^3",
+          "B": "4(1 + 2x)^3",
+          "C": "2(1 + 2x)^3",
+          "D": "8x(1 + 2x)^3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "8(1 + 2x)^3",
+        "difficulty": "medium",
+        "source": {
+          "page": 155,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تطبيق قاعدة السلسلة: 4*(القوس)^3 * مشتقة الداخل (2) [28]."
+        },
+        "explanation": "تطبيق قاعدة السلسلة: 4*(القوس)^3 * مشتقة الداخل (2) [28].",
+        "number": 44,
+        "id": "U03-L99-Q044"
+      },
+      {
+        "question": "ما هو اقتران الإيراد الحدي لـ R(x) = 1000x - x^2؟",
+        "options": {
+          "A": "1000 - 2x",
+          "B": "1000",
+          "C": "2x",
+          "D": "1000x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1000 - 2x",
+        "difficulty": "easy",
+        "source": {
+          "page": 144,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإيراد الحدي هو مشتقة اقتران الإيراد [29]."
+        },
+        "explanation": "الإيراد الحدي هو مشتقة اقتران الإيراد [29].",
+        "number": 45,
+        "id": "U03-L99-Q045"
+      },
+      {
+        "question": "أوجد قيمة lim (x^4 + x^2 - 6) / (x^4 + 2x + 3) عندما x تقترب من 1.",
+        "options": {
+          "A": "-4/6",
+          "B": "0",
+          "C": "-2/3",
+          "D": "A و C صحيحان"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "A و C صحيحان",
+        "difficulty": "medium",
+        "source": {
+          "page": 158,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "(1+1-6) / (1+2+3) = -4 / 6 = -2/3."
+          ],
+          "summary": "التعويض المباشر في الاقتران النسبي [30]."
+        },
+        "explanation": "التعويض المباشر في الاقتران النسبي [30].",
+        "number": 46,
+        "id": "U03-L99-Q046"
+      },
+      {
+        "question": "أي الحالات التالية تعني أن المشتقة غير موجودة؟",
+        "options": {
+          "A": "وجود رأس حاد",
+          "B": "عدم الاتصال",
+          "C": "وجود مماس رأسي",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "medium",
+        "source": {
+          "page": 109,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "هذه الحالات تمنع وجود نهاية لنسبة الفرق في التعريف العام [31]."
+        },
+        "explanation": "هذه الحالات تمنع وجود نهاية لنسبة الفرق في التعريف العام [31].",
+        "number": 47,
+        "id": "U03-L99-Q047"
+      },
+      {
+        "question": "أوجد النقاط التي يكون عندها المماس أفقياً لـ f(x) = x^3 - 3x^2.",
+        "options": {
+          "A": "(0, 0) و (2, -4)",
+          "B": "(0, 0) و (3, 0)",
+          "C": "(1, -2)",
+          "D": "(0, 0) فقط"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(0, 0) و (2, -4)",
+        "difficulty": "hard",
+        "source": {
+          "page": 126,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(x) = 3x^2 - 6x = 0 => x=0, x=2. f(0)=0, f(2)=-4."
+          ],
+          "summary": "حل المشتقة تساوي صفراً لإيجاد النقاط الحرجة [32]."
+        },
+        "explanation": "حل المشتقة تساوي صفراً لإيجاد النقاط الحرجة [32].",
+        "number": 48,
+        "id": "U03-L99-Q048"
+      },
+      {
+        "question": "ما هي التكلفة الحدية لـ C(x) = 3000 + 20x؟",
+        "options": {
+          "A": "20",
+          "B": "3000",
+          "C": "20x",
+          "D": "0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "20",
+        "difficulty": "easy",
+        "source": {
+          "page": 144,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مشتقة اقتران التكلفة هي التكلفة الحدية [33]."
+        },
+        "explanation": "مشتقة اقتران التكلفة هي التكلفة الحدية [33].",
+        "number": 49,
+        "id": "U03-L99-Q049"
+      },
+      {
+        "question": "أوجد قيمة lim (x^2 - 25) / (x - 5) عندما x تقترب من 5.",
+        "options": {
+          "A": "10",
+          "B": "0",
+          "C": "5",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "10",
+        "difficulty": "medium",
+        "source": {
+          "page": 419,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بعد التحليل (x-5)(x+5) والاختصار والتعويض: 5+5=10 [34]."
+        },
+        "explanation": "بعد التحليل (x-5)(x+5) والاختصار والتعويض: 5+5=10 [34].",
+        "number": 50,
+        "id": "U03-L99-Q050"
+      }
+    ]
+  }
+}

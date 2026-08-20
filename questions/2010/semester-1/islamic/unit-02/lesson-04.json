@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "2.4",
+    "lesson_name": "المحرمات من النساء",
+    "unit_number": 2,
+    "unit_name": "الوحدة الثانية: خدم القرآن الكريم",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "جعل الإسلام صلة الرحم أسمى ما يربط بين الناس، ولتحقيق ذلك حرم الزواج من فئات محددة من:",
+        "options": {
+          "A": "الجيران",
+          "B": "الأقارب",
+          "C": "الأصدقاء",
+          "D": "الغرباء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأقارب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأقارب"
+        },
+        "explanation": "الأقارب",
+        "number": 1,
+        "id": "U02-L04-Q001"
+      },
+      {
+        "question": "تنقسم النساء المحرمات في الإسلام إلى نوعين هما:",
+        "options": {
+          "A": "محرمات بالنسب ومحرمات بالصداقة",
+          "B": "محرمات مؤبدة ومحرمات مؤقتة",
+          "C": "محرمات مكية ومحرمات مدنية",
+          "D": "محرمات بالسن ومحرمات بالمرض"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "محرمات مؤبدة ومحرمات مؤقتة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "محرمات مؤبدة ومحرمات مؤقتة"
+        },
+        "explanation": "محرمات مؤبدة ومحرمات مؤقتة",
+        "number": 2,
+        "id": "U02-L04-Q002"
+      },
+      {
+        "question": "ما المقصود بالمحرمات مؤبداً؟",
+        "options": {
+          "A": "اللواتي يحرم الزواج بهن لفترة معينة",
+          "B": "اللواتي يحرم الزواج بهن دائماً ولا يباح بحال",
+          "C": "اللواتي يباح الزواج بهن في السفر",
+          "D": "اللواتي يرفض الأب الزواج منهن"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اللواتي يحرم الزواج بهن دائماً ولا يباح بحال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اللواتي يحرم الزواج بهن دائماً ولا يباح بحال"
+        },
+        "explanation": "اللواتي يحرم الزواج بهن دائماً ولا يباح بحال",
+        "number": 3,
+        "id": "U02-L04-Q003"
+      },
+      {
+        "question": "تعود أسباب التحريم المؤبد للزواج من النساء إلى:",
+        "options": {
+          "A": "القرابة والمصاهرة والرضاع",
+          "B": "السن والجنسية",
+          "C": "المرض والفقر",
+          "D": "الاختلاف في الرأي"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "القرابة والمصاهرة والرضاع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القرابة والمصاهرة والرضاع"
+        },
+        "explanation": "القرابة والمصاهرة والرضاع",
+        "number": 4,
+        "id": "U02-L04-Q004"
+      },
+      {
+        "question": "أي من الآتية تعد من المحرمات بسبب 'القرابة' (النسب)؟",
+        "options": {
+          "A": "زوجة الأب",
+          "B": "الأم والجدات",
+          "C": "أخت الزوجة",
+          "D": "زوجة الابن"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأم والجدات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأم والجدات"
+        },
+        "explanation": "الأم والجدات",
+        "number": 5,
+        "id": "U02-L04-Q005"
+      },
+      {
+        "question": "يحرم على الرجل الزواج من 'فروع أبنائه وبناته' وهن:",
+        "options": {
+          "A": "الأخوات",
+          "B": "الحفيدات",
+          "C": "الخالات",
+          "D": "العمات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحفيدات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحفيدات"
+        },
+        "explanation": "الحفيدات",
+        "number": 6,
+        "id": "U02-L04-Q006"
+      },
+      {
+        "question": "أي الفئات الآتية يحرم الزواج منها بسبب القرابة؟",
+        "options": {
+          "A": "بنات الأخ وبنات الأخت",
+          "B": "بنات العم وبنات الخال",
+          "C": "الجارات",
+          "D": "زميلات العمل"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "بنات الأخ وبنات الأخت",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بنات الأخ وبنات الأخت"
+        },
+        "explanation": "بنات الأخ وبنات الأخت",
+        "number": 7,
+        "id": "U02-L04-Q007"
+      },
+      {
+        "question": "هل يجوز شرعاً الزواج من 'بنات العمات أو بنات الخالات'؟",
+        "options": {
+          "A": "لا، هن محرمات مؤبدة",
+          "B": "نعم، لسن من المحرمات",
+          "C": "لا، هن محرمات مؤقتة",
+          "D": "نعم، في حالة الضرورة فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نعم، لسن من المحرمات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نعم، لسن من المحرمات"
+        },
+        "explanation": "نعم، لسن من المحرمات",
+        "number": 8,
+        "id": "U02-L04-Q008"
+      },
+      {
+        "question": "المحرمات بسبب 'المصاهرة' هن النساء اللواتي يحرم الزواج بهن بسبب:",
+        "options": {
+          "A": "الرضاعة",
+          "B": "عقد الزواج",
+          "C": "النسب",
+          "D": "الجوار"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عقد الزواج",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عقد الزواج"
+        },
+        "explanation": "عقد الزواج",
+        "number": 9,
+        "id": "U02-L04-Q009"
+      },
+      {
+        "question": "تعتبر 'زوجة الأب وزوجات الأجداد' محرمات على الشخص تحريماً:",
+        "options": {
+          "A": "مؤبداً بسبب المصاهرة",
+          "B": "مؤقتاً",
+          "C": "مؤبداً بسبب النسب",
+          "D": "بسبب الرضاع"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مؤبداً بسبب المصاهرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مؤبداً بسبب المصاهرة"
+        },
+        "explanation": "مؤبداً بسبب المصاهرة",
+        "number": 10,
+        "id": "U02-L04-Q010"
+      },
+      {
+        "question": "بمجرد عقد الرجل على امرأة، تحرم عليه 'أمها وجداتها' تحريماً:",
+        "options": {
+          "A": "مؤقتاً",
+          "B": "مؤبداً بمجرد العقد",
+          "C": "بشرط الدخول بالزوجة",
+          "D": "لفترة العدة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مؤبداً بمجرد العقد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مؤبداً بمجرد العقد"
+        },
+        "explanation": "مؤبداً بمجرد العقد",
+        "number": 11,
+        "id": "U02-L04-Q011"
+      },
+      {
+        "question": "تحرم 'بنت الزوجة' (الربيبة) على زوج أمها إذا:",
+        "options": {
+          "A": "عقد على أمها فقط",
+          "B": "دخل بأمها بعد العقد",
+          "C": "خطب أمها",
+          "D": "كانت تعيش في بيته فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "دخل بأمها بعد العقد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "دخل بأمها بعد العقد"
+        },
+        "explanation": "دخل بأمها بعد العقد",
+        "number": 12,
+        "id": "U02-L04-Q012"
+      },
+      {
+        "question": "تعتبر 'زوجة الابن وزوجات أحفاده' من المحرمات بسبب:",
+        "options": {
+          "A": "النسب",
+          "B": "المصاهرة",
+          "C": "الرضاع",
+          "D": "الجوار"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المصاهرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المصاهرة"
+        },
+        "explanation": "المصاهرة",
+        "number": 13,
+        "id": "U02-L04-Q013"
+      },
+      {
+        "question": "قال ﷺ: (يحرم من الرضاع ما يحرم من...):",
+        "options": {
+          "A": "المصاهرة",
+          "B": "النسب",
+          "C": "الجوار",
+          "D": "الصداقة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "النسب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النسب"
+        },
+        "explanation": "النسب",
+        "number": 14,
+        "id": "U02-L04-Q014"
+      },
+      {
+        "question": "من النساء المحرمات بسبب الرضاع:",
+        "options": {
+          "A": "الأم من الرضاع والأخت من الرضاع",
+          "B": "أخت الزوجة",
+          "C": "الخالة من النسب",
+          "D": "بنت الجيران"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الأم من الرضاع والأخت من الرضاع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأم من الرضاع والأخت من الرضاع"
+        },
+        "explanation": "الأم من الرضاع والأخت من الرضاع",
+        "number": 15,
+        "id": "U02-L04-Q015"
+      },
+      {
+        "question": "ما المقصود بالمحرمات مؤقتاً؟",
+        "options": {
+          "A": "اللواتي يحرم الزواج بهن دائماً",
+          "B": "اللواتي يحرم الزواج بهن لسبب طارئ، فإذا زال السبب زال التحريم",
+          "C": "اللواتي يرفض القاضي زواجهن",
+          "D": "اللواتي لم يبلغن السن القانوني"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اللواتي يحرم الزواج بهن لسبب طارئ، فإذا زال السبب زال التحريم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اللواتي يحرم الزواج بهن لسبب طارئ، فإذا زال السبب زال التحريم"
+        },
+        "explanation": "اللواتي يحرم الزواج بهن لسبب طارئ، فإذا زال السبب زال التحريم",
+        "number": 16,
+        "id": "U02-L04-Q016"
+      },
+      {
+        "question": "الجمع بين الأختين في وقت واحد في عصمة رجل واحد يعد تحريماً:",
+        "options": {
+          "A": "مؤبداً",
+          "B": "مؤقتاً",
+          "C": "مباحاً",
+          "D": "مكروهاً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مؤقتاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مؤقتاً"
+        },
+        "explanation": "مؤقتاً",
+        "number": 17,
+        "id": "U02-L04-Q017"
+      },
+      {
+        "question": "يحرم الجمع بين المرأة وعمتها أو المرأة وخالتها، وهذا التحريم نوعه:",
+        "options": {
+          "A": "مؤبد",
+          "B": "مؤقت",
+          "C": "نسبي",
+          "D": "رضاعي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مؤقت",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مؤقت"
+        },
+        "explanation": "مؤقت",
+        "number": 18,
+        "id": "U02-L04-Q018"
+      },
+      {
+        "question": "يُمنع الزواج من 'المرأة المتزوجة' حتى تنتهي علاقتها الزوجية، ونوع التحريم هنا:",
+        "options": {
+          "A": "مؤبد",
+          "B": "مؤقت",
+          "C": "لا يعد تحريماً",
+          "D": "رضاعي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مؤقت",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مؤقت"
+        },
+        "explanation": "مؤقت",
+        "number": 19,
+        "id": "U02-L04-Q019"
+      },
+      {
+        "question": "المرأة المعتدة (في فترة العدة من طلاق أو وفاة) يحرم الزواج بها تحريماً:",
+        "options": {
+          "A": "مؤبداً",
+          "B": "مؤقتاً حتى تنتهي عدتها",
+          "C": "بسبب المصاهرة",
+          "D": "بسبب الرضاع"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مؤقتاً حتى تنتهي عدتها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مؤقتاً حتى تنتهي عدتها"
+        },
+        "explanation": "مؤقتاً حتى تنتهي عدتها",
+        "number": 20,
+        "id": "U02-L04-Q020"
+      },
+      {
+        "question": "المرأة المطلقة طلاقاً بائناً بينونة كبرى (ثلاث طلقات) تحرم على زوجها الأول حتى:",
+        "options": {
+          "A": "تمضي سنة",
+          "B": "تتزوج من رجل آخر زواجاً رغبةً ويدخل بها ثم يفارقها بوفاة أو طلاق",
+          "C": "تدفع مبلغاً مالياً",
+          "D": "تعتذر له"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تتزوج من رجل آخر زواجاً رغبةً ويدخل بها ثم يفارقها بوفاة أو طلاق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تتزوج من رجل آخر زواجاً رغبةً ويدخل بها ثم يفارقها بوفاة أو طلاق"
+        },
+        "explanation": "تتزوج من رجل آخر زواجاً رغبةً ويدخل بها ثم يفارقها بوفاة أو طلاق",
+        "number": 21,
+        "id": "U02-L04-Q021"
+      },
+      {
+        "question": "يحرم على المسلم الزواج من 'غير الكتابية' (كالملحدة أو المشركة)، وهذا التحريم:",
+        "options": {
+          "A": "مؤبد",
+          "B": "مؤقت حتى تسلم",
+          "C": "بسبب الرضاع",
+          "D": "بسبب المصاهرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مؤقت حتى تسلم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مؤقت حتى تسلم"
+        },
+        "explanation": "مؤقت حتى تسلم",
+        "number": 22,
+        "id": "U02-L04-Q022"
+      },
+      {
+        "question": "من هن 'الكتابيات' اللواتي أباح الإسلام الزواج منهن؟",
+        "options": {
+          "A": "الملحدات",
+          "B": "المشركات",
+          "C": "اليهوديات والنصرانيات",
+          "D": "البوذيات"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "اليهوديات والنصرانيات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اليهوديات والنصرانيات"
+        },
+        "explanation": "اليهوديات والنصرانيات",
+        "number": 23,
+        "id": "U02-L04-Q023"
+      },
+      {
+        "question": "ما الحكمة من تحريم الزواج من الأقارب المقربين (المحرمات مؤبداً)؟",
+        "options": {
+          "A": "تقليل عدد السكان",
+          "B": "الحفاظ على المودة في صلة الرحم ومنع النزاعات الأسرية",
+          "C": "زيادة التكاليف",
+          "D": "تشجيع الغربة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحفاظ على المودة في صلة الرحم ومنع النزاعات الأسرية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحفاظ على المودة في صلة الرحم ومنع النزاعات الأسرية"
+        },
+        "explanation": "الحفاظ على المودة في صلة الرحم ومنع النزاعات الأسرية",
+        "number": 24,
+        "id": "U02-L04-Q024"
+      },
+      {
+        "question": "أي من الآتية يعتبر من المحرمات بسبب 'المصاهرة' بمجرد العقد؟",
+        "options": {
+          "A": "بنت الزوجة",
+          "B": "أم الزوجة",
+          "C": "الأخت من الرضاع",
+          "D": "العمة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أم الزوجة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أم الزوجة"
+        },
+        "explanation": "أم الزوجة",
+        "number": 25,
+        "id": "U02-L04-Q025"
+      },
+      {
+        "question": "في قصة خالد وعبير (خالد رضع من أم عبير)، ما حكم زواجهما؟",
+        "options": {
+          "A": "جائز",
+          "B": "حرام لأنهما أخوة من الرضاع",
+          "C": "جائز إذا وافق الأب",
+          "D": "حرام مؤقت"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حرام لأنهما أخوة من الرضاع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حرام لأنهما أخوة من الرضاع"
+        },
+        "explanation": "حرام لأنهما أخوة من الرضاع",
+        "number": 26,
+        "id": "U02-L04-Q026"
+      },
+      {
+        "question": "إذا طلق الرجل زوجته، فهل يجوز له الزواج من 'أختها'؟",
+        "options": {
+          "A": "لا، هي محرمة مؤبدة",
+          "B": "نعم، بعد انتهاء عدة زوجته المطلقة",
+          "C": "لا، هي محرمة بسبب الرضاع",
+          "D": "نعم، فور وقوع الطلاق"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نعم، بعد انتهاء عدة زوجته المطلقة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نعم، بعد انتهاء عدة زوجته المطلقة"
+        },
+        "explanation": "نعم، بعد انتهاء عدة زوجته المطلقة",
+        "number": 27,
+        "id": "U02-L04-Q027"
+      },
+      {
+        "question": "تعتبر 'العمة والخالة' محرمات بسبب:",
+        "options": {
+          "A": "المصاهرة",
+          "B": "القرابة (النسب)",
+          "C": "الرضاع فقط",
+          "D": "الجوار"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "القرابة (النسب)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القرابة (النسب)"
+        },
+        "explanation": "القرابة (النسب)",
+        "number": 28,
+        "id": "U02-L04-Q028"
+      },
+      {
+        "question": "الربيبة هي:",
+        "options": {
+          "A": "أخت الزوجة",
+          "B": "بنت الزوجة من زوج آخر",
+          "C": "خالة الزوجة",
+          "D": "جدة الزوجة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بنت الزوجة من زوج آخر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بنت الزوجة من زوج آخر"
+        },
+        "explanation": "بنت الزوجة من زوج آخر",
+        "number": 29,
+        "id": "U02-L04-Q029"
+      },
+      {
+        "question": "أي الآيات الآتية هي أصل في ذكر المحرمات من النساء؟",
+        "options": {
+          "A": "آية 102 آل عمران",
+          "B": "آية 23 سورة النساء",
+          "C": "آية 105 آل عمران",
+          "D": "آية 1 سورة الفاتحة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "آية 23 سورة النساء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "آية 23 سورة النساء"
+        },
+        "explanation": "آية 23 سورة النساء",
+        "number": 30,
+        "id": "U02-L04-Q030"
+      },
+      {
+        "question": "الزواج من امرأة 'خامسة' لمن لديه أربع زوجات يعد تحريماً:",
+        "options": {
+          "A": "مؤبداً",
+          "B": "مؤقتاً (حتى يفارق إحداهن)",
+          "C": "رضاعياً",
+          "D": "مباحاً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مؤقتاً (حتى يفارق إحداهن)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مؤقتاً (حتى يفارق إحداهن)"
+        },
+        "explanation": "مؤقتاً (حتى يفارق إحداهن)",
+        "number": 31,
+        "id": "U02-L04-Q031"
+      },
+      {
+        "question": "يحرم على المسلمة الزواج من:",
+        "options": {
+          "A": "مسلم فقط",
+          "B": "غير المسلم مطلقاً (كتابياً كان أو غير ذلك)",
+          "C": "الكتابي فقط",
+          "D": "ابن عمها"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "غير المسلم مطلقاً (كتابياً كان أو غير ذلك)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "غير المسلم مطلقاً (كتابياً كان أو غير ذلك)"
+        },
+        "explanation": "غير المسلم مطلقاً (كتابياً كان أو غير ذلك)",
+        "number": 32,
+        "id": "U02-L04-Q032"
+      },
+      {
+        "question": "من القيم المستفادة من الدرس الحرص على تنظيم:",
+        "options": {
+          "A": "التجارة",
+          "B": "العلاقات بين الأقارب وفق أحكام الشرع",
+          "C": "السفر",
+          "D": "الألعاب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العلاقات بين الأقارب وفق أحكام الشرع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العلاقات بين الأقارب وفق أحكام الشرع"
+        },
+        "explanation": "العلاقات بين الأقارب وفق أحكام الشرع",
+        "number": 33,
+        "id": "U02-L04-Q033"
+      },
+      {
+        "question": "كلمة 'حلائل' في الآية تعني:",
+        "options": {
+          "A": "أخوات",
+          "B": "بنات",
+          "C": "زوجات",
+          "D": "خالات"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "زوجات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "زوجات"
+        },
+        "explanation": "زوجات",
+        "number": 34,
+        "id": "U02-L04-Q034"
+      },
+      {
+        "question": "التحريم بسبب 'الرضاع' يثبت حقوقاً تشبه تماماً التحريم بسبب:",
+        "options": {
+          "A": "المال",
+          "B": "النسب",
+          "C": "الصداقة",
+          "D": "المواطنة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "النسب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النسب"
+        },
+        "explanation": "النسب",
+        "number": 35,
+        "id": "U02-L04-Q035"
+      },
+      {
+        "question": "يحرم على الرجل 'زوجة ابنه من الرضاع' كما يحرم عليه زوجة ابنه من النسب، وهذا تحريم:",
+        "options": {
+          "A": "مؤقت",
+          "B": "مؤبد",
+          "C": "مكروه",
+          "D": "مباح"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مؤبد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مؤبد"
+        },
+        "explanation": "مؤبد",
+        "number": 36,
+        "id": "U02-L04-Q036"
+      },
+      {
+        "question": "ما حكم الزواج بامرأة ملحدة؟",
+        "options": {
+          "A": "جائز",
+          "B": "محرم تحريماً مؤقتاً حتى تسلم",
+          "C": "محرم مؤبداً",
+          "D": "مستحب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "محرم تحريماً مؤقتاً حتى تسلم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "محرم تحريماً مؤقتاً حتى تسلم"
+        },
+        "explanation": "محرم تحريماً مؤقتاً حتى تسلم",
+        "number": 37,
+        "id": "U02-L04-Q037"
+      },
+      {
+        "question": "إذا زنى رجل بامرأة (والعياذ بالله)، فهل تحرم عليه بنتها عند بعض الفقهاء؟ (للمطالعة الفقهية العامة من الدرس)",
+        "options": {
+          "A": "نعم",
+          "B": "لا",
+          "C": "في حالات خاصة",
+          "D": "المحرم هو عقد الزواج الصحيح"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "المحرم هو عقد الزواج الصحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المحرم هو عقد الزواج الصحيح"
+        },
+        "explanation": "المحرم هو عقد الزواج الصحيح",
+        "number": 38,
+        "id": "U02-L04-Q038"
+      },
+      {
+        "question": "أي من هؤلاء 'ليست' محرماً مؤبداً؟",
+        "options": {
+          "A": "الأم",
+          "B": "الأخت",
+          "C": "بنت العم",
+          "D": "الخالة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "بنت العم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بنت العم"
+        },
+        "explanation": "بنت العم",
+        "number": 39,
+        "id": "U02-L04-Q039"
+      },
+      {
+        "question": "يهدف هذا التشريع (المحرمات من النساء) إلى حماية الأسرة من:",
+        "options": {
+          "A": "الفقر",
+          "B": "الفساد الأخلاقي واختلاط الأنساب",
+          "C": "كثرة السفر",
+          "D": "العمل الشاق"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الفساد الأخلاقي واختلاط الأنساب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الفساد الأخلاقي واختلاط الأنساب"
+        },
+        "explanation": "الفساد الأخلاقي واختلاط الأنساب",
+        "number": 40,
+        "id": "U02-L04-Q040"
+      }
+    ]
+  }
+}

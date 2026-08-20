@@ -1,0 +1,1000 @@
+{
+  "lesson": {
+    "lesson_number": "3.1",
+    "lesson_name": "النهايات",
+    "unit_number": 3,
+    "unit_name": "الوحدة الثالثة",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما هو الرمز الرياضي المستخدم للتعبير عن 'تقترب x من العدد c من جهة اليمين'؟",
+        "options": {
+          "A": "x → c",
+          "B": "x → c-",
+          "C": "x → c+",
+          "D": "x = c"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "x → c+",
+        "difficulty": "easy",
+        "source": {
+          "page": 96,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يستعمل الرمز c+ للدلالة على أن النهاية من جهة اليمين حيث x > c [1]."
+        },
+        "explanation": "يستعمل الرمز c+ للدلالة على أن النهاية من جهة اليمين حيث x > c [1].",
+        "number": 1,
+        "id": "U03-L01-Q001"
+      },
+      {
+        "question": "تكون نهاية الاقتران موجودة عند x → c إذا وفقط إذا كان:",
+        "options": {
+          "A": "الاقتران معرفاً عند c.",
+          "B": "النهايتان من اليمين واليسار موجودتين ومتساويتين.",
+          "C": "قيمة الاقتران تساوي صفراً.",
+          "D": "التمثيل البياني يمر بنقطة الأصل."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "النهايتان من اليمين واليسار موجودتين ومتساويتين.",
+        "difficulty": "easy",
+        "source": {
+          "page": 96,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تنص القاعدة على أن النهاية تكون موجودة إذا كانت النهاية من اليمين تساوي النهاية من اليسار وتساوي L [2]."
+        },
+        "explanation": "تنص القاعدة على أن النهاية تكون موجودة إذا كانت النهاية من اليمين تساوي النهاية من اليسار وتساوي L [2].",
+        "number": 2,
+        "id": "U03-L01-Q002"
+      },
+      {
+        "question": "ما هي نهاية الاقتران الثابت f(x) = k عند أي نقطة c؟",
+        "options": {
+          "A": "c",
+          "B": "k",
+          "C": "0",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "k",
+        "difficulty": "easy",
+        "source": {
+          "page": 99,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نهاية الاقتران الثابت هي القيمة الثابتة نفسها للاقتران [3]."
+        },
+        "explanation": "نهاية الاقتران الثابت هي القيمة الثابتة نفسها للاقتران [3].",
+        "number": 3,
+        "id": "U03-L01-Q003"
+      },
+      {
+        "question": "أوجد قيمة lim (x^2 - x + 1) عندما x → 2 باستعمال التعويض المباشر.",
+        "options": {
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "5"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "3",
+        "difficulty": "easy",
+        "source": {
+          "page": 95,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "(2)^2 - 2 + 1 = 4 - 2 + 1 = 3."
+          ],
+          "summary": "يمكن إيجاد نهاية كثيرات الحدود بالتعويض المباشر [200، 213]."
+        },
+        "explanation": "يمكن إيجاد نهاية كثيرات الحدود بالتعويض المباشر [200، 213].",
+        "number": 4,
+        "id": "U03-L01-Q004"
+      },
+      {
+        "question": "عند تعويض x = -1 في f(x) = (x^2 - 1) / (x + 1)، ما هي النتيجة التي نحصل عليها؟",
+        "options": {
+          "A": "0",
+          "B": "غير موجودة",
+          "C": "0 / 0",
+          "D": "-2"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "0 / 0",
+        "difficulty": "medium",
+        "source": {
+          "page": 102,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تسمى هذه النتيجة 'الصيغة غير المحددة' وتتطلب البحث عن صيغة مكافئة [4]."
+        },
+        "explanation": "تسمى هذه النتيجة 'الصيغة غير المحددة' وتتطلب البحث عن صيغة مكافئة [4].",
+        "number": 5,
+        "id": "U03-L01-Q005"
+      },
+      {
+        "question": "أوجد قيمة lim (x^2 - 1) / (x + 1) عندما x → -1.",
+        "options": {
+          "A": "0",
+          "B": "-2",
+          "C": "2",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-2",
+        "difficulty": "medium",
+        "source": {
+          "page": 97,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تحليل البسط: (x-1)(x+1) / (x+1) = x-1. بالتعويض: -1-1 = -2."
+          ],
+          "summary": "بعد تحليل البسط واختصار العوامل المشتركة، نجد النهاية بالتعويض [203، 217]."
+        },
+        "explanation": "بعد تحليل البسط واختصار العوامل المشتركة، نجد النهاية بالتعويض [203، 217].",
+        "number": 6,
+        "id": "U03-L01-Q006"
+      },
+      {
+        "question": "إذا كان f(x) = { 2x + 2, x < 1 ; 2x - 4, x ≥ 1 }، فما قيمة lim f(x) عندما x → 1+؟",
+        "options": {
+          "A": "4",
+          "B": "-2",
+          "C": "0",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-2",
+        "difficulty": "medium",
+        "source": {
+          "page": 98,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "نعوض في القاعدة المقابلة لـ x > 1 وهي 2(1) - 4 = -2."
+          ],
+          "summary": "تؤخذ النهاية من اليمين من القاعدة المعرفة للقيم الأكبر من 1 [5]."
+        },
+        "explanation": "تؤخذ النهاية من اليمين من القاعدة المعرفة للقيم الأكبر من 1 [5].",
+        "number": 7,
+        "id": "U03-L01-Q007"
+      },
+      {
+        "question": "في السؤال السابق، ما هي قيمة lim f(x) عندما x → 1؟",
+        "options": {
+          "A": "4",
+          "B": "-2",
+          "C": "1",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "غير موجودة",
+        "difficulty": "medium",
+        "source": {
+          "page": 98,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بما أن النهاية من اليمين (-2) لا تساوي النهاية من اليسار (4)، فالنهاية الكلية غير موجودة [6]."
+        },
+        "explanation": "بما أن النهاية من اليمين (-2) لا تساوي النهاية من اليسار (4)، فالنهاية الكلية غير موجودة [6].",
+        "number": 8,
+        "id": "U03-L01-Q008"
+      },
+      {
+        "question": "ما هي خاصية النهاية التي تسمح بكتابة lim [f(x) * g(x)] كحاصل ضرب نهايتين؟",
+        "options": {
+          "A": "خاصية المجموع",
+          "B": "خاصية القوة",
+          "C": "خاصية الضرب",
+          "D": "خاصية الثابت"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "خاصية الضرب",
+        "difficulty": "easy",
+        "source": {
+          "page": 100,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حسب قوانين النهايات، نهاية حاصل الضرب تساوي حاصل ضرب النهايتين [7]."
+        },
+        "explanation": "حسب قوانين النهايات، نهاية حاصل الضرب تساوي حاصل ضرب النهايتين [7].",
+        "number": 9,
+        "id": "U03-L01-Q009"
+      },
+      {
+        "question": "أوجد قيمة lim √(x^2 / (x - 1)) عندما x → 5.",
+        "options": {
+          "A": "5/2",
+          "B": "2.5",
+          "C": "25/4",
+          "D": "5/4"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "5/2",
+        "difficulty": "hard",
+        "source": {
+          "page": 100,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "√( (5)^2 / (5-1) ) = √(25/4) = 5/2."
+          ],
+          "summary": "تطبيق خصائص النهايات للجذور والقسمة والتعويض المباشر [8]."
+        },
+        "explanation": "تطبيق خصائص النهايات للجذور والقسمة والتعويض المباشر [8].",
+        "number": 10,
+        "id": "U03-L01-Q010"
+      },
+      {
+        "question": "متى يشترط أن تكون lim f(x) > 0 في خاصية الجذر النوني؟",
+        "options": {
+          "A": "دائماً.",
+          "B": "عندما يكون n عدداً فردياً.",
+          "C": "عندما يكون n عدداً زوجياً.",
+          "D": "عندما تقترب x من الصفر."
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "عندما يكون n عدداً زوجياً.",
+        "difficulty": "medium",
+        "source": {
+          "page": 100,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يشترط ذلك لضمان وجود الجذر في مجموعة الأعداد الحقيقية [7]."
+        },
+        "explanation": "يشترط ذلك لضمان وجود الجذر في مجموعة الأعداد الحقيقية [7].",
+        "number": 11,
+        "id": "U03-L01-Q011"
+      },
+      {
+        "question": "أوجد قيمة lim (x^4 - 5x^3 + x^2 - 7) عندما x → 2.",
+        "options": {
+          "A": "-27",
+          "B": "-15",
+          "C": "11",
+          "D": "7"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-27",
+        "difficulty": "medium",
+        "source": {
+          "page": 101,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "16 - 5(8) + 4 - 7 = 16 - 40 + 4 - 7 = -27."
+          ],
+          "summary": "التعويض المباشر في كثير الحدود [9]."
+        },
+        "explanation": "التعويض المباشر في كثير الحدود [9].",
+        "number": 12,
+        "id": "U03-L01-Q012"
+      },
+      {
+        "question": "ما هو سبب عدم إمكانية التعويض المباشر في lim (x^2 - x - 12) / (x + 3) عندما x → -3؟",
+        "options": {
+          "A": "لأن البسط يساوي صفراً.",
+          "B": "لأن x = -3 هي صفر للمقام.",
+          "C": "لأن النهاية غير موجودة.",
+          "D": "لأن الاقتران ثابت."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لأن x = -3 هي صفر للمقام.",
+        "difficulty": "medium",
+        "source": {
+          "page": 101,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عندما يكون العدد المطلوب الاقتراب منه صفر للمقام، لا يقع في مجال الاقتران النسبي [10]."
+        },
+        "explanation": "عندما يكون العدد المطلوب الاقتراب منه صفر للمقام، لا يقع في مجال الاقتران النسبي [10].",
+        "number": 13,
+        "id": "U03-L01-Q013"
+      },
+      {
+        "question": "لحل النهاية lim (√x+1 - 1) / x عندما x → 0، نستخدم طريقة:",
+        "options": {
+          "A": "التحليل إلى عوامل.",
+          "B": "إنطاق البسط (الضرب بالمرافق).",
+          "C": "القسمة الطويلة.",
+          "D": "إعادة تعريف المطلق."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إنطاق البسط (الضرب بالمرافق).",
+        "difficulty": "hard",
+        "source": {
+          "page": 103,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نضرب في مرافق البسط (√x+1 + 1) للتخلص من الجذر وحل الصيغة غير المحددة [11]."
+        },
+        "explanation": "نضرب في مرافق البسط (√x+1 + 1) للتخلص من الجذر وحل الصيغة غير المحددة [11].",
+        "number": 14,
+        "id": "U03-L01-Q014"
+      },
+      {
+        "question": "أوجد قيمة lim (√x+1 - 1) / x عندما x → 0.",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "1/2",
+          "D": "2"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "1/2",
+        "difficulty": "hard",
+        "source": {
+          "page": 103,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بعد إنطاق البسط والاختصار تتبقى الصيغة 1/(√x+1 + 1)، وبالتعويض نجد الناتج نصف [12]."
+        },
+        "explanation": "بعد إنطاق البسط والاختصار تتبقى الصيغة 1/(√x+1 + 1)، وبالتعويض نجد الناتج نصف [12].",
+        "number": 15,
+        "id": "U03-L01-Q015"
+      },
+      {
+        "question": "ما هي قيمة lim |x - 2| / (x - 2) عندما x → 2+؟",
+        "options": {
+          "A": "1",
+          "B": "-1",
+          "C": "0",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1",
+        "difficulty": "medium",
+        "source": {
+          "page": 103,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "للتعويض عن قيم أكبر من 2، يكون المطلق (x-2)، وبالقسمة نحصل على 1 [13]."
+        },
+        "explanation": "للتعويض عن قيم أكبر من 2، يكون المطلق (x-2)، وبالقسمة نحصل على 1 [13].",
+        "number": 16,
+        "id": "U03-L01-Q016"
+      },
+      {
+        "question": "في السؤال السابق، ما هي قيمة النهاية الكلية عندما x → 2؟",
+        "options": {
+          "A": "1",
+          "B": "-1",
+          "C": "0",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "غير موجودة",
+        "difficulty": "medium",
+        "source": {
+          "page": 103,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لأن نهاية اليمين (1) لا تساوي نهاية اليسار (-1) [13]."
+        },
+        "explanation": "لأن نهاية اليمين (1) لا تساوي نهاية اليسار (-1) [13].",
+        "number": 17,
+        "id": "U03-L01-Q017"
+      },
+      {
+        "question": "ما هي الشروط الثلاثة لاتصال الاقتران f(x) عند x = c؟",
+        "options": {
+          "A": "معرف عند c، النهاية موجودة، النهاية تساوي f(c).",
+          "B": "معرف عند c، f(c)=0، النهاية موجودة.",
+          "C": "النهاية موجودة، f(c) معرف، الاقتران خطي.",
+          "D": "f(c) موجود، النهاية من اليمين تساوي صفر."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "معرف عند c، النهاية موجودة، النهاية تساوي f(c).",
+        "difficulty": "easy",
+        "source": {
+          "page": 104,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "هذا هو المفهوم الأساسي للاتصال عند نقطة كما ورد في الكتاب [14]."
+        },
+        "explanation": "هذا هو المفهوم الأساسي للاتصال عند نقطة كما ورد في الكتاب [14].",
+        "number": 18,
+        "id": "U03-L01-Q018"
+      },
+      {
+        "question": "أي من الحالات التالية تؤدي إلى عدم اتصال الاقتران عند نقطة؟",
+        "options": {
+          "A": "وجود فجوة في المنحنى.",
+          "B": "وجود قفزة.",
+          "C": "وجود خط تقارب رأسي.",
+          "D": "جميع ما ذكر."
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر.",
+        "difficulty": "medium",
+        "source": {
+          "page": 104,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التمثيلات البيانية في الكتاب توضح أن الفجوات والقفزات وخطوط التقارب تعني عدم الاتصال [14]."
+        },
+        "explanation": "التمثيلات البيانية في الكتاب توضح أن الفجوات والقفزات وخطوط التقارب تعني عدم الاتصال [14].",
+        "number": 19,
+        "id": "U03-L01-Q019"
+      },
+      {
+        "question": "افحص اتصال h(x) = { x^2 - 3, x ≤ -1 ; x - 1, x > -1 } عند x = -1.",
+        "options": {
+          "A": "متصل لأن h(-1) = -2 والنهاية = -2.",
+          "B": "غير متصل بسبب وجود قفزة.",
+          "C": "غير متصل لأن h(-1) غير معرف.",
+          "D": "متصل لأن النهاية من اليمين تساوي 0."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "متصل لأن h(-1) = -2 والنهاية = -2.",
+        "difficulty": "hard",
+        "source": {
+          "page": 105,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بما أن h(-1)=-2 والنهايتين من اليمين واليسار تساويان -2، فالشروط محققة [15]."
+        },
+        "explanation": "بما أن h(-1)=-2 والنهايتين من اليمين واليسار تساويان -2، فالشروط محققة [15].",
+        "number": 20,
+        "id": "U03-L01-Q020"
+      },
+      {
+        "question": "الاقتران g(x) = (x^2 - x - 2) / (x - 2) غير متصل عند x = 2 لأن:",
+        "options": {
+          "A": "النهاية غير موجودة.",
+          "B": "الاقتران غير معرف عند x = 2.",
+          "C": "التمثيل البياني له قفزة.",
+          "D": "النهاية تساوي صفراً."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الاقتران غير معرف عند x = 2.",
+        "difficulty": "medium",
+        "source": {
+          "page": 105,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القيمة 2 تجعل المقام صفراً، مما يعني أن الاقتران غير معرف عندها [16]."
+        },
+        "explanation": "القيمة 2 تجعل المقام صفراً، مما يعني أن الاقتران غير معرف عندها [16].",
+        "number": 21,
+        "id": "U03-L01-Q021"
+      },
+      {
+        "question": "أوجد قيمة lim (x + 7) عندما x → 3.",
+        "options": {
+          "A": "10",
+          "B": "4",
+          "C": "7",
+          "D": "0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "10",
+        "difficulty": "easy",
+        "source": {
+          "page": 106,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالتعويض المباشر 3 + 7 = 10 [17]."
+        },
+        "explanation": "بالتعويض المباشر 3 + 7 = 10 [17].",
+        "number": 22,
+        "id": "U03-L01-Q022"
+      },
+      {
+        "question": "ما قيمة lim (x^2 - 16) / (x - 4) عندما x → 4؟",
+        "options": {
+          "A": "0",
+          "B": "4",
+          "C": "8",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "8",
+        "difficulty": "hard",
+        "source": {
+          "page": 106,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "(x-4)(x+4)/(x-4) = x+4. بالتعويض: 4+4 = 8."
+          ],
+          "summary": "تحليل فرق المربعين والاختصار [17]."
+        },
+        "explanation": "تحليل فرق المربعين والاختصار [17].",
+        "number": 23,
+        "id": "U03-L01-Q023"
+      },
+      {
+        "question": "أوجد قيمة lim (x^3 - 27) / (x - 3) عندما x → 3.",
+        "options": {
+          "A": "0",
+          "B": "9",
+          "C": "27",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "27",
+        "difficulty": "hard",
+        "source": {
+          "page": 106,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "(x-3)(x^2+3x+9)/(x-3). بالتعويض: 9+9+9=27."
+          ],
+          "summary": "تحليل فرق مكعبين واختصار العامل المشترك [17]."
+        },
+        "explanation": "تحليل فرق مكعبين واختصار العامل المشترك [17].",
+        "number": 24,
+        "id": "U03-L01-Q024"
+      },
+      {
+        "question": "ما قيمة lim √(x + 1) - 2 / (x - 3) عندما x → 3؟",
+        "options": {
+          "A": "1/4",
+          "B": "1/2",
+          "C": "0",
+          "D": "4"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1/4",
+        "difficulty": "hard",
+        "source": {
+          "page": 107,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "باستخدام الضرب بمرافق البسط والاختصار تتبقى الصيغة 1/(√x+1 + 2) وبالتعويض نجد ربع [18]."
+        },
+        "explanation": "باستخدام الضرب بمرافق البسط والاختصار تتبقى الصيغة 1/(√x+1 + 2) وبالتعويض نجد ربع [18].",
+        "number": 25,
+        "id": "U03-L01-Q025"
+      },
+      {
+        "question": "إذا كان lim f(x) = 5 و lim g(x) = -2، فما قيمة lim [f(x) + g(x)]؟",
+        "options": {
+          "A": "7",
+          "B": "3",
+          "C": "-10",
+          "D": "-3"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "3",
+        "difficulty": "easy",
+        "source": {
+          "page": 100,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "باستعمال خاصية المجموع: 5 + (-2) = 3 [7]."
+        },
+        "explanation": "باستعمال خاصية المجموع: 5 + (-2) = 3 [7].",
+        "number": 26,
+        "id": "U03-L01-Q026"
+      },
+      {
+        "question": "أوجد قيمة lim (x^2 - 5) عندما x → -1.",
+        "options": {
+          "A": "-6",
+          "B": "-4",
+          "C": 4,
+          "D": "0"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-4",
+        "difficulty": "easy",
+        "source": {
+          "page": 106,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "(-1)^2 - 5 = 1 - 5 = -4."
+          ],
+          "summary": "التعويض المباشر في الاقتران التربيعي [17]."
+        },
+        "explanation": "التعويض المباشر في الاقتران التربيعي [17].",
+        "number": 27,
+        "id": "U03-L01-Q027"
+      },
+      {
+        "question": "الاقتران f(x) = x^5 + 2x^3 - x متصل عند x = 1 لأن:",
+        "options": {
+          "A": "كثير حدود وهو متصل دائماً على R.",
+          "B": "لأن f(1) = 0.",
+          "C": "لأن نهايته غير موجودة.",
+          "D": "لأن له قفزة عند الواحد."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "كثير حدود وهو متصل دائماً على R.",
+        "difficulty": "medium",
+        "source": {
+          "page": 105,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كثيرات الحدود متصلة عند جميع الأعداد الحقيقية لأن نهايتها تساوي قيمة تعويضها [16]."
+        },
+        "explanation": "كثيرات الحدود متصلة عند جميع الأعداد الحقيقية لأن نهايتها تساوي قيمة تعويضها [16].",
+        "number": 28,
+        "id": "U03-L01-Q028"
+      },
+      {
+        "question": "في مسألة اليوم (ص 94)، عندما تزداد n في المضلع المنتظم، مساحة المنطقة بين الدائرة والمضلع تقترب من:",
+        "options": {
+          "A": "مساحة الدائرة.",
+          "B": "الصفر.",
+          "C": "مساحة المضلع السداسي.",
+          "D": "مالانهاية."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الصفر.",
+        "difficulty": "hard",
+        "source": {
+          "page": 94,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لأن المضلع يقترب من شكل الدائرة تماماً، فيتلاشى الفرق بين مساحتيهما [19]."
+        },
+        "explanation": "لأن المضلع يقترب من شكل الدائرة تماماً، فيتلاشى الفرق بين مساحتيهما [19].",
+        "number": 29,
+        "id": "U03-L01-Q029"
+      },
+      {
+        "question": "إذا كانت قيمة f(c) غير معرفة ولكن النهاية موجودة، فإن المنحنى يحتوي على:",
+        "options": {
+          "A": "قفزة.",
+          "B": "خط تقارب.",
+          "C": "فجوة (دائرة مفتوحة).",
+          "D": "قمة."
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "فجوة (دائرة مفتوحة).",
+        "difficulty": "medium",
+        "source": {
+          "page": 99,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "هذا ما يظهره التمثيل البياني للحالة التي تكون فيها النهاية موجودة والاقتران غير معرف [20]."
+        },
+        "explanation": "هذا ما يظهره التمثيل البياني للحالة التي تكون فيها النهاية موجودة والاقتران غير معرف [20].",
+        "number": 30,
+        "id": "U03-L01-Q030"
+      },
+      {
+        "question": "أوجد قيمة lim [|x - 5| / (x - 5)] عندما x → 5-.",
+        "options": {
+          "A": "1",
+          "B": "-1",
+          "C": "0",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-1",
+        "difficulty": "hard",
+        "source": {
+          "page": 103,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "للقيم أقل من 5، يكون المطلق -(x-5)، وبالقسمة نجد -1 [13]."
+        },
+        "explanation": "للقيم أقل من 5، يكون المطلق -(x-5)، وبالقسمة نجد -1 [13].",
+        "number": 31,
+        "id": "U03-L01-Q031"
+      },
+      {
+        "question": "ما قيمة lim (2x + 5) عندما x → -7؟",
+        "options": {
+          "A": "-9",
+          "B": "-19",
+          "C": "9",
+          "D": "19"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-9",
+        "difficulty": "easy",
+        "source": {
+          "page": 419,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "2(-7) + 5 = -14 + 5 = -9."
+          ],
+          "summary": "تمرين 8 من كتاب التمارين [21]."
+        },
+        "explanation": "تمرين 8 من كتاب التمارين [21].",
+        "number": 32,
+        "id": "U03-L01-Q032"
+      },
+      {
+        "question": "ما قيمة lim (x + 3) / (x + 6) عندما x → 2؟",
+        "options": {
+          "A": "5/8",
+          "B": "1/2",
+          "C": "0",
+          "D": "غير معرف"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "5/8",
+        "difficulty": "easy",
+        "source": {
+          "page": 420,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "(2 + 3) / (2 + 6) = 5/8."
+          ],
+          "summary": "التعويض المباشر في اقتران نسبي مقامه لا يساوي صفراً [21]."
+        },
+        "explanation": "التعويض المباشر في اقتران نسبي مقامه لا يساوي صفراً [21].",
+        "number": 33,
+        "id": "U03-L01-Q033"
+      },
+      {
+        "question": "نهاية الاقتران المحايد f(x) = x عندما x تقترب من c هي:",
+        "options": {
+          "A": "x",
+          "B": "c",
+          "C": "0",
+          "D": "1"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "c",
+        "difficulty": "easy",
+        "source": {
+          "page": 99,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حسب القاعدة الأساسية لنهاية الاقتران المحايد [3]."
+        },
+        "explanation": "حسب القاعدة الأساسية لنهاية الاقتران المحايد [3].",
+        "number": 34,
+        "id": "U03-L01-Q034"
+      },
+      {
+        "question": "أوجد قيمة lim (2x - 2) / (1 - x) عندما x → 1.",
+        "options": {
+          "A": "2",
+          "B": "-2",
+          "C": "0",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-2",
+        "difficulty": "hard",
+        "source": {
+          "page": 420,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "2(x-1) / -(x-1) = -2."
+          ],
+          "summary": "بإخراج عامل مشترك وسالب من المقام للاختصار [21]."
+        },
+        "explanation": "بإخراج عامل مشترك وسالب من المقام للاختصار [21].",
+        "number": 35,
+        "id": "U03-L01-Q035"
+      },
+      {
+        "question": "ما قيمة lim ∛(2z - 8) عندما z → -4؟",
+        "options": {
+          "A": "0",
+          "B": "∛(-16)",
+          "C": "-2.5",
+          "D": "-2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "∛(-16)",
+        "difficulty": "medium",
+        "source": {
+          "page": 420,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "∛(2(-4) - 8) = ∛(-16)."
+          ],
+          "summary": "التعويض المباشر تحت الجذر التكعيبي [21]."
+        },
+        "explanation": "التعويض المباشر تحت الجذر التكعيبي [21].",
+        "number": 36,
+        "id": "U03-L01-Q036"
+      },
+      {
+        "question": "في مهارات التفكير العليا (ص 108)، ما قيمة الثابت a التي تجعل lim ( 1/(x-1) - a/(x^2-1) ) موجودة؟",
+        "options": {
+          "A": "1",
+          "B": "2",
+          "C": "-1",
+          "D": "0"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "2",
+        "difficulty": "hard",
+        "source": {
+          "page": 108,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بتوحيد المقامات وجعل البسط يساوي صفراً عند x=1 للتخلص من صفر المقام [22]."
+        },
+        "explanation": "بتوحيد المقامات وجعل البسط يساوي صفراً عند x=1 للتخلص من صفر المقام [22].",
+        "number": 37,
+        "id": "U03-L01-Q037"
+      },
+      {
+        "question": "افحص اتصال f(x) = { 2-x, x < 2 ; x-6, x ≥ 2 } عند x = 2.",
+        "options": {
+          "A": "متصل.",
+          "B": "غير متصل لأن النهاية غير موجودة.",
+          "C": "غير متصل لأن f(2) غير معرف.",
+          "D": "متصل لأن f(2) = 0."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "غير متصل لأن النهاية غير موجودة.",
+        "difficulty": "hard",
+        "source": {
+          "page": 420,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "نهاية اليسار = 2-2=0. نهاية اليمين = 2-6=-4. غير متساويتين."
+          ],
+          "summary": "فشل شرط وجود النهاية عند نقطة التشعب [21]."
+        },
+        "explanation": "فشل شرط وجود النهاية عند نقطة التشعب [21].",
+        "number": 38,
+        "id": "U03-L01-Q038"
+      },
+      {
+        "question": "أوجد قيمة lim (x^2 - 25) / (x - 5) عندما x → 5.",
+        "options": {
+          "A": "0",
+          "B": "5",
+          "C": "10",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "10",
+        "difficulty": "medium",
+        "source": {
+          "page": 419,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالتحليل (x-5)(x+5) والاختصار والتعويض: 5+5=10 [23]."
+        },
+        "explanation": "بالتحليل (x-5)(x+5) والاختصار والتعويض: 5+5=10 [23].",
+        "number": 39,
+        "id": "U03-L01-Q039"
+      },
+      {
+        "question": "ما قيمة lim (x^2 - x + 2) عندما x → -2؟",
+        "options": {
+          "A": "8",
+          "B": "4",
+          "C": "0",
+          "D": "-4"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "8",
+        "difficulty": "easy",
+        "source": {
+          "page": 419,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "(-2)^2 - (-2) + 2 = 4 + 2 + 2 = 8."
+          ],
+          "summary": "التعويض المباشر في كثير الحدود [23]."
+        },
+        "explanation": "التعويض المباشر في كثير الحدود [23].",
+        "number": 40,
+        "id": "U03-L01-Q040"
+      }
+    ]
+  }
+}

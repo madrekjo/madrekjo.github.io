@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "5.1",
+    "lesson_name": "نصوص (العمل والمهنة)",
+    "unit_number": 5,
+    "unit_name": "الوحدة الخامسة",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "كيف كانت نظرة الحضارات القديمة (كالفرعونية واليونانية) إلى العمل اليدوي؟",
+        "options": {
+          "A": "نظرة تقدير وإجلال",
+          "B": "نظرة دونية واحتقار",
+          "C": "نظرة مساوية للعمل الفكري",
+          "D": "لم تكن لها نظرة محددة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نظرة دونية واحتقار",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نظرة دونية واحتقار"
+        },
+        "explanation": "نظرة دونية واحتقار",
+        "number": 1,
+        "id": "U05-L01-Q001"
+      },
+      {
+        "question": "ما النظرة التي جاءت بها الحضارة الإسلامية تجاه العمل والعامل؟",
+        "options": {
+          "A": "نظرة دونية",
+          "B": "نظرة تمجيد وتشجيع وتقدير",
+          "C": "نظرة إهمال",
+          "D": "اقتصرت على العمل الفكري"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نظرة تمجيد وتشجيع وتقدير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نظرة تمجيد وتشجيع وتقدير"
+        },
+        "explanation": "نظرة تمجيد وتشجيع وتقدير",
+        "number": 2,
+        "id": "U05-L01-Q002"
+      },
+      {
+        "question": "من كان يشرف على تنظيم الشؤون العمرانية والمهنية في المدينة الإسلامية قديماً؟",
+        "options": {
+          "A": "الوالي",
+          "B": "القاضي",
+          "C": "شيخ الصنعة",
+          "D": "المحتسب"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "شيخ الصنعة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "شيخ الصنعة"
+        },
+        "explanation": "شيخ الصنعة",
+        "number": 3,
+        "id": "U05-L01-Q003"
+      },
+      {
+        "question": "ما المقصود بـ (التلمذة التقليدية) كما ورد في النص؟",
+        "options": {
+          "A": "الدراسة في الجامعات",
+          "B": "نقل الصنعة من المعلم إلى المتعلم في موقع العمل",
+          "C": "قراءة الكتب المهنية",
+          "D": "التدريب العسكري"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نقل الصنعة من المعلم إلى المتعلم في موقع العمل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نقل الصنعة من المعلم إلى المتعلم في موقع العمل"
+        },
+        "explanation": "نقل الصنعة من المعلم إلى المتعلم في موقع العمل",
+        "number": 4,
+        "id": "U05-L01-Q004"
+      },
+      {
+        "question": "ما السبب الذي أدى إلى تخلف الإنتاج في فترات لاحقة من التاريخ الإسلامي؟",
+        "options": {
+          "A": "كثرة الحروب",
+          "B": "تطور الآلات",
+          "C": "انصراف الناس عن العمل اليدوي وقلة احترام العامل",
+          "D": "زيادة الضرائب"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "انصراف الناس عن العمل اليدوي وقلة احترام العامل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "انصراف الناس عن العمل اليدوي وقلة احترام العامل"
+        },
+        "explanation": "انصراف الناس عن العمل اليدوي وقلة احترام العامل",
+        "number": 5,
+        "id": "U05-L01-Q005"
+      },
+      {
+        "question": "متى أصبحت فكرة (التلمذة) أبرز نظم الإعداد المهني في أوروبا؟",
+        "options": {
+          "A": "في العصور الوسطى",
+          "B": "مع الثورة الصناعية",
+          "C": "بعد الحرب العالمية الثانية",
+          "D": "في العصر الحديث جداً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مع الثورة الصناعية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مع الثورة الصناعية"
+        },
+        "explanation": "مع الثورة الصناعية",
+        "number": 6,
+        "id": "U05-L01-Q006"
+      },
+      {
+        "question": "بمَ ترتبط نظم التعليم المهني والتقني بشكل أساسي حسب النص؟",
+        "options": {
+          "A": "بالتطور الاقتصادي",
+          "B": "بالتطور الرياضي",
+          "C": "بعدد السكان فقط",
+          "D": "بالمناخ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "بالتطور الاقتصادي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالتطور الاقتصادي"
+        },
+        "explanation": "بالتطور الاقتصادي",
+        "number": 7,
+        "id": "U05-L01-Q007"
+      },
+      {
+        "question": "في الدول المتقدمة صناعياً، من الذي يتحمل تمويل وإدارة برامج التدريب؟",
+        "options": {
+          "A": "الحكومة وحدها",
+          "B": "قطاع الإنتاج (الشركات والمصانع)",
+          "C": "الجمعيات الخيرية",
+          "D": "الطلاب أنفسهم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "قطاع الإنتاج (الشركات والمصانع)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قطاع الإنتاج (الشركات والمصانع)"
+        },
+        "explanation": "قطاع الإنتاج (الشركات والمصانع)",
+        "number": 8,
+        "id": "U05-L01-Q008"
+      },
+      {
+        "question": "ما هو دور الحكومة تجاه التعليم المهني في المناطق الأقل نمواً؟",
+        "options": {
+          "A": "إغلاق المدارس المهنية",
+          "B": "التخلي عن التمويل",
+          "C": "تحمل العبء الأكبر من التمويل لضمان العدالة",
+          "D": "منع التدريب المهني"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "تحمل العبء الأكبر من التمويل لضمان العدالة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تحمل العبء الأكبر من التمويل لضمان العدالة"
+        },
+        "explanation": "تحمل العبء الأكبر من التمويل لضمان العدالة",
+        "number": 9,
+        "id": "U05-L01-Q009"
+      },
+      {
+        "question": "هل التعليم المهني والتقني ينشئ الوظائف بذاته؟",
+        "options": {
+          "A": "نعم، دائماً",
+          "B": "لا، بل يعتمد على الطلب الفعلي في سوق العمل والسياسات الاقتصادية",
+          "C": "نعم، في الدول العربية فقط",
+          "D": "لا، هو للترفيه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا، بل يعتمد على الطلب الفعلي في سوق العمل والسياسات الاقتصادية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا، بل يعتمد على الطلب الفعلي في سوق العمل والسياسات الاقتصادية"
+        },
+        "explanation": "لا، بل يعتمد على الطلب الفعلي في سوق العمل والسياسات الاقتصادية",
+        "number": 10,
+        "id": "U05-L01-Q010"
+      },
+      {
+        "question": "ما المقصود بكلمة (دونية) في عبارة 'نظرة دونية'؟",
+        "options": {
+          "A": "عالية",
+          "B": "انحطاط في القدر والقيمة",
+          "C": "متساوية",
+          "D": "مفاجئة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "انحطاط في القدر والقيمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "انحطاط في القدر والقيمة"
+        },
+        "explanation": "انحطاط في القدر والقيمة",
+        "number": 11,
+        "id": "U05-L01-Q011"
+      },
+      {
+        "question": "كلمة (مجّدت) تعني:",
+        "options": {
+          "A": "أهملت",
+          "B": "عظّمت وأثنت",
+          "C": "نسيت",
+          "D": "حاربت"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عظّمت وأثنت",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عظّمت وأثنت"
+        },
+        "explanation": "عظّمت وأثنت",
+        "number": 12,
+        "id": "U05-L01-Q012"
+      },
+      {
+        "question": "ما الاسم الذي أطلقه الأردن ودول عربية أخرى على الإعداد المهني في المرحلة الثانوية؟",
+        "options": {
+          "A": "التعليم التقني",
+          "B": "التعليم الثانوي المهني",
+          "C": "التعليم الفني",
+          "D": "الدبلوم المهني"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التعليم الثانوي المهني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التعليم الثانوي المهني"
+        },
+        "explanation": "التعليم الثانوي المهني",
+        "number": 13,
+        "id": "U05-L01-Q013"
+      },
+      {
+        "question": "ما الاسم الذي تطلقه (اليونسكو) و(إلكسو) على الإعداد المهني الذي يلي المرحلة الثانوية؟",
+        "options": {
+          "A": "التعليم المهني",
+          "B": "التعليم التقني",
+          "C": "التعليم الحرفي",
+          "D": "التعليم الأكاديمي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التعليم التقني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التعليم التقني"
+        },
+        "explanation": "التعليم التقني",
+        "number": 14,
+        "id": "U05-L01-Q014"
+      },
+      {
+        "question": "ما هو (المعهد) حسب تعريف النص؟",
+        "options": {
+          "A": "مدرسة ابتدائية",
+          "B": "المؤسسة التعليمية التي تخرج كوادر تقنية",
+          "C": "نادي رياضي",
+          "D": "مركز تجاري"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المؤسسة التعليمية التي تخرج كوادر تقنية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المؤسسة التعليمية التي تخرج كوادر تقنية"
+        },
+        "explanation": "المؤسسة التعليمية التي تخرج كوادر تقنية",
+        "number": 15,
+        "id": "U05-L01-Q015"
+      },
+      {
+        "question": "بمَ يوصف التعليم المهني من حيث علاقته بسوق العمل؟",
+        "options": {
+          "A": "منفصل تماماً",
+          "B": "الأكثر ارتباطاً بسوق العمل",
+          "C": "علاقة اختيارية",
+          "D": "علاقة ضعيفة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأكثر ارتباطاً بسوق العمل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأكثر ارتباطاً بسوق العمل"
+        },
+        "explanation": "الأكثر ارتباطاً بسوق العمل",
+        "number": 16,
+        "id": "U05-L01-Q016"
+      },
+      {
+        "question": "ما الفائدة الأساسية للتعليم التقني في محاربة الفقر؟",
+        "options": {
+          "A": "توزيع المال مجاناً",
+          "B": "إعطاء الأفراد مهارات تؤهلهم للكسب والإنتاج",
+          "C": "تشجيع الهجرة",
+          "D": "تقليل عدد العمال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إعطاء الأفراد مهارات تؤهلهم للكسب والإنتاج",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إعطاء الأفراد مهارات تؤهلهم للكسب والإنتاج"
+        },
+        "explanation": "إعطاء الأفراد مهارات تؤهلهم للكسب والإنتاج",
+        "number": 17,
+        "id": "U05-L01-Q017"
+      },
+      {
+        "question": "لماذا يظل التعليم المهني أحياناً مقتصرًا على الفئات التي لم يحالفها الحظ في التعليم العام؟",
+        "options": {
+          "A": "بسبب سهولته",
+          "B": "بسبب النظرة الاجتماعية الدونية له",
+          "C": "لأنه مجاني دائماً",
+          "D": "بسبب رغبة الطلاب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بسبب النظرة الاجتماعية الدونية له",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بسبب النظرة الاجتماعية الدونية له"
+        },
+        "explanation": "بسبب النظرة الاجتماعية الدونية له",
+        "number": 18,
+        "id": "U05-L01-Q018"
+      },
+      {
+        "question": "ما هو (النظام الثنائي) في التدريب المهني؟",
+        "options": {
+          "A": "دراسة لغتين",
+          "B": "قضاء جزء من التدريب في المدرسة والجزء الآخر في مواقع العمل",
+          "C": "التدريب ليلًا ونهارًا",
+          "D": "الدراسة في بلدين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "قضاء جزء من التدريب في المدرسة والجزء الآخر في مواقع العمل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قضاء جزء من التدريب في المدرسة والجزء الآخر في مواقع العمل"
+        },
+        "explanation": "قضاء جزء من التدريب في المدرسة والجزء الآخر في مواقع العمل",
+        "number": 19,
+        "id": "U05-L01-Q019"
+      },
+      {
+        "question": "بمَ شبه الكاتب التعليم التقني في نهاية النص؟",
+        "options": {
+          "A": "بأنه طريق مسدود",
+          "B": "بأنه بوابة المستقبل في عالم متغير",
+          "C": "بأنه خيار ثانوي",
+          "D": "بأنه حلم قديم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بأنه بوابة المستقبل في عالم متغير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بأنه بوابة المستقبل في عالم متغير"
+        },
+        "explanation": "بأنه بوابة المستقبل في عالم متغير",
+        "number": 20,
+        "id": "U05-L01-Q020"
+      },
+      {
+        "question": "معنى كلمة (إضفاء) في النص:",
+        "options": {
+          "A": "إزالة",
+          "B": "إكساب وزيادة",
+          "C": "تقليل",
+          "D": "إخفاء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إكساب وزيادة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إكساب وزيادة"
+        },
+        "explanation": "إكساب وزيادة",
+        "number": 21,
+        "id": "U05-L01-Q021"
+      },
+      {
+        "question": "ما هو ميزان التفاضل الذي ذكره النص ضمناً في الحضارة الإسلامية؟",
+        "options": {
+          "A": "النسب",
+          "B": "المال",
+          "C": "العمل والإنتاج والكسب الحلال",
+          "D": "القوة الجسدية"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "العمل والإنتاج والكسب الحلال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العمل والإنتاج والكسب الحلال"
+        },
+        "explanation": "العمل والإنتاج والكسب الحلال",
+        "number": 22,
+        "id": "U05-L01-Q022"
+      },
+      {
+        "question": "تعتبر (اليونسكو) أن التعليم المهني يشمل دراسة:",
+        "options": {
+          "A": "اللغات فقط",
+          "B": "العلوم الإنسانية فقط",
+          "C": "التكنولوجيات والعلوم المرتبطة بها والمهارات العملية",
+          "D": "التاريخ والآثار"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "التكنولوجيات والعلوم المرتبطة بها والمهارات العملية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التكنولوجيات والعلوم المرتبطة بها والمهارات العملية"
+        },
+        "explanation": "التكنولوجيات والعلوم المرتبطة بها والمهارات العملية",
+        "number": 23,
+        "id": "U05-L01-Q023"
+      },
+      {
+        "question": "ما المقصود بكلمة (مزاولة)؟",
+        "options": {
+          "A": "ترك",
+          "B": "ممارسة",
+          "C": "تجاهل",
+          "D": "تغيير"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ممارسة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ممارسة"
+        },
+        "explanation": "ممارسة",
+        "number": 24,
+        "id": "U05-L01-Q024"
+      },
+      {
+        "question": "أي من الخيارات الآتية يمثل (أحد آثار البطالة) المذكورة في التقرير؟",
+        "options": {
+          "A": "زيادة الدخل",
+          "B": "فقدان الأمن الاقتصادي",
+          "C": "تحسن الصحة النفسية",
+          "D": "تقليل الجرائم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فقدان الأمن الاقتصادي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فقدان الأمن الاقتصادي"
+        },
+        "explanation": "فقدان الأمن الاقتصادي",
+        "number": 25,
+        "id": "U05-L01-Q025"
+      },
+      {
+        "question": "ما معنى (تَعاضُد)؟",
+        "options": {
+          "A": "تنافس",
+          "B": "تكاتف وتعاون",
+          "C": "تراجع",
+          "D": "اختلاف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تكاتف وتعاون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تكاتف وتعاون"
+        },
+        "explanation": "تكاتف وتعاون",
+        "number": 26,
+        "id": "U05-L01-Q026"
+      },
+      {
+        "question": "في أي سنة تم توقيع اتفاقية التعليم المهني والتقني التي اعتمدتها اليونسكو؟",
+        "options": {
+          "A": "1901م",
+          "B": "1911م",
+          "C": "1989م",
+          "D": "2050م"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "1989م",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "1989م"
+        },
+        "explanation": "1989م",
+        "number": 27,
+        "id": "U05-L01-Q027"
+      },
+      {
+        "question": "من الفئات التي يسعى التعليم المهني لاستقطابها لتسهيل اندماجها؟",
+        "options": {
+          "A": "الفئات المهمشة أو التي تسعى لدخول سوق العمل سريعاً",
+          "B": "الأثرياء فقط",
+          "C": "من يرفضون العمل اليدوي",
+          "D": "المتقاعدين فقط"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الفئات المهمشة أو التي تسعى لدخول سوق العمل سريعاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الفئات المهمشة أو التي تسعى لدخول سوق العمل سريعاً"
+        },
+        "explanation": "الفئات المهمشة أو التي تسعى لدخول سوق العمل سريعاً",
+        "number": 28,
+        "id": "U05-L01-Q028"
+      },
+      {
+        "question": "تعتمد فاعلية نظم التعليم التقني على:",
+        "options": {
+          "A": "كثرة المباني",
+          "B": "إدارة الاقتصاد وتنشيط الاستثمار",
+          "C": "زيادة عدد الطلاب دون خطة",
+          "D": "إلغاء التخصصات العلمية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إدارة الاقتصاد وتنشيط الاستثمار",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إدارة الاقتصاد وتنشيط الاستثمار"
+        },
+        "explanation": "إدارة الاقتصاد وتنشيط الاستثمار",
+        "number": 29,
+        "id": "U05-L01-Q029"
+      },
+      {
+        "question": "كلمة (كوادر) هي جمع (كادر) وتعني:",
+        "options": {
+          "A": "أدوات معدنية",
+          "B": "طاقة بشرية تساعد على التنمية",
+          "C": "كتب مدرسية",
+          "D": "أراضي زراعية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "طاقة بشرية تساعد على التنمية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طاقة بشرية تساعد على التنمية"
+        },
+        "explanation": "طاقة بشرية تساعد على التنمية",
+        "number": 30,
+        "id": "U05-L01-Q030"
+      },
+      {
+        "question": "ما المقصود بـ (ميادين العمل)؟",
+        "options": {
+          "A": "الملاعب الرياضية",
+          "B": "مجالات العمل المختلفة",
+          "C": "الصحاري",
+          "D": "الحدائق العامة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مجالات العمل المختلفة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مجالات العمل المختلفة"
+        },
+        "explanation": "مجالات العمل المختلفة",
+        "number": 31,
+        "id": "U05-L01-Q031"
+      },
+      {
+        "question": "أي نظام تدريبي يكتفي بالتعليم داخل أسوار المدرسة فقط؟",
+        "options": {
+          "A": "التدريب الثنائي",
+          "B": "التدريب داخل المدرسة أو مراكز التدريب",
+          "C": "التلمذة الصناعية",
+          "D": "التدريب داخل العمل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التدريب داخل المدرسة أو مراكز التدريب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التدريب داخل المدرسة أو مراكز التدريب"
+        },
+        "explanation": "التدريب داخل المدرسة أو مراكز التدريب",
+        "number": 32,
+        "id": "U05-L01-Q032"
+      },
+      {
+        "question": "يعتبر التعليم المهني أداة لـ (المواطنة المسؤولة) لأنه:",
+        "options": {
+          "A": "يعلم الناس السياسة",
+          "B": "يؤهل الفرد لتحمل مسؤولية نفسه والمساهمة في بناء وطنه",
+          "C": "يعطيه هوية شخصية",
+          "D": "يسمح له بالسفر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يؤهل الفرد لتحمل مسؤولية نفسه والمساهمة في بناء وطنه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يؤهل الفرد لتحمل مسؤولية نفسه والمساهمة في بناء وطنه"
+        },
+        "explanation": "يؤهل الفرد لتحمل مسؤولية نفسه والمساهمة في بناء وطنه",
+        "number": 33,
+        "id": "U05-L01-Q033"
+      },
+      {
+        "question": "ما الجذر اللغوي لكلمة (باسقة)؟",
+        "options": {
+          "A": "سَبَقَ",
+          "B": "بَسَقَ",
+          "C": "قَبَسَ",
+          "D": "بَسَكَ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بَسَقَ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بَسَقَ"
+        },
+        "explanation": "بَسَقَ",
+        "number": 34,
+        "id": "U05-L01-Q034"
+      },
+      {
+        "question": "ما العاطفة البارزة في نص 'التعليم المهني'؟",
+        "options": {
+          "A": "عاطفة الحزن",
+          "B": "عاطفة الاعتزاز بالعمل والسعي نحو النهضة والتقدم",
+          "C": "عاطفة الغضب",
+          "D": "عاطفة التشاؤم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عاطفة الاعتزاز بالعمل والسعي نحو النهضة والتقدم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عاطفة الاعتزاز بالعمل والسعي نحو النهضة والتقدم"
+        },
+        "explanation": "عاطفة الاعتزاز بالعمل والسعي نحو النهضة والتقدم",
+        "number": 35,
+        "id": "U05-L01-Q035"
+      },
+      {
+        "question": "استخدام الأرقام والإحصائيات في نصوص الوحدة يهدف إلى:",
+        "options": {
+          "A": "التسلية",
+          "B": "إضفاء المصداقية والدقة العلمية",
+          "C": "تعقيد النص",
+          "D": "ملء الصفحات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إضفاء المصداقية والدقة العلمية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إضفاء المصداقية والدقة العلمية"
+        },
+        "explanation": "إضفاء المصداقية والدقة العلمية",
+        "number": 36,
+        "id": "U05-L01-Q036"
+      },
+      {
+        "question": "المقصود بكلمة (يَنعه) في سياق الثمر:",
+        "options": {
+          "A": "جفافه",
+          "B": "نضجه واستواؤه",
+          "C": "فساده",
+          "D": "صغره"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نضجه واستواؤه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نضجه واستواؤه"
+        },
+        "explanation": "نضجه واستواؤه",
+        "number": 37,
+        "id": "U05-L01-Q037"
+      },
+      {
+        "question": "ما معنى كلمة (المدارك) الواردة في سياق التعليم؟",
+        "options": {
+          "A": "الطرق",
+          "B": "القدرات العقلية والحسية",
+          "C": "المدارس",
+          "D": "المعلمين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "القدرات العقلية والحسية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القدرات العقلية والحسية"
+        },
+        "explanation": "القدرات العقلية والحسية",
+        "number": 38,
+        "id": "U05-L01-Q038"
+      },
+      {
+        "question": "يصنف هذا النص ضمن أنواع النصوص:",
+        "options": {
+          "A": "الشعرية",
+          "B": "المقالة المعرفية (العلمية/الاقتصادية)",
+          "C": "القصصية",
+          "D": "المسرحية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المقالة المعرفية (العلمية/الاقتصادية)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المقالة المعرفية (العلمية/الاقتصادية)"
+        },
+        "explanation": "المقالة المعرفية (العلمية/الاقتصادية)",
+        "number": 39,
+        "id": "U05-L01-Q039"
+      },
+      {
+        "question": "ما هو الحل المقترح لتغيير واقع التعليم المهني؟",
+        "options": {
+          "A": "إلغاؤه",
+          "B": "تكاتف وتعاضد الحكومات والمنظمات الدولية والمحلية لرفع قيمته",
+          "C": "زيادة عدد ساعات الدراسة النظري",
+          "D": "منع العمل اليدوي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تكاتف وتعاضد الحكومات والمنظمات الدولية والمحلية لرفع قيمته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تكاتف وتعاضد الحكومات والمنظمات الدولية والمحلية لرفع قيمته"
+        },
+        "explanation": "تكاتف وتعاضد الحكومات والمنظمات الدولية والمحلية لرفع قيمته",
+        "number": 40,
+        "id": "U05-L01-Q040"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1208 @@
+{
+  "lesson": {
+    "lesson_number": "4.review",
+    "lesson_name": "مراجعة الوحدة 4",
+    "unit_number": 4,
+    "unit_name": "الوحدة الرابعة",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما هي السلطة التي عُدّ الإعلام من أخطرها في المجتمع الحديث؟",
+        "options": {
+          "A": "السلطة التشريعية",
+          "B": "السلطة الرابعة",
+          "C": "السلطة التنفيذية",
+          "D": "السلطة القضائية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "السلطة الرابعة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السلطة الرابعة"
+        },
+        "explanation": "السلطة الرابعة",
+        "number": 1,
+        "id": "U04-L99-Q001"
+      },
+      {
+        "question": "من هو الشخص الذي وُصف في النص بـ 'المعلّم الأكبر' في عصر الإعلام؟",
+        "options": {
+          "A": "أرسطو",
+          "B": "والت ديزني",
+          "C": "جول فيرن",
+          "D": "فيليب غايار"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "والت ديزني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "والت ديزني"
+        },
+        "explanation": "والت ديزني",
+        "number": 2,
+        "id": "U04-L99-Q002"
+      },
+      {
+        "question": "ما المقصود بكلمة (جوهريّة) في عبارة 'تغيرات جوهريّة'؟",
+        "options": {
+          "A": "بسيطة",
+          "B": "أساسية في ذات الشيء",
+          "C": "مفاجئة",
+          "D": "ثانوية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أساسية في ذات الشيء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أساسية في ذات الشيء"
+        },
+        "explanation": "أساسية في ذات الشيء",
+        "number": 3,
+        "id": "U04-L99-Q003"
+      },
+      {
+        "question": "ما هو التعريف الدقيق للمفعول معه؟",
+        "options": {
+          "A": "اسم مرفوع بعد واو العطف",
+          "B": "اسم منصوب بعد واو بمعنى (مع) مسبوقة بجملة",
+          "C": "فعل مضارع مجزوم",
+          "D": "اسم مجرور"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اسم منصوب بعد واو بمعنى (مع) مسبوقة بجملة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم منصوب بعد واو بمعنى (مع) مسبوقة بجملة"
+        },
+        "explanation": "اسم منصوب بعد واو بمعنى (مع) مسبوقة بجملة",
+        "number": 4,
+        "id": "U04-L99-Q004"
+      },
+      {
+        "question": "ما هما شرطا 'الأمر الحقيقي'؟",
+        "options": {
+          "A": "الدعاء والرجاء",
+          "B": "الاستعلاء والإلزام",
+          "C": "النصح والتخيير",
+          "D": "التهديد والتعجيز"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الاستعلاء والإلزام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاستعلاء والإلزام"
+        },
+        "explanation": "الاستعلاء والإلزام",
+        "number": 5,
+        "id": "U04-L99-Q005"
+      },
+      {
+        "question": "لماذا يُعد الإعلام وسيلة مثلى لتعليم اللغة حسب النص؟",
+        "options": {
+          "A": "لأنه رخيص",
+          "B": "لأن الإنسان يقضي معه ساعات أكثر من الدراسة",
+          "C": "لأنه يستخدم الصور",
+          "D": "لأنه لا يحتاج مجهوداً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لأن الإنسان يقضي معه ساعات أكثر من الدراسة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لأن الإنسان يقضي معه ساعات أكثر من الدراسة"
+        },
+        "explanation": "لأن الإنسان يقضي معه ساعات أكثر من الدراسة",
+        "number": 6,
+        "id": "U04-L99-Q006"
+      },
+      {
+        "question": "ما هو اللقب الذي يُطلق على الإعلامي لرصده الأحداث فور وقوعها؟",
+        "options": {
+          "A": "صانع الحقيقة",
+          "B": "مؤرخ اللحظة",
+          "C": "ناقل الخبر",
+          "D": "كاتب المستقبل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مؤرخ اللحظة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مؤرخ اللحظة"
+        },
+        "explanation": "مؤرخ اللحظة",
+        "number": 7,
+        "id": "U04-L99-Q007"
+      },
+      {
+        "question": "ما نوع الواو في جملة (يسهرُ السَّمارُ وضوءَ القمرِ)؟",
+        "options": {
+          "A": "واو العطف",
+          "B": "واو المعيّة",
+          "C": "واو الحال",
+          "D": "واو القسم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "واو المعيّة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "واو المعيّة"
+        },
+        "explanation": "واو المعيّة",
+        "number": 8,
+        "id": "U04-L99-Q008"
+      },
+      {
+        "question": "ما صيغة الأمر في قوله تعالى: (وَأَقِيمُوا الصَّلَاةَ)؟",
+        "options": {
+          "A": "فعل الأمر",
+          "B": "اسم فعل الأمر",
+          "C": "المصدر النائب",
+          "D": "المضارع بلام الأمر"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "فعل الأمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فعل الأمر"
+        },
+        "explanation": "فعل الأمر",
+        "number": 9,
+        "id": "U04-L99-Q009"
+      },
+      {
+        "question": "ما هو 'حصان طروادة' الذي يمكن أن يقوم به الإعلام تجاه العربية؟",
+        "options": {
+          "A": "الحرب على اللغة",
+          "B": "تقديم العربية في لبوس جميل قريب للفئات",
+          "C": "خداع المستمعين",
+          "D": "إلغاء القواعد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تقديم العربية في لبوس جميل قريب للفئات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تقديم العربية في لبوس جميل قريب للفئات"
+        },
+        "explanation": "تقديم العربية في لبوس جميل قريب للفئات",
+        "number": 10,
+        "id": "U04-L99-Q010"
+      },
+      {
+        "question": "تتعين الواو للعطف إذا كان الفعل لا يقع إلا من متعدد مثل:",
+        "options": {
+          "A": "نام",
+          "B": "تشارك",
+          "C": "كتب",
+          "D": "ذهب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تشارك",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تشارك"
+        },
+        "explanation": "تشارك",
+        "number": 11,
+        "id": "U04-L99-Q011"
+      },
+      {
+        "question": "ما المعنى البلاغي للأمر في (رَبَّنَا اغْفِرْ لَنَا)؟",
+        "options": {
+          "A": "التهديد",
+          "B": "الدعاء",
+          "C": "التخيير",
+          "D": "التعجيز"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الدعاء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدعاء"
+        },
+        "explanation": "الدعاء",
+        "number": 12,
+        "id": "U04-L99-Q012"
+      },
+      {
+        "question": "ما معنى كلمة (هيهات) الواردة في النص؟",
+        "options": {
+          "A": "قرب",
+          "B": "أسرع",
+          "C": "بَعُدَ",
+          "D": "توقف"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "بَعُدَ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بَعُدَ"
+        },
+        "explanation": "بَعُدَ",
+        "number": 13,
+        "id": "U04-L99-Q013"
+      },
+      {
+        "question": "ما هي أبرز مظاهر الضعف اللغوي في الإعلام حالياً؟",
+        "options": {
+          "A": "السرعة",
+          "B": "مزاحمة اللهجات العامية للفصحى",
+          "C": "كثرة القنوات",
+          "D": "طول البرامج"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مزاحمة اللهجات العامية للفصحى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مزاحمة اللهجات العامية للفصحى"
+        },
+        "explanation": "مزاحمة اللهجات العامية للفصحى",
+        "number": 14,
+        "id": "U04-L99-Q014"
+      },
+      {
+        "question": "ما إعراب (سعيداً) في جملة (عُدْ وسعيداً)؟",
+        "options": {
+          "A": "مفعول به",
+          "B": "مفعول معه منصوب",
+          "C": "حال",
+          "D": "نعت"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مفعول معه منصوب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مفعول معه منصوب"
+        },
+        "explanation": "مفعول معه منصوب",
+        "number": 15,
+        "id": "U04-L99-Q015"
+      },
+      {
+        "question": "ما المعنى البلاغي للأمر في (عِشْ واحداً أو صِلْ أخاكَ)؟",
+        "options": {
+          "A": "الدعاء",
+          "B": "التخيير",
+          "C": "التهديد",
+          "D": "النصح"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التخيير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التخيير"
+        },
+        "explanation": "التخيير",
+        "number": 16,
+        "id": "U04-L99-Q016"
+      },
+      {
+        "question": "ما دور (المحاكاة) في تعلم اللغة حسب خبراء اللسانيات؟",
+        "options": {
+          "A": "تضعف اللغة",
+          "B": "تؤدي عملها في تطويع اللغة وتملكها",
+          "C": "لا تأثير لها",
+          "D": "تزيد التعقيد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تؤدي عملها في تطويع اللغة وتملكها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تؤدي عملها في تطويع اللغة وتملكها"
+        },
+        "explanation": "تؤدي عملها في تطويع اللغة وتملكها",
+        "number": 17,
+        "id": "U04-L99-Q017"
+      },
+      {
+        "question": "يشترط في المفعول معه أن يسبقه:",
+        "options": {
+          "A": "كلمة واحدة",
+          "B": "حرف جر",
+          "C": "جملة تامة (فعلية أو اسمية فيها معنى الفعل)",
+          "D": "أداة نداء"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "جملة تامة (فعلية أو اسمية فيها معنى الفعل)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جملة تامة (فعلية أو اسمية فيها معنى الفعل)"
+        },
+        "explanation": "جملة تامة (فعلية أو اسمية فيها معنى الفعل)",
+        "number": 18,
+        "id": "U04-L99-Q018"
+      },
+      {
+        "question": "صيغة الأمر في (لِنتَّقِ اللهَ) هي:",
+        "options": {
+          "A": "فعل أمر",
+          "B": "المضارع المقترن بلام الأمر",
+          "C": "اسم فعل أمر",
+          "D": "مصدر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المضارع المقترن بلام الأمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المضارع المقترن بلام الأمر"
+        },
+        "explanation": "المضارع المقترن بلام الأمر",
+        "number": 19,
+        "id": "U04-L99-Q019"
+      },
+      {
+        "question": "لماذا اختار (جول فيرن) اللغة العربية في قصته الخيالية؟",
+        "options": {
+          "A": "لأنها قديمة",
+          "B": "لأنها لغة المستقبل",
+          "C": "لأنها سهلة النطق",
+          "D": "لأنها لغة العلم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لأنها لغة المستقبل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لأنها لغة المستقبل"
+        },
+        "explanation": "لأنها لغة المستقبل",
+        "number": 20,
+        "id": "U04-L99-Q020"
+      },
+      {
+        "question": "في جملة (كلُّ صانعٍ وما صنَع)، الواو هنا للعطف لأنها:",
+        "options": {
+          "A": "بمعنى مع",
+          "B": "وقعت قبل تمام عناصر الجملة (الخبر محذوف)",
+          "C": "نصبت ما بعدها",
+          "D": "جاءت في بداية الكلام"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "وقعت قبل تمام عناصر الجملة (الخبر محذوف)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وقعت قبل تمام عناصر الجملة (الخبر محذوف)"
+        },
+        "explanation": "وقعت قبل تمام عناصر الجملة (الخبر محذوف)",
+        "number": 21,
+        "id": "U04-L99-Q021"
+      },
+      {
+        "question": "ما المعنى البلاغي للأمر الموجه لغير العاقل مثل (يا موتُ زُرْ)؟",
+        "options": {
+          "A": "الدعاء",
+          "B": "التمني",
+          "C": "التهديد",
+          "D": "التعجيز"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التمني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التمني"
+        },
+        "explanation": "التمني",
+        "number": 22,
+        "id": "U04-L99-Q022"
+      },
+      {
+        "question": "ما معنى (لَبوس) في عبارة 'لَبوسها الجميل'؟",
+        "options": {
+          "A": "طعامها",
+          "B": "لباسها أو ما يلائمها",
+          "C": "اسمها",
+          "D": "صوتها"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لباسها أو ما يلائمها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لباسها أو ما يلائمها"
+        },
+        "explanation": "لباسها أو ما يلائمها",
+        "number": 23,
+        "id": "U04-L99-Q023"
+      },
+      {
+        "question": "ما نوع الواو في (ذهبتُ إلى المدرسةِ وشروقَ الشمسِ)؟",
+        "options": {
+          "A": "واو العطف",
+          "B": "واو المعيّة",
+          "C": "واو الاستئناف",
+          "D": "واو القسم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "واو المعيّة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "واو المعيّة"
+        },
+        "explanation": "واو المعيّة",
+        "number": 24,
+        "id": "U04-L99-Q024"
+      },
+      {
+        "question": "ما المعنى البلاغي في (افعلْ ما تشاءُ وسوفَ تر￯)؟",
+        "options": {
+          "A": "النصح",
+          "B": "التهديد",
+          "C": "التخيير",
+          "D": "الدعاء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التهديد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التهديد"
+        },
+        "explanation": "التهديد",
+        "number": 25,
+        "id": "U04-L99-Q025"
+      },
+      {
+        "question": "المقصود بـ 'شيخ الصنعة' في المدينة قديماً هو:",
+        "options": {
+          "A": "الرجل المسن",
+          "B": "من ينظم الشؤون العمرانية والمهنية",
+          "C": "الحاكم",
+          "D": "بائع الأدوات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "من ينظم الشؤون العمرانية والمهنية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "من ينظم الشؤون العمرانية والمهنية"
+        },
+        "explanation": "من ينظم الشؤون العمرانية والمهنية",
+        "number": 26,
+        "id": "U04-L99-Q026"
+      },
+      {
+        "question": "المفعول معه يكون دائماً حكمه الإعرابي:",
+        "options": {
+          "A": "الرفع",
+          "B": "الجر",
+          "C": "النصب",
+          "D": "الجزم"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "النصب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النصب"
+        },
+        "explanation": "النصب",
+        "number": 27,
+        "id": "U04-L99-Q027"
+      },
+      {
+        "question": "كلمة (صَهْ) تعتبر صيغة أمر نوعها:",
+        "options": {
+          "A": "فعل أمر",
+          "B": "اسم فعل أمر",
+          "C": "مصدر",
+          "D": "مضارع"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اسم فعل أمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم فعل أمر"
+        },
+        "explanation": "اسم فعل أمر",
+        "number": 28,
+        "id": "U04-L99-Q028"
+      },
+      {
+        "question": "كلمة (دِعامات) تعني:",
+        "options": {
+          "A": "زينة",
+          "B": "عماد الشيء وركيزته",
+          "C": "أطراف",
+          "D": "أدوات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عماد الشيء وركيزته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عماد الشيء وركيزته"
+        },
+        "explanation": "عماد الشيء وركيزته",
+        "number": 29,
+        "id": "U04-L99-Q029"
+      },
+      {
+        "question": "في جملة (كيف أنتَ وقضايا الأمة؟)، المفعول معه هو:",
+        "options": {
+          "A": "أنت",
+          "B": "كيف",
+          "C": "قضايا",
+          "D": "الأمة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "قضايا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قضايا"
+        },
+        "explanation": "قضايا",
+        "number": 30,
+        "id": "U04-L99-Q030"
+      },
+      {
+        "question": "ما المعنى البلاغي في (احترمْ معلميكَ) الموجه من أب لابنه؟",
+        "options": {
+          "A": "الدعاء",
+          "B": "النصح والإرشاد",
+          "C": "التهديد",
+          "D": "التعجيز"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "النصح والإرشاد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النصح والإرشاد"
+        },
+        "explanation": "النصح والإرشاد",
+        "number": 31,
+        "id": "U04-L99-Q031"
+      },
+      {
+        "question": "ما هو العامل الأساسي لثورة الإعلام والاتصال؟",
+        "options": {
+          "A": "زيادة السكان",
+          "B": "التقدم في التكنولوجيا والعولمة",
+          "C": "الحروب",
+          "D": "اكتشاف النفط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التقدم في التكنولوجيا والعولمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التقدم في التكنولوجيا والعولمة"
+        },
+        "explanation": "التقدم في التكنولوجيا والعولمة",
+        "number": 32,
+        "id": "U04-L99-Q032"
+      },
+      {
+        "question": "تكون الواو للعطف أرجح (من المعية) إذا:",
+        "options": {
+          "A": "فسد المعنى بالعطف",
+          "B": "أمكنت المشاركة ولم يفسد المعنى",
+          "C": "كان الفعل للمفرد",
+          "D": "سبقها حرف جر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أمكنت المشاركة ولم يفسد المعنى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أمكنت المشاركة ولم يفسد المعنى"
+        },
+        "explanation": "أمكنت المشاركة ولم يفسد المعنى",
+        "number": 33,
+        "id": "U04-L99-Q033"
+      },
+      {
+        "question": "صيغة (صَبْراً) في (صَبْراً آلَ ياسرٍ) هي:",
+        "options": {
+          "A": "فعل أمر",
+          "B": "اسم فعل أمر",
+          "C": "المصدر النائب عن فعل الأمر",
+          "D": "مضارع"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "المصدر النائب عن فعل الأمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المصدر النائب عن فعل الأمر"
+        },
+        "explanation": "المصدر النائب عن فعل الأمر",
+        "number": 34,
+        "id": "U04-L99-Q034"
+      },
+      {
+        "question": "ما دلالة عبارة (تخترق كل الحواجز والحُجُب)؟",
+        "options": {
+          "A": "القوة العسكرية",
+          "B": "القدرة على الوصول للناس وتجاوز الموانع",
+          "C": "الاختراق التقني",
+          "D": "تحطيم الجدران"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "القدرة على الوصول للناس وتجاوز الموانع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القدرة على الوصول للناس وتجاوز الموانع"
+        },
+        "explanation": "القدرة على الوصول للناس وتجاوز الموانع",
+        "number": 35,
+        "id": "U04-L99-Q035"
+      },
+      {
+        "question": "في جملة (خرجَ هشامٌ وسامرٌ بَعدَه)، الواو للعطف بسبب كلمة:",
+        "options": {
+          "A": "خرج",
+          "B": "هشام",
+          "C": "بعده",
+          "D": "سامر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "بعده",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بعده"
+        },
+        "explanation": "بعده",
+        "number": 36,
+        "id": "U04-L99-Q036"
+      },
+      {
+        "question": "الأمر الحقيقي يستدعي مطلوباً:",
+        "options": {
+          "A": "حاصلاً وقت الطلب",
+          "B": "غير حاصل وقت الطلب",
+          "C": "مستحيلاً",
+          "D": "في الماضي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "غير حاصل وقت الطلب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "غير حاصل وقت الطلب"
+        },
+        "explanation": "غير حاصل وقت الطلب",
+        "number": 37,
+        "id": "U04-L99-Q037"
+      },
+      {
+        "question": "ما الفن البديعي في (وفاق وصراع)؟",
+        "options": {
+          "A": "سجع",
+          "B": "طباق",
+          "C": "جناس",
+          "D": "مقابلة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "طباق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طباق"
+        },
+        "explanation": "طباق",
+        "number": 38,
+        "id": "U04-L99-Q038"
+      },
+      {
+        "question": "المفعول معه لا يشارك الفاعل في القيام بالفعل.",
+        "options": {
+          "A": "صح",
+          "B": "خطأ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "صح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صح"
+        },
+        "explanation": "صح",
+        "number": 39,
+        "id": "U04-L99-Q039"
+      },
+      {
+        "question": "أي من الأفعال الآتية يعتبر فعل أمر مبنياً على حذف حرف العلة؟",
+        "options": {
+          "A": "أقمْ",
+          "B": "ادعُ",
+          "C": "شاركْ",
+          "D": "تكلمْ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ادعُ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ادعُ"
+        },
+        "explanation": "ادعُ",
+        "number": 40,
+        "id": "U04-L99-Q040"
+      },
+      {
+        "question": "ما هو الأثر النوعي للغة الإعلام على العربية؟",
+        "options": {
+          "A": "إضعافها",
+          "B": "إضافة تعبيرات جديدة وتوسيع الاستعمال",
+          "C": "حصرها في الشعر",
+          "D": "تحويلها للعامية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إضافة تعبيرات جديدة وتوسيع الاستعمال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إضافة تعبيرات جديدة وتوسيع الاستعمال"
+        },
+        "explanation": "إضافة تعبيرات جديدة وتوسيع الاستعمال",
+        "number": 41,
+        "id": "U04-L99-Q041"
+      },
+      {
+        "question": "ما إعراب (ضوء) في (يسهر السمار وضوءَ القمر)؟",
+        "options": {
+          "A": "مفعول به",
+          "B": "مفعول معه منصوب",
+          "C": "اسم معطوف",
+          "D": "مضاف إليه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مفعول معه منصوب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مفعول معه منصوب"
+        },
+        "explanation": "مفعول معه منصوب",
+        "number": 42,
+        "id": "U04-L99-Q042"
+      },
+      {
+        "question": "المعنى البلاغي في (يا نسيمَ الصبا بَلِّغْ تحيتنا) هو:",
+        "options": {
+          "A": "الدعاء",
+          "B": "التمني",
+          "C": "التهديد",
+          "D": "النصح"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التمني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التمني"
+        },
+        "explanation": "التمني",
+        "number": 43,
+        "id": "U04-L99-Q043"
+      },
+      {
+        "question": "مشروع النهوض باللغة العربية في الإعلام يهدف إلى:",
+        "options": {
+          "A": "تعقيد اللغة",
+          "B": "استعادة هيبة الفصحى وتوظيفها معاصراً",
+          "C": "منع اللغات الأجنبية",
+          "D": "زيادة المذيعين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "استعادة هيبة الفصحى وتوظيفها معاصراً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "استعادة هيبة الفصحى وتوظيفها معاصراً"
+        },
+        "explanation": "استعادة هيبة الفصحى وتوظيفها معاصراً",
+        "number": 44,
+        "id": "U04-L99-Q044"
+      },
+      {
+        "question": "في جملة (تذاكرَ أحمدُ وعيسى)، الواو للعطف لأن الفعل (تذاكر):",
+        "options": {
+          "A": "لا يحتاج مفعول به",
+          "B": "يستلزم المشاركة بين طرفين",
+          "C": "بمعنى (مع)",
+          "D": "فعل ماضٍ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يستلزم المشاركة بين طرفين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يستلزم المشاركة بين طرفين"
+        },
+        "explanation": "يستلزم المشاركة بين طرفين",
+        "number": 45,
+        "id": "U04-L99-Q045"
+      },
+      {
+        "question": "صيغة (قِياماً) في (قِياماً للطالب) تعني (قُوموا قِياماً)، وهي:",
+        "options": {
+          "A": "اسم فعل أمر",
+          "B": "المصدر النائب عن فعل الأمر",
+          "C": "فعل مضارع",
+          "D": "اسم فاعل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المصدر النائب عن فعل الأمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المصدر النائب عن فعل الأمر"
+        },
+        "explanation": "المصدر النائب عن فعل الأمر",
+        "number": 46,
+        "id": "U04-L99-Q046"
+      },
+      {
+        "question": "سلامة اللغة في العمل الإعلامي حسب (فيليب غايار):",
+        "options": {
+          "A": "اختيارية",
+          "B": "ثانوية",
+          "C": "مطلب غير قابل للنقاش",
+          "D": "صعبة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "مطلب غير قابل للنقاش",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مطلب غير قابل للنقاش"
+        },
+        "explanation": "مطلب غير قابل للنقاش",
+        "number": 47,
+        "id": "U04-L99-Q047"
+      },
+      {
+        "question": "الواو في (كلُّ فتاةٍ وخُلقُها) هي واو:",
+        "options": {
+          "A": "المعية",
+          "B": "العطف",
+          "C": "الحال",
+          "D": "القسم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العطف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العطف"
+        },
+        "explanation": "العطف",
+        "number": 48,
+        "id": "U04-L99-Q048"
+      },
+      {
+        "question": "لام الأمر تجزم الفعل المضارع وتعطي معنى الأمر.",
+        "options": {
+          "A": "صح",
+          "B": "خطأ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "صح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صح"
+        },
+        "explanation": "صح",
+        "number": 49,
+        "id": "U04-L99-Q049"
+      },
+      {
+        "question": "بمَ تمتاز اللغة العربية كما ورد في خاتمة النص؟",
+        "options": {
+          "A": "الجمود",
+          "B": "المرونة العظيمة وغزارة المفردات",
+          "C": "قلة المرادفات",
+          "D": "صعوبة التعبير"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المرونة العظيمة وغزارة المفردات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المرونة العظيمة وغزارة المفردات"
+        },
+        "explanation": "المرونة العظيمة وغزارة المفردات",
+        "number": 50,
+        "id": "U04-L99-Q050"
+      }
+    ]
+  }
+}

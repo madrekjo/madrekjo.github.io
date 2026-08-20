@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "3.1",
+    "lesson_name": "نصوص (مرض آلزهايمر)",
+    "unit_number": 3,
+    "unit_name": "الوحدة الثالثة",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "من هو الطبيب الذي شخّص الحالة الأولى لمرض آلزهايمر عام 1901م؟",
+        "options": {
+          "A": "جورج مينوت",
+          "B": "أغست ديتير",
+          "C": "ألويس آلزهايمر",
+          "D": "فيليب غايار"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "ألويس آلزهايمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ألويس آلزهايمر"
+        },
+        "explanation": "ألويس آلزهايمر",
+        "number": 1,
+        "id": "U03-L01-Q001"
+      },
+      {
+        "question": "ما اسم السيدة التي كانت الحالة الفريدة التي درسها الطبيب آلزهايمر؟",
+        "options": {
+          "A": "أغست ديتير",
+          "B": "مارثا ستيوارت",
+          "C": "دوروثي كوهين",
+          "D": "مرسيدس سولير"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أغست ديتير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أغست ديتير"
+        },
+        "explanation": "أغست ديتير",
+        "number": 2,
+        "id": "U03-L01-Q002"
+      },
+      {
+        "question": "ماذا أظهر تشريح دماغ المريضة بعد وفاتها عام 1906م؟",
+        "options": {
+          "A": "تضخماً في الفص الجبهي",
+          "B": "تضاؤلاً في قشرة الدماغ وعقداً وتجمعات دهنية",
+          "C": "نزيفاً داخلياً حاداً",
+          "D": "نمواً غير طبيعي في الخلايا"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تضاؤلاً في قشرة الدماغ وعقداً وتجمعات دهنية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تضاؤلاً في قشرة الدماغ وعقداً وتجمعات دهنية"
+        },
+        "explanation": "تضاؤلاً في قشرة الدماغ وعقداً وتجمعات دهنية",
+        "number": 3,
+        "id": "U03-L01-Q003"
+      },
+      {
+        "question": "في أي عام بدأ استخدام اسم (آلزهايمر) لتشخيص الحالات المشابهة؟",
+        "options": {
+          "A": "1901م",
+          "B": "1906م",
+          "C": "1911م",
+          "D": "1989م"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "1911م",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "1911م"
+        },
+        "explanation": "1911م",
+        "number": 4,
+        "id": "U03-L01-Q004"
+      },
+      {
+        "question": "يُعرف مرض آلزهايمر بأنه نوع من أنواع:",
+        "options": {
+          "A": "الكسل",
+          "B": "الخرف",
+          "C": "الصداع النصفي",
+          "D": "الاكتئاب العابر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الخرف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الخرف"
+        },
+        "explanation": "الخرف",
+        "number": 5,
+        "id": "U03-L01-Q005"
+      },
+      {
+        "question": "ما هي الفئة العمرية التي يزداد فيها احتمال الإصابة بمرض آلزهايمر؟",
+        "options": {
+          "A": "تحت سن العشرين",
+          "B": "فوق سن الخامسة والستين",
+          "C": "بين الثلاثين والأربعين",
+          "D": "الأطفال حديثو الولادة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فوق سن الخامسة والستين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فوق سن الخامسة والستين"
+        },
+        "explanation": "فوق سن الخامسة والستين",
+        "number": 6,
+        "id": "U03-L01-Q006"
+      },
+      {
+        "question": "توقع النص أن يصل عدد المصابين بآلزهايمر عام 2050م إلى حوالي:",
+        "options": {
+          "A": "10 ملايين",
+          "B": "50 مليوناً",
+          "C": "85 مليوناً",
+          "D": "100 مليون"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "85 مليوناً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "85 مليوناً"
+        },
+        "explanation": "85 مليوناً",
+        "number": 7,
+        "id": "U03-L01-Q007"
+      },
+      {
+        "question": "تبلغ نسبة الإصابة بآلزهايمر عند الإناث حوالي:",
+        "options": {
+          "A": "5%",
+          "B": "10%",
+          "C": "15%",
+          "D": "25%"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "15%",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "15%"
+        },
+        "explanation": "15%",
+        "number": 8,
+        "id": "U03-L01-Q008"
+      },
+      {
+        "question": "ما هو العرض الذي يُعد من أهم علامات المرض ويُعطّل ممارسة الأنشطة اليومية؟",
+        "options": {
+          "A": "فقدان الذاكرة خاصة الحديثة منها",
+          "B": "الصداع المستمر",
+          "C": "ضعف النظر",
+          "D": "آلام المفاصل"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "فقدان الذاكرة خاصة الحديثة منها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فقدان الذاكرة خاصة الحديثة منها"
+        },
+        "explanation": "فقدان الذاكرة خاصة الحديثة منها",
+        "number": 9,
+        "id": "U03-L01-Q009"
+      },
+      {
+        "question": "كلمة (تفاقم) الواردة في النص تعني:",
+        "options": {
+          "A": "انخفضت حدته",
+          "B": "تزايدت بشدة واستفحلت",
+          "C": "تلاشت تماماً",
+          "D": "استقرت الحالة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تزايدت بشدة واستفحلت",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تزايدت بشدة واستفحلت"
+        },
+        "explanation": "تزايدت بشدة واستفحلت",
+        "number": 10,
+        "id": "U03-L01-Q010"
+      },
+      {
+        "question": "ما المقصود بكلمة (هذيان)؟",
+        "options": {
+          "A": "نوم عميق",
+          "B": "اضطراب عقلي مؤقت يتميز باختالط الوعي",
+          "C": "ذكاء حاد",
+          "D": "صمت طويل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اضطراب عقلي مؤقت يتميز باختالط الوعي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اضطراب عقلي مؤقت يتميز باختالط الوعي"
+        },
+        "explanation": "اضطراب عقلي مؤقت يتميز باختالط الوعي",
+        "number": 11,
+        "id": "U03-L01-Q011"
+      },
+      {
+        "question": "تعتبر صعوبة التنظيم والتخطيط والتعامل مع الأرقام من أعراض:",
+        "options": {
+          "A": "المرحلة المبكرة",
+          "B": "المرض في مراحل متقدمة",
+          "C": "الوقاية من المرض",
+          "D": "مرحلة الطفولة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المرض في مراحل متقدمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المرض في مراحل متقدمة"
+        },
+        "explanation": "المرض في مراحل متقدمة",
+        "number": 12,
+        "id": "U03-L01-Q012"
+      },
+      {
+        "question": "بمَ يشعر المريض عند فقدان الإحساس بالوقت والمكان؟",
+        "options": {
+          "A": "بالسعادة",
+          "B": "بالثقة",
+          "C": "بالضياع في أماكن ألفها سابقاً",
+          "D": "بالرغبة في السفر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "بالضياع في أماكن ألفها سابقاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالضياع في أماكن ألفها سابقاً"
+        },
+        "explanation": "بالضياع في أماكن ألفها سابقاً",
+        "number": 13,
+        "id": "U03-L01-Q013"
+      },
+      {
+        "question": "من مظاهر تدهور القدرة على التعبير عند المصاب بالمرض:",
+        "options": {
+          "A": "القدرة على الحفظ",
+          "B": "تكرار الكلمات والتوقف المفاجئ في الحوار",
+          "C": "تحدث لغات جديدة",
+          "D": "تحسن الخط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تكرار الكلمات والتوقف المفاجئ في الحوار",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تكرار الكلمات والتوقف المفاجئ في الحوار"
+        },
+        "explanation": "تكرار الكلمات والتوقف المفاجئ في الحوار",
+        "number": 14,
+        "id": "U03-L01-Q014"
+      },
+      {
+        "question": "ما دلالة انسحاب المريض من النشاطات الاجتماعية وهجر الأصدقاء؟",
+        "options": {
+          "A": "الرغبة في النوم",
+          "B": "تقلب المزاج والشعور بالخوف أو الكآبة",
+          "C": "التفرغ للعمل",
+          "D": "السفر الدائم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تقلب المزاج والشعور بالخوف أو الكآبة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تقلب المزاج والشعور بالخوف أو الكآبة"
+        },
+        "explanation": "تقلب المزاج والشعور بالخوف أو الكآبة",
+        "number": 15,
+        "id": "U03-L01-Q015"
+      },
+      {
+        "question": "كم تبلغ متوسط سنوات حياة المريض بعد التشخيص غالباً؟",
+        "options": {
+          "A": "سنة واحدة",
+          "B": "سبع سنوات",
+          "C": "ثلاثون سنة",
+          "D": "خمسون سنة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "سبع سنوات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "سبع سنوات"
+        },
+        "explanation": "سبع سنوات",
+        "number": 16,
+        "id": "U03-L01-Q016"
+      },
+      {
+        "question": "ما هي المرحلة التي تسبق التشخيص وتتضمن صعوبات ذهنية طفيفة؟",
+        "options": {
+          "A": "مرحلة الخرف المتوسط",
+          "B": "مرحلة الخرف المتقدم",
+          "C": "رحلة ما قبل الخرف",
+          "D": "مرحلة الوفاة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "رحلة ما قبل الخرف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رحلة ما قبل الخرف"
+        },
+        "explanation": "رحلة ما قبل الخرف",
+        "number": 17,
+        "id": "U03-L01-Q017"
+      },
+      {
+        "question": "في أي مرحلة يفقد المريض القدرة على التعرف على الأقارب والأصدقاء؟",
+        "options": {
+          "A": "ما قبل الخرف",
+          "B": "الخرف الأولي",
+          "C": "الخرف المتوسط",
+          "D": "الطفولة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الخرف المتوسط",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الخرف المتوسط"
+        },
+        "explanation": "الخرف المتوسط",
+        "number": 18,
+        "id": "U03-L01-Q018"
+      },
+      {
+        "question": "بمَ يموت مريض آلزهايمر في المرحلة المتقدمة غالباً؟",
+        "options": {
+          "A": "بسبب السكري",
+          "B": "بسبب الالتهاب الرئوي أو قرحات الفراش",
+          "C": "بسبب حادث سير",
+          "D": "بسبب الشيخوخة الطبيعية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بسبب الالتهاب الرئوي أو قرحات الفراش",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بسبب الالتهاب الرئوي أو قرحات الفراش"
+        },
+        "explanation": "بسبب الالتهاب الرئوي أو قرحات الفراش",
+        "number": 19,
+        "id": "U03-L01-Q019"
+      },
+      {
+        "question": "ما هي الحالة العلمية الحالية لمسببات المرض حسب النص؟",
+        "options": {
+          "A": "معروفة تماماً",
+          "B": "بسيطة جداً",
+          "C": "مجهولة الأسباب يقيناً ولكن هناك فرضيات",
+          "D": "لا توجد أسباب"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "مجهولة الأسباب يقيناً ولكن هناك فرضيات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مجهولة الأسباب يقيناً ولكن هناك فرضيات"
+        },
+        "explanation": "مجهولة الأسباب يقيناً ولكن هناك فرضيات",
+        "number": 20,
+        "id": "U03-L01-Q020"
+      },
+      {
+        "question": "من العوامل التي تزيد احتمال الإصابة بالمرض:",
+        "options": {
+          "A": "الرياضة الدائمة",
+          "B": "الأكل الصحي",
+          "C": "التدخين وارتفاع الكوليسترول وضغط الدم",
+          "D": "النوم الكافي"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "التدخين وارتفاع الكوليسترول وضغط الدم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التدخين وارتفاع الكوليسترول وضغط الدم"
+        },
+        "explanation": "التدخين وارتفاع الكوليسترول وضغط الدم",
+        "number": 21,
+        "id": "U03-L01-Q021"
+      },
+      {
+        "question": "ما المقصود بكلمة (إيثار) في عبارة (إيثار العزلة)؟",
+        "options": {
+          "A": "كراهية",
+          "B": "تفضيل",
+          "C": "مشاركة",
+          "D": "رفض"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تفضيل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تفضيل"
+        },
+        "explanation": "تفضيل",
+        "number": 22,
+        "id": "U03-L01-Q022"
+      },
+      {
+        "question": "الجذر اللغوي لكلمة (باسقة) التي وردت في سياقات سابقة هو:",
+        "options": {
+          "A": "سَبَقَ",
+          "B": "بَسَقَ",
+          "C": "قَبَسَ",
+          "D": "بَسَكَ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بَسَقَ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بَسَقَ"
+        },
+        "explanation": "بَسَقَ",
+        "number": 23,
+        "id": "U03-L01-Q023"
+      },
+      {
+        "question": "من الفرضيات التي وضعت لتفسير المرض فرضية:",
+        "options": {
+          "A": "الكولينيّة والبيتا والبروتين النشواني",
+          "B": "فرضية الجاذبية",
+          "C": "فرضية التطور",
+          "D": "فرضية الانفجار العظيم"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الكولينيّة والبيتا والبروتين النشواني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الكولينيّة والبيتا والبروتين النشواني"
+        },
+        "explanation": "الكولينيّة والبيتا والبروتين النشواني",
+        "number": 24,
+        "id": "U03-L01-Q024"
+      },
+      {
+        "question": "هل وجد العلماء علاجاً شافياً لمرض آلزهايمر حتى الآن؟",
+        "options": {
+          "A": "نعم، متوفر في الصيدليات",
+          "B": "لا يوجد علاج شافٍ ولكن توجد أدوية تؤخر التدهور",
+          "C": "نعم، عن طريق الجراحة",
+          "D": "المرض يشفى تلقائياً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا يوجد علاج شافٍ ولكن توجد أدوية تؤخر التدهور",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا يوجد علاج شافٍ ولكن توجد أدوية تؤخر التدهور"
+        },
+        "explanation": "لا يوجد علاج شافٍ ولكن توجد أدوية تؤخر التدهور",
+        "number": 25,
+        "id": "U03-L01-Q025"
+      },
+      {
+        "question": "ما فائدة استخدام (الكركم) و(أوميجا 3) حسب النص؟",
+        "options": {
+          "A": "للجمال",
+          "B": "قد يساعد في تأخير تدهور أعراض المرض",
+          "C": "للنمو السريع",
+          "D": "ال يوجد لها فائدة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "قد يساعد في تأخير تدهور أعراض المرض",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قد يساعد في تأخير تدهور أعراض المرض"
+        },
+        "explanation": "قد يساعد في تأخير تدهور أعراض المرض",
+        "number": 26,
+        "id": "U03-L01-Q026"
+      },
+      {
+        "question": "ما هو (العلاج السلوكي) للمريض؟",
+        "options": {
+          "A": "إعطاء المريض حقناً مهدئة",
+          "B": "تشجيع المريض على الانخراط في عمل ما كالحياكة أو تمارين اللمس",
+          "C": "ترك المريض وحيداً",
+          "D": "السفر به لمكان بعيد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تشجيع المريض على الانخراط في عمل ما كالحياكة أو تمارين اللمس",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تشجيع المريض على الانخراط في عمل ما كالحياكة أو تمارين اللمس"
+        },
+        "explanation": "تشجيع المريض على الانخراط في عمل ما كالحياكة أو تمارين اللمس",
+        "number": 27,
+        "id": "U03-L01-Q027"
+      },
+      {
+        "question": "بمَ تنصح مقترحات الوقاية فيما يخص الغذاء؟",
+        "options": {
+          "A": "تناول اللحوم الحمراء بكثرة",
+          "B": "اتباع حمية البحر المتوسط والتقليل من اللحوم الحمراء والدهون",
+          "C": "الاعتماد على الحلويات فقط",
+          "D": "شرب المنبهات بكثرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اتباع حمية البحر المتوسط والتقليل من اللحوم الحمراء والدهون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اتباع حمية البحر المتوسط والتقليل من اللحوم الحمراء والدهون"
+        },
+        "explanation": "اتباع حمية البحر المتوسط والتقليل من اللحوم الحمراء والدهون",
+        "number": 28,
+        "id": "U03-L01-Q028"
+      },
+      {
+        "question": "ما هي الهوايات الفكرية التي قد تقي من المرض؟",
+        "options": {
+          "A": "النوم",
+          "B": "القراءة والشطرنج",
+          "C": "مشاهدة التلفاز بصمت",
+          "D": "التسوق"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "القراءة والشطرنج",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القراءة والشطرنج"
+        },
+        "explanation": "القراءة والشطرنج",
+        "number": 29,
+        "id": "U03-L01-Q029"
+      },
+      {
+        "question": "معنى كلمة (النحيب) الواردة في وصف المرض:",
+        "options": {
+          "A": "الضحك الهستيري",
+          "B": "البكاء الشديد المصحوب بتشنج واختالج",
+          "C": "الهمس الخفي",
+          "D": "الغناء العالي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "البكاء الشديد المصحوب بتشنج واختالج",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "البكاء الشديد المصحوب بتشنج واختالج"
+        },
+        "explanation": "البكاء الشديد المصحوب بتشنج واختالج",
+        "number": 30,
+        "id": "U03-L01-Q030"
+      },
+      {
+        "question": "الفن البديعي في (وفاق وصراع) هو:",
+        "options": {
+          "A": "جناس",
+          "B": "سجع",
+          "C": "طباق",
+          "D": "مقابلة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "طباق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طباق"
+        },
+        "explanation": "طباق",
+        "number": 31,
+        "id": "U03-L01-Q031"
+      },
+      {
+        "question": "ما الوظيفة الفنية لاستخدام الأرقام والنسب المئوية في النص؟",
+        "options": {
+          "A": "للتسلية",
+          "B": "للتزيين",
+          "C": "لإضفاء المصداقية والدقة العلمية على المقالة",
+          "D": "لإطالة النص"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "لإضفاء المصداقية والدقة العلمية على المقالة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لإضفاء المصداقية والدقة العلمية على المقالة"
+        },
+        "explanation": "لإضفاء المصداقية والدقة العلمية على المقالة",
+        "number": 32,
+        "id": "U03-L01-Q032"
+      },
+      {
+        "question": "يصنف هذا النص (آلزهايمر) ضمن أنواع النصوص:",
+        "options": {
+          "A": "الشعرية",
+          "B": "المقالة العلمية",
+          "C": "الرواية الخيالية",
+          "D": "المسرحية الكوميدية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المقالة العلمية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المقالة العلمية"
+        },
+        "explanation": "المقالة العلمية",
+        "number": 33,
+        "id": "U03-L01-Q033"
+      },
+      {
+        "question": "كلمة (تضاؤل) الواردة في وصف قشرة الدماغ تعني:",
+        "options": {
+          "A": "زيادة",
+          "B": "تراجع ونقصان في الحجم",
+          "C": "ثبات",
+          "D": "تغير اللون"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تراجع ونقصان في الحجم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تراجع ونقصان في الحجم"
+        },
+        "explanation": "تراجع ونقصان في الحجم",
+        "number": 34,
+        "id": "U03-L01-Q034"
+      },
+      {
+        "question": "الغرض من ذكر قصة الطبيب آلزهايمر والمريضة أغست ديتير في مقدمة النص هو:",
+        "options": {
+          "A": "ذكر تاريخ الطب فقط",
+          "B": "التمهيد التاريخي للجذور الأولى لاكتشاف المرض",
+          "C": "وصف مستشفيات ألمانيا",
+          "D": "مدح الطبيب شخصياً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التمهيد التاريخي للجذور الأولى لاكتشاف المرض",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التمهيد التاريخي للجذور الأولى لاكتشاف المرض"
+        },
+        "explanation": "التمهيد التاريخي للجذور الأولى لاكتشاف المرض",
+        "number": 35,
+        "id": "U03-L01-Q035"
+      },
+      {
+        "question": "ما هو العاطفة المسيطرة على أقارب المريض عند قراءة هذه الحقائق؟",
+        "options": {
+          "A": "الفرح الشديد",
+          "B": "القلق والخوف والحاجة لرسائل طمأنة",
+          "C": "اللامبالاة",
+          "D": "الغضب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "القلق والخوف والحاجة لرسائل طمأنة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القلق والخوف والحاجة لرسائل طمأنة"
+        },
+        "explanation": "القلق والخوف والحاجة لرسائل طمأنة",
+        "number": 36,
+        "id": "U03-L01-Q036"
+      },
+      {
+        "question": "معنى كلمة (تأهيل) في (تأهيل عائلة المريض):",
+        "options": {
+          "A": "طردهم",
+          "B": "تدريبهم وإعدادهم للتعامل مع الحالة",
+          "C": "إعطاؤهم مالاً",
+          "D": "تجاهلهم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تدريبهم وإعدادهم للتعامل مع الحالة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تدريبهم وإعدادهم للتعامل مع الحالة"
+        },
+        "explanation": "تدريبهم وإعدادهم للتعامل مع الحالة",
+        "number": 37,
+        "id": "U03-L01-Q037"
+      },
+      {
+        "question": "لماذا سمي المرض بـ (الخرف المبكر) أحياناً؟",
+        "options": {
+          "A": "لأنه يصيب الأطفال",
+          "B": "لأنه قد يظهر في سن الخمسين كما في الحالة الأولى",
+          "C": "لأنه يزول بسرعة",
+          "D": "لأنه يصيب الحيوانات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لأنه قد يظهر في سن الخمسين كما في الحالة الأولى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لأنه قد يظهر في سن الخمسين كما في الحالة الأولى"
+        },
+        "explanation": "لأنه قد يظهر في سن الخمسين كما في الحالة الأولى",
+        "number": 38,
+        "id": "U03-L01-Q038"
+      },
+      {
+        "question": "تعتبر ممارسة الرياضة من سبل الوقاية لأنها:",
+        "options": {
+          "A": "تزيد الوزن",
+          "B": "تحسن التروية الدموية للدماغ وتحمي من الجلطات",
+          "C": "تضيع الوقت",
+          "D": "تضعف العضلات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تحسن التروية الدموية للدماغ وتحمي من الجلطات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تحسن التروية الدموية للدماغ وتحمي من الجلطات"
+        },
+        "explanation": "تحسن التروية الدموية للدماغ وتحمي من الجلطات",
+        "number": 39,
+        "id": "U03-L01-Q039"
+      },
+      {
+        "question": "المقصود بعبارة (بيتُ األدواءِ) في الحكمة الواردة في مقدمة الدرس:",
+        "options": {
+          "A": "مكان العلاج",
+          "B": "المعدة باعتبارها أصل الكثير من الأمراض بسبب الغذاء",
+          "C": "الصيدلية",
+          "D": "المختبر العلمي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المعدة باعتبارها أصل الكثير من الأمراض بسبب الغذاء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المعدة باعتبارها أصل الكثير من الأمراض بسبب الغذاء"
+        },
+        "explanation": "المعدة باعتبارها أصل الكثير من الأمراض بسبب الغذاء",
+        "number": 40,
+        "id": "U03-L01-Q040"
+      }
+    ]
+  }
+}

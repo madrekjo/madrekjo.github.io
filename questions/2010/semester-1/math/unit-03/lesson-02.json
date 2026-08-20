@@ -1,0 +1,1024 @@
+{
+  "lesson": {
+    "lesson_number": "3.2",
+    "lesson_name": "المشتقة الأولى",
+    "unit_number": 3,
+    "unit_name": "الوحدة الثالثة",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما هو التعريف العام للمشتقة f'(x)؟",
+        "options": {
+          "A": "lim [f(x+h) + f(x)] / h عندما h→0",
+          "B": "lim [f(x+h) - f(x)] / h عندما h→0",
+          "C": "lim [f(x) - f(h)] / h عندما h→0",
+          "D": "[f(x+h) - f(x)] / h"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "lim [f(x+h) - f(x)] / h عندما h→0",
+        "difficulty": "easy",
+        "source": {
+          "page": 109,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "هذا هو النص القانوني للتعريف العام للمشتقة كما ورد في الكتاب [1]."
+        },
+        "explanation": "هذا هو النص القانوني للتعريف العام للمشتقة كما ورد في الكتاب [1].",
+        "number": 1,
+        "id": "U03-L02-Q001"
+      },
+      {
+        "question": "ماذا يمثل هندسياً ناتج المشتقة الأولى للاقتران عند نقطة تماس؟",
+        "options": {
+          "A": "طول المماس.",
+          "B": "ميل المماس.",
+          "C": "المقطع y للمنحنى.",
+          "D": "رأس المنحنى."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ميل المماس.",
+        "difficulty": "easy",
+        "source": {
+          "page": 113,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المشتقة عند نقطة واقعة على منحنى الاقتران هي ميل المماس عند هذه النقطة [2]."
+        },
+        "explanation": "المشتقة عند نقطة واقعة على منحنى الاقتران هي ميل المماس عند هذه النقطة [2].",
+        "number": 2,
+        "id": "U03-L02-Q002"
+      },
+      {
+        "question": "باستخدام قاعدة القوة، ما هي مشتقة f(x) = x^n؟",
+        "options": {
+          "A": "nx^n",
+          "B": "nx^(n-1)",
+          "C": "x^(n-1)",
+          "D": "n^x"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "nx^(n-1)",
+        "difficulty": "easy",
+        "source": {
+          "page": 111,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تنص القاعدة على أن أس x في المشتقة يكون أقل بواحد، ومعامل x يساوي الأس الأصلي [3]."
+        },
+        "explanation": "تنص القاعدة على أن أس x في المشتقة يكون أقل بواحد، ومعامل x يساوي الأس الأصلي [3].",
+        "number": 3,
+        "id": "U03-L02-Q003"
+      },
+      {
+        "question": "ما هي مشتقة الاقتران الثابت f(x) = c؟",
+        "options": {
+          "A": "c",
+          "B": "1",
+          "C": "0",
+          "D": "x"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "0",
+        "difficulty": "easy",
+        "source": {
+          "page": 112,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مشتقة الثابت تساوي دائماً صفراً [4]."
+        },
+        "explanation": "مشتقة الثابت تساوي دائماً صفراً [4].",
+        "number": 4,
+        "id": "U03-L02-Q004"
+      },
+      {
+        "question": "إذا كان حاصل ضرب ميل المماس وميل المستقيم L يساوي -1، فماذا يسمى المستقيم L؟",
+        "options": {
+          "A": "المماس الموازي.",
+          "B": "العمودي على المماس.",
+          "C": "القاطع.",
+          "D": "المحور الرأسي."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العمودي على المماس.",
+        "difficulty": "medium",
+        "source": {
+          "page": 113,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العمودي على المماس هو مستقيم يصنع زاوية قائمة مع المماس، وميله هو سالب مقلوب ميل المماس [5]."
+        },
+        "explanation": "العمودي على المماس هو مستقيم يصنع زاوية قائمة مع المماس، وميله هو سالب مقلوب ميل المماس [5].",
+        "number": 5,
+        "id": "U03-L02-Q005"
+      },
+      {
+        "question": "أوجد مشتقة f(x) = x^3 باستعمال التعريف العام.",
+        "options": {
+          "A": "3x",
+          "B": "x^2",
+          "C": "3x^2",
+          "D": "2x^3"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "3x^2",
+        "difficulty": "medium",
+        "source": {
+          "page": 109,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(x) = lim [(x+h)^3 - x^3]/h = lim [3x^2h + 3xh^2 + h^3]/h = 3x^2."
+          ],
+          "summary": "بتطبيق التعريف واختصار h نحصل على 3x^2 [6]."
+        },
+        "explanation": "بتطبيق التعريف واختصار h نحصل على 3x^2 [6].",
+        "number": 6,
+        "id": "U03-L02-Q006"
+      },
+      {
+        "question": "ما هي مشتقة f(x) = 1/x؟",
+        "options": {
+          "A": "1/x^2",
+          "B": "-1/x^2",
+          "C": "ln(x)",
+          "D": "-1/x"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-1/x^2",
+        "difficulty": "medium",
+        "source": {
+          "page": 111,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f(x) = x^-1، المشتقة هي -1 * x^-2 = -1/x^2."
+          ],
+          "summary": "بتحويل الاقتران للصورة الأسية وتطبيق قاعدة القوة [7]."
+        },
+        "explanation": "بتحويل الاقتران للصورة الأسية وتطبيق قاعدة القوة [7].",
+        "number": 7,
+        "id": "U03-L02-Q007"
+      },
+      {
+        "question": "أوجد مشتقة f(x) = √x.",
+        "options": {
+          "A": "1 / √x",
+          "B": "1 / (2√x)",
+          "C": "2√x",
+          "D": "x^(1/2)"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1 / (2√x)",
+        "difficulty": "medium",
+        "source": {
+          "page": 111,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f(x) = x^(1/2)، المشتقة هي (1/2)x^(-1/2) = 1/(2√x)."
+          ],
+          "summary": "تطبيق قاعدة القوة على الأسس الكسرية [7]."
+        },
+        "explanation": "تطبيق قاعدة القوة على الأسس الكسرية [7].",
+        "number": 8,
+        "id": "U03-L02-Q008"
+      },
+      {
+        "question": "أوجد قيمة المشتقة لـ f(x) = x^2 عند x = 3 باستعمال التعريف العام.",
+        "options": {
+          "A": "3",
+          "B": "6",
+          "C": "9",
+          "D": "2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "6",
+        "difficulty": "medium",
+        "source": {
+          "page": 110,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(3) = lim [f(3+h)-f(3)]/h = lim [9+6h+h^2-9]/h = 6."
+          ],
+          "summary": "تعويض النقطة مباشرة في قانون التعريف العام [8]."
+        },
+        "explanation": "تعويض النقطة مباشرة في قانون التعريف العام [8].",
+        "number": 9,
+        "id": "U03-L02-Q009"
+      },
+      {
+        "question": "ما هي مشتقة g(x) = 4x^3؟",
+        "options": {
+          "A": "4x^2",
+          "B": "12x^2",
+          "C": "12x",
+          "D": "7x^2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "12x^2",
+        "difficulty": "easy",
+        "source": {
+          "page": 112,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نضرب الأس في المعامل (4 * 3) ونطرح واحد من الأس [4]."
+        },
+        "explanation": "نضرب الأس في المعامل (4 * 3) ونطرح واحد من الأس [4].",
+        "number": 10,
+        "id": "U03-L02-Q010"
+      },
+      {
+        "question": "أوجد مشتقة y = x + 2∛x.",
+        "options": {
+          "A": "1 + 2/3 x^(2/3)",
+          "B": "1 + 2 / (3∛x^2)",
+          "C": "x + 2/3 x",
+          "D": "1 + 6x^2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1 + 2 / (3∛x^2)",
+        "difficulty": "hard",
+        "source": {
+          "page": 112,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "y = x + 2x^(1/3)، المشتقة هي 1 + (2/3)x^(-2/3)."
+          ],
+          "summary": "استخدام قاعدتي المجموع ومضاعفات القوة [4]."
+        },
+        "explanation": "استخدام قاعدتي المجموع ومضاعفات القوة [4].",
+        "number": 11,
+        "id": "U03-L02-Q011"
+      },
+      {
+        "question": "أوجد ميل المماس للاقتران f(x) = x^2 - x عند x = 4.",
+        "options": {
+          "A": "7",
+          "B": "8",
+          "C": "4",
+          "D": "12"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "7",
+        "difficulty": "medium",
+        "source": {
+          "page": 117,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(x) = 2x - 1. عند x=4: 2(4) - 1 = 7."
+          ],
+          "summary": "الميل هو قيمة المشتقة الأولى عند النقطة المطلوبة [9]."
+        },
+        "explanation": "الميل هو قيمة المشتقة الأولى عند النقطة المطلوبة [9].",
+        "number": 12,
+        "id": "U03-L02-Q012"
+      },
+      {
+        "question": "إذا كان ميل المماس عند نقطة تماس هو m = -0.5، فما هو ميل العمودي على المماس؟",
+        "options": {
+          "A": "-0.5",
+          "B": "0.5",
+          "C": "2",
+          "D": "-2"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "2",
+        "difficulty": "medium",
+        "source": {
+          "page": 114,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ميل العمودي = -1 / ميل المماس = -1 / -0.5 = 2 [10]."
+        },
+        "explanation": "ميل العمودي = -1 / ميل المماس = -1 / -0.5 = 2 [10].",
+        "number": 13,
+        "id": "U03-L02-Q013"
+      },
+      {
+        "question": "ما هي إحداثيات النقطة على منحنى f(x) = √x التي يكون عندها ميل المماس 0.5؟",
+        "options": {
+          "A": "(0, 0)",
+          "B": "(1, 1)",
+          "C": "(4, 2)",
+          "D": "(2, 1)"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "(1, 1)",
+        "difficulty": "hard",
+        "source": {
+          "page": 115,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(x) = 1/(2√x) = 0.5 => √x = 1 => x = 1. f(1) = 1."
+          ],
+          "summary": "بمساواة المشتقة بالميل المعطى وحل المعادلة لإيجاد x ثم y [11]."
+        },
+        "explanation": "بمساواة المشتقة بالميل المعطى وحل المعادلة لإيجاد x ثم y [11].",
+        "number": 14,
+        "id": "U03-L02-Q014"
+      },
+      {
+        "question": "عندما يكون المماس أفقياً، فإن قيمة المشتقة الأولى f'(x) تساوي:",
+        "options": {
+          "A": "1",
+          "B": "-1",
+          "C": "0",
+          "D": "غير معرفة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "0",
+        "difficulty": "easy",
+        "source": {
+          "page": 116,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ميل أي مستقيم أفقي يساوي صفراً، وبما أن المشتقة هي الميل، فهي تساوي صفراً [12]."
+        },
+        "explanation": "ميل أي مستقيم أفقي يساوي صفراً، وبما أن المشتقة هي الميل، فهي تساوي صفراً [12].",
+        "number": 15,
+        "id": "U03-L02-Q015"
+      },
+      {
+        "question": "أوجد النقاط التي يكون عندها المماس أفقياً للاقتران f(x) = -x^3 + 6x^2.",
+        "options": {
+          "A": "(0, 0) و (4, 32)",
+          "B": "(0, 0) فقط",
+          "C": "(2, 16)",
+          "D": "(6, 0)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(0, 0) و (4, 32)",
+        "difficulty": "hard",
+        "source": {
+          "page": 116,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(x) = -3x^2 + 12x = 0 => 3x(4-x)=0. x=0, x=4. الصور: f(0)=0, f(4)=32."
+          ],
+          "summary": "بحل المعادلة الناتجة عن مساواة المشتقة بالصفر [13]."
+        },
+        "explanation": "بحل المعادلة الناتجة عن مساواة المشتقة بالصفر [13].",
+        "number": 16,
+        "id": "U03-L02-Q016"
+      },
+      {
+        "question": "أوجد مشتقة f(x) = x^8 - x^-8.",
+        "options": {
+          "A": "8x^7 - 8x^-9",
+          "B": "8x^7 + 8x^-9",
+          "C": "8x^7 + 8x^7",
+          "D": "0"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "8x^7 + 8x^-9",
+        "difficulty": "medium",
+        "source": {
+          "page": 117,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تطبيق قاعدة القوة: مشتقة -x^-8 هي -(-8)x^-9 [9]."
+        },
+        "explanation": "تطبيق قاعدة القوة: مشتقة -x^-8 هي -(-8)x^-9 [9].",
+        "number": 17,
+        "id": "U03-L02-Q017"
+      },
+      {
+        "question": "ما هي معادلة المماس للاقتران y = x^2 - x عند x = 4؟",
+        "options": {
+          "A": "y = 7x - 16",
+          "B": "y = 7x + 12",
+          "C": "y = 8x - 4",
+          "D": "y = 2x - 1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "y = 7x - 16",
+        "difficulty": "hard",
+        "source": {
+          "page": 117,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "نقطة التماس (12 ,4). الميل f'(4)=7. المعادلة: y-12 = 7(x-4) => y=7x-16."
+          ],
+          "summary": "تطبيق صيغة الميل ونقطة باستخدام المشتقة [9]."
+        },
+        "explanation": "تطبيق صيغة الميل ونقطة باستخدام المشتقة [9].",
+        "number": 18,
+        "id": "U03-L02-Q018"
+      },
+      {
+        "question": "أوجد مشتقة f(x) = (1+√x)/x.",
+        "options": {
+          "A": "-1/x^2 - 1/(2√x^3)",
+          "B": "1 + 1/2√x",
+          "C": "-x^-2 + 0.5x^(-1.5)",
+          "D": "غير ذلك"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-1/x^2 - 1/(2√x^3)",
+        "difficulty": "hard",
+        "source": {
+          "page": 117,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f(x) = 1/x + √x/x = x^-1 + x^-0.5. f'(x) = -x^-2 - 0.5x^-1.5."
+          ],
+          "summary": "تبسيط الاقتران بقسمة البسط على المقام قبل الاشتقاق [9]."
+        },
+        "explanation": "تبسيط الاقتران بقسمة البسط على المقام قبل الاشتقاق [9].",
+        "number": 19,
+        "id": "U03-L02-Q019"
+      },
+      {
+        "question": "مشتقة f(x) = 2x + 4/x^6 هي:",
+        "options": {
+          "A": "2 - 24x^-7",
+          "B": "2 + 24x^5",
+          "C": "2 - 24/x^5",
+          "D": "2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2 - 24x^-7",
+        "difficulty": "medium",
+        "source": {
+          "page": 117,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "f(x)=2x + 4x^-6، مشتقتها 2 + 4(-6)x^-7 [9]."
+        },
+        "explanation": "f(x)=2x + 4x^-6، مشتقتها 2 + 4(-6)x^-7 [9].",
+        "number": 20,
+        "id": "U03-L02-Q020"
+      },
+      {
+        "question": "أوجد مشتقة f(x) = 5x باستعمال التعريف العام عند x = 0.",
+        "options": {
+          "A": "5",
+          "B": "0",
+          "C": "1",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "5",
+        "difficulty": "easy",
+        "source": {
+          "page": 421,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(0) = lim [5(0+h) - 5(0)]/h = lim 5h/h = 5."
+          ],
+          "summary": "تمرين 1 من كتاب التمارين [14]."
+        },
+        "explanation": "تمرين 1 من كتاب التمارين [14].",
+        "number": 21,
+        "id": "U03-L02-Q021"
+      },
+      {
+        "question": "أوجد ds/dt للاقتران s = 10√t.",
+        "options": {
+          "A": "10 / √t",
+          "B": "5 / √t",
+          "C": "20√t",
+          "D": "5√t"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "5 / √t",
+        "difficulty": "medium",
+        "source": {
+          "page": 421,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "s = 10t^0.5. s' = 10(0.5)t^-0.5 = 5/√t."
+          ],
+          "summary": "تمرين 7 من كتاب التمارين [14]."
+        },
+        "explanation": "تمرين 7 من كتاب التمارين [14].",
+        "number": 22,
+        "id": "U03-L02-Q022"
+      },
+      {
+        "question": "ما قيمة المشتقة للاقتران f(x) = 2x + 5/x عند النقطة (10 ,2.5)؟",
+        "options": {
+          "A": "2",
+          "B": "1.2",
+          "C": "2.5",
+          "D": "5"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1.2",
+        "difficulty": "hard",
+        "source": {
+          "page": 422,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(x) = 2 - 5/x^2. عند x=2.5: 2 - 5/(6.25) = 2 - 0.8 = 1.2."
+          ],
+          "summary": "تمرين 13 من كتاب التمارين [15]."
+        },
+        "explanation": "تمرين 13 من كتاب التمارين [15].",
+        "number": 23,
+        "id": "U03-L02-Q023"
+      },
+      {
+        "question": "أوجد إحداثيات النقاط التي تكون عندها مشتقة f(x) = 2x + 5/x تساوي -3.",
+        "options": {
+          "A": "(1, 7) و (-1, -7)",
+          "B": "(1, 3)",
+          "C": "(0, 0)",
+          "D": "(5, 12)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(1, 7) و (-1, -7)",
+        "difficulty": "hard",
+        "source": {
+          "page": 422,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "2 - 5/x^2 = -3 => 5 = 5/x^2 => x^2=1 => x=1, -1. الصور: f(1)=7, f(-1)=-7."
+          ],
+          "summary": "تمرين 14 من كتاب التمارين [15]."
+        },
+        "explanation": "تمرين 14 من كتاب التمارين [15].",
+        "number": 24,
+        "id": "U03-L02-Q024"
+      },
+      {
+        "question": "ما هي معادلة المماس لـ f(x) = ∛x عند x = -1؟",
+        "options": {
+          "A": "y = 1/3 x - 2/3",
+          "B": "y = 1/3 x + 1",
+          "C": "y = 3x + 2",
+          "D": "y = -1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "y = 1/3 x - 2/3",
+        "difficulty": "hard",
+        "source": {
+          "page": 422,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "النقطة (-1, -1). f'(x)=1/(3∛x^2). الميل f'(-1)=1/3. المعادلة: y+1 = 1/3(x+1)."
+          ],
+          "summary": "تمرين 15 من كتاب التمارين [15]."
+        },
+        "explanation": "تمرين 15 من كتاب التمارين [15].",
+        "number": 25,
+        "id": "U03-L02-Q025"
+      },
+      {
+        "question": "أوجد معادلة العمودي على المماس لـ f(x) = 2x^2(6-x) عند x = 5.",
+        "options": {
+          "A": "y = 1/30 x + 29.83",
+          "B": "y = 50",
+          "C": "y - 50 = (1/30)(x - 5)",
+          "D": "y = -30x + 200"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "y - 50 = (1/30)(x - 5)",
+        "difficulty": "hard",
+        "source": {
+          "page": 422,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f(x)=12x^2-2x^3. f'(x)=24x-6x^2. f'(5)=120-150=-30. ميل العمودي=1/30. النقطة (50, 5)."
+          ],
+          "summary": "تمرين 19 من كتاب التمارين [15]."
+        },
+        "explanation": "تمرين 19 من كتاب التمارين [15].",
+        "number": 26,
+        "id": "U03-L02-Q026"
+      },
+      {
+        "question": "أين يقطع مماس الاقتران f(x) = √x عند النقطة (1, 1) المحور x؟",
+        "options": {
+          "A": "عند x = -1",
+          "B": "عند x = 0",
+          "C": "عند x = 1",
+          "D": "عند x = 2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "عند x = -1",
+        "difficulty": "hard",
+        "source": {
+          "page": 115,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "الميل=0.5. المعادلة y-1 = 0.5(x-1). لتقاطع x نضع y=0: -1 = 0.5x-0.5 => -0.5 = 0.5x => x=-1."
+          ],
+          "summary": "بإيجاد معادلة المماس أولاً ثم إيجاد المقطع x لها [16]."
+        },
+        "explanation": "بإيجاد معادلة المماس أولاً ثم إيجاد المقطع x لها [16].",
+        "number": 27,
+        "id": "U03-L02-Q027"
+      },
+      {
+        "question": "ما هي مشتقة f(x) = (x+a)^2 / x حيث a ثابت؟",
+        "options": {
+          "A": "1 - a^2/x^2",
+          "B": "2(x+a)",
+          "C": "1 + a^2/x^2",
+          "D": "2x + a"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1 - a^2/x^2",
+        "difficulty": "hard",
+        "source": {
+          "page": 421,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f(x) = (x^2+2ax+a^2)/x = x + 2a + a^2/x. f'(x) = 1 + 0 - a^2/x^2."
+          ],
+          "summary": "تمرين 12 من كتاب التمارين [14]."
+        },
+        "explanation": "تمرين 12 من كتاب التمارين [14].",
+        "number": 28,
+        "id": "U03-L02-Q028"
+      },
+      {
+        "question": "في مسألة اليوم (ص 108)، ما هو ميل المنحنى f(x) = 1/x عند (1, 1)؟",
+        "options": {
+          "A": "1",
+          "B": "-1",
+          "C": "0",
+          "D": "غير موجود"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-1",
+        "difficulty": "medium",
+        "source": {
+          "page": 108,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(x) = -1/x^2. f'(1) = -1."
+          ],
+          "summary": "اشتقاق الاقتران النسبي والتعويض بالنقطة [17]."
+        },
+        "explanation": "اشتقاق الاقتران النسبي والتعويض بالنقطة [17].",
+        "number": 29,
+        "id": "U03-L02-Q029"
+      },
+      {
+        "question": "تكون المشتقة غير موجودة عند نقطة إذا كان المنحنى عنده:",
+        "options": {
+          "A": "رأس حاد (Corner).",
+          "B": "انقطاع (عدم اتصال).",
+          "C": "مماس رأسي.",
+          "D": "جميع ما ذكر."
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر.",
+        "difficulty": "medium",
+        "source": {
+          "page": 109,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يشترط لوجود المشتقة أن تكون النهاية في التعريف العام موجودة، وهذا لا يتحقق في هذه الحالات [1]."
+        },
+        "explanation": "يشترط لوجود المشتقة أن تكون النهاية في التعريف العام موجودة، وهذا لا يتحقق في هذه الحالات [1].",
+        "number": 30,
+        "id": "U03-L02-Q030"
+      },
+      {
+        "question": "أي رمز مما يلي لا يستخدم للدلالة على المشتقة؟",
+        "options": {
+          "A": "f'(x)",
+          "B": "dy/dx",
+          "C": "d/dx [f(x)]",
+          "D": "lim f(x)"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "lim f(x)",
+        "difficulty": "easy",
+        "source": {
+          "page": 109,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "lim f(x) يمثل النهاية وليس المشتقة بحد ذاتها دون صيفة الفرق [1]."
+        },
+        "explanation": "lim f(x) يمثل النهاية وليس المشتقة بحد ذاتها دون صيفة الفرق [1].",
+        "number": 31,
+        "id": "U03-L02-Q031"
+      },
+      {
+        "question": "مشتقة f(x) = 2x^6 - x^4 - 2 هي:",
+        "options": {
+          "A": "12x^5 - 4x^3",
+          "B": "12x^5 - 4x^3 - 2",
+          "C": "12x^6 - 4x^4",
+          "D": "6x^5 - 4x^3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "12x^5 - 4x^3",
+        "difficulty": "easy",
+        "source": {
+          "page": 158,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مشتقة الثابت (-2) هي صفر، والباقي بتطبيق قاعدة القوة [18]."
+        },
+        "explanation": "مشتقة الثابت (-2) هي صفر، والباقي بتطبيق قاعدة القوة [18].",
+        "number": 32,
+        "id": "U03-L02-Q032"
+      },
+      {
+        "question": "أوجد مشتقة f(x) = (2x^4 + 9x^2) / (3x).",
+        "options": {
+          "A": "2x^2 + 3",
+          "B": "2x^2 + 6x",
+          "C": "(8x^3 + 18x) / 3",
+          "D": "8x^3 + 18x"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2x^2 + 3",
+        "difficulty": "medium",
+        "source": {
+          "page": 158,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f(x) = 2/3 x^3 + 3x. f'(x) = 2x^2 + 3."
+          ],
+          "summary": "تمرين 2 من اختبار نهاية الوحدة [17]."
+        },
+        "explanation": "تمرين 2 من اختبار نهاية الوحدة [17].",
+        "number": 33,
+        "id": "U03-L02-Q033"
+      },
+      {
+        "question": "ما هي مشتقة f(x) = 12x^(2/3)؟",
+        "options": {
+          "A": "8x^(-1/3)",
+          "B": "8x^(1/3)",
+          "C": "4x^(-1/3)",
+          "D": "18x^3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "8x^(-1/3)",
+        "difficulty": "medium",
+        "source": {
+          "page": 158,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(x) = 12 * (2/3) * x^(2/3 - 1) = 8x^-1/3."
+          ],
+          "summary": "تمرين 3 من اختبار نهاية الوحدة [17]."
+        },
+        "explanation": "تمرين 3 من اختبار نهاية الوحدة [17].",
+        "number": 34,
+        "id": "U03-L02-Q034"
+      },
+      {
+        "question": "أوجد القيمة الحرجة (التي تجعل المشتقة صفراً) لـ y = 4x^2 + 6x + 3.",
+        "options": {
+          "A": "-0.75",
+          "B": "0.75",
+          "C": "-1.5",
+          "D": "0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-0.75",
+        "difficulty": "medium",
+        "source": {
+          "page": 158,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "y' = 8x + 6 = 0 => 8x = -6 => x = -6/8 = -0.75."
+          ],
+          "summary": "تمرين 5 من اختبار نهاية الوحدة [17]."
+        },
+        "explanation": "تمرين 5 من اختبار نهاية الوحدة [17].",
+        "number": 35,
+        "id": "U03-L02-Q035"
+      },
+      {
+        "question": "مشتقة f(x) = 20x^5 + 3∛x + 17 هي:",
+        "options": {
+          "A": "100x^4 + 1/∛x^2",
+          "B": "100x^4 + 3x^2",
+          "C": "20x^4 + 1/x",
+          "D": "100x^4"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "100x^4 + 1/∛x^2",
+        "difficulty": "hard",
+        "source": {
+          "page": 117,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مشتقة 3x^(1/3) هي 3(1/3)x^(-2/3) = x^(-2/3) [9]."
+        },
+        "explanation": "مشتقة 3x^(1/3) هي 3(1/3)x^(-2/3) = x^(-2/3) [9].",
+        "number": 36,
+        "id": "U03-L02-Q036"
+      },
+      {
+        "question": "أوجد إحداثيي النقطة على f(x) = x^3 + 3 التي يكون عندها ميل المماس 12.",
+        "options": {
+          "A": "(2, 11) و (-2, -5)",
+          "B": "(2, 11) فقط",
+          "C": "(4, 67)",
+          "D": "(0, 3)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(2, 11) و (-2, -5)",
+        "difficulty": "hard",
+        "source": {
+          "page": 159,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(x) = 3x^2 = 12 => x^2=4 => x=2, -2. f(2)=11, f(-2)=-5."
+          ],
+          "summary": "تمرين 23 من اختبار نهاية الوحدة [6]."
+        },
+        "explanation": "تمرين 23 من اختبار نهاية الوحدة [6].",
+        "number": 37,
+        "id": "U03-L02-Q037"
+      },
+      {
+        "question": "إذا كان f(x) = 3x^2 + 4x، فما قيمة f'(1) باستعمال التعريف العام؟",
+        "options": {
+          "A": "10",
+          "B": "7",
+          "C": "3",
+          "D": "11"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "10",
+        "difficulty": "medium",
+        "source": {
+          "page": 421,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f'(x) = 6x + 4. f'(1) = 10."
+          ],
+          "summary": "تمرين 5 من كتاب التمارين [14]."
+        },
+        "explanation": "تمرين 5 من كتاب التمارين [14].",
+        "number": 38,
+        "id": "U03-L02-Q038"
+      },
+      {
+        "question": "ميل المماس للاقتران y = 6x - x^2 عند النقطة P(5, 5) يساوي:",
+        "options": {
+          "A": "-4",
+          "B": "1",
+          "C": "6",
+          "D": "5"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-4",
+        "difficulty": "medium",
+        "source": {
+          "page": 118,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "y' = 6 - 2x. عند x=5: 6 - 10 = -4."
+          ],
+          "summary": "التعويض في المشتقة لإيجاد الميل عند نقطة محددة [19]."
+        },
+        "explanation": "التعويض في المشتقة لإيجاد الميل عند نقطة محددة [19].",
+        "number": 39,
+        "id": "U03-L02-Q039"
+      },
+      {
+        "question": "ما هي مساحة المثلث المكون من مماس f(x) = x^2 - 5x + 10 عند (1, 6) والمحورين؟",
+        "options": {
+          "A": "13.5 وحدة مربعة",
+          "B": "27 وحدة مربعة",
+          "C": "9 وحدات مربعة",
+          "D": "6 وحدات مربعة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "13.5 وحدة مربعة",
+        "difficulty": "hard",
+        "source": {
+          "page": 423,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "الميل=-3. المعادلة y-6 = -3(x-1) => y=-3x+9. المقاطع: (9 ,0) و (0 ,3). المساحة 0.5 * 3 * 9 = 13.5."
+          ],
+          "summary": "تمرين 23 من كتاب التمارين [20]."
+        },
+        "explanation": "تمرين 23 من كتاب التمارين [20].",
+        "number": 40,
+        "id": "U03-L02-Q040"
+      }
+    ]
+  }
+}

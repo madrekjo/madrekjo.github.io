@@ -1,0 +1,108 @@
+{
+  "subject": "arabic",
+  "name": "اللغة العربية",
+  "generation": "2010",
+  "semester": "semester-1",
+  "units": [
+    {
+      "number": 1,
+      "name": "الوحدة الأولى",
+      "lessons": [
+        {
+          "number": 1,
+          "name": "lesson-01.json",
+          "file": "lesson-01.json"
+        },
+        {
+          "number": "review",
+          "name": "review.json",
+          "file": "review.json"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "name": "الوحدة الثانية",
+      "lessons": [
+        {
+          "number": 1,
+          "name": "lesson-01.json",
+          "file": "lesson-01.json"
+        },
+        {
+          "number": 2,
+          "name": "lesson-02.json",
+          "file": "lesson-02.json"
+        },
+        {
+          "number": "review",
+          "name": "review.json",
+          "file": "review.json"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "name": "الوحدة الثالثة",
+      "lessons": [
+        {
+          "number": 1,
+          "name": "lesson-01.json",
+          "file": "lesson-01.json"
+        },
+        {
+          "number": 2,
+          "name": "lesson-02.json",
+          "file": "lesson-02.json"
+        },
+        {
+          "number": "review",
+          "name": "review.json",
+          "file": "review.json"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "name": "الوحدة الرابعة",
+      "lessons": [
+        {
+          "number": 1,
+          "name": "lesson-01.json",
+          "file": "lesson-01.json"
+        },
+        {
+          "number": 2,
+          "name": "lesson-02.json",
+          "file": "lesson-02.json"
+        },
+        {
+          "number": "review",
+          "name": "review.json",
+          "file": "review.json"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "name": "الوحدة الخامسة",
+      "lessons": [
+        {
+          "number": 1,
+          "name": "lesson-01.json",
+          "file": "lesson-01.json"
+        },
+        {
+          "number": 2,
+          "name": "lesson-02.json",
+          "file": "lesson-02.json"
+        },
+        {
+          "number": "review",
+          "name": "review.json",
+          "file": "review.json"
+        }
+      ]
+    }
+  ]
+}

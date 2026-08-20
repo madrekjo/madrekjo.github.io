@@ -1,0 +1,125 @@
+{
+  "subject_id": "biology",
+  "subject": "العلوم الحياتية",
+  "generation_id": "2009",
+  "generation": "2009",
+  "semester_id": "semester-1",
+  "semester": 1,
+  "semester_label": "ف1",
+  "units": [
+    {
+      "id": "U01",
+      "number": 1,
+      "name": "كيمياء الحياة",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "المُركَّبات العضوية الحيوية",
+          "file": "unit-01/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "الإنزيمات وجزيء حفظ الطاقة (ATP)",
+          "file": "unit-01/lesson-02.json"
+        },
+        {
+          "id": "L03",
+          "number": 3,
+          "name": "التفاعلات الكيميائية في الخلية",
+          "file": "unit-01/lesson-03.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-01/review.json"
+      }
+    },
+    {
+      "id": "U02",
+      "number": 2,
+      "name": "دورة الخلية وتصنيع البروتينات",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "دورة الخلية",
+          "file": "unit-02/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "الانقسام الخلوي وأهميته",
+          "file": "unit-02/lesson-02.json"
+        },
+        {
+          "id": "L03",
+          "number": 3,
+          "name": "تضاعف DNA والتعبير الجيني",
+          "file": "unit-02/lesson-03.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-02/review.json"
+      }
+    },
+    {
+      "id": "U03",
+      "number": 3,
+      "name": "الوراثة",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "وراثة الصفات المندلية",
+          "file": "unit-03/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "الوراثة بعد مندل",
+          "file": "unit-03/lesson-02.json"
+        },
+        {
+          "id": "L03",
+          "number": 3,
+          "name": "الطفرات والاختلالات الوراثية",
+          "file": "unit-03/lesson-03.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-03/review.json"
+      }
+    },
+    {
+      "id": "U04",
+      "number": 4,
+      "name": "التكنولوجيا الحيوية",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "أدوات التكنولوجيا الحيوية",
+          "file": "unit-04/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "تطبيقات التكنولوجيا الحيوية",
+          "file": "unit-04/lesson-02.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-04/review.json"
+      }
+    }
+  ]
+}

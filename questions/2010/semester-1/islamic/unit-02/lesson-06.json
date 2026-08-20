@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "2.6",
+    "lesson_name": "الحقوق الاجتماعية للمرأة في الإسلام",
+    "unit_number": 2,
+    "unit_name": "الوحدة الثانية: خدم القرآن الكريم",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "كرّم الإسلام المرأة في مختلف مراحل حياتها بصفتها:",
+        "options": {
+          "A": "أماً وزوجة",
+          "B": "أختاً وبنتاً",
+          "C": "أ + ب",
+          "D": "عاملة فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "أ + ب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أ + ب"
+        },
+        "explanation": "أ + ب",
+        "number": 1,
+        "id": "U02-L06-Q001"
+      },
+      {
+        "question": "جعل الإسلام برّ المرأة والإحسان إليها من:",
+        "options": {
+          "A": "أجلّ الطاعات",
+          "B": "الأمور المباحة فقط",
+          "C": "العادات القديمة",
+          "D": "المكروهات"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أجلّ الطاعات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أجلّ الطاعات"
+        },
+        "explanation": "أجلّ الطاعات",
+        "number": 2,
+        "id": "U02-L06-Q002"
+      },
+      {
+        "question": "من هو الشخص الذي قال له النبي ﷺ 'أُمُّك' ثلاث مرات عندما سأله عن أحق الناس بحسن الصحبة؟",
+        "options": {
+          "A": "أبو هريرة",
+          "B": "رجل جاء يسأل النبي",
+          "C": "عمر بن الخطاب",
+          "D": "علي بن أبي طالب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "رجل جاء يسأل النبي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رجل جاء يسأل النبي"
+        },
+        "explanation": "رجل جاء يسأل النبي",
+        "number": 3,
+        "id": "U02-L06-Q003"
+      },
+      {
+        "question": "بماذا أجاب النبي ﷺ الرجل الذي أراد الجهاد وكانت أمه حية؟",
+        "options": {
+          "A": "اذهب للجهاد فوراً",
+          "B": "الزم رِجْلها؛ فَثَمَّ الجنة",
+          "C": "تصدق بمالك",
+          "D": "الزم المسجد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الزم رِجْلها؛ فَثَمَّ الجنة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الزم رِجْلها؛ فَثَمَّ الجنة"
+        },
+        "explanation": "الزم رِجْلها؛ فَثَمَّ الجنة",
+        "number": 4,
+        "id": "U02-L06-Q004"
+      },
+      {
+        "question": "يدل حديث 'الزم رِجْلها؛ فَثَمَّ الجنة' على عظم منزلة:",
+        "options": {
+          "A": "الأب",
+          "B": "الأم",
+          "C": "الخال",
+          "D": "الجار"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأم"
+        },
+        "explanation": "الأم",
+        "number": 5,
+        "id": "U02-L06-Q005"
+      },
+      {
+        "question": "وعد النبي ﷺ من كان له ثلاث بنات فصبر عليهن وأحسن إليهن بأن يكنّ له:",
+        "options": {
+          "A": "زيادة في ماله",
+          "B": "حجاباً من النار يوم القيامة",
+          "C": "شهرة في الدنيا",
+          "D": "سبباً للسفر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حجاباً من النار يوم القيامة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حجاباً من النار يوم القيامة"
+        },
+        "explanation": "حجاباً من النار يوم القيامة",
+        "number": 6,
+        "id": "U02-L06-Q006"
+      },
+      {
+        "question": "ما معنى كلمة (جِدته) الواردة في حديث الإحسان للبنات؟",
+        "options": {
+          "A": "جدته لأبيه",
+          "B": "وُسعه وطاقته",
+          "C": "ملابسه",
+          "D": "بيته"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "وُسعه وطاقته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وُسعه وطاقته"
+        },
+        "explanation": "وُسعه وطاقته",
+        "number": 7,
+        "id": "U02-L06-Q007"
+      },
+      {
+        "question": "قال ﷺ: 'خياركم خياركم لـ...'؛ أكمل الحديث:",
+        "options": {
+          "A": "لأصحابه",
+          "B": "لأهله",
+          "C": "لتجارته",
+          "D": "لقومه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لأهله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لأهله"
+        },
+        "explanation": "لأهله",
+        "number": 8,
+        "id": "U02-L06-Q008"
+      },
+      {
+        "question": "كان من آخر وصايا النبي ﷺ في خطبة حجة الوداع الإحسان إلى:",
+        "options": {
+          "A": "النساء",
+          "B": "الخيل",
+          "C": "التجار",
+          "D": "المسافرين"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "النساء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النساء"
+        },
+        "explanation": "النساء",
+        "number": 9,
+        "id": "U02-L06-Q009"
+      },
+      {
+        "question": "أي من المواقف الآتية يدل على حق المرأة في 'إبداء الرأي'؟",
+        "options": {
+          "A": "موقف أم سلمة في الحديبية",
+          "B": "موقف خديجة في بدء الوحي",
+          "C": "أ + ب",
+          "D": "لا شيء مما ذكر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "أ + ب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أ + ب"
+        },
+        "explanation": "أ + ب",
+        "number": 10,
+        "id": "U02-L06-Q010"
+      },
+      {
+        "question": "من هي أم المؤمنين التي أشارت على النبي ﷺ يوم الحديبية بأن يبدأ بنحر هديه وحلق رأسه؟",
+        "options": {
+          "A": "عائشة",
+          "B": "خديجة",
+          "C": "أم سلمة",
+          "D": "حفصة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "أم سلمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أم سلمة"
+        },
+        "explanation": "أم سلمة",
+        "number": 11,
+        "id": "U02-L06-Q011"
+      },
+      {
+        "question": "ما كان أثر نصيحة أم المؤمنين أم سلمة للنبي ﷺ في صلح الحديبية؟",
+        "options": {
+          "A": "رفض الصحابة",
+          "B": "قام الصحابة فذبحوا هديهم وحلقوا رؤوسهم اقتداءً بالنبي",
+          "C": "تأخر الفتح",
+          "D": "وقعت فتنة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "قام الصحابة فذبحوا هديهم وحلقوا رؤوسهم اقتداءً بالنبي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قام الصحابة فذبحوا هديهم وحلقوا رؤوسهم اقتداءً بالنبي"
+        },
+        "explanation": "قام الصحابة فذبحوا هديهم وحلقوا رؤوسهم اقتداءً بالنبي",
+        "number": 12,
+        "id": "U02-L06-Q012"
+      },
+      {
+        "question": "اعترضت امرأة على عمر بن الخطاب ﷺ عندما أراد تحديد المهور بـ:",
+        "options": {
+          "A": "مئة درهم",
+          "B": "أربعمئة درهم",
+          "C": "ألف درهم",
+          "D": "دينار ذهبي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أربعمئة درهم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أربعمئة درهم"
+        },
+        "explanation": "أربعمئة درهم",
+        "number": 13,
+        "id": "U02-L06-Q013"
+      },
+      {
+        "question": "بماذا استدلت المرأة التي اعترضت على عمر بن الخطاب في مسألة المهور؟",
+        "options": {
+          "A": "بالعادات",
+          "B": "بآية من سورة النساء",
+          "C": "بحديث شريف",
+          "D": "برأيها الشخصي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بآية من سورة النساء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بآية من سورة النساء"
+        },
+        "explanation": "بآية من سورة النساء",
+        "number": 14,
+        "id": "U02-L06-Q014"
+      },
+      {
+        "question": "ماذا قال عمر بن الخطاب ﷺ بعد اعتراض المرأة عليه في المسجد؟",
+        "options": {
+          "A": "أخطأتِ",
+          "B": "كل الناس أفقه من عمر",
+          "C": "اصمتي",
+          "D": "لا رأي للمرأة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كل الناس أفقه من عمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل الناس أفقه من عمر"
+        },
+        "explanation": "كل الناس أفقه من عمر",
+        "number": 15,
+        "id": "U02-L06-Q015"
+      },
+      {
+        "question": "ما معنى كلمة (صُدُقاتهن) الواردة في الآية التي استدلت بها المرأة؟",
+        "options": {
+          "A": "زكاتهن",
+          "B": "مهورهن",
+          "C": "ملابسهن",
+          "D": "بيوتهن"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مهورهن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مهورهن"
+        },
+        "explanation": "مهورهن",
+        "number": 16,
+        "id": "U02-L06-Q016"
+      },
+      {
+        "question": "ما معنى (قِنطاراً) في قوله تعالى (وآتيتم إحداهن قنطاراً)؟",
+        "options": {
+          "A": "شيئاً قليلاً",
+          "B": "مالاً كثيراً",
+          "C": "مكاناً واسعاً",
+          "D": "بيتاً صغيراً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مالاً كثيراً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مالاً كثيراً"
+        },
+        "explanation": "مالاً كثيراً",
+        "number": 17,
+        "id": "U02-L06-Q017"
+      },
+      {
+        "question": "أول ممرضة في الإسلام هي الصحابية الجليلية:",
+        "options": {
+          "A": "رفيدة الأسلمية",
+          "B": "نسيبة المازنية",
+          "C": "أسماء بنت أبي بكر",
+          "D": "فاطمة الزهراء"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "رفيدة الأسلمية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رفيدة الأسلمية"
+        },
+        "explanation": "رفيدة الأسلمية",
+        "number": 18,
+        "id": "U02-L06-Q018"
+      },
+      {
+        "question": "يُعرف حق رعاية الطفل والقيام بشؤونه في حالة فرقة الوالدين بـ:",
+        "options": {
+          "A": "الوصاية",
+          "B": "الحضانة",
+          "C": "الولاية",
+          "D": "الكفالة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحضانة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحضانة"
+        },
+        "explanation": "الحضانة",
+        "number": 19,
+        "id": "U02-L06-Q019"
+      },
+      {
+        "question": "من هو أولى الأشخاص بحضانة الطفل وفق قانون الأحوال الشخصية الأردني؟",
+        "options": {
+          "A": "الأب",
+          "B": "الأم",
+          "C": "الجدة",
+          "D": "الخالة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأم"
+        },
+        "explanation": "الأم",
+        "number": 20,
+        "id": "U02-L06-Q020"
+      },
+      {
+        "question": "متى تستحق الأم حضانة طفلها؟",
+        "options": {
+          "A": "في حال قيام الزوجية فقط",
+          "B": "في حال فرقة الوالدين",
+          "C": "أ + ب",
+          "D": "لا شيء مما ذكر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "أ + ب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أ + ب"
+        },
+        "explanation": "أ + ب",
+        "number": 21,
+        "id": "U02-L06-Q021"
+      },
+      {
+        "question": "أي من الأحاديث الآتية يحث على إعطاء المرأة حق اختيار الزوج؟",
+        "options": {
+          "A": "(لا تُنكح الأيِّم حتى تُستأمر)",
+          "B": "(الدين النصيحة)",
+          "C": "(لا ضرر ولا ضرار)",
+          "D": "(كلمتان خفيفتان)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(لا تُنكح الأيِّم حتى تُستأمر)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "(لا تُنكح الأيِّم حتى تُستأمر)"
+        },
+        "explanation": "(لا تُنكح الأيِّم حتى تُستأمر)",
+        "number": 22,
+        "id": "U02-L06-Q022"
+      },
+      {
+        "question": "ما المقصود بـ (الأيِّم) في الحديث الشريف؟",
+        "options": {
+          "A": "البنت البكر",
+          "B": "المرأة التي سبق لها الزواج (ثيب)",
+          "C": "الأخت الكبرى",
+          "D": "الجدة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المرأة التي سبق لها الزواج (ثيب)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المرأة التي سبق لها الزواج (ثيب)"
+        },
+        "explanation": "المرأة التي سبق لها الزواج (ثيب)",
+        "number": 23,
+        "id": "U02-L06-Q023"
+      },
+      {
+        "question": "كيف تعبر (البكر) عن موافقتها على الزواج كما ورد في الحديث؟",
+        "options": {
+          "A": "بالكلام الصريح فقط",
+          "B": "بسكوتها (إشارة للموافقة حياءً)",
+          "C": "بالرفض",
+          "D": "بالبكاء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بسكوتها (إشارة للموافقة حياءً)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بسكوتها (إشارة للموافقة حياءً)"
+        },
+        "explanation": "بسكوتها (إشارة للموافقة حياءً)",
+        "number": 24,
+        "id": "U02-L06-Q024"
+      },
+      {
+        "question": "هل يحق للولي إجبار المرأة على الزواج بمن لا تريده؟",
+        "options": {
+          "A": "نعم، له ذلك مطلقاً",
+          "B": "لا يجوز له إجبارها شرعاً",
+          "C": "نعم، إذا كان الخاطب غنياً",
+          "D": "نعم، في حالات خاصة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا يجوز له إجبارها شرعاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا يجوز له إجبارها شرعاً"
+        },
+        "explanation": "لا يجوز له إجبارها شرعاً",
+        "number": 25,
+        "id": "U02-L06-Q025"
+      },
+      {
+        "question": "من الحقوق الاجتماعية للمرأة 'حق التعلم'، والمقصود به تعلم العلوم:",
+        "options": {
+          "A": "الدينية فقط",
+          "B": "الدنيوية فقط",
+          "C": "الدينية والدنيوية النافعة",
+          "D": "لا يوجد حق للتعلم"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الدينية والدنيوية النافعة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدينية والدنيوية النافعة"
+        },
+        "explanation": "الدينية والدنيوية النافعة",
+        "number": 26,
+        "id": "U02-L06-Q026"
+      },
+      {
+        "question": "أباح الإسلام للمرأة 'العمل' خارج البيت بشرط:",
+        "options": {
+          "A": "الالتزام بالضوابط الشرعية",
+          "B": "موافقة وليها أو زوجها",
+          "C": "ألا يؤثر على واجباتها الأسرية",
+          "D": "جميع ما ذكر صحيح"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر صحيح"
+        },
+        "explanation": "جميع ما ذكر صحيح",
+        "number": 27,
+        "id": "U02-L06-Q027"
+      },
+      {
+        "question": "من القيم المستفادة من الدرس تقدير مكانة المرأة و:",
+        "options": {
+          "A": "حقوقها الاجتماعية",
+          "B": "إهمالها",
+          "C": "تعقيد حياتها",
+          "D": "تقليل شأنها"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "حقوقها الاجتماعية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حقوقها الاجتماعية"
+        },
+        "explanation": "حقوقها الاجتماعية",
+        "number": 28,
+        "id": "U02-L06-Q028"
+      },
+      {
+        "question": "استخدام الـ (QR Code) في صفحة 79 يهدف لتعرف:",
+        "options": {
+          "A": "مواقع سياحية",
+          "B": "رأي دائرة الإفتاء في عمل المرأة",
+          "C": "ألعاب تعليمية",
+          "D": "أخبار عامة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "رأي دائرة الإفتاء في عمل المرأة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رأي دائرة الإفتاء في عمل المرأة"
+        },
+        "explanation": "رأي دائرة الإفتاء في عمل المرأة",
+        "number": 29,
+        "id": "U02-L06-Q029"
+      },
+      {
+        "question": "أي من الآتية 'ليس' من الحقوق الاجتماعية للمرأة التي ذكرها الدرس؟",
+        "options": {
+          "A": "حق الميراث (حق مالي)",
+          "B": "حق الحضانة",
+          "C": "حق إبداء الرأي",
+          "D": "حق التعليم"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "حق الميراث (حق مالي)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حق الميراث (حق مالي)"
+        },
+        "explanation": "حق الميراث (حق مالي)",
+        "number": 30,
+        "id": "U02-L06-Q030"
+      },
+      {
+        "question": "أشركت الشريعة الإسلامية المرأة في بناء المجتمع من خلال توليها:",
+        "options": {
+          "A": "المهن المختلفة كالطب والتمريض والتعليم",
+          "B": "رعاية الأسرة",
+          "C": "أ + ب",
+          "D": "لا دور لها"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "أ + ب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أ + ب"
+        },
+        "explanation": "أ + ب",
+        "number": 31,
+        "id": "U02-L06-Q031"
+      },
+      {
+        "question": "قال تعالى (ولهن مثل الذي عليهن بالمعروف)، تدل الآية على:",
+        "options": {
+          "A": "مساواة الرجل والمرأة في أصل التكريم والحقوق والواجبات",
+          "B": "تفضيل الرجل دائماً",
+          "C": "منع حقوق المرأة",
+          "D": "الفرقة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مساواة الرجل والمرأة في أصل التكريم والحقوق والواجبات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مساواة الرجل والمرأة في أصل التكريم والحقوق والواجبات"
+        },
+        "explanation": "مساواة الرجل والمرأة في أصل التكريم والحقوق والواجبات",
+        "number": 32,
+        "id": "U02-L06-Q032"
+      },
+      {
+        "question": "من صور رعاية الإسلام للأرملة والمطلقة كفالة حق:",
+        "options": {
+          "A": "السفر الدائم",
+          "B": "الحضانة والنفقة والكرامة",
+          "C": "ترك الأطفال",
+          "D": "تغيير الاسم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحضانة والنفقة والكرامة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحضانة والنفقة والكرامة"
+        },
+        "explanation": "الحضانة والنفقة والكرامة",
+        "number": 33,
+        "id": "U02-L06-Q033"
+      },
+      {
+        "question": "يعتبر الإسلام الاعتداء على 'سمعة' المرأة (قذف المحصنات) من:",
+        "options": {
+          "A": "الكبائر",
+          "B": "الصغائر",
+          "C": "المباحات",
+          "D": "الأمور اليسيرة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الكبائر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الكبائر"
+        },
+        "explanation": "الكبائر",
+        "number": 34,
+        "id": "U02-L06-Q034"
+      },
+      {
+        "question": "حث الإسلام على إكرام (الخالة) وجعل منزلتها بمنزلة:",
+        "options": {
+          "A": "الأم",
+          "B": "الأخت",
+          "C": "الجدة",
+          "D": "الجارة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الأم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأم"
+        },
+        "explanation": "الأم",
+        "number": 35,
+        "id": "U02-L06-Q035"
+      },
+      {
+        "question": "من مظاهر تقدير الإسلام للمرأة كزوجة أن النبي ﷺ وصف السيدة خديجة بأنها:",
+        "options": {
+          "A": "آمنت به حين كفر الناس",
+          "B": "واسته بمالها حين حرمه الناس",
+          "C": "نِعْم الزوجة",
+          "D": "جميع ما ذكر صحيح"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر صحيح"
+        },
+        "explanation": "جميع ما ذكر صحيح",
+        "number": 36,
+        "id": "U02-L06-Q036"
+      },
+      {
+        "question": "في قصة المرأة التي زوجها أبوها من ابن أخيه ليرفع به خسيسته، النبي ﷺ جعل الأمر إليها في:",
+        "options": {
+          "A": "فسخ الزواج أو إجازته",
+          "B": "تغيير المهر",
+          "C": "السكن وحدها",
+          "D": "بيع أثاث البيت"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "فسخ الزواج أو إجازته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فسخ الزواج أو إجازته"
+        },
+        "explanation": "فسخ الزواج أو إجازته",
+        "number": 37,
+        "id": "U02-L06-Q037"
+      },
+      {
+        "question": "أي المبادئ الآتية يعزز الثقة داخل الأسرة المسلمة؟",
+        "options": {
+          "A": "احترام الحقوق الاجتماعية للمرأة",
+          "B": "التسلط",
+          "C": "تجاهل الآراء",
+          "D": "الظلم"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "احترام الحقوق الاجتماعية للمرأة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "احترام الحقوق الاجتماعية للمرأة"
+        },
+        "explanation": "احترام الحقوق الاجتماعية للمرأة",
+        "number": 38,
+        "id": "U02-L06-Q038"
+      },
+      {
+        "question": "حق المرأة في 'المواطنة' يكفل لها:",
+        "options": {
+          "A": "الأمن والأمان",
+          "B": "المساواة أمام القانون",
+          "C": "المشاركة في بناء الوطن",
+          "D": "جميع ما ذكر صحيح"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر صحيح"
+        },
+        "explanation": "جميع ما ذكر صحيح",
+        "number": 39,
+        "id": "U02-L06-Q039"
+      },
+      {
+        "question": "القيمة الأساسية لدرس الحقوق الاجتماعية للمرأة هي:",
+        "options": {
+          "A": "تقدير مكانة المرأة كركيزة أساسية في المجتمع",
+          "B": "البحث عن الخلافات",
+          "C": "التمييز العنصري",
+          "D": "تجاهل التقاليد"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "تقدير مكانة المرأة كركيزة أساسية في المجتمع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تقدير مكانة المرأة كركيزة أساسية في المجتمع"
+        },
+        "explanation": "تقدير مكانة المرأة كركيزة أساسية في المجتمع",
+        "number": 40,
+        "id": "U02-L06-Q040"
+      }
+    ]
+  }
+}

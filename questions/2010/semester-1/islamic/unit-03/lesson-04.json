@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "3.4",
+    "lesson_name": "الإيجابية في الشريعة الإسلامية",
+    "unit_number": 3,
+    "unit_name": "الوحدة الثالثة: علاقة المسلم بكتاب الله وسنة نبيه",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما المقصود بالإيجابية كخصيصة من خصائص الشريعة الإسلامية؟",
+        "options": {
+          "A": "الانعزال عن المجتمع",
+          "B": "فاعلية المسلم وسعيه للخير في جميع أحواله",
+          "C": "ترك العمل والتوكل فقط",
+          "D": "البحث عن الأخطاء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فاعلية المسلم وسعيه للخير في جميع أحواله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فاعلية المسلم وسعيه للخير في جميع أحواله"
+        },
+        "explanation": "فاعلية المسلم وسعيه للخير في جميع أحواله",
+        "number": 1,
+        "id": "U03-L04-Q001"
+      },
+      {
+        "question": "ما هو مصدر الشريعة الإسلامية الذي يضمن شمولها وتطورها؟",
+        "options": {
+          "A": "مصدر بشري",
+          "B": "مصدر رباني",
+          "C": "التقاليد الموروثة",
+          "D": "الفلسفة اليونانية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مصدر رباني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مصدر رباني"
+        },
+        "explanation": "مصدر رباني",
+        "number": 2,
+        "id": "U03-L04-Q002"
+      },
+      {
+        "question": "قال صلى الله عليه وسلم: (إن قامت الساعة وبيد أحدكم فسيلة...)، إلى ماذا يدعو هذا الحديث؟",
+        "options": {
+          "A": "الخوف من الساعة",
+          "B": "التوقف عن العمل",
+          "C": "الإيجابية والعمل حتى آخر لحظة",
+          "D": "الهروب من الواقع"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الإيجابية والعمل حتى آخر لحظة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإيجابية والعمل حتى آخر لحظة"
+        },
+        "explanation": "الإيجابية والعمل حتى آخر لحظة",
+        "number": 3,
+        "id": "U03-L04-Q003"
+      },
+      {
+        "question": "أي مما يلي يعد من مظاهر الإيجابية تجاه 'النفس'؟",
+        "options": {
+          "A": "احتقار الذات",
+          "B": "اليأس من النجاح",
+          "C": "الثقة برحمة الله والبعد عن الإحباط",
+          "D": "إهمال الموهبة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الثقة برحمة الله والبعد عن الإحباط",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الثقة برحمة الله والبعد عن الإحباط"
+        },
+        "explanation": "الثقة برحمة الله والبعد عن الإحباط",
+        "number": 4,
+        "id": "U03-L04-Q004"
+      },
+      {
+        "question": "من مقتضيات الإيجابية تجاه المستقبل أن المسلم لا يخشى على رزقه لأن:",
+        "options": {
+          "A": "المال متوفر دائماً",
+          "B": "الأمر كله بيد الله تعالى",
+          "C": "المستقبل مجهول",
+          "D": "العمل غير ضروري"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأمر كله بيد الله تعالى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأمر كله بيد الله تعالى"
+        },
+        "explanation": "الأمر كله بيد الله تعالى",
+        "number": 5,
+        "id": "U03-L04-Q005"
+      },
+      {
+        "question": "كيف يؤثر فتح باب التوبة إيجابياً على المجتمع؟",
+        "options": {
+          "A": "يشجع على ارتكاب الجرائم",
+          "B": "يمنع اليأس ويحفز المذنب على الصلاح والإنتاج",
+          "C": "يؤدي إلى الفوضى",
+          "D": "ليس له أثر اجتماعي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يمنع اليأس ويحفز المذنب على الصلاح والإنتاج",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يمنع اليأس ويحفز المذنب على الصلاح والإنتاج"
+        },
+        "explanation": "يمنع اليأس ويحفز المذنب على الصلاح والإنتاج",
+        "number": 6,
+        "id": "U03-L04-Q006"
+      },
+      {
+        "question": "بماذا استبشر النبي صلى الله عليه وسلم في رحلته إلى الطائف رغم الإيذاء؟",
+        "options": {
+          "A": "بالانتقام منهم",
+          "B": "بإسلام أجيالهم القادمة وتفاؤله بالخير",
+          "C": "بالعودة السريعة",
+          "D": "بالحزن الدائم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بإسلام أجيالهم القادمة وتفاؤله بالخير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بإسلام أجيالهم القادمة وتفاؤله بالخير"
+        },
+        "explanation": "بإسلام أجيالهم القادمة وتفاؤله بالخير",
+        "number": 7,
+        "id": "U03-L04-Q007"
+      },
+      {
+        "question": "قال صلى الله عليه وسلم: (إذا قال الرجل: هلك الناس، فهو...)؟",
+        "options": {
+          "A": "أصدقهم",
+          "B": "أعلمهم",
+          "C": "أهلكُهم",
+          "D": "أفضلهم"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "أهلكُهم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أهلكُهم"
+        },
+        "explanation": "أهلكُهم",
+        "number": 8,
+        "id": "U03-L04-Q008"
+      },
+      {
+        "question": "ما دلالة النهي عن قول 'هلك الناس' في الإسلام؟",
+        "options": {
+          "A": "نشر الروح السلبية والقنوط",
+          "B": "معرفة الحقيقة",
+          "C": "التواضع",
+          "D": "الحذر"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "نشر الروح السلبية والقنوط",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نشر الروح السلبية والقنوط"
+        },
+        "explanation": "نشر الروح السلبية والقنوط",
+        "number": 9,
+        "id": "U03-L04-Q009"
+      },
+      {
+        "question": "إماطة الأذى عن الطريق تعتبر في الإسلام:",
+        "options": {
+          "A": "عملاً عادياً",
+          "B": "صدقة وعبادة يؤجر عليها المسلم",
+          "C": "واجباً على الدولة فقط",
+          "D": "مستحبة في النهار فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "صدقة وعبادة يؤجر عليها المسلم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صدقة وعبادة يؤجر عليها المسلم"
+        },
+        "explanation": "صدقة وعبادة يؤجر عليها المسلم",
+        "number": 10,
+        "id": "U03-L04-Q010"
+      },
+      {
+        "question": "أي من المجالات التالية يشملها 'التعاون على البر والتقوى'؟",
+        "options": {
+          "A": "المجالات الإنسانية والعلمية وإعمار الكون",
+          "B": "المجالات التجارية فقط",
+          "C": "الحروب فقط",
+          "D": "النزاعات القبلية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "المجالات الإنسانية والعلمية وإعمار الكون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المجالات الإنسانية والعلمية وإعمار الكون"
+        },
+        "explanation": "المجالات الإنسانية والعلمية وإعمار الكون",
+        "number": 11,
+        "id": "U03-L04-Q011"
+      },
+      {
+        "question": "ما هو حكم إدخال الفرح والسرور على قلوب الناس في الإسلام؟",
+        "options": {
+          "A": "مكروه",
+          "B": "مباح وفق الضوابط الشرعية ومستحب",
+          "C": "حرام",
+          "D": "ممنوع في العيد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مباح وفق الضوابط الشرعية ومستحب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مباح وفق الضوابط الشرعية ومستحب"
+        },
+        "explanation": "مباح وفق الضوابط الشرعية ومستحب",
+        "number": 12,
+        "id": "U03-L04-Q012"
+      },
+      {
+        "question": "من هو الصحابي الذي اعترض على غناء الجاريتين في بيت عائشة فصحح له النبي؟",
+        "options": {
+          "A": "عمر بن الخطاب",
+          "B": "أبو بكر الصديق",
+          "C": "عثمان بن عفان",
+          "D": "علي بن أبي طالب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أبو بكر الصديق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أبو بكر الصديق"
+        },
+        "explanation": "أبو بكر الصديق",
+        "number": 13,
+        "id": "U03-L04-Q013"
+      },
+      {
+        "question": "ماذا قال النبي لأبي بكر الصديق عن غناء الجاريتين في العيد؟",
+        "options": {
+          "A": "أخرجهما فوراً",
+          "B": "دعهما يا أبا بكر فإنها أيام عيد",
+          "C": "هذا حرام",
+          "D": "ليس الآن وقت الغناء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "دعهما يا أبا بكر فإنها أيام عيد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "دعهما يا أبا بكر فإنها أيام عيد"
+        },
+        "explanation": "دعهما يا أبا بكر فإنها أيام عيد",
+        "number": 14,
+        "id": "U03-L04-Q014"
+      },
+      {
+        "question": "كان للنبي صلى الله عليه وسلم ثوبان مخصصان لأي مناسبات؟",
+        "options": {
+          "A": "للسفر فقط",
+          "B": "للحروب",
+          "C": "للجمع والأعياد واستقبال الوفود",
+          "D": "للنوم"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "للجمع والأعياد واستقبال الوفود",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "للجمع والأعياد واستقبال الوفود"
+        },
+        "explanation": "للجمع والأعياد واستقبال الوفود",
+        "number": 15,
+        "id": "U03-L04-Q015"
+      },
+      {
+        "question": "ما اسم المنصة الإلكترونية الأردنية التي أطلقتها مؤسسة ولي العهد لتعزيز التطوع؟",
+        "options": {
+          "A": "منصة أردني",
+          "B": "منصة نوى",
+          "C": "منصة تطوع",
+          "D": "منصة الخير"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "منصة نوى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "منصة نوى"
+        },
+        "explanation": "منصة نوى",
+        "number": 16,
+        "id": "U03-L04-Q016"
+      },
+      {
+        "question": "ما الهدف الرئيس من 'منصة نوى'؟",
+        "options": {
+          "A": "الربح التجاري",
+          "B": "تفعيل مشاركة الشباب في العمل التطوعي",
+          "C": "نشر الأخبار",
+          "D": "الألعاب الإلكترونية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تفعيل مشاركة الشباب في العمل التطوعي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تفعيل مشاركة الشباب في العمل التطوعي"
+        },
+        "explanation": "تفعيل مشاركة الشباب في العمل التطوعي",
+        "number": 17,
+        "id": "U03-L04-Q017"
+      },
+      {
+        "question": "أي من الآيات التالية تدعو للثقة برحمة الله وعدم القنوط؟",
+        "options": {
+          "A": "(ومن يقنط من رحمة ربه إلا الضالون)",
+          "B": "(إن الله لا يظلم الناس شيئاً)",
+          "C": "(واتقوا الله)",
+          "D": "(قل هو الله أحد)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(ومن يقنط من رحمة ربه إلا الضالون)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "(ومن يقنط من رحمة ربه إلا الضالون)"
+        },
+        "explanation": "(ومن يقنط من رحمة ربه إلا الضالون)",
+        "number": 18,
+        "id": "U03-L04-Q018"
+      },
+      {
+        "question": "الإيجابية تجاه الناس تعني:",
+        "options": {
+          "A": "استغلالهم",
+          "B": "إقامة علاقات طيبة وتقديرهم وعدم تحقيرهم",
+          "C": "الابتعاد عنهم",
+          "D": "مراقبة عيوبهم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إقامة علاقات طيبة وتقديرهم وعدم تحقيرهم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إقامة علاقات طيبة وتقديرهم وعدم تحقيرهم"
+        },
+        "explanation": "إقامة علاقات طيبة وتقديرهم وعدم تحقيرهم",
+        "number": 19,
+        "id": "U03-L04-Q019"
+      },
+      {
+        "question": "بماذا وعد الله التوابين في سورة الزمر؟",
+        "options": {
+          "A": "بأن يغفر الذنوب جميعاً",
+          "B": "بالعقاب",
+          "C": "بالتجاهل",
+          "D": "بصعوبة التوبة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "بأن يغفر الذنوب جميعاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بأن يغفر الذنوب جميعاً"
+        },
+        "explanation": "بأن يغفر الذنوب جميعاً",
+        "number": 20,
+        "id": "U03-L04-Q020"
+      },
+      {
+        "question": "في حديث الراكب من صنعاء إلى حضرموت، ما هي القيمة المبشر بها؟",
+        "options": {
+          "A": "الخوف",
+          "B": "الأمن وانتشار الإسلام ونبذ الاستعجال",
+          "C": "التجارة",
+          "D": "طول الطريق"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأمن وانتشار الإسلام ونبذ الاستعجال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأمن وانتشار الإسلام ونبذ الاستعجال"
+        },
+        "explanation": "الأمن وانتشار الإسلام ونبذ الاستعجال",
+        "number": 21,
+        "id": "U03-L04-Q021"
+      },
+      {
+        "question": "رفض النبي الدعاء على أهل الطائف يدل على:",
+        "options": {
+          "A": "الضعف",
+          "B": "التفاؤل والرحمة والروح الإيجابية",
+          "C": "النسيان",
+          "D": "اللامبالاة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التفاؤل والرحمة والروح الإيجابية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التفاؤل والرحمة والروح الإيجابية"
+        },
+        "explanation": "التفاؤل والرحمة والروح الإيجابية",
+        "number": 22,
+        "id": "U03-L04-Q022"
+      },
+      {
+        "question": "يعتبر التجمّل ولبس أحسن الثياب في العيد مظهراً من مظاهر:",
+        "options": {
+          "A": "التكبر",
+          "B": "التبذير",
+          "C": "إظهار البهجة والفرح المشروعة",
+          "D": "الرياء"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "إظهار البهجة والفرح المشروعة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إظهار البهجة والفرح المشروعة"
+        },
+        "explanation": "إظهار البهجة والفرح المشروعة",
+        "number": 23,
+        "id": "U03-L04-Q023"
+      },
+      {
+        "question": "من صور الإيجابية في السلوك اليومي:",
+        "options": {
+          "A": "إلقاء النفايات",
+          "B": "التشاؤم",
+          "C": "إماطة الأذى عن الطريق والتبسم",
+          "D": "كثرة الشكوى"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "إماطة الأذى عن الطريق والتبسم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إماطة الأذى عن الطريق والتبسم"
+        },
+        "explanation": "إماطة الأذى عن الطريق والتبسم",
+        "number": 24,
+        "id": "U03-L04-Q024"
+      },
+      {
+        "question": "القرار بتأخير الحمل بسبب مرض يرجى شفاؤه هو نوع من:",
+        "options": {
+          "A": "تحديد النسل",
+          "B": "تنظيم النسل المشروّع",
+          "C": "الإهمال",
+          "D": "اليأس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تنظيم النسل المشروّع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تنظيم النسل المشروّع"
+        },
+        "explanation": "تنظيم النسل المشروّع",
+        "number": 25,
+        "id": "U03-L04-Q025"
+      },
+      {
+        "question": "ما هي خصيصة الشريعة التي تجعلها تستوعب تطور الأحداث؟",
+        "options": {
+          "A": "الجمود",
+          "B": "الشمول والمرونة المرتبطة بالوحي",
+          "C": "التغيير الكلي",
+          "D": "الضعف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الشمول والمرونة المرتبطة بالوحي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الشمول والمرونة المرتبطة بالوحي"
+        },
+        "explanation": "الشمول والمرونة المرتبطة بالوحي",
+        "number": 26,
+        "id": "U03-L04-Q026"
+      },
+      {
+        "question": "الشخص الإيجابي في الإسلام هو الذي:",
+        "options": {
+          "A": "ينتظر مساعدة الآخرين",
+          "B": "يبادر لفعل الخير ونفع نفسه ومجتمعه",
+          "C": "ينتقد فقط",
+          "D": "يعيش لنفسه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يبادر لفعل الخير ونفع نفسه ومجتمعه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يبادر لفعل الخير ونفع نفسه ومجتمعه"
+        },
+        "explanation": "يبادر لفعل الخير ونفع نفسه ومجتمعه",
+        "number": 27,
+        "id": "U03-L04-Q027"
+      },
+      {
+        "question": "من الآثار التربوية للإيجابية:",
+        "options": {
+          "A": "زيادة التوتر",
+          "B": "بناء شخصية متوازنة واثقة بالله",
+          "C": "الغرور",
+          "D": "الكسل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بناء شخصية متوازنة واثقة بالله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بناء شخصية متوازنة واثقة بالله"
+        },
+        "explanation": "بناء شخصية متوازنة واثقة بالله",
+        "number": 28,
+        "id": "U03-L04-Q028"
+      },
+      {
+        "question": "حث الإسلام على 'إعمار الأرض'، هذا المبدأ يرتبط بـ:",
+        "options": {
+          "A": "الإيجابية تجاه الحياة الدنيا",
+          "B": "الهروب من الدنيا",
+          "C": "الزهد السلبي",
+          "D": "تدمير البيئة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الإيجابية تجاه الحياة الدنيا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإيجابية تجاه الحياة الدنيا"
+        },
+        "explanation": "الإيجابية تجاه الحياة الدنيا",
+        "number": 29,
+        "id": "U03-L04-Q029"
+      },
+      {
+        "question": "في قوله تعالى (ولا تهنوا ولا تحزنوا)، دعوة صريحة لترك:",
+        "options": {
+          "A": "العمل",
+          "B": "السلبية والضعف النفسي",
+          "C": "الأمل",
+          "D": "الصبر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "السلبية والضعف النفسي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السلبية والضعف النفسي"
+        },
+        "explanation": "السلبية والضعف النفسي",
+        "number": 30,
+        "id": "U03-L04-Q030"
+      },
+      {
+        "question": "ما معنى لفظ 'فسيلة' الوارد في حديث العمل؟",
+        "options": {
+          "A": "نخلة كبيرة",
+          "B": "النخلة الصغيرة التي تقطع من الأم لتغرس",
+          "C": "صخرة",
+          "D": "بئر ماء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "النخلة الصغيرة التي تقطع من الأم لتغرس",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النخلة الصغيرة التي تقطع من الأم لتغرس"
+        },
+        "explanation": "النخلة الصغيرة التي تقطع من الأم لتغرس",
+        "number": 31,
+        "id": "U03-L04-Q031"
+      },
+      {
+        "question": "الإيجابية تمنع المسلم من السقوط في فخ:",
+        "options": {
+          "A": "الاجتهاد",
+          "B": "الإحباط واليأس",
+          "C": "التفاؤل",
+          "D": "النجاح"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الإحباط واليأس",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإحباط واليأس"
+        },
+        "explanation": "الإحباط واليأس",
+        "number": 32,
+        "id": "U03-L04-Q032"
+      },
+      {
+        "question": "تعتبر المبادرات التطوعية تطبيقاً عملياً لمبدأ:",
+        "options": {
+          "A": "المنافسة غير الشريفة",
+          "B": "الإيجابية والمواطنة الصالحة",
+          "C": "إضاعة الوقت",
+          "D": "الشهرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الإيجابية والمواطنة الصالحة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإيجابية والمواطنة الصالحة"
+        },
+        "explanation": "الإيجابية والمواطنة الصالحة",
+        "number": 33,
+        "id": "U03-L04-Q033"
+      },
+      {
+        "question": "من مظاهر إيجابية الشريعة أنها تربط بين الإيمان وـ:",
+        "options": {
+          "A": "السلوك والعمل الصالح",
+          "B": "الأماني فقط",
+          "C": "الكلام المجرد",
+          "D": "الانعزال"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "السلوك والعمل الصالح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السلوك والعمل الصالح"
+        },
+        "explanation": "السلوك والعمل الصالح",
+        "number": 34,
+        "id": "U03-L04-Q034"
+      },
+      {
+        "question": "ما هو شعار منصة نوى الذي يعكس قيمتها؟",
+        "options": {
+          "A": "للربح فقط",
+          "B": "إحدى مبادرات مؤسسة ولي العهد لتعزيز التطوع",
+          "C": "للتجارة",
+          "D": "للترفيه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إحدى مبادرات مؤسسة ولي العهد لتعزيز التطوع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إحدى مبادرات مؤسسة ولي العهد لتعزيز التطوع"
+        },
+        "explanation": "إحدى مبادرات مؤسسة ولي العهد لتعزيز التطوع",
+        "number": 35,
+        "id": "U03-L04-Q035"
+      },
+      {
+        "question": "أي مما يلي لا يعتبر سلوكاً إيجابياً؟",
+        "options": {
+          "A": "الابتسامة في وجه الأخ",
+          "B": "مساعدة المحتاج",
+          "C": "السخرية من تعليقات الناس في التواصل الاجتماعي",
+          "D": "نشر الأمل"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "السخرية من تعليقات الناس في التواصل الاجتماعي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السخرية من تعليقات الناس في التواصل الاجتماعي"
+        },
+        "explanation": "السخرية من تعليقات الناس في التواصل الاجتماعي",
+        "number": 36,
+        "id": "U03-L04-Q036"
+      },
+      {
+        "question": "قال تعالى: (وتعاونوا على البر والتقوى)، كلمة 'البر' هنا تعني:",
+        "options": {
+          "A": "اسم جامع لكل خير",
+          "B": "الشر",
+          "C": "الصحراء",
+          "D": "التجاهل"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "اسم جامع لكل خير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم جامع لكل خير"
+        },
+        "explanation": "اسم جامع لكل خير",
+        "number": 37,
+        "id": "U03-L04-Q037"
+      },
+      {
+        "question": "الثقة بأن 'الرزق عند الله' تدفع المسلم إلى:",
+        "options": {
+          "A": "البخل",
+          "B": "العمل بنشاط دون قلق مدمر",
+          "C": "ترك الوظيفة",
+          "D": "سرقة الآخرين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العمل بنشاط دون قلق مدمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العمل بنشاط دون قلق مدمر"
+        },
+        "explanation": "العمل بنشاط دون قلق مدمر",
+        "number": 38,
+        "id": "U03-L04-Q038"
+      },
+      {
+        "question": "دعت الشريعة إلى الاستمتاع بالطيبات، وهذا مظهر من مظاهر الإيجابية تجاه:",
+        "options": {
+          "A": "النفس والحياة الدنيا",
+          "B": "الآخرة فقط",
+          "C": "القبر",
+          "D": "الأعداء"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "النفس والحياة الدنيا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النفس والحياة الدنيا"
+        },
+        "explanation": "النفس والحياة الدنيا",
+        "number": 39,
+        "id": "U03-L04-Q039"
+      },
+      {
+        "question": "المسلم الإيجابي يرى في المصائب:",
+        "options": {
+          "A": "نهاية العالم",
+          "B": "فرصة للصبر والاحتساب والأمل في التعويض من الله",
+          "C": "سبباً لترك الدين",
+          "D": "مجالاً لسب الدهر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فرصة للصبر والاحتساب والأمل في التعويض من الله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فرصة للصبر والاحتساب والأمل في التعويض من الله"
+        },
+        "explanation": "فرصة للصبر والاحتساب والأمل في التعويض من الله",
+        "number": 40,
+        "id": "U03-L04-Q040"
+      }
+    ]
+  }
+}

@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "1.6",
+    "lesson_name": "الجهاد في الإسلام",
+    "unit_number": 1,
+    "unit_name": "الوحدة الأولى: واعتصموا بحبل الله جميعاً",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "وصف النبي ﷺ الجهاد في سبيل الله بأنه:",
+        "options": {
+          "A": "رأس الأمر",
+          "B": "عمود الإسلام",
+          "C": "ذروة سنام الإسلام",
+          "D": "أساس الدين"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "ذروة سنام الإسلام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ذروة سنام الإسلام"
+        },
+        "explanation": "ذروة سنام الإسلام",
+        "number": 1,
+        "id": "U01-L06-Q001"
+      },
+      {
+        "question": "المقصود بـ (ذروة السنام) في الحديث الشريف هو:",
+        "options": {
+          "A": "أقل الشيء",
+          "B": "أعلى الشيء وأرفعه",
+          "C": "وسط الشيء",
+          "D": "بداية الشيء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أعلى الشيء وأرفعه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أعلى الشيء وأرفعه"
+        },
+        "explanation": "أعلى الشيء وأرفعه",
+        "number": 2,
+        "id": "U01-L06-Q002"
+      },
+      {
+        "question": "رأس الأمر في الإسلام كما ورد في الحديث هو:",
+        "options": {
+          "A": "الصلاة",
+          "B": "الجهاد",
+          "C": "الإسلام",
+          "D": "الزكاة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الإسلام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإسلام"
+        },
+        "explanation": "الإسلام",
+        "number": 3,
+        "id": "U01-L06-Q003"
+      },
+      {
+        "question": "عمود الإسلام الذي يقوم عليه هو:",
+        "options": {
+          "A": "الجهاد",
+          "B": "الصلاة",
+          "C": "الصوم",
+          "D": "الحج"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الصلاة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الصلاة"
+        },
+        "explanation": "الصلاة",
+        "number": 4,
+        "id": "U01-L06-Q004"
+      },
+      {
+        "question": "الجهاد بالمعنى الخاص يشتمل على مراتب عدة، منها:",
+        "options": {
+          "A": "الجهاد بالنفس والمال",
+          "B": "الجهاد بالكلمة فقط",
+          "C": "الجهاد بالدراسة",
+          "D": "الجهاد بالتجارة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الجهاد بالنفس والمال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الجهاد بالنفس والمال"
+        },
+        "explanation": "الجهاد بالنفس والمال",
+        "number": 5,
+        "id": "U01-L06-Q005"
+      },
+      {
+        "question": "يكون الجهاد بالنفس من خلال:",
+        "options": {
+          "A": "التبرع بالمال",
+          "B": "مباشرة القتال وبذل النفس دفاعاً عن الدين والوطن",
+          "C": "إلقاء الخطب",
+          "D": "تأليف الكتب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مباشرة القتال وبذل النفس دفاعاً عن الدين والوطن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مباشرة القتال وبذل النفس دفاعاً عن الدين والوطن"
+        },
+        "explanation": "مباشرة القتال وبذل النفس دفاعاً عن الدين والوطن",
+        "number": 6,
+        "id": "U01-L06-Q006"
+      },
+      {
+        "question": "خوض غمار الجهاد بالنفس (القتال) هو مسؤولية:",
+        "options": {
+          "A": "الأفراد وحدهم",
+          "B": "الدولة (ولي الأمر)",
+          "C": "الجماعات الخاصة",
+          "D": "كل فرد حسب رأيه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الدولة (ولي الأمر)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدولة (ولي الأمر)"
+        },
+        "explanation": "الدولة (ولي الأمر)",
+        "number": 7,
+        "id": "U01-L06-Q007"
+      },
+      {
+        "question": "هل يجوز للأفراد خوض القتال من دون إذن ولي الأمر؟",
+        "options": {
+          "A": "نعم، في كل وقت",
+          "B": "لا يحق لهم ذلك شرعاً",
+          "C": "نعم، إذا كانوا أقوياء",
+          "D": "نعم، في السفر فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا يحق لهم ذلك شرعاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا يحق لهم ذلك شرعاً"
+        },
+        "explanation": "لا يحق لهم ذلك شرعاً",
+        "number": 8,
+        "id": "U01-L06-Q008"
+      },
+      {
+        "question": "ما هو الأصل في حكم الجهاد في الإسلام؟",
+        "options": {
+          "A": "فرض عين على كل مسلم",
+          "B": "فرض كفاية",
+          "C": "سنة مؤكدة",
+          "D": "مباح"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فرض كفاية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فرض كفاية"
+        },
+        "explanation": "فرض كفاية",
+        "number": 9,
+        "id": "U01-L06-Q009"
+      },
+      {
+        "question": "متى يصبح الجهاد (فرض عين) على أشخاص محددين؟",
+        "options": {
+          "A": "عندما يسافرون",
+          "B": "إذا أعلن رأس الدولة النفير العام أو كلفهم بذلك",
+          "C": "في شهر رمضان فقط",
+          "D": "عند كثرة الأموال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إذا أعلن رأس الدولة النفير العام أو كلفهم بذلك",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إذا أعلن رأس الدولة النفير العام أو كلفهم بذلك"
+        },
+        "explanation": "إذا أعلن رأس الدولة النفير العام أو كلفهم بذلك",
+        "number": 10,
+        "id": "U01-L06-Q010"
+      },
+      {
+        "question": "الآية الكريمة (يا أيها الذين آمنوا ما لكم إذا قيل لكم انفروا في سبيل الله اثاقلتم..) تدل على:",
+        "options": {
+          "A": "فرض الكفاية",
+          "B": "وجوب الاستجابة عند إعلان النفير العام",
+          "C": "تحريم السفر",
+          "D": "أهمية التجارة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "وجوب الاستجابة عند إعلان النفير العام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وجوب الاستجابة عند إعلان النفير العام"
+        },
+        "explanation": "وجوب الاستجابة عند إعلان النفير العام",
+        "number": 11,
+        "id": "U01-L06-Q011"
+      },
+      {
+        "question": "جعل النبي ﷺ الجهاد أفضل الأعمال بعد:",
+        "options": {
+          "A": "الصلاة",
+          "B": "الإيمان بالله ورسوله",
+          "C": "الحج",
+          "D": "الصدقة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الإيمان بالله ورسوله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإيمان بالله ورسوله"
+        },
+        "explanation": "الإيمان بالله ورسوله",
+        "number": 12,
+        "id": "U01-L06-Q012"
+      },
+      {
+        "question": "حذر القرآن الكريم من ترك الجهاد والتقاعس عنه لما فيه من:",
+        "options": {
+          "A": "زيادة في المال",
+          "B": "مدعاة لعذاب الله وتسليط الأعداء",
+          "C": "راحة للبدن",
+          "D": "تحسين للعلاقات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مدعاة لعذاب الله وتسليط الأعداء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مدعاة لعذاب الله وتسليط الأعداء"
+        },
+        "explanation": "مدعاة لعذاب الله وتسليط الأعداء",
+        "number": 13,
+        "id": "U01-L06-Q013"
+      },
+      {
+        "question": "يكون الجهاد بالمال من خلال:",
+        "options": {
+          "A": "شراء الملابس الشخصية",
+          "B": "تقديم المال لتجهيز الجيش وتزويده بالسلاح والمؤونة",
+          "C": "بناء المساجد فقط",
+          "D": "السفر للسياحة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تقديم المال لتجهيز الجيش وتزويده بالسلاح والمؤونة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تقديم المال لتجهيز الجيش وتزويده بالسلاح والمؤونة"
+        },
+        "explanation": "تقديم المال لتجهيز الجيش وتزويده بالسلاح والمؤونة",
+        "number": 14,
+        "id": "U01-L06-Q014"
+      },
+      {
+        "question": "من صور الجهاد بالمال التي ذكرها الكتاب:",
+        "options": {
+          "A": "بناء المصانع الحربية وتجهيز المستشفيات",
+          "B": "رعاية عائلات المجاهدين",
+          "C": "كل ما ذكر صحيح",
+          "D": "إقامة الولائم"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "كل ما ذكر صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل ما ذكر صحيح"
+        },
+        "explanation": "كل ما ذكر صحيح",
+        "number": 15,
+        "id": "U01-L06-Q015"
+      },
+      {
+        "question": "مر تشريع الجهاد في الإسلام بمرحلتين رئيستين، الأولى هي:",
+        "options": {
+          "A": "الإذن بالقتال",
+          "B": "الدعوة والكلمة وعدم اللجوء للقوة",
+          "C": "إعلان الحرب العالمية",
+          "D": "فتح مكة فوراً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الدعوة والكلمة وعدم اللجوء للقوة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدعوة والكلمة وعدم اللجوء للقوة"
+        },
+        "explanation": "الدعوة والكلمة وعدم اللجوء للقوة",
+        "number": 16,
+        "id": "U01-L06-Q016"
+      },
+      {
+        "question": "كم سنة مكث النبي ﷺ في مكة يدعو الناس ويأمر أصحابه بالصبر والكف عن القتال؟",
+        "options": {
+          "A": "10 سنوات",
+          "B": "13 سنة",
+          "C": "15 سنة",
+          "D": "20 سنة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "13 سنة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "13 سنة"
+        },
+        "explanation": "13 سنة",
+        "number": 17,
+        "id": "U01-L06-Q017"
+      },
+      {
+        "question": "متى بدأت المرحلة الثانية من تشريع الجهاد (الإذن بالقتال)؟",
+        "options": {
+          "A": "قبل الهجرة",
+          "B": "بعد هجرة النبي ﷺ إلى المدينة واستمرار عدوان المشركين",
+          "C": "بعد فتح مكة",
+          "D": "في السنة العاشرة للهجرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بعد هجرة النبي ﷺ إلى المدينة واستمرار عدوان المشركين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بعد هجرة النبي ﷺ إلى المدينة واستمرار عدوان المشركين"
+        },
+        "explanation": "بعد هجرة النبي ﷺ إلى المدينة واستمرار عدوان المشركين",
+        "number": 18,
+        "id": "U01-L06-Q018"
+      },
+      {
+        "question": "أول آية نزلت تأذن للمسلمين بالقتال هي قوله تعالى:",
+        "options": {
+          "A": "(أُذن للذين يُقاتَلون بأنهم ظُلموا)",
+          "B": "(انفروا خفافاً وثقالاً)",
+          "C": "(كتب عليكم القتال)",
+          "D": "(وقاتلوا في سبيل الله)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(أُذن للذين يُقاتَلون بأنهم ظُلموا)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "(أُذن للذين يُقاتَلون بأنهم ظُلموا)"
+        },
+        "explanation": "(أُذن للذين يُقاتَلون بأنهم ظُلموا)",
+        "number": 19,
+        "id": "U01-L06-Q019"
+      },
+      {
+        "question": "كان سبب الإذن بالقتال في المدينة المنورة هو:",
+        "options": {
+          "A": "حب السيطرة",
+          "B": "رد عدوان المشركين الذين بدأوا بالاعتداء",
+          "C": "جمع الغنائم",
+          "D": "إكراه الناس على الدين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "رد عدوان المشركين الذين بدأوا بالاعتداء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رد عدوان المشركين الذين بدأوا بالاعتداء"
+        },
+        "explanation": "رد عدوان المشركين الذين بدأوا بالاعتداء",
+        "number": 20,
+        "id": "U01-L06-Q020"
+      },
+      {
+        "question": "من أخلاقيات الجهاد في الإسلام النهي عن الغدر و:",
+        "options": {
+          "A": "الشجاعة",
+          "B": "تمثيل القتلى (التمثيل بالجثث)",
+          "C": "الصدق",
+          "D": "المشورة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تمثيل القتلى (التمثيل بالجثث)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تمثيل القتلى (التمثيل بالجثث)"
+        },
+        "explanation": "تمثيل القتلى (التمثيل بالجثث)",
+        "number": 21,
+        "id": "U01-L06-Q021"
+      },
+      {
+        "question": "نهى النبي ﷺ في الحرب عن قتل:",
+        "options": {
+          "A": "المحاربين",
+          "B": "الولدان (الأطفال)",
+          "C": "قادة الجيش",
+          "D": "المعتدين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الولدان (الأطفال)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الولدان (الأطفال)"
+        },
+        "explanation": "الولدان (الأطفال)",
+        "number": 22,
+        "id": "U01-L06-Q022"
+      },
+      {
+        "question": "من الأمثلة المعاصرة على دفاع الجيش العربي الأردني عن أرضه:",
+        "options": {
+          "A": "معركة اليرموك",
+          "B": "معركة الكرامة (1968م)",
+          "C": "معركة حطين",
+          "D": "معركة عين جالوت"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "معركة الكرامة (1968م)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "معركة الكرامة (1968م)"
+        },
+        "explanation": "معركة الكرامة (1968م)",
+        "number": 23,
+        "id": "U01-L06-Q023"
+      },
+      {
+        "question": "متى وقعت معركة الكرامة؟",
+        "options": {
+          "A": "21 آذار 1967م",
+          "B": "21 آذار 1968م",
+          "C": "15 أيار 1948م",
+          "D": "10 حزيران 1967م"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "21 آذار 1968م",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "21 آذار 1968م"
+        },
+        "explanation": "21 آذار 1968م",
+        "number": 24,
+        "id": "U01-L06-Q024"
+      },
+      {
+        "question": "حققت القوات المسلحة الأردنية (الجيش العربي) في معركة الكرامة:",
+        "options": {
+          "A": "هزيمة",
+          "B": "انسحاباً",
+          "C": "نصراً مؤزراً وهزيمة نكراء للعدو",
+          "D": "هدنة طويلة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "نصراً مؤزراً وهزيمة نكراء للعدو",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نصراً مؤزراً وهزيمة نكراء للعدو"
+        },
+        "explanation": "نصراً مؤزراً وهزيمة نكراء للعدو",
+        "number": 25,
+        "id": "U01-L06-Q025"
+      },
+      {
+        "question": "الجهاد بمفهومه العام يشمل:",
+        "options": {
+          "A": "القتال فقط",
+          "B": "بذل الجهد في طاعة الله ومحاربة الشيطان والنفس والذنوب",
+          "C": "السفر للتجارة",
+          "D": "ترك العمل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بذل الجهد في طاعة الله ومحاربة الشيطان والنفس والذنوب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بذل الجهد في طاعة الله ومحاربة الشيطان والنفس والذنوب"
+        },
+        "explanation": "بذل الجهد في طاعة الله ومحاربة الشيطان والنفس والذنوب",
+        "number": 26,
+        "id": "U01-L06-Q026"
+      },
+      {
+        "question": "ما الحكمة من تشريع الجهاد في الإسلام؟",
+        "options": {
+          "A": "إبادة الآخرين",
+          "B": "دفع الأذى والعدوان والدفاع عن الدين والوطن والمقدسات",
+          "C": "الحصول على الأموال",
+          "D": "إجبار الناس على الإسلام"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "دفع الأذى والعدوان والدفاع عن الدين والوطن والمقدسات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "دفع الأذى والعدوان والدفاع عن الدين والوطن والمقدسات"
+        },
+        "explanation": "دفع الأذى والعدوان والدفاع عن الدين والوطن والمقدسات",
+        "number": 27,
+        "id": "U01-L06-Q027"
+      },
+      {
+        "question": "بماذا وعد الله المجاهدين في سبيله كما ورد في سورة النساء؟",
+        "options": {
+          "A": "بالخسارة",
+          "B": "بالأجر العظيم والدرجات العالية",
+          "C": "بالتعب فقط",
+          "D": "بالشهرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بالأجر العظيم والدرجات العالية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالأجر العظيم والدرجات العالية"
+        },
+        "explanation": "بالأجر العظيم والدرجات العالية",
+        "number": 28,
+        "id": "U01-L06-Q028"
+      },
+      {
+        "question": "أي من المراتب التالية لا تندرج تحت 'الجهاد بالمعنى الخاص'؟",
+        "options": {
+          "A": "مباشرة القتال",
+          "B": "تقديم المال للجيش",
+          "C": "تقديم الرأي والمشورة الحربية",
+          "D": "طلب العلم المدرسي"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "طلب العلم المدرسي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طلب العلم المدرسي"
+        },
+        "explanation": "طلب العلم المدرسي",
+        "number": 29,
+        "id": "U01-L06-Q029"
+      },
+      {
+        "question": "من أخلاقيات الجهاد 'عدم الغلو'، والمقصود به هنا:",
+        "options": {
+          "A": "الأمانة في الغنائم وعدم السرقة منها",
+          "B": "الشدة في القتال",
+          "C": "الرحمة بالعدو",
+          "D": "التخطيط الجيد"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الأمانة في الغنائم وعدم السرقة منها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأمانة في الغنائم وعدم السرقة منها"
+        },
+        "explanation": "الأمانة في الغنائم وعدم السرقة منها",
+        "number": 30,
+        "id": "U01-L06-Q030"
+      },
+      {
+        "question": "كان المشركون في عهد النبي ﷺ هم من بدأوا بـ:",
+        "options": {
+          "A": "السلام",
+          "B": "الاعتداء ومنع الناس من دخول الإسلام وإخراج المسلمين من ديارهم",
+          "C": "التجارة العادلة",
+          "D": "بناء المساجد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الاعتداء ومنع الناس من دخول الإسلام وإخراج المسلمين من ديارهم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاعتداء ومنع الناس من دخول الإسلام وإخراج المسلمين من ديارهم"
+        },
+        "explanation": "الاعتداء ومنع الناس من دخول الإسلام وإخراج المسلمين من ديارهم",
+        "number": 31,
+        "id": "U01-L06-Q031"
+      },
+      {
+        "question": "قوله تعالى (وقاتلوا في سبيل الله الذين يقاتلونكم ولا تعتدوا) يوجه إلى:",
+        "options": {
+          "A": "بدء القتال دائماً",
+          "B": "القتال لرد العدوان والنهي عن الاعتداء",
+          "C": "ترك القتال نهائياً",
+          "D": "القتال من أجل المال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "القتال لرد العدوان والنهي عن الاعتداء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القتال لرد العدوان والنهي عن الاعتداء"
+        },
+        "explanation": "القتال لرد العدوان والنهي عن الاعتداء",
+        "number": 32,
+        "id": "U01-L06-Q032"
+      },
+      {
+        "question": "يدخل ضمن الجهاد بالمال تجهيز:",
+        "options": {
+          "A": "الحدائق العامة",
+          "B": "المستشفيات العسكرية لعلاج الجرحى",
+          "C": "الملاعب الرياضية",
+          "D": "المجمعات التجارية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المستشفيات العسكرية لعلاج الجرحى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المستشفيات العسكرية لعلاج الجرحى"
+        },
+        "explanation": "المستشفيات العسكرية لعلاج الجرحى",
+        "number": 33,
+        "id": "U01-L06-Q033"
+      },
+      {
+        "question": "من القيم المستفادة من الدرس التمثل بمفهوم الجهاد وفق:",
+        "options": {
+          "A": "أخلاقياته وضوابطه الشرعية",
+          "B": "القوة المجردة",
+          "C": "المصالح الشخصية",
+          "D": "رأي الأفراد"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أخلاقياته وضوابطه الشرعية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أخلاقياته وضوابطه الشرعية"
+        },
+        "explanation": "أخلاقياته وضوابطه الشرعية",
+        "number": 34,
+        "id": "U01-L06-Q034"
+      },
+      {
+        "question": "النفير العام يعلنه:",
+        "options": {
+          "A": "رئيس القبيلة",
+          "B": "قائد الجيش وحده",
+          "C": "رأس الدولة (ولي الأمر)",
+          "D": "عامة الناس"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "رأس الدولة (ولي الأمر)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رأس الدولة (ولي الأمر)"
+        },
+        "explanation": "رأس الدولة (ولي الأمر)",
+        "number": 35,
+        "id": "U01-L06-Q035"
+      },
+      {
+        "question": "الآية (فلا تطع الكافرين وجاهدهم به جهاداً كبيراً) نزلت في مكة، والمقصود بالجهاد هنا:",
+        "options": {
+          "A": "القتال بالسيف",
+          "B": "الجهاد بالقرآن والكلمة والحجة",
+          "C": "الجهاد بالمال",
+          "D": "المقاطعة الاقتصادية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الجهاد بالقرآن والكلمة والحجة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الجهاد بالقرآن والكلمة والحجة"
+        },
+        "explanation": "الجهاد بالقرآن والكلمة والحجة",
+        "number": 36,
+        "id": "U01-L06-Q036"
+      },
+      {
+        "question": "أي من الآتية يعد من 'فضائل الجهاد'؟",
+        "options": {
+          "A": "النجاة من النار ودخول الجنة",
+          "B": "نيل رضا الله تعالى",
+          "C": "إعزاز كلمة الله",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر"
+        },
+        "explanation": "جميع ما ذكر",
+        "number": 37,
+        "id": "U01-L06-Q037"
+      },
+      {
+        "question": "يرتبط الجهاد بالمعنى العام بمجاهدة الشيطان من خلال:",
+        "options": {
+          "A": "اتباع وسوسسته",
+          "B": "الحذر من كيده ومخالفته",
+          "C": "تجاهله تماماً",
+          "D": "الاستسلام له"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحذر من كيده ومخالفته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحذر من كيده ومخالفته"
+        },
+        "explanation": "الحذر من كيده ومخالفته",
+        "number": 38,
+        "id": "U01-L06-Q038"
+      },
+      {
+        "question": "علاقة وقوع الناس في المعاصي بالجهاد (بمعناه العام) هي:",
+        "options": {
+          "A": "عدم مجاهدة النفس والهوى",
+          "B": "القوة البدنية",
+          "C": "كثرة المال",
+          "D": "السفر"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "عدم مجاهدة النفس والهوى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عدم مجاهدة النفس والهوى"
+        },
+        "explanation": "عدم مجاهدة النفس والهوى",
+        "number": 39,
+        "id": "U01-L06-Q039"
+      },
+      {
+        "question": "حماية الوطن والمقدسات واجب يقع ضمن عاتق:",
+        "options": {
+          "A": "الدولة وأبنائها المخلصين",
+          "B": "السياح",
+          "C": "التجار فقط",
+          "D": "الخارجين عن القانون"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الدولة وأبنائها المخلصين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدولة وأبنائها المخلصين"
+        },
+        "explanation": "الدولة وأبنائها المخلصين",
+        "number": 40,
+        "id": "U01-L06-Q040"
+      }
+    ]
+  }
+}

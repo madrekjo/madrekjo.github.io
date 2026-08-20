@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "1.2",
+    "lesson_name": "الحديث الشريف (اتقاء الشبهات)",
+    "unit_number": 1,
+    "unit_name": "الوحدة الأولى: واعتصموا بحبل الله جميعاً",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "راوي الحديث الشريف (اتقاء الشبهات) هو الصحابي الجليل:",
+        "options": {
+          "A": "أبو هريرة",
+          "B": "النعمان بن بشير",
+          "C": "عبد الله بن عمر",
+          "D": "أنس بن مالك"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "النعمان بن بشير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النعمان بن بشير"
+        },
+        "explanation": "النعمان بن بشير",
+        "number": 1,
+        "id": "U01-L02-Q001"
+      },
+      {
+        "question": "وُلد الصحابي النعمان بن بشير رضي الله عنه في السنة:",
+        "options": {
+          "A": "الأولى للهجرة",
+          "B": "الثانية للهجرة",
+          "C": "الثالثة للهجرة",
+          "D": "الرابعة للهجرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الثانية للهجرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الثانية للهجرة"
+        },
+        "explanation": "الثانية للهجرة",
+        "number": 2,
+        "id": "U01-L02-Q002"
+      },
+      {
+        "question": "عدد الأحاديث التي رواها النعمان بن بشير رضي الله عنه عن النبي صلى الله عليه وسلم:",
+        "options": {
+          "A": "100 حديث",
+          "B": "114 حديثاً",
+          "C": "150 حديثاً",
+          "D": "200 حديث"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "114 حديثاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "114 حديثاً"
+        },
+        "explanation": "114 حديثاً",
+        "number": 3,
+        "id": "U01-L02-Q003"
+      },
+      {
+        "question": "تولى النعمان بن بشير رضي الله عنه منصب القضاء في مدينة:",
+        "options": {
+          "A": "المدينة المنورة",
+          "B": "الكوفة",
+          "C": "دمشق",
+          "D": "حمص"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "دمشق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "دمشق"
+        },
+        "explanation": "دمشق",
+        "number": 4,
+        "id": "U01-L02-Q004"
+      },
+      {
+        "question": "توفي النعمان بن بشير رضي الله عنه سنة:",
+        "options": {
+          "A": "50 هـ",
+          "B": "60 هـ",
+          "C": "65 هـ",
+          "D": "70 هـ"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "65 هـ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "65 هـ"
+        },
+        "explanation": "65 هـ",
+        "number": 5,
+        "id": "U01-L02-Q005"
+      },
+      {
+        "question": "ما معنى لفظ (بيّن) الوارد في الحديث؟",
+        "options": {
+          "A": "خفي",
+          "B": "ظاهر معلوم",
+          "C": "محتمل",
+          "D": "صعب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ظاهر معلوم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ظاهر معلوم"
+        },
+        "explanation": "ظاهر معلوم",
+        "number": 6,
+        "id": "U01-L02-Q006"
+      },
+      {
+        "question": "ما معنى (اتقى) في قوله صلى الله عليه وسلم 'فمن اتقى الشبهات'؟",
+        "options": {
+          "A": "فعل",
+          "B": "بحث",
+          "C": "تجنب",
+          "D": "أكثر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "تجنب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تجنب"
+        },
+        "explanation": "تجنب",
+        "number": 7,
+        "id": "U01-L02-Q007"
+      },
+      {
+        "question": "المقصود بلفظ (استبرأ) في الحديث هو:",
+        "options": {
+          "A": "طلب السالمة",
+          "B": "طلب المال",
+          "C": "طلب العلم",
+          "D": "طلب الشهرة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "طلب السالمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طلب السالمة"
+        },
+        "explanation": "طلب السالمة",
+        "number": 8,
+        "id": "U01-L02-Q008"
+      },
+      {
+        "question": "ما معنى (الحمى)؟",
+        "options": {
+          "A": "المرض",
+          "B": "الأرض المحمية التي يمنع الناس دخولها إلا بإذن",
+          "C": "الغابة كثيفة الأشجار",
+          "D": "البيت الكبير"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأرض المحمية التي يمنع الناس دخولها إلا بإذن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأرض المحمية التي يمنع الناس دخولها إلا بإذن"
+        },
+        "explanation": "الأرض المحمية التي يمنع الناس دخولها إلا بإذن",
+        "number": 9,
+        "id": "U01-L02-Q009"
+      },
+      {
+        "question": "ما معنى (يوشك)؟",
+        "options": {
+          "A": "يبتعد",
+          "B": "يكاد",
+          "C": "ينتهي",
+          "D": "يبدأ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يكاد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يكاد"
+        },
+        "explanation": "يكاد",
+        "number": 10,
+        "id": "U01-L02-Q010"
+      },
+      {
+        "question": "ما معنى (يرتع) في قوله 'يوشك أن يرتع فيه'؟",
+        "options": {
+          "A": "يسقط",
+          "B": "يجعل ماشيته ترعى",
+          "C": "ينام",
+          "D": "يحرث الأرض"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يجعل ماشيته ترعى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يجعل ماشيته ترعى"
+        },
+        "explanation": "يجعل ماشيته ترعى",
+        "number": 11,
+        "id": "U01-L02-Q011"
+      },
+      {
+        "question": "المقصود بـ (محارمه) في الحديث هي:",
+        "options": {
+          "A": "أقاربه",
+          "B": "المعاصي التي حرمها الله تعالى",
+          "C": "الأماكن المقدسة",
+          "D": "العهود والمواثيق"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المعاصي التي حرمها الله تعالى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المعاصي التي حرمها الله تعالى"
+        },
+        "explanation": "المعاصي التي حرمها الله تعالى",
+        "number": 12,
+        "id": "U01-L02-Q012"
+      },
+      {
+        "question": "ما معنى (مضغة)؟",
+        "options": {
+          "A": "عضو كبير",
+          "B": "قطعة من اللحم بمقدار ما يمضغ في الفم",
+          "C": "العظم",
+          "D": "الدم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "قطعة من اللحم بمقدار ما يمضغ في الفم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قطعة من اللحم بمقدار ما يمضغ في الفم"
+        },
+        "explanation": "قطعة من اللحم بمقدار ما يمضغ في الفم",
+        "number": 13,
+        "id": "U01-L02-Q013"
+      },
+      {
+        "question": "وصف العلماء هذا الحديث بأنه:",
+        "options": {
+          "A": "حديث عابر",
+          "B": "أصل من أصول الشريعة",
+          "C": "يتناول العبادات فقط",
+          "D": "خاص بالصحابة فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أصل من أصول الشريعة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أصل من أصول الشريعة"
+        },
+        "explanation": "أصل من أصول الشريعة",
+        "number": 14,
+        "id": "U01-L02-Q014"
+      },
+      {
+        "question": "الأعمال التي لا يعلم حلالها من حرامها إلا القليل من الناس تسمى:",
+        "options": {
+          "A": "حلالاً واضحاً",
+          "B": "حراماً واضحاً",
+          "C": "مشتبهات",
+          "D": "مباحات"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "مشتبهات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مشتبهات"
+        },
+        "explanation": "مشتبهات",
+        "number": 15,
+        "id": "U01-L02-Q015"
+      },
+      {
+        "question": "من الفئة التي تستطيع معرفة حكم المشتبهات؟",
+        "options": {
+          "A": "عامة الناس",
+          "B": "التجار",
+          "C": "الراسخون في العلم",
+          "D": "لا أحد يعلمها"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الراسخون في العلم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الراسخون في العلم"
+        },
+        "explanation": "الراسخون في العلم",
+        "number": 16,
+        "id": "U01-L02-Q016"
+      },
+      {
+        "question": "ما نتيجة اتقاء الشبهات كما ورد في الحديث؟",
+        "options": {
+          "A": "زيادة المال",
+          "B": "الاستبراء للدين والعرض",
+          "C": "نيل الشهرة",
+          "D": "قوة البدن"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الاستبراء للدين والعرض",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاستبراء للدين والعرض"
+        },
+        "explanation": "الاستبراء للدين والعرض",
+        "number": 17,
+        "id": "U01-L02-Q017"
+      },
+      {
+        "question": "شبّه النبي صلى الله عليه وسلم الذي يقع في الشبهات بـ:",
+        "options": {
+          "A": "المسافر في الصحراء",
+          "B": "التاجر الرابح",
+          "C": "الراعي يرعى حول الحمى",
+          "D": "الأسد في عرينه"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الراعي يرعى حول الحمى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الراعي يرعى حول الحمى"
+        },
+        "explanation": "الراعي يرعى حول الحمى",
+        "number": 18,
+        "id": "U01-L02-Q018"
+      },
+      {
+        "question": "حمى الله تعالى في الأرض هو:",
+        "options": {
+          "A": "المساجد",
+          "B": "الكعبة",
+          "C": "محارمه (المعاصي)",
+          "D": "بيت المقدس"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "محارمه (المعاصي)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "محارمه (المعاصي)"
+        },
+        "explanation": "محارمه (المعاصي)",
+        "number": 19,
+        "id": "U01-L02-Q019"
+      },
+      {
+        "question": "أهم عضو في جسم الإنسان بصلاحه يصلح الجسد كله هو:",
+        "options": {
+          "A": "العقل",
+          "B": "القلب",
+          "C": "اليد",
+          "D": "العين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "القلب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القلب"
+        },
+        "explanation": "القلب",
+        "number": 20,
+        "id": "U01-L02-Q020"
+      },
+      {
+        "question": "أي مما يأتي يعد مثالاً على 'الحلال الواضح'؟",
+        "options": {
+          "A": "أكل الميتة",
+          "B": "الصدق والأمانة",
+          "C": "الربا",
+          "D": "شراء أسهم شركة مشبوهة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الصدق والأمانة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الصدق والأمانة"
+        },
+        "explanation": "الصدق والأمانة",
+        "number": 21,
+        "id": "U01-L02-Q021"
+      },
+      {
+        "question": "أي مما يأتي يعد مثالاً على 'الحرام الواضح'؟",
+        "options": {
+          "A": "بيع الثمار",
+          "B": "عقوق الوالدين",
+          "C": "أداء الصلاة",
+          "D": "لبس الثياب الجديدة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عقوق الوالدين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عقوق الوالدين"
+        },
+        "explanation": "عقوق الوالدين",
+        "number": 22,
+        "id": "U01-L02-Q022"
+      },
+      {
+        "question": "إذا اشتبه الأمر على المسلم بين الحلال والحرام، فالواجب عليه:",
+        "options": {
+          "A": "فعله حتى يتبين التحريم",
+          "B": "تركه اتقاءً للشبهة",
+          "C": "سؤال عامة الناس",
+          "D": "تجاهل الأمر تماماً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تركه اتقاءً للشبهة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تركه اتقاءً للشبهة"
+        },
+        "explanation": "تركه اتقاءً للشبهة",
+        "number": 23,
+        "id": "U01-L02-Q023"
+      },
+      {
+        "question": "من أمثلة المشتبهات التي ذكرها الكتاب:",
+        "options": {
+          "A": "شرب الماء",
+          "B": "السرقة",
+          "C": "شراء أسهم من شركة تتاجر في مواد بعضها حرام",
+          "D": "بر الوالدين"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "شراء أسهم من شركة تتاجر في مواد بعضها حرام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "شراء أسهم من شركة تتاجر في مواد بعضها حرام"
+        },
+        "explanation": "شراء أسهم من شركة تتاجر في مواد بعضها حرام",
+        "number": 24,
+        "id": "U01-L02-Q024"
+      },
+      {
+        "question": "تتبع المشتبهات قد يعرض المسلم لـ:",
+        "options": {
+          "A": "الغنى السريع",
+          "B": "الغيبة والنميمة",
+          "C": "الصحة البدنية",
+          "D": "زيادة الأصدقاء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الغيبة والنميمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الغيبة والنميمة"
+        },
+        "explanation": "الغيبة والنميمة",
+        "number": 25,
+        "id": "U01-L02-Q025"
+      },
+      {
+        "question": "الابتعاد عن المشتبهات يجعل بين المسلم وبين الحرام:",
+        "options": {
+          "A": "طريقاً سهلاً",
+          "B": "حاجزاً",
+          "C": "عداوة",
+          "D": "لا شيء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حاجزاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حاجزاً"
+        },
+        "explanation": "حاجزاً",
+        "number": 26,
+        "id": "U01-L02-Q026"
+      },
+      {
+        "question": "المؤسسة الرسمية التي يرجع إليها المسلم في الأردن لتعرف الأحكام الشرعية للمستجدات هي:",
+        "options": {
+          "A": "وزارة العدل",
+          "B": "دائرة الإفتاء العام",
+          "C": "وزارة الصحة",
+          "D": "البلدية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "دائرة الإفتاء العام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "دائرة الإفتاء العام"
+        },
+        "explanation": "دائرة الإفتاء العام",
+        "number": 27,
+        "id": "U01-L02-Q027"
+      },
+      {
+        "question": "الأصل في صلاح الإنسان واستقامة جوارحه هو:",
+        "options": {
+          "A": "صلاح قلبه",
+          "B": "كثرة ماله",
+          "C": "قوة قبيلته",
+          "D": "جمال شكله"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "صلاح قلبه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صلاح قلبه"
+        },
+        "explanation": "صلاح قلبه",
+        "number": 28,
+        "id": "U01-L02-Q028"
+      },
+      {
+        "question": "من أسباب أمراض القلوب وفسادها كما أشار الدرس:",
+        "options": {
+          "A": "العلم",
+          "B": "الجهل وعدم معرفة الحق",
+          "C": "كثرة القراءة",
+          "D": "التواصل مع الصالحين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الجهل وعدم معرفة الحق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الجهل وعدم معرفة الحق"
+        },
+        "explanation": "الجهل وعدم معرفة الحق",
+        "number": 29,
+        "id": "U01-L02-Q029"
+      },
+      {
+        "question": "من الوسائل المعينة على صلاح القلب:",
+        "options": {
+          "A": "هجر العبادات",
+          "B": "قراءة القرآن والتدبر فيه",
+          "C": "مجالسة أهل الفسق",
+          "D": "ترك الدعاء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "قراءة القرآن والتدبر فيه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قراءة القرآن والتدبر فيه"
+        },
+        "explanation": "قراءة القرآن والتدبر فيه",
+        "number": 30,
+        "id": "U01-L02-Q030"
+      },
+      {
+        "question": "المحافظة على أداء العبادات مثل الصلاة والصيام تساعد في:",
+        "options": {
+          "A": "فساد القلب",
+          "B": "صلاح القلب",
+          "C": "تعب الجسد فقط",
+          "D": "ضياع الوقت"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "صلاح القلب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صلاح القلب"
+        },
+        "explanation": "صلاح القلب",
+        "number": 31,
+        "id": "U01-L02-Q031"
+      },
+      {
+        "question": "من الوسائل المعينة على صلاح القلب أيضاً:",
+        "options": {
+          "A": "مجالسة الصالحين",
+          "B": "إضاعة المال",
+          "C": "كثرة السؤال",
+          "D": "الغيبة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مجالسة الصالحين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مجالسة الصالحين"
+        },
+        "explanation": "مجالسة الصالحين",
+        "number": 32,
+        "id": "U01-L02-Q032"
+      },
+      {
+        "question": "المداومة على ذكر الله تعالى تؤدي إلى:",
+        "options": {
+          "A": "قلق القلب",
+          "B": "طمأنينة القلب وصلاحه",
+          "C": "نسيان الواجبات",
+          "D": "التعب النفسي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "طمأنينة القلب وصلاحه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طمأنينة القلب وصلاحه"
+        },
+        "explanation": "طمأنينة القلب وصلاحه",
+        "number": 33,
+        "id": "U01-L02-Q033"
+      },
+      {
+        "question": "اختيار الحلال الطيب من الطعام والشراب أثره على القلب أنه:",
+        "options": {
+          "A": "يفسده",
+          "B": "يعينه على الصلاح",
+          "C": "لا أثر له",
+          "D": "يمرضه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يعينه على الصلاح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يعينه على الصلاح"
+        },
+        "explanation": "يعينه على الصلاح",
+        "number": 34,
+        "id": "U01-L02-Q034"
+      },
+      {
+        "question": "قال صلى الله عليه وسلم: 'دع ما يريبك إلى ما لا يريبك'، علاقته بدرسنا هي:",
+        "options": {
+          "A": "الحث على اتقاء الشبهات",
+          "B": "الحث على التجارة",
+          "C": "الأمر بالصيام",
+          "D": "النهي عن السفر"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الحث على اتقاء الشبهات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحث على اتقاء الشبهات"
+        },
+        "explanation": "الحث على اتقاء الشبهات",
+        "number": 35,
+        "id": "U01-L02-Q035"
+      },
+      {
+        "question": "ما معنى (يصيب الإنسان تهمة وشك) عند تتبع المشتبهات؟",
+        "options": {
+          "A": "يكون محل ثقة",
+          "B": "يتعرض لسوء الظن من الناس",
+          "C": "ينال مدح الناس",
+          "D": "يصبح مشهوراً بالخير"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يتعرض لسوء الظن من الناس",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يتعرض لسوء الظن من الناس"
+        },
+        "explanation": "يتعرض لسوء الظن من الناس",
+        "number": 36,
+        "id": "U01-L02-Q036"
+      },
+      {
+        "question": "أي من الآتية يعد 'صمام أمان' للبعد عن الوقوع في الحرام؟",
+        "options": {
+          "A": "فعل الصغائر",
+          "B": "اتقاء الشبهات",
+          "C": "ترك الفرائض",
+          "D": "كثرة الكلام"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اتقاء الشبهات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اتقاء الشبهات"
+        },
+        "explanation": "اتقاء الشبهات",
+        "number": 37,
+        "id": "U01-L02-Q037"
+      },
+      {
+        "question": "استخدام الـ (QR Code) الملحق بالدرس يهدف إلى تزويد الطالب بـ:",
+        "options": {
+          "A": "ألعاب تعليمية",
+          "B": "مواقع للتسوق",
+          "C": "موقع دائرة الإفتاء للمزيد من المعرفة",
+          "D": "أخبار رياضية"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "موقع دائرة الإفتاء للمزيد من المعرفة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "موقع دائرة الإفتاء للمزيد من المعرفة"
+        },
+        "explanation": "موقع دائرة الإفتاء للمزيد من المعرفة",
+        "number": 38,
+        "id": "U01-L02-Q038"
+      },
+      {
+        "question": "من القيم المستفادة من الدرس الحرص على الحلال وتجنب الحرام و:",
+        "options": {
+          "A": "المكروه",
+          "B": "الظاهر",
+          "C": "الشبهات",
+          "D": "الواضح"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الشبهات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الشبهات"
+        },
+        "explanation": "الشبهات",
+        "number": 39,
+        "id": "U01-L02-Q039"
+      },
+      {
+        "question": "إذا صلح القلب استقامت الجوارح وظهر ذلك على شكل:",
+        "options": {
+          "A": "شدة في التعامل",
+          "B": "سماحة في التعامل مع الآخرين",
+          "C": "تجاهل للمجتمع",
+          "D": "ترك للوطن"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "سماحة في التعامل مع الآخرين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "سماحة في التعامل مع الآخرين"
+        },
+        "explanation": "سماحة في التعامل مع الآخرين",
+        "number": 40,
+        "id": "U01-L02-Q040"
+      }
+    ]
+  }
+}

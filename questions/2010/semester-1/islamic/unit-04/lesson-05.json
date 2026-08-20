@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "4.5",
+    "lesson_name": "الوحدة الوطنية في الإسلام",
+    "unit_number": 4,
+    "unit_name": "الوحدة الرابعة: الزواج والحياة الزوجية",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما هو التعريف الصحيح لـ 'تنظيم النسل'؟",
+        "options": {
+          "A": "منع الحمل بصفة دائمة",
+          "B": "اتخاذ وسيلة مشروعة لإيجاد مدد زمنية متباعدة بين مرات الحمل",
+          "C": "إجهاض الجنين في الأشهر الأولى",
+          "D": "تحديد عدد الأطفال بطفلين فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اتخاذ وسيلة مشروعة لإيجاد مدد زمنية متباعدة بين مرات الحمل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اتخاذ وسيلة مشروعة لإيجاد مدد زمنية متباعدة بين مرات الحمل"
+        },
+        "explanation": "اتخاذ وسيلة مشروعة لإيجاد مدد زمنية متباعدة بين مرات الحمل",
+        "number": 1,
+        "id": "U04-L05-Q001"
+      },
+      {
+        "question": "ما هو الحكم الشرعي لـ 'تنظيم النسل' عند توافر أسبابه؟",
+        "options": {
+          "A": "واجب",
+          "B": "حرام",
+          "C": "مباح",
+          "D": "مكروه"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "مباح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مباح"
+        },
+        "explanation": "مباح",
+        "number": 2,
+        "id": "U04-L05-Q002"
+      },
+      {
+        "question": "يعتبر تنظيم النسل في الإسلام قراراً يعود لـ:",
+        "options": {
+          "A": "الزوج وحده",
+          "B": "الزوجة وحدها",
+          "C": "الزوجين معاً باتفاقهما",
+          "D": "الدولة فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الزوجين معاً باتفاقهما",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الزوجين معاً باتفاقهما"
+        },
+        "explanation": "الزوجين معاً باتفاقهما",
+        "number": 3,
+        "id": "U04-L05-Q003"
+      },
+      {
+        "question": "من الصحابي الذي روى حديث 'كنا نعزل على عهد رسول الله...' كدليل على إباحة التنظيم؟",
+        "options": {
+          "A": "أبو هريرة",
+          "B": "جابر بن عبد الله",
+          "C": "عبد الله بن عمر",
+          "D": "زيد بن ثابت"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "جابر بن عبد الله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جابر بن عبد الله"
+        },
+        "explanation": "جابر بن عبد الله",
+        "number": 4,
+        "id": "U04-L05-Q004"
+      },
+      {
+        "question": "ما المقصود بـ 'العزل' كوسيلة كانت مستخدمة قديماً لتأخير الحمل؟",
+        "options": {
+          "A": "الابتعاد عن البيت",
+          "B": "وسيلة لمنع وصول المني إلى الرحم لمنع الحمل",
+          "C": "تأجيل الزواج",
+          "D": "السفر الطويل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "وسيلة لمنع وصول المني إلى الرحم لمنع الحمل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وسيلة لمنع وصول المني إلى الرحم لمنع الحمل"
+        },
+        "explanation": "وسيلة لمنع وصول المني إلى الرحم لمنع الحمل",
+        "number": 5,
+        "id": "U04-L05-Q005"
+      },
+      {
+        "question": "أي من الأسباب التالية يبيح تنظيم النسل للحفاظ على صحة الأم؟",
+        "options": {
+          "A": "رغبتها في النوم",
+          "B": "إذا كانت لا تلد ولادة طبيعية وتحتاج لعمليات جراحية متتابعة",
+          "C": "رغبتها في السفر",
+          "D": "صغر سن الجيران"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إذا كانت لا تلد ولادة طبيعية وتحتاج لعمليات جراحية متتابعة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إذا كانت لا تلد ولادة طبيعية وتحتاج لعمليات جراحية متتابعة"
+        },
+        "explanation": "إذا كانت لا تلد ولادة طبيعية وتحتاج لعمليات جراحية متتابعة",
+        "number": 6,
+        "id": "U04-L05-Q006"
+      },
+      {
+        "question": "ما الحكمة من منح الزوجين وقتاً كافياً بين مرات الحمل؟",
+        "options": {
+          "A": "زيادة المصاريف",
+          "B": "العناية بالأطفال وتربيتهم تربية صالحة وعدم إرهاق الأم",
+          "C": "تقليل عدد أفراد القبيلة",
+          "D": "حب الراحة الزائد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العناية بالأطفال وتربيتهم تربية صالحة وعدم إرهاق الأم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العناية بالأطفال وتربيتهم تربية صالحة وعدم إرهاق الأم"
+        },
+        "explanation": "العناية بالأطفال وتربيتهم تربية صالحة وعدم إرهاق الأم",
+        "number": 7,
+        "id": "U04-L05-Q007"
+      },
+      {
+        "question": "إذا أصيب أحد الزوجين بمرض يرجى شفاؤه وقد ينتقل للأطفال، فما هو التوجيه الشرعي؟",
+        "options": {
+          "A": "تحديد النسل دائماً",
+          "B": "تنظيم النسل بتأخير الحمل حتى يتم العلاج",
+          "C": "إهمال المرض",
+          "D": "الانفصال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تنظيم النسل بتأخير الحمل حتى يتم العلاج",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تنظيم النسل بتأخير الحمل حتى يتم العلاج"
+        },
+        "explanation": "تنظيم النسل بتأخير الحمل حتى يتم العلاج",
+        "number": 8,
+        "id": "U04-L05-Q008"
+      },
+      {
+        "question": "قال صلى الله عليه وسلم: 'لا ضرر ولا ضرار'، يستدل بهذا الحديث في درس النسل على:",
+        "options": {
+          "A": "وجوب الصلاة",
+          "B": "إباحة تنظيم النسل لدفع الضرر عن الأم أو الأطفال",
+          "C": "تحريم التجارة",
+          "D": "مشروعية السفر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إباحة تنظيم النسل لدفع الضرر عن الأم أو الأطفال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إباحة تنظيم النسل لدفع الضرر عن الأم أو الأطفال"
+        },
+        "explanation": "إباحة تنظيم النسل لدفع الضرر عن الأم أو الأطفال",
+        "number": 9,
+        "id": "U04-L05-Q009"
+      },
+      {
+        "question": "هل يعتبر 'التفرغ للدراسة' من الحاجات الاجتماعية المعتبرة لتنظيم النسل؟",
+        "options": {
+          "A": "نعم",
+          "B": "لا",
+          "C": "فقط في الدراسات العليا",
+          "D": "فقط للرجال"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "نعم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نعم"
+        },
+        "explanation": "نعم",
+        "number": 10,
+        "id": "U04-L05-Q010"
+      },
+      {
+        "question": "ما هو تعريف 'تحديد النسل'؟",
+        "options": {
+          "A": "تأخير الحمل لسنة",
+          "B": "اتخاذ إجراءات تمنع الحمل بصفة دائمة",
+          "C": "الإنجاب كل عامين",
+          "D": "استخدام العزل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اتخاذ إجراءات تمنع الحمل بصفة دائمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اتخاذ إجراءات تمنع الحمل بصفة دائمة"
+        },
+        "explanation": "اتخاذ إجراءات تمنع الحمل بصفة دائمة",
+        "number": 11,
+        "id": "U04-L05-Q011"
+      },
+      {
+        "question": "ما هو الحكم الشرعي العام لـ 'تحديد النسل' (المنع الدائم) دون ضرورة طبية؟",
+        "options": {
+          "A": "مباح",
+          "B": "مندوب",
+          "C": "محرم",
+          "D": "مكروه"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "محرم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "محرم"
+        },
+        "explanation": "محرم",
+        "number": 12,
+        "id": "U04-L05-Q012"
+      },
+      {
+        "question": "لماذا يعارض تحديد النسل حكمة التشريع الإسلامي في الزواج؟",
+        "options": {
+          "A": "لأنه يقلل الاستهلاك",
+          "B": "لأنه يتعارض مع غاية التكاثر وإعمار الأرض",
+          "C": "لأنه يزيد الرفاهية",
+          "D": "لأنه يسهل الحياة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لأنه يتعارض مع غاية التكاثر وإعمار الأرض",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لأنه يتعارض مع غاية التكاثر وإعمار الأرض"
+        },
+        "explanation": "لأنه يتعارض مع غاية التكاثر وإعمار الأرض",
+        "number": 13,
+        "id": "U04-L05-Q013"
+      },
+      {
+        "question": "تحديد النسل بسبب 'الخوف من الفقر' يعتبر خللاً في:",
+        "options": {
+          "A": "القدرة الجسدية",
+          "B": "العقيدة والثقة بأن الله هو الرزاق",
+          "C": "التخطيط المالي",
+          "D": "القوانين الدولية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العقيدة والثقة بأن الله هو الرزاق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العقيدة والثقة بأن الله هو الرزاق"
+        },
+        "explanation": "العقيدة والثقة بأن الله هو الرزاق",
+        "number": 14,
+        "id": "U04-L05-Q014"
+      },
+      {
+        "question": "قال تعالى: 'ولا تقتلوا أولادكم خشية إملاق نحن نرزقهم وإياكم'، ما هو الإملاق؟",
+        "options": {
+          "A": "المرض",
+          "B": "السفر",
+          "C": "الفقر",
+          "D": "الجهل"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الفقر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الفقر"
+        },
+        "explanation": "الفقر",
+        "number": 15,
+        "id": "U04-L05-Q015"
+      },
+      {
+        "question": "متى يباح 'تحديد النسل' بصفة دائمة؟",
+        "options": {
+          "A": "عند كثرة الأطفال",
+          "B": "عند وجود ضرورة طبية كمرض لا يرجى شفاؤه يهدد حياة الأم",
+          "C": "بسبب ضيق المسكن",
+          "D": "للرغبة في الرشاقة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عند وجود ضرورة طبية كمرض لا يرجى شفاؤه يهدد حياة الأم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عند وجود ضرورة طبية كمرض لا يرجى شفاؤه يهدد حياة الأم"
+        },
+        "explanation": "عند وجود ضرورة طبية كمرض لا يرجى شفاؤه يهدد حياة الأم",
+        "number": 16,
+        "id": "U04-L05-Q016"
+      },
+      {
+        "question": "ما هي القاعدة الفقهية التي تسمح بتحديد النسل في حالات الضرورة القصوى؟",
+        "options": {
+          "A": "الأمور بمقاصدها",
+          "B": "الضرورات تبيح المحظورات",
+          "C": "اليقين لا يزول بالشك",
+          "D": "العادة محكمة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الضرورات تبيح المحظورات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الضرورات تبيح المحظورات"
+        },
+        "explanation": "الضرورات تبيح المحظورات",
+        "number": 17,
+        "id": "U04-L05-Q017"
+      },
+      {
+        "question": "استئصال رحم المرأة دون سبب طبي يعتبر من قبيل:",
+        "options": {
+          "A": "تنظيم النسل",
+          "B": "تحديد النسل المحرم",
+          "C": "الوقاية من الأمراض",
+          "D": "العناية بالصحة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تحديد النسل المحرم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تحديد النسل المحرم"
+        },
+        "explanation": "تحديد النسل المحرم",
+        "number": 18,
+        "id": "U04-L05-Q018"
+      },
+      {
+        "question": "ما هو 'الإجهاض'؟",
+        "options": {
+          "A": "تأخير الحمل",
+          "B": "إسقاط الحمل في غير موعده الطبيعي وبأي وسيلة",
+          "C": "الولادة القيصرية",
+          "D": "منع الحمل الدائم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إسقاط الحمل في غير موعده الطبيعي وبأي وسيلة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إسقاط الحمل في غير موعده الطبيعي وبأي وسيلة"
+        },
+        "explanation": "إسقاط الحمل في غير موعده الطبيعي وبأي وسيلة",
+        "number": 19,
+        "id": "U04-L05-Q019"
+      },
+      {
+        "question": "ما هو الحكم الشرعي لـ 'الإجهاض' دون ضرورة؟",
+        "options": {
+          "A": "مباح",
+          "B": "محرم",
+          "C": "مستحب",
+          "D": "واجب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "محرم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "محرم"
+        },
+        "explanation": "محرم",
+        "number": 20,
+        "id": "U04-L05-Q020"
+      },
+      {
+        "question": "يعتبر الإجهاض اعتداءً على النفس التي حرم الله قتلها إلا بالحق، هل هذا صحيح؟",
+        "options": {
+          "A": "نعم، الجنين نفس محترمة",
+          "B": "لا، إلا بعد الولادة",
+          "C": "فقط في الشهر التاسع",
+          "D": "فقط إذا كان ذكراً"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "نعم، الجنين نفس محترمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نعم، الجنين نفس محترمة"
+        },
+        "explanation": "نعم، الجنين نفس محترمة",
+        "number": 21,
+        "id": "U04-L05-Q021"
+      },
+      {
+        "question": "متى يجوز إجهاض الجنين شرعاً بقرار طبي؟",
+        "options": {
+          "A": "إذا كان الوالد فقيراً",
+          "B": "إذا كان بقاء الحمل يهدد حياة الأم خطراً مؤكداً",
+          "C": "إذا لم يرغب الزوجان في الطفل",
+          "D": "إذا كان الطفل سيولد في فصل الشتاء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إذا كان بقاء الحمل يهدد حياة الأم خطراً مؤكداً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إذا كان بقاء الحمل يهدد حياة الأم خطراً مؤكداً"
+        },
+        "explanation": "إذا كان بقاء الحمل يهدد حياة الأم خطراً مؤكداً",
+        "number": 22,
+        "id": "U04-L05-Q022"
+      },
+      {
+        "question": "من هو الشخص المخول بتقرير ضرورة الإجهاض لإنقاذ حياة الأم؟",
+        "options": {
+          "A": "الزوج",
+          "B": "الأم",
+          "C": "الطبيب الثقة المؤتمن",
+          "D": "الجيران"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الطبيب الثقة المؤتمن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الطبيب الثقة المؤتمن"
+        },
+        "explanation": "الطبيب الثقة المؤتمن",
+        "number": 23,
+        "id": "U04-L05-Q023"
+      },
+      {
+        "question": "ما هي 'الصحة الإنجابية' كما عرفها الدرس؟",
+        "options": {
+          "A": "كثرة الإنجاب",
+          "B": "اكتمال السلامة البدنية والنفسية والاجتماعية لعيش حياة هنيئة وآمنة",
+          "C": "بناء المستشفيات",
+          "D": "الرياضة اليومية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اكتمال السلامة البدنية والنفسية والاجتماعية لعيش حياة هنيئة وآمنة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اكتمال السلامة البدنية والنفسية والاجتماعية لعيش حياة هنيئة وآمنة"
+        },
+        "explanation": "اكتمال السلامة البدنية والنفسية والاجتماعية لعيش حياة هنيئة وآمنة",
+        "number": 24,
+        "id": "U04-L05-Q024"
+      },
+      {
+        "question": "تشريع قانون يلزم الأسر بالتوقف عن الإنجاب بعد عدد معين يعتبر مثالاً على:",
+        "options": {
+          "A": "تنظيم نسل مشروع",
+          "B": "تحديد نسل محرم",
+          "C": "حرية شخصية",
+          "D": "تطور حضاري"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تحديد نسل محرم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تحديد نسل محرم"
+        },
+        "explanation": "تحديد نسل محرم",
+        "number": 25,
+        "id": "U04-L05-Q025"
+      },
+      {
+        "question": "امتناع المرأة عن الحمل حتى تنهي تعليمها الجامعي يندرج تحت:",
+        "options": {
+          "A": "تحديد النسل",
+          "B": "تنظيم النسل المباح",
+          "C": "الإهمال الأسري",
+          "D": "تحريم ما أحل الله"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تنظيم النسل المباح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تنظيم النسل المباح"
+        },
+        "explanation": "تنظيم النسل المباح",
+        "number": 26,
+        "id": "U04-L05-Q026"
+      },
+      {
+        "question": "من مقاصد الزواج الكبرى التي يحفظها تنظيم النسل:",
+        "options": {
+          "A": "حفظ المال فقط",
+          "B": "حفظ النسل وحسن تربيته",
+          "C": "السفر",
+          "D": "الشهرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حفظ النسل وحسن تربيته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حفظ النسل وحسن تربيته"
+        },
+        "explanation": "حفظ النسل وحسن تربيته",
+        "number": 27,
+        "id": "U04-L05-Q027"
+      },
+      {
+        "question": "أي من الحالات التالية يعتبر تحديداً للنسل مباحاً؟",
+        "options": {
+          "A": "خوفاً من العين",
+          "B": "إصابة الزوجة بمرض لا يرجى شفاؤه وينتقل للأطفال ويهدد حياتها",
+          "C": "لعدم حب الأطفال",
+          "D": "بسبب غلاء المعيشة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إصابة الزوجة بمرض لا يرجى شفاؤه وينتقل للأطفال ويهدد حياتها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إصابة الزوجة بمرض لا يرجى شفاؤه وينتقل للأطفال ويهدد حياتها"
+        },
+        "explanation": "إصابة الزوجة بمرض لا يرجى شفاؤه وينتقل للأطفال ويهدد حياتها",
+        "number": 28,
+        "id": "U04-L05-Q028"
+      },
+      {
+        "question": "ما هو الأثر الاجتماعي لتنظيم النسل؟",
+        "options": {
+          "A": "تقليل الروابط",
+          "B": "بناء أسر قوية جسدياً ونفسياً وتربوياً",
+          "C": "زيادة الجرائم",
+          "D": "ضعف المجتمع"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بناء أسر قوية جسدياً ونفسياً وتربوياً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بناء أسر قوية جسدياً ونفسياً وتربوياً"
+        },
+        "explanation": "بناء أسر قوية جسدياً ونفسياً وتربوياً",
+        "number": 29,
+        "id": "U04-L05-Q029"
+      },
+      {
+        "question": "هل يجوز استخدام الوسائل الحديثة لمنع الحمل في 'تنظيم النسل'؟",
+        "options": {
+          "A": "نعم، إذا كانت مشروعة وأُمن ضررها",
+          "B": "لا، يجب استخدام العزل فقط",
+          "C": "حرام دائماً",
+          "D": "فقط بموافقة الطبيب الحكومي"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "نعم، إذا كانت مشروعة وأُمن ضررها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نعم، إذا كانت مشروعة وأُمن ضررها"
+        },
+        "explanation": "نعم، إذا كانت مشروعة وأُمن ضررها",
+        "number": 30,
+        "id": "U04-L05-Q030"
+      },
+      {
+        "question": "تأجيل الحمل بسبب مرض معدٍ عند الزوج يرجى شفاؤه هو نوع من:",
+        "options": {
+          "A": "تحديد النسل",
+          "B": "تنظيم النسل المباح",
+          "C": "ضعف الإيمان",
+          "D": "الاعتراض على القدر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تنظيم النسل المباح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تنظيم النسل المباح"
+        },
+        "explanation": "تنظيم النسل المباح",
+        "number": 31,
+        "id": "U04-L05-Q031"
+      },
+      {
+        "question": "تعتبر عناية الإسلام بالصحة الإنجابية دليلاً على:",
+        "options": {
+          "A": "تعقيد الدين",
+          "B": "حرص الإسلام على حياة الإنسان وكرامته",
+          "C": "إهمال النسل",
+          "D": "التركيز على المادة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حرص الإسلام على حياة الإنسان وكرامته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حرص الإسلام على حياة الإنسان وكرامته"
+        },
+        "explanation": "حرص الإسلام على حياة الإنسان وكرامته",
+        "number": 32,
+        "id": "U04-L05-Q032"
+      },
+      {
+        "question": "ما الفرق الجوهري بين التنظيم والتحديد؟",
+        "options": {
+          "A": "لا فرق",
+          "B": "التنظيم مؤقت والتحديد دائم",
+          "C": "التنظيم للفقراء والتحديد للأغنياء",
+          "D": "التنظيم محرم والتحديد مباح"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التنظيم مؤقت والتحديد دائم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التنظيم مؤقت والتحديد دائم"
+        },
+        "explanation": "التنظيم مؤقت والتحديد دائم",
+        "number": 33,
+        "id": "U04-L05-Q033"
+      },
+      {
+        "question": "القرار الفردي بتحديد النسل دون ضرورة يساهم في:",
+        "options": {
+          "A": "قوة الدولة",
+          "B": "إضعاف المجتمع وتقليل طاقاته البشرية المنتجة",
+          "C": "تحسين الاقتصاد",
+          "D": "زيادة الوعي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إضعاف المجتمع وتقليل طاقاته البشرية المنتجة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إضعاف المجتمع وتقليل طاقاته البشرية المنتجة"
+        },
+        "explanation": "إضعاف المجتمع وتقليل طاقاته البشرية المنتجة",
+        "number": 34,
+        "id": "U04-L05-Q034"
+      },
+      {
+        "question": "استخدام حبوب منع الحمل لتنظيم النسل لمدة سنتين يعتبر:",
+        "options": {
+          "A": "تحديداً للنسل",
+          "B": "تنظيماً للنسل",
+          "C": "إجهاضاً",
+          "D": "عزلاً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تنظيماً للنسل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تنظيماً للنسل"
+        },
+        "explanation": "تنظيماً للنسل",
+        "number": 35,
+        "id": "U04-L05-Q035"
+      },
+      {
+        "question": "من القيم المستفادة من الدرس تقدير قيمة:",
+        "options": {
+          "A": "المال",
+          "B": "النفس البشرية والمحافظة عليها",
+          "C": "السفر",
+          "D": "الأعراف الفاسدة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "النفس البشرية والمحافظة عليها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النفس البشرية والمحافظة عليها"
+        },
+        "explanation": "النفس البشرية والمحافظة عليها",
+        "number": 36,
+        "id": "U04-L05-Q036"
+      },
+      {
+        "question": "لماذا شدد العلماء في تحريم الإجهاض؟",
+        "options": {
+          "A": "للتضييق على النساء",
+          "B": "لأنه إزهاق لروح جنين بدأ بالتكون وله حق في الحياة",
+          "C": "لأنه مكلف مالياً",
+          "D": "لأنه يؤخر العمل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لأنه إزهاق لروح جنين بدأ بالتكون وله حق في الحياة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لأنه إزهاق لروح جنين بدأ بالتكون وله حق في الحياة"
+        },
+        "explanation": "لأنه إزهاق لروح جنين بدأ بالتكون وله حق في الحياة",
+        "number": 37,
+        "id": "U04-L05-Q037"
+      },
+      {
+        "question": "أباح الإسلام تنظيم النسل بهدف التيسير ورفع:",
+        "options": {
+          "A": "الأجر",
+          "B": "الحرج والمشقة عن الوالدين",
+          "C": "المال",
+          "D": "العلم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحرج والمشقة عن الوالدين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحرج والمشقة عن الوالدين"
+        },
+        "explanation": "الحرج والمشقة عن الوالدين",
+        "number": 38,
+        "id": "U04-L05-Q038"
+      },
+      {
+        "question": "الثقة بأن الرزق من عند الله تمنع المسلم من اللجوء لـ:",
+        "options": {
+          "A": "العمل",
+          "B": "تحديد النسل خوفاً من الفقر",
+          "C": "التجارة",
+          "D": "الدراسة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تحديد النسل خوفاً من الفقر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تحديد النسل خوفاً من الفقر"
+        },
+        "explanation": "تحديد النسل خوفاً من الفقر",
+        "number": 39,
+        "id": "U04-L05-Q039"
+      },
+      {
+        "question": "أي مما يلي لا يعد سبباً مباحاً لتنظيم النسل؟",
+        "options": {
+          "A": "مرض الأم",
+          "B": "الخوف من الفقر الشديد",
+          "C": "العناية بالأطفال",
+          "D": "إكمال الدراسة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الخوف من الفقر الشديد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الخوف من الفقر الشديد"
+        },
+        "explanation": "الخوف من الفقر الشديد",
+        "number": 40,
+        "id": "U04-L05-Q040"
+      }
+    ]
+  }
+}

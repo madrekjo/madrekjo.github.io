@@ -1,0 +1,1276 @@
+{
+  "lesson": {
+    "lesson_number": "2.review",
+    "lesson_name": "مراجعة الوحدة 2",
+    "unit_number": 2,
+    "unit_name": "الوحدة الثانية",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "إذا كان ظل التمام cot θ = 1، فما قيمة الظل tan θ؟",
+        "options": {
+          "A": "-1",
+          "B": "1",
+          "C": "0",
+          "D": "3"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1",
+        "difficulty": "easy",
+        "source": {
+          "page": 90,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بما أن الظل وظل التمام مقلوبان لبعضهما، فإن مقلوب 1 هو 1 [1]."
+        },
+        "explanation": "بما أن الظل وظل التمام مقلوبان لبعضهما، فإن مقلوب 1 هو 1 [1].",
+        "number": 1,
+        "id": "U02-L99-Q001"
+      },
+      {
+        "question": "ما هو قياس الراديان الذي يساوي الزاوية 56°؟",
+        "options": {
+          "A": "π / 15",
+          "B": "14π / 45",
+          "C": "7π / 45",
+          "D": "π / 3"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "14π / 45",
+        "difficulty": "medium",
+        "source": {
+          "page": 90,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "56 * (π / 180) = 56π / 180 = 14π / 45."
+          ],
+          "summary": "يتم التحويل بضرب الدرجات في المعامل π/180 [1]."
+        },
+        "explanation": "يتم التحويل بضرب الدرجات في المعامل π/180 [1].",
+        "number": 2,
+        "id": "U02-L99-Q002"
+      },
+      {
+        "question": "أوجد طول القوس المقابل لزاوية مركزية 8π/7 في دائرة نصف قطرها 15 cm (قرب لأقرب عشر).",
+        "options": {
+          "A": "4.2 cm",
+          "B": "17.1 cm",
+          "C": "53.9 cm",
+          "D": "2638.9 cm"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "53.9 cm",
+        "difficulty": "hard",
+        "source": {
+          "page": 90,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "s = r * θ = 15 * (8π / 7) = 120π / 7 ≈ 53.85."
+          ],
+          "summary": "تطبيق مباشر لقانون طول القوس s = rθ [1]."
+        },
+        "explanation": "تطبيق مباشر لقانون طول القوس s = rθ [1].",
+        "number": 3,
+        "id": "U02-L99-Q003"
+      },
+      {
+        "question": "ما هي قاعدة الاقتران الجيبي الذي سعته 2 وطول دورته π؟",
+        "options": {
+          "A": "y = 0.5 sin 4x",
+          "B": "y = 0.25 sin 2x",
+          "C": "y = 2 sin 2x",
+          "D": "y = 4 sin 0.5x"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "y = 2 sin 2x",
+        "difficulty": "medium",
+        "source": {
+          "page": 90,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "السعة a=2. الدورة π = 2π/b إذن b=2. القاعدة y = 2 sin 2x."
+          ],
+          "summary": "بناءً على خصائص السعة والدورة المعطاة في اختبار نهاية الوحدة [1]."
+        },
+        "explanation": "بناءً على خصائص السعة والدورة المعطاة في اختبار نهاية الوحدة [1].",
+        "number": 4,
+        "id": "U02-L99-Q004"
+      },
+      {
+        "question": "في أي نقطة يوجد قيمة عظمى للاقتران y = -4 cos (x - π/2)؟",
+        "options": {
+          "A": "(-π/2, 4)",
+          "B": "(π/2, 4)",
+          "C": "(0, 4)",
+          "D": "(π, 4)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(-π/2, 4)",
+        "difficulty": "hard",
+        "source": {
+          "page": 90,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "القيمة العظمى 4 تحدث عندما cos(x-π/2) = -1. أي x-π/2 = -π ومنها x = -π/2."
+          ],
+          "summary": "يصل الاقتران لأعلى قيمة (4) عند الزاوية التي تجعل جيب التمام سالباً بسبب المعامل -4 [1]."
+        },
+        "explanation": "يصل الاقتران لأعلى قيمة (4) عند الزاوية التي تجعل جيب التمام سالباً بسبب المعامل -4 [1].",
+        "number": 5,
+        "id": "U02-L99-Q005"
+      },
+      {
+        "question": "الزاوية 780° تقع في الوضع القياسي في الربع:",
+        "options": {
+          "A": "الأول",
+          "B": "الثاني",
+          "C": "الثالث",
+          "D": "الرابع"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الأول",
+        "difficulty": "medium",
+        "source": {
+          "page": 90,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "780 - (2 * 360) = 780 - 720 = 60°."
+          ],
+          "summary": "الزاوية المشتركة هي 60 درجة وهي في الربع الأول [1]."
+        },
+        "explanation": "الزاوية المشتركة هي 60 درجة وهي في الربع الأول [1].",
+        "number": 6,
+        "id": "U02-L99-Q006"
+      },
+      {
+        "question": "حوّل الزاوية -720° إلى راديان.",
+        "options": {
+          "A": "-2π",
+          "B": "-4π",
+          "C": "-π",
+          "D": "-3π"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-4π",
+        "difficulty": "easy",
+        "source": {
+          "page": 90,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "-720 / 180 = -4. إذن -4π."
+          ],
+          "summary": "كل 180 درجة تساوي π راديان [1]."
+        },
+        "explanation": "كل 180 درجة تساوي π راديان [1].",
+        "number": 7,
+        "id": "U02-L99-Q007"
+      },
+      {
+        "question": "ما قيمة الزاوية 3.5π بالدرجات؟",
+        "options": {
+          "A": "540°",
+          "B": "630°",
+          "C": "450°",
+          "D": "720°"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "630°",
+        "difficulty": "medium",
+        "source": {
+          "page": 90,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "3.5 * 180 = 630."
+          ],
+          "summary": "التحويل بضرب معامل π في 180 [1]."
+        },
+        "explanation": "التحويل بضرب معامل π في 180 [1].",
+        "number": 8,
+        "id": "U02-L99-Q008"
+      },
+      {
+        "question": "أوجد زاوية مشتركة موجبة مع الزاوية -115°.",
+        "options": {
+          "A": "245°",
+          "B": "65°",
+          "C": "115°",
+          "D": "205°"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "245°",
+        "difficulty": "medium",
+        "source": {
+          "page": 90,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "-115 + 360 = 245."
+          ],
+          "summary": "إضافة دورة كاملة يعطي زاوية لها ضلع الانتهاء نفسه [1]."
+        },
+        "explanation": "إضافة دورة كاملة يعطي زاوية لها ضلع الانتهاء نفسه [1].",
+        "number": 9,
+        "id": "U02-L99-Q009"
+      },
+      {
+        "question": "ما نصف قطر قطاع دائري مساحته 12 cm2 وزاويته المركزية 0.7 rad؟",
+        "options": {
+          "A": "4.1 cm",
+          "B": "5.9 cm",
+          "C": "34.3 cm",
+          "D": "8.5 cm"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "5.9 cm",
+        "difficulty": "hard",
+        "source": {
+          "page": 91,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "12 = 0.5 * r^2 * 0.7 => r^2 = 24 / 0.7 ≈ 34.28 => r ≈ 5.85."
+          ],
+          "summary": "باستخدام قانون مساحة القطاع وحل المعادلة لـ r [2]."
+        },
+        "explanation": "باستخدام قانون مساحة القطاع وحل المعادلة لـ r [2].",
+        "number": 10,
+        "id": "U02-L99-Q010"
+      },
+      {
+        "question": "أوجد القيمة الدقيقة لـ sec 300°.",
+        "options": {
+          "A": "2",
+          "B": "√2",
+          "C": "-2",
+          "D": "1/2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2",
+        "difficulty": "medium",
+        "source": {
+          "page": 91,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "1) الربع الرابع (cos موجب). 2) θ' = 360-300 = 60. 3) cos 60 = 0.5. 4) sec = 1/0.5 = 2."
+          ],
+          "summary": "القاطع هو مقلوب جيب التمام، وهو موجب في الربع الرابع [2]."
+        },
+        "explanation": "القاطع هو مقلوب جيب التمام، وهو موجب في الربع الرابع [2].",
+        "number": 11,
+        "id": "U02-L99-Q011"
+      },
+      {
+        "question": "ما قيمة tan 240°؟",
+        "options": {
+          "A": "√3",
+          "B": "-√3",
+          "C": "1 / √3",
+          "D": "1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "√3",
+        "difficulty": "medium",
+        "source": {
+          "page": 91,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "1) الربع الثالث (tan موجب). 2) θ' = 240-180 = 60. 3) tan 60 = √3."
+          ],
+          "summary": "الظل موجب في الربع الثالث وزاويته المرجعية 60 درجة [2]."
+        },
+        "explanation": "الظل موجب في الربع الثالث وزاويته المرجعية 60 درجة [2].",
+        "number": 12,
+        "id": "U02-L99-Q012"
+      },
+      {
+        "question": "أوجد قيمة cos (14π / 3).",
+        "options": {
+          "A": "1/2",
+          "B": "-1/2",
+          "C": "√3 / 2",
+          "D": "-√3 / 2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-1/2",
+        "difficulty": "hard",
+        "source": {
+          "page": 91,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "1) 14π/3 = 4π + 2π/3. 2) الزاوية المشتركة 2π/3 (الربع الثاني). 3) مرجعها π/3. 4) cos(π/3) = 0.5. 5) الثاني سالب: -0.5."
+          ],
+          "summary": "بعد إزالة الدورات الكاملة، تقع الزاوية في الربع الثاني حيث جيب التمام سالب [2]."
+        },
+        "explanation": "بعد إزالة الدورات الكاملة، تقع الزاوية في الربع الثاني حيث جيب التمام سالب [2].",
+        "number": 13,
+        "id": "U02-L99-Q013"
+      },
+      {
+        "question": "إذا كان cos θ = 0.6 و tan θ < 0، فما قيمة sin θ؟",
+        "options": {
+          "A": "0.8",
+          "B": "-0.8",
+          "C": "0.4",
+          "D": "-0.4"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-0.8",
+        "difficulty": "hard",
+        "source": {
+          "page": 91,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "1) cos موجب و tan سالب يعني الربع الرابع. 2) sin^2 = 1 - 0.6^2 = 0.64. 3) sin = -√0.64 = -0.8."
+          ],
+          "summary": "في الربع الرابع يكون الجيب سالباً [2]."
+        },
+        "explanation": "في الربع الرابع يكون الجيب سالباً [2].",
+        "number": 14,
+        "id": "U02-L99-Q014"
+      },
+      {
+        "question": "ما طول دورة الاقتران g(x) = 3 cos π(x + 0.5)؟",
+        "options": {
+          "A": "2",
+          "B": "π",
+          "C": "2π",
+          "D": "0.5"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2",
+        "difficulty": "hard",
+        "source": {
+          "page": 91,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "الدورة = 2π / b = 2π / π = 2."
+          ],
+          "summary": "المعامل b يساوي π، وبقسمة دورة الاقتران الرئيس عليه نحصل على 2 [2]."
+        },
+        "explanation": "المعامل b يساوي π، وبقسمة دورة الاقتران الرئيس عليه نحصل على 2 [2].",
+        "number": 15,
+        "id": "U02-L99-Q015"
+      },
+      {
+        "question": "سعة الاقتران g(x) = -5 sin (x - π/2) + 3 هي:",
+        "options": {
+          "A": "5",
+          "B": "-5",
+          "C": "3",
+          "D": "8"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "5",
+        "difficulty": "medium",
+        "source": {
+          "page": 91,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السعة هي القيمة المطلقة للمعامل a وتساوي |-5|=5 [2]."
+        },
+        "explanation": "السعة هي القيمة المطلقة للمعامل a وتساوي |-5|=5 [2].",
+        "number": 16,
+        "id": "U02-L99-Q016"
+      },
+      {
+        "question": "أي اقتران مما يلي يمثل انسحاباً للأعلى بمقدار 3 وحدات لمنحنى الجيب؟",
+        "options": {
+          "A": "g(x) = 3 sin x",
+          "B": "g(x) = sin x + 3",
+          "C": "g(x) = sin (x + 3)",
+          "D": "g(x) = sin 3x"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "g(x) = sin x + 3",
+        "difficulty": "easy",
+        "source": {
+          "page": 91,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإزاحة الرأسية d تضاف خارج الاقتران [3]."
+        },
+        "explanation": "الإزاحة الرأسية d تضاف خارج الاقتران [3].",
+        "number": 17,
+        "id": "U02-L99-Q017"
+      },
+      {
+        "question": "ما قيمة sin⁻¹ (-√3 / 2) في الفترة [-π/2, π/2]؟",
+        "options": {
+          "A": "π/3",
+          "B": "-π/3",
+          "C": "2π/3",
+          "D": "-π/6"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-π/3",
+        "difficulty": "medium",
+        "source": {
+          "page": 75,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الزاوية التي جيبها سالب جذر 3 على 2 في المدى المحدد للجيب العكسي هي -60 درجة [4]."
+        },
+        "explanation": "الزاوية التي جيبها سالب جذر 3 على 2 في المدى المحدد للجيب العكسي هي -60 درجة [4].",
+        "number": 18,
+        "id": "U02-L99-Q018"
+      },
+      {
+        "question": "الزاوية -23π/4 راديان، في أي ربع يقع ضلع انتهائها؟",
+        "options": {
+          "A": "الأول",
+          "B": "الثاني",
+          "C": "الثالث",
+          "D": "الرابع"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الأول",
+        "difficulty": "hard",
+        "source": {
+          "page": 30,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "-23π/4 + 6π = -23π/4 + 24π/4 = π/4."
+          ],
+          "summary": "بعد إضافة 3 دورات كاملة (6π)، تصبح الزاوية π/4 وهي في الربع الأول [5]."
+        },
+        "explanation": "بعد إضافة 3 دورات كاملة (6π)، تصبح الزاوية π/4 وهي في الربع الأول [5].",
+        "number": 19,
+        "id": "U02-L99-Q019"
+      },
+      {
+        "question": "إذا كان طول عقرب الدقائق 6 cm، فما المسافة التي يقطعها رأسه في 15 دقيقة؟",
+        "options": {
+          "A": "3π cm",
+          "B": "6π cm",
+          "C": "1.5π cm",
+          "D": "9 cm"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "3π cm",
+        "difficulty": "hard",
+        "source": {
+          "page": 52,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "1) الزاوية θ = ربع دورة = π/2. 2) s = rθ = 6 * π/2 = 3π."
+          ],
+          "summary": "تطبيق قانون طول القوس لمسافة حركة عقرب الساعة [6]."
+        },
+        "explanation": "تطبيق قانون طول القوس لمسافة حركة عقرب الساعة [6].",
+        "number": 20,
+        "id": "U02-L99-Q020"
+      },
+      {
+        "question": "ما القيمة الدقيقة لـ csc (-150°)؟",
+        "options": {
+          "A": "2",
+          "B": "-2",
+          "C": "2 / √3",
+          "D": "-2 / √3"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-2",
+        "difficulty": "hard",
+        "source": {
+          "page": 31,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "1) -150+360=210 (الربع الثالث). 2) sin 210 = -sin 30 = -0.5. 3) csc = 1/-0.5 = -2."
+          ],
+          "summary": "قاطع التمام سالب في الربع الثالث ومرجعه 30 درجة [7]."
+        },
+        "explanation": "قاطع التمام سالب في الربع الثالث ومرجعه 30 درجة [7].",
+        "number": 21,
+        "id": "U02-L99-Q021"
+      },
+      {
+        "question": "إذا كانت النقطة P على دائرة الوحدة هي (-8/17, 15/17)، فما قيمة tan θ؟",
+        "options": {
+          "A": "-15/8",
+          "B": "-8/15",
+          "C": "15/17",
+          "D": "8/17"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-15/8",
+        "difficulty": "medium",
+        "source": {
+          "page": 26,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "tan = y / x = (15/17) / (-8/17) = -15/8."
+          ],
+          "summary": "الظل يساوي ناتج قسمة الإحداثي الصادي على السيني [8]."
+        },
+        "explanation": "الظل يساوي ناتج قسمة الإحداثي الصادي على السيني [8].",
+        "number": 22,
+        "id": "U02-L99-Q022"
+      },
+      {
+        "question": "أوجد قياس الزاوية المركزية (بالراديان) لقطاع دائري نصف قطره 24 cm ومساحته 288 cm2.",
+        "options": {
+          "A": "1 rad",
+          "B": "0.5 rad",
+          "C": "2 rad",
+          "D": "π rad"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1 rad",
+        "difficulty": "hard",
+        "source": {
+          "page": 30,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "288 = 0.5 * 24^2 * θ => 288 = 288 * θ => θ = 1."
+          ],
+          "summary": "بالتعويض في قانون مساحة القطاع وحل المعادلة [5]."
+        },
+        "explanation": "بالتعويض في قانون مساحة القطاع وحل المعادلة [5].",
+        "number": 23,
+        "id": "U02-L99-Q023"
+      },
+      {
+        "question": "في أي ربع تقع الزاوية θ إذا كان csc θ > 0 و cos θ < 0؟",
+        "options": {
+          "A": "الأول",
+          "B": "الثاني",
+          "C": "الثالث",
+          "D": "الرابع"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الثاني",
+        "difficulty": "medium",
+        "source": {
+          "page": 68,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الجيب موجب (csc موجب) وجيب التمام سالب في الربع الثاني [9]."
+        },
+        "explanation": "الجيب موجب (csc موجب) وجيب التمام سالب في الربع الثاني [9].",
+        "number": 24,
+        "id": "U02-L99-Q024"
+      },
+      {
+        "question": "ما هو خط الوسط للاقتران g(x) = -2 - sin (x - π)؟",
+        "options": {
+          "A": "y = -2",
+          "B": "y = 2",
+          "C": "y = 0",
+          "D": "y = -1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "y = -2",
+        "difficulty": "medium",
+        "source": {
+          "page": 33,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خط الوسط يحدده الثابت d المضاف للاقتران وهو هنا -2 [10]."
+        },
+        "explanation": "خط الوسط يحدده الثابت d المضاف للاقتران وهو هنا -2 [10].",
+        "number": 25,
+        "id": "U02-L99-Q025"
+      },
+      {
+        "question": "القيمة الصغرى للاقتران g(x) = 5 - cos x هي:",
+        "options": {
+          "A": "4",
+          "B": "6",
+          "C": "5",
+          "D": "-1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "4",
+        "difficulty": "medium",
+        "source": {
+          "page": 33,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "الصغرى = d - |a| = 5 - 1 = 4."
+          ],
+          "summary": "تُحسب بطرح السعة من مقدار الإزاحة الرأسية [11]."
+        },
+        "explanation": "تُحسب بطرح السعة من مقدار الإزاحة الرأسية [11].",
+        "number": 26,
+        "id": "U02-L99-Q026"
+      },
+      {
+        "question": "ما قيمة tan (13π / 6)؟",
+        "options": {
+          "A": "1 / √3",
+          "B": "√3",
+          "C": "-1 / √3",
+          "D": "1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1 / √3",
+        "difficulty": "hard",
+        "source": {
+          "page": 31,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "13π/6 = 2π + π/6. الزاوية هي 30 درجة في الربع الأول. tan 30 = 1/√3."
+          ],
+          "summary": "الزاوية مشتركة مع π/6 [7]."
+        },
+        "explanation": "الزاوية مشتركة مع π/6 [7].",
+        "number": 27,
+        "id": "U02-L99-Q027"
+      },
+      {
+        "question": "إذا كان sin θ = -1/5 و cos θ > 0، فما قيمة sec θ؟",
+        "options": {
+          "A": "5 / (2√6)",
+          "B": "-5 / (2√6)",
+          "C": "√24 / 5",
+          "D": "5"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "5 / (2√6)",
+        "difficulty": "hard",
+        "source": {
+          "page": 31,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "cos^2 = 1 - (-1/5)^2 = 24/25. cos = √24/5 = 2√6/5. sec = 5/(2√6)."
+          ],
+          "summary": "باستخدام متطابقة فيثاغورس ومقلوب جيب التمام [7]."
+        },
+        "explanation": "باستخدام متطابقة فيثاغورس ومقلوب جيب التمام [7].",
+        "number": 28,
+        "id": "U02-L99-Q028"
+      },
+      {
+        "question": "بكرة رافعة نصف قطرها 2 ft تدور 8 دورات كل 15 ثانية. ما سرعتها الخطية؟",
+        "options": {
+          "A": "2.1 ft/s",
+          "B": "6.7 ft/s",
+          "C": "3.4 ft/s",
+          "D": "1.1 ft/s"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "6.7 ft/s",
+        "difficulty": "hard",
+        "source": {
+          "page": 30,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "θ = 8*2π = 16π. s = 2*16π = 32π. v = 32π / 15 ≈ 6.7."
+          ],
+          "summary": "تطبيق قانون السرعة الخطية v=s/t [12]."
+        },
+        "explanation": "تطبيق قانون السرعة الخطية v=s/t [12].",
+        "number": 29,
+        "id": "U02-L99-Q029"
+      },
+      {
+        "question": "ما مجال اقتران الظل العكسي tan⁻¹ x؟",
+        "options": {
+          "A": "R (كل الأعداد الحقيقية)",
+          "B": "[-1, 1]",
+          "C": "(-π/2, π/2)",
+          "D": "[0, π]"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "R (كل الأعداد الحقيقية)",
+        "difficulty": "easy",
+        "source": {
+          "page": 72,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مجال الاقتران العكسي هو مدى الاقتران الأصلي (الظل)، ومداه هو R [13]."
+        },
+        "explanation": "مجال الاقتران العكسي هو مدى الاقتران الأصلي (الظل)، ومداه هو R [13].",
+        "number": 30,
+        "id": "U02-L99-Q030"
+      },
+      {
+        "question": "أي من الزوايا الآتية مشتركة مع π/3؟",
+        "options": {
+          "A": "7π/3",
+          "B": "4π/3",
+          "C": "2π/3",
+          "D": "5π/3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "7π/3",
+        "difficulty": "medium",
+        "source": {
+          "page": 56,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "π/3 + 2π = π/3 + 6π/3 = 7π/3."
+          ],
+          "summary": "بإضافة دورة كاملة 2π [14]."
+        },
+        "explanation": "بإضافة دورة كاملة 2π [14].",
+        "number": 31,
+        "id": "U02-L99-Q031"
+      },
+      {
+        "question": "ما هي الزاوية المرجعية للزاوية 5π/4؟",
+        "options": {
+          "A": "π/4",
+          "B": "π/2",
+          "C": "3π/4",
+          "D": "π/6"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "π/4",
+        "difficulty": "easy",
+        "source": {
+          "page": 67,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "θ' = 5π/4 - π = π/4."
+          ],
+          "summary": "في الربع الثالث، المرجعية هي الزاوية ناقص π [15]."
+        },
+        "explanation": "في الربع الثالث، المرجعية هي الزاوية ناقص π [15].",
+        "number": 32,
+        "id": "U02-L99-Q032"
+      },
+      {
+        "question": "قيمة cos (210°) تساوي:",
+        "options": {
+          "A": "-√3 / 2",
+          "B": "-1/2",
+          "C": "√3 / 2",
+          "D": "1/2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-√3 / 2",
+        "difficulty": "medium",
+        "source": {
+          "page": 69,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الزاوية في الربع الثالث (cos سالب) ومرجعها 30 درجة [16]."
+        },
+        "explanation": "الزاوية في الربع الثالث (cos سالب) ومرجعها 30 درجة [16].",
+        "number": 33,
+        "id": "U02-L99-Q033"
+      },
+      {
+        "question": "ما طول دورة الاقتران g(x) = sin (x/4)؟",
+        "options": {
+          "A": "8π",
+          "B": "2π",
+          "C": "π/2",
+          "D": "4π"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "8π",
+        "difficulty": "hard",
+        "source": {
+          "page": 176,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "الدورة = 2π / (1/4) = 8π."
+          ],
+          "summary": "تطبيق قانون طول الدورة مع المعامل b=1/4 [17]."
+        },
+        "explanation": "تطبيق قانون طول الدورة مع المعامل b=1/4 [17].",
+        "number": 34,
+        "id": "U02-L99-Q034"
+      },
+      {
+        "question": "إذا كان sin θ = 0.8، فما قيمة sin (-θ)؟",
+        "options": {
+          "A": "-0.8",
+          "B": "0.8",
+          "C": "0.2",
+          "D": "0.6"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-0.8",
+        "difficulty": "medium",
+        "source": {
+          "page": 184,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اقتران الجيب اقتران فردي، أي sin(-x) = -sin(x) [18]."
+        },
+        "explanation": "اقتران الجيب اقتران فردي، أي sin(-x) = -sin(x) [18].",
+        "number": 35,
+        "id": "U02-L99-Q035"
+      },
+      {
+        "question": "ما سعة الاقتران g(x) = 1/2 cos 2x؟",
+        "options": {
+          "A": "1/2",
+          "B": "2",
+          "C": "π",
+          "D": "1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1/2",
+        "difficulty": "easy",
+        "source": {
+          "page": 170,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السعة هي القيمة المطلقة للمعامل المضروب في الاقتران [19]."
+        },
+        "explanation": "السعة هي القيمة المطلقة للمعامل المضروب في الاقتران [19].",
+        "number": 36,
+        "id": "U02-L99-Q036"
+      },
+      {
+        "question": "أوجد قيمة tan⁻¹ (√3).",
+        "options": {
+          "A": "π/3",
+          "B": "π/6",
+          "C": "π/4",
+          "D": "π/2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "π/3",
+        "difficulty": "medium",
+        "source": {
+          "page": 75,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الزاوية التي ظلها جذر 3 في المدى المسموح هي 60 درجة (π/3) [4]."
+        },
+        "explanation": "الزاوية التي ظلها جذر 3 في المدى المسموح هي 60 درجة (π/3) [4].",
+        "number": 37,
+        "id": "U02-L99-Q037"
+      },
+      {
+        "question": "الزاوية -900° ينطبق ضلع انتهائها على:",
+        "options": {
+          "A": "المحور x السالب",
+          "B": "المحور x الموجب",
+          "C": "المحور y السالب",
+          "D": "المحور y الموجب"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "المحور x السالب",
+        "difficulty": "hard",
+        "source": {
+          "page": 61,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "-900 + (3 * 360) = -900 + 1080 = 180°."
+          ],
+          "summary": "الزاوية مشتركة مع 180 درجة وهي تقع على محور x السالب [20]."
+        },
+        "explanation": "الزاوية مشتركة مع 180 درجة وهي تقع على محور x السالب [20].",
+        "number": 38,
+        "id": "U02-L99-Q038"
+      },
+      {
+        "question": "ما القيمة العظمى للاقتران b(t) = 7.9 - 2.1 cos(t)؟",
+        "options": {
+          "A": "10",
+          "B": "7.9",
+          "C": "5.8",
+          "D": "2.1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "10",
+        "difficulty": "hard",
+        "source": {
+          "page": 161,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "7.9 + 2.1 = 10."
+          ],
+          "summary": "تُجمع السعة مع ثابت الإزاحة الرأسية (مسألة النجوم المتغيرة) [21]."
+        },
+        "explanation": "تُجمع السعة مع ثابت الإزاحة الرأسية (مسألة النجوم المتغيرة) [21].",
+        "number": 39,
+        "id": "U02-L99-Q039"
+      },
+      {
+        "question": "في المثلث القائم، إذا كان المجاور = 7 والوتر = 10، فما قيمة cos A؟",
+        "options": {
+          "A": "0.7",
+          "B": "0.3",
+          "C": "1.4",
+          "D": "0.5"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "0.7",
+        "difficulty": "easy",
+        "source": {
+          "page": 389,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جيب التمام يساوي المجاور تقسيم الوتر = 7/10 = 0.7 [22]."
+        },
+        "explanation": "جيب التمام يساوي المجاور تقسيم الوتر = 7/10 = 0.7 [22].",
+        "number": 40,
+        "id": "U02-L99-Q040"
+      },
+      {
+        "question": "ما هو مقلوب القاطع sec θ؟",
+        "options": {
+          "A": "cos θ",
+          "B": "sin θ",
+          "C": "tan θ",
+          "D": "csc θ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "cos θ",
+        "difficulty": "easy",
+        "source": {
+          "page": 64,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القاطع وجيب التمام هما اقترانا مقلوب لبعضهما [23]."
+        },
+        "explanation": "القاطع وجيب التمام هما اقترانا مقلوب لبعضهما [23].",
+        "number": 41,
+        "id": "U02-L99-Q041"
+      },
+      {
+        "question": "إذا دار ضلع انتهاء زاوية 8 دورات في 15 ثانية، فما سرعتها الزاوية (ω)؟",
+        "options": {
+          "A": "1.07π rad/s",
+          "B": "16π rad/s",
+          "C": "2π rad/s",
+          "D": "0.5π rad/s"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1.07π rad/s",
+        "difficulty": "hard",
+        "source": {
+          "page": 396,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "ω = θ / t = (8 * 2π) / 15 = 16π / 15 ≈ 1.066π."
+          ],
+          "summary": "بقسمة زاوية الدوران الكلية على الزمن [12]."
+        },
+        "explanation": "بقسمة زاوية الدوران الكلية على الزمن [12].",
+        "number": 42,
+        "id": "U02-L99-Q042"
+      },
+      {
+        "question": "ما مدى اقتران جيب التمام العكسي cos⁻¹ x؟",
+        "options": {
+          "A": "[0, π]",
+          "B": "[-π/2, π/2]",
+          "C": "R",
+          "D": "[-1, 1]"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "[0, π]",
+        "difficulty": "medium",
+        "source": {
+          "page": 72,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مدى جيب التمام العكسي هو الفترة المغلقة من 0 إلى π [13]."
+        },
+        "explanation": "مدى جيب التمام العكسي هو الفترة المغلقة من 0 إلى π [13].",
+        "number": 43,
+        "id": "U02-L99-Q043"
+      },
+      {
+        "question": "أوجد قيمة tan (π).",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "-1",
+          "D": "غير معرف"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "0",
+        "difficulty": "easy",
+        "source": {
+          "page": 66,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عند π (180 درجة)، النقطة هي (-1, 0)، والظل y/x = 0/-1 = 0 [24]."
+        },
+        "explanation": "عند π (180 درجة)، النقطة هي (-1, 0)، والظل y/x = 0/-1 = 0 [24].",
+        "number": 44,
+        "id": "U02-L99-Q044"
+      },
+      {
+        "question": "ما إشارة sin θ في الربع الرابع؟",
+        "options": {
+          "A": "سالبة",
+          "B": "موجبة",
+          "C": "صفر",
+          "D": "غير معرفة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "سالبة",
+        "difficulty": "easy",
+        "source": {
+          "page": 68,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "في الربع الرابع يكون الإحداثي y سالباً، لذا الجيب سالب [9]."
+        },
+        "explanation": "في الربع الرابع يكون الإحداثي y سالباً، لذا الجيب سالب [9].",
+        "number": 45,
+        "id": "U02-L99-Q045"
+      },
+      {
+        "question": "أوجد مساحة قطاع دائري نصف قطره 10 cm وزاويته المركزية 45°.",
+        "options": {
+          "A": "12.5π cm2",
+          "B": "25π cm2",
+          "C": "6.25π cm2",
+          "D": "50π cm2"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "6.25π cm2",
+        "difficulty": "hard",
+        "source": {
+          "page": 386,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "1) θ = π/4. 2) A = 0.5 * 10^2 * (π/4) = 50 * π/4 = 12.5π / 2 = 6.25π."
+          ],
+          "summary": "تطبيق قانون مساحة القطاع مع تحويل الزاوية لراديان [25]."
+        },
+        "explanation": "تطبيق قانون مساحة القطاع مع تحويل الزاوية لراديان [25].",
+        "number": 46,
+        "id": "U02-L99-Q046"
+      },
+      {
+        "question": "ما قيمة x في النقطة P(x, y) على دائرة الوحدة إذا كانت θ = 270°؟",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "-1",
+          "D": "0.5"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "0",
+        "difficulty": "easy",
+        "source": {
+          "page": 66,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عند 270 درجة، تقع النقطة على المحور y السالب وإحداثيها السيني صفر [24]."
+        },
+        "explanation": "عند 270 درجة، تقع النقطة على المحور y السالب وإحداثيها السيني صفر [24].",
+        "number": 47,
+        "id": "U02-L99-Q047"
+      },
+      {
+        "question": "دورة الاقتران g(x) = cos (x/3) هي:",
+        "options": {
+          "A": "6π",
+          "B": "2π/3",
+          "C": "3π/2",
+          "D": "3π"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "6π",
+        "difficulty": "medium",
+        "source": {
+          "page": 176,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "2π / (1/3) = 6π."
+          ],
+          "summary": "بقسمة دورة الجيب تمام (2π) على معامل x (1/3) [17]."
+        },
+        "explanation": "بقسمة دورة الجيب تمام (2π) على معامل x (1/3) [17].",
+        "number": 48,
+        "id": "U02-L99-Q048"
+      },
+      {
+        "question": "ما هو مقلوب ظل التمام cot θ؟",
+        "options": {
+          "A": "tan θ",
+          "B": "sin θ",
+          "C": "cos θ",
+          "D": "sec θ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "tan θ",
+        "difficulty": "easy",
+        "source": {
+          "page": 64,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الظل وظل التمام هما مقلوبان لبعضهما [23]."
+        },
+        "explanation": "الظل وظل التمام هما مقلوبان لبعضهما [23].",
+        "number": 49,
+        "id": "U02-L99-Q049"
+      },
+      {
+        "question": "حوّل الزاوية 11π/6 إلى درجات.",
+        "options": {
+          "A": "330°",
+          "B": "300°",
+          "C": "210°",
+          "D": "315°"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "330°",
+        "difficulty": "medium",
+        "source": {
+          "page": 395,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "11 * 180 / 6 = 11 * 30 = 330."
+          ],
+          "summary": "التحويل بضرب معامل π في 180 [26]."
+        },
+        "explanation": "التحويل بضرب معامل π في 180 [26].",
+        "number": 50,
+        "id": "U02-L99-Q050"
+      }
+    ]
+  }
+}

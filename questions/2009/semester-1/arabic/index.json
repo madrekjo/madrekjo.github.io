@@ -1,0 +1,107 @@
+{
+  "subject_id": "arabic",
+  "subject": "اللغة العربية",
+  "generation_id": "2009",
+  "generation": "2009",
+  "semester_id": "semester-1",
+  "semester": 1,
+  "semester_label": "ف1",
+  "units": [
+    {
+      "id": "U01",
+      "number": 1,
+      "name": "الأدب في العصر الجاهلي",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "المعلقات",
+          "file": "unit-01/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "فن الخطابة",
+          "file": "unit-01/lesson-02.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-01/review.json"
+      }
+    },
+    {
+      "id": "U02",
+      "number": 2,
+      "name": "الأدب في عصر صدر الإسلام والعصر الأموي",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "أثر الإسلام في الشعر والنثر",
+          "file": "unit-02/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "تحليل نماذج شعرية في مدح الرسول ﷺ",
+          "file": "unit-02/lesson-02.json"
+        },
+        {
+          "id": "L03",
+          "number": 3,
+          "name": "ظاهرة الغزل في الشعر الأموي",
+          "file": "unit-02/lesson-03.json"
+        },
+        {
+          "id": "L04",
+          "number": 4,
+          "name": "شعر النقائض",
+          "file": "unit-02/lesson-04.json"
+        },
+        {
+          "id": "L05",
+          "number": 5,
+          "name": "النثر في عصر صدر الإسلام والعصر الأموي",
+          "file": "unit-02/lesson-05.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-02/review.json"
+      }
+    },
+    {
+      "id": "U03",
+      "number": 3,
+      "name": "الأدب في العصر العباسي",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "أثر الثقافات الأجنبية في الأدب العربي في العصر العباسي",
+          "file": "unit-03/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "التجديد في الشعر العباسي",
+          "file": "unit-03/lesson-02.json"
+        },
+        {
+          "id": "L03",
+          "number": 3,
+          "name": "الموضوعات الشعرية",
+          "file": "unit-03/lesson-03.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-03/review.json"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1024 @@
+{
+  "lesson": {
+    "lesson_number": "3.4",
+    "lesson_name": "المشتقة الثانية",
+    "unit_number": 3,
+    "unit_name": "الوحدة الثالثة",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ماذا يُسمى الاقتران الناتج من اشتقاق الاقتران مرتين؟",
+        "options": {
+          "A": "المشتّقة الأولى",
+          "B": "المشتّقة الثانية",
+          "C": "المشتّقة الثالثة",
+          "D": "تكامل الاقتران"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المشتّقة الثانية",
+        "difficulty": "easy",
+        "source": {
+          "page": 128,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يُطلق على الاقتران الناتج من اشتقاق الاقتران مرتين اسم المشتّقة الثانية [1]."
+        },
+        "explanation": "يُطلق على الاقتران الناتج من اشتقاق الاقتران مرتين اسم المشتّقة الثانية [1].",
+        "number": 1,
+        "id": "U03-L04-Q001"
+      },
+      {
+        "question": "أي من الرموز الآتية يُستخدم للتعبير عن المشتّقة الثانية للاقتران y = f(x)؟",
+        "options": {
+          "A": "f '(x)",
+          "B": "dy/dx",
+          "C": "d²y / dx²",
+          "D": "lim f(x)"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "d²y / dx²",
+        "difficulty": "easy",
+        "source": {
+          "page": 128,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تُستعمل الرموز f ''(x) و d²y/dx² للتعبير عن المشتّقة الثانية [2]."
+        },
+        "explanation": "تُستعمل الرموز f ''(x) و d²y/dx² للتعبير عن المشتّقة الثانية [2].",
+        "number": 2,
+        "id": "U03-L04-Q002"
+      },
+      {
+        "question": "ما هي المشتّقة الثانية للاقتران f(x) = x⁴؟",
+        "options": {
+          "A": "4x³",
+          "B": "12x²",
+          "C": "12x",
+          "D": "x²"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "12x²",
+        "difficulty": "medium",
+        "source": {
+          "page": 128,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f '(x) = 4x³. المشتّقة الثانية f ''(x) = 12x²."
+          ],
+          "summary": "بتطبيق قاعدة القوة مرتين متتاليتين [2]."
+        },
+        "explanation": "بتطبيق قاعدة القوة مرتين متتاليتين [2].",
+        "number": 3,
+        "id": "U03-L04-Q003"
+      },
+      {
+        "question": "في حركة الأجسام، ماذا تمثل المشتّقة الثانية لاقتران الموقع s(t) بالنسبة للزمن؟",
+        "options": {
+          "A": "الموقع",
+          "B": "السرعة المتجهة",
+          "C": "التسارع",
+          "D": "السرعة القياسية"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "التسارع",
+        "difficulty": "easy",
+        "source": {
+          "page": 131,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تمثل المشتّقة الثانية للاقتران s(t) معدل تغيّر السرعة بالنسبة للزمن، وهو التسارع [3]."
+        },
+        "explanation": "تمثل المشتّقة الثانية للاقتران s(t) معدل تغيّر السرعة بالنسبة للزمن، وهو التسارع [3].",
+        "number": 4,
+        "id": "U03-L04-Q004"
+      },
+      {
+        "question": "إذا كانت f '(c) = 0 و f ''(c) < 0، فما نوع القيمة القصوى عند x = c؟",
+        "options": {
+          "A": "قيمة عظمى محلية",
+          "B": "قيمة صغرى محلية",
+          "C": "ليست قيمة قصوى",
+          "D": "الاختبار يفشل"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "قيمة عظمى محلية",
+        "difficulty": "medium",
+        "source": {
+          "page": 129,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حسب نظرية اختبار المشتّقة الثانية، إذا كانت المشتّقة الثانية سالبة عند نقطة حرجة، فالقيمة عظمى محلية [4]."
+        },
+        "explanation": "حسب نظرية اختبار المشتّقة الثانية، إذا كانت المشتّقة الثانية سالبة عند نقطة حرجة، فالقيمة عظمى محلية [4].",
+        "number": 5,
+        "id": "U03-L04-Q005"
+      },
+      {
+        "question": "متى يفشل اختبار المشتّقة الثانية في تصنيف النقطة الحرجة؟",
+        "options": {
+          "A": "إذا كانت f ''(c) > 0.",
+          "B": "إذا كانت f ''(c) < 0.",
+          "C": "إذا كانت f ''(c) = 0.",
+          "D": "إذا كانت المشتّقة الثانية غير موجودة."
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "إذا كانت f ''(c) = 0.",
+        "difficulty": "medium",
+        "source": {
+          "page": 129,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إذا كانت المشتّقة الثانية تساوي صفراً، يفشل الاختبار ويجب العودة لاختبار المشتّقة الأولى [4]."
+        },
+        "explanation": "إذا كانت المشتّقة الثانية تساوي صفراً، يفشل الاختبار ويجب العودة لاختبار المشتّقة الأولى [4].",
+        "number": 6,
+        "id": "U03-L04-Q006"
+      },
+      {
+        "question": "أوجد المشتّقة الثانية للاقتران f(x) = x⁵ - 0.5x⁴.",
+        "options": {
+          "A": "20x³ - 6x²",
+          "B": "5x⁴ - 2x³",
+          "C": "20x³ - 2x²",
+          "D": "100x³"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "20x³ - 6x²",
+        "difficulty": "medium",
+        "source": {
+          "page": 128,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f '(x) = 5x⁴ - 2x³. المشتّقة الثانية: 20x³ - 6x²."
+          ],
+          "summary": "تطبيق قواعد الاشتقاق على حدود الاقتران [2]."
+        },
+        "explanation": "تطبيق قواعد الاشتقاق على حدود الاقتران [2].",
+        "number": 7,
+        "id": "U03-L04-Q007"
+      },
+      {
+        "question": "ما هي المشتّقة الثانية للاقتران f(x) = 5/x² + 7؟",
+        "options": {
+          "A": "-10/x³",
+          "B": "30/x⁴",
+          "C": "-30/x⁴",
+          "D": "10/x⁴"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "30/x⁴",
+        "difficulty": "hard",
+        "source": {
+          "page": 129,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f(x) = 5x⁻² + 7. f '(x) = -10x⁻³. f ''(x) = 30x⁻⁴ = 30/x⁴."
+          ],
+          "summary": "تحويل الاقتران للصورة الأسية ثم اشتقاقه مرتين [5]."
+        },
+        "explanation": "تحويل الاقتران للصورة الأسية ثم اشتقاقه مرتين [5].",
+        "number": 8,
+        "id": "U03-L04-Q008"
+      },
+      {
+        "question": "باستعمال اختبار المشتّقة الثانية، حدد نوع القيمة الحرجة عند x = 1 للاقتران f(x) = 2x³ + 3x² - 12x.",
+        "options": {
+          "A": "عظمى محلية",
+          "B": "صغرى محلية",
+          "C": "ليست قصوى",
+          "D": "نقطة انعطاف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "صغرى محلية",
+        "difficulty": "hard",
+        "source": {
+          "page": 130,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f '(x) = 6x² + 6x - 12. f ''(x) = 12x + 6. تعويض 1: f ''(1) = 18 > 0."
+          ],
+          "summary": "بما أن المشتّقة الثانية موجبة عند النقطة الحرجة، فهي صغرى محلية [6]."
+        },
+        "explanation": "بما أن المشتّقة الثانية موجبة عند النقطة الحرجة، فهي صغرى محلية [6].",
+        "number": 9,
+        "id": "U03-L04-Q009"
+      },
+      {
+        "question": "في المثال السابق، ما قيمة المشتّقة الثانية عند x = -2؟",
+        "options": {
+          "A": "18",
+          "B": "-18",
+          "C": "0",
+          "D": "-6"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-18",
+        "difficulty": "medium",
+        "source": {
+          "page": 130,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f ''(-2) = 12(-2) + 6 = -24 + 6 = -18."
+          ],
+          "summary": "التعويض المباشر في قاعدة المشتّقة الثانية [6]."
+        },
+        "explanation": "التعويض المباشر في قاعدة المشتّقة الثانية [6].",
+        "number": 10,
+        "id": "U03-L04-Q010"
+      },
+      {
+        "question": "إذا كان اقتران الموقع لجسيم s(t) = t³ - 4t² + 5t، فما هي سرعته v(t)؟",
+        "options": {
+          "A": "3t² - 8t + 5",
+          "B": "6t - 8",
+          "C": "t² - 4t + 5",
+          "D": "3t² - 4t"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "3t² - 8t + 5",
+        "difficulty": "easy",
+        "source": {
+          "page": 132,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السرعة هي المشتّقة الأولى لاقتران الموقع [7]."
+        },
+        "explanation": "السرعة هي المشتّقة الأولى لاقتران الموقع [7].",
+        "number": 11,
+        "id": "U03-L04-Q011"
+      },
+      {
+        "question": "في السؤال السابق، ما هو تسارع الجسم a(t)؟",
+        "options": {
+          "A": "3t² - 8t + 5",
+          "B": "6t - 8",
+          "C": "6",
+          "D": "t - 8"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "6t - 8",
+        "difficulty": "medium",
+        "source": {
+          "page": 132,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التسارع هو المشتّقة الثانية للموقع أو الأولى للسرعة [8]."
+        },
+        "explanation": "التسارع هو المشتّقة الثانية للموقع أو الأولى للسرعة [8].",
+        "number": 12,
+        "id": "U03-L04-Q012"
+      },
+      {
+        "question": "متى يكون الجسم في حالة 'سكون لحظي'؟",
+        "options": {
+          "A": "عندما يكون موقعه صفراً.",
+          "B": "عندما يكون تسارعه صفراً.",
+          "C": "عندما تكون سرعته المتجهة صفراً.",
+          "D": "عندما يكون الزمن صفراً."
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "عندما تكون سرعته المتجهة صفراً.",
+        "difficulty": "easy",
+        "source": {
+          "page": 131,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يكون الجسم في حالة سكون لحظي إذا كانت قيمة v(t) = 0 [3]."
+        },
+        "explanation": "يكون الجسم في حالة سكون لحظي إذا كانت قيمة v(t) = 0 [3].",
+        "number": 13,
+        "id": "U03-L04-Q013"
+      },
+      {
+        "question": "أوجد قيم t التي يكون عندها الجسم s(t) = t³ - 4t² + 5t في حالة سكون لحظي.",
+        "options": {
+          "A": "t = 1 و t = 5/3",
+          "B": "t = 2",
+          "C": "t = 0",
+          "D": "لا يوجد"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "t = 1 و t = 5/3",
+        "difficulty": "hard",
+        "source": {
+          "page": 132,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "v(t) = 3t² - 8t + 5 = 0. بالتحليل: (t - 1)(3t - 5) = 0."
+          ],
+          "summary": "بحل المعادلة الناتجة عن مساواة اقتران السرعة بالصفر [281، 282]."
+        },
+        "explanation": "بحل المعادلة الناتجة عن مساواة اقتران السرعة بالصفر [281، 282].",
+        "number": 14,
+        "id": "U03-L04-Q014"
+      },
+      {
+        "question": "ماذا تعني القيمة الموجبة للسرعة المتجهة v(t) > 0؟",
+        "options": {
+          "A": "الجسم يتحرك في الاتجاه الموجب.",
+          "B": "الجسم يتحرك في الاتجاه السالب.",
+          "C": "الجسم متوقف.",
+          "D": "التسارع موجب."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الجسم يتحرك في الاتجاه الموجب.",
+        "difficulty": "easy",
+        "source": {
+          "page": 131,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إذا كانت v(t) > 0 فإن الجسم يتحرك في الاتجاه الموجب [3]."
+        },
+        "explanation": "إذا كانت v(t) > 0 فإن الجسم يتحرك في الاتجاه الموجب [3].",
+        "number": 15,
+        "id": "U03-L04-Q015"
+      },
+      {
+        "question": "أوجد تسارع أسد جبال (مثال 4 ص 133) بعد 4 ثوانٍ إذا كان الموقع s(t) = t³ - 15t² + 63t.",
+        "options": {
+          "A": "9 m/s²",
+          "B": "-9 m/s²",
+          "C": "-6 m/s²",
+          "D": "6 m/s²"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "-6 m/s²",
+        "difficulty": "hard",
+        "source": {
+          "page": 134,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "v(t) = 3t² - 30t + 63. a(t) = 6t - 30. تعويض 4: a(4) = 24 - 30 = -6."
+          ],
+          "summary": "التعويض في اقتران التسارع المشتق من الموقع [9]."
+        },
+        "explanation": "التعويض في اقتران التسارع المشتق من الموقع [9].",
+        "number": 16,
+        "id": "U03-L04-Q016"
+      },
+      {
+        "question": "ما هي السرعة القياسية (speed)؟",
+        "options": {
+          "A": "المشتّقة الثانية للموقع.",
+          "B": "القيمة المطلقة للسرعة المتجهة.",
+          "C": "معدل تغيّر التسارع.",
+          "D": "اتجاه الحركة فقط."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "القيمة المطلقة للسرعة المتجهة.",
+        "difficulty": "easy",
+        "source": {
+          "page": 131,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القيمة المطلقة للسرعة المتجهة تسمى السرعة القياسية وهي تحدد مقداراً بلا اتجاه [3]."
+        },
+        "explanation": "القيمة المطلقة للسرعة المتجهة تسمى السرعة القياسية وهي تحدد مقداراً بلا اتجاه [3].",
+        "number": 17,
+        "id": "U03-L04-Q017"
+      },
+      {
+        "question": "أوجد المشتّقة الثانية لـ f(x) = 2x⁻³.",
+        "options": {
+          "A": "-6x⁻⁴",
+          "B": "24x⁻⁵",
+          "C": "12x⁻⁴",
+          "D": "24x⁵"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "24x⁻⁵",
+        "difficulty": "medium",
+        "source": {
+          "page": 135,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f '(x) = -6x⁻⁴. f ''(x) = 24x⁻⁵."
+          ],
+          "summary": "تمرين 2 من أتدرب وأحل المسائل [10]."
+        },
+        "explanation": "تمرين 2 من أتدرب وأحل المسائل [10].",
+        "number": 18,
+        "id": "U03-L04-Q018"
+      },
+      {
+        "question": "ما هي المشتّقة الثانية لـ f(x) = √x؟",
+        "options": {
+          "A": "1 / (2√x)",
+          "B": "-1 / (4√x³)",
+          "C": "1 / (4x)",
+          "D": "-1 / (2x)"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-1 / (4√x³)",
+        "difficulty": "hard",
+        "source": {
+          "page": 135,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f '(x) = 0.5x⁻⁰⁵. f ''(x) = -0.25x⁻¹⁵ = -1/(4√x³)."
+          ],
+          "summary": "تمرين 4 من أتدرب وأحل المسائل [10]."
+        },
+        "explanation": "تمرين 4 من أتدرب وأحل المسائل [10].",
+        "number": 19,
+        "id": "U03-L04-Q019"
+      },
+      {
+        "question": "إذا كان s(t) = t⁵ - 20t²، فما هو تسارع الجسم عند t = 3؟",
+        "options": {
+          "A": "365 m/s²",
+          "B": "500 m/s²",
+          "C": "540 m/s²",
+          "D": "500 m/s"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "500 m/s²",
+        "difficulty": "hard",
+        "source": {
+          "page": 135,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "v(t) = 5t⁴ - 40t. a(t) = 20t³ - 40. تعويض 3: 20(27) - 40 = 540 - 40 = 500."
+          ],
+          "summary": "تمرين 12 من أتدرب وأحل المسائل [10]."
+        },
+        "explanation": "تمرين 12 من أتدرب وأحل المسائل [10].",
+        "number": 20,
+        "id": "U03-L04-Q020"
+      },
+      {
+        "question": "أوجد المشتّقة الثانية لـ f(x) = ∛x عند x = 4.",
+        "options": {
+          "A": "-1/48",
+          "B": "-2/9 (4)⁻⁵/³",
+          "C": "1/12",
+          "D": "0"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-2/9 (4)⁻⁵/³",
+        "difficulty": "hard",
+        "source": {
+          "page": 135,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f '(x) = 1/3 x⁻²/³. f ''(x) = -2/9 x⁻⁵/³."
+          ],
+          "summary": "تمرين 7 من أتدرب وأحل المسائل [10]."
+        },
+        "explanation": "تمرين 7 من أتدرب وأحل المسائل [10].",
+        "number": 21,
+        "id": "U03-L04-Q021"
+      },
+      {
+        "question": "متى يكون تسارع الدراجة النارية s(t) = 0.5t² + 15t صفراً؟ (مسألة اليوم)",
+        "options": {
+          "A": "دائماً",
+          "B": "أبداً (التسارع ثابت ويساوي 1)",
+          "C": "عند t = 15",
+          "D": "عند t = 0"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أبداً (التسارع ثابت ويساوي 1)",
+        "difficulty": "hard",
+        "source": {
+          "page": 128,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "v(t) = t + 15. a(t) = 1. التسارع ثابت ولا يساوي صفراً."
+          ],
+          "summary": "بناءً على اشتقاق اقتران الموقع المعطى مرتين [1]."
+        },
+        "explanation": "بناءً على اشتقاق اقتران الموقع المعطى مرتين [1].",
+        "number": 22,
+        "id": "U03-L04-Q022"
+      },
+      {
+        "question": "إذا كان f(x) = ax⁴ - 3x² وكانت f ''(2) = 42، فما قيمة الثابت a؟",
+        "options": {
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "0.5"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1",
+        "difficulty": "hard",
+        "source": {
+          "page": 50,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f '(x)=4ax³-6x. f ''(x)=12ax²-6. تعويض 2: 12a(4)-6=48a-6=42 => 48a=48 => a=1."
+          ],
+          "summary": "تمرين 6 من كتاب التمارين [11]."
+        },
+        "explanation": "تمرين 6 من كتاب التمارين [11].",
+        "number": 23,
+        "id": "U03-L04-Q023"
+      },
+      {
+        "question": "ما نوع القيمة القصوى للاقتران f(x) = x²(x-4) عند القيمة الحرجة x = 8/3؟",
+        "options": {
+          "A": "صغرى محلية",
+          "B": "عظمى محلية",
+          "C": "ليست قصوى",
+          "D": "نقطة انعطاف"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "صغرى محلية",
+        "difficulty": "hard",
+        "source": {
+          "page": 135,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f(x)=x³-4x². f '(x)=3x²-8x. f ''(x)=6x-8. تعويض 8/3: 6(8/3)-8 = 16-8 = 8 > 0."
+          ],
+          "summary": "تمرين 9 من أتدرب وأحل المسائل [10]."
+        },
+        "explanation": "تمرين 9 من أتدرب وأحل المسائل [10].",
+        "number": 24,
+        "id": "U03-L04-Q024"
+      },
+      {
+        "question": "توجد نقطة عظمى محلية عند x = -2 للاقتران f(x) = 2x³ + 3x² - 12x لأن:",
+        "options": {
+          "A": "f ''(-2) > 0",
+          "B": "f ''(-2) < 0",
+          "C": "f '(-2) < 0",
+          "D": "f(-2) = 0"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "f ''(-2) < 0",
+        "difficulty": "medium",
+        "source": {
+          "page": 131,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لأن ناتج المشتّقة الثانية (-18) سالب، مما يعني وجود عظمى محلية [6]."
+        },
+        "explanation": "لأن ناتج المشتّقة الثانية (-18) سالب، مما يعني وجود عظمى محلية [6].",
+        "number": 25,
+        "id": "U03-L04-Q025"
+      },
+      {
+        "question": "أوجد سرعة الجسم s(t) = t³ - 12t - 9 عندما يكون تسارعه صفراً.",
+        "options": {
+          "A": "-12 m/s",
+          "B": "12 m/s",
+          "C": "0 m/s",
+          "D": "-9 m/s"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-12 m/s",
+        "difficulty": "hard",
+        "source": {
+          "page": 136,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "v(t)=3t²-12. a(t)=6t=0 => t=0. السرعة عند 0 هي v(0)=-12."
+          ],
+          "summary": "تمرين تحدي 19 من الكتاب [12]."
+        },
+        "explanation": "تمرين تحدي 19 من الكتاب [12].",
+        "number": 26,
+        "id": "U03-L04-Q026"
+      },
+      {
+        "question": "ما هو تسارع الجسم s(t) = 2t³ - 24t - 10 عندما تكون سرعته صفراً؟",
+        "options": {
+          "A": "24 m/s²",
+          "B": "12 m/s²",
+          "C": "0 m/s²",
+          "D": "48 m/s²"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "24 m/s²",
+        "difficulty": "hard",
+        "source": {
+          "page": 136,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "v(t)=6t²-24=0 => t²=4 => t=2. a(t)=12t. تعويض 2: 12(2)=24."
+          ],
+          "summary": "تمرين تحدي 20 من الكتاب [12]."
+        },
+        "explanation": "تمرين تحدي 20 من الكتاب [12].",
+        "number": 27,
+        "id": "U03-L04-Q027"
+      },
+      {
+        "question": "المشتّقة الثانية للاقتران f(x) = (x-1)(2x+3) هي:",
+        "options": {
+          "A": "4",
+          "B": "2",
+          "C": "2x + 1",
+          "D": "0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "4",
+        "difficulty": "medium",
+        "source": {
+          "page": 50,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f(x) = 2x² + x - 3. f '(x) = 4x + 1. f ''(x) = 4."
+          ],
+          "summary": "تمرين 3 من كتاب التمارين [11]."
+        },
+        "explanation": "تمرين 3 من كتاب التمارين [11].",
+        "number": 28,
+        "id": "U03-L04-Q028"
+      },
+      {
+        "question": "أوجد المشتّقة الثانية لـ f(x) = 4 / (3x) عند x = 2.",
+        "options": {
+          "A": "1/3",
+          "B": "1/2",
+          "C": "4/3",
+          "D": "-1/6"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1/3",
+        "difficulty": "hard",
+        "source": {
+          "page": 50,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f(x) = 4/3 x⁻¹. f '(x) = -4/3 x⁻². f ''(x) = 8/3 x⁻³. تعويض 2: 8/(3*8) = 1/3."
+          ],
+          "summary": "تمرين 4 من كتاب التمارين [11]."
+        },
+        "explanation": "تمرين 4 من كتاب التمارين [11].",
+        "number": 29,
+        "id": "U03-L04-Q029"
+      },
+      {
+        "question": "في اختبار المشتّقة الثانية، إذا كانت f ''(c) موجبة، فهذا يعني أن المنحنى حول x = c يكون:",
+        "options": {
+          "A": "مقعراً للأعلى (قاع).",
+          "B": "مقعراً للأسفل (قمة).",
+          "C": "خطاً مستقيماً.",
+          "D": "متناقصاً."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مقعراً للأعلى (قاع).",
+        "difficulty": "medium",
+        "source": {
+          "page": 129,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المشتّقة الثانية الموجبة مرتبطة بالقيم الصغرى المحلية (القيعان) [4]."
+        },
+        "explanation": "المشتّقة الثانية الموجبة مرتبطة بالقيم الصغرى المحلية (القيعان) [4].",
+        "number": 30,
+        "id": "U03-L04-Q030"
+      },
+      {
+        "question": "ما هي المشتّقة الثانية للاقتران الثابت f(x) = 100؟",
+        "options": {
+          "A": "100",
+          "B": "1",
+          "C": "0",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "0",
+        "difficulty": "easy",
+        "source": {
+          "page": 129,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مشتقة الثابت صفر، ومشتقة الصفر صفر أيضاً [5]."
+        },
+        "explanation": "مشتقة الثابت صفر، ومشتقة الصفر صفر أيضاً [5].",
+        "number": 31,
+        "id": "U03-L04-Q031"
+      },
+      {
+        "question": "أوجد المشتّقة الثانية لـ f(x) = x³ - 5/x.",
+        "options": {
+          "A": "6x - 10/x³",
+          "B": "6x + 5/x²",
+          "C": "6x",
+          "D": "3x² + 5/x²"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "6x - 10/x³",
+        "difficulty": "hard",
+        "source": {
+          "page": 135,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f '(x) = 3x² + 5x⁻². f ''(x) = 6x - 10x⁻³."
+          ],
+          "summary": "تمرين 3 من أتدرب وأحل المسائل [10]."
+        },
+        "explanation": "تمرين 3 من أتدرب وأحل المسائل [10].",
+        "number": 32,
+        "id": "U03-L04-Q032"
+      },
+      {
+        "question": "إحداثيات النقطة الحرجة لـ f(x) = x³ - 5x² + 3x + 1 هي x=3 و x=1/3. صنّف x=3.",
+        "options": {
+          "A": "صغرى محلية",
+          "B": "عظمى محلية",
+          "C": "ليست قصوى",
+          "D": "الاختبار يفشل"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "صغرى محلية",
+        "difficulty": "hard",
+        "source": {
+          "page": 50,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f '(x)=3x²-10x+3. f ''(x)=6x-10. تعويض 3: 18-10=8 > 0."
+          ],
+          "summary": "تمرين 10 من كتاب التمارين [13]."
+        },
+        "explanation": "تمرين 10 من كتاب التمارين [13].",
+        "number": 33,
+        "id": "U03-L04-Q033"
+      },
+      {
+        "question": "في السؤال السابق، صنّف القيمة الحرجة x = 1/3.",
+        "options": {
+          "A": "صغرى محلية",
+          "B": "عظمى محلية",
+          "C": "ليست قصوى",
+          "D": "الاختبار يفشل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عظمى محلية",
+        "difficulty": "hard",
+        "source": {
+          "page": 50,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f ''(1/3) = 6(1/3) - 10 = 2 - 10 = -8 < 0."
+          ],
+          "summary": "بما أن المشتّقة الثانية سالبة فهي عظمى محلية [13]."
+        },
+        "explanation": "بما أن المشتّقة الثانية سالبة فهي عظمى محلية [13].",
+        "number": 34,
+        "id": "U03-L04-Q034"
+      },
+      {
+        "question": "ما هي سرعة السيارة s(t) = 6t² - 2t بعد 5 ثوانٍ؟",
+        "options": {
+          "A": "58 m/s",
+          "B": "60 m/s",
+          "C": "12 m/s",
+          "D": "140 m/s"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "58 m/s",
+        "difficulty": "medium",
+        "source": {
+          "page": 50,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "v(t) = 12t - 2. تعويض 5: 60 - 2 = 58."
+          ],
+          "summary": "تمرين 11 من كتاب التمارين [13]."
+        },
+        "explanation": "تمرين 11 من كتاب التمارين [13].",
+        "number": 35,
+        "id": "U03-L04-Q035"
+      },
+      {
+        "question": "في السؤال السابق، ما هو تسارع السيارة؟",
+        "options": {
+          "A": "58 m/s²",
+          "B": "12 m/s²",
+          "C": "6 m/s²",
+          "D": "0 m/s²"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "12 m/s²",
+        "difficulty": "easy",
+        "source": {
+          "page": 50,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "a(t) = v '(t) = 12."
+          ],
+          "summary": "التسارع ثابت في هذا الاقتران [13]."
+        },
+        "explanation": "التسارع ثابت في هذا الاقتران [13].",
+        "number": 36,
+        "id": "U03-L04-Q036"
+      },
+      {
+        "question": "أوجد المشتّقة الثانية لـ f(x) = (1-x)³.",
+        "options": {
+          "A": "6(1-x)",
+          "B": "-6(1-x)",
+          "C": "3(1-x)²",
+          "D": "-3(1-x)²"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "6(1-x)",
+        "difficulty": "hard",
+        "source": {
+          "page": 158,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f '(x) = 3(1-x)² * (-1) = -3(1-x)². f ''(x) = -6(1-x) * (-1) = 6(1-x)."
+          ],
+          "summary": "تمرين 4 من اختبار نهاية الوحدة [14]."
+        },
+        "explanation": "تمرين 4 من اختبار نهاية الوحدة [14].",
+        "number": 37,
+        "id": "U03-L04-Q037"
+      },
+      {
+        "question": "إذا كان s(t) = 3t² - t³، فما هو تسارع الجسم عند t = 3؟",
+        "options": {
+          "A": "-12 m/s²",
+          "B": "6 m/s²",
+          "C": "0 m/s²",
+          "D": "-6 m/s²"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-12 m/s²",
+        "difficulty": "hard",
+        "source": {
+          "page": 132,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "v(t)=6t-3t². a(t)=6-6t. تعويض 3: 6-18=-12."
+          ],
+          "summary": "بتطبيق قواعد السرعة والتسارع على اقتران الموقع المعطى [15]."
+        },
+        "explanation": "بتطبيق قواعد السرعة والتسارع على اقتران الموقع المعطى [15].",
+        "number": 38,
+        "id": "U03-L04-Q038"
+      },
+      {
+        "question": "أي من الحالات الآتية يكون فيها التسارع سالباً؟",
+        "options": {
+          "A": "عندما تتناقص السرعة المتجهة.",
+          "B": "عندما تتزايد السرعة المتجهة.",
+          "C": "عندما يكون الجسم ساكناً.",
+          "D": "عندما يتحرك الجسم لليسار."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "عندما تتناقص السرعة المتجهة.",
+        "difficulty": "medium",
+        "source": {
+          "page": 131,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التسارع هو معدل تغيّر السرعة، فإذا تناقصت السرعة يكون التسارع سالباً [3]."
+        },
+        "explanation": "التسارع هو معدل تغيّر السرعة، فإذا تناقصت السرعة يكون التسارع سالباً [3].",
+        "number": 39,
+        "id": "U03-L04-Q039"
+      },
+      {
+        "question": "ما قيمة x التي تكون عندها f ''(x) = 0 للاقتران f(x) = x⁴ - 3x² + 2x - 8؟",
+        "options": {
+          "A": "x = ±0.5",
+          "B": "x = ±1/∛2",
+          "C": "x = ±√0.5",
+          "D": "x = 0"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "x = ±√0.5",
+        "difficulty": "hard",
+        "source": {
+          "page": 136,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "f '(x)=4x³-6x+2. f ''(x)=12x²-6=0 => 12x²=6 => x²=0.5 => x=±√0.5."
+          ],
+          "summary": "تمرين 18 من مهارات التفكير العليا [12]."
+        },
+        "explanation": "تمرين 18 من مهارات التفكير العليا [12].",
+        "number": 40,
+        "id": "U03-L04-Q040"
+      }
+    ]
+  }
+}

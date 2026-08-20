@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "3.5",
+    "lesson_name": "أحكام عقد الزواج",
+    "unit_number": 3,
+    "unit_name": "الوحدة الثالثة: علاقة المسلم بكتاب الله وسنة نبيه",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما هو التعريف الاصطلاحي لعقد الزواج؟",
+        "options": {
+          "A": "وعد بالزواج في المستقبل",
+          "B": "عقد بين رجل وامرأة تحل له شرعاً لتكوين أسرة",
+          "C": "اتفاق تجاري بين عائلتين",
+          "D": "مجرد قراءة الفاتحة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عقد بين رجل وامرأة تحل له شرعاً لتكوين أسرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عقد بين رجل وامرأة تحل له شرعاً لتكوين أسرة"
+        },
+        "explanation": "عقد بين رجل وامرأة تحل له شرعاً لتكوين أسرة",
+        "number": 1,
+        "id": "U03-L05-Q001"
+      },
+      {
+        "question": "ما هو الحكم الشرعي للزواج للقادر على تكاليفه؟",
+        "options": {
+          "A": "واجب",
+          "B": "حرام",
+          "C": "مندوب (مستحب)",
+          "D": "مكروه"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "مندوب (مستحب)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مندوب (مستحب)"
+        },
+        "explanation": "مندوب (مستحب)",
+        "number": 2,
+        "id": "U03-L05-Q002"
+      },
+      {
+        "question": "كم عدد شروط صحة عقد الزواج الأساسية المذكورة في الدرس؟",
+        "options": {
+          "A": "ثلاثة شروط",
+          "B": "أربعة شروط",
+          "C": "خمسة شروط",
+          "D": "ستة شروط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "خمسة شروط",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خمسة شروط"
+        },
+        "explanation": "خمسة شروط",
+        "number": 3,
+        "id": "U03-L05-Q003"
+      },
+      {
+        "question": "ما المقصود بـ 'أهلية الزوجين' كشرط لصحة العقد؟",
+        "options": {
+          "A": "امتلاك المال الوفير",
+          "B": "بلوغ السن القانونية للزواج والتمتع بالعقل",
+          "C": "موافقة الجيران",
+          "D": "السكن في نفس المدينة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بلوغ السن القانونية للزواج والتمتع بالعقل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بلوغ السن القانونية للزواج والتمتع بالعقل"
+        },
+        "explanation": "بلوغ السن القانونية للزواج والتمتع بالعقل",
+        "number": 4,
+        "id": "U03-L05-Q004"
+      },
+      {
+        "question": "ما هو السن القانوني للزواج في قانون الأحوال الشخصية الأردني؟",
+        "options": {
+          "A": "15 سنة شمسية",
+          "B": "18 سنة شمسية",
+          "C": "21 سنة شمسية",
+          "D": "16 سنة شمسية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "18 سنة شمسية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "18 سنة شمسية"
+        },
+        "explanation": "18 سنة شمسية",
+        "number": 5,
+        "id": "U03-L05-Q005"
+      },
+      {
+        "question": "شرط 'حِلُّ كل من الزوجين لآلخر' يعني خلوهما من الموانع الشرعية مثل:",
+        "options": {
+          "A": "اختلاف الجنسية",
+          "B": "القرابة المحرمة (النسب) أو المصاهرة",
+          "C": "اختلاف العمل",
+          "D": "صغر سن الإخوة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "القرابة المحرمة (النسب) أو المصاهرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القرابة المحرمة (النسب) أو المصاهرة"
+        },
+        "explanation": "القرابة المحرمة (النسب) أو المصاهرة",
+        "number": 6,
+        "id": "U03-L05-Q006"
+      },
+      {
+        "question": "ما حكم عقد الزواج إذا تم بالإكراه ودون رضا أحد الزوجين؟",
+        "options": {
+          "A": "صحيح",
+          "B": "باطل (غير صحيح)",
+          "C": "مستحب",
+          "D": "جائز في حالات خاصة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "باطل (غير صحيح)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "باطل (غير صحيح)"
+        },
+        "explanation": "باطل (غير صحيح)",
+        "number": 7,
+        "id": "U03-L05-Q007"
+      },
+      {
+        "question": "كيف يكون إذن 'البكر' (التي لم يسبق لها الزواج) عند خطبتها كما ورد في الحديث؟",
+        "options": {
+          "A": "بالكلام الصريح فقط",
+          "B": "بالبكاء",
+          "C": "بالسكوت (دلالة على الحياء)",
+          "D": "بالرفض"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "بالسكوت (دلالة على الحياء)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالسكوت (دلالة على الحياء)"
+        },
+        "explanation": "بالسكوت (دلالة على الحياء)",
+        "number": 8,
+        "id": "U03-L05-Q008"
+      },
+      {
+        "question": "ما معنى لفظ 'الأيِّم' الوارد في حديث استئذان المرأة؟",
+        "options": {
+          "A": "الفتاة الصغيرة",
+          "B": "المرأة التي سبق لها الزواج وفارقت زوجها بموت أو طلاق",
+          "C": "المرأة الغنية",
+          "D": "المرأة المسافرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المرأة التي سبق لها الزواج وفارقت زوجها بموت أو طلاق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المرأة التي سبق لها الزواج وفارقت زوجها بموت أو طلاق"
+        },
+        "explanation": "المرأة التي سبق لها الزواج وفارقت زوجها بموت أو طلاق",
+        "number": 9,
+        "id": "U03-L05-Q009"
+      },
+      {
+        "question": "من هو 'ولي المرأة' في عقد الزواج؟",
+        "options": {
+          "A": "أكبر أبنائها",
+          "B": "من يتولى أمرها في الزواج من أقاربها العصبة",
+          "C": "صديق العائلة",
+          "D": "إمام المسجد فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "من يتولى أمرها في الزواج من أقاربها العصبة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "من يتولى أمرها في الزواج من أقاربها العصبة"
+        },
+        "explanation": "من يتولى أمرها في الزواج من أقاربها العصبة",
+        "number": 10,
+        "id": "U03-L05-Q010"
+      },
+      {
+        "question": "ما هي الترتيب الصحيح للأولياء في الزواج؟",
+        "options": {
+          "A": "الأخ ثم الأب",
+          "B": "الأب، ثم الجد لأب، ثم الأخ الشقيق، ثم الأخ لأب",
+          "C": "العم ثم الأخ",
+          "D": "الابن ثم الأب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأب، ثم الجد لأب، ثم الأخ الشقيق، ثم الأخ لأب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأب، ثم الجد لأب، ثم الأخ الشقيق، ثم الأخ لأب"
+        },
+        "explanation": "الأب، ثم الجد لأب، ثم الأخ الشقيق، ثم الأخ لأب",
+        "number": 11,
+        "id": "U03-L05-Q011"
+      },
+      {
+        "question": "هل يعتبر 'الخال' (أخ الأم) من الأولياء العصبة في ترتيب الولاية؟",
+        "options": {
+          "A": "نعم هو الأول",
+          "B": "نعم بعد العم",
+          "C": "لا، ليس من العصبة في ترتيب الولاية",
+          "D": "نعم إذا كان غنياً"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "لا، ليس من العصبة في ترتيب الولاية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا، ليس من العصبة في ترتيب الولاية"
+        },
+        "explanation": "لا، ليس من العصبة في ترتيب الولاية",
+        "number": 12,
+        "id": "U03-L05-Q012"
+      },
+      {
+        "question": "ما هي الشروط الواجب توافرها في الولي؟",
+        "options": {
+          "A": "أن يكون ذكراً مسلماً بالغاً عاقلاً",
+          "B": "أن يكون ثرياً",
+          "C": "أن يكون أصغر من المخطوبة",
+          "D": "أن يكون تاجراً"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أن يكون ذكراً مسلماً بالغاً عاقلاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أن يكون ذكراً مسلماً بالغاً عاقلاً"
+        },
+        "explanation": "أن يكون ذكراً مسلماً بالغاً عاقلاً",
+        "number": 13,
+        "id": "U03-L05-Q013"
+      },
+      {
+        "question": "ما هي المهمة الرئيسة للولي تجاه المخطوبة؟",
+        "options": {
+          "A": "إجبارها على الزواج",
+          "B": "أخذ مهرها لنفسه",
+          "C": "التحقق من كفاءة الخاطب ودينه وأخلاقه",
+          "D": "منعها من الزواج نهائياً"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "التحقق من كفاءة الخاطب ودينه وأخلاقه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التحقق من كفاءة الخاطب ودينه وأخلاقه"
+        },
+        "explanation": "التحقق من كفاءة الخاطب ودينه وأخلاقه",
+        "number": 14,
+        "id": "U03-L05-Q014"
+      },
+      {
+        "question": "ما حكم 'عَضْل' الولي للمرأة (أي منعها من الزواج من كفء ترضاه دون سبب)؟",
+        "options": {
+          "A": "جائز",
+          "B": "مستحب",
+          "C": "لا يحق له ذلك شرعاً",
+          "D": "واجب"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "لا يحق له ذلك شرعاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا يحق له ذلك شرعاً"
+        },
+        "explanation": "لا يحق له ذلك شرعاً",
+        "number": 15,
+        "id": "U03-L05-Q015"
+      },
+      {
+        "question": "ما هو النصاب الشرعي للشهود في عقد الزواج؟",
+        "options": {
+          "A": "شاهد واحد فقط",
+          "B": "رجلان، أو رجل وامرأتان",
+          "C": "أربع نساء",
+          "D": "عشرة رجال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "رجلان، أو رجل وامرأتان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رجلان، أو رجل وامرأتان"
+        },
+        "explanation": "رجلان، أو رجل وامرأتان",
+        "number": 16,
+        "id": "U03-L05-Q016"
+      },
+      {
+        "question": "ما هي شروط الشاهد في عقد الزواج؟",
+        "options": {
+          "A": "الإسلام، والبلوغ، والعقل",
+          "B": "أن يكون من أقارب الزوج فقط",
+          "C": "أن يكون غريباً تماماً",
+          "D": "أن يكون طفلاً"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الإسلام، والبلوغ، والعقل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإسلام، والبلوغ، والعقل"
+        },
+        "explanation": "الإسلام، والبلوغ، والعقل",
+        "number": 17,
+        "id": "U03-L05-Q017"
+      },
+      {
+        "question": "ما الغاية من اشتراط الإشهاد على عقد الزواج؟",
+        "options": {
+          "A": "زيادة عدد الحضور",
+          "B": "إثبات الزواج وإشهاره وحفظ الحقوق",
+          "C": "تصوير العقد",
+          "D": "جمع التبرعات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إثبات الزواج وإشهاره وحفظ الحقوق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إثبات الزواج وإشهاره وحفظ الحقوق"
+        },
+        "explanation": "إثبات الزواج وإشهاره وحفظ الحقوق",
+        "number": 18,
+        "id": "U03-L05-Q018"
+      },
+      {
+        "question": "أين يتم توثيق عقد الزواج رسمياً في الأردن؟",
+        "options": {
+          "A": "في المركز الأمني",
+          "B": "في المحكمة الشرعية",
+          "C": "في البلدية",
+          "D": "في وزارة الصحة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "في المحكمة الشرعية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "في المحكمة الشرعية"
+        },
+        "explanation": "في المحكمة الشرعية",
+        "number": 19,
+        "id": "U03-L05-Q019"
+      },
+      {
+        "question": "لماذا ألزم القانون توثيق عقد الزواج في المحكمة؟",
+        "options": {
+          "A": "للتعقيد فقط",
+          "B": "حفاظاً على حقوق الزوجين والأطفال",
+          "C": "لأخذ الرسوم المالية فقط",
+          "D": "لأن العقد لا يصح بدونه شرعاً ابتداءً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حفاظاً على حقوق الزوجين والأطفال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حفاظاً على حقوق الزوجين والأطفال"
+        },
+        "explanation": "حفاظاً على حقوق الزوجين والأطفال",
+        "number": 20,
+        "id": "U03-L05-Q020"
+      },
+      {
+        "question": "ما حكم الشروط التي يضعها أحد الزوجين في العقد إذا كانت لا تتعارض مع الشرع؟",
+        "options": {
+          "A": "باطلة",
+          "B": "غير ملزمة",
+          "C": "صحيحة ومعتبرة ويجب الوفاء بها",
+          "D": "مكروهة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "صحيحة ومعتبرة ويجب الوفاء بها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صحيحة ومعتبرة ويجب الوفاء بها"
+        },
+        "explanation": "صحيحة ومعتبرة ويجب الوفاء بها",
+        "number": 21,
+        "id": "U03-L05-Q021"
+      },
+      {
+        "question": "قال صلى الله عليه وسلم: 'إن أحق الشروط أن توفوا به ما استحللتم به...'؟",
+        "options": {
+          "A": "الأموال",
+          "B": "الفروج (أي عقود الزواج)",
+          "C": "البيوت",
+          "D": "الديون"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الفروج (أي عقود الزواج)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الفروج (أي عقود الزواج)"
+        },
+        "explanation": "الفروج (أي عقود الزواج)",
+        "number": 22,
+        "id": "U03-L05-Q022"
+      },
+      {
+        "question": "إذا اشترط الزوج على زوجته ارتداء اللباس الساتر، فما حكم هذا الشرط؟",
+        "options": {
+          "A": "باطل",
+          "B": "صحيح لأنه يتفق مع أحكام الشريعة",
+          "C": "مكروه",
+          "D": "غير ملزم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "صحيح لأنه يتفق مع أحكام الشريعة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صحيح لأنه يتفق مع أحكام الشريعة"
+        },
+        "explanation": "صحيح لأنه يتفق مع أحكام الشريعة",
+        "number": 23,
+        "id": "U03-L05-Q023"
+      },
+      {
+        "question": "ماذا فعل النبي صلى الله عليه وسلم عندما جاءت فتاة تشتكي أن أباها زوجها لابن أخيه دون رضاها؟",
+        "options": {
+          "A": "أمرها بالصبر",
+          "B": "جعل الأمر إليها (خيرها بين البقاء أو الفسخ)",
+          "C": "عاقب الأب فقط",
+          "D": "أيد الأب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "جعل الأمر إليها (خيرها بين البقاء أو الفسخ)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جعل الأمر إليها (خيرها بين البقاء أو الفسخ)"
+        },
+        "explanation": "جعل الأمر إليها (خيرها بين البقاء أو الفسخ)",
+        "number": 24,
+        "id": "U03-L05-Q024"
+      },
+      {
+        "question": "ما معنى قوله صلى الله عليه وسلم للفتاة 'يرفع بي خسيسته'؟",
+        "options": {
+          "A": "يقتله",
+          "B": "يرفع من شأنه أو يصلح من حاله بالزواج منها",
+          "C": "يسافر به",
+          "D": "يطعمه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يرفع من شأنه أو يصلح من حاله بالزواج منها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يرفع من شأنه أو يصلح من حاله بالزواج منها"
+        },
+        "explanation": "يرفع من شأنه أو يصلح من حاله بالزواج منها",
+        "number": 25,
+        "id": "U03-L05-Q025"
+      },
+      {
+        "question": "أي من المقاصد التالية يحققها الزواج؟",
+        "options": {
+          "A": "الحفاظ على النسل",
+          "B": "عمارة الأرض",
+          "C": "حفظ الزوجين من الوقوع في الحرام",
+          "D": "كل ما ذكر صحيح"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "كل ما ذكر صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل ما ذكر صحيح"
+        },
+        "explanation": "كل ما ذكر صحيح",
+        "number": 26,
+        "id": "U03-L05-Q026"
+      },
+      {
+        "question": "هل يصح عقد الزواج بشهادة امرأتين فقط (دون رجل)؟",
+        "options": {
+          "A": "نعم",
+          "B": "لا، يجب وجود رجل واحد على الأقل مع امرأتين أو رجلين",
+          "C": "نعم في حالة الضرورة",
+          "D": "نعم إذا كنّ متعلمات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا، يجب وجود رجل واحد على الأقل مع امرأتين أو رجلين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا، يجب وجود رجل واحد على الأقل مع امرأتين أو رجلين"
+        },
+        "explanation": "لا، يجب وجود رجل واحد على الأقل مع امرأتين أو رجلين",
+        "number": 27,
+        "id": "U03-L05-Q027"
+      },
+      {
+        "question": "يعتبر الزواج وسيلة شرعية لبناء:",
+        "options": {
+          "A": "الشركات",
+          "B": "الأسرة",
+          "C": "المدن الكبيرة",
+          "D": "الجيوش فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأسرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأسرة"
+        },
+        "explanation": "الأسرة",
+        "number": 28,
+        "id": "U03-L05-Q028"
+      },
+      {
+        "question": "ما هو أثر التراضي بين الزوجين على الحياة الزوجية؟",
+        "options": {
+          "A": "تحقيق الاستقرار والمحبة",
+          "B": "زيادة المشاكل",
+          "C": "لا أثر له",
+          "D": "يؤدي للطلاق سريعاً"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "تحقيق الاستقرار والمحبة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تحقيق الاستقرار والمحبة"
+        },
+        "explanation": "تحقيق الاستقرار والمحبة",
+        "number": 29,
+        "id": "U03-L05-Q029"
+      },
+      {
+        "question": "قال صلى الله عليه وسلم: 'لا نكاح إلا بولي...'، تكملة الحديث هي:",
+        "options": {
+          "A": "وبيت واسع",
+          "B": "وشاهدي عدل",
+          "C": "ومال كثير",
+          "D": "وقبيلة قوية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "وشاهدي عدل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وشاهدي عدل"
+        },
+        "explanation": "وشاهدي عدل",
+        "number": 30,
+        "id": "U03-L05-Q030"
+      },
+      {
+        "question": "من شروط الولي أن يكون 'ذكراً'، فلا تصح ولاية المرأة في عقد الزواج، هل هذا صحيح؟",
+        "options": {
+          "A": "خطأ",
+          "B": "صحيح حسب الراجح في المذهب المعمول به في القانون",
+          "C": "فقط في السفر",
+          "D": "يجوز للأم دائماً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "صحيح حسب الراجح في المذهب المعمول به في القانون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صحيح حسب الراجح في المذهب المعمول به في القانون"
+        },
+        "explanation": "صحيح حسب الراجح في المذهب المعمول به في القانون",
+        "number": 31,
+        "id": "U03-L05-Q031"
+      },
+      {
+        "question": "إذا توفي الأب، من ينتقل إليه حق الولاية في الزواج حسب الترتيب؟",
+        "options": {
+          "A": "العم",
+          "B": "الجد لأب",
+          "C": "الأخ الشقيق",
+          "D": "الخال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الجد لأب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الجد لأب"
+        },
+        "explanation": "الجد لأب",
+        "number": 32,
+        "id": "U03-L05-Q032"
+      },
+      {
+        "question": "ما حكم الزواج لمن لا يملك القدرة على تكاليفه المادية؟",
+        "options": {
+          "A": "واجب",
+          "B": "ينصح بالصبر والاستعفاف حتى يغنيه الله",
+          "C": "حرام مؤبد",
+          "D": "يجب أن يقترض"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ينصح بالصبر والاستعفاف حتى يغنيه الله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ينصح بالصبر والاستعفاف حتى يغنيه الله"
+        },
+        "explanation": "ينصح بالصبر والاستعفاف حتى يغنيه الله",
+        "number": 33,
+        "id": "U03-L05-Q033"
+      },
+      {
+        "question": "رضا الزوجين يعني خلو العقد من:",
+        "options": {
+          "A": "الإكراه",
+          "B": "الهدايا",
+          "C": "الشهود",
+          "D": "المحامي"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الإكراه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإكراه"
+        },
+        "explanation": "الإكراه",
+        "number": 34,
+        "id": "U03-L05-Q034"
+      },
+      {
+        "question": "أي من الفئات التالية لا يتمتع بأهلية الزواج الكاملة؟",
+        "options": {
+          "A": "المجنون",
+          "B": "الموظف",
+          "C": "المسافر",
+          "D": "طالب العلم البالغ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "المجنون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المجنون"
+        },
+        "explanation": "المجنون",
+        "number": 35,
+        "id": "U03-L05-Q035"
+      },
+      {
+        "question": "تعتبر الخطبة (قبل العقد) شرطاً من شروط صحة العقد، هل هذا صحيح؟",
+        "options": {
+          "A": "نعم",
+          "B": "لا، الخطبة مرحلة تمهيدية وليست شرطاً لصحة العقد نفسه",
+          "C": "فقط في القرى",
+          "D": "نعم إذا طالت مدتها"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا، الخطبة مرحلة تمهيدية وليست شرطاً لصحة العقد نفسه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا، الخطبة مرحلة تمهيدية وليست شرطاً لصحة العقد نفسه"
+        },
+        "explanation": "لا، الخطبة مرحلة تمهيدية وليست شرطاً لصحة العقد نفسه",
+        "number": 36,
+        "id": "U03-L05-Q036"
+      },
+      {
+        "question": "ما دلالة قول النبي 'المرأة أحق بنفسها من وليها'؟",
+        "options": {
+          "A": "إلغاء دور الولي",
+          "B": "وجوب أخذ رأيها وموافقتها الصريحة",
+          "C": "أن تخرج من البيت وحدها",
+          "D": "أنها تختار المهر فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "وجوب أخذ رأيها وموافقتها الصريحة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وجوب أخذ رأيها وموافقتها الصريحة"
+        },
+        "explanation": "وجوب أخذ رأيها وموافقتها الصريحة",
+        "number": 37,
+        "id": "U03-L05-Q037"
+      },
+      {
+        "question": "تعتبر شهادة 'غير المسلم' على عقد زواج مسلم ومسلمة:",
+        "options": {
+          "A": "صحيحة",
+          "B": "غير صحيحة (يشترط إسلام الشهود)",
+          "C": "مقبولة في الغربة",
+          "D": "مستحبة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "غير صحيحة (يشترط إسلام الشهود)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "غير صحيحة (يشترط إسلام الشهود)"
+        },
+        "explanation": "غير صحيحة (يشترط إسلام الشهود)",
+        "number": 38,
+        "id": "U03-L05-Q038"
+      },
+      {
+        "question": "ما الحكم إذا اشترطت الزوجة في العقد أن لا تخرج من بلدها؟",
+        "options": {
+          "A": "شرط باطل",
+          "B": "شرط صحيح ملزم للزوج ما دام قبله ولم يمنع حقاً شرعياً",
+          "C": "حرام",
+          "D": "مباح للزوج مخالفته"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "شرط صحيح ملزم للزوج ما دام قبله ولم يمنع حقاً شرعياً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "شرط صحيح ملزم للزوج ما دام قبله ولم يمنع حقاً شرعياً"
+        },
+        "explanation": "شرط صحيح ملزم للزوج ما دام قبله ولم يمنع حقاً شرعياً",
+        "number": 39,
+        "id": "U03-L05-Q039"
+      },
+      {
+        "question": "الهدف الأساسي من تنظيم الشريعة لعقد الزواج بشروط محددة هو:",
+        "options": {
+          "A": "التضييق على الناس",
+          "B": "بناء مجتمع متماسك وضمان حقوق الأفراد",
+          "C": "جمع الضرائب",
+          "D": "منع الناس من السفر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بناء مجتمع متماسك وضمان حقوق الأفراد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بناء مجتمع متماسك وضمان حقوق الأفراد"
+        },
+        "explanation": "بناء مجتمع متماسك وضمان حقوق الأفراد",
+        "number": 40,
+        "id": "U03-L05-Q040"
+      }
+    ]
+  }
+}

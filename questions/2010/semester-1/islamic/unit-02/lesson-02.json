@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "2.2",
+    "lesson_name": "العزيمة والرخصة",
+    "unit_number": 2,
+    "unit_name": "الوحدة الثانية: خدم القرآن الكريم",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما تعريف 'العزيمة' في الاصطلاح الشرعي؟",
+        "options": {
+          "A": "الأخذ بالأحكام الأصلية التي شرعها الله لجميع المسلمين",
+          "B": "الأحكام التي شرعها الله لعذر طارئ",
+          "C": "ترك العبادة عند التعب",
+          "D": "تأجيل الصلاة عن وقتها"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الأخذ بالأحكام الأصلية التي شرعها الله لجميع المسلمين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأخذ بالأحكام الأصلية التي شرعها الله لجميع المسلمين"
+        },
+        "explanation": "الأخذ بالأحكام الأصلية التي شرعها الله لجميع المسلمين",
+        "number": 1,
+        "id": "U02-L02-Q001"
+      },
+      {
+        "question": "أي من الآتية يعد مثالاً على 'العزيمة'؟",
+        "options": {
+          "A": "قصر الصلاة للمسافر",
+          "B": "أداء الصلوات الخمس تامة في أوقاتها",
+          "C": "التيمم عند فقد الماء",
+          "D": "الإفطار في رمضان للمريض"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أداء الصلوات الخمس تامة في أوقاتها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أداء الصلوات الخمس تامة في أوقاتها"
+        },
+        "explanation": "أداء الصلوات الخمس تامة في أوقاتها",
+        "number": 2,
+        "id": "U02-L02-Q002"
+      },
+      {
+        "question": "ما المقصود بـ 'الرخصة' شرعاً؟",
+        "options": {
+          "A": "الأحكام الأصلية العامة",
+          "B": "أحكام شرعها الله لأعذار طارئة تيسيراً على المكلفين",
+          "C": "التخلي عن الدين عند الخوف",
+          "D": "الإكثار من العبادات النفلية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أحكام شرعها الله لأعذار طارئة تيسيراً على المكلفين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أحكام شرعها الله لأعذار طارئة تيسيراً على المكلفين"
+        },
+        "explanation": "أحكام شرعها الله لأعذار طارئة تيسيراً على المكلفين",
+        "number": 3,
+        "id": "U02-L02-Q003"
+      },
+      {
+        "question": "الحكمة من مشروعية الرخص في الإسلام هي:",
+        "options": {
+          "A": "رفع المشقة والتيسير على الناس",
+          "B": "تعقيد العبادات",
+          "C": "إلغاء الأحكام الأصلية",
+          "D": "تمييز الأقوياء عن الضعفاء"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "رفع المشقة والتيسير على الناس",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رفع المشقة والتيسير على الناس"
+        },
+        "explanation": "رفع المشقة والتيسير على الناس",
+        "number": 4,
+        "id": "U02-L02-Q004"
+      },
+      {
+        "question": "قال ﷺ: (إن الله يحب أن تُؤتى رخصه كما يحب أن...)؟",
+        "options": {
+          "A": "يُصام رمضان",
+          "B": "تُؤتى عزائمه",
+          "C": "تُقام الصلاة",
+          "D": "تُؤدى الزكاة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تُؤتى عزائمه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تُؤتى عزائمه"
+        },
+        "explanation": "تُؤتى عزائمه",
+        "number": 5,
+        "id": "U02-L02-Q005"
+      },
+      {
+        "question": "المشقة التي لا تعد سبباً للرخصة مثل الزكام اليسير تسمى:",
+        "options": {
+          "A": "المشقة المعتادة",
+          "B": "المشقة غير المعتادة",
+          "C": "المشقة العظيمة",
+          "D": "الضرر الشديد"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "المشقة المعتادة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المشقة المعتادة"
+        },
+        "explanation": "المشقة المعتادة",
+        "number": 6,
+        "id": "U02-L02-Q006"
+      },
+      {
+        "question": "متى تعد المشقة سبباً مشروعاً للأخذ بالرخصة؟",
+        "options": {
+          "A": "إذا كانت يسيرة ومعتادة",
+          "B": "إذا كانت غير معتادة وتؤدي لتلف عضو أو زيادة مرض",
+          "C": "عند الرغبة في الراحة فقط",
+          "D": "في كل وقت"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إذا كانت غير معتادة وتؤدي لتلف عضو أو زيادة مرض",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إذا كانت غير معتادة وتؤدي لتلف عضو أو زيادة مرض"
+        },
+        "explanation": "إذا كانت غير معتادة وتؤدي لتلف عضو أو زيادة مرض",
+        "number": 7,
+        "id": "U02-L02-Q007"
+      },
+      {
+        "question": "في الوضوء، غسل القدمين يعتبر (عزيمة)، فما (الرخصة) البديلة عنه؟",
+        "options": {
+          "A": "تركهما دون غسل",
+          "B": "المسح على الخفين أو الجوربين",
+          "C": "غسل يد واحدة",
+          "D": "التيمم دائماً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المسح على الخفين أو الجوربين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المسح على الخفين أو الجوربين"
+        },
+        "explanation": "المسح على الخفين أو الجوربين",
+        "number": 8,
+        "id": "U02-L02-Q008"
+      },
+      {
+        "question": "الصحابي الذي روى رخصة المسح على الخفين عن النبي ﷺ هو:",
+        "options": {
+          "A": "أبو هريرة",
+          "B": "علي بن أبي طالب",
+          "C": "عمر بن الخطاب",
+          "D": "عثمان بن عفان"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "علي بن أبي طالب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "علي بن أبي طالب"
+        },
+        "explanation": "علي بن أبي طالب",
+        "number": 9,
+        "id": "U02-L02-Q009"
+      },
+      {
+        "question": "يباح (التيمم) رخصةً في حالتين، هما:",
+        "options": {
+          "A": "فقدان الماء أو تعذر استعماله للمرض",
+          "B": "البرد القليل",
+          "C": "وجود ماء كثير",
+          "D": "السفر القصير"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "فقدان الماء أو تعذر استعماله للمرض",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فقدان الماء أو تعذر استعماله للمرض"
+        },
+        "explanation": "فقدان الماء أو تعذر استعماله للمرض",
+        "number": 10,
+        "id": "U02-L02-Q010"
+      },
+      {
+        "question": "في التيمم، ما معنى كلمة (جع) الواردة في الآية (43) من سورة النساء؟",
+        "options": {
+          "A": "ماء",
+          "B": "تراباً",
+          "C": "صخراً",
+          "D": "شجراً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تراباً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تراباً"
+        },
+        "explanation": "تراباً",
+        "number": 11,
+        "id": "U02-L02-Q011"
+      },
+      {
+        "question": "رخصة المريض الذي لا يستطيع الوقوف في صلاة الفريضة هي أن يصلي:",
+        "options": {
+          "A": "قاعداً",
+          "B": "مستلقياً فقط",
+          "C": "يتركها حتى يشفى",
+          "D": "يصلي بقلبه فقط"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "قاعداً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قاعداً"
+        },
+        "explanation": "قاعداً",
+        "number": 12,
+        "id": "U02-L02-Q012"
+      },
+      {
+        "question": "إذا لم يستطع المريض الصلاة قاعداً، فرخصته أن يصلي:",
+        "options": {
+          "A": "على جنبه",
+          "B": "راكضاً",
+          "C": "يؤجلها",
+          "D": "يسجد فقط"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "على جنبه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "على جنبه"
+        },
+        "explanation": "على جنبه",
+        "number": 13,
+        "id": "U02-L02-Q013"
+      },
+      {
+        "question": "ما حكم إفطار المسافر أو المريض في نهار رمضان؟",
+        "options": {
+          "A": "واجب",
+          "B": "رخصة مباحة مع وجوب القضاء لاحقاً",
+          "C": "حرام",
+          "D": "مكروه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "رخصة مباحة مع وجوب القضاء لاحقاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رخصة مباحة مع وجوب القضاء لاحقاً"
+        },
+        "explanation": "رخصة مباحة مع وجوب القضاء لاحقاً",
+        "number": 14,
+        "id": "U02-L02-Q014"
+      },
+      {
+        "question": "من صور الرخص في السفر للصلاة:",
+        "options": {
+          "A": "ترك الصلاة نهائياً",
+          "B": "قصر الصلاة الرباعية وجمع الصلوات",
+          "C": "زيادة عدد الركعات",
+          "D": "تغيير القبلة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "قصر الصلاة الرباعية وجمع الصلوات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قصر الصلاة الرباعية وجمع الصلوات"
+        },
+        "explanation": "قصر الصلاة الرباعية وجمع الصلوات",
+        "number": 15,
+        "id": "U02-L02-Q015"
+      },
+      {
+        "question": "رفض الصحابي ياسر وزوجته سمية رضي الله عنهما النطق بكلمة الكفر تحت التعذيب يُعد أخذاً بـ:",
+        "options": {
+          "A": "الرخصة",
+          "B": "العزيمة",
+          "C": "البدعة",
+          "D": "المباح"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العزيمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العزيمة"
+        },
+        "explanation": "العزيمة",
+        "number": 16,
+        "id": "U02-L02-Q016"
+      },
+      {
+        "question": "الصحابي الذي أخذ بـ 'الرخصة' ونطق بكلمة الكفر بلسانه وقلبه مطمئن بالإيمان لينجو من تعذيب المشركين هو:",
+        "options": {
+          "A": "بلال بن رباح",
+          "B": "عمار بن ياسر",
+          "C": "خباب بن الأرت",
+          "D": "مصعب بن عمير"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عمار بن ياسر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عمار بن ياسر"
+        },
+        "explanation": "عمار بن ياسر",
+        "number": 17,
+        "id": "U02-L02-Q017"
+      },
+      {
+        "question": "نزلت الآية (106) من سورة النحل (إلا من أُكره وقلبه مطمئن بالإيمان) في حق الصحابي:",
+        "options": {
+          "A": "ياسر",
+          "B": "سمية",
+          "C": "عمار بن ياسر",
+          "D": "أبو بكر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "عمار بن ياسر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عمار بن ياسر"
+        },
+        "explanation": "عمار بن ياسر",
+        "number": 18,
+        "id": "U02-L02-Q018"
+      },
+      {
+        "question": "ماذا قال النبي ﷺ لعمار عندما أخبره بما فعل مع المشركين؟",
+        "options": {
+          "A": "أخطأت",
+          "B": "فإن عادوا فَعُد",
+          "C": "عليك بالقضاء",
+          "D": "لماذا فعلت ذلك؟"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فإن عادوا فَعُد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فإن عادوا فَعُد"
+        },
+        "explanation": "فإن عادوا فَعُد",
+        "number": 19,
+        "id": "U02-L02-Q019"
+      },
+      {
+        "question": "القاعدة الفقهية المستنبطة من دروس الرخص هي:",
+        "options": {
+          "A": "المشقة تجلب التيسير",
+          "B": "الأمور بمقاصدها",
+          "C": "اليقين لا يزول بالشك",
+          "D": "العادة محكمة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "المشقة تجلب التيسير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المشقة تجلب التيسير"
+        },
+        "explanation": "المشقة تجلب التيسير",
+        "number": 20,
+        "id": "U02-L02-Q020"
+      },
+      {
+        "question": "كان النبي ﷺ إذا خُيّر بين أمرين اختار:",
+        "options": {
+          "A": "أصعبهما",
+          "B": "أيسرهما ما لم يكن إثماً",
+          "C": "أطولهما",
+          "D": "أقربهما للمشركين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أيسرهما ما لم يكن إثماً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أيسرهما ما لم يكن إثماً"
+        },
+        "explanation": "أيسرهما ما لم يكن إثماً",
+        "number": 21,
+        "id": "U02-L02-Q021"
+      },
+      {
+        "question": "قال ﷺ لمعاذ وأبي موسى عند إرسالهما لليمن: (يسرا ولا تعسرا، وبشرا ولا...):",
+        "options": {
+          "A": "تخوفا",
+          "B": "تنفروا",
+          "C": "تحزنا",
+          "D": "تغضبا"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تنفروا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تنفروا"
+        },
+        "explanation": "تنفروا",
+        "number": 22,
+        "id": "U02-L02-Q022"
+      },
+      {
+        "question": "في قصة حامد وعلي المسافرين في رمضان، من منهما أصاب السنة؟",
+        "options": {
+          "A": "حامد فقط لأنه صام",
+          "B": "علي فقط لأنه أفطر",
+          "C": "كلاهما أصاب، أحدهما أخذ بالعزيمة والآخر بالرخصة",
+          "D": "لا أحد منهما"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "كلاهما أصاب، أحدهما أخذ بالعزيمة والآخر بالرخصة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كلاهما أصاب، أحدهما أخذ بالعزيمة والآخر بالرخصة"
+        },
+        "explanation": "كلاهما أصاب، أحدهما أخذ بالعزيمة والآخر بالرخصة",
+        "number": 23,
+        "id": "U02-L02-Q023"
+      },
+      {
+        "question": "لماذا أُضيفت الرخص والعزائم إلى الله تعالى؟",
+        "options": {
+          "A": "لأن الله هو المشرع لهما",
+          "B": "لأن الناس هم من وضعوها",
+          "C": "لأنها خاصة بالأنبياء",
+          "D": "لا يوجد سبب"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "لأن الله هو المشرع لهما",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لأن الله هو المشرع لهما"
+        },
+        "explanation": "لأن الله هو المشرع لهما",
+        "number": 24,
+        "id": "U02-L02-Q024"
+      },
+      {
+        "question": "أول شهيدة في الإسلام هي السيدة:",
+        "options": {
+          "A": "خديجة بنت خويلد",
+          "B": "سمية أم عمار",
+          "C": "فاطمة الزهراء",
+          "D": "عائشة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "سمية أم عمار",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "سمية أم عمار"
+        },
+        "explanation": "سمية أم عمار",
+        "number": 25,
+        "id": "U02-L02-Q025"
+      },
+      {
+        "question": "يدل قوله تعالى (ما جعل عليكم في الدين من حرج) على ميزة في الشريعة هي:",
+        "options": {
+          "A": "الشدة",
+          "B": "المرونة واليسر",
+          "C": "الغموض",
+          "D": "الإلزام الصارم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المرونة واليسر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المرونة واليسر"
+        },
+        "explanation": "المرونة واليسر",
+        "number": 26,
+        "id": "U02-L02-Q026"
+      },
+      {
+        "question": "الأصل في حال المسلم أن يلتزم بـ:",
+        "options": {
+          "A": "الرخص دائماً",
+          "B": "العزيمة (الأحكام الأصلية)",
+          "C": "ترك العبادات",
+          "D": "تغيير الأحكام"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العزيمة (الأحكام الأصلية)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العزيمة (الأحكام الأصلية)"
+        },
+        "explanation": "العزيمة (الأحكام الأصلية)",
+        "number": 27,
+        "id": "U02-L02-Q027"
+      },
+      {
+        "question": "ما حكم الأخذ بالرخصة عند وجود سببها الشرعي؟",
+        "options": {
+          "A": "واجب دائماً",
+          "B": "مباح تيسيراً من الله",
+          "C": "حرام",
+          "D": "مكروه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مباح تيسيراً من الله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مباح تيسيراً من الله"
+        },
+        "explanation": "مباح تيسيراً من الله",
+        "number": 28,
+        "id": "U02-L02-Q028"
+      },
+      {
+        "question": "أي من الآتية ليس من 'أسباب' الرخصة؟",
+        "options": {
+          "A": "السفر",
+          "B": "المرض",
+          "C": "الإكراه",
+          "D": "كثرة المال"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "كثرة المال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كثرة المال"
+        },
+        "explanation": "كثرة المال",
+        "number": 29,
+        "id": "U02-L02-Q029"
+      },
+      {
+        "question": "الصداع الخفيف لا يعد مبيحاً للإفطار في رمضان لأنه يُصنف ضمن:",
+        "options": {
+          "A": "المشقة المعتادة",
+          "B": "المشقة غير المعتادة",
+          "C": "المرض الشديد",
+          "D": "الأعذار القاهرة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "المشقة المعتادة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المشقة المعتادة"
+        },
+        "explanation": "المشقة المعتادة",
+        "number": 30,
+        "id": "U02-L02-Q030"
+      },
+      {
+        "question": "رخصة التيمم شُرعت عند:",
+        "options": {
+          "A": "الرغبة في السرعة",
+          "B": "فقدان الماء أو تضرره باستعماله",
+          "C": "البرد الخفيف",
+          "D": "السفر القصير جداً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فقدان الماء أو تضرره باستعماله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فقدان الماء أو تضرره باستعماله"
+        },
+        "explanation": "فقدان الماء أو تضرره باستعماله",
+        "number": 31,
+        "id": "U02-L02-Q031"
+      },
+      {
+        "question": "موقف آل ياسر يعلمنا أن المسلم عند الفتن والابتلاء:",
+        "options": {
+          "A": "له أن يأخذ بالعزيمة صبراً أو بالرخصة نجاةً",
+          "B": "يجب أن يكفر فوراً",
+          "C": "يترك دينه",
+          "D": "ليس له خيار"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "له أن يأخذ بالعزيمة صبراً أو بالرخصة نجاةً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "له أن يأخذ بالعزيمة صبراً أو بالرخصة نجاةً"
+        },
+        "explanation": "له أن يأخذ بالعزيمة صبراً أو بالرخصة نجاةً",
+        "number": 32,
+        "id": "U02-L02-Q032"
+      },
+      {
+        "question": "من القيم المستفادة من الدرس تقدير مرونة الشريعة الإسلامية و:",
+        "options": {
+          "A": "يسرها",
+          "B": "صعوبتها",
+          "C": "تغيرها",
+          "D": "تعقيدها"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "يسرها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يسرها"
+        },
+        "explanation": "يسرها",
+        "number": 33,
+        "id": "U02-L02-Q033"
+      },
+      {
+        "question": "ما معنى (الحرج) في قوله تعالى (ما جعل عليكم في الدين من حرج)؟",
+        "options": {
+          "A": "السهولة",
+          "B": "الضيق والشدة",
+          "C": "الفرح",
+          "D": "العلم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الضيق والشدة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الضيق والشدة"
+        },
+        "explanation": "الضيق والشدة",
+        "number": 34,
+        "id": "U02-L02-Q034"
+      },
+      {
+        "question": "هل يعتبر ترك الصلاة للمريض رخصة؟",
+        "options": {
+          "A": "نعم",
+          "B": "لا، بل الرخصة في كيفية أدائها (قاعداً أو على جنب)",
+          "C": "نعم إذا كان المرض شديداً",
+          "D": "نعم في رمضان فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا، بل الرخصة في كيفية أدائها (قاعداً أو على جنب)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا، بل الرخصة في كيفية أدائها (قاعداً أو على جنب)"
+        },
+        "explanation": "لا، بل الرخصة في كيفية أدائها (قاعداً أو على جنب)",
+        "number": 35,
+        "id": "U02-L02-Q035"
+      },
+      {
+        "question": "الهدف من إشعال المسلمين للنيران في 'مر الظهران' أثناء الفتح هو:",
+        "options": {
+          "A": "للطبخ",
+          "B": "إرهاب قريش ودفعها للاستسلام حقناً للدماء",
+          "C": "للتدفئة",
+          "D": "إشارة للقبائل الأخرى"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إرهاب قريش ودفعها للاستسلام حقناً للدماء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إرهاب قريش ودفعها للاستسلام حقناً للدماء"
+        },
+        "explanation": "إرهاب قريش ودفعها للاستسلام حقناً للدماء",
+        "number": 36,
+        "id": "U02-L02-Q036"
+      },
+      {
+        "question": "يدخل قصر الصلاة للمسافر ضمن أحكام:",
+        "options": {
+          "A": "العزيمة",
+          "B": "الرخصة",
+          "C": "الواجب المبتدأ",
+          "D": "السنة الرواتب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الرخصة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الرخصة"
+        },
+        "explanation": "الرخصة",
+        "number": 37,
+        "id": "U02-L02-Q037"
+      },
+      {
+        "question": "من صور المشقة التي تبيح الرخصة في المرض:",
+        "options": {
+          "A": "تأخر الشفاء أو زيادة الألم بشكل لا يحتمل",
+          "B": "النوم الكثير",
+          "C": "العطش الخفيف",
+          "D": "الجوع المعتاد"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "تأخر الشفاء أو زيادة الألم بشكل لا يحتمل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تأخر الشفاء أو زيادة الألم بشكل لا يحتمل"
+        },
+        "explanation": "تأخر الشفاء أو زيادة الألم بشكل لا يحتمل",
+        "number": 38,
+        "id": "U02-L02-Q038"
+      },
+      {
+        "question": "أي من الآتية ليس مثالاً تطبيقياً على الرخص التي ذكرها الجدول في الكتاب؟",
+        "options": {
+          "A": "المسح على الخفين",
+          "B": "التيمم",
+          "C": "الصلاة قاعداً للمريض",
+          "D": "ترك صلاة الجمعة للتجارة"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "ترك صلاة الجمعة للتجارة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ترك صلاة الجمعة للتجارة"
+        },
+        "explanation": "ترك صلاة الجمعة للتجارة",
+        "number": 39,
+        "id": "U02-L02-Q039"
+      },
+      {
+        "question": "في حديث (يسرا ولا تعسرا)، كلمة 'يسرا' تدل على:",
+        "options": {
+          "A": "الأخذ بالرخص تيسيراً على الناس",
+          "B": "إهمال الواجبات",
+          "C": "ترك الصلاة",
+          "D": "تقليل الزكاة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الأخذ بالرخص تيسيراً على الناس",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأخذ بالرخص تيسيراً على الناس"
+        },
+        "explanation": "الأخذ بالرخص تيسيراً على الناس",
+        "number": 40,
+        "id": "U02-L02-Q040"
+      }
+    ]
+  }
+}

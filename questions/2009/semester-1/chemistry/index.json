@@ -1,0 +1,125 @@
+{
+  "subject_id": "chemistry",
+  "subject": "الكيمياء",
+  "generation_id": "2009",
+  "generation": "2009",
+  "semester_id": "semester-1",
+  "semester": 1,
+  "semester_label": "ف1",
+  "units": [
+    {
+      "id": "U01",
+      "number": 1,
+      "name": "حالات المادة",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "الحالة الغازية",
+          "file": "unit-01/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "الحالة السائلة",
+          "file": "unit-01/lesson-02.json"
+        },
+        {
+          "id": "L03",
+          "number": 3,
+          "name": "الحالة الصلبة",
+          "file": "unit-01/lesson-03.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-01/review.json"
+      }
+    },
+    {
+      "id": "U02",
+      "number": 2,
+      "name": "المحاليل",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "تصنيف المحاليل",
+          "file": "unit-02/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "خصائص المحاليل",
+          "file": "unit-02/lesson-02.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-02/review.json"
+      }
+    },
+    {
+      "id": "U03",
+      "number": 3,
+      "name": "الاتزان الكيميائي",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "الاتزان الكيميائي والعوامل المؤثرة فيه",
+          "file": "unit-03/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "تعبيرات ثابت الاتزان والحسابات المتعلقة به",
+          "file": "unit-03/lesson-02.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-03/review.json"
+      }
+    },
+    {
+      "id": "U04",
+      "number": 4,
+      "name": "الحموض والقواعد وتطبيقاتها",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "الحموض والقواعد",
+          "file": "unit-04/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "الرقم الهيدروجيني ومحاليل الحموض والقواعد القوية",
+          "file": "unit-04/lesson-02.json"
+        },
+        {
+          "id": "L03",
+          "number": 3,
+          "name": "محاليل الحموض والقواعد الضعيفة",
+          "file": "unit-04/lesson-03.json"
+        },
+        {
+          "id": "L04",
+          "number": 4,
+          "name": "الأملاح والأيون المشترك",
+          "file": "unit-04/lesson-04.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-04/review.json"
+      }
+    }
+  ]
+}

@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "4.1",
+    "lesson_name": "الآيات من سورة الروم",
+    "unit_number": 4,
+    "unit_name": "الوحدة الرابعة: الزواج والحياة الزوجية",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما هو الموضوع الرئيس للآيات الكريمة (21-24) من سورة الروم؟",
+        "options": {
+          "A": "أحكام الميراث",
+          "B": "التفكر في آيات الله في الكون",
+          "C": "قصص الأنبياء",
+          "D": "أهوال القيامة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التفكر في آيات الله في الكون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التفكر في آيات الله في الكون"
+        },
+        "explanation": "التفكر في آيات الله في الكون",
+        "number": 1,
+        "id": "U04-L01-Q001"
+      },
+      {
+        "question": "قال تعالى: {لِتَسْكُنُوا إِلَيْهَا}، ما المقصود بالسكن هنا في سياق الزواج؟",
+        "options": {
+          "A": "بناء البيت من الحجر",
+          "B": "الراحة النفسية والطمأنينة",
+          "C": "النوم الطويل",
+          "D": "السفر للراحة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الراحة النفسية والطمأنينة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الراحة النفسية والطمأنينة"
+        },
+        "explanation": "الراحة النفسية والطمأنينة",
+        "number": 2,
+        "id": "U04-L01-Q002"
+      },
+      {
+        "question": "ما هما القيمتان اللتان جعلهما الله أساساً للعلاقة بين الزوجين في الآية (21)؟",
+        "options": {
+          "A": "المال والجمال",
+          "B": "المودة والرحمة",
+          "C": "القوة والسيطرة",
+          "D": "العمل والتجارة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المودة والرحمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المودة والرحمة"
+        },
+        "explanation": "المودة والرحمة",
+        "number": 3,
+        "id": "U04-L01-Q003"
+      },
+      {
+        "question": "تضمنت الآية (22) من سورة الروم آيتين من آيات الله العظيمة، هما خلق السموات والأرض وـ:",
+        "options": {
+          "A": "خلق الإبل",
+          "B": "اختلاف ألسنة الناس وألوانهم",
+          "C": "إنزال المطر",
+          "D": "تعاقب الليل والنهار"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اختلاف ألسنة الناس وألوانهم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اختلاف ألسنة الناس وألوانهم"
+        },
+        "explanation": "اختلاف ألسنة الناس وألوانهم",
+        "number": 4,
+        "id": "U04-L01-Q004"
+      },
+      {
+        "question": "ما المقصود بلفظ (أَلْسِنَتِكُمْ) الوارد في الآية (22)؟",
+        "options": {
+          "A": "أعضاء النطق",
+          "B": "اللغات واللهجات المختلفة",
+          "C": "طول اللسان",
+          "D": "جودة الكلام"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اللغات واللهجات المختلفة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اللغات واللهجات المختلفة"
+        },
+        "explanation": "اللغات واللهجات المختلفة",
+        "number": 5,
+        "id": "U04-L01-Q005"
+      },
+      {
+        "question": "بماذا خُتمت الآية (22) التي تتحدث عن اختلاف اللغات والألوان؟",
+        "options": {
+          "A": "لقوم يسمعون",
+          "B": "لقوم يعقلون",
+          "C": "لآيات للعالمين",
+          "D": "لقوم يتفكرون"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "لآيات للعالمين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لآيات للعالمين"
+        },
+        "explanation": "لآيات للعالمين",
+        "number": 6,
+        "id": "U04-L01-Q006"
+      },
+      {
+        "question": "ما هي النعمة التي ذكرها الله تعالى في الآية (23) وترتبط بالراحة والاستراحة؟",
+        "options": {
+          "A": "نعمة الطعام",
+          "B": "نعمة المنام بالليل والنهار",
+          "C": "نعمة المشي",
+          "D": "نعمة البصر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نعمة المنام بالليل والنهار",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نعمة المنام بالليل والنهار"
+        },
+        "explanation": "نعمة المنام بالليل والنهار",
+        "number": 7,
+        "id": "U04-L01-Q007"
+      },
+      {
+        "question": "قال تعالى: {وَابْتِغَاؤُكُمْ مِنْ فَضْلِهِ}، ما المقصود بابتغاء الفضل هنا؟",
+        "options": {
+          "A": "الجلوس في البيت",
+          "B": "السعي في الأرض لطلب الرزق والعمل",
+          "C": "كثرة الدعاء فقط",
+          "D": "النوم نهاراً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "السعي في الأرض لطلب الرزق والعمل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السعي في الأرض لطلب الرزق والعمل"
+        },
+        "explanation": "السعي في الأرض لطلب الرزق والعمل",
+        "number": 8,
+        "id": "U04-L01-Q008"
+      },
+      {
+        "question": "خُتمت الآية (23) التي تتحدث عن النوم والسعي بـ:",
+        "options": {
+          "A": "لقوم يسمعون",
+          "B": "لقوم يعقلون",
+          "C": "لآيات للعالمين",
+          "D": "لقوم يشكرون"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "لقوم يسمعون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لقوم يسمعون"
+        },
+        "explanation": "لقوم يسمعون",
+        "number": 9,
+        "id": "U04-L01-Q009"
+      },
+      {
+        "question": "ما هي الظاهرة الكونية التي ذكرتها الآية (24) وتسبب الخوف والطمع في آن واحد؟",
+        "options": {
+          "A": "الزلازل",
+          "B": "البرق",
+          "C": "الخسوف",
+          "D": "الرياح الشديدة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "البرق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "البرق"
+        },
+        "explanation": "البرق",
+        "number": 10,
+        "id": "U04-L01-Q010"
+      },
+      {
+        "question": "لماذا يشعر الإنسان بـ 'الطمع' عند رؤية البرق كما ورد في تفسير الآيات؟",
+        "options": {
+          "A": "طمعاً في المال",
+          "B": "طمعاً في نزول الغيث والمطر",
+          "C": "طمعاً في رؤية الضوء",
+          "D": "طمعاً في النجاة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "طمعاً في نزول الغيث والمطر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طمعاً في نزول الغيث والمطر"
+        },
+        "explanation": "طمعاً في نزول الغيث والمطر",
+        "number": 11,
+        "id": "U04-L01-Q011"
+      },
+      {
+        "question": "بماذا وصف الله تعالى حال الأرض بعد نزول المطر في الآية (24)؟",
+        "options": {
+          "A": "تصبح سوداء",
+          "B": "يحيي به الأرض بعد موتها",
+          "C": "تغرق بالماء",
+          "D": "تصبح جافة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يحيي به الأرض بعد موتها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يحيي به الأرض بعد موتها"
+        },
+        "explanation": "يحيي به الأرض بعد موتها",
+        "number": 12,
+        "id": "U04-L01-Q012"
+      },
+      {
+        "question": "خُتمت الآية (24) التي تتحدث عن البرق والغيث بـ:",
+        "options": {
+          "A": "لقوم يسمعون",
+          "B": "لآيات للعالمين",
+          "C": "لقوم يعقلون",
+          "D": "لقوم يبصرون"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "لقوم يعقلون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لقوم يعقلون"
+        },
+        "explanation": "لقوم يعقلون",
+        "number": 13,
+        "id": "U04-L01-Q013"
+      },
+      {
+        "question": "ما هي الفائدة الصحية للنوم التي ذكرتها الدراسات العلمية في الدرس؟",
+        "options": {
+          "A": "زيادة الوزن فقط",
+          "B": "تنشيط الدماغ والذاكرة",
+          "C": "إضعاف الجسم",
+          "D": "لا فائدة له"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تنشيط الدماغ والذاكرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تنشيط الدماغ والذاكرة"
+        },
+        "explanation": "تنشيط الدماغ والذاكرة",
+        "number": 14,
+        "id": "U04-L01-Q014"
+      },
+      {
+        "question": "ماذا يحدث للدماغ أثناء الصحو نتيجة تراكم المعلومات كما ورد في 'الإثراء'؟",
+        "options": {
+          "A": "يصبح أكثر ذكاءً",
+          "B": "يتعب ويحتاج للراحة لتنشيطه",
+          "C": "لا يتأثر",
+          "D": "ينسى كل شيء فوراً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يتعب ويحتاج للراحة لتنشيطه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يتعب ويحتاج للراحة لتنشيطه"
+        },
+        "explanation": "يتعب ويحتاج للراحة لتنشيطه",
+        "number": 15,
+        "id": "U04-L01-Q015"
+      },
+      {
+        "question": "من الأمراض التي قد تسببها قلة النوم المزمنة كما ذكر الدرس:",
+        "options": {
+          "A": "الضغط والسكري والسمنة",
+          "B": "الرشح فقط",
+          "C": "كسور العظام",
+          "D": "ضعف السمع"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الضغط والسكري والسمنة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الضغط والسكري والسمنة"
+        },
+        "explanation": "الضغط والسكري والسمنة",
+        "number": 16,
+        "id": "U04-L01-Q016"
+      },
+      {
+        "question": "كيف تؤثر قلة النوم على المظهر الخارجي للإنسان؟",
+        "options": {
+          "A": "تزيد من جمال الوجه",
+          "B": "تسرع من ظهور علامات الشيخوخة",
+          "C": "تجعل الشعر أطول",
+          "D": "لا تأثير لها"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تسرع من ظهور علامات الشيخوخة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تسرع من ظهور علامات الشيخوخة"
+        },
+        "explanation": "تسرع من ظهور علامات الشيخوخة",
+        "number": 17,
+        "id": "U04-L01-Q017"
+      },
+      {
+        "question": "يعتبر 'التفكر' في آيات الله في الكون وسيلة لـ:",
+        "options": {
+          "A": "ضياع الوقت",
+          "B": "زيادة الإيمان واليقين بالخالق",
+          "C": "التشكيك في الوجود",
+          "D": "التسلية فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "زيادة الإيمان واليقين بالخالق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "زيادة الإيمان واليقين بالخالق"
+        },
+        "explanation": "زيادة الإيمان واليقين بالخالق",
+        "number": 18,
+        "id": "U04-L01-Q018"
+      },
+      {
+        "question": "أي من الآيات التالية تدعو صراحةً للتفكر في خلق السموات والأرض؟",
+        "options": {
+          "A": "(إن في خلق السموات والأرض...)",
+          "B": "(قل هو الله أحد)",
+          "C": "(إذا جاء نصر الله والفتح)",
+          "D": "(قل أعوذ برب الفلق)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(إن في خلق السموات والأرض...)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "(إن في خلق السموات والأرض...)"
+        },
+        "explanation": "(إن في خلق السموات والأرض...)",
+        "number": 19,
+        "id": "U04-L01-Q019"
+      },
+      {
+        "question": "ما الحكمة من اختلاف ألوان الناس وأعراقهم في الإسلام؟",
+        "options": {
+          "A": "للتمييز العنصري",
+          "B": "للتكامل والتعارف والتعاون",
+          "C": "للمنافسة السلبية",
+          "D": "لإثبات فضل لون على آخر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "للتكامل والتعارف والتعاون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "للتكامل والتعارف والتعاون"
+        },
+        "explanation": "للتكامل والتعارف والتعاون",
+        "number": 20,
+        "id": "U04-L01-Q020"
+      },
+      {
+        "question": "في قوله تعالى: {فَيُحْيِي بِهِ الْأَرْضَ بَعْدَ مَوْتِهَا}، دلالة على كمال قدرة الله وـ:",
+        "options": {
+          "A": "غضبه",
+          "B": "إحسانه وحكمته",
+          "C": "صعوبة الأمر",
+          "D": "نسيانه للخلق"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إحسانه وحكمته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إحسانه وحكمته"
+        },
+        "explanation": "إحسانه وحكمته",
+        "number": 21,
+        "id": "U04-L01-Q021"
+      },
+      {
+        "question": "أي فئة من الناس هي التي تدرك العبرة في اختلاف الألوان واللغات؟",
+        "options": {
+          "A": "كل الناس دون استثناء",
+          "B": "العلماء وأصحاب البصيرة",
+          "C": "الأطفال فقط",
+          "D": "الذين لا يقرأون"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العلماء وأصحاب البصيرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العلماء وأصحاب البصيرة"
+        },
+        "explanation": "العلماء وأصحاب البصيرة",
+        "number": 22,
+        "id": "U04-L01-Q022"
+      },
+      {
+        "question": "ارتبط ختام آية النوم بـ 'السمع' (لقوم يسمعون) لأن:",
+        "options": {
+          "A": "النوم يمنع السمع",
+          "B": "التوجيهات لا يعقلها إلا من يسمع ويتدبر",
+          "C": "السمع هو الحاسة الوحيدة التي تعمل",
+          "D": "لأنه لا يوجد حاسة أخرى"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التوجيهات لا يعقلها إلا من يسمع ويتدبر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التوجيهات لا يعقلها إلا من يسمع ويتدبر"
+        },
+        "explanation": "التوجيهات لا يعقلها إلا من يسمع ويتدبر",
+        "number": 23,
+        "id": "U04-L01-Q023"
+      },
+      {
+        "question": "ارتبط ختام آية البرق والمطر بـ 'العقل' (لقوم يعقلون) لأنها:",
+        "options": {
+          "A": "ظواهر تخيف العقل",
+          "B": "تحتاج إلى إعمال العقل لفهم نظامها المعقد",
+          "C": "لأن العقل ينام عند المطر",
+          "D": "لأنها لا تحتاج لتفكير"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تحتاج إلى إعمال العقل لفهم نظامها المعقد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تحتاج إلى إعمال العقل لفهم نظامها المعقد"
+        },
+        "explanation": "تحتاج إلى إعمال العقل لفهم نظامها المعقد",
+        "number": 24,
+        "id": "U04-L01-Q024"
+      },
+      {
+        "question": "الزواج في الإسلام ليس مجرد عقد مادي، بل هو وسيلة لتحقيق:",
+        "options": {
+          "A": "الثراء",
+          "B": "السكينة النفسية والمودة",
+          "C": "الشهرة",
+          "D": "زيادة المشاكل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "السكينة النفسية والمودة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السكينة النفسية والمودة"
+        },
+        "explanation": "السكينة النفسية والمودة",
+        "number": 25,
+        "id": "U04-L01-Q025"
+      },
+      {
+        "question": "ما هي الثمرة المباشرة للتفكر التي ذكرتها الآية (191) من سورة آل عمران في الدرس؟",
+        "options": {
+          "A": "(ربنا ما خلقت هذا باطلاً)",
+          "B": "(الحمد لله)",
+          "C": "(سبحان الله)",
+          "D": "(يا ليتنا نملك مثل هذا)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(ربنا ما خلقت هذا باطلاً)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "(ربنا ما خلقت هذا باطلاً)"
+        },
+        "explanation": "(ربنا ما خلقت هذا باطلاً)",
+        "number": 26,
+        "id": "U04-L01-Q026"
+      },
+      {
+        "question": "من مظاهر رحمة الله بعباده أنه جعل لهم من أنفسهم أزواجاً، كلمة 'من أنفسهم' تعني:",
+        "options": {
+          "A": "من غير البشر",
+          "B": "من جنسهم البشري",
+          "C": "من الخيال",
+          "D": "من الملائكة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "من جنسهم البشري",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "من جنسهم البشري"
+        },
+        "explanation": "من جنسهم البشري",
+        "number": 27,
+        "id": "U04-L01-Q027"
+      },
+      {
+        "question": "التوازن بين النوم والعمل (السعي) يعكس قيمة:",
+        "options": {
+          "A": "الإهمال",
+          "B": "إيجابية الشريعة في تنظيم حياة الإنسان",
+          "C": "الكسل",
+          "D": "التبذير"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إيجابية الشريعة في تنظيم حياة الإنسان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إيجابية الشريعة في تنظيم حياة الإنسان"
+        },
+        "explanation": "إيجابية الشريعة في تنظيم حياة الإنسان",
+        "number": 28,
+        "id": "U04-L01-Q028"
+      },
+      {
+        "question": "أي من الظواهر التالية لم تذكر في آيات سورة الروم المقررة؟",
+        "options": {
+          "A": "خلق السموات",
+          "B": "اختلاف الألسنة",
+          "C": "خلق الجبال",
+          "D": "البرق والمطر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "خلق الجبال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خلق الجبال"
+        },
+        "explanation": "خلق الجبال",
+        "number": 29,
+        "id": "U04-L01-Q029"
+      },
+      {
+        "question": "دعت الآيات إلى استشعار مراقبة الله من خلال النظر في:",
+        "options": {
+          "A": "الكتب فقط",
+          "B": "الآيات الكونية المنظورة",
+          "C": "المنزل فقط",
+          "D": "التلفاز"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الآيات الكونية المنظورة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الآيات الكونية المنظورة"
+        },
+        "explanation": "الآيات الكونية المنظورة",
+        "number": 30,
+        "id": "U04-L01-Q030"
+      },
+      {
+        "question": "ما هو شعور المؤمن تجاه آيات الله في الكون؟",
+        "options": {
+          "A": "اللامبالاة",
+          "B": "التعظيم والخشية والشكر",
+          "C": "الخوف الدائم المدمر",
+          "D": "السخرية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التعظيم والخشية والشكر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التعظيم والخشية والشكر"
+        },
+        "explanation": "التعظيم والخشية والشكر",
+        "number": 31,
+        "id": "U04-L01-Q031"
+      },
+      {
+        "question": "كلمة 'آيات' في قوله (وَمِنْ آيَاتِهِ) تعني:",
+        "options": {
+          "A": "أرقاماً",
+          "B": "علامات ودلائل على عظمة الخالق",
+          "C": "قصصاً خيالية",
+          "D": "أشياء عادية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "علامات ودلائل على عظمة الخالق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "علامات ودلائل على عظمة الخالق"
+        },
+        "explanation": "علامات ودلائل على عظمة الخالق",
+        "number": 32,
+        "id": "U04-L01-Q032"
+      },
+      {
+        "question": "في قوله تعالى: {يُرِيكُمُ الْبَرْقَ خَوْفًا}، الخوف يكون من:",
+        "options": {
+          "A": "الظلام",
+          "B": "الصواعق وما قد تحدثه من ضرر",
+          "C": "المطر",
+          "D": "الناس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الصواعق وما قد تحدثه من ضرر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الصواعق وما قد تحدثه من ضرر"
+        },
+        "explanation": "الصواعق وما قد تحدثه من ضرر",
+        "number": 33,
+        "id": "U04-L01-Q033"
+      },
+      {
+        "question": "من القيم المستفادة من الدرس تجاه البيئة:",
+        "options": {
+          "A": "تدميرها",
+          "B": "المحافظة على مواردها وإدراك قيمتها كآية لله",
+          "C": "إهمالها",
+          "D": "تلويث المياه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المحافظة على مواردها وإدراك قيمتها كآية لله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المحافظة على مواردها وإدراك قيمتها كآية لله"
+        },
+        "explanation": "المحافظة على مواردها وإدراك قيمتها كآية لله",
+        "number": 34,
+        "id": "U04-L01-Q034"
+      },
+      {
+        "question": "لماذا جعل الله النوم في 'الليل والنهار' كما ورد في الآية (23)؟",
+        "options": {
+          "A": "للكسل",
+          "B": "مراعاة لظروف الناس وحاجتهم للراحة في أوقات مختلفة",
+          "C": "لإضاعة الوقت",
+          "D": "فقط للصغار"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مراعاة لظروف الناس وحاجتهم للراحة في أوقات مختلفة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مراعاة لظروف الناس وحاجتهم للراحة في أوقات مختلفة"
+        },
+        "explanation": "مراعاة لظروف الناس وحاجتهم للراحة في أوقات مختلفة",
+        "number": 35,
+        "id": "U04-L01-Q035"
+      },
+      {
+        "question": "ما أثر التدبر في ختام الآيات (يعقلون، يسمعون، للعالمين)؟",
+        "options": {
+          "A": "لا أثر له",
+          "B": "يوجه الإنسان لاستخدام حواسه وعقله في الوصول للحقيقة",
+          "C": "يشتت الذهن",
+          "D": "يزيد من الجهل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يوجه الإنسان لاستخدام حواسه وعقله في الوصول للحقيقة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يوجه الإنسان لاستخدام حواسه وعقله في الوصول للحقيقة"
+        },
+        "explanation": "يوجه الإنسان لاستخدام حواسه وعقله في الوصول للحقيقة",
+        "number": 36,
+        "id": "U04-L01-Q036"
+      },
+      {
+        "question": "تعتبر هذه الآيات دعوة صريحة للعلماء للبحث في علوم:",
+        "options": {
+          "A": "الفلك واللغات والطب",
+          "B": "الطبخ فقط",
+          "C": "الأزياء",
+          "D": "الألعاب"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الفلك واللغات والطب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الفلك واللغات والطب"
+        },
+        "explanation": "الفلك واللغات والطب",
+        "number": 37,
+        "id": "U04-L01-Q037"
+      },
+      {
+        "question": "قوله تعالى: {وَمِنْ آيَاتِهِ خَلْقُ السَّمَاوَاتِ وَالْأَرْضِ} يدل على:",
+        "options": {
+          "A": "عظمة الخلق واتساعه",
+          "B": "صغر الكون",
+          "C": "أن الأرض أكبر من السماء",
+          "D": "أن الخلق جاء صدفة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "عظمة الخلق واتساعه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عظمة الخلق واتساعه"
+        },
+        "explanation": "عظمة الخلق واتساعه",
+        "number": 38,
+        "id": "U04-L01-Q038"
+      },
+      {
+        "question": "أي من التالي يعد تطبيقاً عملياً لإيجابية المسلم تجاه هذه الآيات؟",
+        "options": {
+          "A": "النوم طوال النهار والليل",
+          "B": "البحث العلمي والاكتشاف وإعمار الأرض",
+          "C": "ترك العمل والانتظار",
+          "D": "إهمال الدراسة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "البحث العلمي والاكتشاف وإعمار الأرض",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "البحث العلمي والاكتشاف وإعمار الأرض"
+        },
+        "explanation": "البحث العلمي والاكتشاف وإعمار الأرض",
+        "number": 39,
+        "id": "U04-L01-Q039"
+      },
+      {
+        "question": "المسلم الذي يتفكر في هذه الآيات يخلص إلى أن الكون:",
+        "options": {
+          "A": "يسير بلا نظام",
+          "B": "له خالق واحد حكيم قدير",
+          "C": "صنع نفسه بنفسه",
+          "D": "موجود للأقوياء فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "له خالق واحد حكيم قدير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "له خالق واحد حكيم قدير"
+        },
+        "explanation": "له خالق واحد حكيم قدير",
+        "number": 40,
+        "id": "U04-L01-Q040"
+      }
+    ]
+  }
+}

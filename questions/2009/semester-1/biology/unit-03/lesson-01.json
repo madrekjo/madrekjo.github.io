@@ -1,0 +1,1312 @@
+{
+  "lesson": {
+    "lesson_number": "1",
+    "lesson_name": "وراثة الصفات المندلية",
+    "unit_number": "3",
+    "unit_name": "الوراثة",
+    "page_start": 93,
+    "page_end": 105,
+    "questions": [
+      {
+        "id": "U03-L01-Q001",
+        "number": 1,
+        "question": "في جسم الإنسان، عدد الكروموسومات في الخلية ثنائية المجموعة هو:",
+        "options": {
+          "A": "22",
+          "B": "23",
+          "C": "44",
+          "D": "46"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "46",
+        "difficulty": "easy",
+        "source": {
+          "page": 93,
+          "reference": "الوراثة الصفات المندلية"
+        },
+        "solution": {
+          "formula": "2n = 46",
+          "steps": [
+            "تحتوي الخلية على 23 زوجاً = 46 كروموسوماً"
+          ],
+          "summary": "عدد الكروموسومات 46."
+        },
+        "explanation": "تحتوي كل خلية جسمية على 23 زوجاً من الكروموسومات ما مجموعه 46."
+      },
+      {
+        "id": "U03-L01-Q002",
+        "number": 2,
+        "question": "الكروموسومات الجنسية في الذكر:",
+        "options": {
+          "A": "متماثلة XX",
+          "B": "غير متماثلة XY",
+          "C": "غير متماثلة XX",
+          "D": "متماثلة XY"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "غير متماثلة XY",
+        "difficulty": "easy",
+        "source": {
+          "page": 93,
+          "reference": "الكروموسومات الجنسية"
+        },
+        "solution": {
+          "formula": "XY",
+          "steps": [
+            "الزوج 23 غير متماثل عند الذكر"
+          ],
+          "summary": "الجنسية في الذكر XY."
+        },
+        "explanation": "الزوج الثالث والعشرون متماثل عند الأنثى XX وغير متماثل عند الذكر XY."
+      },
+      {
+        "id": "U03-L01-Q003",
+        "number": 3,
+        "question": "عدد الكروموسومات في الجاميتات هو:",
+        "options": {
+          "A": "46",
+          "B": "23",
+          "C": "44",
+          "D": "12"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "23",
+        "difficulty": "easy",
+        "source": {
+          "page": 93,
+          "reference": "الجاميتات"
+        },
+        "solution": {
+          "formula": "1n = 23",
+          "steps": [
+            "تتكون بالانقسام المُنصِّف فتحتوي نصف العدد"
+          ],
+          "summary": "الجاميتات 23."
+        },
+        "explanation": "تتكون الجاميتات بالانقسام المُنصِّف فتحتوي 23 كروموسوماً بدلاً من 46."
+      },
+      {
+        "id": "U03-L01-Q004",
+        "number": 4,
+        "question": "الترتيب العشوائي للكروموسومات يحدث أثناء:",
+        "options": {
+          "A": "الطور التمهيدي",
+          "B": "الطور الاستوائي الأول",
+          "C": "الطور الاستوائي الثاني",
+          "D": "الانقسام المتساوي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الطور الاستوائي الأول",
+        "difficulty": "medium",
+        "source": {
+          "page": 94,
+          "reference": "الترتيب العشوائي للكروموسومات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تترتب ترتيباً عشوائياً أثناء الطور الاستوائي الأول"
+          ],
+          "summary": "يحدث في الطور الاستوائي الأول."
+        },
+        "explanation": "تترتب كروموسومات الأُمِّ والأب ترتيباً عشوائياً أثناء الطور الاستوائي الأول من الانقسام المُنصِّف."
+      },
+      {
+        "id": "U03-L01-Q005",
+        "number": 5,
+        "question": "عملية العبور (Crossing Over) تتم بين:",
+        "options": {
+          "A": "كروماتيدين شقيقين",
+          "B": "كروماتيدين غير شقيقين في كروموسومين متماثلين",
+          "C": "كروموسومين جنسيين",
+          "D": "الكروموسومات الجسمية فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كروماتيدين غير شقيقين في كروموسومين متماثلين",
+        "difficulty": "medium",
+        "source": {
+          "page": 95,
+          "reference": "عملية العبور"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تتبادل أجزاء من المادة الوراثية بين كروماتيدين غير شقيقين"
+          ],
+          "summary": "تتم بين غير الشقيقين."
+        },
+        "explanation": "تتم بين كروماتيدين غير شقيقين في كروموسومين متماثلين أثناء الطور التمهيدي الأول."
+      },
+      {
+        "id": "U03-L01-Q006",
+        "number": 6,
+        "question": "مبدأ السيادة التامة يعني:",
+        "options": {
+          "A": "ظهور صفة وسطية",
+          "B": "ظهور تأثير الأليل السائد فقط عند اجتماعه مع متنحي",
+          "C": "ظهور تأثير الأليلين معاً",
+          "D": "عدم ظهور أي صفة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ظهور تأثير الأليل السائد فقط عند اجتماعه مع متنحي",
+        "difficulty": "medium",
+        "source": {
+          "page": 98,
+          "reference": "مبدأ السيادة التامة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "عند اجتماع Rr يظهر السائد فقط"
+          ],
+          "summary": "يظهر السائد فقط."
+        },
+        "explanation": "عند اجتماع أليل سائد ومتنحي، يظهر تأثير السائد فقط."
+      },
+      {
+        "id": "U03-L01-Q007",
+        "number": 7,
+        "question": "قانون انعزال الصفات ينص على:",
+        "options": {
+          "A": "逃れ الكروموسومات",
+          "B": "انفصال أليلي الصفة الواحدة أثناء تكوين الجاميتات",
+          "C": "اختلاط الأليلات",
+          "D": "تكاثر الكروموسومات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "انفصال أليلي الصفة الواحدة أثناء تكوين الجاميتات",
+        "difficulty": "medium",
+        "source": {
+          "page": 98,
+          "reference": "قانون انعزال الصفات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "ينفصل الأليلان أثناء تكوين الجاميتات"
+          ],
+          "summary": "ينفصل الأليلان."
+        },
+        "explanation": "ينص على أن أليلي الصفة الواحدة ينفصلان أثناء تكوين الجاميتات."
+      },
+      {
+        "id": "U03-L01-Q008",
+        "number": 8,
+        "question": "الطراز الجيني الذي تظهر عليه الصفة المُتنحِّية دائماً هو:",
+        "options": {
+          "A": "RR",
+          "B": "Rr",
+          "C": "rr",
+          "D": "R"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "rr",
+        "difficulty": "easy",
+        "source": {
+          "page": 98,
+          "reference": "الطرز الجينية والشكلية"
+        },
+        "solution": {
+          "formula": "rr",
+          "steps": [
+            "لا تظهر المُتنحِّية إلا عند المتماثل"
+          ],
+          "summary": "rr تظهر المُتنحِّية."
+        },
+        "explanation": "لا تظهر الصفة المُتنحِّية إلا في فرد متماثل الأليلات (rr)."
+      },
+      {
+        "id": "U03-L01-Q009",
+        "number": 9,
+        "question": "عند تلقيح نبات بازيلاء أملس (RR) مع مجعّد (rr)، فإن جميع أفراد الجيل الأول:",
+        "options": {
+          "A": "أملس البذور",
+          "B": "مجعّد البذور",
+          "C": "نصفهم أملس ونصفهم مجعّد",
+          "D": "3/4 أملس و1/4 مجعّد"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أملس البذور",
+        "difficulty": "medium",
+        "source": {
+          "page": 97,
+          "reference": "وراثة شكل البذور"
+        },
+        "solution": {
+          "formula": "RR × rr → Rr",
+          "steps": [
+            "جميع F1 طرازهم Rr"
+          ],
+          "summary": "جميعهم أملس."
+        },
+        "explanation": "جميع F1 من RR × rr طرازهم Rr ويظهر الصفة السائدة (أملس)."
+      },
+      {
+        "id": "U03-L01-Q010",
+        "number": 10,
+        "question": "في الجيل الثاني من تلقيح ذاتي (Rr × Rr)، نسبة البذور المجعّدة:",
+        "options": {
+          "A": "50%",
+          "B": "25%",
+          "C": "75%",
+          "D": "100%"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "25%",
+        "difficulty": "medium",
+        "source": {
+          "page": 97,
+          "reference": "الجيل الثاني F2"
+        },
+        "solution": {
+          "formula": "Rr × Rr → 25% rr",
+          "steps": [
+            "من مربع بانيت: 25% rr"
+          ],
+          "summary": "نسبة المجعّدة 25%."
+        },
+        "explanation": "من Rr × Rr: 25% RR + 50% Rr + 25% rr."
+      },
+      {
+        "id": "U03-L01-Q011",
+        "number": 11,
+        "question": "السبب في اختلاف الأليل السائد عن المُتنحِّي:",
+        "options": {
+          "A": "اختلاف عدد الكروموسومات",
+          "B": "اختلاف تسلسل النيوكليوتيدات في جين الصفة",
+          "C": "اختلاف حجم الكروموسوم",
+          "D": "اختلاف نوع القواعد في DNA"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اختلاف تسلسل النيوكليوتيدات في جين الصفة",
+        "difficulty": "medium",
+        "source": {
+          "page": 98,
+          "reference": "الأليل السائد والمُتنحِّي"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "يختلف الأليلان في تسلسل النيوكليوتيدات"
+          ],
+          "summary": "الاختلاف في التسلسل."
+        },
+        "explanation": "يحتوي كل أليل على تسلسل مختلف من النيوكليوتيدات في الجين المُعيَّن."
+      },
+      {
+        "id": "U03-L01-Q012",
+        "number": 12,
+        "question": "الاحتمال لإنتاج فرد (tt) من تزاوج (Tt × Tt):",
+        "options": {
+          "A": "1/2",
+          "B": "1/4",
+          "C": "3/4",
+          "D": "1/8"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1/4",
+        "difficulty": "medium",
+        "source": {
+          "page": 99,
+          "reference": "الاحتمالات والوراثة"
+        },
+        "solution": {
+          "formula": "1/2 × 1/2 = 1/4",
+          "steps": [
+            "احتمال جاميت t = 1/2 من كل أب"
+          ],
+          "summary": "tt = 1/4."
+        },
+        "explanation": "من مربع بانيت: احتمال tt = 1/4."
+      },
+      {
+        "id": "U03-L01-Q013",
+        "number": 13,
+        "question": "نسبة الطراز الجيني غير المتماثل (Aa) في الجيل الثاني من (Aa × Aa):",
+        "options": {
+          "A": "25%",
+          "B": "50%",
+          "C": "75%",
+          "D": "100%"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "50%",
+        "difficulty": "easy",
+        "source": {
+          "page": 100,
+          "reference": "مربع بانيت"
+        },
+        "solution": {
+          "formula": "1AA : 2Aa : 1aa",
+          "steps": [
+            "2 من 4 = 50%"
+          ],
+          "summary": "Aa = 50%."
+        },
+        "explanation": "من Aa × Aa: 25% AA + 50% Aa + 25% aa."
+      },
+      {
+        "id": "U03-L01-Q014",
+        "number": 14,
+        "question": "قانون التوزيع الحر ينص على:",
+        "options": {
+          "A": "اتحاد الكروموسومات المتماثلة",
+          "B": "توزيع الأليلات على كروموسومات مختلفة بشكل مستقل",
+          "C": "انفصال الكروماتيدات",
+          "D": "تكاثر الكروموسومات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "توزيع الأليلات على كروموسومات مختلفة بشكل مستقل",
+        "difficulty": "hard",
+        "source": {
+          "page": 94,
+          "reference": "قانون التوزيع الحر"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "تتوزع الأليلات بشكل مستقل"
+          ],
+          "summary": "توزيع مستقل."
+        },
+        "explanation": "ينص على أن الأليلات على كروموسومات مختلفة تتوزع بشكل مستقل."
+      },
+      {
+        "id": "U03-L01-Q015",
+        "number": 15,
+        "question": "عدد أنواع الجاميتات الناتجة من فرد (AaBb):",
+        "options": {
+          "A": "2",
+          "B": "4",
+          "C": "8",
+          "D": "16"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "4",
+        "difficulty": "medium",
+        "source": {
+          "page": 95,
+          "reference": "التنوع في الجاميتات"
+        },
+        "solution": {
+          "formula": "2^n = 2^2 = 4",
+          "steps": [
+            "n = عدد أزواج الأليلات = 2"
+          ],
+          "summary": "4 أنواع."
+        },
+        "explanation": "ينتج 4 أنواع: AB, Ab, aB, ab."
+      },
+      {
+        "id": "U03-L01-Q016",
+        "number": 16,
+        "question": "سبب ظهور الصفة المُتنحِّية في الجيل الثاني F2:",
+        "options": {
+          "A": "طفرة عشوائية",
+          "B": "تكوين أفراد rr من انفصال الأليلات",
+          "C": "اختلاط الكروموسومات",
+          "D": "تأثير البيئة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تكوين أفراد rr من انفصال الأليلات",
+        "difficulty": "medium",
+        "source": {
+          "page": 97,
+          "reference": "الجيل الثاني"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "في F1 كان جميعهم Rr ثم انفصل"
+          ],
+          "summary": "تكوين rr."
+        },
+        "explanation": "اختفت في F1 لأن جميعهم Rr ثم ظهرت في F2 عند تكوّن rr."
+      },
+      {
+        "id": "U03-L01-Q017",
+        "number": 17,
+        "question": "النسبة الشكلية للصفة في الجيل الثاني من تلقيح فردين غير متماثلي الأليلات:",
+        "options": {
+          "A": "1:1",
+          "B": "1:2:1",
+          "C": "3:1",
+          "D": "9:3:3:1"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "3:1",
+        "difficulty": "medium",
+        "source": {
+          "page": 97,
+          "reference": "قانون انعزال الصفات"
+        },
+        "solution": {
+          "formula": "3:1",
+          "steps": [
+            "3/4 سائد + 1/4 متنحي"
+          ],
+          "summary": "3:1."
+        },
+        "explanation": "من Tt × Tt: 3 صفة سائدة : 1 صفة مُتنحِّية."
+      },
+      {
+        "id": "U03-L01-Q018",
+        "number": 18,
+        "question": "السبب في تقارب النسب الم_observed في تجارب مندل مع النسب المُتوقَّعة:",
+        "options": {
+          "A": "قلة عدد الأفراد",
+          "B": "تكبُّر عدد عمليات التلقيح",
+          "C": "خطأ في التجربة",
+          "D": "تأثير البيئة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تكبُّر عدد عمليات التلقيح",
+        "difficulty": "medium",
+        "source": {
+          "page": 96,
+          "reference": "تجارب مندل"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "زاد العدد فاقتربت النسبة"
+          ],
+          "summary": "العدد الكبير يُقرّب النسبة."
+        },
+        "explanation": "بما أن العدد كان كبيراً تقارب النسب مع المُتوقَّعة."
+      },
+      {
+        "id": "U03-L01-Q019",
+        "number": 19,
+        "question": "في تجربة مندل، أي الصفات الوراثية التالية درسها في البازيلاء:",
+        "options": {
+          "A": "لون الأزهار فقط",
+          "B": "لون القرون وبذرتها وطول الساق وموقع الزهرة ولونها وشكلها",
+          "C": "لون الأوراق",
+          "D": "حجم الجذور"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لون القرون وبذرتها وطول الساق وموقع الزهرة ولونها وشكلها",
+        "difficulty": "easy",
+        "source": {
+          "page": 96,
+          "reference": "صفات البازيلاء"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "درس مندل 7 صفات"
+          ],
+          "summary": "صفات متعددة."
+        },
+        "explanation": "درس مندل صفات عديدة في البازيلاء."
+      },
+      {
+        "id": "U03-L01-Q020",
+        "number": 20,
+        "question": "عند تلقيح نبات بازيلاء (Rr قصير) × (rr قصير)، نسبة النباتات الطويلة الساق:",
+        "options": {
+          "A": "100%",
+          "B": "75%",
+          "C": "50%",
+          "D": "25%"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "50%",
+        "difficulty": "medium",
+        "source": {
+          "page": 100,
+          "reference": "تطبيقات الوراثة"
+        },
+        "solution": {
+          "formula": "Rr × rr → 1Rr : 1rr",
+          "steps": [
+            "50% طويلة + 50% قصيرة"
+          ],
+          "summary": "50%."
+        },
+        "explanation": "هذا تجريب اختباري: 50% Rr + 50% rr."
+      },
+      {
+        "id": "U03-L01-Q021",
+        "number": 21,
+        "question": "الكروموسومات الجسمية في الإنسان:",
+        "options": {
+          "A": "زوج واحد فقط",
+          "B": "22 زوجاً متماثلة",
+          "C": "23 زوجاً جميعها غير متماثلة",
+          "D": "46 زوجاً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "22 زوجاً متماثلة",
+        "difficulty": "easy",
+        "source": {
+          "page": 93,
+          "reference": "الكروموسومات الجسمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "22 زوجاً جسمية متماثلة + زوج جنسي"
+          ],
+          "summary": "22 زوجاً جسمية."
+        },
+        "explanation": "تحتوي الخلية على 22 زوجاً من الكروموسومات الجسمية المتماثلة وزوجاً جنسياً."
+      },
+      {
+        "id": "U03-L01-Q022",
+        "number": 22,
+        "question": "تتكون الجاميتات في الإنسان من انقسام:",
+        "options": {
+          "A": "الانقسام المتساوي",
+          "B": "الانقسام المُنصِّف",
+          "C": "الانقسام الثنائي",
+          "D": "الانقسام العشوائي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الانقسام المُنصِّف",
+        "difficulty": "easy",
+        "source": {
+          "page": 93,
+          "reference": "تكوين الجاميتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "يُنتج الانقسام المُنصِّف جاميتات بأحد الكروموسومات"
+          ],
+          "summary": "بالانقسام المُنصِّف."
+        },
+        "explanation": "تتكون الجاميتات بالانقسام المُنصِّف الذي يُقلِّل عدد الكروموسومات إلى النصف."
+      },
+      {
+        "id": "U03-L01-Q023",
+        "number": 23,
+        "question": "عند تلقيح نبات فم السمكة أحمر الأزهار (RR) مع أبيض (WW)، فإن أفراد الجيل الأول:",
+        "options": {
+          "A": "حمراء",
+          "B": "بيضاء",
+          "C": "وردية",
+          "D": "حمراء وبيضاء"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "وردية",
+        "difficulty": "medium",
+        "source": {
+          "page": 96,
+          "reference": "السيادة غير التامة"
+        },
+        "solution": {
+          "formula": "RR × WW → RW",
+          "steps": [
+            "تظهر صفة وسطية"
+          ],
+          "summary": "لون وردي."
+        },
+        "explanation": "في فم السمكة تظهر السيادة غير التامة فتكون الصفة وسطية بين الأحمر والأبيض."
+      },
+      {
+        "id": "U03-L01-Q024",
+        "number": 24,
+        "question": "في نبات الكاميليا، عند تلقيح نبات أبيض (CW CW) مع أحمر مُوشَّح (CR CR)، فإن الجيل الأول:",
+        "options": {
+          "A": "بيضاء",
+          "B": "حمراء مُوشَّحة",
+          "C": "وردية",
+          "D": "بيضاء مُوشَّحة بالأحمر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "بيضاء مُوشَّحة بالأحمر",
+        "difficulty": "medium",
+        "source": {
+          "page": 107,
+          "reference": "السيادة المُشترَكة"
+        },
+        "solution": {
+          "formula": "CW CW × CR CR → CW CR",
+          "steps": [
+            "يظهر تأثير كل أليل"
+          ],
+          "summary": "بيضاء مُوشَّحة."
+        },
+        "explanation": "في السيادة المُشترَكة يظهر تأثير الأليلين معاً."
+      },
+      {
+        "id": "U03-L01-Q025",
+        "number": 25,
+        "question": "نسبة الاحتمال لإنتاج فرد TT من تزاوج Tt × Tt:",
+        "options": {
+          "A": "1/2",
+          "B": "1/4",
+          "C": "3/4",
+          "D": "1/8"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1/4",
+        "difficulty": "easy",
+        "source": {
+          "page": 99,
+          "reference": "الاحتمالات"
+        },
+        "solution": {
+          "formula": "1/4",
+          "steps": [
+            "من مربع بانيت TT = 1/4"
+          ],
+          "summary": "1/4."
+        },
+        "explanation": "من Tt × Tt: TT = 1/4."
+      },
+      {
+        "id": "U03-L01-Q026",
+        "number": 26,
+        "question": "الكروموسومات الجنسية في الأنثى:",
+        "options": {
+          "A": "XY",
+          "B": "XX",
+          "C": "XO",
+          "D": "YY"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "XX",
+        "difficulty": "easy",
+        "source": {
+          "page": 93,
+          "reference": "الكروموسومات الجنسية"
+        },
+        "solution": {
+          "formula": "XX",
+          "steps": [
+            "زوج متماثل"
+          ],
+          "summary": "XX."
+        },
+        "explanation": "الأنثى تحمل كروموسومات جنسية XX متماثلة."
+      },
+      {
+        "id": "U03-L01-Q027",
+        "number": 27,
+        "question": "الكروموسومات المتماثلة:",
+        "options": {
+          "A": "تحمل جينات مختلفة تماماً",
+          "B": "تحمل نفس الجينات في المواقع نفسها",
+          "C": "لا تحمل جينات",
+          "D": "فقط في الكروموسومات الجنسية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تحمل نفس الجينات في المواقع نفسها",
+        "difficulty": "medium",
+        "source": {
+          "page": 93,
+          "reference": "الكروموسومات المتماثلة"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "لكل كروموسوم كروموسوم مماثل يحمل نفس الجينات"
+          ],
+          "summary": "نفس الجينات."
+        },
+        "explanation": "لكل كروموسوم في الخلية ثنائية المجموعة كروموسوم مُماثِل يشغل نفس الجينات في المواقع نفسها."
+      },
+      {
+        "id": "U03-L01-Q028",
+        "number": 28,
+        "question": "عند تلقيح ذكر مُوشَّح AA مع أنثى aa، جميع F1:",
+        "options": {
+          "A": "مُوشَّح",
+          "B": "غير مُوشَّح",
+          "C": "نصف ونصف",
+          "D": "3/4 مُوشَّح"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مُوشَّح",
+        "difficulty": "easy",
+        "source": {
+          "page": 96,
+          "reference": "Connell النباتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "info"
+          ],
+          "summary": "info."
+        },
+        "explanation": "جميعهم مُوشَّح."
+      },
+      {
+        "id": "U03-L01-Q029",
+        "number": 29,
+        "question": "الاحتمال لإنتاج aa من Aa x Aa:",
+        "options": {
+          "A": "1/2",
+          "B": "1/4",
+          "C": "3/4",
+          "D": "1/8"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1/4",
+        "difficulty": "medium",
+        "source": {
+          "page": 99,
+          "reference": "الاحتمالات والوراثة"
+        },
+        "solution": {
+          "formula": "1/4",
+          "steps": [
+            "من مربع بانيت"
+          ],
+          "summary": "1/4."
+        },
+        "explanation": "aa = 1/4."
+      },
+      {
+        "id": "U03-L01-Q030",
+        "number": 30,
+        "question": "عند تلقيح (AaBb × AaBb) حيث الجينات مستقلة، النسبة المئوية للطراز aabb:",
+        "options": {
+          "A": "1/16",
+          "B": "3/16",
+          "C": "6/16",
+          "D": "4/16"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1/16",
+        "difficulty": "hard",
+        "source": {
+          "page": 101,
+          "reference": "قانون التوزيع الحر"
+        },
+        "solution": {
+          "formula": "1/4 × 1/4 = 1/16",
+          "steps": [
+            "P(aa) × P(bb) = 1/4 × 1/4"
+          ],
+          "summary": "1/16."
+        },
+        "explanation": "بما أن الجينات مستقلة: 1/4 × 1/4 = 1/16."
+      },
+      {
+        "id": "U03-L01-Q031",
+        "number": 31,
+        "question": "الاحتمال لإنتاج TT من Tt x Tt:",
+        "options": {
+          "A": "1/2",
+          "B": "1/4",
+          "C": "3/4",
+          "D": "1/8"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1/4",
+        "difficulty": "medium",
+        "source": {
+          "page": 96,
+          "reference": "Connell النباتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "info"
+          ],
+          "summary": "info."
+        },
+        "explanation": "TT = 1/4."
+      },
+      {
+        "id": "U03-L01-Q032",
+        "number": 32,
+        "question": "النسبة المئوية لـ AA في F2 من Aa x Aa:",
+        "options": {
+          "A": "25%",
+          "B": "50%",
+          "C": "75%",
+          "D": "100%"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "25%",
+        "difficulty": "easy",
+        "source": {
+          "page": 100,
+          "reference": "مربع بانيت"
+        },
+        "solution": {
+          "formula": "1/4",
+          "steps": [
+            "25% AA من مربع بانيت"
+          ],
+          "summary": "25%."
+        },
+        "explanation": "25% AA."
+      },
+      {
+        "id": "U03-L01-Q033",
+        "number": 33,
+        "question": "النسبة العددية للطراز الجيني في الجيل الثاني من (Rr × Rr):",
+        "options": {
+          "A": "1:1",
+          "B": "1:2:1",
+          "C": "2:1:1",
+          "D": "3:1"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1:2:1",
+        "difficulty": "medium",
+        "source": {
+          "page": 100,
+          "reference": "النسبة العددية"
+        },
+        "solution": {
+          "formula": "1RR : 2Rr : 1rr",
+          "steps": [
+            "النسبة العددية 1:2:1"
+          ],
+          "summary": "1:2:1."
+        },
+        "explanation": "من Rr × Rr: 1 RR + 2 Rr + 1 rr."
+      },
+      {
+        "id": "U03-L01-Q034",
+        "number": 34,
+        "question": "مندل استنتج وجود عوامل وراثية سمّيها:",
+        "options": {
+          "A": "الكروموسومات",
+          "B": "الجينات",
+          "C": "الأليلات",
+          "D": "الجاميتات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الجينات",
+        "difficulty": "easy",
+        "source": {
+          "page": 98,
+          "reference": "استنتاجات مندل"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "سمّاها مندل جينات"
+          ],
+          "summary": "الجينات."
+        },
+        "explanation": "استنتج مندل وجود عوامل (سمّاها فيما بعد جينات) تتحكّم في توارث الصفات."
+      },
+      {
+        "id": "U03-L01-Q035",
+        "number": 35,
+        "question": "الصفة السائدة لون الأزهار في البازيلاء:",
+        "options": {
+          "A": "الأبيض",
+          "B": "الأرجواني",
+          "C": "الأحمر",
+          "D": "الأصفر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأرجواني",
+        "difficulty": "easy",
+        "source": {
+          "page": 96,
+          "reference": "Connell النباتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "info"
+          ],
+          "summary": "info."
+        },
+        "explanation": "الأرجواني سائد."
+      },
+      {
+        "id": "U03-L01-Q036",
+        "number": 36,
+        "question": "الصفة السائدة لشكل البذرة في البازيلاء:",
+        "options": {
+          "A": "مجعّد",
+          "B": "أملس",
+          "C": "مستدير",
+          "D": "مقوّس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أملس",
+        "difficulty": "easy",
+        "source": {
+          "page": 96,
+          "reference": "Connell النباتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "info"
+          ],
+          "summary": "info."
+        },
+        "explanation": "أملس سائد."
+      },
+      {
+        "id": "U03-L01-Q037",
+        "number": 37,
+        "question": "الصفة السائدة لطول الساق في البازيلاء:",
+        "options": {
+          "A": "قصير",
+          "B": "متوسط",
+          "C": "طويل",
+          "D": "夾"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "طويل",
+        "difficulty": "easy",
+        "source": {
+          "page": 96,
+          "reference": "Connell النباتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "info"
+          ],
+          "summary": "info."
+        },
+        "explanation": "طويل سائد."
+      },
+      {
+        "id": "U03-L01-Q038",
+        "number": 38,
+        "question": "الصفة السائدة لموقع الزهرة في البازيلاء:",
+        "options": {
+          "A": "طرفي",
+          "B": "محوري",
+          "C": "建议",
+          "D": "建议2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "محوري",
+        "difficulty": "easy",
+        "source": {
+          "page": 96,
+          "reference": "Connell النباتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "info"
+          ],
+          "summary": "info."
+        },
+        "explanation": "محوري سائد."
+      },
+      {
+        "id": "U03-L01-Q039",
+        "number": 39,
+        "question": "الصفة السائدة للون القرون في البازيلاء:",
+        "options": {
+          "A": "أصفر",
+          "B": "أخضر",
+          "C": "بني",
+          "D": "أحمر"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أصفر",
+        "difficulty": "easy",
+        "source": {
+          "page": 96,
+          "reference": "Connell النباتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "info"
+          ],
+          "summary": "info."
+        },
+        "explanation": "أصفر سائد."
+      },
+      {
+        "id": "U03-L01-Q040",
+        "number": 40,
+        "question": "الصفة السائدة لشكل القرون في البازيلاء:",
+        "options": {
+          "A": "مقوّس",
+          "B": "建议",
+          "C": "建议2",
+          "D": "建议3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مقوّس",
+        "difficulty": "easy",
+        "source": {
+          "page": 96,
+          "reference": "Connell النباتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "info"
+          ],
+          "summary": "info."
+        },
+        "explanation": "مقوّس سائد."
+      },
+      {
+        "id": "U03-L01-Q041",
+        "number": 41,
+        "question": "الصفة السائدة للون بذور البازيلاء:",
+        "options": {
+          "A": "أصفر",
+          "B": "أخضر",
+          "C": "بني",
+          "D": "أبيض"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أصفر",
+        "difficulty": "easy",
+        "source": {
+          "page": 96,
+          "reference": "Connell النباتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "info"
+          ],
+          "summary": "info."
+        },
+        "explanation": "أصفر سائد."
+      },
+      {
+        "id": "U03-L01-Q042",
+        "number": 42,
+        "question": "من Tt x Tt احتمال فرد بأقل أليل سائد:",
+        "options": {
+          "A": "1/4",
+          "B": "1/2",
+          "C": "3/4",
+          "D": "1"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "3/4",
+        "difficulty": "medium",
+        "source": {
+          "page": 96,
+          "reference": "Connell النباتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "info"
+          ],
+          "summary": "info."
+        },
+        "explanation": "TT+Tt=3/4."
+      },
+      {
+        "id": "U03-L01-Q043",
+        "number": 43,
+        "question": "من Tt x Tt احتمال فرد متماثل الأليلات:",
+        "options": {
+          "A": "1/2",
+          "B": "1/4",
+          "C": "3/4",
+          "D": "2/3"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1/2",
+        "difficulty": "medium",
+        "source": {
+          "page": 96,
+          "reference": "Connell النباتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "info"
+          ],
+          "summary": "info."
+        },
+        "explanation": "TT+tt=1/2."
+      },
+      {
+        "id": "U03-L01-Q044",
+        "number": 44,
+        "question": "الطراز الجيني للصفة المتنحية دائماً:",
+        "options": {
+          "A": "RR",
+          "B": "Rr",
+          "C": "rr",
+          "D": "R"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "rr",
+        "difficulty": "easy",
+        "source": {
+          "page": 96,
+          "reference": "Connell النباتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "info"
+          ],
+          "summary": "info."
+        },
+        "explanation": "rr فقط."
+      },
+      {
+        "id": "U03-L01-Q045",
+        "number": 45,
+        "question": "من AaBb x AaBb احتمال AABB:",
+        "options": {
+          "A": "1/16",
+          "B": "3/16",
+          "C": "4/16",
+          "D": "9/16"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1/16",
+        "difficulty": "hard",
+        "source": {
+          "page": 96,
+          "reference": "Connell النباتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "info"
+          ],
+          "summary": "info."
+        },
+        "explanation": "1/4x1/4=1/16."
+      },
+      {
+        "id": "U03-L01-Q046",
+        "number": 46,
+        "question": "من AaBb x AaBb احتمال فرد بأقل أليل سائد من كلا الجينين:",
+        "options": {
+          "A": "15/16",
+          "B": "9/16",
+          "C": "3/4",
+          "D": "1/2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "15/16",
+        "difficulty": "hard",
+        "source": {
+          "page": 96,
+          "reference": "Connell النباتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "info"
+          ],
+          "summary": "info."
+        },
+        "explanation": "1-1/16=15/16."
+      },
+      {
+        "id": "U03-L01-Q047",
+        "number": 47,
+        "question": "من AaBb x AaBb النسبة المئوية لـ aabb:",
+        "options": {
+          "A": "6.25%",
+          "B": "12.5%",
+          "C": "25%",
+          "D": "50%"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "6.25%",
+        "difficulty": "medium",
+        "source": {
+          "page": 96,
+          "reference": "Connell النباتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "info"
+          ],
+          "summary": "info."
+        },
+        "explanation": "1/16=6.25%."
+      },
+      {
+        "id": "U03-L01-Q048",
+        "number": 48,
+        "question": "من Aa x aa احتمال aa:",
+        "options": {
+          "A": "1/2",
+          "B": "1/4",
+          "C": "3/4",
+          "D": "1/8"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1/2",
+        "difficulty": "medium",
+        "source": {
+          "page": 96,
+          "reference": "Connell النباتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "info"
+          ],
+          "summary": "info."
+        },
+        "explanation": "50% aa."
+      },
+      {
+        "id": "U03-L01-Q049",
+        "number": 49,
+        "question": "يُمكن تحديد الطراز الجيني باستخدام:",
+        "options": {
+          "A": "المجهر فقط",
+          "B": "تحليل DNA وتصوير الكروموسومات",
+          "C": "المجهر الضوئي العادي",
+          "D": "العين المجردة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تحليل DNA وتصوير الكروموسومات",
+        "difficulty": "medium",
+        "source": {
+          "page": 96,
+          "reference": "Connell النباتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "info"
+          ],
+          "summary": "info."
+        },
+        "explanation": "تحليل DNA."
+      },
+      {
+        "id": "U03-L01-Q050",
+        "number": 50,
+        "question": "يُمكن عدّ الكروموسومات باستخدام:",
+        "options": {
+          "A": "المجهر الضوئي بعد التصوير",
+          "B": "تحليل البروتين",
+          "C": "ELECTROPHORESIS",
+          "D": "PCR فقط"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "المجهر الضوئي بعد التصوير",
+        "difficulty": "easy",
+        "source": {
+          "page": 96,
+          "reference": "Connell النباتات"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "info"
+          ],
+          "summary": "info."
+        },
+        "explanation": "بالمجهر."
+      }
+    ]
+  }
+}

@@ -1,0 +1,1210 @@
+{
+  "lesson": {
+    "lesson_number": "2.review",
+    "lesson_name": "مراجعة الوحدة 2",
+    "unit_number": 2,
+    "unit_name": "الوحدة الثانية",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "من هو الشاعر الذي نظم قصيدة 'عمان' التي تبدأ بـ (يا حُبَّ عمّانُ)؟",
+        "options": {
+          "A": "عبد الله رضوان",
+          "B": "عبد المنعم الرفاعي",
+          "C": "حيدر محمود",
+          "D": "مصطفى وهبي التل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عبد المنعم الرفاعي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد المنعم الرفاعي"
+        },
+        "explanation": "عبد المنعم الرفاعي",
+        "number": 1,
+        "id": "U02-L99-Q001"
+      },
+      {
+        "question": "ما معنى كلمة (الغانية) في قول الرفاعي: 'يا زهرةً في كفِّ غانيةٍ'؟",
+        "options": {
+          "A": "المرأة الفقيرة",
+          "B": "المرأة المستغنية بجمالها عن الزينة",
+          "C": "المرأة الحزينة",
+          "D": "المرأة المسافرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المرأة المستغنية بجمالها عن الزينة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المرأة المستغنية بجمالها عن الزينة"
+        },
+        "explanation": "المرأة المستغنية بجمالها عن الزينة",
+        "number": 2,
+        "id": "U02-L99-Q002"
+      },
+      {
+        "question": "ما المقصود بكلمة (البِطاح) الواردة في نص الرفاعي؟",
+        "options": {
+          "A": "الجبال العالية",
+          "B": "الأرض المنبسطة الواسعة",
+          "C": "الأودية العميقة",
+          "D": "الصحاري"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأرض المنبسطة الواسعة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأرض المنبسطة الواسعة"
+        },
+        "explanation": "الأرض المنبسطة الواسعة",
+        "number": 3,
+        "id": "U02-L99-Q003"
+      },
+      {
+        "question": "إلى ماذا يرمز قول الشاعر: 'أبكي المنابر والأعلام والقِببا'؟",
+        "options": {
+          "A": "الحزن على الموتى",
+          "B": "الحنين إلى أمجاد الماضي ومظاهره",
+          "C": "الخوف من الأعداء",
+          "D": "الغضب من المدينة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحنين إلى أمجاد الماضي ومظاهره",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحنين إلى أمجاد الماضي ومظاهره"
+        },
+        "explanation": "الحنين إلى أمجاد الماضي ومظاهره",
+        "number": 4,
+        "id": "U02-L99-Q004"
+      },
+      {
+        "question": "في أي مدينة ولد الشاعر عبد الله رضوان عام 1949م؟",
+        "options": {
+          "A": "عمان",
+          "B": "أريحا",
+          "C": "الزرقاء",
+          "D": "القدس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أريحا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أريحا"
+        },
+        "explanation": "أريحا",
+        "number": 5,
+        "id": "U02-L99-Q005"
+      },
+      {
+        "question": "ما معنى كلمة (باسقة) في قول رضوان: 'باسقةً كالصَّبْرِ'؟",
+        "options": {
+          "A": "منخفضة",
+          "B": "مرتفعة الأغصان",
+          "C": "ذابلة",
+          "D": "مقطوعة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مرتفعة الأغصان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مرتفعة الأغصان"
+        },
+        "explanation": "مرتفعة الأغصان",
+        "number": 6,
+        "id": "U02-L99-Q006"
+      },
+      {
+        "question": "كلمة (أهازيج) التي وصف بها رضوان عمان تعني:",
+        "options": {
+          "A": "قصصاً تاريخية",
+          "B": "ما يترنم به من الأغاني",
+          "C": "أصوات الرعد",
+          "D": "صرخات الاستغاثة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ما يترنم به من الأغاني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ما يترنم به من الأغاني"
+        },
+        "explanation": "ما يترنم به من الأغاني",
+        "number": 7,
+        "id": "U02-L99-Q007"
+      },
+      {
+        "question": "ما دلالة تكرار كلمة (أحبك) في قصيدة 'وشوشة العاشقين'؟",
+        "options": {
+          "A": "ضيق المعجم اللغوي",
+          "B": "تأكيد شدة التعلق والارتباط بالوطن",
+          "C": "لتحقيق القافية",
+          "D": "للتمويه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تأكيد شدة التعلق والارتباط بالوطن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تأكيد شدة التعلق والارتباط بالوطن"
+        },
+        "explanation": "تأكيد شدة التعلق والارتباط بالوطن",
+        "number": 8,
+        "id": "U02-L99-Q008"
+      },
+      {
+        "question": "أي من الشعراء شغل منصب رئيس وزراء الأردن؟",
+        "options": {
+          "A": "عبد الله رضوان",
+          "B": "عبد المنعم الرفاعي",
+          "C": "سعيد عقل",
+          "D": "إيليا أبو ماضي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عبد المنعم الرفاعي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد المنعم الرفاعي"
+        },
+        "explanation": "عبد المنعم الرفاعي",
+        "number": 9,
+        "id": "U02-L99-Q009"
+      },
+      {
+        "question": "ما الجذر اللغوي لكلمة (مزدانة)؟",
+        "options": {
+          "A": "زدن",
+          "B": "زين",
+          "C": "زدأ",
+          "D": "وزن"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "زين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "زين"
+        },
+        "explanation": "زين",
+        "number": 10,
+        "id": "U02-L99-Q010"
+      },
+      {
+        "question": "بمَ نعت الشاعر عبد الله رضوان (الوجد) في قصيدته؟",
+        "options": {
+          "A": "بالغدر",
+          "B": "بالوفاء",
+          "C": "بالضياع",
+          "D": "بالقسوة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بالوفاء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالوفاء"
+        },
+        "explanation": "بالوفاء",
+        "number": 11,
+        "id": "U02-L99-Q011"
+      },
+      {
+        "question": "المقصود بـ (نبعة الروح) في قول الشاعر رضوان هو:",
+        "options": {
+          "A": "الماء الجاري",
+          "B": "أصل المحبة والارتباط الوجداني العميق",
+          "C": "الخيال",
+          "D": "السراب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أصل المحبة والارتباط الوجداني العميق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أصل المحبة والارتباط الوجداني العميق"
+        },
+        "explanation": "أصل المحبة والارتباط الوجداني العميق",
+        "number": 12,
+        "id": "U02-L99-Q012"
+      },
+      {
+        "question": "في أي سنة توفي الشاعر عبد المنعم الرفاعي؟",
+        "options": {
+          "A": "1917م",
+          "B": "1985م",
+          "C": "2015م",
+          "D": "1949م"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1985م",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "1985م"
+        },
+        "explanation": "1985م",
+        "number": 13,
+        "id": "U02-L99-Q013"
+      },
+      {
+        "question": "ما معنى كلمة (الأَنّات) في نص الرفاعي؟",
+        "options": {
+          "A": "الأفراح",
+          "B": "التأوهات الصادرة عن الألم والحنين",
+          "C": "الضحكات",
+          "D": "النداءات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التأوهات الصادرة عن الألم والحنين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التأوهات الصادرة عن الألم والحنين"
+        },
+        "explanation": "التأوهات الصادرة عن الألم والحنين",
+        "number": 14,
+        "id": "U02-L99-Q014"
+      },
+      {
+        "question": "تعتبر قصيدة الرفاعي مثالاً على أي نوع من البناء الشعري؟",
+        "options": {
+          "A": "شعر التفعيلة",
+          "B": "البناء العمودي الكلاسيكي",
+          "C": "النثر الشعري",
+          "D": "الرباعيات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "البناء العمودي الكلاسيكي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "البناء العمودي الكلاسيكي"
+        },
+        "explanation": "البناء العمودي الكلاسيكي",
+        "number": 15,
+        "id": "U02-L99-Q015"
+      },
+      {
+        "question": "ماذا تمثل عمان بالنسبة للشاعر عبد الله رضوان في نهاية قصيدته؟",
+        "options": {
+          "A": "غربة ونفي",
+          "B": "أمه ونصيبه",
+          "C": "مجرد ذكرى عابرة",
+          "D": "مكان للعمل فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أمه ونصيبه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أمه ونصيبه"
+        },
+        "explanation": "أمه ونصيبه",
+        "number": 16,
+        "id": "U02-L99-Q016"
+      },
+      {
+        "question": "ما معنى كلمة (النجوى) في قول الرفاعي: 'باحت بنا النجوى'؟",
+        "options": {
+          "A": "الصراخ",
+          "B": "الحديث السري بصوت منخفض",
+          "C": "الغناء",
+          "D": "الشكوى العالية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحديث السري بصوت منخفض",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحديث السري بصوت منخفض"
+        },
+        "explanation": "الحديث السري بصوت منخفض",
+        "number": 17,
+        "id": "U02-L99-Q017"
+      },
+      {
+        "question": "من هو الشاعر الذي نظم نشيد العلم الأردني (السلام الملكي)؟",
+        "options": {
+          "A": "عبد الله رضوان",
+          "B": "عبد المنعم الرفاعي",
+          "C": "حبيب الزيودي",
+          "D": "حيدر محمود"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عبد المنعم الرفاعي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد المنعم الرفاعي"
+        },
+        "explanation": "عبد المنعم الرفاعي",
+        "number": 18,
+        "id": "U02-L99-Q018"
+      },
+      {
+        "question": "ما العاطفة البارزة في كلا النصين الشعريين في الوحدة الثانية؟",
+        "options": {
+          "A": "عاطفة الحزن",
+          "B": "عاطفة حب الوطن والحنين إليه",
+          "C": "عاطفة الغضب",
+          "D": "عاطفة اليأس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عاطفة حب الوطن والحنين إليه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عاطفة حب الوطن والحنين إليه"
+        },
+        "explanation": "عاطفة حب الوطن والحنين إليه",
+        "number": 19,
+        "id": "U02-L99-Q019"
+      },
+      {
+        "question": "كلمة (صبا) في قول الشاعر 'بالذكرى هو￯ وصبا' تعني:",
+        "options": {
+          "A": "الريح الشرقية",
+          "B": "الشوق والفتوة",
+          "C": "الصباح",
+          "D": "البرد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الشوق والفتوة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الشوق والفتوة"
+        },
+        "explanation": "الشوق والفتوة",
+        "number": 20,
+        "id": "U02-L99-Q020"
+      },
+      {
+        "question": "ما التعريف الدقيق للفاعل؟",
+        "options": {
+          "A": "اسم منصوب يقع بعد الفعل",
+          "B": "اسم أُسند إليه فعل مبني للمعلوم ودل على من قام به",
+          "C": "فعل يدل على الحدث",
+          "D": "اسم يقع في بداية الجملة دائماً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اسم أُسند إليه فعل مبني للمعلوم ودل على من قام به",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم أُسند إليه فعل مبني للمعلوم ودل على من قام به"
+        },
+        "explanation": "اسم أُسند إليه فعل مبني للمعلوم ودل على من قام به",
+        "number": 21,
+        "id": "U02-L99-Q021"
+      },
+      {
+        "question": "ما صورة الفاعل في جملة (يَقفُ الأردنيّونَ موقفاً مشرفاً)؟",
+        "options": {
+          "A": "ضمير متصل",
+          "B": "اسم ظاهر",
+          "C": "مصدر مؤول",
+          "D": "ضمير مستتر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اسم ظاهر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم ظاهر"
+        },
+        "explanation": "اسم ظاهر",
+        "number": 22,
+        "id": "U02-L99-Q022"
+      },
+      {
+        "question": "حدد الفاعل للفعل (يُدركه) في جملة: (ما كلُّ ما يتمنى المرءُ يُدركه).",
+        "options": {
+          "A": "المرء",
+          "B": "ما",
+          "C": "ضمير مستتر تقديره هو",
+          "D": "الهاء في يدركه"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "ضمير مستتر تقديره هو",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ضمير مستتر تقديره هو"
+        },
+        "explanation": "ضمير مستتر تقديره هو",
+        "number": 23,
+        "id": "U02-L99-Q023"
+      },
+      {
+        "question": "ما صورة الفاعل في جملة (زارَ الذينَ شاركوا في المؤتمر دُورَ الرعاية)؟",
+        "options": {
+          "A": "اسم إشارة",
+          "B": "اسم موصول",
+          "C": "ضمير متصل",
+          "D": "مصدر مؤول"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اسم موصول",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم موصول"
+        },
+        "explanation": "اسم موصول",
+        "number": 24,
+        "id": "U02-L99-Q024"
+      },
+      {
+        "question": "في جملة (يَسرُّ الوطنَ أنْ تتقدّمَ عالماتُه)، الفاعل للفعل (يسر) هو:",
+        "options": {
+          "A": "الوطن",
+          "B": "عالماته",
+          "C": "المصدر المؤول (أن تتقدم)",
+          "D": "ضمير مستتر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "المصدر المؤول (أن تتقدم)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المصدر المؤول (أن تتقدم)"
+        },
+        "explanation": "المصدر المؤول (أن تتقدم)",
+        "number": 25,
+        "id": "U02-L99-Q025"
+      },
+      {
+        "question": "ما إعراب الياء في الفعل (تسألي) في جملة (لا تسألي الناس)؟",
+        "options": {
+          "A": "مفعول به",
+          "B": "ضمير متصل مبني في محل رفع فاعل",
+          "C": "اسم مجرور",
+          "D": "حرف زائد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ضمير متصل مبني في محل رفع فاعل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ضمير متصل مبني في محل رفع فاعل"
+        },
+        "explanation": "ضمير متصل مبني في محل رفع فاعل",
+        "number": 26,
+        "id": "U02-L99-Q026"
+      },
+      {
+        "question": "ما علامة رفع الفاعل في جملة (يَقفُ الأردنيّونَ)؟",
+        "options": {
+          "A": "الضمة",
+          "B": "الألف",
+          "C": "الواو لأنه جمع مذكر سالم",
+          "D": "ثبوت النون"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الواو لأنه جمع مذكر سالم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الواو لأنه جمع مذكر سالم"
+        },
+        "explanation": "الواو لأنه جمع مذكر سالم",
+        "number": 27,
+        "id": "U02-L99-Q027"
+      },
+      {
+        "question": "حدد الفاعل في جملة (شكرَتْ هذهِ اللاعبةُ كلَّ من سانَدَها).",
+        "options": {
+          "A": "التاء في شكرت",
+          "B": "اللاعبة",
+          "C": "اسم الإشارة (هذه)",
+          "D": "ضمير مستتر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "اسم الإشارة (هذه)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم الإشارة (هذه)"
+        },
+        "explanation": "اسم الإشارة (هذه)",
+        "number": 28,
+        "id": "U02-L99-Q028"
+      },
+      {
+        "question": "المحل الإعرابي للمصدر المؤول الواقع فاعلاً هو دائماً:",
+        "options": {
+          "A": "في محل نصب",
+          "B": "في محل جر",
+          "C": "في محل رفع",
+          "D": "لا محل له"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "في محل رفع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "في محل رفع"
+        },
+        "explanation": "في محل رفع",
+        "number": 29,
+        "id": "U02-L99-Q029"
+      },
+      {
+        "question": "ما صورة الفاعل في جملة (قفا نبكِ)؟",
+        "options": {
+          "A": "ألف الاثنين (ضمير متصل)",
+          "B": "ضمير مستتر",
+          "C": "اسم ظاهر",
+          "D": "اسم موصول"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "ألف الاثنين (ضمير متصل)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ألف الاثنين (ضمير متصل)"
+        },
+        "explanation": "ألف الاثنين (ضمير متصل)",
+        "number": 30,
+        "id": "U02-L99-Q030"
+      },
+      {
+        "question": "أي من الضمائر الآتية لا يقع في محل رفع فاعل؟",
+        "options": {
+          "A": "واو الجماعة",
+          "B": "تاء الفاعل",
+          "C": "كاف الخطاب",
+          "D": "ياء المخاطبة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "كاف الخطاب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كاف الخطاب"
+        },
+        "explanation": "كاف الخطاب",
+        "number": 31,
+        "id": "U02-L99-Q031"
+      },
+      {
+        "question": "حدد الفاعل للفعل (يَرفعُ) في جملة: (ويَرفعُني الصمتُ).",
+        "options": {
+          "A": "ياء المتكلم",
+          "B": "الصمت",
+          "C": "ضمير مستتر",
+          "D": "محذوف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الصمت",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الصمت"
+        },
+        "explanation": "الصمت",
+        "number": 32,
+        "id": "U02-L99-Q032"
+      },
+      {
+        "question": "في جملة (تنافسَ الرَّجلانِ)، علامة رفع الفاعل هي:",
+        "options": {
+          "A": "الضمة",
+          "B": "الواو",
+          "C": "الألف لأنه مثنى",
+          "D": "النون"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الألف لأنه مثنى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الألف لأنه مثنى"
+        },
+        "explanation": "الألف لأنه مثنى",
+        "number": 33,
+        "id": "U02-L99-Q033"
+      },
+      {
+        "question": "ما نوع التاء في (استضافَتْ رانةُ سلو￯)؟",
+        "options": {
+          "A": "ضمير متصل في محل رفع فاعل",
+          "B": "تاء التأنيث الساكنة لا محل لها من الإعراب",
+          "C": "جزء من جذر الفعل",
+          "D": "مفعول به"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تاء التأنيث الساكنة لا محل لها من الإعراب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تاء التأنيث الساكنة لا محل لها من الإعراب"
+        },
+        "explanation": "تاء التأنيث الساكنة لا محل لها من الإعراب",
+        "number": 34,
+        "id": "U02-L99-Q034"
+      },
+      {
+        "question": "التقدير الصحيح للمصدر المؤول في (يُعجبني أنْ تلتزمَ بالنظام) هو:",
+        "options": {
+          "A": "يعجبني التزامُك",
+          "B": "يعجبني ملتزم",
+          "C": "يعجبني أنك ملتزم",
+          "D": "يعجبني لزوم"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "يعجبني التزامُك",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يعجبني التزامُك"
+        },
+        "explanation": "يعجبني التزامُك",
+        "number": 35,
+        "id": "U02-L99-Q035"
+      },
+      {
+        "question": "ما هو التشبيه التمثيلي؟",
+        "options": {
+          "A": "تشبيه مفرد بمفرد",
+          "B": "تشبيه صورة منتزعة من متعدد بصورة أخرى",
+          "C": "تشبيه يحذف منه وجه الشبه",
+          "D": "تشبيه بليغ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تشبيه صورة منتزعة من متعدد بصورة أخرى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تشبيه صورة منتزعة من متعدد بصورة أخرى"
+        },
+        "explanation": "تشبيه صورة منتزعة من متعدد بصورة أخرى",
+        "number": 36,
+        "id": "U02-L99-Q036"
+      },
+      {
+        "question": "في قوله تعالى (مَثَلُ الَّذِينَ يُنْفِقُونَ... كَمَثَلِ حَبَّةٍ...)، وجه الشبه هو:",
+        "options": {
+          "A": "المال فقط",
+          "B": "الحبة فقط",
+          "C": "صورة من يعطي قليلاً فيجني شيئاً كثيراً",
+          "D": "السنابل"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "صورة من يعطي قليلاً فيجني شيئاً كثيراً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صورة من يعطي قليلاً فيجني شيئاً كثيراً"
+        },
+        "explanation": "صورة من يعطي قليلاً فيجني شيئاً كثيراً",
+        "number": 37,
+        "id": "U02-L99-Q037"
+      },
+      {
+        "question": "حدد المشبه به في حديث الرسول ﷺ: (مَثَلُ المؤمنيِن... كَمَثَلِ الجَسَدِ إذا اشتكى منه عضو...)؟",
+        "options": {
+          "A": "المؤمنون",
+          "B": "التواد والتراحم",
+          "C": "صورة الجسد الذي يتألم كله لألم جزء منه",
+          "D": "العضو المريض"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "صورة الجسد الذي يتألم كله لألم جزء منه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صورة الجسد الذي يتألم كله لألم جزء منه"
+        },
+        "explanation": "صورة الجسد الذي يتألم كله لألم جزء منه",
+        "number": 38,
+        "id": "U02-L99-Q038"
+      },
+      {
+        "question": "ما وجه الشبه في تشبيه الشيب بالليل والنهار في قول الشاعر؟",
+        "options": {
+          "A": "القوة",
+          "B": "البطء",
+          "C": "الصورة المركبة من اختلاط البياض بالسواد",
+          "D": "الخوف"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الصورة المركبة من اختلاط البياض بالسواد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الصورة المركبة من اختلاط البياض بالسواد"
+        },
+        "explanation": "الصورة المركبة من اختلاط البياض بالسواد",
+        "number": 39,
+        "id": "U02-L99-Q039"
+      },
+      {
+        "question": "في جملة (كأنَّ الهِلالَ نُونُ لُجَيْنٍ غَرِقَتْ في صحيفةٍ زرقاء)، المشبه هو:",
+        "options": {
+          "A": "الهلال",
+          "B": "صورة الهلال الأبيض المقوس في السماء الزرقاء",
+          "C": "اللجين",
+          "D": "البحر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "صورة الهلال الأبيض المقوس في السماء الزرقاء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صورة الهلال الأبيض المقوس في السماء الزرقاء"
+        },
+        "explanation": "صورة الهلال الأبيض المقوس في السماء الزرقاء",
+        "number": 40,
+        "id": "U02-L99-Q040"
+      },
+      {
+        "question": "حدد المشبه به في تشبيه النجوم: (كأنّما النُّجومُ وراءَها... صفوفُ صلاةٍ قامَ فيها إمامُ)؟",
+        "options": {
+          "A": "النجوم",
+          "B": "الإمام",
+          "C": "صورة المصلين خلف إمامهم بنظام",
+          "D": "الليل"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "صورة المصلين خلف إمامهم بنظام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صورة المصلين خلف إمامهم بنظام"
+        },
+        "explanation": "صورة المصلين خلف إمامهم بنظام",
+        "number": 41,
+        "id": "U02-L99-Q041"
+      },
+      {
+        "question": "في قول ابن المقفع: (يبقى الصالح... مثل مياه الأنهار...)، نوع التشبيه هو:",
+        "options": {
+          "A": "مفرد مجمل",
+          "B": "تمثيلي",
+          "C": "بليغ",
+          "D": "مؤكد مفصل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تمثيلي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تمثيلي"
+        },
+        "explanation": "تمثيلي",
+        "number": 42,
+        "id": "U02-L99-Q042"
+      },
+      {
+        "question": "كلمة (اللُّجَيْن) التي وردت في تشبيه الهلال تعني:",
+        "options": {
+          "A": "الذهب",
+          "B": "الفضة",
+          "C": "النحاس",
+          "D": "الحديد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الفضة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الفضة"
+        },
+        "explanation": "الفضة",
+        "number": 43,
+        "id": "U02-L99-Q043"
+      },
+      {
+        "question": "ما وجه الشبه في تشبيه الياسمين: (فكأنّه والزّهرُ تاجٌ فوقَه... مَلِكٌ تجلّى في بساطٍ أخضرِ)؟",
+        "options": {
+          "A": "الجمال",
+          "B": "الملك",
+          "C": "صورة شيء أبيض يعلوه زهر ملون فوق أرض خضراء",
+          "D": "اللون الأخضر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "صورة شيء أبيض يعلوه زهر ملون فوق أرض خضراء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صورة شيء أبيض يعلوه زهر ملون فوق أرض خضراء"
+        },
+        "explanation": "صورة شيء أبيض يعلوه زهر ملون فوق أرض خضراء",
+        "number": 44,
+        "id": "U02-L99-Q044"
+      },
+      {
+        "question": "يهدف التشبيه التمثيلي غالباً إلى:",
+        "options": {
+          "A": "تقليل الكلمات",
+          "B": "توضيح المعنى وتقريبه بصورة حية ملموسة",
+          "C": "إخفاء الحقيقة",
+          "D": "السجع فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "توضيح المعنى وتقريبه بصورة حية ملموسة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "توضيح المعنى وتقريبه بصورة حية ملموسة"
+        },
+        "explanation": "توضيح المعنى وتقريبه بصورة حية ملموسة",
+        "number": 45,
+        "id": "U02-L99-Q045"
+      },
+      {
+        "question": "في التشبيه التمثيلي، يكون وجه الشبه دائماً:",
+        "options": {
+          "A": "صفة واحدة",
+          "B": "صورة منتزعة من متعدد",
+          "C": "كلمة مفردة",
+          "D": "محذوفاً وجوباً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "صورة منتزعة من متعدد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صورة منتزعة من متعدد"
+        },
+        "explanation": "صورة منتزعة من متعدد",
+        "number": 46,
+        "id": "U02-L99-Q046"
+      },
+      {
+        "question": "في قول الشاعر: (سريتَ من حَرَمٍ... كما سر￯ البدرُ في داجٍ...)، المشبه به هو:",
+        "options": {
+          "A": "البدر",
+          "B": "الظلم",
+          "C": "صورة البدر وهو يسير في الليل فينيره",
+          "D": "الحرم"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "صورة البدر وهو يسير في الليل فينيره",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صورة البدر وهو يسير في الليل فينيره"
+        },
+        "explanation": "صورة البدر وهو يسير في الليل فينيره",
+        "number": 47,
+        "id": "U02-L99-Q047"
+      },
+      {
+        "question": "أي العبارات تصف صورة المشبه في تشبيه البحتري: (أَلَسْتَ أَعَمَّهُمْ جُوداً... كَالْبَحْرِ يَجْذِبُ كُلَّ حَمْدٍ)؟",
+        "options": {
+          "A": "البحر",
+          "B": "صورة الممدوح الذي يأتيه الثناء لسعة كرمه",
+          "C": "الجود",
+          "D": "الحمد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "صورة الممدوح الذي يأتيه الثناء لسعة كرمه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صورة الممدوح الذي يأتيه الثناء لسعة كرمه"
+        },
+        "explanation": "صورة الممدوح الذي يأتيه الثناء لسعة كرمه",
+        "number": 48,
+        "id": "U02-L99-Q048"
+      },
+      {
+        "question": "في التشبيه التمثيلي، يمكن أن تكون الأداة محذوفة.",
+        "options": {
+          "A": "صح",
+          "B": "خطأ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "صح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صح"
+        },
+        "explanation": "صح",
+        "number": 49,
+        "id": "U02-L99-Q049"
+      },
+      {
+        "question": "ما نوع التشبيه في جملة (الجندي أسد من أسود الوطن)؟",
+        "options": {
+          "A": "تمثيلي",
+          "B": "بليغ (مفرد)",
+          "C": "مرسل مجمل",
+          "D": "مؤكد مفصل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بليغ (مفرد)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بليغ (مفرد)"
+        },
+        "explanation": "بليغ (مفرد)",
+        "number": 50,
+        "id": "U02-L99-Q050"
+      }
+    ]
+  }
+}

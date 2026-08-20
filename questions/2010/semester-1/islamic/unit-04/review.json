@@ -1,0 +1,1212 @@
+{
+  "lesson": {
+    "lesson_number": "4.review",
+    "lesson_name": "مراجعة الوحدة 4",
+    "unit_number": 4,
+    "unit_name": "الوحدة الرابعة: الزواج والحياة الزوجية",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما المقصود بـ 'السكن' في قوله تعالى {لِتَسْكُنُوا إِلَيْهَا} في سورة الروم؟",
+        "options": {
+          "A": "بناء المنازل",
+          "B": "الراحة النفسية والطمأنينة",
+          "C": "النوم العميق",
+          "D": "السفر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الراحة النفسية والطمأنينة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الراحة النفسية والطمأنينة"
+        },
+        "explanation": "الراحة النفسية والطمأنينة",
+        "number": 1,
+        "id": "U04-L99-Q001"
+      },
+      {
+        "question": "جعل الله تعالى أساس العلاقة بين الزوجين قائماً على:",
+        "options": {
+          "A": "المال والجمال",
+          "B": "المودة والرحمة",
+          "C": "القوة والسيطرة",
+          "D": "التنافس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المودة والرحمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المودة والرحمة"
+        },
+        "explanation": "المودة والرحمة",
+        "number": 2,
+        "id": "U04-L99-Q002"
+      },
+      {
+        "question": "تضمنت الآية (22) من سورة الروم دلالة على قدرة الله في اختلاف:",
+        "options": {
+          "A": "الجبال والبحار",
+          "B": "ألسنة الناس وألوانهم",
+          "C": "أنواع النباتات",
+          "D": "أوقات الصلاة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ألسنة الناس وألوانهم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ألسنة الناس وألوانهم"
+        },
+        "explanation": "ألسنة الناس وألوانهم",
+        "number": 3,
+        "id": "U04-L99-Q003"
+      },
+      {
+        "question": "وصف الله تعالى ظاهرة البرق في سورة الروم بأنها تسبب للإنسان:",
+        "options": {
+          "A": "الفرح فقط",
+          "B": "الحزن واليأس",
+          "C": "الخوف والطمع (في الغيث)",
+          "D": "الدهشة والذهول"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الخوف والطمع (في الغيث)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الخوف والطمع (في الغيث)"
+        },
+        "explanation": "الخوف والطمع (في الغيث)",
+        "number": 4,
+        "id": "U04-L99-Q004"
+      },
+      {
+        "question": "ما الفائدة الصحية الرئيسة للنوم التي أثبتتها الدراسات وذكرها الدرس؟",
+        "options": {
+          "A": "زيادة الطول",
+          "B": "تنشيط الدماغ والذاكرة",
+          "C": "إضعاف الجسم",
+          "D": "تغيير لون البشرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تنشيط الدماغ والذاكرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تنشيط الدماغ والذاكرة"
+        },
+        "explanation": "تنشيط الدماغ والذاكرة",
+        "number": 5,
+        "id": "U04-L99-Q005"
+      },
+      {
+        "question": "ما هو التعريف الشامل للسنة النبوية الشريفة؟",
+        "options": {
+          "A": "أقوال النبي فقط",
+          "B": "كل ما ورد عن النبي من قول أو فعل أو تقرير أو صفة",
+          "C": "تفسير الصحابة للقرآن",
+          "D": "تاريخ الغزوات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كل ما ورد عن النبي من قول أو فعل أو تقرير أو صفة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل ما ورد عن النبي من قول أو فعل أو تقرير أو صفة"
+        },
+        "explanation": "كل ما ورد عن النبي من قول أو فعل أو تقرير أو صفة",
+        "number": 6,
+        "id": "U04-L99-Q006"
+      },
+      {
+        "question": "تعتبر السنة النبوية الشريفة من حيث المصدر:",
+        "options": {
+          "A": "اجتهاداً بشرياً",
+          "B": "وحياً من الله تعالى",
+          "C": "تقاليداً عربية",
+          "D": "فلسفة عقلية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "وحياً من الله تعالى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وحياً من الله تعالى"
+        },
+        "explanation": "وحياً من الله تعالى",
+        "number": 7,
+        "id": "U04-L99-Q007"
+      },
+      {
+        "question": "ما هي مرتبة السنة النبوية في التشريع الإسلامي؟",
+        "options": {
+          "A": "المصدر الأول",
+          "B": "المصدر الثاني بعد القرآن الكريم",
+          "C": "المصدر الثالث",
+          "D": "ليست مصدراً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المصدر الثاني بعد القرآن الكريم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المصدر الثاني بعد القرآن الكريم"
+        },
+        "explanation": "المصدر الثاني بعد القرآن الكريم",
+        "number": 8,
+        "id": "U04-L99-Q008"
+      },
+      {
+        "question": "مثال السنة التي 'تؤكد' حكماً ورد في القرآن هو تحريم:",
+        "options": {
+          "A": "أكل الحمار الأهلي",
+          "B": "الاعتداء على الأموال والدماء",
+          "C": "الجمع بين المرأة وعمتها",
+          "D": "لبس الذهب للرجال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الاعتداء على الأموال والدماء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاعتداء على الأموال والدماء"
+        },
+        "explanation": "الاعتداء على الأموال والدماء",
+        "number": 9,
+        "id": "U04-L99-Q009"
+      },
+      {
+        "question": "حددت السنة النبوية مقدار 'الوصية' بأن لا تتجاوز:",
+        "options": {
+          "A": "نصف المال",
+          "B": "ربع المال",
+          "C": "ثلث المال",
+          "D": "كل المال"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "ثلث المال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ثلث المال"
+        },
+        "explanation": "ثلث المال",
+        "number": 10,
+        "id": "U04-L99-Q010"
+      },
+      {
+        "question": "ما هو التعريف الاصطلاحي لـ 'الُعرف'؟",
+        "options": {
+          "A": "رأي الفرد الخاص",
+          "B": "ما تعارف عليه الناس وساروا عليه في شؤون حياتهم",
+          "C": "القوانين الدولية",
+          "D": "الأحكام الثابتة نصاً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ما تعارف عليه الناس وساروا عليه في شؤون حياتهم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ما تعارف عليه الناس وساروا عليه في شؤون حياتهم"
+        },
+        "explanation": "ما تعارف عليه الناس وساروا عليه في شؤون حياتهم",
+        "number": 11,
+        "id": "U04-L99-Q011"
+      },
+      {
+        "question": "يُعد 'تقسيم المهر إلى معجل ومؤجل' مثالاً على الُعرف:",
+        "options": {
+          "A": "الفاسد",
+          "B": "الصحيح",
+          "C": "المرفوض",
+          "D": "الدولي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الصحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الصحيح"
+        },
+        "explanation": "الصحيح",
+        "number": 12,
+        "id": "U04-L99-Q012"
+      },
+      {
+        "question": "لماذا يعتبر 'حرمان المرأة من الميراث' عرفاً فاسداً؟",
+        "options": {
+          "A": "لأنه قديم",
+          "B": "لأنه يصعب تطبيقه",
+          "C": "لأنه يتعارض مع نصوص الشرع القطعية",
+          "D": "لأنه غير مشهور"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "لأنه يتعارض مع نصوص الشرع القطعية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لأنه يتعارض مع نصوص الشرع القطعية"
+        },
+        "explanation": "لأنه يتعارض مع نصوص الشرع القطعية",
+        "number": 13,
+        "id": "U04-L99-Q013"
+      },
+      {
+        "question": "القاعدة الفقهية 'المعروف عرفاً كالمشروط شرطاً' تعني أن الُعرف:",
+        "options": {
+          "A": "يلغي الشروط",
+          "B": "يقوم مقام الشرط اللفظي",
+          "C": "اختياري دائماً",
+          "D": "لا قيمة له"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يقوم مقام الشرط اللفظي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يقوم مقام الشرط اللفظي"
+        },
+        "explanation": "يقوم مقام الشرط اللفظي",
+        "number": 14,
+        "id": "U04-L99-Q014"
+      },
+      {
+        "question": "تعتبر 'الجلوة العشائرية' بالمعنى الذي يضر الأبرياء عرفاً:",
+        "options": {
+          "A": "صحيحاً",
+          "B": "فاسداً لمخالفته (ولا تزر وازرة وزر أخرى)",
+          "C": "مستحباً",
+          "D": "واجباً وطعنياً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فاسداً لمخالفته (ولا تزر وازرة وزر أخرى)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فاسداً لمخالفته (ولا تزر وازرة وزر أخرى)"
+        },
+        "explanation": "فاسداً لمخالفته (ولا تزر وازرة وزر أخرى)",
+        "number": 15,
+        "id": "U04-L99-Q015"
+      },
+      {
+        "question": "أي من الآتية يعد من 'الحقوق المشتركة' بين الزوجين؟",
+        "options": {
+          "A": "دفع المهر",
+          "B": "النفقة",
+          "C": "المعاشرة بالمعروف",
+          "D": "تولي القوامة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "المعاشرة بالمعروف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المعاشرة بالمعروف"
+        },
+        "explanation": "المعاشرة بالمعروف",
+        "number": 16,
+        "id": "U04-L99-Q016"
+      },
+      {
+        "question": "ما هو المهر في الإسلام؟",
+        "options": {
+          "A": "ثمن للمرأة",
+          "B": "دين مسترد",
+          "C": "مبلغ مالي يكرم به الزوج زوجته",
+          "D": "ضريبة زواج"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "مبلغ مالي يكرم به الزوج زوجته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مبلغ مالي يكرم به الزوج زوجته"
+        },
+        "explanation": "مبلغ مالي يكرم به الزوج زوجته",
+        "number": 17,
+        "id": "U04-L99-Q017"
+      },
+      {
+        "question": "تجب 'النفقة' للزوجة على زوجها بمجرد:",
+        "options": {
+          "A": "الخطبة",
+          "B": "إنجاب الأطفال",
+          "C": "عقد الزواج الصحيح",
+          "D": "طلب الأب"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "عقد الزواج الصحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عقد الزواج الصحيح"
+        },
+        "explanation": "عقد الزواج الصحيح",
+        "number": 18,
+        "id": "U04-L99-Q018"
+      },
+      {
+        "question": "من هو الصحابي القدوة الذي قال 'إني لأحب أن أتزين للمرأة كما أحب أن تتزين لي'؟",
+        "options": {
+          "A": "أبو هريرة",
+          "B": "عبد الله بن عباس",
+          "C": "خالد بن الوليد",
+          "D": "زيد بن ثابت"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عبد الله بن عباس",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد الله بن عباس"
+        },
+        "explanation": "عبد الله بن عباس",
+        "number": 19,
+        "id": "U04-L99-Q019"
+      },
+      {
+        "question": "حق الزوج في 'الطاعة' مشروط بأن تكون في:",
+        "options": {
+          "A": "كل شيء بلا استثناء",
+          "B": "المعصية فقط",
+          "C": "المعروف وفي حدود الاستطاعة",
+          "D": "الأمور المالية فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "المعروف وفي حدود الاستطاعة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المعروف وفي حدود الاستطاعة"
+        },
+        "explanation": "المعروف وفي حدود الاستطاعة",
+        "number": 20,
+        "id": "U04-L99-Q020"
+      },
+      {
+        "question": "ما هو 'تنظيم النسل'؟",
+        "options": {
+          "A": "منع الحمل نهائياً",
+          "B": "إيجاد مدد زمنية متباعدة بين مرات الحمل",
+          "C": "إجهاض الجنين",
+          "D": "تقليل عدد أفراد الدولة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إيجاد مدد زمنية متباعدة بين مرات الحمل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إيجاد مدد زمنية متباعدة بين مرات الحمل"
+        },
+        "explanation": "إيجاد مدد زمنية متباعدة بين مرات الحمل",
+        "number": 21,
+        "id": "U04-L99-Q021"
+      },
+      {
+        "question": "ما هو الحكم الشرعي لـ 'تحديد النسل' (المنع الدائم) دون ضرورة طبية؟",
+        "options": {
+          "A": "مباح",
+          "B": "مندوب",
+          "C": "محرم",
+          "D": "مكروه"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "محرم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "محرم"
+        },
+        "explanation": "محرم",
+        "number": 22,
+        "id": "U04-L99-Q022"
+      },
+      {
+        "question": "تأجيل الحمل بسبب 'الخوف من الفقر' يعتبر خللاً في:",
+        "options": {
+          "A": "التخطيط",
+          "B": "العقيدة والثقة بالرزاق",
+          "C": "الصحة الجسدية",
+          "D": "العلاقات الاجتماعية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العقيدة والثقة بالرزاق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العقيدة والثقة بالرزاق"
+        },
+        "explanation": "العقيدة والثقة بالرزاق",
+        "number": 23,
+        "id": "U04-L99-Q023"
+      },
+      {
+        "question": "ما هو الحكم الشرعي لـ 'الإجهاض' دون عذر طبي يهدد حياة الأم؟",
+        "options": {
+          "A": "مباح",
+          "B": "مستحب",
+          "C": "محرم",
+          "D": "واجب"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "محرم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "محرم"
+        },
+        "explanation": "محرم",
+        "number": 24,
+        "id": "U04-L99-Q024"
+      },
+      {
+        "question": "متى يجوز إجهاض الجنين شرعاً؟",
+        "options": {
+          "A": "إذا كان الوالد فقيراً",
+          "B": "بناءً على قرار طبي يؤكد خطره على حياة الأم",
+          "C": "إذا رغب الزوجان بذلك",
+          "D": "بسبب كثرة الأطفال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بناءً على قرار طبي يؤكد خطره على حياة الأم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بناءً على قرار طبي يؤكد خطره على حياة الأم"
+        },
+        "explanation": "بناءً على قرار طبي يؤكد خطره على حياة الأم",
+        "number": 25,
+        "id": "U04-L99-Q025"
+      },
+      {
+        "question": "الأمن الغذائي في الإسلام يعني توفير الغذاء بصورة:",
+        "options": {
+          "A": "مؤقتة",
+          "B": "مستمرة وكافية وصحية",
+          "C": "مجانية للجميع",
+          "D": "قائمة على الاستيراد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مستمرة وكافية وصحية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مستمرة وكافية وصحية"
+        },
+        "explanation": "مستمرة وكافية وصحية",
+        "number": 26,
+        "id": "U04-L99-Q026"
+      },
+      {
+        "question": "أي من الأنبياء وضع خطة اقتصادية لتحقيق الأمن الغذائي في سنوات القحط؟",
+        "options": {
+          "A": "إبراهيم عليه السلام",
+          "B": "يوسف عليه السلام",
+          "C": "موسى عليه السلام",
+          "D": "نوح عليه السلام"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يوسف عليه السلام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يوسف عليه السلام"
+        },
+        "explanation": "يوسف عليه السلام",
+        "number": 27,
+        "id": "U04-L99-Q027"
+      },
+      {
+        "question": "ما هي الحكمة من ترك يوسف عليه السلام للحبوب في 'سنابلها'؟",
+        "options": {
+          "A": "لسهولة النقل",
+          "B": "لحمايتها من التسوس والتلف لفترة طويلة",
+          "C": "لأنها أجمل",
+          "D": "لعدم وجود آلات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لحمايتها من التسوس والتلف لفترة طويلة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لحمايتها من التسوس والتلف لفترة طويلة"
+        },
+        "explanation": "لحمايتها من التسوس والتلف لفترة طويلة",
+        "number": 28,
+        "id": "U04-L99-Q028"
+      },
+      {
+        "question": "ما هو 'الاحتكار' المنهي عنه في الإسلام؟",
+        "options": {
+          "A": "بيع السلع بسعرها",
+          "B": "حبس السلع الضرورية لرفع سعرها استغلالاً للناس",
+          "C": "تخزين الطعام الشخصي",
+          "D": "الزراعة الكبيرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حبس السلع الضرورية لرفع سعرها استغلالاً للناس",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حبس السلع الضرورية لرفع سعرها استغلالاً للناس"
+        },
+        "explanation": "حبس السلع الضرورية لرفع سعرها استغلالاً للناس",
+        "number": 29,
+        "id": "U04-L99-Q029"
+      },
+      {
+        "question": "المؤسسة الأردنية التي تشبه 'نظام الحسبة' في مراقبة جودة الغذاء هي:",
+        "options": {
+          "A": "وزارة السياحة",
+          "B": "المؤسسة العامة للغذاء والدواء",
+          "C": "وزارة الشباب",
+          "D": "أمانة عمان"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المؤسسة العامة للغذاء والدواء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المؤسسة العامة للغذاء والدواء"
+        },
+        "explanation": "المؤسسة العامة للغذاء والدواء",
+        "number": 30,
+        "id": "U04-L99-Q030"
+      },
+      {
+        "question": "ما هو مفهوم 'الوحدة الوطنية'؟",
+        "options": {
+          "A": "الانعزال",
+          "B": "تلاحم وتمسك أبناء المجتمع في وطن واحد",
+          "C": "التفرقة الدينية",
+          "D": "التعصب القبلي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تلاحم وتمسك أبناء المجتمع في وطن واحد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تلاحم وتمسك أبناء المجتمع في وطن واحد"
+        },
+        "explanation": "تلاحم وتمسك أبناء المجتمع في وطن واحد",
+        "number": 31,
+        "id": "U04-L99-Q031"
+      },
+      {
+        "question": "تقوم الوحدة الوطنية في الإسلام على احترام التنوع في:",
+        "options": {
+          "A": "المعتقدات والأعراق والثقافات",
+          "B": "أنواع السيارات",
+          "C": "ألوان اللباس",
+          "D": "لا يوجد احترام للتنوع"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "المعتقدات والأعراق والثقافات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المعتقدات والأعراق والثقافات"
+        },
+        "explanation": "المعتقدات والأعراق والثقافات",
+        "number": 32,
+        "id": "U04-L99-Q032"
+      },
+      {
+        "question": "ما هي الوثيقة التي أرست قواعد المواطنة والمساواة في العهد النبوي؟",
+        "options": {
+          "A": "صلح الحديبية",
+          "B": "وثيقة المدينة المنورة",
+          "C": "رسالة عمان",
+          "D": "بيعة الرضوان"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "وثيقة المدينة المنورة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وثيقة المدينة المنورة"
+        },
+        "explanation": "وثيقة المدينة المنورة",
+        "number": 33,
+        "id": "U04-L99-Q033"
+      },
+      {
+        "question": "قال صلى الله عليه وسلم عن العصبية والتعصب: (دعوها فإنها...)؟",
+        "options": {
+          "A": "قوة",
+          "B": "جميلة",
+          "C": "منتنة",
+          "D": "مباحة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "منتنة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "منتنة"
+        },
+        "explanation": "منتنة",
+        "number": 34,
+        "id": "U04-L99-Q034"
+      },
+      {
+        "question": "من مظاهر 'المواطنة الصالحة' في الإسلام:",
+        "options": {
+          "A": "إثارة الفتن",
+          "B": "حماية مقدرات الوطن والالتزام بقوانينه",
+          "C": "إهمال العمل",
+          "D": "التعصب للرأي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حماية مقدرات الوطن والالتزام بقوانينه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حماية مقدرات الوطن والالتزام بقوانينه"
+        },
+        "explanation": "حماية مقدرات الوطن والالتزام بقوانينه",
+        "number": 35,
+        "id": "U04-L99-Q035"
+      },
+      {
+        "question": "ما معنى لفظ 'ألسنتكم' الوارد في سورة الروم؟",
+        "options": {
+          "A": "أعضاء الكلام",
+          "B": "اللغات واللهجات المختلفة",
+          "C": "الصمت",
+          "D": "جودة الصوت"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اللغات واللهجات المختلفة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اللغات واللهجات المختلفة"
+        },
+        "explanation": "اللغات واللهجات المختلفة",
+        "number": 36,
+        "id": "U04-L99-Q036"
+      },
+      {
+        "question": "السنة التي تتعلق بوصف شكل النبي (طوله ولونه) تسمى صفة:",
+        "options": {
+          "A": "خُلقية",
+          "B": "خَلقية",
+          "C": "قولية",
+          "D": "فعلية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "خَلقية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خَلقية"
+        },
+        "explanation": "خَلقية",
+        "number": 37,
+        "id": "U04-L99-Q037"
+      },
+      {
+        "question": "يُعتبر 'إطلاق العيارات النارية في الأفراح' عرفاً فاسداً بسبب:",
+        "options": {
+          "A": "تكلفته المالية",
+          "B": "ما يسببه من إزهاق للأرواح وإصابات",
+          "C": "صوته المزعج",
+          "D": "ضياع الوقت"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ما يسببه من إزهاق للأرواح وإصابات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ما يسببه من إزهاق للأرواح وإصابات"
+        },
+        "explanation": "ما يسببه من إزهاق للأرواح وإصابات",
+        "number": 38,
+        "id": "U04-L99-Q038"
+      },
+      {
+        "question": "حق الزوجة في 'الميراث' من زوجها يثبت بمجرد:",
+        "options": {
+          "A": "كتابة عقد الزواج",
+          "B": "مرور عام",
+          "C": "إنجاب طفل",
+          "D": "موافقة الورثة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "كتابة عقد الزواج",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كتابة عقد الزواج"
+        },
+        "explanation": "كتابة عقد الزواج",
+        "number": 39,
+        "id": "U04-L99-Q039"
+      },
+      {
+        "question": "استخدام وسيلة 'العزل' لتأخير الحمل كان معلوماً في عهد النبي وأقره، ما دلالة ذلك؟",
+        "options": {
+          "A": "وجوبه",
+          "B": "مشروعية تنظيم النسل",
+          "C": "تحريمه",
+          "D": "أنه خاص بالصحابة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مشروعية تنظيم النسل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مشروعية تنظيم النسل"
+        },
+        "explanation": "مشروعية تنظيم النسل",
+        "number": 40,
+        "id": "U04-L99-Q040"
+      },
+      {
+        "question": "أي من القيم التالية يحققها 'الادخار' المنظم للموارد الغذائية؟",
+        "options": {
+          "A": "البخل",
+          "B": "الاستعداد للأزمات (الأمن الغذائي)",
+          "C": "الاحتكار المحرم",
+          "D": "التفاخر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الاستعداد للأزمات (الأمن الغذائي)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاستعداد للأزمات (الأمن الغذائي)"
+        },
+        "explanation": "الاستعداد للأزمات (الأمن الغذائي)",
+        "number": 41,
+        "id": "U04-L99-Q041"
+      },
+      {
+        "question": "من الركائز التي يقوم عليها الأردن في وحدته الوطنية:",
+        "options": {
+          "A": "القيادة الهاشمية",
+          "B": "القوات المسلحة",
+          "C": "وعي المواطنين",
+          "D": "كل ما ذكر صحيح"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "كل ما ذكر صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل ما ذكر صحيح"
+        },
+        "explanation": "كل ما ذكر صحيح",
+        "number": 42,
+        "id": "U04-L99-Q042"
+      },
+      {
+        "question": "المقصود بـ 'الذكر' في قوله تعالى {وأنزلنا إليك الذكر لتبين للناس} هو:",
+        "options": {
+          "A": "التسبيح",
+          "B": "القرآن الكريم",
+          "C": "السنة",
+          "D": "الدعاء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "القرآن الكريم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القرآن الكريم"
+        },
+        "explanation": "القرآن الكريم",
+        "number": 43,
+        "id": "U04-L99-Q043"
+      },
+      {
+        "question": "يعتبر 'نظام الحسبة' نظاماً رقابياً قديماً هدفه:",
+        "options": {
+          "A": "جمع الضرائب",
+          "B": "صيانة المجتمع ومنع الغش والاستغلال",
+          "C": "التجسس",
+          "D": "الترفيه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "صيانة المجتمع ومنع الغش والاستغلال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صيانة المجتمع ومنع الغش والاستغلال"
+        },
+        "explanation": "صيانة المجتمع ومنع الغش والاستغلال",
+        "number": 44,
+        "id": "U04-L99-Q044"
+      },
+      {
+        "question": "أي من الأفعال التالية يتنافى مع 'المعاشرة بالمعروف' بين الزوجين؟",
+        "options": {
+          "A": "الاحترام",
+          "B": "التعنيف الجسدي أو اللفظي",
+          "C": "الرفق",
+          "D": "التبسم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التعنيف الجسدي أو اللفظي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التعنيف الجسدي أو اللفظي"
+        },
+        "explanation": "التعنيف الجسدي أو اللفظي",
+        "number": 45,
+        "id": "U04-L99-Q045"
+      },
+      {
+        "question": "قال صلى الله عليه وسلم (لا يحتكر إلا خاطئ)، معنى 'خاطئ' هو:",
+        "options": {
+          "A": "مخطئ بلا قصد",
+          "B": "آثم عاصٍ لله",
+          "C": "مجتهد",
+          "D": "تاجر ذكي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "آثم عاصٍ لله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "آثم عاصٍ لله"
+        },
+        "explanation": "آثم عاصٍ لله",
+        "number": 46,
+        "id": "U04-L99-Q046"
+      },
+      {
+        "question": "تعتبر 'رسالة عمان' وثيقة عالمية تهدف لتعزيز:",
+        "options": {
+          "A": "الوئام والتعايش الإنساني",
+          "B": "الحروب",
+          "C": "التفرقة",
+          "D": "التبعية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الوئام والتعايش الإنساني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الوئام والتعايش الإنساني"
+        },
+        "explanation": "الوئام والتعايش الإنساني",
+        "number": 47,
+        "id": "U04-L99-Q047"
+      },
+      {
+        "question": "تعد السنة النبوية 'بياناً وتوضيحاً' للقرآن في موضوع:",
+        "options": {
+          "A": "وحدانية الله",
+          "B": "كيفية أداء الصلوات الخمس",
+          "C": "بر الوالدين",
+          "D": "تحريم القتل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كيفية أداء الصلوات الخمس",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كيفية أداء الصلوات الخمس"
+        },
+        "explanation": "كيفية أداء الصلوات الخمس",
+        "number": 48,
+        "id": "U04-L99-Q048"
+      },
+      {
+        "question": "يؤدي الالتزام بالوحدة الوطنية إلى تحقيق التنمية في المجالات:",
+        "options": {
+          "A": "الرياضية فقط",
+          "B": "الاقتصادية والاجتماعية والسياسية",
+          "C": "التجارية فقط",
+          "D": "لا علاقة لها بالتنمية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الاقتصادية والاجتماعية والسياسية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاقتصادية والاجتماعية والسياسية"
+        },
+        "explanation": "الاقتصادية والاجتماعية والسياسية",
+        "number": 49,
+        "id": "U04-L99-Q049"
+      },
+      {
+        "question": "في قوله تعالى {يحيي به الأرض بعد موتها} دلالة على صفة من صفات الله هي:",
+        "options": {
+          "A": "الغضب",
+          "B": "كمال القدرة والإحسان",
+          "C": "النسيان",
+          "D": "العجز"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كمال القدرة والإحسان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كمال القدرة والإحسان"
+        },
+        "explanation": "كمال القدرة والإحسان",
+        "number": 50,
+        "id": "U04-L99-Q050"
+      }
+    ]
+  }
+}

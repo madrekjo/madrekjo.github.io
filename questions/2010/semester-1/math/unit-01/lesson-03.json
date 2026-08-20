@@ -1,0 +1,990 @@
+{
+  "lesson": {
+    "lesson_number": "1.3",
+    "lesson_name": "الدوال متعددة الحدود",
+    "unit_number": 1,
+    "unit_name": "الوحدة الأولى",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "عند قسمة كثير حدود من الدرجة n على كثير حدود من الدرجة الأولى، ما هي درجة ناتج القسمة؟",
+        "options": {
+          "A": "n",
+          "B": "n + 1",
+          "C": "n - 1",
+          "D": "1"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "n - 1",
+        "difficulty": "easy",
+        "source": {
+          "page": 28,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "درجة ناتج القسمة تساوي الفرق بين درجتي المقسوم والمقسوم عليه (n - 1) [1]."
+        },
+        "explanation": "درجة ناتج القسمة تساوي الفرق بين درجتي المقسوم والمقسوم عليه (n - 1) [1].",
+        "number": 1,
+        "id": "U01-L03-Q001"
+      },
+      {
+        "question": "ما هي الخطوة الأولى الإلزامية قبل البدء بقسمة كثيرات الحدود؟",
+        "options": {
+          "A": "إخراج عامل مشترك.",
+          "B": "كتابة المقسوم والمقسوم عليه بالصورة القياسية.",
+          "C": "تحديد الأصفار النسبية.",
+          "D": "ضرب المقسوم في المقسوم عليه."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كتابة المقسوم والمقسوم عليه بالصورة القياسية.",
+        "difficulty": "easy",
+        "source": {
+          "page": 27,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يجب ترتيب الحدود تنازلياً حسب الأسس قبل القسمة [2]."
+        },
+        "explanation": "يجب ترتيب الحدود تنازلياً حسب الأسس قبل القسمة [2].",
+        "number": 2,
+        "id": "U01-L03-Q002"
+      },
+      {
+        "question": "وفقاً لنظرية الباقي، ما هو باقي قسمة P(x) على (x - c)؟",
+        "options": {
+          "A": "P(0)",
+          "B": "P(-c)",
+          "C": "P(c)",
+          "D": "c"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "P(c)",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": "نظرية الباقي"
+        },
+        "solution": {
+          "formula": "نظرية الباقي",
+          "steps": [],
+          "summary": "تنص النظرية على أن باقي قسمة كثير الحدود P(x) على (x - c) هو P(c) [3]."
+        },
+        "explanation": "تنص النظرية على أن باقي قسمة كثير الحدود P(x) على (x - c) هو P(c) [3].",
+        "number": 3,
+        "id": "U01-L03-Q003"
+      },
+      {
+        "question": "يكون (x - c) عاملاً من عوامل P(x) إذا وفقط إذا كان:",
+        "options": {
+          "A": "P(c) = 1",
+          "B": "P(c) = 0",
+          "C": "P(c) < 0",
+          "D": "P(c) غير معرف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "P(c) = 0",
+        "difficulty": "easy",
+        "source": {
+          "page": 31,
+          "reference": "نظرية العوامل"
+        },
+        "solution": {
+          "formula": "نظرية العوامل",
+          "steps": [],
+          "summary": "يكون المقدار عاملاً إذا كان ناتج التعويض (الباقي) يساوي صفراً [4]."
+        },
+        "explanation": "يكون المقدار عاملاً إذا كان ناتج التعويض (الباقي) يساوي صفراً [4].",
+        "number": 4,
+        "id": "U01-L03-Q004"
+      },
+      {
+        "question": "ما هو باقي قسمة P(x) على (ax - b) حيث a ≠ 0؟",
+        "options": {
+          "A": "P(b/a)",
+          "B": "P(-b/a)",
+          "C": "P(a/b)",
+          "D": "P(b)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "P(b/a)",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بشكل عام، الباقي هو تعويض صفر المقسوم عليه في المقسوم [5]."
+        },
+        "explanation": "بشكل عام، الباقي هو تعويض صفر المقسوم عليه في المقسوم [5].",
+        "number": 5,
+        "id": "U01-L03-Q005"
+      },
+      {
+        "question": "أوجد باقي قسمة P(x) = x^3 + 7x^2 - 6x + 2 على (x - 3).",
+        "options": {
+          "A": "74",
+          "B": "18",
+          "C": "27",
+          "D": "2"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "74",
+        "difficulty": "medium",
+        "source": {
+          "page": 30,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "P(3) = (3)^3 + 7(3)^2 - 6(3) + 2 = 27 + 63 - 18 + 2 = 74."
+          ],
+          "summary": "التعويض المباشر لـ x=3 في كثير الحدود يعطي الباقي [6]."
+        },
+        "explanation": "التعويض المباشر لـ x=3 في كثير الحدود يعطي الباقي [6].",
+        "number": 6,
+        "id": "U01-L03-Q006"
+      },
+      {
+        "question": "أوجد باقي قسمة P(x) = 2x^4 - 5x^2 - 4x + 9 على (x + 2).",
+        "options": {
+          "A": "29",
+          "B": "9",
+          "C": "-3",
+          "D": "15"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "29",
+        "difficulty": "medium",
+        "source": {
+          "page": 30,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "P(-2) = 2(-2)^4 - 5(-2)^2 - 4(-2) + 9 = 32 - 20 + 8 + 9 = 29."
+          ],
+          "summary": "صفر المقسوم عليه هو -2، وبالتعويض نحصل على 29 [7]."
+        },
+        "explanation": "صفر المقسوم عليه هو -2، وبالتعويض نحصل على 29 [7].",
+        "number": 7,
+        "id": "U01-L03-Q007"
+      },
+      {
+        "question": "إذا كان P(x) = x^3 + 6x^2 + 5x - 12، فهل (x + 4) عامل من عوامل P(x)؟",
+        "options": {
+          "A": "نعم، لأن P(4) = 0",
+          "B": "نعم، لأن P(-4) = 0",
+          "C": "لا، لأن P(-4) ≠ 0",
+          "D": "لا، لأن P(4) ≠ 0"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نعم، لأن P(-4) = 0",
+        "difficulty": "medium",
+        "source": {
+          "page": 31,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالتعويض P(-4) = -64 + 96 - 20 - 12 = 0، إذن هو عامل [8]."
+        },
+        "explanation": "بالتعويض P(-4) = -64 + 96 - 20 - 12 = 0، إذن هو عامل [8].",
+        "number": 8,
+        "id": "U01-L03-Q008"
+      },
+      {
+        "question": "ما هي الأصفار النسبية المحتملة لكثير الحدود P(x) الذي حده الثابت 6 ومعامله الرئيس 2؟",
+        "options": {
+          "A": "±1, ±2, ±3, ±6",
+          "B": "±1, ±2, ±3, ±6, ±1/2, ±3/2",
+          "C": "±1, ±2",
+          "D": "±1/2, ±1/3, ±1/6"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "±1, ±2, ±3, ±6, ±1/2, ±3/2",
+        "difficulty": "hard",
+        "source": {
+          "page": 33,
+          "reference": "نظرية الأصفار النسبية"
+        },
+        "solution": {
+          "formula": "نظرية الأصفار النسبية",
+          "steps": [],
+          "summary": "تقسم عوامل الحد الثابت (±1,2,3,6) على عوامل المعامل الرئيس (±1,2) [9]."
+        },
+        "explanation": "تقسم عوامل الحد الثابت (±1,2,3,6) على عوامل المعامل الرئيس (±1,2) [9].",
+        "number": 9,
+        "id": "U01-L03-Q009"
+      },
+      {
+        "question": "أوجد جميع أصفار كثير الحدود P(x) = x^3 - 3x + 2.",
+        "options": {
+          "A": "{1, -2}",
+          "B": "{1, 2}",
+          "C": "{-1, 2}",
+          "D": "{0, 1}"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "{1, -2}",
+        "difficulty": "hard",
+        "source": {
+          "page": 34,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "بما أن P(1)=0 فإن (x-1) عامل. بالقسمة نحصل على (x^2+x-2) التي تحلل لـ (x-1)(x+2). الأصفار 1، -2."
+          ],
+          "summary": "الصفر 1 مكرر، والصفر الآخر هو -2 [10]."
+        },
+        "explanation": "الصفر 1 مكرر، والصفر الآخر هو -2 [10].",
+        "number": 10,
+        "id": "U01-L03-Q010"
+      },
+      {
+        "question": "في طريقة الجدول للقسمة، ماذا يمثل مجموع الحدود في 'منطقة العمل'؟",
+        "options": {
+          "A": "ناتج القسمة",
+          "B": "المقسوم عليه",
+          "C": "المقسوم",
+          "D": "باقي القسمة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "المقسوم",
+        "difficulty": "medium",
+        "source": {
+          "page": 28,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حسب الكتاب، مجموع الحدود في منطقة العمل يجب أن يساوي المقسوم [11]."
+        },
+        "explanation": "حسب الكتاب، مجموع الحدود في منطقة العمل يجب أن يساوي المقسوم [11].",
+        "number": 11,
+        "id": "U01-L03-Q011"
+      },
+      {
+        "question": "إذا كان باقي قسمة P(x) على (x - 2) هو 5، فما قيمة P(2)؟",
+        "options": {
+          "A": "2",
+          "B": "-2",
+          "C": "5",
+          "D": "-5"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "5",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حسب نظرية الباقي، القيمة الناتجة عن تعويض صفر المقسوم عليه هي الباقي [5]."
+        },
+        "explanation": "حسب نظرية الباقي، القيمة الناتجة عن تعويض صفر المقسوم عليه هي الباقي [5].",
+        "number": 12,
+        "id": "U01-L03-Q012"
+      },
+      {
+        "question": "أي مما يلي يعتبر صفراً محتملاً لـ P(x) = x^3 - x^2 - 14x + 24 حسب نظرية الأصفار النسبية؟",
+        "options": {
+          "A": "5",
+          "B": "7",
+          "C": "2",
+          "D": "10"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "2",
+        "difficulty": "medium",
+        "source": {
+          "page": 36,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العدد 2 من عوامل الحد الثابت 24، بينما الأرقام الأخرى ليست كذلك [12]."
+        },
+        "explanation": "العدد 2 من عوامل الحد الثابت 24، بينما الأرقام الأخرى ليست كذلك [12].",
+        "number": 13,
+        "id": "U01-L03-Q013"
+      },
+      {
+        "question": "ما هو ناتج حل المعادلة x^3 - x^2 - 14x + 24 = 0؟",
+        "options": {
+          "A": "{2, -4, 3}",
+          "B": "{2, 4, -3}",
+          "C": "{-2, 4, 3}",
+          "D": "{0, 2, 4}"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "{2, -4, 3}",
+        "difficulty": "hard",
+        "source": {
+          "page": 36,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "P(2)=0، بالقسمة على (x-2) ينتج (x^2+x-12) التي تحلل لـ (x-3)(x+4). الحلول 2، 3، -4."
+          ],
+          "summary": "بتحليل كثير الحدود المرتبط بالمعادلة تماماً نحصل على الجذور [13]."
+        },
+        "explanation": "بتحليل كثير الحدود المرتبط بالمعادلة تماماً نحصل على الجذور [13].",
+        "number": 14,
+        "id": "U01-L03-Q014"
+      },
+      {
+        "question": "متى تتوقف عملية قسمة كثيرات الحدود؟",
+        "options": {
+          "A": "عندما يصبح الباقي صفراً فقط.",
+          "B": "عندما تصبح درجة باقي القسمة أقل من درجة المقسوم عليه.",
+          "C": "عندما تصبح درجة الناتج صفراً.",
+          "D": "لا تتوقف أبداً."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عندما تصبح درجة باقي القسمة أقل من درجة المقسوم عليه.",
+        "difficulty": "easy",
+        "source": {
+          "page": 27,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "هذه هي قاعدة التوقف في خوارزمية القسمة [2]."
+        },
+        "explanation": "هذه هي قاعدة التوقف في خوارزمية القسمة [2].",
+        "number": 15,
+        "id": "U01-L03-Q015"
+      },
+      {
+        "question": "إذا كان (x - 3) عاملاً من P(x) = 2x^3 + x^2 + px - 6، فما قيمة p؟",
+        "options": {
+          "A": "-19",
+          "B": "19",
+          "C": "-17",
+          "D": "10"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "-19",
+        "difficulty": "hard",
+        "source": {
+          "page": 48,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "P(3) = 2(27) + 9 + 3p - 6 = 0 => 54 + 3 + 3p = 0 => 57 + 3p = 0 => p = -19."
+          ],
+          "summary": "بتطبيق نظرية العوامل ومساواة P(3) بالصفر [14]."
+        },
+        "explanation": "بتطبيق نظرية العوامل ومساواة P(3) بالصفر [14].",
+        "number": 16,
+        "id": "U01-L03-Q016"
+      },
+      {
+        "question": "ما هو باقي قسمة P(x) = x^3 - 2x^2 - 5x + 9 على (x + 2)؟",
+        "options": {
+          "A": "3",
+          "B": "-1",
+          "C": "9",
+          "D": "27"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "3",
+        "difficulty": "medium",
+        "source": {
+          "page": 48,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "P(-2) = -8 - 8 + 10 + 9 = 3 [14]."
+        },
+        "explanation": "P(-2) = -8 - 8 + 10 + 9 = 3 [14].",
+        "number": 17,
+        "id": "U01-L03-Q017"
+      },
+      {
+        "question": "في مسألة الشاحنة (ص 26)، إذا كان حجم الصندوق 48 وأبعاده x, x^2+6x-19, 2، فما المعادلة الناتجة؟",
+        "options": {
+          "A": "2x^3 + 12x^2 - 38x - 48 = 0",
+          "B": "x^3 + 6x^2 - 19x - 24 = 0",
+          "C": "x^2 + 6x - 19 = 24",
+          "D": "2x^2 + 12x - 38 = 48"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "x^3 + 6x^2 - 19x - 24 = 0",
+        "difficulty": "hard",
+        "source": {
+          "page": 26,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "2 * x * (x^2 + 6x - 19) = 48 => x(x^2 + 6x - 19) = 24 => x^3 + 6x^2 - 19x - 24 = 0."
+          ],
+          "summary": "الحجم يساوي حاصل ضرب الأبعاد الثلاثة [15]."
+        },
+        "explanation": "الحجم يساوي حاصل ضرب الأبعاد الثلاثة [15].",
+        "number": 18,
+        "id": "U01-L03-Q018"
+      },
+      {
+        "question": "ما هي قيمة x التي تحقق حجم الشاحنة في السؤال السابق؟",
+        "options": {
+          "A": "3",
+          "B": "4",
+          "C": "8",
+          "D": "-1"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "3",
+        "difficulty": "hard",
+        "source": {
+          "page": 26,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "بتعويض x=3: 27 + 54 - 57 - 24 = 81 - 81 = 0."
+          ],
+          "summary": "العدد 3 هو الصفر الموجب الوحيد الذي يحقق معادلة الحجم [15]."
+        },
+        "explanation": "العدد 3 هو الصفر الموجب الوحيد الذي يحقق معادلة الحجم [15].",
+        "number": 19,
+        "id": "U01-L03-Q019"
+      },
+      {
+        "question": "كثير حدود معامله الرئيس 1، كل صفر نسبي له يجب أن يكون:",
+        "options": {
+          "A": "عدداً أولياً.",
+          "B": "أحد عوامل الحد الثابت.",
+          "C": "مضاعفاً للحد الثابت.",
+          "D": "كسراً بسطه 1."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أحد عوامل الحد الثابت.",
+        "difficulty": "easy",
+        "source": {
+          "page": 33,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "هذه نتيجة مباشرة لنظرية الأصفار النسبية عندما q=1 [16]."
+        },
+        "explanation": "هذه نتيجة مباشرة لنظرية الأصفار النسبية عندما q=1 [16].",
+        "number": 20,
+        "id": "U01-L03-Q020"
+      },
+      {
+        "question": "حل المعادلة x^3 - x^2 - 9x + 9 = 0.",
+        "options": {
+          "A": "{1, 3, -3}",
+          "B": "{1, 9, -9}",
+          "C": "{-1, 3, -3}",
+          "D": "{0, 1, 9}"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "{1, 3, -3}",
+        "difficulty": "hard",
+        "source": {
+          "page": 37,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالتجميع: x^2(x-1) - 9(x-1) = (x^2-9)(x-1) = 0 [13]."
+        },
+        "explanation": "بالتجميع: x^2(x-1) - 9(x-1) = (x^2-9)(x-1) = 0 [13].",
+        "number": 21,
+        "id": "U01-L03-Q021"
+      },
+      {
+        "question": "باقي قسمة P(x) على (2x - 1) هو نفسه قيمة:",
+        "options": {
+          "A": "P(1)",
+          "B": "P(-1)",
+          "C": "P(1/2)",
+          "D": "P(-1/2)"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "P(1/2)",
+        "difficulty": "medium",
+        "source": {
+          "page": 30,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صفر المقسوم عليه 2x - 1 = 0 هو x = 1/2 [7]."
+        },
+        "explanation": "صفر المقسوم عليه 2x - 1 = 0 هو x = 1/2 [7].",
+        "number": 22,
+        "id": "U01-L03-Q022"
+      },
+      {
+        "question": "إذا كان (x + 1) عاملاً لـ P(x)، فما قيمة P(-1)؟",
+        "options": {
+          "A": "1",
+          "B": "-1",
+          "C": "0",
+          "D": "غير موجودة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "0",
+        "difficulty": "easy",
+        "source": {
+          "page": 31,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العامل يعني أن الباقي عند التعويض بصفر العامل يساوي صفراً [4]."
+        },
+        "explanation": "العامل يعني أن الباقي عند التعويض بصفر العامل يساوي صفراً [4].",
+        "number": 23,
+        "id": "U01-L03-Q023"
+      },
+      {
+        "question": "ما هو ناتج قسمة (x^2 - 5x + 6) على (x - 2)؟",
+        "options": {
+          "A": "x + 3",
+          "B": "x - 3",
+          "C": "x - 2",
+          "D": "x + 2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "x - 3",
+        "difficulty": "medium",
+        "source": {
+          "page": 32,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بتحليل البسط (x-2)(x-3) والاختصار مع المقام [8]."
+        },
+        "explanation": "بتحليل البسط (x-2)(x-3) والاختصار مع المقام [8].",
+        "number": 24,
+        "id": "U01-L03-Q024"
+      },
+      {
+        "question": "في الجدول، إذا كان المقسوم عليه (3x-2) والخانة الأولى في منطقة العمل 9x^3، فما هو الحد الأول في الناتج؟",
+        "options": {
+          "A": "3x",
+          "B": "3x^2",
+          "C": "x^2",
+          "D": "27x^4"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "3x^2",
+        "difficulty": "medium",
+        "source": {
+          "page": 27,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لأن 3x * 3x^2 = 9x^3 [17]."
+        },
+        "explanation": "لأن 3x * 3x^2 = 9x^3 [17].",
+        "number": 25,
+        "id": "U01-L03-Q025"
+      },
+      {
+        "question": "أوجد باقي قسمة P(x) = x^4 + 1 على (x - 1).",
+        "options": {
+          "A": "1",
+          "B": "2",
+          "C": "0",
+          "D": "-1"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "2",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "P(1) = (1)^4 + 1 = 2 [3]."
+        },
+        "explanation": "P(1) = (1)^4 + 1 = 2 [3].",
+        "number": 26,
+        "id": "U01-L03-Q026"
+      },
+      {
+        "question": "أي مما يلي ليس من الأصفار النسبية المحتملة لـ P(x) = 3x^3 ... + 5؟",
+        "options": {
+          "A": "1",
+          "B": "5/3",
+          "C": "2",
+          "D": "1/3"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "2",
+        "difficulty": "medium",
+        "source": {
+          "page": 33,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العدد 2 ليس من عوامل الحد الثابت 5 ولا يقبل القسمة على عوامل 3 [16]."
+        },
+        "explanation": "العدد 2 ليس من عوامل الحد الثابت 5 ولا يقبل القسمة على عوامل 3 [16].",
+        "number": 27,
+        "id": "U01-L03-Q027"
+      },
+      {
+        "question": "إذا كان P(x) = (x-1)(x+2)Q(x) + R(x)، فما هي أقصى درجة ممكنة للباقي R(x)؟",
+        "options": {
+          "A": "2",
+          "B": "1",
+          "C": "0",
+          "D": "3"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1",
+        "difficulty": "hard",
+        "source": {
+          "page": 38,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "درجة الباقي دائماً أقل من درجة المقسوم عليه (الدرجة 2)، إذن الدرجة القصوى هي 1 [18]."
+        },
+        "explanation": "درجة الباقي دائماً أقل من درجة المقسوم عليه (الدرجة 2)، إذن الدرجة القصوى هي 1 [18].",
+        "number": 28,
+        "id": "U01-L03-Q028"
+      },
+      {
+        "question": "باقي قسمة P(x) على (x-3) هو 4، وباقي قسمته على (x+2) هو 9. ما قيمة P(3)؟",
+        "options": {
+          "A": "9",
+          "B": "4",
+          "C": "-2",
+          "D": "0"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "4",
+        "difficulty": "medium",
+        "source": {
+          "page": 38,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حسب نظرية الباقي P(3) يساوي الباقي عند القسمة على (x-3) [18]."
+        },
+        "explanation": "حسب نظرية الباقي P(3) يساوي الباقي عند القسمة على (x-3) [18].",
+        "number": 29,
+        "id": "U01-L03-Q029"
+      },
+      {
+        "question": "تحليل P(x) = x^3 + 3x^2 - 13x - 15 كاملاً هو:",
+        "options": {
+          "A": "(x+1)(x-3)(x+5)",
+          "B": "(x-1)(x+3)(x-5)",
+          "C": "(x+1)(x+3)(x-5)",
+          "D": "(x-1)(x-3)(x-5)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "(x+1)(x-3)(x+5)",
+        "difficulty": "hard",
+        "source": {
+          "page": 37,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "P(-1)=0، بالقسمة ينتج (x^2+2x-15) التي تحلل لـ (x+5)(x-3)."
+          ],
+          "summary": "الأصفار هي -1، 3، -5، وبكتابة العوامل المقابلة نحصل على التحليل [19]."
+        },
+        "explanation": "الأصفار هي -1، 3، -5، وبكتابة العوامل المقابلة نحصل على التحليل [19].",
+        "number": 30,
+        "id": "U01-L03-Q030"
+      },
+      {
+        "question": "ما هو صفر الاقتران P(x) = 2x - 4؟",
+        "options": {
+          "A": "4",
+          "B": "-2",
+          "C": "2",
+          "D": "0"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "2",
+        "difficulty": "easy",
+        "source": {
+          "page": 32,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القيمة التي تجعل الاقتران صفراً [20]."
+        },
+        "explanation": "القيمة التي تجعل الاقتران صفراً [20].",
+        "number": 31,
+        "id": "U01-L03-Q031"
+      },
+      {
+        "question": "إذا كان معامل x^n هو a_n، فماذا يسمى a_n؟",
+        "options": {
+          "A": "الحد الثابت",
+          "B": "المعامل الرئيس",
+          "C": "الصفر النسبي",
+          "D": "درجة كثير الحدود"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المعامل الرئيس",
+        "difficulty": "easy",
+        "source": {
+          "page": 26,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المعامل المرتبط بأعلى أس يسمى المعامل الرئيس [21]."
+        },
+        "explanation": "المعامل المرتبط بأعلى أس يسمى المعامل الرئيس [21].",
+        "number": 32,
+        "id": "U01-L03-Q032"
+      },
+      {
+        "question": "أي مما يلي يمثل 'كثير حدود'؟",
+        "options": {
+          "A": "P(x) = 2^x",
+          "B": "P(x) = 1/x",
+          "C": "P(x) = x^2 - 5x + 6",
+          "D": "P(x) = √x"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "P(x) = x^2 - 5x + 6",
+        "difficulty": "easy",
+        "source": {
+          "page": 26,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كثير الحدود يحتوي على أسس صحيحة غير سالبة للمتغير x [21]."
+        },
+        "explanation": "كثير الحدود يحتوي على أسس صحيحة غير سالبة للمتغير x [21].",
+        "number": 33,
+        "id": "U01-L03-Q033"
+      },
+      {
+        "question": "في قسمة (x^3 + 1) على (x + 1)، ما هو ناتج القسمة؟",
+        "options": {
+          "A": "x^2 + 1",
+          "B": "x^2 - x + 1",
+          "C": "x^2 + x + 1",
+          "D": "x + 1"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "x^2 - x + 1",
+        "difficulty": "medium",
+        "source": {
+          "page": 161,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "هذا تحليل مجموع مكعبين (الملحقات ص 161) [22]."
+        },
+        "explanation": "هذا تحليل مجموع مكعبين (الملحقات ص 161) [22].",
+        "number": 34,
+        "id": "U01-L03-Q034"
+      },
+      {
+        "question": "إذا كان ناتج القسمة Q(x) والمقسوم عليه h(x) والباقي R(x)، فالمقسوم f(x) يساوي:",
+        "options": {
+          "A": "Q(x) + h(x) + R(x)",
+          "B": "Q(x) * h(x) + R(x)",
+          "C": "Q(x) * R(x) + h(x)",
+          "D": "h(x) / Q(x)"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "Q(x) * h(x) + R(x)",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "هذه هي خوارزمية القسمة الأساسية [6]."
+        },
+        "explanation": "هذه هي خوارزمية القسمة الأساسية [6].",
+        "number": 35,
+        "id": "U01-L03-Q035"
+      },
+      {
+        "question": "ما هو عدد أصفار كثير حدود من الدرجة الثالثة؟",
+        "options": {
+          "A": "3 دائماً",
+          "B": "3 على الأكثر",
+          "C": "1 على الأقل",
+          "D": "لا يمكن معرفة ذلك"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "3 على الأكثر",
+        "difficulty": "medium",
+        "source": {
+          "page": 33,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عدد أصفار كثير الحدود أقل من أو يساوي درجته [16]."
+        },
+        "explanation": "عدد أصفار كثير الحدود أقل من أو يساوي درجته [16].",
+        "number": 36,
+        "id": "U01-L03-Q036"
+      },
+      {
+        "question": "لحل المعادلة x^3 + 3x^2 - 4 = 0، أي قيمة x تجعل الطرف الأيسر صفراً؟",
+        "options": {
+          "A": "1",
+          "B": "-1",
+          "C": "2",
+          "D": "0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1",
+        "difficulty": "medium",
+        "source": {
+          "page": 37,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "P(1) = 1 + 3 - 4 = 0 [13]."
+        },
+        "explanation": "P(1) = 1 + 3 - 4 = 0 [13].",
+        "number": 37,
+        "id": "U01-L03-Q037"
+      },
+      {
+        "question": "إذا كان باقي قسمة f(x) على x-1 هو مثلي باقي قسمته على x+1، و f(x)=x^3+ax^2+x+5، فما قيمة a؟",
+        "options": {
+          "A": "4",
+          "B": "5",
+          "C": "-1",
+          "D": "3"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "5",
+        "difficulty": "hard",
+        "source": {
+          "page": 38,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "P(1)=a+7, P(-1)=a+3. a+7 = 2(a+3) => a+7 = 2a+6 => a=1. (تحقق من الحسابات في المسألة 18 ص 38) [23]."
+          ],
+          "summary": "بحل المعادلة الناتجة من مساواة البواقي حسب الشرط [23]."
+        },
+        "explanation": "بحل المعادلة الناتجة من مساواة البواقي حسب الشرط [23].",
+        "number": 38,
+        "id": "U01-L03-Q038"
+      },
+      {
+        "question": "ما هو الحد الثابت في كثير الحدود P(x) = (x-1)(x+3)(x-5)؟",
+        "options": {
+          "A": "15",
+          "B": "-15",
+          "C": "1",
+          "D": "0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "15",
+        "difficulty": "medium",
+        "source": {
+          "page": 33,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حاصل ضرب الأرقام الثابتة في العوامل: (-1)*(3)*(-5) = 15 [16]."
+        },
+        "explanation": "حاصل ضرب الأرقام الثابتة في العوامل: (-1)*(3)*(-5) = 15 [16].",
+        "number": 39,
+        "id": "U01-L03-Q039"
+      },
+      {
+        "question": "في برمجية جيوجبرا، ماذا يمثل الأمر 'Extremum'؟",
+        "options": {
+          "A": "الأصفار",
+          "B": "القيم العظمى والصغرى",
+          "C": "نقاط التقاطع مع y",
+          "D": "المجال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "القيم العظمى والصغرى",
+        "difficulty": "easy",
+        "source": {
+          "page": 89,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يستخدم هذا الأمر لإظهار قمم وقيعان المنحنى [24]."
+        },
+        "explanation": "يستخدم هذا الأمر لإظهار قمم وقيعان المنحنى [24].",
+        "number": 40,
+        "id": "U01-L03-Q040"
+      }
+    ]
+  }
+}

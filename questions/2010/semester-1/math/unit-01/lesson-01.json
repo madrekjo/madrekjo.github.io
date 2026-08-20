@@ -1,0 +1,992 @@
+{
+  "lesson": {
+    "lesson_number": "1.1",
+    "lesson_name": "الاقتران المتشعب",
+    "unit_number": 1,
+    "unit_name": "الوحدة الأولى",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما هو التعريف الصحيح للاقتران المتشعب؟",
+        "options": {
+          "A": "اقتران يتكون من حدودية واحدة فقط.",
+          "B": "اقتران يُعرّف بقواعد مختلفة عند أجزاء مختلفة من مجاله.",
+          "C": "اقتران تكون قيمته دائمًا موجبة.",
+          "D": "اقتران يُمثل بخط مستقيم واحد فقط."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اقتران يُعرّف بقواعد مختلفة عند أجزاء مختلفة من مجاله.",
+        "difficulty": "easy",
+        "source": {
+          "page": 16,
+          "reference": "تعريف الاقتران المتشعب"
+        },
+        "solution": {
+          "formula": "تعريف الاقتران المتشعب",
+          "steps": [],
+          "summary": "حسب الكتاب، يُسمى الاقتران المعرّف بقواعد مختلفة عند أجزاء مختلفة في مجاله اقترانًا متشعبًا [3]."
+        },
+        "explanation": "حسب الكتاب، يُسمى الاقتران المعرّف بقواعد مختلفة عند أجزاء مختلفة في مجاله اقترانًا متشعبًا [3].",
+        "number": 1,
+        "id": "U01-L01-Q001"
+      },
+      {
+        "question": "ماذا تُسمى النقطة التي تتغير عندها قاعدة الاقتران المتشعب؟",
+        "options": {
+          "A": "رأس الاقتران",
+          "B": "نقطة الأصل",
+          "C": "نقطة التشعب",
+          "D": "نقطة التماثل"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "نقطة التشعب",
+        "difficulty": "easy",
+        "source": {
+          "page": 16,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تُسمى النقطة التي تتغير عندها قاعدة الاقتران المتشعب نقطة التشعب [3]."
+        },
+        "explanation": "تُسمى النقطة التي تتغير عندها قاعدة الاقتران المتشعب نقطة التشعب [3].",
+        "number": 2,
+        "id": "U01-L01-Q002"
+      },
+      {
+        "question": "إذا كان f(x) = { -2x + 1 , -3 ≤ x < 1 ; x^2 , x ≥ 1 }، فما هو مجال الاقتران؟",
+        "options": {
+          "A": "[-3, 1)",
+          "B": "[1, ∞)",
+          "C": "[-3, ∞)",
+          "D": "(-∞, ∞)"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "[-3, ∞)",
+        "difficulty": "medium",
+        "source": {
+          "page": 16,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "اتحاد الفترتين [-3, 1) و [1, ∞) يعطي الفترة [-3, ∞)."
+          ],
+          "summary": "مجال الاقتران هو اتحاد فترات تعريف القواعد المكونة له [3]."
+        },
+        "explanation": "مجال الاقتران هو اتحاد فترات تعريف القواعد المكونة له [3].",
+        "number": 3,
+        "id": "U01-L01-Q003"
+      },
+      {
+        "question": "باستخدام الاقتران f(x) في السؤال السابق، ما قيمة f(-2)؟",
+        "options": {
+          "A": "4",
+          "B": "-3",
+          "C": "5",
+          "D": "1"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "5",
+        "difficulty": "medium",
+        "source": {
+          "page": 17,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "-2 يقع في الفترة الأولى، لذا f(-2) = -2(-2) + 1 = 4 + 1 = 5."
+          ],
+          "summary": "يتم التعويض في القاعدة التي تنتمي إليها قيمة x المطلوبة [4]."
+        },
+        "explanation": "يتم التعويض في القاعدة التي تنتمي إليها قيمة x المطلوبة [4].",
+        "number": 4,
+        "id": "U01-L01-Q004"
+      },
+      {
+        "question": "باستخدام الاقتران f(x) في السؤال 3، ما قيمة f(1)؟",
+        "options": {
+          "A": "-1",
+          "B": "1",
+          "C": "3",
+          "D": "غير معرف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1",
+        "difficulty": "medium",
+        "source": {
+          "page": 17,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "العدد 1 يقع في الفترة x ≥ 1، لذا f(1) = (1)^2 = 1."
+          ],
+          "summary": "المساواة موجودة في القاعدة الثانية عند x=1 [4]."
+        },
+        "explanation": "المساواة موجودة في القاعدة الثانية عند x=1 [4].",
+        "number": 5,
+        "id": "U01-L01-Q005"
+      },
+      {
+        "question": "عند تمثيل الاقتران المتشعب بيانياً، ماذا يعني وجود دائرة غير مظللة عند نقطة ما؟",
+        "options": {
+          "A": "أن القيمة تنتمي للمجال.",
+          "B": "أن القيمة لا تحقق المتباينة (غير شاملة).",
+          "C": "أن الاقتران ثابت عند هذه النقطة.",
+          "D": "أن هذه هي نقطة الرأس."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أن القيمة لا تحقق المتباينة (غير شاملة).",
+        "difficulty": "easy",
+        "source": {
+          "page": 18,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "في الرسم البياني، تُنهى القاعدة بدائرة غير مظللة إذا كان العدد لا يحقق المتباينة [5]."
+        },
+        "explanation": "في الرسم البياني، تُنهى القاعدة بدائرة غير مظللة إذا كان العدد لا يحقق المتباينة [5].",
+        "number": 6,
+        "id": "U01-L01-Q006"
+      },
+      {
+        "question": "ما هو مدى الاقتران f(x) = { -2x + 1 , -3 ≤ x < 1 ; x^2 , x ≥ 1 }؟",
+        "options": {
+          "A": "y > -1",
+          "B": "y ≥ 0",
+          "C": "y ≤ 7",
+          "D": "كل الأعداد الحقيقية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "y > -1",
+        "difficulty": "hard",
+        "source": {
+          "page": 21,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بناءً على التمثيل البياني، أقل قيمة تقترب منها y هي -1 (دائرة مفتوحة) وتستمر للأعلى [8]."
+        },
+        "explanation": "بناءً على التمثيل البياني، أقل قيمة تقترب منها y هي -1 (دائرة مفتوحة) وتستمر للأعلى [8].",
+        "number": 7,
+        "id": "U01-L01-Q007"
+      },
+      {
+        "question": "أي اقتران مما يلي يمثل 'اقتران القيمة المطلقة'؟",
+        "options": {
+          "A": "f(x) = 1/x",
+          "B": "f(x) = |x|",
+          "C": "f(x) = x^2",
+          "D": "f(x) = √x"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "f(x) = |x|",
+        "difficulty": "easy",
+        "source": {
+          "page": 26,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اقتران القيمة المطلقة هو الاقتران الذي يحتوي على قيمة مطلقة لمقدار جبري [13]."
+        },
+        "explanation": "اقتران القيمة المطلقة هو الاقتران الذي يحتوي على قيمة مطلقة لمقدار جبري [13].",
+        "number": 8,
+        "id": "U01-L01-Q008"
+      },
+      {
+        "question": "كيف يُمكن كتابة f(x) = |x| كاقتران متشعب؟",
+        "options": {
+          "A": "{ x, x>0 ; -x, x<0 }",
+          "B": "{ x, x≥0 ; -x, x<0 }",
+          "C": "{ x, x≤0 ; -x, x>0 }",
+          "D": "{ x^2, x≥0 ; -x^2, x<0 }"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "{ x, x≥0 ; -x, x<0 }",
+        "difficulty": "medium",
+        "source": {
+          "page": 27,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إعادة تعريف |x| تعطي x للأعداد غير السالبة و -x للأعداد السالبة [14]."
+        },
+        "explanation": "إعادة تعريف |x| تعطي x للأعداد غير السالبة و -x للأعداد السالبة [14].",
+        "number": 9,
+        "id": "U01-L01-Q009"
+      },
+      {
+        "question": "ما هو صفر الاقتران f(x) = |2x + 4|؟",
+        "options": {
+          "A": "2",
+          "B": "-2",
+          "C": "4",
+          "D": "-4"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-2",
+        "difficulty": "medium",
+        "source": {
+          "page": 25,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "2x + 4 = 0 => 2x = -4 => x = -2."
+          ],
+          "summary": "صفر الاقتران هو القيمة التي تجعل ما بداخل المطلق يساوي صفرًا [12]."
+        },
+        "explanation": "صفر الاقتران هو القيمة التي تجعل ما بداخل المطلق يساوي صفرًا [12].",
+        "number": 10,
+        "id": "U01-L01-Q010"
+      },
+      {
+        "question": "عند إعادة تعريف f(x) = |2x + 4|، ما هي قاعدة الاقتران للفترة x < -2؟",
+        "options": {
+          "A": "2x + 4",
+          "B": "2x - 4",
+          "C": "-2x - 4",
+          "D": "-2x + 4"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "-2x - 4",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "على يسار الصفر (-2)، نضرب المقدار في -1 فتصبح -(2x+4) = -2x-4 [16]."
+        },
+        "explanation": "على يسار الصفر (-2)، نضرب المقدار في -1 فتصبح -(2x+4) = -2x-4 [16].",
+        "number": 11,
+        "id": "U01-L01-Q011"
+      },
+      {
+        "question": "ما هما إحداثيا رأس اقتران القيمة المطلقة f(x) = a|x - h| + k؟",
+        "options": {
+          "A": "(k, h)",
+          "B": "(-h, k)",
+          "C": "(h, k)",
+          "D": "(0, 0)"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "(h, k)",
+        "difficulty": "medium",
+        "source": {
+          "page": 30,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رأس الاقتران هو النقطة التي يصل عندها المنحنى لأعلى أو أقل قيمة وإحداثياها (h, k) [17]."
+        },
+        "explanation": "رأس الاقتران هو النقطة التي يصل عندها المنحنى لأعلى أو أقل قيمة وإحداثياها (h, k) [17].",
+        "number": 12,
+        "id": "U01-L01-Q012"
+      },
+      {
+        "question": "ما هو رأس الاقتران f(x) = -|x + 2| + 3؟",
+        "options": {
+          "A": "(2, 3)",
+          "B": "(-2, 3)",
+          "C": "(-2, -3)",
+          "D": "(3, -2)"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "(-2, 3)",
+        "difficulty": "medium",
+        "source": {
+          "page": 33,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "بمقارنتها مع f(x) = a|x - h| + k، نجد h = -2 و k = 3."
+          ],
+          "summary": "الرأس هو (h, k) حيث h هو صفر المطلق و k هو الحد الثابت [20]."
+        },
+        "explanation": "الرأس هو (h, k) حيث h هو صفر المطلق و k هو الحد الثابت [20].",
+        "number": 13,
+        "id": "U01-L01-Q013"
+      },
+      {
+        "question": "متى يكون منحنى اقتران القيمة المطلقة مفتوحاً إلى الأسفل؟",
+        "options": {
+          "A": "إذا كان h < 0",
+          "B": "إذا كان k > 0",
+          "C": "إذا كان a > 0",
+          "D": "إذا كان a < 0"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "إذا كان a < 0",
+        "difficulty": "easy",
+        "source": {
+          "page": 35,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يكون المنحنى مفتوحاً للأسفل إذا كان معامل المطلق سالباً [22]."
+        },
+        "explanation": "يكون المنحنى مفتوحاً للأسفل إذا كان معامل المطلق سالباً [22].",
+        "number": 14,
+        "id": "U01-L01-Q014"
+      },
+      {
+        "question": "ما هو مدى الاقتران f(x) = |x|؟",
+        "options": {
+          "A": "[0, ∞)",
+          "B": "(0, ∞)",
+          "C": "(-∞, 0]",
+          "D": "(-∞, ∞)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "[0, ∞)",
+        "difficulty": "medium",
+        "source": {
+          "page": 32,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يُلاحظ من التمثيل البياني أن المدى يبدأ من الصفر (أقل قيمة) للأعلى [19]."
+        },
+        "explanation": "يُلاحظ من التمثيل البياني أن المدى يبدأ من الصفر (أقل قيمة) للأعلى [19].",
+        "number": 15,
+        "id": "U01-L01-Q015"
+      },
+      {
+        "question": "إذا كان ميل أحد شعاعي اقتران القيمة المطلقة هو 2، فما ميل الشعاع الآخر؟",
+        "options": {
+          "A": "1/2",
+          "B": "-1/2",
+          "C": "-2",
+          "D": "0"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "-2",
+        "difficulty": "medium",
+        "source": {
+          "page": 30,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "شعاعا اقتران القيمة المطلقة متماثلان حول محور التماثل، وميلهما متعاكس في الإشارة [17]."
+        },
+        "explanation": "شعاعا اقتران القيمة المطلقة متماثلان حول محور التماثل، وميلهما متعاكس في الإشارة [17].",
+        "number": 16,
+        "id": "U01-L01-Q016"
+      },
+      {
+        "question": "ما هو مجال اقتران القيمة المطلقة f(x) = a|x - h| + k؟",
+        "options": {
+          "A": "[h, ∞)",
+          "B": "[k, ∞)",
+          "C": "مجموعة الأعداد الحقيقية R",
+          "D": "(0, ∞)"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "مجموعة الأعداد الحقيقية R",
+        "difficulty": "easy",
+        "source": {
+          "page": 32,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حسب الكتاب، مجال اقتران القيمة المطلقة هو مجموعة الأعداد الحقيقية [19]."
+        },
+        "explanation": "حسب الكتاب، مجال اقتران القيمة المطلقة هو مجموعة الأعداد الحقيقية [19].",
+        "number": 17,
+        "id": "U01-L01-Q017"
+      },
+      {
+        "question": "في مسألة فواتير المياه، إذا استهلكت أسرة 42 m^3، وتتبع الشريحة (37-54) بسعر 0.550 JD/m^3، فما ثمن المياه؟",
+        "options": {
+          "A": "23.1 JD",
+          "B": "18.9 JD",
+          "C": "42 JD",
+          "D": "15.1 JD"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "23.1 JD",
+        "difficulty": "medium",
+        "source": {
+          "page": 15,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "42 * 0.550 = 23.1."
+          ],
+          "summary": "يتم ضرب كمية الاستهلاك في تعرفة الشريحة المقابلة لها [2]."
+        },
+        "explanation": "يتم ضرب كمية الاستهلاك في تعرفة الشريحة المقابلة لها [2].",
+        "number": 18,
+        "id": "U01-L01-Q018"
+      },
+      {
+        "question": "ما هي معادلة محور التماثل للاقتران f(x) = |x - 3| - 2؟",
+        "options": {
+          "A": "y = -2",
+          "B": "x = -3",
+          "C": "x = 3",
+          "D": "x = 0"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "x = 3",
+        "difficulty": "medium",
+        "source": {
+          "page": 30,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "محور التماثل هو المستقيم x = h، وهنا h = 3 [17]."
+        },
+        "explanation": "محور التماثل هو المستقيم x = h، وهنا h = 3 [17].",
+        "number": 19,
+        "id": "U01-L01-Q019"
+      },
+      {
+        "question": "إذا كان f(x) = { 5, x=2 ; 2x-1, x>2 ; 3x+2, x<2 }، فما قيمة f(5)؟",
+        "options": {
+          "A": "5",
+          "B": "9",
+          "C": "17",
+          "D": "غير معرف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "9",
+        "difficulty": "medium",
+        "source": {
+          "page": 21,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "5 > 2، لذا نستخدم القاعدة f(x) = 2x - 1 => f(5) = 2(5) - 1 = 9."
+          ],
+          "summary": "التعويض يتم في القاعدة الثالثة المخصصة لقيم x الأكبر من 2 [8]."
+        },
+        "explanation": "التعويض يتم في القاعدة الثالثة المخصصة لقيم x الأكبر من 2 [8].",
+        "number": 20,
+        "id": "U01-L01-Q020"
+      },
+      {
+        "question": "ما هو مدى الاقتران f(x) = -2|x - 4| + 3؟",
+        "options": {
+          "A": "[3, ∞)",
+          "B": "(-∞, 3]",
+          "C": "(-∞, 4]",
+          "D": "R"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "(-∞, 3]",
+        "difficulty": "hard",
+        "source": {
+          "page": 34,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بما أن a سالب (-2)، فالفتحة للأسفل والرأس عند y=3، لذا المدى هو من 3 للأسفل [21]."
+        },
+        "explanation": "بما أن a سالب (-2)، فالفتحة للأسفل والرأس عند y=3، لذا المدى هو من 3 للأسفل [21].",
+        "number": 21,
+        "id": "U01-L01-Q021"
+      },
+      {
+        "question": "أعد تعريف الاقتران f(x) = |3x - 9|.",
+        "options": {
+          "A": "{ 3x-9, x≥3 ; 9-3x, x<3 }",
+          "B": "{ 3x-9, x≥9 ; 9-3x, x<9 }",
+          "C": "{ 3x+9, x≥3 ; -3x-9, x<3 }",
+          "D": "{ 3, x≥3 ; -3, x<3 }"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "{ 3x-9, x≥3 ; 9-3x, x<3 }",
+        "difficulty": "medium",
+        "source": {
+          "page": 29,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صفر الاقتران هو 3، القاعدة تبقى كما هي لـ x≥3 وتُضرب في -1 لـ x<3 [16]."
+        },
+        "explanation": "صفر الاقتران هو 3، القاعدة تبقى كما هي لـ x≥3 وتُضرب في -1 لـ x<3 [16].",
+        "number": 22,
+        "id": "U01-L01-Q022"
+      },
+      {
+        "question": "أي من الأدوات التالية يمكن استخدامها لدعم تمثيل الاقترانات بيانياً كما ورد في الكتاب؟",
+        "options": {
+          "A": "الآلة الحاسبة العلمية فقط",
+          "B": "برمجية جيوجبرا (GeoGebra)",
+          "C": "برنامج إكسل",
+          "D": "لا يوجد أداة برمجية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "برمجية جيوجبرا (GeoGebra)",
+        "difficulty": "easy",
+        "source": {
+          "page": 20,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يشير الكتاب مراراً لاستخدام جيوجبرا في الدعم البياني [20، 30]."
+        },
+        "explanation": "يشير الكتاب مراراً لاستخدام جيوجبرا في الدعم البياني [20، 30].",
+        "number": 23,
+        "id": "U01-L01-Q023"
+      },
+      {
+        "question": "في الاقتران f(x) = |x|، ما قيمة f(-5.5)؟",
+        "options": {
+          "A": "-5.5",
+          "B": "0",
+          "C": "5.5",
+          "D": "11"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "5.5",
+        "difficulty": "easy",
+        "source": {
+          "page": 26,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القيمة المطلقة لأي عدد هي بعده عن الصفر، وهو دائماً غير سالب [13]."
+        },
+        "explanation": "القيمة المطلقة لأي عدد هي بعده عن الصفر، وهو دائماً غير سالب [13].",
+        "number": 24,
+        "id": "U01-L01-Q024"
+      },
+      {
+        "question": "ما القاعدة التي تمثل 'إزاحة لليمين بمقدار 3 وحدات' للاقتران |x|؟",
+        "options": {
+          "A": "|x| + 3",
+          "B": "|x| - 3",
+          "C": "|x - 3|",
+          "D": "|x + 3|"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "|x - 3|",
+        "difficulty": "medium",
+        "source": {
+          "page": 30,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإزاحة الأفقية h تظهر داخل المطلق بعكس الإشارة [17]."
+        },
+        "explanation": "الإزاحة الأفقية h تظهر داخل المطلق بعكس الإشارة [17].",
+        "number": 25,
+        "id": "U01-L01-Q025"
+      },
+      {
+        "question": "إذا كانت أجرة الساعة 4 دنانير لـ 40 ساعة، و 6 دنانير لما زاد عن ذلك، فما أجرة عامل عمل 45 ساعة؟",
+        "options": {
+          "A": "180 دينار",
+          "B": "190 دينار",
+          "C": "270 دينار",
+          "D": "210 دينار"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "190 دينار",
+        "difficulty": "hard",
+        "source": {
+          "page": 24,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "أجرة أول 40 ساعة = 40*4 = 160. أجرة الساعات الإضافية (5 ساعات) = 5*6 = 30. المجموع = 190."
+          ],
+          "summary": "تطبيق لقاعدة الاقتران المتشعب في مواقف الحياة [11]."
+        },
+        "explanation": "تطبيق لقاعدة الاقتران المتشعب في مواقف الحياة [11].",
+        "number": 26,
+        "id": "U01-L01-Q026"
+      },
+      {
+        "question": "ما إحداثيات الرأس للاقتران f(x) = 2|x|؟",
+        "options": {
+          "A": "(2, 0)",
+          "B": "(0, 2)",
+          "C": "(0, 0)",
+          "D": "(2, 2)"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "(0, 0)",
+        "difficulty": "easy",
+        "source": {
+          "page": 31,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بما أن h=0 و k=0، فإن الرأس يقع عند نقطة الأصل [18]."
+        },
+        "explanation": "بما أن h=0 و k=0، فإن الرأس يقع عند نقطة الأصل [18].",
+        "number": 27,
+        "id": "U01-L01-Q027"
+      },
+      {
+        "question": "ما هو معامل التمدد الرأسي (a) في الاقتران f(x) = 1/2 |x - 1| + 5؟",
+        "options": {
+          "A": "-1",
+          "B": "1/2",
+          "C": "5",
+          "D": "1"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1/2",
+        "difficulty": "easy",
+        "source": {
+          "page": 30,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المعامل a هو القيمة المضروبة في المطلق [17]."
+        },
+        "explanation": "المعامل a هو القيمة المضروبة في المطلق [17].",
+        "number": 28,
+        "id": "U01-L01-Q028"
+      },
+      {
+        "question": "أي من الأشكال التالية يمثل حرف V مقلوب؟",
+        "options": {
+          "A": "f(x) = |x|",
+          "B": "f(x) = -|x|",
+          "C": "f(x) = x^2",
+          "D": "f(x) = -x"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "f(x) = -|x|",
+        "difficulty": "easy",
+        "source": {
+          "page": 34,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الانعكاس حول محور x (بسبب الإشارة السالبة) يجعل الـ V مقلوبة [21]."
+        },
+        "explanation": "الانعكاس حول محور x (بسبب الإشارة السالبة) يجعل الـ V مقلوبة [21].",
+        "number": 29,
+        "id": "U01-L01-Q029"
+      },
+      {
+        "question": "ما المقطع y للاقتران f(x) = |x - 2| + 1؟",
+        "options": {
+          "A": "2",
+          "B": "1",
+          "C": "3",
+          "D": "-2"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "3",
+        "difficulty": "medium",
+        "source": {
+          "page": 35,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "نعوض x=0: f(0) = |0 - 2| + 1 = 2 + 1 = 3."
+          ],
+          "summary": "لإيجاد المقطع y، نعوض دائماً x بـ 0 [22]."
+        },
+        "explanation": "لإيجاد المقطع y، نعوض دائماً x بـ 0 [22].",
+        "number": 30,
+        "id": "U01-L01-Q030"
+      },
+      {
+        "question": "ما قيمة f(3) للاقتران f(x) = { 2, x≤3 ; -2, x>3 }؟",
+        "options": {
+          "A": "2",
+          "B": "-2",
+          "C": "0",
+          "D": "غير معرف"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2",
+        "difficulty": "easy",
+        "source": {
+          "page": 37,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المساواة موجودة في القاعدة الأولى عند x=3 [24]."
+        },
+        "explanation": "المساواة موجودة في القاعدة الأولى عند x=3 [24].",
+        "number": 31,
+        "id": "U01-L01-Q031"
+      },
+      {
+        "question": "في الاقتران f(x) = |7x - 5| + 3، ما قيمة 'h'؟",
+        "options": {
+          "A": "5",
+          "B": "5/7",
+          "C": "-5",
+          "D": "3"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "5/7",
+        "difficulty": "hard",
+        "source": {
+          "page": 37,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "نساوي داخل المطلق بالصفر: 7x - 5 = 0 => 7x = 5 => x = 5/7."
+          ],
+          "summary": "قيمة h تمثل الإحداثي x للرأس، وهو صفر ما بداخل المطلق [24]."
+        },
+        "explanation": "قيمة h تمثل الإحداثي x للرأس، وهو صفر ما بداخل المطلق [24].",
+        "number": 32,
+        "id": "U01-L01-Q032"
+      },
+      {
+        "question": "ما هي القيمة الصغرى للاقتران f(x) = |x - 3| - 2؟",
+        "options": {
+          "A": "3",
+          "B": "2",
+          "C": "-2",
+          "D": "0"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "-2",
+        "difficulty": "medium",
+        "source": {
+          "page": 34,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بما أن المنحنى مفتوح للأعلى (a=1)، فإن k تمثل القيمة الصغرى [21]."
+        },
+        "explanation": "بما أن المنحنى مفتوح للأعلى (a=1)، فإن k تمثل القيمة الصغرى [21].",
+        "number": 33,
+        "id": "U01-L01-Q033"
+      },
+      {
+        "question": "إذا كان الاقتران المتشعب ثابتاً في إحدى فتراته، فكيف يظهر في الرسم البياني؟",
+        "options": {
+          "A": "خط مائل",
+          "B": "منحنى",
+          "C": "خط أفقي",
+          "D": "خط رأسي"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "خط أفقي",
+        "difficulty": "easy",
+        "source": {
+          "page": 23,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاقتران الثابت (مثل f(x)=2) يُمثل بخط أفقي يوازي محور x [10]."
+        },
+        "explanation": "الاقتران الثابت (مثل f(x)=2) يُمثل بخط أفقي يوازي محور x [10].",
+        "number": 34,
+        "id": "U01-L01-Q034"
+      },
+      {
+        "question": "ما هو صفر الاقتران f(x) = |x + 5|؟",
+        "options": {
+          "A": "5",
+          "B": "0",
+          "C": "-5",
+          "D": "لا يوجد"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "-5",
+        "difficulty": "easy",
+        "source": {
+          "page": 29,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "x + 5 = 0 تعطي x = -5 [16]."
+        },
+        "explanation": "x + 5 = 0 تعطي x = -5 [16].",
+        "number": 35,
+        "id": "U01-L01-Q035"
+      },
+      {
+        "question": "في برمجية جيوجبرا، ما الرمز الذي يكتب لتمثيل القيمة المطلقة؟",
+        "options": {
+          "A": "SQRT",
+          "B": "ABS",
+          "C": "MOD",
+          "D": "||"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ABS",
+        "difficulty": "medium",
+        "source": {
+          "page": 30,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تستخدم الدالة abs() أو الرمز |x| في شريط الإدخال لبرمجية جيوجبرا [17]."
+        },
+        "explanation": "تستخدم الدالة abs() أو الرمز |x| في شريط الإدخال لبرمجية جيوجبرا [17].",
+        "number": 36,
+        "id": "U01-L01-Q036"
+      },
+      {
+        "question": "ما إشارة 'a' للاقتران الممثل بالشكل 18 في الكتاب (ص 38)؟",
+        "options": {
+          "A": "موجبة",
+          "B": "سالبة",
+          "C": "صفر",
+          "D": "غير معرفة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "موجبة",
+        "difficulty": "medium",
+        "source": {
+          "page": 38,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الشكل 18 مفتوح للأعلى، مما يعني أن a > 0 [25]."
+        },
+        "explanation": "الشكل 18 مفتوح للأعلى، مما يعني أن a > 0 [25].",
+        "number": 37,
+        "id": "U01-L01-Q037"
+      },
+      {
+        "question": "ما هي نقطة التشعب للاقتران f(x) = { 2x, x<0 ; x^2, x≥0 }؟",
+        "options": {
+          "A": "2",
+          "B": "1",
+          "C": "0",
+          "D": "-2"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "0",
+        "difficulty": "easy",
+        "source": {
+          "page": 16,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القواعد تتغير عند القيمة x=0 [3]."
+        },
+        "explanation": "القواعد تتغير عند القيمة x=0 [3].",
+        "number": 38,
+        "id": "U01-L01-Q038"
+      },
+      {
+        "question": "أي من التالي يمثل قاعدة اقتران المسافة المقطوعة s لجسيم يتحرك بسرعة ثابتة v؟",
+        "options": {
+          "A": "s = v/t",
+          "B": "s = v*t",
+          "C": "s = v+t",
+          "D": "s = t/v"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "s = v*t",
+        "difficulty": "medium",
+        "source": {
+          "page": 127,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المسافة تساوي السرعة مضروبة في الزمن (مستنبط من تعريف السرعة الخطية) [28]."
+        },
+        "explanation": "المسافة تساوي السرعة مضروبة في الزمن (مستنبط من تعريف السرعة الخطية) [28].",
+        "number": 39,
+        "id": "U01-L01-Q039"
+      },
+      {
+        "question": "إذا كان للاقتران المتشعب قاعدة واحدة فقط لجميع قيم x، فماذا يصبح؟",
+        "options": {
+          "A": "اقتراناً متشعباً معقداً",
+          "B": "اقتراناً عادياً (غير متشعب)",
+          "C": "اقتراناً صفرياً",
+          "D": "ليس اقتراناً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اقتراناً عادياً (غير متشعب)",
+        "difficulty": "easy",
+        "source": {
+          "page": 16,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التشعب يتطلب قواعد مختلفة لفترات مختلفة؛ قاعدة واحدة تعني فقدان خاصية التشعب [3]."
+        },
+        "explanation": "التشعب يتطلب قواعد مختلفة لفترات مختلفة؛ قاعدة واحدة تعني فقدان خاصية التشعب [3].",
+        "number": 40,
+        "id": "U01-L01-Q040"
+      }
+    ]
+  }
+}

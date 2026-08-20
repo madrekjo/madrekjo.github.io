@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "1.1",
+    "lesson_name": "النصوص القرآنية (سورة النساء والحجرات والأنعام)",
+    "unit_number": 1,
+    "unit_name": "الوحدة الأولى",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما القيمة الأساسية التي تدعو إليها الآية (58) من سورة النساء؟",
+        "options": {
+          "A": "العدل وأداء الأمانات",
+          "B": "الشورى",
+          "C": "التفكر في الكون",
+          "D": "التقوى"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "العدل وأداء الأمانات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العدل وأداء الأمانات"
+        },
+        "explanation": "العدل وأداء الأمانات",
+        "number": 1,
+        "id": "U01-L01-Q001"
+      },
+      {
+        "question": "ما المعنى اللغوي لكلمة (نِعِمّا) الواردة في النص؟",
+        "options": {
+          "A": "نِعْمَ ما",
+          "B": "لا تفعل",
+          "C": "بئس ما",
+          "D": "ما أجمل"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "نِعْمَ ما",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نِعْمَ ما"
+        },
+        "explanation": "نِعْمَ ما",
+        "number": 2,
+        "id": "U01-L01-Q002"
+      },
+      {
+        "question": "بمَ أمر الله تعالى عند الحكم بين الناس في سورة النساء؟",
+        "options": {
+          "A": "بالقوة",
+          "B": "بالسرعة",
+          "C": "بالعدل",
+          "D": "بالمحاباة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "بالعدل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالعدل"
+        },
+        "explanation": "بالعدل",
+        "number": 3,
+        "id": "U01-L01-Q003"
+      },
+      {
+        "question": "إلامَ تدعو سورة الحجرات في الآية (13)؟",
+        "options": {
+          "A": "التفاخر بالأنساب",
+          "B": "المساواة والتعارف",
+          "C": "الحروب",
+          "D": "جمع المال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المساواة والتعارف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المساواة والتعارف"
+        },
+        "explanation": "المساواة والتعارف",
+        "number": 4,
+        "id": "U01-L01-Q004"
+      },
+      {
+        "question": "ما هو ميزان التفاضل بين الناس عند الله تعالى كما ورد في سورة الحجرات؟",
+        "options": {
+          "A": "المال",
+          "B": "النسب",
+          "C": "التقوى",
+          "D": "القوة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "التقوى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التقوى"
+        },
+        "explanation": "التقوى",
+        "number": 5,
+        "id": "U01-L01-Q005"
+      },
+      {
+        "question": "ما الغاية من جعل الناس شعوباً وقبائل؟",
+        "options": {
+          "A": "للتعارف",
+          "B": "للقتال",
+          "C": "للتفاخر",
+          "D": "للتمييز الطبقي"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "للتعارف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "للتعارف"
+        },
+        "explanation": "للتعارف",
+        "number": 6,
+        "id": "U01-L01-Q006"
+      },
+      {
+        "question": "ما المقصود بـ (فالق الحب والنوى) في سورة الأنعام؟",
+        "options": {
+          "A": "زارعها",
+          "B": "شقها لإخراج النبات والشجر منها",
+          "C": "جامعها",
+          "D": "بائعها"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "شقها لإخراج النبات والشجر منها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "شقها لإخراج النبات والشجر منها"
+        },
+        "explanation": "شقها لإخراج النبات والشجر منها",
+        "number": 7,
+        "id": "U01-L01-Q007"
+      },
+      {
+        "question": "ما معنى كلمة (تؤفكون) في قوله تعالى: (فأنى تؤفكون)؟",
+        "options": {
+          "A": "تصدقون",
+          "B": "تنصرفون عن الحق",
+          "C": "تضحكون",
+          "D": "تخافون"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تنصرفون عن الحق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تنصرفون عن الحق"
+        },
+        "explanation": "تنصرفون عن الحق",
+        "number": 8,
+        "id": "U01-L01-Q008"
+      },
+      {
+        "question": "ما هو المعنى البلاغي لأسلوب الاستفهام في (فأنى تؤفكون)؟",
+        "options": {
+          "A": "التقرير",
+          "B": "التشويق",
+          "C": "التعجب والإنكار",
+          "D": "التمني"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "التعجب والإنكار",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التعجب والإنكار"
+        },
+        "explanation": "التعجب والإنكار",
+        "number": 9,
+        "id": "U01-L01-Q009"
+      },
+      {
+        "question": "ما المقصود بـ (فالق الإصباح)؟",
+        "options": {
+          "A": "الذي خلق الشمس",
+          "B": "الذي يشق ظلمة الليل بنور الصباح",
+          "C": "الذي ينهي اليوم",
+          "D": "غروب الشمس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الذي يشق ظلمة الليل بنور الصباح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الذي يشق ظلمة الليل بنور الصباح"
+        },
+        "explanation": "الذي يشق ظلمة الليل بنور الصباح",
+        "number": 10,
+        "id": "U01-L01-Q010"
+      },
+      {
+        "question": "ما دلالة قوله تعالى (جعل الشمس والقمر حسباناً)؟",
+        "options": {
+          "A": "أنهما للزينة فقط",
+          "B": "أنهما يجريان بحساب دقيق ومنظم",
+          "C": "أنهما يظهران صدفة",
+          "D": "صعوبة رؤيتهما"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أنهما يجريان بحساب دقيق ومنظم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أنهما يجريان بحساب دقيق ومنظم"
+        },
+        "explanation": "أنهما يجريان بحساب دقيق ومنظم",
+        "number": 11,
+        "id": "U01-L01-Q011"
+      },
+      {
+        "question": "ما الغرض من ذكر خلق النجوم في سورة الأنعام؟",
+        "options": {
+          "A": "للتجارة",
+          "B": "للاهتداء بها في ظلمات البر والبحر",
+          "C": "للتزيين فقط",
+          "D": "لعد السنين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "للاهتداء بها في ظلمات البر والبحر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "للاهتداء بها في ظلمات البر والبحر"
+        },
+        "explanation": "للاهتداء بها في ظلمات البر والبحر",
+        "number": 12,
+        "id": "U01-L01-Q012"
+      },
+      {
+        "question": "ما معنى كلمة (مستقر) الواردة في سياق خلق البشر؟",
+        "options": {
+          "A": "مكان الرحيل",
+          "B": "موضع العبادة",
+          "C": "مكان الاستقرار والعيش في الدنيا",
+          "D": "الموت"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "مكان الاستقرار والعيش في الدنيا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مكان الاستقرار والعيش في الدنيا"
+        },
+        "explanation": "مكان الاستقرار والعيش في الدنيا",
+        "number": 13,
+        "id": "U01-L01-Q013"
+      },
+      {
+        "question": "بمَ نعت الله تعالى (القنوان) في سورة الأنعام؟",
+        "options": {
+          "A": "عالية",
+          "B": "دانية (قريبة سهلة التناول)",
+          "C": "بعيدة",
+          "D": "يابسة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "دانية (قريبة سهلة التناول)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "دانية (قريبة سهلة التناول)"
+        },
+        "explanation": "دانية (قريبة سهلة التناول)",
+        "number": 14,
+        "id": "U01-L01-Q014"
+      },
+      {
+        "question": "إلامَ تدعو الآيات عند ذكر (انظروا إلى ثمره إذا أثمر وينعه)؟",
+        "options": {
+          "A": "الأكل فقط",
+          "B": "التأمل والتفكر في قدرة الله",
+          "C": "الزراعة",
+          "D": "البيع"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التأمل والتفكر في قدرة الله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التأمل والتفكر في قدرة الله"
+        },
+        "explanation": "التأمل والتفكر في قدرة الله",
+        "number": 15,
+        "id": "U01-L01-Q015"
+      },
+      {
+        "question": "ما الوظيفة الفنية لتوظيف (الطباق) مثل (الحي والميت) في النصوص؟",
+        "options": {
+          "A": "إرباك المعنى",
+          "B": "توضيح المعنى وتوكيده",
+          "C": "إطالة النص",
+          "D": "تقليل الكلمات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "توضيح المعنى وتوكيده",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "توضيح المعنى وتوكيده"
+        },
+        "explanation": "توضيح المعنى وتوكيده",
+        "number": 16,
+        "id": "U01-L01-Q016"
+      },
+      {
+        "question": "من صور التكريم الإنساني في سورة الحجرات:",
+        "options": {
+          "A": "المساواة في الأصل البشري",
+          "B": "تفضيل الغني",
+          "C": "تفضيل القوي",
+          "D": "التمييز بين القبائل"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "المساواة في الأصل البشري",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المساواة في الأصل البشري"
+        },
+        "explanation": "المساواة في الأصل البشري",
+        "number": 17,
+        "id": "U01-L01-Q017"
+      },
+      {
+        "question": "ما الرابط الذي يجمع بين أداء الأمانات والعدل في سورة النساء؟",
+        "options": {
+          "A": "صعوبة تطبيقهما",
+          "B": "أنهما أساس صلاح المجتمع واستقراره",
+          "C": "انفصالهما عن بعض",
+          "D": "أنهما قيم ثانوية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أنهما أساس صلاح المجتمع واستقراره",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أنهما أساس صلاح المجتمع واستقراره"
+        },
+        "explanation": "أنهما أساس صلاح المجتمع واستقراره",
+        "number": 18,
+        "id": "U01-L01-Q018"
+      },
+      {
+        "question": "كلمة (باسقة) تعني:",
+        "options": {
+          "A": "منخفضة",
+          "B": "مرتفعة الأغصان",
+          "C": "ذابلة",
+          "D": "مقطوعة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مرتفعة الأغصان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مرتفعة الأغصان"
+        },
+        "explanation": "مرتفعة الأغصان",
+        "number": 19,
+        "id": "U01-L01-Q019"
+      },
+      {
+        "question": "ما المقصود بـ (ولي حميم) في سورة فصلت؟",
+        "options": {
+          "A": "عدو لدود",
+          "B": "قريب مشفق ومحسن إليك",
+          "C": "شخص غريب",
+          "D": "خادم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "قريب مشفق ومحسن إليك",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قريب مشفق ومحسن إليك"
+        },
+        "explanation": "قريب مشفق ومحسن إليك",
+        "number": 20,
+        "id": "U01-L01-Q020"
+      },
+      {
+        "question": "بماذا يدفع المسلم الإساءة كما ورد في سورة فصلت؟",
+        "options": {
+          "A": "بالانتقام",
+          "B": "بالإساءة مثلها",
+          "C": "بالتي هي أحسن (بالحسنى)",
+          "D": "بالتجاهل"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "بالتي هي أحسن (بالحسنى)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالتي هي أحسن (بالحسنى)"
+        },
+        "explanation": "بالتي هي أحسن (بالحسنى)",
+        "number": 21,
+        "id": "U01-L01-Q021"
+      },
+      {
+        "question": "من هم الذين يستحقون (الحظ العظيم) في سورة فصلت؟",
+        "options": {
+          "A": "األغنياء",
+          "B": "الصابرون والمتسامحون",
+          "C": "القادة",
+          "D": "المسافرون"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الصابرون والمتسامحون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الصابرون والمتسامحون"
+        },
+        "explanation": "الصابرون والمتسامحون",
+        "number": 22,
+        "id": "U01-L01-Q022"
+      },
+      {
+        "question": "ما هو مبدأ الحكم الذي أكدت عليه سورة الشورى؟",
+        "options": {
+          "A": "القوة",
+          "B": "الشورى",
+          "C": "الفردية",
+          "D": "المال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الشورى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الشورى"
+        },
+        "explanation": "الشورى",
+        "number": 23,
+        "id": "U01-L01-Q023"
+      },
+      {
+        "question": "ما هو الخلق العظيم الذي دعت إليه سورة الشورى بجانب الشورى؟",
+        "options": {
+          "A": "البخل",
+          "B": "العفو والتسامح",
+          "C": "التسرع",
+          "D": "التكبر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العفو والتسامح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العفو والتسامح"
+        },
+        "explanation": "العفو والتسامح",
+        "number": 24,
+        "id": "U01-L01-Q024"
+      },
+      {
+        "question": "ما معنى (لا جناح عليه) في قوله تعالى (فمن انتصر بعد ظلمه فأولئك ما عليهم من سبيل)؟",
+        "options": {
+          "A": "لا إثم ولا لوم عليه",
+          "B": "عليه ذنب كبير",
+          "C": "يجب أن يعتذر",
+          "D": "سيدخل السجن"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "لا إثم ولا لوم عليه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا إثم ولا لوم عليه"
+        },
+        "explanation": "لا إثم ولا لوم عليه",
+        "number": 25,
+        "id": "U01-L01-Q025"
+      },
+      {
+        "question": "ما دلالة اقتران (العفو) بـ (الإصلاح) في سورة الشورى؟",
+        "options": {
+          "A": "أن العفو المطلق دائماً صحيح",
+          "B": "أن العفو الممدوح هو ما كان فيه إصلاح للنفس والمجتمع",
+          "C": "للتزيين اللفظي",
+          "D": "لصعوبة العفو"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أن العفو الممدوح هو ما كان فيه إصلاح للنفس والمجتمع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أن العفو الممدوح هو ما كان فيه إصلاح للنفس والمجتمع"
+        },
+        "explanation": "أن العفو الممدوح هو ما كان فيه إصلاح للنفس والمجتمع",
+        "number": 26,
+        "id": "U01-L01-Q026"
+      },
+      {
+        "question": "تعتبر النصوص القرآنية المدروسة أن الإنسان في الأرض هو:",
+        "options": {
+          "A": "عابر سبيل فقط",
+          "B": "خليفة الله في الأرض لبنائها وإعمارها",
+          "C": "مجرد كائن مستهلك",
+          "D": "عدو للطبيعة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "خليفة الله في الأرض لبنائها وإعمارها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خليفة الله في الأرض لبنائها وإعمارها"
+        },
+        "explanation": "خليفة الله في الأرض لبنائها وإعمارها",
+        "number": 27,
+        "id": "U01-L01-Q027"
+      },
+      {
+        "question": "ما العالقة بين نهايات الآيات في سورة الأنعام (لقوم يعلمون، يفقهون، يؤمنون) ومضمونها؟",
+        "options": {
+          "A": "علاقة عشوائية",
+          "B": "علاقة تكاملية تناسب مستوى إدراك الفئة الموجه لها الخطاب",
+          "C": "لا يوجد علاقة",
+          "D": "للسجع فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "علاقة تكاملية تناسب مستوى إدراك الفئة الموجه لها الخطاب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "علاقة تكاملية تناسب مستوى إدراك الفئة الموجه لها الخطاب"
+        },
+        "explanation": "علاقة تكاملية تناسب مستوى إدراك الفئة الموجه لها الخطاب",
+        "number": 28,
+        "id": "U01-L01-Q028"
+      },
+      {
+        "question": "ما الفرق الدقيق بين (العدل) و (الإنصاف) حسب المناقشة في النص؟",
+        "options": {
+          "A": "هما مترادفان تماماً",
+          "B": "العدل إعطاء الحقوق، والإنصاف قد يتضمن زيادة من باب الفضل",
+          "C": "لا فرق بينهما",
+          "D": "الإنصاف أقوى من العدل دائماً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العدل إعطاء الحقوق، والإنصاف قد يتضمن زيادة من باب الفضل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العدل إعطاء الحقوق، والإنصاف قد يتضمن زيادة من باب الفضل"
+        },
+        "explanation": "العدل إعطاء الحقوق، والإنصاف قد يتضمن زيادة من باب الفضل",
+        "number": 29,
+        "id": "U01-L01-Q029"
+      },
+      {
+        "question": "كلمة (قِـنْو) هي المفرد لكلمة (قنوان) وتعني:",
+        "options": {
+          "A": "جذع النخلة",
+          "B": "عذق النخلة (العرجون)",
+          "C": "ورقة الشجر",
+          "D": "الثمرة اليابسة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عذق النخلة (العرجون)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عذق النخلة (العرجون)"
+        },
+        "explanation": "عذق النخلة (العرجون)",
+        "number": 30,
+        "id": "U01-L01-Q030"
+      },
+      {
+        "question": "ما دلالة قوله تعالى (إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا)؟",
+        "options": {
+          "A": "وجوب رد الودائع المادية فقط",
+          "B": "وجوب رد الأمانات المادية والمعنوية لأصحابها",
+          "C": "الأمانة اختيارية",
+          "D": "الأمانة مع المسلمين فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "وجوب رد الأمانات المادية والمعنوية لأصحابها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وجوب رد الأمانات المادية والمعنوية لأصحابها"
+        },
+        "explanation": "وجوب رد الأمانات المادية والمعنوية لأصحابها",
+        "number": 31,
+        "id": "U01-L01-Q031"
+      },
+      {
+        "question": "ما المقصود بعبارة (عزم الأمور) في سورة الشورى؟",
+        "options": {
+          "A": "الأمور السهلة",
+          "B": "الأمور التي تحتاج إلى قوة إرادة وصبر وحزم",
+          "C": "الأمور التافهة",
+          "D": "التراجع عن القرار"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأمور التي تحتاج إلى قوة إرادة وصبر وحزم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأمور التي تحتاج إلى قوة إرادة وصبر وحزم"
+        },
+        "explanation": "الأمور التي تحتاج إلى قوة إرادة وصبر وحزم",
+        "number": 32,
+        "id": "U01-L01-Q032"
+      },
+      {
+        "question": "إلامَ يهدف أسلوب (الترهيب) في الآيات القرآنية؟",
+        "options": {
+          "A": "تخويف الناس بلا سبب",
+          "B": "تحذير الناس من عواقب مخالفة المنهج الإلهي",
+          "C": "إظهار القسوة",
+          "D": "إبعاد الناس عن الدين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تحذير الناس من عواقب مخالفة المنهج الإلهي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تحذير الناس من عواقب مخالفة المنهج الإلهي"
+        },
+        "explanation": "تحذير الناس من عواقب مخالفة المنهج الإلهي",
+        "number": 33,
+        "id": "U01-L01-Q033"
+      },
+      {
+        "question": "ما هي الوظيفة الفنية لتوظيف (الصور الفنية) في وصف النبات والثمر؟",
+        "options": {
+          "A": "تقريب المعنى للذهن وإبراز قدرة الخالق الجمالية",
+          "B": "تعقيد النص",
+          "C": "إطالة الآيات",
+          "D": "وصف الزراعة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "تقريب المعنى للذهن وإبراز قدرة الخالق الجمالية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تقريب المعنى للذهن وإبراز قدرة الخالق الجمالية"
+        },
+        "explanation": "تقريب المعنى للذهن وإبراز قدرة الخالق الجمالية",
+        "number": 34,
+        "id": "U01-L01-Q034"
+      },
+      {
+        "question": "أي من القيم الآتية لم تذكر في آيات الوحدة الأولى؟",
+        "options": {
+          "A": "العدل",
+          "B": "التقوى",
+          "C": "البخل",
+          "D": "العفو"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "البخل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "البخل"
+        },
+        "explanation": "البخل",
+        "number": 35,
+        "id": "U01-L01-Q035"
+      },
+      {
+        "question": "ما معنى الجذر اللغوي (بسق)؟",
+        "options": {
+          "A": "نزل",
+          "B": "علا وارتفع",
+          "C": "انحنى",
+          "D": "مات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "علا وارتفع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "علا وارتفع"
+        },
+        "explanation": "علا وارتفع",
+        "number": 36,
+        "id": "U01-L01-Q036"
+      },
+      {
+        "question": "في قوله (وجزاء سيئة سيئة مثلها)، ما هو الفن البديعي في تكرار كلمة سيئة؟",
+        "options": {
+          "A": "طباق",
+          "B": "مشاكلة (تسمية الشيء باسم ما يقابله)",
+          "C": "سجع",
+          "D": "جناس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مشاكلة (تسمية الشيء باسم ما يقابله)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مشاكلة (تسمية الشيء باسم ما يقابله)"
+        },
+        "explanation": "مشاكلة (تسمية الشيء باسم ما يقابله)",
+        "number": 37,
+        "id": "U01-L01-Q037"
+      },
+      {
+        "question": "لماذا خص الله تعالى (أولي الألباب) بالذكر في كثير من الآيات؟",
+        "options": {
+          "A": "لأنهم أصحاب العقول القادرة على الفهم والتدبر",
+          "B": "لأنهم يملكون المال",
+          "C": "لأنهم أقوياء جسدياً",
+          "D": "لا يوجد سبب خاص"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "لأنهم أصحاب العقول القادرة على الفهم والتدبر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لأنهم أصحاب العقول القادرة على الفهم والتدبر"
+        },
+        "explanation": "لأنهم أصحاب العقول القادرة على الفهم والتدبر",
+        "number": 38,
+        "id": "U01-L01-Q038"
+      },
+      {
+        "question": "العدل في الإسلام يجب أن يطبق على:",
+        "options": {
+          "A": "الأصدقاء فقط",
+          "B": "المسلمين فقط",
+          "C": "الجميع دون استثناء حتى مع الأعداء",
+          "D": "الأقوياء فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الجميع دون استثناء حتى مع الأعداء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الجميع دون استثناء حتى مع الأعداء"
+        },
+        "explanation": "الجميع دون استثناء حتى مع الأعداء",
+        "number": 39,
+        "id": "U01-L01-Q039"
+      },
+      {
+        "question": "ما العاطفة البارزة في آيات سورة الأنعام عند وصف الكون؟",
+        "options": {
+          "A": "عاطفة الحزن",
+          "B": "عاطفة الإجلال والتعظيم لقدرة الخالق",
+          "C": "عاطفة الخوف",
+          "D": "عاطفة الغضب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عاطفة الإجلال والتعظيم لقدرة الخالق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عاطفة الإجلال والتعظيم لقدرة الخالق"
+        },
+        "explanation": "عاطفة الإجلال والتعظيم لقدرة الخالق",
+        "number": 40,
+        "id": "U01-L01-Q040"
+      }
+    ]
+  }
+}

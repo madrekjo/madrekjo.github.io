@@ -1,0 +1,970 @@
+{
+  "lesson": {
+    "lesson_number": "4.2",
+    "lesson_name": "قواعد (المفعول معه وأسلوب الأمر)",
+    "unit_number": 4,
+    "unit_name": "الوحدة الرابعة",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما هو التعريف الدقيق للمفعول معه؟",
+        "options": {
+          "A": "اسم مرفوع يقع بعد واو العطف",
+          "B": "اسم منصوب يقع بعد واو بمعنى (مع) مسبوقة بجملة",
+          "C": "فعل مضارع منصوب",
+          "D": "اسم مجرور يقع بعد حرف جر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اسم منصوب يقع بعد واو بمعنى (مع) مسبوقة بجملة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم منصوب يقع بعد واو بمعنى (مع) مسبوقة بجملة"
+        },
+        "explanation": "اسم منصوب يقع بعد واو بمعنى (مع) مسبوقة بجملة",
+        "number": 1,
+        "id": "U04-L02-Q001"
+      },
+      {
+        "question": "ما نوع الواو في جملة (يسهرُ السَّمارُ وضوءَ القمرِ)؟",
+        "options": {
+          "A": "واو العطف",
+          "B": "واو القسم",
+          "C": "واو المعيّة",
+          "D": "واو الاستئناف"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "واو المعيّة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "واو المعيّة"
+        },
+        "explanation": "واو المعيّة",
+        "number": 2,
+        "id": "U04-L02-Q002"
+      },
+      {
+        "question": "تعرب كلمة (الكتابَ) في جملة (جلسَ الطلابُ والكتابَ) مفعولاً معه منصوباً لأن:",
+        "options": {
+          "A": "الكتاب شارك الطلاب في فعل الجلوس",
+          "B": "الواو هنا بمعنى (مع) ولا تدل على المشاركة في الفعل",
+          "C": "الواو حرف عطف",
+          "D": "الكلمة جاءت في بداية الجملة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الواو هنا بمعنى (مع) ولا تدل على المشاركة في الفعل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الواو هنا بمعنى (مع) ولا تدل على المشاركة في الفعل"
+        },
+        "explanation": "الواو هنا بمعنى (مع) ولا تدل على المشاركة في الفعل",
+        "number": 3,
+        "id": "U04-L02-Q003"
+      },
+      {
+        "question": "ما إعراب كلمة (سعيداً) في جملة (عُدْ وسعيداً)؟",
+        "options": {
+          "A": "مفعول به",
+          "B": "مفعول معه منصوب",
+          "C": "نعت منصوب",
+          "D": "حال منصوب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مفعول معه منصوب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مفعول معه منصوب"
+        },
+        "explanation": "مفعول معه منصوب",
+        "number": 4,
+        "id": "U04-L02-Q004"
+      },
+      {
+        "question": "تتعين الواو للعطف (ولا يجوز أن تكون للمعية) إذا كان الفعل:",
+        "options": {
+          "A": "لا يقع إلا من متعدد (مثل: تشارك، تنافس)",
+          "B": "فعلاً ماضياً دائماً",
+          "C": "فعلاً مبنياً للمجهول",
+          "D": "موجهاً للمفرد فقط"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "لا يقع إلا من متعدد (مثل: تشارك، تنافس)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا يقع إلا من متعدد (مثل: تشارك، تنافس)"
+        },
+        "explanation": "لا يقع إلا من متعدد (مثل: تشارك، تنافس)",
+        "number": 5,
+        "id": "U04-L02-Q005"
+      },
+      {
+        "question": "في جملة (تذاكرَ أحمدُ وعيسى)، الواو هنا للعطف لأن الفعل (تذاكر):",
+        "options": {
+          "A": "يستلزم وجود طرفين للمشاركة",
+          "B": "فعل أمر",
+          "C": "لا يحتاج لمفعول به",
+          "D": "بمعنى (مع)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "يستلزم وجود طرفين للمشاركة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يستلزم وجود طرفين للمشاركة"
+        },
+        "explanation": "يستلزم وجود طرفين للمشاركة",
+        "number": 6,
+        "id": "U04-L02-Q006"
+      },
+      {
+        "question": "ما نوع الواو في (ذهبتُ إلى المدرسةِ وشروقَ الشمسِ)؟",
+        "options": {
+          "A": "واو عطف",
+          "B": "واو معيّة",
+          "C": "واو حال",
+          "D": "واو استئناف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "واو معيّة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "واو معيّة"
+        },
+        "explanation": "واو معيّة",
+        "number": 7,
+        "id": "U04-L02-Q007"
+      },
+      {
+        "question": "في جملة (كلُّ فتاةٍ وخُلقُها)، الواو هنا للعطف لأنها:",
+        "options": {
+          "A": "وقعت قبل تمام عناصر الجملة (الخبر محذوف)",
+          "B": "بمعنى مع",
+          "C": "نصبت ما بعدها",
+          "D": "جاءت في جملة فعلية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "وقعت قبل تمام عناصر الجملة (الخبر محذوف)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وقعت قبل تمام عناصر الجملة (الخبر محذوف)"
+        },
+        "explanation": "وقعت قبل تمام عناصر الجملة (الخبر محذوف)",
+        "number": 8,
+        "id": "U04-L02-Q008"
+      },
+      {
+        "question": "يشترط في المفعول معه أن يسبقه:",
+        "options": {
+          "A": "مبتدأ فقط",
+          "B": "فعل فقط",
+          "C": "جملة تامة (فعلية أو اسمية تضم معنى الفعل)",
+          "D": "حرف جر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "جملة تامة (فعلية أو اسمية تضم معنى الفعل)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جملة تامة (فعلية أو اسمية تضم معنى الفعل)"
+        },
+        "explanation": "جملة تامة (فعلية أو اسمية تضم معنى الفعل)",
+        "number": 9,
+        "id": "U04-L02-Q009"
+      },
+      {
+        "question": "ما إعراب الواو في (ما أنتَ والنّميمةَ؟)؟",
+        "options": {
+          "A": "حرف عطف",
+          "B": "واو المعية حرف مبني لا محل له من الإعراب",
+          "C": "واو القسم",
+          "D": "واو الحال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "واو المعية حرف مبني لا محل له من الإعراب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "واو المعية حرف مبني لا محل له من الإعراب"
+        },
+        "explanation": "واو المعية حرف مبني لا محل له من الإعراب",
+        "number": 10,
+        "id": "U04-L02-Q010"
+      },
+      {
+        "question": "ما التقدير الصحيح للواو في جملة (سرتُ والشاطئَ)؟",
+        "options": {
+          "A": "سرتُ والشاطئُ سار معي",
+          "B": "سرتُ مع الشاطئ",
+          "C": "سرتُ ثم الشاطئ",
+          "D": "سرتُ أو الشاطئ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "سرتُ مع الشاطئ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "سرتُ مع الشاطئ"
+        },
+        "explanation": "سرتُ مع الشاطئ",
+        "number": 11,
+        "id": "U04-L02-Q011"
+      },
+      {
+        "question": "تعتبر (كيف أنتَ وقضايا الأمةِ؟) جملة تتضمن مفعولاً معه هو:",
+        "options": {
+          "A": "أنت",
+          "B": "كيف",
+          "C": "قضايا",
+          "D": "الأمة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "قضايا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قضايا"
+        },
+        "explanation": "قضايا",
+        "number": 12,
+        "id": "U04-L02-Q012"
+      },
+      {
+        "question": "في جملة (خرجَ هشامٌ وسامرٌ بَعدَه)، الواو للعطف لوجود كلمة:",
+        "options": {
+          "A": "خرج",
+          "B": "هشام",
+          "C": "بعده",
+          "D": "سامر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "بعده",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بعده"
+        },
+        "explanation": "بعده",
+        "number": 13,
+        "id": "U04-L02-Q013"
+      },
+      {
+        "question": "المفعول معه يكون دائماً حكمة الإعرابي:",
+        "options": {
+          "A": "الرفع",
+          "B": "الجر",
+          "C": "النصب",
+          "D": "البناء على الفتح"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "النصب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النصب"
+        },
+        "explanation": "النصب",
+        "number": 14,
+        "id": "U04-L02-Q014"
+      },
+      {
+        "question": "أي الجمل الآتية تحتوي على (واو المعية)؟",
+        "options": {
+          "A": "جاء محمد وعلي",
+          "B": "استيقظت وأذانَ الفجر",
+          "C": "تخاصم زيد وعمر",
+          "D": "الشمس والقمر يجريان"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "استيقظت وأذانَ الفجر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "استيقظت وأذانَ الفجر"
+        },
+        "explanation": "استيقظت وأذانَ الفجر",
+        "number": 15,
+        "id": "U04-L02-Q015"
+      },
+      {
+        "question": "إذا أمكنت مشاركة ما بعد الواو لما قبلها في الفعل ولم يترتب فساد في المعنى:",
+        "options": {
+          "A": "يجب النصب على المعية",
+          "B": "تكون الواو للعطف أرجح",
+          "C": "يمتنع العطف",
+          "D": "تكون الواو للقسم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تكون الواو للعطف أرجح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تكون الواو للعطف أرجح"
+        },
+        "explanation": "تكون الواو للعطف أرجح",
+        "number": 16,
+        "id": "U04-L02-Q016"
+      },
+      {
+        "question": "ما إعراب كلمة (ضوء) في (يسهر السمار وضوءَ القمر)؟",
+        "options": {
+          "A": "مفعول به",
+          "B": "مفعول معه منصوب وعلامة نصبه الفتحة",
+          "C": "مضاف إليه",
+          "D": "اسم معطوف منصوب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مفعول معه منصوب وعلامة نصبه الفتحة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مفعول معه منصوب وعلامة نصبه الفتحة"
+        },
+        "explanation": "مفعول معه منصوب وعلامة نصبه الفتحة",
+        "number": 17,
+        "id": "U04-L02-Q017"
+      },
+      {
+        "question": "في جملة (ذهبتُ إلى القدسِ وأسوارَها)، كلمة (أسوار) هي:",
+        "options": {
+          "A": "مفعول به",
+          "B": "مفعول معه",
+          "C": "نعت",
+          "D": "خبر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مفعول معه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مفعول معه"
+        },
+        "explanation": "مفعول معه",
+        "number": 18,
+        "id": "U04-L02-Q018"
+      },
+      {
+        "question": "الواو في (كلُّ صانعٍ وما صنَع) هي واو:",
+        "options": {
+          "A": "المعية",
+          "B": "العطف",
+          "C": "الحال",
+          "D": "الاستئناف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العطف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العطف"
+        },
+        "explanation": "العطف",
+        "number": 19,
+        "id": "U04-L02-Q019"
+      },
+      {
+        "question": "المفعول معه لا يشارك الفاعل في القيام بالفعل.",
+        "options": {
+          "A": "صح",
+          "B": "خطأ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "صح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صح"
+        },
+        "explanation": "صح",
+        "number": 20,
+        "id": "U04-L02-Q020"
+      },
+      {
+        "question": "ما هو الغرض الأساسي من (الأمر الحقيقي)؟",
+        "options": {
+          "A": "النصح فقط",
+          "B": "طلب الفعل على وجه الاستعلاء والإلزام",
+          "C": "التمني",
+          "D": "التهديد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "طلب الفعل على وجه الاستعلاء والإلزام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طلب الفعل على وجه الاستعلاء والإلزام"
+        },
+        "explanation": "طلب الفعل على وجه الاستعلاء والإلزام",
+        "number": 21,
+        "id": "U04-L02-Q021"
+      },
+      {
+        "question": "كم عدد صيغ الأمر الواردة في الدرس؟",
+        "options": {
+          "A": "2",
+          "B": "3",
+          "C": "4",
+          "D": "5"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "4",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "4"
+        },
+        "explanation": "4",
+        "number": 22,
+        "id": "U04-L02-Q022"
+      },
+      {
+        "question": "في قوله تعالى (وَأَقِيمُوا الصَّلَاةَ)، صيغة الأمر هي:",
+        "options": {
+          "A": "فعل الأمر",
+          "B": "اسم فعل الأمر",
+          "C": "المصدر النائب عن فعل الأمر",
+          "D": "المضارع المقترن بلام الأمر"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "فعل الأمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فعل الأمر"
+        },
+        "explanation": "فعل الأمر",
+        "number": 23,
+        "id": "U04-L02-Q023"
+      },
+      {
+        "question": "ما صيغة الأمر في قول الرسول ﷺ: (صَبْرًا آلَ ياسرٍ)؟",
+        "options": {
+          "A": "فعل أمر",
+          "B": "اسم فعل أمر",
+          "C": "المصدر النائب عن فعل الأمر",
+          "D": "مضارع بلام الأمر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "المصدر النائب عن فعل الأمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المصدر النائب عن فعل الأمر"
+        },
+        "explanation": "المصدر النائب عن فعل الأمر",
+        "number": 24,
+        "id": "U04-L02-Q024"
+      },
+      {
+        "question": "كلمة (صَهْ) في قوله (صَهْ والإمامُ يخطبُ) هي:",
+        "options": {
+          "A": "فعل أمر",
+          "B": "اسم فعل أمر",
+          "C": "مصدر",
+          "D": "مفعول به"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اسم فعل أمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم فعل أمر"
+        },
+        "explanation": "اسم فعل أمر",
+        "number": 25,
+        "id": "U04-L02-Q025"
+      },
+      {
+        "question": "ما صيغة الأمر في (لِتعملْ بإخلاصٍ)؟",
+        "options": {
+          "A": "فعل أمر صريح",
+          "B": "الفعل المضارع المقترن بلام الأمر",
+          "C": "اسم فعل أمر",
+          "D": "مصدر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الفعل المضارع المقترن بلام الأمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الفعل المضارع المقترن بلام الأمر"
+        },
+        "explanation": "الفعل المضارع المقترن بلام الأمر",
+        "number": 26,
+        "id": "U04-L02-Q026"
+      },
+      {
+        "question": "يخرج الأمر إلى معنى (الدعاء) إذا كان الطلب موجهًا من:",
+        "options": {
+          "A": "الأعلى إلى الأدنى",
+          "B": "المساوي لمساويه",
+          "C": "الأدنى إلى الأعلى (من العبد لربه)",
+          "D": "العدو لعدوه"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الأدنى إلى الأعلى (من العبد لربه)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأدنى إلى الأعلى (من العبد لربه)"
+        },
+        "explanation": "الأدنى إلى الأعلى (من العبد لربه)",
+        "number": 27,
+        "id": "U04-L02-Q027"
+      },
+      {
+        "question": "في قوله تعالى (رَبَّنَا اغْفِرْ لَنَا)، المعنى البلاغي للأمر (اغفر) هو:",
+        "options": {
+          "A": "التهديد",
+          "B": "الدعاء",
+          "C": "التخيير",
+          "D": "النصح"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الدعاء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدعاء"
+        },
+        "explanation": "الدعاء",
+        "number": 28,
+        "id": "U04-L02-Q028"
+      },
+      {
+        "question": "إذا كان الأمر يتضمن خيارات بين شيئين باستخدام (أو)، فإنه يفيد:",
+        "options": {
+          "A": "التعجيز",
+          "B": "التخيير",
+          "C": "التمني",
+          "D": "التهديد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التخيير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التخيير"
+        },
+        "explanation": "التخيير",
+        "number": 29,
+        "id": "U04-L02-Q029"
+      },
+      {
+        "question": "ما المعنى البلاغي للأمر في قولنا (يا نسيمَ الصَّبا بَلِّغْ تحيَّتَنا)؟",
+        "options": {
+          "A": "الدعاء",
+          "B": "التمني (لأنه لغير العاقل)",
+          "C": "التهديد",
+          "D": "التخيير"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التمني (لأنه لغير العاقل)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التمني (لأنه لغير العاقل)"
+        },
+        "explanation": "التمني (لأنه لغير العاقل)",
+        "number": 30,
+        "id": "U04-L02-Q030"
+      },
+      {
+        "question": "يخرج الأمر إلى (النصح والإرشاد) إذا كان الهدف منه:",
+        "options": {
+          "A": "التخويف",
+          "B": "تقديم مصلحة وفائدة للمخاطب دون إلزام",
+          "C": "إظهار الضعف",
+          "D": "طلب المستحيل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تقديم مصلحة وفائدة للمخاطب دون إلزام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تقديم مصلحة وفائدة للمخاطب دون إلزام"
+        },
+        "explanation": "تقديم مصلحة وفائدة للمخاطب دون إلزام",
+        "number": 31,
+        "id": "U04-L02-Q031"
+      },
+      {
+        "question": "في جملة (افعلْ ما تشاءُ وسَتَرى)، المعنى البلاغي للأمر هو:",
+        "options": {
+          "A": "الدعاء",
+          "B": "التهديد",
+          "C": "النصح",
+          "D": "التمني"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التهديد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التهديد"
+        },
+        "explanation": "التهديد",
+        "number": 32,
+        "id": "U04-L02-Q032"
+      },
+      {
+        "question": "ما المعنى البلاغي في (عِشْ واحداً أو صِلْ أخاكَ)؟",
+        "options": {
+          "A": "التخيير",
+          "B": "الدعاء",
+          "C": "التعجيز",
+          "D": "التهديد"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "التخيير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التخيير"
+        },
+        "explanation": "التخيير",
+        "number": 33,
+        "id": "U04-L02-Q033"
+      },
+      {
+        "question": "صيغة الأمر (لِنتَّقِ اللهَ) هي مضارع مجزوم بـ:",
+        "options": {
+          "A": "السكون",
+          "B": "حذف حرف العلة",
+          "C": "حذف النون",
+          "D": "الفتحة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حذف حرف العلة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حذف حرف العلة"
+        },
+        "explanation": "حذف حرف العلة",
+        "number": 34,
+        "id": "U04-L02-Q034"
+      },
+      {
+        "question": "يسمى الأمر الذي يفتقر لشرطي الاستعلاء والإلزام بـ:",
+        "options": {
+          "A": "أمر حقيقي",
+          "B": "أمر مجازي (خارج لمعانٍ بلاغية)",
+          "C": "أمر منفي",
+          "D": "أمر باطل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أمر مجازي (خارج لمعانٍ بلاغية)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أمر مجازي (خارج لمعانٍ بلاغية)"
+        },
+        "explanation": "أمر مجازي (خارج لمعانٍ بلاغية)",
+        "number": 35,
+        "id": "U04-L02-Q035"
+      },
+      {
+        "question": "في قول الشاعر (يا موتُ زُرْ)، المعنى البلاغي هو:",
+        "options": {
+          "A": "التهديد",
+          "B": "التمني",
+          "C": "الدعاء",
+          "D": "التخيير"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التمني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التمني"
+        },
+        "explanation": "التمني",
+        "number": 36,
+        "id": "U04-L02-Q036"
+      },
+      {
+        "question": "صيغة (قِياماً) في (قِياماً للطالب) تعني (قُوموا قِياماً)، وهي:",
+        "options": {
+          "A": "اسم فعل أمر",
+          "B": "مصدر نائب عن فعل الأمر",
+          "C": "مفعول به",
+          "D": "مبتدأ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مصدر نائب عن فعل الأمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مصدر نائب عن فعل الأمر"
+        },
+        "explanation": "مصدر نائب عن فعل الأمر",
+        "number": 37,
+        "id": "U04-L02-Q037"
+      },
+      {
+        "question": "أي من الأدوات الآتية تجزم الفعل المضارع لتعطي معنى الأمر؟",
+        "options": {
+          "A": "لا الناهية",
+          "B": "لام الأمر",
+          "C": "لن",
+          "D": "حتى"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لام الأمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لام الأمر"
+        },
+        "explanation": "لام الأمر",
+        "number": 38,
+        "id": "U04-L02-Q038"
+      },
+      {
+        "question": "ما الغرض البلاغي من قول الأب لابنه (احترمْ معلميكَ)؟",
+        "options": {
+          "A": "الدعاء",
+          "B": "النصح والإرشاد",
+          "C": "التعجيز",
+          "D": "التمني"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "النصح والإرشاد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النصح والإرشاد"
+        },
+        "explanation": "النصح والإرشاد",
+        "number": 39,
+        "id": "U04-L02-Q039"
+      },
+      {
+        "question": "الأمر الموجه من المساوِي لمساويه في الرتبة يسمى غالباً (التماساً)، لكنه في الكتاب ورد تحت بند:",
+        "options": {
+          "A": "الدعاء",
+          "B": "النصح والإرشاد أو الالتماس",
+          "C": "التمني",
+          "D": "التهديد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "النصح والإرشاد أو الالتماس",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النصح والإرشاد أو الالتماس"
+        },
+        "explanation": "النصح والإرشاد أو الالتماس",
+        "number": 40,
+        "id": "U04-L02-Q040"
+      }
+    ]
+  }
+}

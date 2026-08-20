@@ -1,0 +1,970 @@
+{
+  "lesson": {
+    "lesson_number": "2.2",
+    "lesson_name": "قواعد (صور الفاعل) وبلاغة (التشبيه التمثيلي)",
+    "unit_number": 2,
+    "unit_name": "الوحدة الثانية",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما التعريف الدقيق للفاعل في اللغة العربية؟",
+        "options": {
+          "A": "اسم أُسند إليه فعل مبني للمجهول",
+          "B": "اسم أُسند إليه فعل مبني للمعلوم ودل على من قام به",
+          "C": "اسم منصوب يقع بعد الفعل",
+          "D": "فعل يدل على الحدث"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اسم أُسند إليه فعل مبني للمعلوم ودل على من قام به",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم أُسند إليه فعل مبني للمعلوم ودل على من قام به"
+        },
+        "explanation": "اسم أُسند إليه فعل مبني للمعلوم ودل على من قام به",
+        "number": 1,
+        "id": "U02-L02-Q001"
+      },
+      {
+        "question": "ما صورة الفاعل في جملة (يَقفُ الأردنيّونَ مَوقِفًا مُشرّفًا)؟",
+        "options": {
+          "A": "ضمير متصل",
+          "B": "اسم ظاهر",
+          "C": "مصدر مؤول",
+          "D": "ضمير مستتر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اسم ظاهر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم ظاهر"
+        },
+        "explanation": "اسم ظاهر",
+        "number": 2,
+        "id": "U02-L02-Q002"
+      },
+      {
+        "question": "حدد الفاعل في جملة (ما كُلُّ ما يَتمنّى المرءُ يُدركُه) للفعل (يُدركه)؟",
+        "options": {
+          "A": "المرء",
+          "B": "ما",
+          "C": "ضمير مستتر تقديره هو",
+          "D": "الهاء في يُدركه"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "ضمير مستتر تقديره هو",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ضمير مستتر تقديره هو"
+        },
+        "explanation": "ضمير مستتر تقديره هو",
+        "number": 3,
+        "id": "U02-L02-Q003"
+      },
+      {
+        "question": "ما إعراب الياء في الفعل (تسألي) في جملة (لا تَسألي النّاسَ)؟",
+        "options": {
+          "A": "مفعول به",
+          "B": "اسم مجرور",
+          "C": "ضمير متصل مبني في محل رفع فاعل",
+          "D": "حرف زائد"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "ضمير متصل مبني في محل رفع فاعل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ضمير متصل مبني في محل رفع فاعل"
+        },
+        "explanation": "ضمير متصل مبني في محل رفع فاعل",
+        "number": 4,
+        "id": "U02-L02-Q004"
+      },
+      {
+        "question": "في جملة (يَسرُّ الوطنَ أنْ تتقدّمَ عالماتُه)، الفاعل للفعل (يسر) هو:",
+        "options": {
+          "A": "الوطن",
+          "B": "عالماته",
+          "C": "المصدر المؤول (أن تتقدم)",
+          "D": "ضمير مستتر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "المصدر المؤول (أن تتقدم)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المصدر المؤول (أن تتقدم)"
+        },
+        "explanation": "المصدر المؤول (أن تتقدم)",
+        "number": 5,
+        "id": "U02-L02-Q005"
+      },
+      {
+        "question": "ما التقدير الصحيح للمصدر المؤول في جملة (يسرني أن تلتزمَ بالنظام)؟",
+        "options": {
+          "A": "يسرني التزامُك",
+          "B": "يسرني ملتزم",
+          "C": "يسرني لزوم",
+          "D": "يسرني أنك ملتزم"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "يسرني التزامُك",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يسرني التزامُك"
+        },
+        "explanation": "يسرني التزامُك",
+        "number": 6,
+        "id": "U02-L02-Q006"
+      },
+      {
+        "question": "ما صورة الفاعل في جملة (زارَ الذينَ شاركوا في المؤتمرِ دُورَ الرعاية) للفعل (زار)؟",
+        "options": {
+          "A": "اسم إشارة",
+          "B": "اسم موصول",
+          "C": "ضمير متصل",
+          "D": "اسم ظاهر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اسم موصول",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم موصول"
+        },
+        "explanation": "اسم موصول",
+        "number": 7,
+        "id": "U02-L02-Q007"
+      },
+      {
+        "question": "حدد الفاعل في قوله تعالى (وعلى اللَّهِ فَلْيَتَوَكَّلِ الْمُؤْمِنُونَ)؟",
+        "options": {
+          "A": "الله",
+          "B": "المؤمنون",
+          "C": "ضمير مستتر",
+          "D": "الواو في يتوكل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المؤمنون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المؤمنون"
+        },
+        "explanation": "المؤمنون",
+        "number": 8,
+        "id": "U02-L02-Q008"
+      },
+      {
+        "question": "ما علامة رفع الفاعل في جملة (يَقفُ الأردنيّونَ)؟",
+        "options": {
+          "A": "الضمة",
+          "B": "الألف",
+          "C": "الواو لأنه جمع مذكر سالم",
+          "D": "ثبوت النون"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الواو لأنه جمع مذكر سالم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الواو لأنه جمع مذكر سالم"
+        },
+        "explanation": "الواو لأنه جمع مذكر سالم",
+        "number": 9,
+        "id": "U02-L02-Q009"
+      },
+      {
+        "question": "في جملة (شكرَتْ هذهِ اللاعبةُ كلَّ من سانَدَها)، الفاعل للفعل (شكرت) هو:",
+        "options": {
+          "A": "التاء في شكرت",
+          "B": "اللاعبة",
+          "C": "اسم الإشارة (هذه)",
+          "D": "ضمير مستتر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "اسم الإشارة (هذه)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم الإشارة (هذه)"
+        },
+        "explanation": "اسم الإشارة (هذه)",
+        "number": 10,
+        "id": "U02-L02-Q010"
+      },
+      {
+        "question": "أي من الضمائر الآتية لا يقع في محل رفع فاعل؟",
+        "options": {
+          "A": "واو الجماعة",
+          "B": "تاء الفاعل",
+          "C": "كاف الخطاب",
+          "D": "ياء المخاطبة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "كاف الخطاب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كاف الخطاب"
+        },
+        "explanation": "كاف الخطاب",
+        "number": 11,
+        "id": "U02-L02-Q011"
+      },
+      {
+        "question": "ما صورة الفاعل في جملة (قفا نبكِ)؟",
+        "options": {
+          "A": "ألف الاثنين",
+          "B": "ضمير مستتر",
+          "C": "اسم ظاهر",
+          "D": "مصدر مؤول"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "ألف الاثنين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ألف الاثنين"
+        },
+        "explanation": "ألف الاثنين",
+        "number": 12,
+        "id": "U02-L02-Q012"
+      },
+      {
+        "question": "في قول الشاعر (سادَه التاريخُ)، الفاعل للفعل (ساد) هو:",
+        "options": {
+          "A": "الهاء في ساده",
+          "B": "التاريخ",
+          "C": "ضمير مستتر",
+          "D": "محذوف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التاريخ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التاريخ"
+        },
+        "explanation": "التاريخ",
+        "number": 13,
+        "id": "U02-L02-Q013"
+      },
+      {
+        "question": "ما إعراب (أبو بكر) في جملة (تَولّى الخلافةَ أبو بكرٍ)؟",
+        "options": {
+          "A": "مفعول به مقدم",
+          "B": "فاعل مرفوع بالواو لأنه من الأسماء الخمسة",
+          "C": "مضاف إليه",
+          "D": "نعت"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فاعل مرفوع بالواو لأنه من الأسماء الخمسة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فاعل مرفوع بالواو لأنه من الأسماء الخمسة"
+        },
+        "explanation": "فاعل مرفوع بالواو لأنه من الأسماء الخمسة",
+        "number": 14,
+        "id": "U02-L02-Q014"
+      },
+      {
+        "question": "الفاعل في جملة (يُعجبني أنْ تلتزمَ بالنظام) هو المصدر المؤول، ومحله الإعرابي:",
+        "options": {
+          "A": "في محل نصب مفعول به",
+          "B": "في محل رفع فاعل",
+          "C": "في محل جر مضاف إليه",
+          "D": "في محل رفع مبتدأ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "في محل رفع فاعل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "في محل رفع فاعل"
+        },
+        "explanation": "في محل رفع فاعل",
+        "number": 15,
+        "id": "U02-L02-Q015"
+      },
+      {
+        "question": "حدد الفاعل للفعل (يَرفعُ) في (ويَرفعُني الصمتُ)؟",
+        "options": {
+          "A": "ياء المتكلم",
+          "B": "الصمت",
+          "C": "ضمير مستتر",
+          "D": "محذوف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الصمت",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الصمت"
+        },
+        "explanation": "الصمت",
+        "number": 16,
+        "id": "U02-L02-Q016"
+      },
+      {
+        "question": "ما نوع التاء في (استضافَتْ رانةُ سلو￯)؟",
+        "options": {
+          "A": "تاء الفاعل",
+          "B": "تاء التأنيث الساكنة لا محل لها من الإعراب",
+          "C": "ضمير متصل في محل رفع فاعل",
+          "D": "جزء من جذر الفعل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تاء التأنيث الساكنة لا محل لها من الإعراب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تاء التأنيث الساكنة لا محل لها من الإعراب"
+        },
+        "explanation": "تاء التأنيث الساكنة لا محل لها من الإعراب",
+        "number": 17,
+        "id": "U02-L02-Q017"
+      },
+      {
+        "question": "في جملة (تنافسَ الرَّجلانِ)، علامة رفع الفاعل هي:",
+        "options": {
+          "A": "الضمة",
+          "B": "الواو",
+          "C": "الألف لأنه مثنى",
+          "D": "النون"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الألف لأنه مثنى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الألف لأنه مثنى"
+        },
+        "explanation": "الألف لأنه مثنى",
+        "number": 18,
+        "id": "U02-L02-Q018"
+      },
+      {
+        "question": "متى يكون الفاعل ضميرًا مستترًا؟",
+        "options": {
+          "A": "إذا كان اسمًا ظاهرًا بعد الفعل",
+          "B": "إذا لم يظهر في اللفظ وقدر ذهنيًا",
+          "C": "إذا اتصل به واو الجماعة",
+          "D": "إذا كان مصدرًا مؤولاً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إذا لم يظهر في اللفظ وقدر ذهنيًا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إذا لم يظهر في اللفظ وقدر ذهنيًا"
+        },
+        "explanation": "إذا لم يظهر في اللفظ وقدر ذهنيًا",
+        "number": 19,
+        "id": "U02-L02-Q019"
+      },
+      {
+        "question": "ما إعراب (نا) في (ذَهبْنا نحنُ وأهلُنا)؟",
+        "options": {
+          "A": "مفعول به",
+          "B": "ضمير متصل مبني في محل رفع فاعل",
+          "C": "اسم مجرور",
+          "D": "مبتدأ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ضمير متصل مبني في محل رفع فاعل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ضمير متصل مبني في محل رفع فاعل"
+        },
+        "explanation": "ضمير متصل مبني في محل رفع فاعل",
+        "number": 20,
+        "id": "U02-L02-Q020"
+      },
+      {
+        "question": "ما المقصود بالتشبيه التمثيلي؟",
+        "options": {
+          "A": "تشبيه مفرد بمفرد",
+          "B": "تشبيه صورة منتزعة من متعدد بصورة أخر￯",
+          "C": "تشبيه يحذف منه وجه الشبه",
+          "D": "تشبيه تذكر فيه الأداة فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تشبيه صورة منتزعة من متعدد بصورة أخر￯",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تشبيه صورة منتزعة من متعدد بصورة أخر￯"
+        },
+        "explanation": "تشبيه صورة منتزعة من متعدد بصورة أخر￯",
+        "number": 21,
+        "id": "U02-L02-Q021"
+      },
+      {
+        "question": "في قوله تعالى (مَثَلُ الَّذِينَ يُنْفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنْبَتَتْ سَبْعَ سَنَابِلَ)، وجه الشبه هو:",
+        "options": {
+          "A": "الإنفاق فقط",
+          "B": "الحبة فقط",
+          "C": "صورة من يعطي قليلاً فيجني شيئًا كثيرًا",
+          "D": "سبع سنابل"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "صورة من يعطي قليلاً فيجني شيئًا كثيرًا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صورة من يعطي قليلاً فيجني شيئًا كثيرًا"
+        },
+        "explanation": "صورة من يعطي قليلاً فيجني شيئًا كثيرًا",
+        "number": 22,
+        "id": "U02-L02-Q022"
+      },
+      {
+        "question": "حدد المشبه به في حديث الرسول ﷺ: (مَثَلُ المؤمنيِن في توادِّهِمْ وتَراحُمِهِمْ... كَمَثَلِ الجَسَدِ إذا اشتكى مِنْهُ عضوٌ تداعى لَهُ سائرُ الجسدِ)؟",
+        "options": {
+          "A": "المؤمنون",
+          "B": "التواد والتراحم",
+          "C": "صورة الجسد الذي يتألم كله لألم جزء منه",
+          "D": "العضو المريض"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "صورة الجسد الذي يتألم كله لألم جزء منه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صورة الجسد الذي يتألم كله لألم جزء منه"
+        },
+        "explanation": "صورة الجسد الذي يتألم كله لألم جزء منه",
+        "number": 23,
+        "id": "U02-L02-Q023"
+      },
+      {
+        "question": "ما الفرق الجوهري بين التشبيه المفرد والتشبيه التمثيلي؟",
+        "options": {
+          "A": "لا فرق بينهما",
+          "B": "المفرد يشبه عنصرًا بعنصر، والتمثيلي يشبه صورة بصورة",
+          "C": "المفرد لا يحتاج أداة",
+          "D": "التمثيلي دائماً بليغ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المفرد يشبه عنصرًا بعنصر، والتمثيلي يشبه صورة بصورة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المفرد يشبه عنصرًا بعنصر، والتمثيلي يشبه صورة بصورة"
+        },
+        "explanation": "المفرد يشبه عنصرًا بعنصر، والتمثيلي يشبه صورة بصورة",
+        "number": 24,
+        "id": "U02-L02-Q024"
+      },
+      {
+        "question": "في قول الشاعر يصف الشيب: (والشيبُ يَنهضُ في الشَّبابِ كأنَّهُ... لَيْلٌ يَصيحُ بجانِبَيهِ نهارُ)، المشبه هو:",
+        "options": {
+          "A": "الشيب",
+          "B": "الشباب",
+          "C": "صورة بياض الشيب وهو يغزو سواد الشباب",
+          "D": "الليل والنهار"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "صورة بياض الشيب وهو يغزو سواد الشباب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صورة بياض الشيب وهو يغزو سواد الشباب"
+        },
+        "explanation": "صورة بياض الشيب وهو يغزو سواد الشباب",
+        "number": 25,
+        "id": "U02-L02-Q025"
+      },
+      {
+        "question": "ما وجه الشبه في تشبيه الشيب بالليل والنهار؟",
+        "options": {
+          "A": "القوة",
+          "B": "البطء",
+          "C": "الصورة المركبة من اختلاط البياض بالسواد",
+          "D": "الخوف"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الصورة المركبة من اختلاط البياض بالسواد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الصورة المركبة من اختلاط البياض بالسواد"
+        },
+        "explanation": "الصورة المركبة من اختلاط البياض بالسواد",
+        "number": 26,
+        "id": "U02-L02-Q026"
+      },
+      {
+        "question": "يصف الشاعر دموع امرأة: (كأنَّ الدُّموعَ على خَدِّها... بَقِيَّةُ طَلٍّ على جُلَّنارِ)، المشبه به هنا هو:",
+        "options": {
+          "A": "الدموع",
+          "B": "الخد",
+          "C": "صورة قطرات الندى الشفافة على الزهر الأحمر",
+          "D": "الليل"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "صورة قطرات الندى الشفافة على الزهر الأحمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صورة قطرات الندى الشفافة على الزهر الأحمر"
+        },
+        "explanation": "صورة قطرات الندى الشفافة على الزهر الأحمر",
+        "number": 27,
+        "id": "U02-L02-Q027"
+      },
+      {
+        "question": "في جملة (كأنَّ الهِلالَ نُونُ لُجَيْنٍ غَرِقَتْ في صحيفةٍ زرقاء)، المشبه هو:",
+        "options": {
+          "A": "الهلال",
+          "B": "صورة الهلال الأبيض المقوس في السماء الزرقاء",
+          "C": "اللجين (الفضة)",
+          "D": "البحر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "صورة الهلال الأبيض المقوس في السماء الزرقاء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صورة الهلال الأبيض المقوس في السماء الزرقاء"
+        },
+        "explanation": "صورة الهلال الأبيض المقوس في السماء الزرقاء",
+        "number": 28,
+        "id": "U02-L02-Q028"
+      },
+      {
+        "question": "أي الجمل الآتية تعتبر تشبيهًا تمثيليًا؟",
+        "options": {
+          "A": "الجندي كالأسد",
+          "B": "البنت قمر",
+          "C": "كأن الممالك حولك صفوف صلاة قام فيها إمام",
+          "D": "أنت شمس"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "كأن الممالك حولك صفوف صلاة قام فيها إمام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كأن الممالك حولك صفوف صلاة قام فيها إمام"
+        },
+        "explanation": "كأن الممالك حولك صفوف صلاة قام فيها إمام",
+        "number": 29,
+        "id": "U02-L02-Q029"
+      },
+      {
+        "question": "في تشبيه الياسمين: (فكأنّه والزّهرُ تاجٌ فوقَه... مَلِكٌ تجلّى في بساطٍ أخضرِ)، ما وجه الشبه؟",
+        "options": {
+          "A": "الجمال فقط",
+          "B": "صورة شيء أبيض يعلوه زهر ملون فوق أرض خضراء",
+          "C": "الملك",
+          "D": "اللون الأبيض"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "صورة شيء أبيض يعلوه زهر ملون فوق أرض خضراء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صورة شيء أبيض يعلوه زهر ملون فوق أرض خضراء"
+        },
+        "explanation": "صورة شيء أبيض يعلوه زهر ملون فوق أرض خضراء",
+        "number": 30,
+        "id": "U02-L02-Q030"
+      },
+      {
+        "question": "في قول ابن المقفع: (يبقى الصالح من الرجال صالحًا حتى يصاحب فاسدًا... مثل مياه الأنهار تكون عذبة حتى تخالط ماء البحر)، نوع التشبيه:",
+        "options": {
+          "A": "مفرد مجمل",
+          "B": "بليغ",
+          "C": "تمثيلي",
+          "D": "مؤكد"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "تمثيلي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تمثيلي"
+        },
+        "explanation": "تمثيلي",
+        "number": 31,
+        "id": "U02-L02-Q031"
+      },
+      {
+        "question": "التشبيه التمثيلي يهدف غالبًا إلى:",
+        "options": {
+          "A": "تقليل الكلمات",
+          "B": "توضيح المعنى وتقريبه بصورة حية ملموسة",
+          "C": "إخفاء الحقيقة",
+          "D": "السجع"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "توضيح المعنى وتقريبه بصورة حية ملموسة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "توضيح المعنى وتقريبه بصورة حية ملموسة"
+        },
+        "explanation": "توضيح المعنى وتقريبه بصورة حية ملموسة",
+        "number": 32,
+        "id": "U02-L02-Q032"
+      },
+      {
+        "question": "أي من الأدوات الآتية هي الأكثر استخدامًا في التشبيه التمثيلي؟",
+        "options": {
+          "A": "مِثل، كأنّ، الكاف",
+          "B": "لكنّ",
+          "C": "لعلّ",
+          "D": "إنّ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مِثل، كأنّ، الكاف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مِثل، كأنّ، الكاف"
+        },
+        "explanation": "مِثل، كأنّ، الكاف",
+        "number": 33,
+        "id": "U02-L02-Q033"
+      },
+      {
+        "question": "في تشبيه النجوم: (كأنّما النُّجومُ وراءَها... صفوفُ صلاةٍ قامَ فيها إمامُ)، المشبه به هو:",
+        "options": {
+          "A": "النجوم",
+          "B": "الإمام",
+          "C": "صورة المصلين خلف إمامهم في نظام",
+          "D": "الليل"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "صورة المصلين خلف إمامهم في نظام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صورة المصلين خلف إمامهم في نظام"
+        },
+        "explanation": "صورة المصلين خلف إمامهم في نظام",
+        "number": 34,
+        "id": "U02-L02-Q034"
+      },
+      {
+        "question": "وجه الشبه في التشبيه التمثيلي يكون دائماً:",
+        "options": {
+          "A": "صفة واحدة",
+          "B": "صورة منتزعة من متعدد",
+          "C": "كلمة مفردة",
+          "D": "محذوفًا وجوبًا"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "صورة منتزعة من متعدد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صورة منتزعة من متعدد"
+        },
+        "explanation": "صورة منتزعة من متعدد",
+        "number": 35,
+        "id": "U02-L02-Q035"
+      },
+      {
+        "question": "في قول الشاعر: (سريتَ من حَرَمٍ ليلاً إلى حَرَمٍ... كما سر￯ البدرُ في داجٍ من الظُّلَمِ)، المشبه به هو:",
+        "options": {
+          "A": "البدر",
+          "B": "الظلم",
+          "C": "صورة البدر وهو يسير في الليل المظلم فينيره",
+          "D": "الحرم"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "صورة البدر وهو يسير في الليل المظلم فينيره",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صورة البدر وهو يسير في الليل المظلم فينيره"
+        },
+        "explanation": "صورة البدر وهو يسير في الليل المظلم فينيره",
+        "number": 36,
+        "id": "U02-L02-Q036"
+      },
+      {
+        "question": "حدد أركان التشبيه في جملة (تُحَلِّقُ الإعلاميّةُ في الفضاءِ كالنَّجمةِ)؟",
+        "options": {
+          "A": "تشبيه تمثيلي",
+          "B": "تشبيه مفرد (مرسل مفصل)",
+          "C": "تشبيه بليغ",
+          "D": "لا يوجد تشبيه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تشبيه مفرد (مرسل مفصل)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تشبيه مفرد (مرسل مفصل)"
+        },
+        "explanation": "تشبيه مفرد (مرسل مفصل)",
+        "number": 37,
+        "id": "U02-L02-Q037"
+      },
+      {
+        "question": "أي العبارات الآتية تصف صورة المشبه في تشبيه البحتري (أَلَسْتَ أَعَمَّهُمْ جُودًا... كَالْبَحْرِ يَجْذِبُ كُلَّ حَمْدٍ)؟",
+        "options": {
+          "A": "البحر فقط",
+          "B": "صورة الممدوح الذي يأتيه الثناء من كل جانب لسعة كرمه كالبحر",
+          "C": "الجود",
+          "D": "الحمد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "صورة الممدوح الذي يأتيه الثناء من كل جانب لسعة كرمه كالبحر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صورة الممدوح الذي يأتيه الثناء من كل جانب لسعة كرمه كالبحر"
+        },
+        "explanation": "صورة الممدوح الذي يأتيه الثناء من كل جانب لسعة كرمه كالبحر",
+        "number": 38,
+        "id": "U02-L02-Q038"
+      },
+      {
+        "question": "في التشبيه التمثيلي، يمكن أن تكون الأداة محذوفة.",
+        "options": {
+          "A": "صح",
+          "B": "خطأ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "صح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صح"
+        },
+        "explanation": "صح",
+        "number": 39,
+        "id": "U02-L02-Q039"
+      },
+      {
+        "question": "ما نوع التشبيه في (الجنديُّ أسدٌ من أُسودِ الوطنِ)؟",
+        "options": {
+          "A": "تمثيلي",
+          "B": "بليغ (مفرد)",
+          "C": "مرسل مجمل",
+          "D": "مؤكد مفصل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بليغ (مفرد)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بليغ (مفرد)"
+        },
+        "explanation": "بليغ (مفرد)",
+        "number": 40,
+        "id": "U02-L02-Q040"
+      }
+    ]
+  }
+}

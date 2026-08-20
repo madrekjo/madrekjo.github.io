@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "1.1",
+    "lesson_name": "الآيات 102-105 من سورة آل عمران",
+    "unit_number": 1,
+    "unit_name": "الوحدة الأولى: واعتصموا بحبل الله جميعاً",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "سورة آل عمران هي سورة:",
+        "options": {
+          "A": "مكية",
+          "B": "مدنية",
+          "C": "مكية إلا آية",
+          "D": "مدنية إلا آية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مدنية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مدنية"
+        },
+        "explanation": "مدنية",
+        "number": 1,
+        "id": "U01-L01-Q001"
+      },
+      {
+        "question": "عدد آيات سورة آل عمران هو:",
+        "options": {
+          "A": "100 آية",
+          "B": "150 آية",
+          "C": "200 آية",
+          "D": "286 آية"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "200 آية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "200 آية"
+        },
+        "explanation": "200 آية",
+        "number": 2,
+        "id": "U01-L01-Q002"
+      },
+      {
+        "question": "من أسماء سورة آل عمران التي تعني المضيئة:",
+        "options": {
+          "A": "البقرة",
+          "B": "الزهراء",
+          "C": "الفرقان",
+          "D": "المنجية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الزهراء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الزهراء"
+        },
+        "explanation": "الزهراء",
+        "number": 3,
+        "id": "U01-L01-Q003"
+      },
+      {
+        "question": "ما المقصود بقوله تعالى (حق تقاته)؟",
+        "options": {
+          "A": "القدر الذي يطيقه الإنسان",
+          "B": "القدر الذي يجب أن يُتقى الله به",
+          "C": "تقوى القلب فقط",
+          "D": "التقوى في العبادات فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "القدر الذي يجب أن يُتقى الله به",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القدر الذي يجب أن يُتقى الله به"
+        },
+        "explanation": "القدر الذي يجب أن يُتقى الله به",
+        "number": 4,
+        "id": "U01-L01-Q004"
+      },
+      {
+        "question": "ما معنى لفظ (حبل الله) في قوله تعالى (واعتصموا بحبل الله)؟",
+        "options": {
+          "A": "الحبل المتين",
+          "B": "دين الله تعالى",
+          "C": "أحكام الصيام",
+          "D": "العهود والمواثيق"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "دين الله تعالى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "دين الله تعالى"
+        },
+        "explanation": "دين الله تعالى",
+        "number": 5,
+        "id": "U01-L01-Q005"
+      },
+      {
+        "question": "ما معنى (اعتصموا)؟",
+        "options": {
+          "A": "تمسكوا",
+          "B": "تجمعوا",
+          "C": "تفرقوا",
+          "D": "تحاوروا"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "تمسكوا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تمسكوا"
+        },
+        "explanation": "تمسكوا",
+        "number": 6,
+        "id": "U01-L01-Q006"
+      },
+      {
+        "question": "ما معنى قوله تعالى (فألف) في (فألف بين قلوبكم)؟",
+        "options": {
+          "A": "فرق",
+          "B": "أبعد",
+          "C": "جمع",
+          "D": "أحصى"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "جمع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جمع"
+        },
+        "explanation": "جمع",
+        "number": 7,
+        "id": "U01-L01-Q007"
+      },
+      {
+        "question": "ما معنى (شفا) في قوله تعالى (على شفا حفرة)؟",
+        "options": {
+          "A": "عمق",
+          "B": "قاع",
+          "C": "حافة الشيء وطرفه",
+          "D": "وسط الحفرة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "حافة الشيء وطرفه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حافة الشيء وطرفه"
+        },
+        "explanation": "حافة الشيء وطرفه",
+        "number": 8,
+        "id": "U01-L01-Q008"
+      },
+      {
+        "question": "ما معنى (البينات)؟",
+        "options": {
+          "A": "الكتب السماوية",
+          "B": "الرسل",
+          "C": "البراهين والدلائل الواضحة",
+          "D": "الأخبار"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "البراهين والدلائل الواضحة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "البراهين والدلائل الواضحة"
+        },
+        "explanation": "البراهين والدلائل الواضحة",
+        "number": 9,
+        "id": "U01-L01-Q009"
+      },
+      {
+        "question": "الآية الكريمة (102) تتناول موضوع:",
+        "options": {
+          "A": "التمسك بالإسلام",
+          "B": "الدعوة إلى الخير",
+          "C": "تقوى الله تعالى",
+          "D": "الاعتبار من الأمم السابقة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "تقوى الله تعالى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تقوى الله تعالى"
+        },
+        "explanation": "تقوى الله تعالى",
+        "number": 10,
+        "id": "U01-L01-Q010"
+      },
+      {
+        "question": "الآية الكريمة (103) تتناول موضوع:",
+        "options": {
+          "A": "التمسك بالإسلام أساس وحدة الأمة",
+          "B": "تقوى الله",
+          "C": "التحذير من النار",
+          "D": "وصف الجنة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "التمسك بالإسلام أساس وحدة الأمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التمسك بالإسلام أساس وحدة الأمة"
+        },
+        "explanation": "التمسك بالإسلام أساس وحدة الأمة",
+        "number": 11,
+        "id": "U01-L01-Q011"
+      },
+      {
+        "question": "الآية الكريمة (104) تتناول موضوع:",
+        "options": {
+          "A": "تقوى الله",
+          "B": "الاعتبار من الأمم",
+          "C": "الدعوة إلى الخير",
+          "D": "الميراث"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الدعوة إلى الخير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدعوة إلى الخير"
+        },
+        "explanation": "الدعوة إلى الخير",
+        "number": 12,
+        "id": "U01-L01-Q012"
+      },
+      {
+        "question": "الآية الكريمة (105) تتناول موضوع:",
+        "options": {
+          "A": "تقوى الله",
+          "B": "الدعوة إلى الخير",
+          "C": "الاعتبار من الأمم السابقة",
+          "D": "التوحيد"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الاعتبار من الأمم السابقة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاعتبار من الأمم السابقة"
+        },
+        "explanation": "الاعتبار من الأمم السابقة",
+        "number": 13,
+        "id": "U01-L01-Q013"
+      },
+      {
+        "question": "أول عمل قام به الرسول صلى الله عليه وسلم بعد الهجرة لبناء مجتمع قوي:",
+        "options": {
+          "A": "إنشاء السوق",
+          "B": "وضع الوثيقة",
+          "C": "بناء المسجد النبوي",
+          "D": "المؤاخاة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "بناء المسجد النبوي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بناء المسجد النبوي"
+        },
+        "explanation": "بناء المسجد النبوي",
+        "number": 14,
+        "id": "U01-L01-Q014"
+      },
+      {
+        "question": "كان الهدف من إنشاء سوق المدينة هو تخليص الاقتصاد من سيطرة:",
+        "options": {
+          "A": "المشركين",
+          "B": "الروم",
+          "C": "اليهود",
+          "D": "الفرس"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "اليهود",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اليهود"
+        },
+        "explanation": "اليهود",
+        "number": 15,
+        "id": "U01-L01-Q015"
+      },
+      {
+        "question": "على ماذا كان يقوم اقتصاد اليهود في المدينة؟",
+        "options": {
+          "A": "الزراعة",
+          "B": "التجارة الحرة",
+          "C": "التعامل بالربا",
+          "D": "الصناعة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "التعامل بالربا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التعامل بالربا"
+        },
+        "explanation": "التعامل بالربا",
+        "number": 16,
+        "id": "U01-L01-Q016"
+      },
+      {
+        "question": "دعت الآيات المسلمين لالتزام أوامر الله واجتناب نواهيه في كل من:",
+        "options": {
+          "A": "الأقوال فقط",
+          "B": "الأفعال فقط",
+          "C": "الأقوال والأفعال والمعاملات",
+          "D": "العبادات فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الأقوال والأفعال والمعاملات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأقوال والأفعال والمعاملات"
+        },
+        "explanation": "الأقوال والأفعال والمعاملات",
+        "number": 17,
+        "id": "U01-L01-Q017"
+      },
+      {
+        "question": "يجب أن تكون حالة الالتزام بمبادئ الدين دائمة حتى:",
+        "options": {
+          "A": "سن الشباب",
+          "B": "نهاية رمضان",
+          "C": "آخر لحظة من حياة المسلم",
+          "D": "تحقيق الأهداف الدنيوية"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "آخر لحظة من حياة المسلم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "آخر لحظة من حياة المسلم"
+        },
+        "explanation": "آخر لحظة من حياة المسلم",
+        "number": 18,
+        "id": "U01-L01-Q018"
+      },
+      {
+        "question": "ما هو اللفظ الذي جاء للدلالة على مسؤولية كل فرد في وجوب التمسك بالإسلام؟",
+        "options": {
+          "A": "واعتصموا",
+          "B": "جميعاً",
+          "C": "بحبل الله",
+          "D": "ولا تفرقوا"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "جميعاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميعاً"
+        },
+        "explanation": "جميعاً",
+        "number": 19,
+        "id": "U01-L01-Q019"
+      },
+      {
+        "question": "بماذا ذكر الله تعالى المسلمين بعد نعمة الإيمان في الآيات؟",
+        "options": {
+          "A": "نعمة الرزق",
+          "B": "نعمة الأخوة واجتماع القلوب",
+          "C": "نعمة الفتح",
+          "D": "نعمة القوة البدنية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نعمة الأخوة واجتماع القلوب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نعمة الأخوة واجتماع القلوب"
+        },
+        "explanation": "نعمة الأخوة واجتماع القلوب",
+        "number": 20,
+        "id": "U01-L01-Q020"
+      },
+      {
+        "question": "كانت الأوس والخزرج قبل الإسلام يعيشون حالة من:",
+        "options": {
+          "A": "السلم الدائم",
+          "B": "التجارة المشتركة",
+          "C": "العداء والاقتتال لأسباب واهية",
+          "D": "التحالف القوي"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "العداء والاقتتال لأسباب واهية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العداء والاقتتال لأسباب واهية"
+        },
+        "explanation": "العداء والاقتتال لأسباب واهية",
+        "number": 21,
+        "id": "U01-L01-Q021"
+      },
+      {
+        "question": "ما المقصود بـ (المعروف)؟",
+        "options": {
+          "A": "كل ما استقبحه الناس",
+          "B": "كل ما أمر به الشرع واستحسنه",
+          "C": "العادات القديمة",
+          "D": "كل قول جميل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كل ما أمر به الشرع واستحسنه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل ما أمر به الشرع واستحسنه"
+        },
+        "explanation": "كل ما أمر به الشرع واستحسنه",
+        "number": 22,
+        "id": "U01-L01-Q022"
+      },
+      {
+        "question": "ما المقصود بـ (المنكر)؟",
+        "options": {
+          "A": "كل ما نهى عنه الشرع واستقبحه",
+          "B": "ما لا يعرفه الناس",
+          "C": "الأفعال الجديدة",
+          "D": "الأقوال الصعبة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "كل ما نهى عنه الشرع واستقبحه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل ما نهى عنه الشرع واستقبحه"
+        },
+        "explanation": "كل ما نهى عنه الشرع واستقبحه",
+        "number": 23,
+        "id": "U01-L01-Q023"
+      },
+      {
+        "question": "حذرت الآيات من الوقوع فيما وقعت فيه الأمم السابقة من:",
+        "options": {
+          "A": "بناء القصور",
+          "B": "التجارة",
+          "C": "التنازع والتفرق بعد وضوح الحق",
+          "D": "السفر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "التنازع والتفرق بعد وضوح الحق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التنازع والتفرق بعد وضوح الحق"
+        },
+        "explanation": "التنازع والتفرق بعد وضوح الحق",
+        "number": 24,
+        "id": "U01-L01-Q024"
+      },
+      {
+        "question": "الأسلوب الذي استخدمه شاس بن قيس للتفريق بين الأوس والخزرج هو:",
+        "options": {
+          "A": "القوة العسكرية",
+          "B": "إذكاء الفتن وتذكيرهم بحروبهم القديمة",
+          "C": "الحصار الاقتصادي",
+          "D": "سرقة الأموال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إذكاء الفتن وتذكيرهم بحروبهم القديمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إذكاء الفتن وتذكيرهم بحروبهم القديمة"
+        },
+        "explanation": "إذكاء الفتن وتذكيرهم بحروبهم القديمة",
+        "number": 25,
+        "id": "U01-L01-Q025"
+      },
+      {
+        "question": "عندما كاد الأوس والخزرج يقتتلون بعد فتنة شاس، نزل فيهم قوله تعالى:",
+        "options": {
+          "A": "آيات سورة البقرة",
+          "B": "آيات سورة آل عمران (102-105)",
+          "C": "آيات سورة النساء",
+          "D": "آيات سورة التوبة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "آيات سورة آل عمران (102-105)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "آيات سورة آل عمران (102-105)"
+        },
+        "explanation": "آيات سورة آل عمران (102-105)",
+        "number": 26,
+        "id": "U01-L01-Q026"
+      },
+      {
+        "question": "من القيم المستفادة من الدرس الحرص على:",
+        "options": {
+          "A": "الوحدة ونبذ الفرقة",
+          "B": "جمع المال",
+          "C": "التنافس في الدنيا",
+          "D": "الشهرة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الوحدة ونبذ الفرقة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الوحدة ونبذ الفرقة"
+        },
+        "explanation": "الوحدة ونبذ الفرقة",
+        "number": 27,
+        "id": "U01-L01-Q027"
+      },
+      {
+        "question": "من وسائل إيقاع الفتنة في العصر الحديث:",
+        "options": {
+          "A": "المسجد",
+          "B": "مواقع التواصل الاجتماعي بإشاعة الأكاذيب",
+          "C": "الكتب العلمية",
+          "D": "الرياضة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مواقع التواصل الاجتماعي بإشاعة الأكاذيب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مواقع التواصل الاجتماعي بإشاعة الأكاذيب"
+        },
+        "explanation": "مواقع التواصل الاجتماعي بإشاعة الأكاذيب",
+        "number": 28,
+        "id": "U01-L01-Q028"
+      },
+      {
+        "question": "ما واجب المسلم تجاه ما ينشر في مواقع التواصل؟",
+        "options": {
+          "A": "نشره فوراً",
+          "B": "تجاهله تماماً",
+          "C": "الحذر والتثبت من صحة المعلومات",
+          "D": "تصديق كل ما يقال"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الحذر والتثبت من صحة المعلومات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحذر والتثبت من صحة المعلومات"
+        },
+        "explanation": "الحذر والتثبت من صحة المعلومات",
+        "number": 29,
+        "id": "U01-L01-Q029"
+      },
+      {
+        "question": "قوله تعالى (ولا تموتن إلا وأنتم مسلمون) يوجه المسلم إلى:",
+        "options": {
+          "A": "المحافظة على دينه حتى الممات",
+          "B": "تمني الموت",
+          "C": "الخوف من الموت",
+          "D": "ترك العمل"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "المحافظة على دينه حتى الممات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المحافظة على دينه حتى الممات"
+        },
+        "explanation": "المحافظة على دينه حتى الممات",
+        "number": 30,
+        "id": "U01-L01-Q030"
+      },
+      {
+        "question": "نهت الآيات عن سلوك طريق الأمم التي تفرقت من بعد ما جاءهم:",
+        "options": {
+          "A": "المال",
+          "B": "القوة",
+          "C": "البينات (العلم والحجج)",
+          "D": "الرؤساء"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "البينات (العلم والحجج)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "البينات (العلم والحجج)"
+        },
+        "explanation": "البينات (العلم والحجج)",
+        "number": 31,
+        "id": "U01-L01-Q031"
+      },
+      {
+        "question": "ما نتيجة الاستجابة لداعي الخير والأمر بالمعروف؟",
+        "options": {
+          "A": "الفوز والفلاح",
+          "B": "الخسارة",
+          "C": "التعب",
+          "D": "الملل"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الفوز والفلاح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الفوز والفلاح"
+        },
+        "explanation": "الفوز والفلاح",
+        "number": 32,
+        "id": "U01-L01-Q032"
+      },
+      {
+        "question": "المقصود بـ (العصمة) للأمة كما أشارت الآيات:",
+        "options": {
+          "A": "القوة العسكرية",
+          "B": "التمسك بالدين",
+          "C": "كثرة العدد",
+          "D": "الغنى"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التمسك بالدين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التمسك بالدين"
+        },
+        "explanation": "التمسك بالدين",
+        "number": 33,
+        "id": "U01-L01-Q033"
+      },
+      {
+        "question": "عندما سمع الأوس والخزرج آيات الله يوم الفتنة، ماذا فعلوا؟",
+        "options": {
+          "A": "استمروا في الحرب",
+          "B": "بكوا وعانق بعضهم بعضاً",
+          "C": "غادروا المدينة",
+          "D": "رفضوا السماع"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بكوا وعانق بعضهم بعضاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بكوا وعانق بعضهم بعضاً"
+        },
+        "explanation": "بكوا وعانق بعضهم بعضاً",
+        "number": 34,
+        "id": "U01-L01-Q034"
+      },
+      {
+        "question": "يُعد الأمر بالمعروف والنهي عن المنكر صمام أمان لـ:",
+        "options": {
+          "A": "الفرد وحده",
+          "B": "المجتمع وتماسكه",
+          "C": "التجار فقط",
+          "D": "الطلاب فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المجتمع وتماسكه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المجتمع وتماسكه"
+        },
+        "explanation": "المجتمع وتماسكه",
+        "number": 35,
+        "id": "U01-L01-Q035"
+      },
+      {
+        "question": "ما هو العمل الذي نظّم شؤون المجتمع في المدينة؟",
+        "options": {
+          "A": "بناء المسجد",
+          "B": "وثيقة المدينة",
+          "C": "إنشاء السوق",
+          "D": "المؤاخاة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "وثيقة المدينة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وثيقة المدينة"
+        },
+        "explanation": "وثيقة المدينة",
+        "number": 36,
+        "id": "U01-L01-Q036"
+      },
+      {
+        "question": "أي من الآتية يعتبر من 'المنكر' حسب التعريف الشرعي؟",
+        "options": {
+          "A": "الصدق",
+          "B": "الأمانة",
+          "C": "الغيبة والنميمة",
+          "D": "إفشاء السلام"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الغيبة والنميمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الغيبة والنميمة"
+        },
+        "explanation": "الغيبة والنميمة",
+        "number": 37,
+        "id": "U01-L01-Q037"
+      },
+      {
+        "question": "تؤدي الفرقة والاختلاف في المجتمع إلى:",
+        "options": {
+          "A": "القوة",
+          "B": "الضعف وزوال الهيبة",
+          "C": "التطور",
+          "D": "السكينة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الضعف وزوال الهيبة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الضعف وزوال الهيبة"
+        },
+        "explanation": "الضعف وزوال الهيبة",
+        "number": 38,
+        "id": "U01-L01-Q038"
+      },
+      {
+        "question": "ما هو اللفظ الذي يدل على 'الحماية من الأخطار' في الآية 103؟",
+        "options": {
+          "A": "واعتصموا",
+          "B": "جميعاً",
+          "C": "ولا تفرقوا",
+          "D": "بحبل الله"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "واعتصموا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "واعتصموا"
+        },
+        "explanation": "واعتصموا",
+        "number": 39,
+        "id": "U01-L01-Q039"
+      },
+      {
+        "question": "قال صلى الله عليه وسلم: (اقرؤوا الزهراوين)، يقصد بهما سورتي:",
+        "options": {
+          "A": "الفاتحة والإخلاص",
+          "B": "البقرة وآل عمران",
+          "C": "آل عمران والنساء",
+          "D": "الكهف ومريم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "البقرة وآل عمران",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "البقرة وآل عمران"
+        },
+        "explanation": "البقرة وآل عمران",
+        "number": 40,
+        "id": "U01-L01-Q040"
+      }
+    ]
+  }
+}

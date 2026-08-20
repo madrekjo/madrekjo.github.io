@@ -1,0 +1,1212 @@
+{
+  "lesson": {
+    "lesson_number": "3.review",
+    "lesson_name": "مراجعة الوحدة 3",
+    "unit_number": 3,
+    "unit_name": "الوحدة الثالثة",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "من هو الطبيب الألماني الذي شخّص أول حالة لمرض آلزهايمر؟",
+        "options": {
+          "A": "جورج مينوت",
+          "B": "ألويس آلزهايمر",
+          "C": "فيليب غايار",
+          "D": "أغست ديتير"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ألويس آلزهايمر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ألويس آلزهايمر"
+        },
+        "explanation": "ألويس آلزهايمر",
+        "number": 1,
+        "id": "U03-L99-Q001"
+      },
+      {
+        "question": "ماذا أظهر تشريح دماغ المريضة (أغست ديتير) بعد وفاتها؟",
+        "options": {
+          "A": "تضخماً في الفص الجبهي",
+          "B": "تضاؤلاً في قشرة الدماغ وعقداً دهنية",
+          "C": "نزيفاً حاداً",
+          "D": "تلفاً في الأعصاب البصرية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تضاؤلاً في قشرة الدماغ وعقداً دهنية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تضاؤلاً في قشرة الدماغ وعقداً دهنية"
+        },
+        "explanation": "تضاؤلاً في قشرة الدماغ وعقداً دهنية",
+        "number": 2,
+        "id": "U03-L99-Q002"
+      },
+      {
+        "question": "ما هو العرض الأكثر بروزاً لمرض آلزهايمر؟",
+        "options": {
+          "A": "فقدان الذاكرة خاصة الحديثة منها",
+          "B": "الصداع النصفي",
+          "C": "ضعف العضلات",
+          "D": "فقدان الشهية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "فقدان الذاكرة خاصة الحديثة منها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فقدان الذاكرة خاصة الحديثة منها"
+        },
+        "explanation": "فقدان الذاكرة خاصة الحديثة منها",
+        "number": 3,
+        "id": "U03-L99-Q003"
+      },
+      {
+        "question": "ما صورة المبتدأ في جملة (العملُ التطوعيُّ شعارنا)؟",
+        "options": {
+          "A": "اسم ظاهر",
+          "B": "ضمير منفصل",
+          "C": "اسم إشارة",
+          "D": "مصدر مؤول"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "اسم ظاهر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم ظاهر"
+        },
+        "explanation": "اسم ظاهر",
+        "number": 4,
+        "id": "U03-L99-Q004"
+      },
+      {
+        "question": "ما هو الخبر في علم البلاغة؟",
+        "options": {
+          "A": "كلام لا يحتمل الصدق",
+          "B": "كلام يحتمل الصدق أو الكذب لذاته",
+          "C": "أسلوب نداء",
+          "D": "فعل أمر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كلام يحتمل الصدق أو الكذب لذاته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كلام يحتمل الصدق أو الكذب لذاته"
+        },
+        "explanation": "كلام يحتمل الصدق أو الكذب لذاته",
+        "number": 5,
+        "id": "U03-L99-Q005"
+      },
+      {
+        "question": "تبلغ نسبة الإصابة بآلزهايمر عند الإناث حوالي:",
+        "options": {
+          "A": "5%",
+          "B": "10%",
+          "C": "15%",
+          "D": "25%"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "15%",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "15%"
+        },
+        "explanation": "15%",
+        "number": 6,
+        "id": "U03-L99-Q006"
+      },
+      {
+        "question": "كلمة (تفاقم) الواردة في النص تعني:",
+        "options": {
+          "A": "انخفضت حدته",
+          "B": "تزايدت واستفحلت",
+          "C": "تلاشت",
+          "D": "استقرت"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تزايدت واستفحلت",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تزايدت واستفحلت"
+        },
+        "explanation": "تزايدت واستفحلت",
+        "number": 7,
+        "id": "U03-L99-Q007"
+      },
+      {
+        "question": "حدد المبتدأ في جملة (أنْ تُعدَّ البرنامجَ خيرٌ من الارتجال).",
+        "options": {
+          "A": "البرنامج",
+          "B": "خير",
+          "C": "المصدر المؤول (أن تُعدّ)",
+          "D": "الارتجال"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "المصدر المؤول (أن تُعدّ)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المصدر المؤول (أن تُعدّ)"
+        },
+        "explanation": "المصدر المؤول (أن تُعدّ)",
+        "number": 8,
+        "id": "U03-L99-Q008"
+      },
+      {
+        "question": "يسمى الغرض من الخبر (لازم الفائدة) عندما يكون المخاطب:",
+        "options": {
+          "A": "جاهلاً بالحكم",
+          "B": "عالماً بالحكم ويراد إعلامه بأن المتكلم يعلمه",
+          "C": "منكراً للحكم",
+          "D": "شاكاً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عالماً بالحكم ويراد إعلامه بأن المتكلم يعلمه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عالماً بالحكم ويراد إعلامه بأن المتكلم يعلمه"
+        },
+        "explanation": "عالماً بالحكم ويراد إعلامه بأن المتكلم يعلمه",
+        "number": 9,
+        "id": "U03-L99-Q009"
+      },
+      {
+        "question": "ما متوسط سنوات حياة المريض بعد التشخيص بآلزهايمر غالباً؟",
+        "options": {
+          "A": "سنتان",
+          "B": "سبع سنوات",
+          "C": "عشرون سنة",
+          "D": "خمسون سنة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "سبع سنوات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "سبع سنوات"
+        },
+        "explanation": "سبع سنوات",
+        "number": 10,
+        "id": "U03-L99-Q010"
+      },
+      {
+        "question": "ما صورة الخبر في جملة (المعلمونَ جنودٌ)؟",
+        "options": {
+          "A": "جملة فعلية",
+          "B": "جملة اسمية",
+          "C": "اسم مفرد",
+          "D": "شبه جملة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "اسم مفرد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم مفرد"
+        },
+        "explanation": "اسم مفرد",
+        "number": 11,
+        "id": "U03-L99-Q011"
+      },
+      {
+        "question": "ما المقصود بكلمة (هذيان)؟",
+        "options": {
+          "A": "نوم عميق",
+          "B": "اضطراب عقلي مؤقت باختالط الوعي",
+          "C": "ذكاء حاد",
+          "D": "صمت"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اضطراب عقلي مؤقت باختالط الوعي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اضطراب عقلي مؤقت باختالط الوعي"
+        },
+        "explanation": "اضطراب عقلي مؤقت باختالط الوعي",
+        "number": 12,
+        "id": "U03-L99-Q012"
+      },
+      {
+        "question": "يضرب الخبر (ابتدائياً) إذا كان المخاطب:",
+        "options": {
+          "A": "منكراً",
+          "B": "متردداً",
+          "C": "خالي الذهن من الحكم",
+          "D": "موافقاً"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "خالي الذهن من الحكم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خالي الذهن من الحكم"
+        },
+        "explanation": "خالي الذهن من الحكم",
+        "number": 13,
+        "id": "U03-L99-Q013"
+      },
+      {
+        "question": "في أي مرحلة يفقد المريض القدرة على التعرف على الأقارب والأصدقاء؟",
+        "options": {
+          "A": "ما قبل الخرف",
+          "B": "الخرف الأولي",
+          "C": "الخرف المتوسط",
+          "D": "الخرف المتقدم"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الخرف المتوسط",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الخرف المتوسط"
+        },
+        "explanation": "الخرف المتوسط",
+        "number": 14,
+        "id": "U03-L99-Q014"
+      },
+      {
+        "question": "في جملة (الجنةُ تحتَ أقدامِ الأمهاتِ)، الخبر هو:",
+        "options": {
+          "A": "جملة فعلية",
+          "B": "شبه جملة ظرفية",
+          "C": "اسم مفرد",
+          "D": "جملة اسمية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "شبه جملة ظرفية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "شبه جملة ظرفية"
+        },
+        "explanation": "شبه جملة ظرفية",
+        "number": 15,
+        "id": "U03-L99-Q015"
+      },
+      {
+        "question": "ما هو نوع الإنشاء في (يا أيَّتُها الشاباتُ شاركْنَ في الحياةِ)؟",
+        "options": {
+          "A": "إنشاء طلبي",
+          "B": "إنشاء غير طلبي",
+          "C": "جملة خبرية",
+          "D": "لا شيء مما سبق"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "إنشاء طلبي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إنشاء طلبي"
+        },
+        "explanation": "إنشاء طلبي",
+        "number": 16,
+        "id": "U03-L99-Q016"
+      },
+      {
+        "question": "من العوامل التي تزيد احتمال الإصابة بمرض آلزهايمر:",
+        "options": {
+          "A": "الرياضة",
+          "B": "الأكل الصحي",
+          "C": "التدخين وارتفاع الكوليسترول",
+          "D": "النوم الكافي"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "التدخين وارتفاع الكوليسترول",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التدخين وارتفاع الكوليسترول"
+        },
+        "explanation": "التدخين وارتفاع الكوليسترول",
+        "number": 17,
+        "id": "U03-L99-Q017"
+      },
+      {
+        "question": "ما إعراب (ما) في (ما أجملَ الصدقَ!)؟",
+        "options": {
+          "A": "خبر",
+          "B": "مفعول به",
+          "C": "مبتدأ",
+          "D": "مضاف إليه"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "مبتدأ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مبتدأ"
+        },
+        "explanation": "مبتدأ",
+        "number": 18,
+        "id": "U03-L99-Q018"
+      },
+      {
+        "question": "من صيغ الإنشاء (غير الطلبي):",
+        "options": {
+          "A": "النداء",
+          "B": "الاستفهام",
+          "C": "المدح والذم والتعجب",
+          "D": "التمني"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "المدح والذم والتعجب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المدح والذم والتعجب"
+        },
+        "explanation": "المدح والذم والتعجب",
+        "number": 19,
+        "id": "U03-L99-Q019"
+      },
+      {
+        "question": "هل وجد العلماء علاجاً شافياً لمرض آلزهايمر حتى الآن؟",
+        "options": {
+          "A": "نعم",
+          "B": "لا، ولكن توجد أدوية تؤخر التدهور",
+          "C": "نعم عن طريق الجراحة",
+          "D": "المرض يختفي وحده"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا، ولكن توجد أدوية تؤخر التدهور",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا، ولكن توجد أدوية تؤخر التدهور"
+        },
+        "explanation": "لا، ولكن توجد أدوية تؤخر التدهور",
+        "number": 20,
+        "id": "U03-L99-Q020"
+      },
+      {
+        "question": "ما صورة الخبر في جملة (الظلمُ مرتعُه وخيمٌ)؟",
+        "options": {
+          "A": "اسم مفرد",
+          "B": "جملة فعلية",
+          "C": "جملة اسمية",
+          "D": "شبه جملة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "جملة اسمية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جملة اسمية"
+        },
+        "explanation": "جملة اسمية",
+        "number": 21,
+        "id": "U03-L99-Q021"
+      },
+      {
+        "question": "ما الغرض البلاغي من قوله تعالى (رَبِّ إِنِّي وَهَنَ الْعَظْمُ مِنِّي)؟",
+        "options": {
+          "A": "الفخر",
+          "B": "إظهار الضعف والاسترحام",
+          "C": "المدح",
+          "D": "التحقير"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إظهار الضعف والاسترحام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إظهار الضعف والاسترحام"
+        },
+        "explanation": "إظهار الضعف والاسترحام",
+        "number": 22,
+        "id": "U03-L99-Q022"
+      },
+      {
+        "question": "ما الفائدة الصحية لممارسة الرياضة حسب النص؟",
+        "options": {
+          "A": "زيادة الوزن",
+          "B": "تحسين التروية الدموية للدماغ",
+          "C": "تضييع الوقت",
+          "D": "إضعاف العضلات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تحسين التروية الدموية للدماغ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تحسين التروية الدموية للدماغ"
+        },
+        "explanation": "تحسين التروية الدموية للدماغ",
+        "number": 23,
+        "id": "U03-L99-Q023"
+      },
+      {
+        "question": "في جملة (أنا في جناحيْكَ)، المبتدأ هو:",
+        "options": {
+          "A": "اسم إشارة",
+          "B": "ضمير رفع منفصل",
+          "C": "مصدر مؤول",
+          "D": "اسم ظاهر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ضمير رفع منفصل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ضمير رفع منفصل"
+        },
+        "explanation": "ضمير رفع منفصل",
+        "number": 24,
+        "id": "U03-L99-Q024"
+      },
+      {
+        "question": "ضرب الخبر في جملة (إنَّ السعادةَ في تعليمِ الآخرين) هو:",
+        "options": {
+          "A": "ابتدائي",
+          "B": "طلبي",
+          "C": "إنكاري",
+          "D": "إنشائي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "طلبي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طلبي"
+        },
+        "explanation": "طلبي",
+        "number": 25,
+        "id": "U03-L99-Q025"
+      },
+      {
+        "question": "معنى كلمة (النحيب) الواردة في وصف المرض:",
+        "options": {
+          "A": "الضحك",
+          "B": "البكاء الشديد بتشنج",
+          "C": "الهمس",
+          "D": "الغناء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "البكاء الشديد بتشنج",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "البكاء الشديد بتشنج"
+        },
+        "explanation": "البكاء الشديد بتشنج",
+        "number": 26,
+        "id": "U03-L99-Q026"
+      },
+      {
+        "question": "ما صورة المبتدأ في جملة (هذا وطني الأردن)؟",
+        "options": {
+          "A": "اسم موصول",
+          "B": "اسم إشارة",
+          "C": "ضمير متصل",
+          "D": "نكرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اسم إشارة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم إشارة"
+        },
+        "explanation": "اسم إشارة",
+        "number": 27,
+        "id": "U03-L99-Q027"
+      },
+      {
+        "question": "أي جملة مما يلي تعتبر (إنشاءً طلبياً بصيغة التمني)؟",
+        "options": {
+          "A": "نعم الرجل الصادق",
+          "B": "فليتَ الليلَ كان شهراً",
+          "C": "ما أروع السماء!",
+          "D": "والله لأدرسنّ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فليتَ الليلَ كان شهراً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فليتَ الليلَ كان شهراً"
+        },
+        "explanation": "فليتَ الليلَ كان شهراً",
+        "number": 28,
+        "id": "U03-L99-Q028"
+      },
+      {
+        "question": "المقصود بعبارة (بيتُ األدواءِ) في الحكمة العربية:",
+        "options": {
+          "A": "الصيدلية",
+          "B": "المعدة",
+          "C": "المستشفى",
+          "D": "المختبر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المعدة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المعدة"
+        },
+        "explanation": "المعدة",
+        "number": 29,
+        "id": "U03-L99-Q029"
+      },
+      {
+        "question": "الخبر في (شبكاتُ التواصلِ جعلتِ العالمَ قريةً) هو:",
+        "options": {
+          "A": "التواصل",
+          "B": "جعلت (جملة فعلية)",
+          "C": "العالم",
+          "D": "قرية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "جعلت (جملة فعلية)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جعلت (جملة فعلية)"
+        },
+        "explanation": "جعلت (جملة فعلية)",
+        "number": 30,
+        "id": "U03-L99-Q030"
+      },
+      {
+        "question": "يؤكد الخبر (الإنكاري) بـ:",
+        "options": {
+          "A": "أداة واحدة",
+          "B": "أداتي توكيد أو أكثر",
+          "C": "لا يؤكد",
+          "D": "أدوات نفي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أداتي توكيد أو أكثر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أداتي توكيد أو أكثر"
+        },
+        "explanation": "أداتي توكيد أو أكثر",
+        "number": 31,
+        "id": "U03-L99-Q031"
+      },
+      {
+        "question": "ما هي الهوايات الفكرية التي قد تقي من آلزهايمر؟",
+        "options": {
+          "A": "النوم",
+          "B": "القراءة والشطرنج",
+          "C": "مشاهدة التلفاز بصمت",
+          "D": "التسوق"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "القراءة والشطرنج",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القراءة والشطرنج"
+        },
+        "explanation": "القراءة والشطرنج",
+        "number": 32,
+        "id": "U03-L99-Q032"
+      },
+      {
+        "question": "في جملة (كمْ من مُتَّهمٍ بريءٌ)، المبتدأ (كم) نوعها:",
+        "options": {
+          "A": "استفهامية",
+          "B": "خبرية",
+          "C": "شرطية",
+          "D": "زائدة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "خبرية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خبرية"
+        },
+        "explanation": "خبرية",
+        "number": 33,
+        "id": "U03-L99-Q033"
+      },
+      {
+        "question": "ما نوع الإنشاء وصيغته في جملة (نِعْمَ البديلُ الاعتذارُ)؟",
+        "options": {
+          "A": "طلبي / أمر",
+          "B": "غير طلبي / مدح",
+          "C": "غير طلبي / قسم",
+          "D": "طلبي / نداء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "غير طلبي / مدح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "غير طلبي / مدح"
+        },
+        "explanation": "غير طلبي / مدح",
+        "number": 34,
+        "id": "U03-L99-Q034"
+      },
+      {
+        "question": "في أي سنة اكتشفت أول حالة آلزهايمر؟",
+        "options": {
+          "A": "1901م",
+          "B": "1906م",
+          "C": "1911م",
+          "D": "2050م"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1901م",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "1901م"
+        },
+        "explanation": "1901م",
+        "number": 35,
+        "id": "U03-L99-Q035"
+      },
+      {
+        "question": "المبتدأ دائماً يكون:",
+        "options": {
+          "A": "منصوباً",
+          "B": "مرفوعاً أو في محل رفع",
+          "C": "مجروراً",
+          "D": "مبنياً على الفتح"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مرفوعاً أو في محل رفع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مرفوعاً أو في محل رفع"
+        },
+        "explanation": "مرفوعاً أو في محل رفع",
+        "number": 36,
+        "id": "U03-L99-Q036"
+      },
+      {
+        "question": "تعتبر (عسى) من أدوات الإنشاء غير الطلبي وصيغتها:",
+        "options": {
+          "A": "التعجب",
+          "B": "الرجاء",
+          "C": "القسم",
+          "D": "المدح"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الرجاء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الرجاء"
+        },
+        "explanation": "الرجاء",
+        "number": 37,
+        "id": "U03-L99-Q037"
+      },
+      {
+        "question": "من مظاهر تدهور القدرة على التعبير عند المريض:",
+        "options": {
+          "A": "سرعة الحفظ",
+          "B": "تكرار الكلمات والتوقف المفاجئ",
+          "C": "تحدث لغات جديدة",
+          "D": "تحسن الخط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تكرار الكلمات والتوقف المفاجئ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تكرار الكلمات والتوقف المفاجئ"
+        },
+        "explanation": "تكرار الكلمات والتوقف المفاجئ",
+        "number": 38,
+        "id": "U03-L99-Q038"
+      },
+      {
+        "question": "أي جملة جاء فيها الخبر (شبه جملة من الجار والمجرور)؟",
+        "options": {
+          "A": "الوطن يزهو بأهله",
+          "B": "الوطن في قلوبنا",
+          "C": "الوطن عزيز",
+          "D": "الوطن حبه كبير"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الوطن في قلوبنا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الوطن في قلوبنا"
+        },
+        "explanation": "الوطن في قلوبنا",
+        "number": 39,
+        "id": "U03-L99-Q039"
+      },
+      {
+        "question": "جملة (واللهِ إنَّ الفتاةَ لَقادرةٌ) ضرب الخبر فيها:",
+        "options": {
+          "A": "ابتدائي",
+          "B": "طلبي",
+          "C": "إنكاري",
+          "D": "إنشائي"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "إنكاري",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إنكاري"
+        },
+        "explanation": "إنكاري",
+        "number": 40,
+        "id": "U03-L99-Q040"
+      },
+      {
+        "question": "ما المقصود بكلمة (تضاؤل) في وصف قشرة الدماغ؟",
+        "options": {
+          "A": "زيادة",
+          "B": "تراجع ونقصان الحجم",
+          "C": "ثبات",
+          "D": "تغير لون"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تراجع ونقصان الحجم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تراجع ونقصان الحجم"
+        },
+        "explanation": "تراجع ونقصان الحجم",
+        "number": 41,
+        "id": "U03-L99-Q041"
+      },
+      {
+        "question": "في جملة (منْ يحرمِ الرفقَ يُحرمِ الخيرَ)، المبتدأ هو:",
+        "options": {
+          "A": "من (اسم شرط)",
+          "B": "الرفق",
+          "C": "الخير",
+          "D": "يحرم"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "من (اسم شرط)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "من (اسم شرط)"
+        },
+        "explanation": "من (اسم شرط)",
+        "number": 42,
+        "id": "U03-L99-Q042"
+      },
+      {
+        "question": "ما الفرق بين التمني والرجاء؟",
+        "options": {
+          "A": "لا فرق",
+          "B": "التمني للمستحيل والرجاء للممكن",
+          "C": "الرجاء دائماً مستحيل",
+          "D": "التمني إنشاء غير طلبي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التمني للمستحيل والرجاء للممكن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التمني للمستحيل والرجاء للممكن"
+        },
+        "explanation": "التمني للمستحيل والرجاء للممكن",
+        "number": 43,
+        "id": "U03-L99-Q043"
+      },
+      {
+        "question": "يصنف نص (آلزهايمر) ضمن أنواع النصوص:",
+        "options": {
+          "A": "الشعرية",
+          "B": "المقالة العلمية",
+          "C": "الرواية",
+          "D": "المسرحية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المقالة العلمية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المقالة العلمية"
+        },
+        "explanation": "المقالة العلمية",
+        "number": 44,
+        "id": "U03-L99-Q044"
+      },
+      {
+        "question": "ما إعراب (عظيم) في جملة (المعلمة عطاؤها عظيم)؟",
+        "options": {
+          "A": "خبر للمبتدأ الأول",
+          "B": "خبر للمبتدأ الثاني (عطاؤها)",
+          "C": "نعت",
+          "D": "مبتدأ ثالث"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "خبر للمبتدأ الثاني (عطاؤها)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خبر للمبتدأ الثاني (عطاؤها)"
+        },
+        "explanation": "خبر للمبتدأ الثاني (عطاؤها)",
+        "number": 45,
+        "id": "U03-L99-Q045"
+      },
+      {
+        "question": "في جملة (لَعَمْرُكَ هذا مماتُ الرجالِ)، صيغة الإنشاء هي:",
+        "options": {
+          "A": "التعجب",
+          "B": "القسم",
+          "C": "المدح",
+          "D": "الذم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "القسم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القسم"
+        },
+        "explanation": "القسم",
+        "number": 46,
+        "id": "U03-L99-Q046"
+      },
+      {
+        "question": "ما هو (العلاج السلوكي) للمريض؟",
+        "options": {
+          "A": "حقن طبية",
+          "B": "الانخراط في عمل كالحياكة أو اللمس",
+          "C": "تركه وحيداً",
+          "D": "السفر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الانخراط في عمل كالحياكة أو اللمس",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الانخراط في عمل كالحياكة أو اللمس"
+        },
+        "explanation": "الانخراط في عمل كالحياكة أو اللمس",
+        "number": 47,
+        "id": "U03-L99-Q047"
+      },
+      {
+        "question": "الرابط في جملة الخبر (المعلمة عطاؤها عظيم) هو:",
+        "options": {
+          "A": "اسم الإشارة",
+          "B": "الضمير (ها) في عطاؤها",
+          "C": "الواو",
+          "D": "لا يوجد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الضمير (ها) في عطاؤها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الضمير (ها) في عطاؤها"
+        },
+        "explanation": "الضمير (ها) في عطاؤها",
+        "number": 48,
+        "id": "U03-L99-Q048"
+      },
+      {
+        "question": "جملة (أنا مريضٌ) ضرب الخبر فيها:",
+        "options": {
+          "A": "ابتدائي",
+          "B": "طلبي",
+          "C": "إنكاري",
+          "D": "إنشائي"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "ابتدائي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ابتدائي"
+        },
+        "explanation": "ابتدائي",
+        "number": 49,
+        "id": "U03-L99-Q049"
+      },
+      {
+        "question": "ما سبب وفاة المريض في المراحل المتقدمة غالباً؟",
+        "options": {
+          "A": "السكري",
+          "B": "الالتهاب الرئوي أو قرحات الفراش",
+          "C": "حادث سير",
+          "D": "الشيخوخة الطبيعية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الالتهاب الرئوي أو قرحات الفراش",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الالتهاب الرئوي أو قرحات الفراش"
+        },
+        "explanation": "الالتهاب الرئوي أو قرحات الفراش",
+        "number": 50,
+        "id": "U03-L99-Q050"
+      }
+    ]
+  }
+}

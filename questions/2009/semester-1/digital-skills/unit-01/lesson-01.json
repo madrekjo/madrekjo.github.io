@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "1",
+    "lesson_name": "دورة حياة تطوير النظام",
+    "unit_number": 1,
+    "unit_name": "الخوارزميات والبرمجة",
+    "page_start": 10,
+    "page_end": 20,
+    "questions": [
+      {
+        "id": "U01-L01-Q001",
+        "number": 1,
+        "question": "سؤال مهارات رقمية 1",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q002",
+        "number": 2,
+        "question": "سؤال مهارات رقمية 2",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q003",
+        "number": 3,
+        "question": "سؤال مهارات رقمية 3",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q004",
+        "number": 4,
+        "question": "سؤال مهارات رقمية 4",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q005",
+        "number": 5,
+        "question": "سؤال مهارات رقمية 5",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q006",
+        "number": 6,
+        "question": "سؤال مهارات رقمية 6",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q007",
+        "number": 7,
+        "question": "سؤال مهارات رقمية 7",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q008",
+        "number": 8,
+        "question": "سؤال مهارات رقمية 8",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q009",
+        "number": 9,
+        "question": "سؤال مهارات رقمية 9",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q010",
+        "number": 10,
+        "question": "سؤال مهارات رقمية 10",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q011",
+        "number": 11,
+        "question": "سؤال مهارات رقمية 11",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q012",
+        "number": 12,
+        "question": "سؤال مهارات رقمية 12",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q013",
+        "number": 13,
+        "question": "سؤال مهارات رقمية 13",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q014",
+        "number": 14,
+        "question": "سؤال مهارات رقمية 14",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q015",
+        "number": 15,
+        "question": "سؤال مهارات رقمية 15",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q016",
+        "number": 16,
+        "question": "سؤال مهارات رقمية 16",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q017",
+        "number": 17,
+        "question": "سؤال مهارات رقمية 17",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q018",
+        "number": 18,
+        "question": "سؤال مهارات رقمية 18",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q019",
+        "number": 19,
+        "question": "سؤال مهارات رقمية 19",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q020",
+        "number": 20,
+        "question": "سؤال مهارات رقمية 20",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q021",
+        "number": 21,
+        "question": "سؤال مهارات رقمية 21",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q022",
+        "number": 22,
+        "question": "سؤال مهارات رقمية 22",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q023",
+        "number": 23,
+        "question": "سؤال مهارات رقمية 23",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q024",
+        "number": 24,
+        "question": "سؤال مهارات رقمية 24",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q025",
+        "number": 25,
+        "question": "سؤال مهارات رقمية 25",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q026",
+        "number": 26,
+        "question": "سؤال مهارات رقمية 26",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q027",
+        "number": 27,
+        "question": "سؤال مهارات رقمية 27",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q028",
+        "number": 28,
+        "question": "سؤال مهارات رقمية 28",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q029",
+        "number": 29,
+        "question": "سؤال مهارات رقمية 29",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q030",
+        "number": 30,
+        "question": "سؤال مهارات رقمية 30",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q031",
+        "number": 31,
+        "question": "سؤال مهارات رقمية 31",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q032",
+        "number": 32,
+        "question": "سؤال مهارات رقمية 32",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q033",
+        "number": 33,
+        "question": "سؤال مهارات رقمية 33",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q034",
+        "number": 34,
+        "question": "سؤال مهارات رقمية 34",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q035",
+        "number": 35,
+        "question": "سؤال مهارات رقمية 35",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q036",
+        "number": 36,
+        "question": "سؤال مهارات رقمية 36",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q037",
+        "number": 37,
+        "question": "سؤال مهارات رقمية 37",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q038",
+        "number": 38,
+        "question": "سؤال مهارات رقمية 38",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q039",
+        "number": 39,
+        "question": "سؤال مهارات رقمية 39",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L01-Q040",
+        "number": 40,
+        "question": "سؤال مهارات رقمية 40",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب المهارات الرقمية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "خطوة"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      }
+    ]
+  }
+}

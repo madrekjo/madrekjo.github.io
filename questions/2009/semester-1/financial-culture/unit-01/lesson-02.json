@@ -1,0 +1,1052 @@
+{
+  "lesson": {
+    "lesson_number": "2",
+    "lesson_name": "نظرية القيد المزدوج والعمليات المالية",
+    "unit_number": 1,
+    "unit_name": "الدورة المحاسبية",
+    "page_start": 8,
+    "page_end": 20,
+    "questions": [
+      {
+        "id": "U01-L02-Q001",
+        "number": 1,
+        "question": "سؤال ثقافة مالية 1",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q002",
+        "number": 2,
+        "question": "سؤال ثقافة مالية 2",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q003",
+        "number": 3,
+        "question": "سؤال ثقافة مالية 3",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q004",
+        "number": 4,
+        "question": "سؤال ثقافة مالية 4",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q005",
+        "number": 5,
+        "question": "سؤال ثقافة مالية 5",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q006",
+        "number": 6,
+        "question": "سؤال ثقافة مالية 6",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q007",
+        "number": 7,
+        "question": "سؤال ثقافة مالية 7",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q008",
+        "number": 8,
+        "question": "سؤال ثقافة مالية 8",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q009",
+        "number": 9,
+        "question": "سؤال ثقافة مالية 9",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q010",
+        "number": 10,
+        "question": "سؤال ثقافة مالية 10",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q011",
+        "number": 11,
+        "question": "سؤال ثقافة مالية 11",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q012",
+        "number": 12,
+        "question": "سؤال ثقافة مالية 12",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q013",
+        "number": 13,
+        "question": "سؤال ثقافة مالية 13",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q014",
+        "number": 14,
+        "question": "سؤال ثقافة مالية 14",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q015",
+        "number": 15,
+        "question": "سؤال ثقافة مالية 15",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q016",
+        "number": 16,
+        "question": "سؤال ثقافة مالية 16",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q017",
+        "number": 17,
+        "question": "سؤال ثقافة مالية 17",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q018",
+        "number": 18,
+        "question": "سؤال ثقافة مالية 18",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q019",
+        "number": 19,
+        "question": "سؤال ثقافة مالية 19",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q020",
+        "number": 20,
+        "question": "سؤال ثقافة مالية 20",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q021",
+        "number": 21,
+        "question": "سؤال ثقافة مالية 21",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q022",
+        "number": 22,
+        "question": "سؤال ثقافة مالية 22",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q023",
+        "number": 23,
+        "question": "سؤال ثقافة مالية 23",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q024",
+        "number": 24,
+        "question": "سؤال ثقافة مالية 24",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q025",
+        "number": 25,
+        "question": "سؤال ثقافة مالية 25",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q026",
+        "number": 26,
+        "question": "سؤال ثقافة مالية 26",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q027",
+        "number": 27,
+        "question": "سؤال ثقافة مالية 27",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q028",
+        "number": 28,
+        "question": "سؤال ثقافة مالية 28",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q029",
+        "number": 29,
+        "question": "سؤال ثقافة مالية 29",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q030",
+        "number": 30,
+        "question": "سؤال ثقافة مالية 30",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q031",
+        "number": 31,
+        "question": "سؤال ثقافة مالية 31",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q032",
+        "number": 32,
+        "question": "سؤال ثقافة مالية 32",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q033",
+        "number": 33,
+        "question": "سؤال ثقافة مالية 33",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q034",
+        "number": 34,
+        "question": "سؤال ثقافة مالية 34",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q035",
+        "number": 35,
+        "question": "سؤال ثقافة مالية 35",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q036",
+        "number": 36,
+        "question": "سؤال ثقافة مالية 36",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q037",
+        "number": 37,
+        "question": "سؤال ثقافة مالية 37",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q038",
+        "number": 38,
+        "question": "سؤال ثقافة مالية 38",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q039",
+        "number": 39,
+        "question": "سؤال ثقافة مالية 39",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      },
+      {
+        "id": "U01-L02-Q040",
+        "number": 40,
+        "question": "سؤال ثقافة مالية 40",
+        "options": {
+          "A": "الخيار أ",
+          "B": "الخيار ب",
+          "C": "الخيار ج",
+          "D": "الخيار د"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الخيار أ",
+        "difficulty": "easy",
+        "source": {
+          "page": 10,
+          "reference": "كتاب الثقافة المالية"
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "معالجة محاسبية"
+          ],
+          "summary": "استنتاج"
+        },
+        "explanation": "شرح"
+      }
+    ]
+  }
+}

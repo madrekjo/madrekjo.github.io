@@ -1,0 +1,177 @@
+{
+  "subject": "islamic",
+  "name": "التربية الإسلامية",
+  "generation": "2010",
+  "semester": "semester-1",
+  "units": [
+    {
+      "number": 1,
+      "name": "الوحدة الأولى: واعتصموا بحبل الله جميعاً",
+      "lessons": [
+        {
+          "number": 1,
+          "name": "lesson-01.json",
+          "file": "lesson-01.json"
+        },
+        {
+          "number": 2,
+          "name": "lesson-02.json",
+          "file": "lesson-02.json"
+        },
+        {
+          "number": 3,
+          "name": "lesson-03.json",
+          "file": "lesson-03.json"
+        },
+        {
+          "number": 4,
+          "name": "lesson-04.json",
+          "file": "lesson-04.json"
+        },
+        {
+          "number": 5,
+          "name": "lesson-05.json",
+          "file": "lesson-05.json"
+        },
+        {
+          "number": 6,
+          "name": "lesson-06.json",
+          "file": "lesson-06.json"
+        },
+        {
+          "number": "review",
+          "name": "review.json",
+          "file": "review.json"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "name": "الوحدة الثانية: خدم القرآن الكريم",
+      "lessons": [
+        {
+          "number": 1,
+          "name": "lesson-01.json",
+          "file": "lesson-01.json"
+        },
+        {
+          "number": 2,
+          "name": "lesson-02.json",
+          "file": "lesson-02.json"
+        },
+        {
+          "number": 3,
+          "name": "lesson-03.json",
+          "file": "lesson-03.json"
+        },
+        {
+          "number": 4,
+          "name": "lesson-04.json",
+          "file": "lesson-04.json"
+        },
+        {
+          "number": 5,
+          "name": "lesson-05.json",
+          "file": "lesson-05.json"
+        },
+        {
+          "number": 6,
+          "name": "lesson-06.json",
+          "file": "lesson-06.json"
+        },
+        {
+          "number": "review",
+          "name": "review.json",
+          "file": "review.json"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "name": "الوحدة الثالثة: علاقة المسلم بكتاب الله وسنة نبيه",
+      "lessons": [
+        {
+          "number": 1,
+          "name": "lesson-01.json",
+          "file": "lesson-01.json"
+        },
+        {
+          "number": 2,
+          "name": "lesson-02.json",
+          "file": "lesson-02.json"
+        },
+        {
+          "number": 3,
+          "name": "lesson-03.json",
+          "file": "lesson-03.json"
+        },
+        {
+          "number": 4,
+          "name": "lesson-04.json",
+          "file": "lesson-04.json"
+        },
+        {
+          "number": 5,
+          "name": "lesson-05.json",
+          "file": "lesson-05.json"
+        },
+        {
+          "number": 6,
+          "name": "lesson-06.json",
+          "file": "lesson-06.json"
+        },
+        {
+          "number": "review",
+          "name": "review.json",
+          "file": "review.json"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "name": "الوحدة الرابعة: الزواج والحياة الزوجية",
+      "lessons": [
+        {
+          "number": 1,
+          "name": "lesson-01.json",
+          "file": "lesson-01.json"
+        },
+        {
+          "number": 2,
+          "name": "lesson-02.json",
+          "file": "lesson-02.json"
+        },
+        {
+          "number": 3,
+          "name": "lesson-03.json",
+          "file": "lesson-03.json"
+        },
+        {
+          "number": 4,
+          "name": "lesson-04.json",
+          "file": "lesson-04.json"
+        },
+        {
+          "number": 5,
+          "name": "lesson-05.json",
+          "file": "lesson-05.json"
+        },
+        {
+          "number": 6,
+          "name": "lesson-06.json",
+          "file": "lesson-06.json"
+        },
+        {
+          "number": 7,
+          "name": "lesson-07.json",
+          "file": "lesson-07.json"
+        },
+        {
+          "number": "review",
+          "name": "review.json",
+          "file": "review.json"
+        }
+      ]
+    }
+  ]
+}

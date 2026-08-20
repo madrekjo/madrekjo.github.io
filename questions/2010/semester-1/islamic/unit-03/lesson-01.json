@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "3.1",
+    "lesson_name": "الآيات 169-171 من سورة آل عمران",
+    "unit_number": 3,
+    "unit_name": "الوحدة الثالثة: علاقة المسلم بكتاب الله وسنة نبيه",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما هو الموضوع الرئيس للآيات الكريمة (169-171) من سورة آل عمران؟",
+        "options": {
+          "A": "أحكام الزواج",
+          "B": "فضائل الشهداء",
+          "C": "غزوة بدر",
+          "D": "عمارة الأرض"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فضائل الشهداء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فضائل الشهداء"
+        },
+        "explanation": "فضائل الشهداء",
+        "number": 1,
+        "id": "U03-L01-Q001"
+      },
+      {
+        "question": "في أي سنة هجرية وقعت أحداث معركة أحد المرتبطة بالآيات؟",
+        "options": {
+          "A": "السنة الثانية",
+          "B": "السنة الثالثة",
+          "C": "السنة الثامنة",
+          "D": "السنة الخامسة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "السنة الثالثة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السنة الثالثة"
+        },
+        "explanation": "السنة الثالثة",
+        "number": 2,
+        "id": "U03-L01-Q002"
+      },
+      {
+        "question": "ما معنى قوله تعالى (يَكُ مُل) في سياق الآيات؟",
+        "options": {
+          "A": "لا تتكلم",
+          "B": "لا تظن",
+          "C": "لا تبتعد",
+          "D": "لا تحزن"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا تظن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا تظن"
+        },
+        "explanation": "لا تظن",
+        "number": 3,
+        "id": "U03-L01-Q003"
+      },
+      {
+        "question": "ما المقصود بلفظ (جُغ) الوارد في الآيات؟",
+        "options": {
+          "A": "الجوع",
+          "B": "الجبال",
+          "C": "الجراح",
+          "D": "الجيش"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الجراح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الجراح"
+        },
+        "explanation": "الجراح",
+        "number": 4,
+        "id": "U03-L01-Q004"
+      },
+      {
+        "question": "قال تعالى (خَلُوا)، ما معناها الصحيح؟",
+        "options": {
+          "A": "تفرقوا",
+          "B": "رجعوا",
+          "C": "قاتلوا",
+          "D": "خافوا"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "رجعوا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رجعوا"
+        },
+        "explanation": "رجعوا",
+        "number": 5,
+        "id": "U03-L01-Q005"
+      },
+      {
+        "question": "بماذا وصف الله تعالى الشهداء في قوله (أَحْيَاءٌ عِندَ رَبِّهِمْ)؟",
+        "options": {
+          "A": "يأكلون ويشربون كأهل الدنيا",
+          "B": "أحياء حياة برزخية لا يعلم حقيقتها إلا الله",
+          "C": "عادوا للدنيا للقتال",
+          "D": "نائمون إلى يوم القيامة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أحياء حياة برزخية لا يعلم حقيقتها إلا الله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أحياء حياة برزخية لا يعلم حقيقتها إلا الله"
+        },
+        "explanation": "أحياء حياة برزخية لا يعلم حقيقتها إلا الله",
+        "number": 6,
+        "id": "U03-L01-Q006"
+      },
+      {
+        "question": "ما هي الغاية من خروج المسلمين إلى منطقة 'حمراء الأسد'؟",
+        "options": {
+          "A": "البحث عن الماء",
+          "B": "إعادة الكرّة على المشركين وإظهار قوة المسلمين",
+          "C": "جمع الغنائم",
+          "D": "لقاء وفد نصارى نجران"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إعادة الكرّة على المشركين وإظهار قوة المسلمين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إعادة الكرّة على المشركين وإظهار قوة المسلمين"
+        },
+        "explanation": "إعادة الكرّة على المشركين وإظهار قوة المسلمين",
+        "number": 7,
+        "id": "U03-L01-Q007"
+      },
+      {
+        "question": "ما هو الدعاء الذي قاله المؤمنون عندما حاول المشركون تخويفهم بجمع الناس لهم؟",
+        "options": {
+          "A": "سبحان الله وبحمده",
+          "B": "حسبنا الله ونعم الوكيل",
+          "C": "لا حول ولا قوة إلا بالله",
+          "D": "استغفر الله العظيم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حسبنا الله ونعم الوكيل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حسبنا الله ونعم الوكيل"
+        },
+        "explanation": "حسبنا الله ونعم الوكيل",
+        "number": 8,
+        "id": "U03-L01-Q008"
+      },
+      {
+        "question": "من الذي قاد المسلمين للوقوف على جبل الرماة في معركة أحد؟",
+        "options": {
+          "A": "جعفر بن أبي طالب",
+          "B": "خالد بن الوليد",
+          "C": "عبد الله بن جبير",
+          "D": "حمزة بن عبد المطلب"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "عبد الله بن جبير",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد الله بن جبير"
+        },
+        "explanation": "عبد الله بن جبير",
+        "number": 9,
+        "id": "U03-L01-Q009"
+      },
+      {
+        "question": "كم كان عدد الصحابة الذين أمرهم النبي بالوقوف على جبل الرماة؟",
+        "options": {
+          "A": "أربعون",
+          "B": "خمسون",
+          "C": "ستون",
+          "D": "سبعون"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "خمسون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خمسون"
+        },
+        "explanation": "خمسون",
+        "number": 10,
+        "id": "U03-L01-Q010"
+      },
+      {
+        "question": "ما سبب التفاف المشركين على المسلمين في معركة أحد؟",
+        "options": {
+          "A": "خيانة المنافقين",
+          "B": "نزول الرماة عن الجبل ظناً منهم بانتهاء المعركة",
+          "C": "نقص السلاح",
+          "D": "انسحاب قادة الجيش"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نزول الرماة عن الجبل ظناً منهم بانتهاء المعركة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نزول الرماة عن الجبل ظناً منهم بانتهاء المعركة"
+        },
+        "explanation": "نزول الرماة عن الجبل ظناً منهم بانتهاء المعركة",
+        "number": 11,
+        "id": "U03-L01-Q011"
+      },
+      {
+        "question": "كم عدد الصحابة الكرام الذين استشهدوا في معركة أحد؟",
+        "options": {
+          "A": "خمسون",
+          "B": "ستون",
+          "C": "سبعون",
+          "D": "مئة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "سبعون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "سبعون"
+        },
+        "explanation": "سبعون",
+        "number": 12,
+        "id": "U03-L01-Q012"
+      },
+      {
+        "question": "ما دلالة التعبير القرآني (عِندَ رَبِّهِمْ) في حق الشهداء؟",
+        "options": {
+          "A": "بيان مكان استشهادهم",
+          "B": "زيادة في تشريفهم وتكريمهم",
+          "C": "الإشارة إلى أنهم ملائكة",
+          "D": "بيان وقت وفاتهم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "زيادة في تشريفهم وتكريمهم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "زيادة في تشريفهم وتكريمهم"
+        },
+        "explanation": "زيادة في تشريفهم وتكريمهم",
+        "number": 13,
+        "id": "U03-L01-Q013"
+      },
+      {
+        "question": "بماذا يشعر الشهداء تجاه إخوانهم الذين لم يلحقوا بهم من خلفهم؟",
+        "options": {
+          "A": "بالخوف عليهم",
+          "B": "بالحزن لفراقهم",
+          "C": "بالبشرى والاطمئنان لمصيرهم إذا نالوا الشهادة",
+          "D": "بالرغبة في نسيانهم"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "بالبشرى والاطمئنان لمصيرهم إذا نالوا الشهادة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالبشرى والاطمئنان لمصيرهم إذا نالوا الشهادة"
+        },
+        "explanation": "بالبشرى والاطمئنان لمصيرهم إذا نالوا الشهادة",
+        "number": 14,
+        "id": "U03-L01-Q014"
+      },
+      {
+        "question": "من هو قائد المشركين الذي أراد العودة لمهاجمة المدينة بعد أحد؟",
+        "options": {
+          "A": "أبو جهل",
+          "B": "أبو لهب",
+          "C": "أبو سفيان",
+          "D": "عتبة بن ربيعة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "أبو سفيان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أبو سفيان"
+        },
+        "explanation": "أبو سفيان",
+        "number": 15,
+        "id": "U03-L01-Q015"
+      },
+      {
+        "question": "إلى أي منطقة خرج النبي وأصحابه بعد يوم واحد من معركة أحد؟",
+        "options": {
+          "A": "بدر",
+          "B": "مؤتة",
+          "C": "حمراء الأسد",
+          "D": "خيبر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "حمراء الأسد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حمراء الأسد"
+        },
+        "explanation": "حمراء الأسد",
+        "number": 16,
+        "id": "U03-L01-Q016"
+      },
+      {
+        "question": "ما هي النتيجة التي ترتبت على خروج المسلمين لـ 'حمراء الأسد'؟",
+        "options": {
+          "A": "وقوع معركة طاحنة",
+          "B": "تراجع المشركين خوفاً وفرارهم لمكة",
+          "C": "هزيمة المسلمين ثانية",
+          "D": "عقد صلح جديد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تراجع المشركين خوفاً وفرارهم لمكة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تراجع المشركين خوفاً وفرارهم لمكة"
+        },
+        "explanation": "تراجع المشركين خوفاً وفرارهم لمكة",
+        "number": 17,
+        "id": "U03-L01-Q017"
+      },
+      {
+        "question": "وصف الله الشهداء بأنهم (يُرزقون)، فما هو أعظم رزق لهم؟",
+        "options": {
+          "A": "الطعام الوفير",
+          "B": "الذهب والفضة",
+          "C": "جوار الله تعالى",
+          "D": "المنازل الكبيرة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "جوار الله تعالى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جوار الله تعالى"
+        },
+        "explanation": "جوار الله تعالى",
+        "number": 18,
+        "id": "U03-L01-Q018"
+      },
+      {
+        "question": "ما هي الفضيلة التي نالها الذين استجابوا لله والرسول من بعد ما أصابهم القرح؟",
+        "options": {
+          "A": "الغنى الفاحش",
+          "B": "الأجر العظيم",
+          "C": "ملك الأرض",
+          "D": "طول العمر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأجر العظيم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأجر العظيم"
+        },
+        "explanation": "الأجر العظيم",
+        "number": 19,
+        "id": "U03-L01-Q019"
+      },
+      {
+        "question": "قوله تعالى (فَانقَلَبُوا بِنِعْمَةٍ مِّنَ اللَّهِ وَفَضْلٍ لَّمْ يَمْسَسْهُمْ سُوءٌ) يشير إلى رجوعهم من:",
+        "options": {
+          "A": "مكة",
+          "B": "بدر",
+          "C": "حمراء الأسد",
+          "D": "الشام"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "حمراء الأسد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حمراء الأسد"
+        },
+        "explanation": "حمراء الأسد",
+        "number": 20,
+        "id": "U03-L01-Q020"
+      },
+      {
+        "question": "ما معنى 'الفضل' الوارد في الآية (174)؟",
+        "options": {
+          "A": "النصر والغنيمة وسلامة الأبدان",
+          "B": "كثرة الكلام",
+          "C": "زيادة التعب",
+          "D": "المال فقط"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "النصر والغنيمة وسلامة الأبدان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النصر والغنيمة وسلامة الأبدان"
+        },
+        "explanation": "النصر والغنيمة وسلامة الأبدان",
+        "number": 21,
+        "id": "U03-L01-Q021"
+      },
+      {
+        "question": "لماذا أمر النبي الرماة بعدم ترك مواقعهم مهما كانت نتيجة المعركة؟",
+        "options": {
+          "A": "لحماية المؤن",
+          "B": "لحماية ظهر الجيش المسلم",
+          "C": "للمراقبة فقط",
+          "D": "للهجوم المباغت"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لحماية ظهر الجيش المسلم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لحماية ظهر الجيش المسلم"
+        },
+        "explanation": "لحماية ظهر الجيش المسلم",
+        "number": 22,
+        "id": "U03-L01-Q022"
+      },
+      {
+        "question": "ما هو الدرس المستفاد من ثبات المؤمنين رغم محاولات التخويف؟",
+        "options": {
+          "A": "الثقة بنصر الله",
+          "B": "الخوف من العدو",
+          "C": "الهروب من المواجهة",
+          "D": "الاستسلام للواقع"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الثقة بنصر الله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الثقة بنصر الله"
+        },
+        "explanation": "الثقة بنصر الله",
+        "number": 23,
+        "id": "U03-L01-Q023"
+      },
+      {
+        "question": "الشهادة في سبيل الله هي مرتبة:",
+        "options": {
+          "A": "دنيوية زائلة",
+          "B": "عالية يمنحها الله لمن يشاء",
+          "C": "عادية كأي موت",
+          "D": "إجبارية على الجميع"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عالية يمنحها الله لمن يشاء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عالية يمنحها الله لمن يشاء"
+        },
+        "explanation": "عالية يمنحها الله لمن يشاء",
+        "number": 24,
+        "id": "U03-L01-Q024"
+      },
+      {
+        "question": "كيف استقبل النبي نبأ نية المشركين العودة للمدينة؟",
+        "options": {
+          "A": "بالبقاء في البيوت",
+          "B": "بالخروج لملاقاتهم وتثبيت المؤمنين",
+          "C": "بطلب الصلح",
+          "D": "بالهجرة إلى مكة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بالخروج لملاقاتهم وتثبيت المؤمنين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالخروج لملاقاتهم وتثبيت المؤمنين"
+        },
+        "explanation": "بالخروج لملاقاتهم وتثبيت المؤمنين",
+        "number": 25,
+        "id": "U03-L01-Q025"
+      },
+      {
+        "question": "ما هو الشعور الغالب على الشهداء في جوار ربهم كما وصفت الآيات؟",
+        "options": {
+          "A": "الفرح بما آتاهم الله من فضله",
+          "B": "الندم على الاستشهاد",
+          "C": "الحزن على أهلهم",
+          "D": "الرغبة في العودة للدنيا للراحة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الفرح بما آتاهم الله من فضله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الفرح بما آتاهم الله من فضله"
+        },
+        "explanation": "الفرح بما آتاهم الله من فضله",
+        "number": 26,
+        "id": "U03-L01-Q026"
+      },
+      {
+        "question": "في قوله تعالى (يَسْتَبْشِرُونَ بِنِعْمَةٍ مِّنَ اللَّهِ وَفَضْلٍ)، على من يعود الضمير؟",
+        "options": {
+          "A": "المشركون",
+          "B": "المنافقون",
+          "C": "الشهداء",
+          "D": "الرماة فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الشهداء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الشهداء"
+        },
+        "explanation": "الشهداء",
+        "number": 27,
+        "id": "U03-L01-Q027"
+      },
+      {
+        "question": "ما هي القيم المستفادة من الدرس تجاه الوطن؟",
+        "options": {
+          "A": "التضحية في سبيل حمايته",
+          "B": "تركه عند الشدائد",
+          "C": "إهمال أمنه",
+          "D": "انتظار الآخرين للدفاع عنه"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "التضحية في سبيل حمايته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التضحية في سبيل حمايته"
+        },
+        "explanation": "التضحية في سبيل حمايته",
+        "number": 28,
+        "id": "U03-L01-Q028"
+      },
+      {
+        "question": "ما دلالة استجابة الصحابة للنبي في 'حمراء الأسد' رغم جراحهم؟",
+        "options": {
+          "A": "شدة طاعتهم وحبهم لله ورسوله",
+          "B": "رغبتهم في المال",
+          "C": "عدم وجود خيار آخر",
+          "D": "الصدفة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "شدة طاعتهم وحبهم لله ورسوله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "شدة طاعتهم وحبهم لله ورسوله"
+        },
+        "explanation": "شدة طاعتهم وحبهم لله ورسوله",
+        "number": 29,
+        "id": "U03-L01-Q029"
+      },
+      {
+        "question": "من الذي قال للمؤمنين (إِنَّ النَّاسَ قَدْ جَمَعُوا لَكُمْ فَاخْشَوْهُمْ)؟",
+        "options": {
+          "A": "الملائكة",
+          "B": "المنافقون والمشركون بهدف التخويف",
+          "C": "الصحابة الكرام",
+          "D": "أهل المدينة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المنافقون والمشركون بهدف التخويف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المنافقون والمشركون بهدف التخويف"
+        },
+        "explanation": "المنافقون والمشركون بهدف التخويف",
+        "number": 30,
+        "id": "U03-L01-Q030"
+      },
+      {
+        "question": "ماذا زاد كلام المرجفين في نفوس المؤمنين؟",
+        "options": {
+          "A": "خوفاً",
+          "B": "تردداً",
+          "C": "إيماناً وثباتاً",
+          "D": "يأساً"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "إيماناً وثباتاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إيماناً وثباتاً"
+        },
+        "explanation": "إيماناً وثباتاً",
+        "number": 31,
+        "id": "U03-L01-Q031"
+      },
+      {
+        "question": "تضمنت الآيات دعاءً يردده المسلم في الأزمات، هو:",
+        "options": {
+          "A": "يا رب يسر",
+          "B": "الحمد لله",
+          "C": "حسبنا الله ونعم الوكيل",
+          "D": "لا إله إلا الله"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "حسبنا الله ونعم الوكيل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حسبنا الله ونعم الوكيل"
+        },
+        "explanation": "حسبنا الله ونعم الوكيل",
+        "number": 32,
+        "id": "U03-L01-Q032"
+      },
+      {
+        "question": "كم عدد الآيات المقررة في هذا الدرس؟",
+        "options": {
+          "A": "أربع آيات",
+          "B": "خمس آيات",
+          "C": "ست آيات",
+          "D": "سبع آيات"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "ست آيات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ست آيات"
+        },
+        "explanation": "ست آيات",
+        "number": 33,
+        "id": "U03-L01-Q033"
+      },
+      {
+        "question": "ما هو 'القرح' الذي ذكره الله في الآيات؟",
+        "options": {
+          "A": "الجوع",
+          "B": "الفقر",
+          "C": "الجراح والقتل في أحد",
+          "D": "البرد الشديد"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الجراح والقتل في أحد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الجراح والقتل في أحد"
+        },
+        "explanation": "الجراح والقتل في أحد",
+        "number": 34,
+        "id": "U03-L01-Q034"
+      },
+      {
+        "question": "في قوله تعالى (وَاتَّبَعُوا رِضْوَانَ اللَّهِ)، ما هو جزاء من يتبع رضوان الله؟",
+        "options": {
+          "A": "سخط الله",
+          "B": "الخسارة",
+          "C": "أن الله ذو فضل عظيم عليهم",
+          "D": "ضياع الأجر"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "أن الله ذو فضل عظيم عليهم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أن الله ذو فضل عظيم عليهم"
+        },
+        "explanation": "أن الله ذو فضل عظيم عليهم",
+        "number": 35,
+        "id": "U03-L01-Q035"
+      },
+      {
+        "question": "يعتبر يوم أحد درساً للمسلمين في أهمية:",
+        "options": {
+          "A": "جمع الغنائم",
+          "B": "طاعة أوامر القائد",
+          "C": "الانسحاب السريع",
+          "D": "كثرة العدد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "طاعة أوامر القائد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طاعة أوامر القائد"
+        },
+        "explanation": "طاعة أوامر القائد",
+        "number": 36,
+        "id": "U03-L01-Q036"
+      },
+      {
+        "question": "لماذا سمي جبل الرماة بهذا الاسم؟",
+        "options": {
+          "A": "لأنه يشبه السهم",
+          "B": "لأن النبي وضع عليه الرماة لحماية الجيش",
+          "C": "لأن لونه أحمر",
+          "D": "نسبة إلى رجل يدعى رامي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لأن النبي وضع عليه الرماة لحماية الجيش",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لأن النبي وضع عليه الرماة لحماية الجيش"
+        },
+        "explanation": "لأن النبي وضع عليه الرماة لحماية الجيش",
+        "number": 37,
+        "id": "U03-L01-Q037"
+      },
+      {
+        "question": "ما هو حال الشهيد عند الله من حيث الرزق؟",
+        "options": {
+          "A": "ينتظر رزقاً مستقبلياً",
+          "B": "يرزق حالياً في حياة البرزخ",
+          "C": "لا يحتاج للرزق",
+          "D": "رزقه مقطوع"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يرزق حالياً في حياة البرزخ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يرزق حالياً في حياة البرزخ"
+        },
+        "explanation": "يرزق حالياً في حياة البرزخ",
+        "number": 38,
+        "id": "U03-L01-Q038"
+      },
+      {
+        "question": "الآيات (169-174) من سورة آل عمران هي آيات:",
+        "options": {
+          "A": "مكية",
+          "B": "مدنية",
+          "C": "نزلت في مكة بعد الهجرة",
+          "D": "نزلت في الحبشة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مدنية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مدنية"
+        },
+        "explanation": "مدنية",
+        "number": 39,
+        "id": "U03-L01-Q039"
+      },
+      {
+        "question": "ما هي الفئة التي استثناها الله من الخوف والتحزين في هذه الآيات؟",
+        "options": {
+          "A": "المشركون",
+          "B": "المنافقون",
+          "C": "الشهداء والمؤمنون الصادقون",
+          "D": "الرماة الذين نزلوا"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الشهداء والمؤمنون الصادقون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الشهداء والمؤمنون الصادقون"
+        },
+        "explanation": "الشهداء والمؤمنون الصادقون",
+        "number": 40,
+        "id": "U03-L01-Q040"
+      }
+    ]
+  }
+}

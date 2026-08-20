@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "1.4",
+    "lesson_name": "كرامة الإنسان في الشريعة الإسلامية",
+    "unit_number": 1,
+    "unit_name": "الوحدة الأولى: واعتصموا بحبل الله جميعاً",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما المقصود بكرامة الإنسان كما ورد في العبارة التي تشير إلى حقه في التقدير؟",
+        "options": {
+          "A": "حق الفرد في التملك",
+          "B": "حق الفرد في أن تكون له قيمة ويحترم لذاته ويعامل بصورة لائقة",
+          "C": "حق الفرد في السفر فقط",
+          "D": "حق الفرد في العمل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حق الفرد في أن تكون له قيمة ويحترم لذاته ويعامل بصورة لائقة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حق الفرد في أن تكون له قيمة ويحترم لذاته ويعامل بصورة لائقة"
+        },
+        "explanation": "حق الفرد في أن تكون له قيمة ويحترم لذاته ويعامل بصورة لائقة",
+        "number": 1,
+        "id": "U01-L04-Q001"
+      },
+      {
+        "question": "الآية الكريمة التي تعد أصلاً في تكريم الله تعالى للإنسان هي:",
+        "options": {
+          "A": "(إنا فتحنا لك فتحاً مبيناً)",
+          "B": "(ولقد كرمنا بني آدم)",
+          "C": "(يا أيها الذين آمنوا اتقوا الله)",
+          "D": "(إنا نحن نزلنا الذكر)"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "(ولقد كرمنا بني آدم)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "(ولقد كرمنا بني آدم)"
+        },
+        "explanation": "(ولقد كرمنا بني آدم)",
+        "number": 2,
+        "id": "U01-L04-Q002"
+      },
+      {
+        "question": "سورة الإسراء، الآية (70) التي ذكرت تكريم بني آدم، بينت أن الله فضل الإنسان على كثير ممن خلق تفضيلاً في:",
+        "options": {
+          "A": "الرزق فقط",
+          "B": "البر والبحر والرزق من الطيبات",
+          "C": "القوة العسكرية",
+          "D": "التجارة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "البر والبحر والرزق من الطيبات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "البر والبحر والرزق من الطيبات"
+        },
+        "explanation": "البر والبحر والرزق من الطيبات",
+        "number": 3,
+        "id": "U01-L04-Q003"
+      },
+      {
+        "question": "مبدأ 'المساواة بين الناس جميعاً' في الإسلام يعني عدم التمييز بينهم بناءً على:",
+        "options": {
+          "A": "الدين واللون",
+          "B": "العرق والإعاقة والمرض",
+          "C": "كل ما ذكر صحيح",
+          "D": "القدرة المالية فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "كل ما ذكر صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل ما ذكر صحيح"
+        },
+        "explanation": "كل ما ذكر صحيح",
+        "number": 4,
+        "id": "U01-L04-Q004"
+      },
+      {
+        "question": "قال صلى الله عليه وسلم: (لا فضل لعربي على أعجمي.. إلا بـ):",
+        "options": {
+          "A": "المال",
+          "B": "النسب",
+          "C": "التقوى",
+          "D": "القوة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "التقوى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التقوى"
+        },
+        "explanation": "التقوى",
+        "number": 5,
+        "id": "U01-L04-Q005"
+      },
+      {
+        "question": "من المبادئ التي أقرها الإسلام لتحقيق الكرامة الإنسانية كما ورد في صفحة 49:",
+        "options": {
+          "A": "الحرية والمسؤولية",
+          "B": "العدل والمساواة",
+          "C": "كل ما ذكر صحيح",
+          "D": "التعصب والفرقة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "كل ما ذكر صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل ما ذكر صحيح"
+        },
+        "explanation": "كل ما ذكر صحيح",
+        "number": 6,
+        "id": "U01-L04-Q006"
+      },
+      {
+        "question": "مبدأ 'المسؤولية' في تحقيق الكرامة يعني أن:",
+        "options": {
+          "A": "الإنسان غير محاسب على أفعاله",
+          "B": "كل إنسان مسؤول عن خياراته وأفعاله",
+          "C": "المجتمع مسؤول عن أخطاء الفرد",
+          "D": "الدولة تقرر عن الفرد كل شيء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كل إنسان مسؤول عن خياراته وأفعاله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل إنسان مسؤول عن خياراته وأفعاله"
+        },
+        "explanation": "كل إنسان مسؤول عن خياراته وأفعاله",
+        "number": 7,
+        "id": "U01-L04-Q007"
+      },
+      {
+        "question": "كفل الإسلام للإنسان 'حرية التفكير والاعتقاد' كجزء من:",
+        "options": {
+          "A": "كرامته الإنسانية",
+          "B": "مسؤوليته المالية",
+          "C": "علاقاته الدولية",
+          "D": "مبدأ الشورى"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "كرامته الإنسانية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كرامته الإنسانية"
+        },
+        "explanation": "كرامته الإنسانية",
+        "number": 8,
+        "id": "U01-L04-Q008"
+      },
+      {
+        "question": "العدالة كأحد مبادئ الكرامة تعني:",
+        "options": {
+          "A": "مساواة الناس في الفقر",
+          "B": "إعطاء كل ذي حق حقه",
+          "C": "أخذ أموال الأغنياء",
+          "D": "تجاهل أخطاء الأقارب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إعطاء كل ذي حق حقه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إعطاء كل ذي حق حقه"
+        },
+        "explanation": "إعطاء كل ذي حق حقه",
+        "number": 9,
+        "id": "U01-L04-Q009"
+      },
+      {
+        "question": "هل تقتصر الكرامة الإنسانية في الإسلام على الإنسان في حياته فقط؟",
+        "options": {
+          "A": "نعم، تنتهي بموته",
+          "B": "لا، تمتد إلى ما بعد وفاته",
+          "C": "تقتصر على كبار السن",
+          "D": "تقتصر على المسلمين فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا، تمتد إلى ما بعد وفاته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا، تمتد إلى ما بعد وفاته"
+        },
+        "explanation": "لا، تمتد إلى ما بعد وفاته",
+        "number": 10,
+        "id": "U01-L04-Q010"
+      },
+      {
+        "question": "من الأحكام التي كفلها الإسلام لحفظ كرامة الإنسان 'بعد موته':",
+        "options": {
+          "A": "تغسيله وتكفينه",
+          "B": "الصلاة عليه ودفنه",
+          "C": "تشييعه وتعزية أهله",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر"
+        },
+        "explanation": "جميع ما ذكر",
+        "number": 11,
+        "id": "U01-L04-Q011"
+      },
+      {
+        "question": "تطييب الميت (وضع الطيب له) يعد من مظاهر:",
+        "options": {
+          "A": "الإسراف",
+          "B": "تكريم الإنسان بعد وفاته",
+          "C": "العادات القديمة",
+          "D": "تزيين القبور"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تكريم الإنسان بعد وفاته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تكريم الإنسان بعد وفاته"
+        },
+        "explanation": "تكريم الإنسان بعد وفاته",
+        "number": 12,
+        "id": "U01-L04-Q012"
+      },
+      {
+        "question": "دعت الشريعة الإسلامية إلى المحافظة على عرض الإنسان وسمعته ومنعت:",
+        "options": {
+          "A": "السخرية والاستهزاء",
+          "B": "الغيبة والنميمة",
+          "C": "التنابز بالألقاب",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر"
+        },
+        "explanation": "جميع ما ذكر",
+        "number": 13,
+        "id": "U01-L04-Q013"
+      },
+      {
+        "question": "أي من الآيات الآتية تدل على النهي عن السخرية حفظاً للكرامة؟",
+        "options": {
+          "A": "(ولا تفرقوا)",
+          "B": "(لا يسخر قوم من قوم)",
+          "C": "(وأقيموا الصلاة)",
+          "D": "(يا أيها الناس إنا خلقناكم من ذكر وأنثى)"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "(لا يسخر قوم من قوم)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "(لا يسخر قوم من قوم)"
+        },
+        "explanation": "(لا يسخر قوم من قوم)",
+        "number": 14,
+        "id": "U01-L04-Q014"
+      },
+      {
+        "question": "من صور تكريم الله للإنسان أنه خلقه في:",
+        "options": {
+          "A": "أحسن تقويم (صورة)",
+          "B": "أصعب حال",
+          "C": "صورة كباقي المخلوقات",
+          "D": "قوة بدنية فقط"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أحسن تقويم (صورة)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أحسن تقويم (صورة)"
+        },
+        "explanation": "أحسن تقويم (صورة)",
+        "number": 15,
+        "id": "U01-L04-Q015"
+      },
+      {
+        "question": "حث الإسلام على عدم المساس بكرامة الآخرين بصرف النظر عن:",
+        "options": {
+          "A": "أعمارهم",
+          "B": "دياناتهم وألوانهم وأعراقهم",
+          "C": "أماكن سكنهم",
+          "D": "وظائفهم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "دياناتهم وألوانهم وأعراقهم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "دياناتهم وألوانهم وأعراقهم"
+        },
+        "explanation": "دياناتهم وألوانهم وأعراقهم",
+        "number": 16,
+        "id": "U01-L04-Q016"
+      },
+      {
+        "question": "يعتبر 'الدفن' في القبور وسيلة لـ:",
+        "options": {
+          "A": "التخلص من الجثث فقط",
+          "B": "حفظ كرامة جسد الإنسان وصيانته",
+          "C": "توفير المساحات",
+          "D": "بناء المعالم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حفظ كرامة جسد الإنسان وصيانته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حفظ كرامة جسد الإنسان وصيانته"
+        },
+        "explanation": "حفظ كرامة جسد الإنسان وصيانته",
+        "number": 17,
+        "id": "U01-L04-Q017"
+      },
+      {
+        "question": "من القيم المستفادة من الدرس الحرص على:",
+        "options": {
+          "A": "الوحدة",
+          "B": "التكبر",
+          "C": "التمثل بمبادئ الإسلام في عدم المساس بكرامة الآخرين",
+          "D": "الشهرة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "التمثل بمبادئ الإسلام في عدم المساس بكرامة الآخرين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التمثل بمبادئ الإسلام في عدم المساس بكرامة الآخرين"
+        },
+        "explanation": "التمثل بمبادئ الإسلام في عدم المساس بكرامة الآخرين",
+        "number": 18,
+        "id": "U01-L04-Q018"
+      },
+      {
+        "question": "التعامل بالعدل حتى مع 'الأعداء' هو تطبيق لمبدأ:",
+        "options": {
+          "A": "القوة",
+          "B": "الكرامة الإنسانية والعدالة",
+          "C": "الضعف",
+          "D": "المصلحة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الكرامة الإنسانية والعدالة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الكرامة الإنسانية والعدالة"
+        },
+        "explanation": "الكرامة الإنسانية والعدالة",
+        "number": 19,
+        "id": "U01-L04-Q019"
+      },
+      {
+        "question": "ما هو اللفظ الذي ورد في سورة الحجرات ويدل على النهي عن مناداة الآخرين بأسماء يكرهونها؟",
+        "options": {
+          "A": "لا يسخر",
+          "B": "لا تلمزوا",
+          "C": "ولا تنابزوا بالألقاب",
+          "D": "لا يغتب"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "ولا تنابزوا بالألقاب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ولا تنابزوا بالألقاب"
+        },
+        "explanation": "ولا تنابزوا بالألقاب",
+        "number": 20,
+        "id": "U01-L04-Q020"
+      },
+      {
+        "question": "أوجب الإسلام على المسلم احترام كرامة الإنسان لأنها:",
+        "options": {
+          "A": "هبة من الله تعالى لكل البشر",
+          "B": "تخص المسلمين وحدهم",
+          "C": "تعتمد على مستوى التعليم",
+          "D": "مرتبطة بالثروة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "هبة من الله تعالى لكل البشر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "هبة من الله تعالى لكل البشر"
+        },
+        "explanation": "هبة من الله تعالى لكل البشر",
+        "number": 21,
+        "id": "U01-L04-Q021"
+      },
+      {
+        "question": "الصلاة على الميت (صلاة الجنازة) تدل على:",
+        "options": {
+          "A": "الحزن فقط",
+          "B": "الدعاء له وتكريمه قبل دفنه",
+          "C": "انتهاء علاقته بالمجتمع",
+          "D": "عقوبة له"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الدعاء له وتكريمه قبل دفنه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدعاء له وتكريمه قبل دفنه"
+        },
+        "explanation": "الدعاء له وتكريمه قبل دفنه",
+        "number": 22,
+        "id": "U01-L04-Q022"
+      },
+      {
+        "question": "تشييع الجنازة (اتباعها) يعتبر حقاً للميت يعكس:",
+        "options": {
+          "A": "قوة أهله",
+          "B": "احترام المجتمع لقيمة الإنسان",
+          "C": "حب السفر",
+          "D": "تضييع الوقت"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "احترام المجتمع لقيمة الإنسان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "احترام المجتمع لقيمة الإنسان"
+        },
+        "explanation": "احترام المجتمع لقيمة الإنسان",
+        "number": 23,
+        "id": "U01-L04-Q023"
+      },
+      {
+        "question": "تعزية أهل الميت تهدف إلى:",
+        "options": {
+          "A": "زيادة حزنهم",
+          "B": "مواساتهم وتخفيف مصابهم بما يحفظ كرامتهم",
+          "C": "إزعاجهم",
+          "D": "الحصول على المال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مواساتهم وتخفيف مصابهم بما يحفظ كرامتهم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مواساتهم وتخفيف مصابهم بما يحفظ كرامتهم"
+        },
+        "explanation": "مواساتهم وتخفيف مصابهم بما يحفظ كرامتهم",
+        "number": 24,
+        "id": "U01-L04-Q024"
+      },
+      {
+        "question": "قال تعالى (ولقد كرمنا بني آدم)؛ كلمة 'بني آدم' تشمل:",
+        "options": {
+          "A": "المسلمين فقط",
+          "B": "العرب فقط",
+          "C": "البشرية جمعاء",
+          "D": "العلماء فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "البشرية جمعاء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "البشرية جمعاء"
+        },
+        "explanation": "البشرية جمعاء",
+        "number": 25,
+        "id": "U01-L04-Q025"
+      },
+      {
+        "question": "أي من المبادئ الآتية يشير إليه قوله تعالى (يا أيها الناس إنا خلقناكم من ذكر وأنثى وجعلناكم شعوباً وقبائل لتعارفوا)؟",
+        "options": {
+          "A": "المسؤولية",
+          "B": "المساواة ووحدة الأصل البشري",
+          "C": "الحرية",
+          "D": "العدالة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المساواة ووحدة الأصل البشري",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المساواة ووحدة الأصل البشري"
+        },
+        "explanation": "المساواة ووحدة الأصل البشري",
+        "number": 26,
+        "id": "U01-L04-Q026"
+      },
+      {
+        "question": "يعتبر الإسلام الاعتداء على 'حياة' الإنسان اعتداءً على:",
+        "options": {
+          "A": "عائلته فقط",
+          "B": "كرامته وحقه الأصيل في الوجود",
+          "C": "أملاكه",
+          "D": "وظيفته"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كرامته وحقه الأصيل في الوجود",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كرامته وحقه الأصيل في الوجود"
+        },
+        "explanation": "كرامته وحقه الأصيل في الوجود",
+        "number": 27,
+        "id": "U01-L04-Q027"
+      },
+      {
+        "question": "تكفين الميت بستر بدنه بقطع من القماش يهدف إلى:",
+        "options": {
+          "A": "الزينة",
+          "B": "ستر عورته وصون كرامته",
+          "C": "إخفاء ملامحه",
+          "D": "تبريد جسده"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ستر عورته وصون كرامته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ستر عورته وصون كرامته"
+        },
+        "explanation": "ستر عورته وصون كرامته",
+        "number": 28,
+        "id": "U01-L04-Q028"
+      },
+      {
+        "question": "المقصود بـ 'أعجمي' في حديث النبي صلى الله عليه وسلم هو:",
+        "options": {
+          "A": "من لا يتكلم العربية",
+          "B": "من يتكلم العربية بطلاقة",
+          "C": "رجل غني",
+          "D": "رجل فقير"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "من لا يتكلم العربية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "من لا يتكلم العربية"
+        },
+        "explanation": "من لا يتكلم العربية",
+        "number": 29,
+        "id": "U01-L04-Q029"
+      },
+      {
+        "question": "دلالة قوله صلى الله عليه وسلم (الناس بنو آدم، وآدم خلق من تراب) هي:",
+        "options": {
+          "A": "بيان أصل الإنسان المادي",
+          "B": "تأكيد وحدة الأصل البشري والمساواة",
+          "C": "الحث على الزراعة",
+          "D": "وصف القبور"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تأكيد وحدة الأصل البشري والمساواة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تأكيد وحدة الأصل البشري والمساواة"
+        },
+        "explanation": "تأكيد وحدة الأصل البشري والمساواة",
+        "number": 30,
+        "id": "U01-L04-Q030"
+      },
+      {
+        "question": "حفظ كرامة الإنسان 'في حياته' يشمل حماية خسمة ضرورات هي:",
+        "options": {
+          "A": "الطعام والشراب واللباس والمسكن والمركب",
+          "B": "الدين والنفس والعقل والنسل والمال",
+          "C": "الذهب والفضة والخيل والأنعام والحرث",
+          "D": "السمع والبصر والفؤاد واليد والرجل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الدين والنفس والعقل والنسل والمال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدين والنفس والعقل والنسل والمال"
+        },
+        "explanation": "الدين والنفس والعقل والنسل والمال",
+        "number": 31,
+        "id": "U01-L04-Q031"
+      },
+      {
+        "question": "مبدأ 'الحرية' في الكرامة الإنسانية يمنع:",
+        "options": {
+          "A": "التفكير",
+          "B": "الإكراه في الدين",
+          "C": "العمل",
+          "D": "التعليم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الإكراه في الدين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإكراه في الدين"
+        },
+        "explanation": "الإكراه في الدين",
+        "number": 32,
+        "id": "U01-L04-Q032"
+      },
+      {
+        "question": "النهي عن 'الغيبة' يحفظ كرامة الإنسان من حيث:",
+        "options": {
+          "A": "ماله",
+          "B": "بدنه",
+          "C": "عرضه وسمعته في غيابه",
+          "D": "مسكنه"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "عرضه وسمعته في غيابه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عرضه وسمعته في غيابه"
+        },
+        "explanation": "عرضه وسمعته في غيابه",
+        "number": 33,
+        "id": "U01-L04-Q033"
+      },
+      {
+        "question": "تعتبر 'الأهلية' في التصرفات القانونية (كالبيع والشراء) مرتبطة بمبدأ:",
+        "options": {
+          "A": "المساواة",
+          "B": "المسؤولية الشخصية",
+          "C": "العدالة",
+          "D": "الحرية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المسؤولية الشخصية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المسؤولية الشخصية"
+        },
+        "explanation": "المسؤولية الشخصية",
+        "number": 34,
+        "id": "U01-L04-Q034"
+      },
+      {
+        "question": "إكرام الميت بدفنه فوراً (الإسراع بالجنازة) هو من باب:",
+        "options": {
+          "A": "التخلص من الهم",
+          "B": "إكرام الميت وصون حرمته",
+          "C": "توفير الجهد",
+          "D": "إرضاء الناس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إكرام الميت وصون حرمته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إكرام الميت وصون حرمته"
+        },
+        "explanation": "إكرام الميت وصون حرمته",
+        "number": 35,
+        "id": "U01-L04-Q035"
+      },
+      {
+        "question": "أي المبادئ الآتية يعزز الثقة بين أفراد المجتمع؟",
+        "options": {
+          "A": "الظلم",
+          "B": "الكرامة الإنسانية القائمة على العدل",
+          "C": "التمييز العنصري",
+          "D": "تجاهل الحقوق"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الكرامة الإنسانية القائمة على العدل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الكرامة الإنسانية القائمة على العدل"
+        },
+        "explanation": "الكرامة الإنسانية القائمة على العدل",
+        "number": 36,
+        "id": "U01-L04-Q036"
+      },
+      {
+        "question": "المساواة في الإسلام لا تعني تذويب الفوارق الفردية بل تعني المساواة في:",
+        "options": {
+          "A": "الأشكال",
+          "B": "الحقوق والواجبات الإنسانية والقيمة البشرية",
+          "C": "الطول والوزن",
+          "D": "القدرات العقلية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحقوق والواجبات الإنسانية والقيمة البشرية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحقوق والواجبات الإنسانية والقيمة البشرية"
+        },
+        "explanation": "الحقوق والواجبات الإنسانية والقيمة البشرية",
+        "number": 37,
+        "id": "U01-L04-Q037"
+      },
+      {
+        "question": "حرمة جسد الميت كحرمة جسده وهو حي، وهذا يدل على:",
+        "options": {
+          "A": "قدسية الجسد البشري وكريم أصله",
+          "B": "الخوف من الأمراض",
+          "C": "العجز عن التصرف",
+          "D": "قوانين البيئة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "قدسية الجسد البشري وكريم أصله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قدسية الجسد البشري وكريم أصله"
+        },
+        "explanation": "قدسية الجسد البشري وكريم أصله",
+        "number": 38,
+        "id": "U01-L04-Q038"
+      },
+      {
+        "question": "من مظاهر تكريم الله للإنسان تسخير ما في:",
+        "options": {
+          "A": "السموات فقط",
+          "B": "الأرض فقط",
+          "C": "السموات والأرض لخدمته",
+          "D": "البحار فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "السموات والأرض لخدمته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السموات والأرض لخدمته"
+        },
+        "explanation": "السموات والأرض لخدمته",
+        "number": 39,
+        "id": "U01-L04-Q039"
+      },
+      {
+        "question": "القيمة الأساسية التي يغرسها هذا الدرس في نفس الطالب هي:",
+        "options": {
+          "A": "احترام الذات والآخرين بناءً على صفتهم الإنسانية",
+          "B": "البحث عن العيوب",
+          "C": "التنافس المادي",
+          "D": "تجاهل المبادئ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "احترام الذات والآخرين بناءً على صفتهم الإنسانية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "احترام الذات والآخرين بناءً على صفتهم الإنسانية"
+        },
+        "explanation": "احترام الذات والآخرين بناءً على صفتهم الإنسانية",
+        "number": 40,
+        "id": "U01-L04-Q040"
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "subject_id": "digital-skills",
+  "subject": "المهارات الرقمية",
+  "generation_id": "2009",
+  "generation": "2009",
+  "semester_id": "semester-1",
+  "semester": 1,
+  "semester_label": "ف1",
+  "units": [
+    {
+      "id": "U01",
+      "number": 1,
+      "name": "الخوارزميات والبرمجة",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "دورة حياة تطوير النظام",
+          "file": "unit-01/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "الخوارزميات",
+          "file": "unit-01/lesson-02.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-01/review.json"
+      }
+    },
+    {
+      "id": "U02",
+      "number": 2,
+      "name": "تحليل البيانات",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "مقدمة في تحليل البيانات",
+          "file": "unit-02/lesson-01.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-02/review.json"
+      }
+    }
+  ]
+}

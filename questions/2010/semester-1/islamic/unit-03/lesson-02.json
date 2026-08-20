@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "3.2",
+    "lesson_name": "الحديث الشريف (إن الله يرضى لكم ثلاثاً)",
+    "unit_number": 3,
+    "unit_name": "الوحدة الثالثة: علاقة المسلم بكتاب الله وسنة نبيه",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "من هو راوي الحديث الشريف (إِنَّ اللهَ يَرْضى لَكُمْ ثَلاثًا...)؟",
+        "options": {
+          "A": "عمر بن الخطاب",
+          "B": "أبو هريرة",
+          "C": "عبد الله بن عمر",
+          "D": "أنس بن مالك"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أبو هريرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أبو هريرة"
+        },
+        "explanation": "أبو هريرة",
+        "number": 1,
+        "id": "U03-L02-Q001"
+      },
+      {
+        "question": "ما عدد الأمور التي يرضاها الله تعالى للمؤمنين في هذا الحديث؟",
+        "options": {
+          "A": "أمران",
+          "B": "ثلاثة أمور",
+          "C": "أربعة أمور",
+          "D": "خمسة أمور"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ثلاثة أمور",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ثلاثة أمور"
+        },
+        "explanation": "ثلاثة أمور",
+        "number": 2,
+        "id": "U03-L02-Q002"
+      },
+      {
+        "question": "ما معنى كلمة (يَسْخَطُ) الواردة في الحديث الشريف؟",
+        "options": {
+          "A": "يُحب",
+          "B": "يغضب ويكره",
+          "C": "يترك",
+          "D": "يغفر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يغضب ويكره",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يغضب ويكره"
+        },
+        "explanation": "يغضب ويكره",
+        "number": 3,
+        "id": "U03-L02-Q003"
+      },
+      {
+        "question": "أول أمر يرضاه الله تعالى للعباد كما ذكر الحديث هو:",
+        "options": {
+          "A": "إيتاء الزكاة",
+          "B": "بر الوالدين",
+          "C": "عبادته وحده ولا تشركوا به شيئاً",
+          "D": "حسن الجوار"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "عبادته وحده ولا تشركوا به شيئاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبادته وحده ولا تشركوا به شيئاً"
+        },
+        "explanation": "عبادته وحده ولا تشركوا به شيئاً",
+        "number": 4,
+        "id": "U03-L02-Q004"
+      },
+      {
+        "question": "المقصود بلفظ (حَبْلِ اللَّهِ) في قوله 'وَأَنْ تَعْتَصِمُوا بِحَبْلِ اللَّهِ جَمِيعًا' هو:",
+        "options": {
+          "A": "القوة المادية",
+          "B": "المال",
+          "C": "دين الله تعالى والقرآن الكريم",
+          "D": "التحالف العسكري"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "دين الله تعالى والقرآن الكريم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "دين الله تعالى والقرآن الكريم"
+        },
+        "explanation": "دين الله تعالى والقرآن الكريم",
+        "number": 5,
+        "id": "U03-L02-Q005"
+      },
+      {
+        "question": "ما هو العمل الذي يرضاه الله ويقصد به تقديم النصيحة لولاة الأمر؟",
+        "options": {
+          "A": "إضاعة المال",
+          "B": "مناصحة من ولاه الله أمركم",
+          "C": "القيل والقال",
+          "D": "كثرة السؤال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مناصحة من ولاه الله أمركم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مناصحة من ولاه الله أمركم"
+        },
+        "explanation": "مناصحة من ولاه الله أمركم",
+        "number": 6,
+        "id": "U03-L02-Q006"
+      },
+      {
+        "question": "ما معنى (قيلَ وقالَ) الذي يسخطه الله تعالى؟",
+        "options": {
+          "A": "قول الحق",
+          "B": "ذكر الله",
+          "C": "الخوض في أخبار الناس وما لا فائدة فيه",
+          "D": "الخطابة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الخوض في أخبار الناس وما لا فائدة فيه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الخوض في أخبار الناس وما لا فائدة فيه"
+        },
+        "explanation": "الخوض في أخبار الناس وما لا فائدة فيه",
+        "number": 7,
+        "id": "U03-L02-Q007"
+      },
+      {
+        "question": "من صور إضاعة المال التي يكرهها الله تعالى:",
+        "options": {
+          "A": "الصدقة",
+          "B": "الادخار للحاجة",
+          "C": "إنفاقه في المحرمات أو تبذيره",
+          "D": "الاستثمار"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "إنفاقه في المحرمات أو تبذيره",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إنفاقه في المحرمات أو تبذيره"
+        },
+        "explanation": "إنفاقه في المحرمات أو تبذيره",
+        "number": 8,
+        "id": "U03-L02-Q008"
+      },
+      {
+        "question": "المقصود بـ (كثرة السؤال) المنهي عنها في الحديث:",
+        "options": {
+          "A": "سؤال أهل العلم للتعلم",
+          "B": "سؤال الله الإجابة",
+          "C": "السؤال عما لا ينفع أو التدخل في شؤون الناس الخاصة",
+          "D": "المناقشة في الدرس"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "السؤال عما لا ينفع أو التدخل في شؤون الناس الخاصة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السؤال عما لا ينفع أو التدخل في شؤون الناس الخاصة"
+        },
+        "explanation": "السؤال عما لا ينفع أو التدخل في شؤون الناس الخاصة",
+        "number": 9,
+        "id": "U03-L02-Q009"
+      },
+      {
+        "question": "ما هو الاسم الحقيقي للصحابي أبي هريرة رضي الله عنه؟",
+        "options": {
+          "A": "عبد الرحمن بن صخر الدوسي",
+          "B": "خالد بن الوليد",
+          "C": "سعد بن معاذ",
+          "D": "معاذ بن جبل"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "عبد الرحمن بن صخر الدوسي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد الرحمن بن صخر الدوسي"
+        },
+        "explanation": "عبد الرحمن بن صخر الدوسي",
+        "number": 10,
+        "id": "U03-L02-Q010"
+      },
+      {
+        "question": "في أي سنة هجرية أسلم أبو هريرة رضي الله عنه؟",
+        "options": {
+          "A": "السنة الثانية",
+          "B": "السنة السابعة",
+          "C": "السنة الثامنة",
+          "D": "عام الفتح"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "السنة السابعة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السنة السابعة"
+        },
+        "explanation": "السنة السابعة",
+        "number": 11,
+        "id": "U03-L02-Q011"
+      },
+      {
+        "question": "يعتبر أبو هريرة رضي الله عنه أكثر الصحابة رواية للحديث بسبب:",
+        "options": {
+          "A": "طول عمره فقط",
+          "B": "دعاء النبي له بالحفظ وملازمته له",
+          "C": "قوته الجسدية",
+          "D": "ثروته الكبيرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "دعاء النبي له بالحفظ وملازمته له",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "دعاء النبي له بالحفظ وملازمته له"
+        },
+        "explanation": "دعاء النبي له بالحفظ وملازمته له",
+        "number": 12,
+        "id": "U03-L02-Q012"
+      },
+      {
+        "question": "كم حديثاً روى أبو هريرة رضي الله عنه عن النبي صلى الله عليه وسلم؟",
+        "options": {
+          "A": "1000 حديث",
+          "B": "2500 حديث",
+          "C": "5374 حديثاً",
+          "D": "7000 حديث"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "5374 حديثاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "5374 حديثاً"
+        },
+        "explanation": "5374 حديثاً",
+        "number": 13,
+        "id": "U03-L02-Q013"
+      },
+      {
+        "question": "ما هي القيمة المستفادة من نهي النبي عن 'القيل والقال'؟",
+        "options": {
+          "A": "حفظ اللسان واستثمار الوقت",
+          "B": "زيادة الكلام",
+          "C": "البحث عن العيوب",
+          "D": "تجاهل الآخرين"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "حفظ اللسان واستثمار الوقت",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حفظ اللسان واستثمار الوقت"
+        },
+        "explanation": "حفظ اللسان واستثمار الوقت",
+        "number": 14,
+        "id": "U03-L02-Q014"
+      },
+      {
+        "question": "قال تعالى (وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ) ترتبط هذه الآية بأي جزء من الحديث؟",
+        "options": {
+          "A": "عبادة الله",
+          "B": "إضاعة المال",
+          "C": "المناصحة",
+          "D": "الاعتصام"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إضاعة المال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إضاعة المال"
+        },
+        "explanation": "إضاعة المال",
+        "number": 15,
+        "id": "U03-L02-Q015"
+      },
+      {
+        "question": "من مظاهر 'إضاعة المال' هدر الماء والكهرباء، هل هذا صحيح؟",
+        "options": {
+          "A": "نعم، لأنه إنفاق فيما لا فائدة فيه وزيادة عن الحاجة",
+          "B": "لا، لأن الماء متاح للجميع",
+          "C": "لا، إلا إذا كان الماء غالياً",
+          "D": "فقط في الصيف"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "نعم، لأنه إنفاق فيما لا فائدة فيه وزيادة عن الحاجة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نعم، لأنه إنفاق فيما لا فائدة فيه وزيادة عن الحاجة"
+        },
+        "explanation": "نعم، لأنه إنفاق فيما لا فائدة فيه وزيادة عن الحاجة",
+        "number": 16,
+        "id": "U03-L02-Q016"
+      },
+      {
+        "question": "كيف تكون مناصحة ولاة الأمر كما فهمت من الدرس؟",
+        "options": {
+          "A": "بالتظاهر في الشوارع",
+          "B": "بالسر والدعاء لهم وتوجيه النصيحة بالحكمة",
+          "C": "بالصمت التام",
+          "D": "بالسخرية منهم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بالسر والدعاء لهم وتوجيه النصيحة بالحكمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالسر والدعاء لهم وتوجيه النصيحة بالحكمة"
+        },
+        "explanation": "بالسر والدعاء لهم وتوجيه النصيحة بالحكمة",
+        "number": 17,
+        "id": "U03-L02-Q017"
+      },
+      {
+        "question": "الاعتصام بحبل الله جمیعاً يؤدي إلى:",
+        "options": {
+          "A": "الفرقة",
+          "B": "الضعف",
+          "C": "وحدة الأمة وقوتها",
+          "D": "التنازع"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "وحدة الأمة وقوتها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وحدة الأمة وقوتها"
+        },
+        "explanation": "وحدة الأمة وقوتها",
+        "number": 18,
+        "id": "U03-L02-Q018"
+      },
+      {
+        "question": "ما الفرق بين 'التبذير' و 'الإسراف' كما ورد في التوضيح؟",
+        "options": {
+          "A": "لا فرق بينهما",
+          "B": "التبذير في الحرام، والإسراف تجاوز الحد في المباح",
+          "C": "الإسراف في الحرام والتبذير في المباح",
+          "D": "كلاهما جائز"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التبذير في الحرام، والإسراف تجاوز الحد في المباح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التبذير في الحرام، والإسراف تجاوز الحد في المباح"
+        },
+        "explanation": "التبذير في الحرام، والإسراف تجاوز الحد في المباح",
+        "number": 19,
+        "id": "U03-L02-Q019"
+      },
+      {
+        "question": "ما هو لقب الصحابي عبد الرحمن بن صخر؟",
+        "options": {
+          "A": "أبو تراب",
+          "B": "أبو هريرة",
+          "C": "سيف الله",
+          "D": "أمين الأمة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أبو هريرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أبو هريرة"
+        },
+        "explanation": "أبو هريرة",
+        "number": 20,
+        "id": "U03-L02-Q020"
+      },
+      {
+        "question": "حكم عبادة غير الله مع الله تعالى هو:",
+        "options": {
+          "A": "شرك أصغر",
+          "B": "شرك أكبر يحبط العمل",
+          "C": "مكروه",
+          "D": "مباح"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "شرك أكبر يحبط العمل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "شرك أكبر يحبط العمل"
+        },
+        "explanation": "شرك أكبر يحبط العمل",
+        "number": 21,
+        "id": "U03-L02-Q021"
+      },
+      {
+        "question": "قال صلى الله عليه وسلم 'الدين النصيحة'، هذا الحديث يؤكد فكرة:",
+        "options": {
+          "A": "إضاعة المال",
+          "B": "مناصحة ولاة الأمر والمؤمنين",
+          "C": "كثرة السؤال",
+          "D": "القيل والقال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مناصحة ولاة الأمر والمؤمنين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مناصحة ولاة الأمر والمؤمنين"
+        },
+        "explanation": "مناصحة ولاة الأمر والمؤمنين",
+        "number": 22,
+        "id": "U03-L02-Q022"
+      },
+      {
+        "question": "توفي أبو هريرة رضي الله عنه سنة 57 هـ في:",
+        "options": {
+          "A": "مكة",
+          "B": "الكوفة",
+          "C": "المدينة المنورة",
+          "D": "دمشق"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "المدينة المنورة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المدينة المنورة"
+        },
+        "explanation": "المدينة المنورة",
+        "number": 23,
+        "id": "U03-L02-Q023"
+      },
+      {
+        "question": "من نتائج 'القيل والقال' على المجتمع:",
+        "options": {
+          "A": "زيادة المحبة",
+          "B": "نشر الفتن والعداوة والبغضاء",
+          "C": "تطوير الثقافة",
+          "D": "قوة الترابط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نشر الفتن والعداوة والبغضاء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نشر الفتن والعداوة والبغضاء"
+        },
+        "explanation": "نشر الفتن والعداوة والبغضاء",
+        "number": 24,
+        "id": "U03-L02-Q024"
+      },
+      {
+        "question": "هل يدخل السؤال عن العلم في 'كثرة السؤال' المنهي عنها؟",
+        "options": {
+          "A": "نعم دائماً",
+          "B": "لا، بل هو مأمور به للتعلم",
+          "C": "نعم إذا كان السؤال طويلاً",
+          "D": "فقط في المدرسة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا، بل هو مأمور به للتعلم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا، بل هو مأمور به للتعلم"
+        },
+        "explanation": "لا، بل هو مأمور به للتعلم",
+        "number": 25,
+        "id": "U03-L02-Q025"
+      },
+      {
+        "question": "ما معنى قوله (تَعْتَصِمُوا)؟",
+        "options": {
+          "A": "تتفرقوا",
+          "B": "تتمسكوا وتلجأوا",
+          "C": "تهربوا",
+          "D": "تحزنوا"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تتمسكوا وتلجأوا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تتمسكوا وتلجأوا"
+        },
+        "explanation": "تتمسكوا وتلجأوا",
+        "number": 26,
+        "id": "U03-L02-Q026"
+      },
+      {
+        "question": "إخلاص العبادة لله تعالى هو جوهر عقيدة:",
+        "options": {
+          "A": "التوحيد",
+          "B": "الشرك",
+          "C": "الإلحاد",
+          "D": "النفاق"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "التوحيد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التوحيد"
+        },
+        "explanation": "التوحيد",
+        "number": 27,
+        "id": "U03-L02-Q027"
+      },
+      {
+        "question": "من الأمور التي تسخط الله (كثرة السؤال)، ويقصد بها أيضاً:",
+        "options": {
+          "A": "سؤال الناس أموالهم من غير حاجة",
+          "B": "سؤال المعلم",
+          "C": "سؤال الأب",
+          "D": "سؤال الطريق"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "سؤال الناس أموالهم من غير حاجة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "سؤال الناس أموالهم من غير حاجة"
+        },
+        "explanation": "سؤال الناس أموالهم من غير حاجة",
+        "number": 28,
+        "id": "U03-L02-Q028"
+      },
+      {
+        "question": "المناصحة تعني طلب:",
+        "options": {
+          "A": "المال",
+          "B": "الخير للمنصوح بصدق وإخلاص",
+          "C": "الشهرة",
+          "D": "المناصب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الخير للمنصوح بصدق وإخلاص",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الخير للمنصوح بصدق وإخلاص"
+        },
+        "explanation": "الخير للمنصوح بصدق وإخلاص",
+        "number": 29,
+        "id": "U03-L02-Q029"
+      },
+      {
+        "question": "ما هي الحالة التي يرضاها الله للأمة الإسلامية؟",
+        "options": {
+          "A": "التحزب",
+          "B": "الاجتماع على الحق ونبذ الفرقة",
+          "C": "الاختلاف الدائم",
+          "D": "التفرق"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الاجتماع على الحق ونبذ الفرقة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاجتماع على الحق ونبذ الفرقة"
+        },
+        "explanation": "الاجتماع على الحق ونبذ الفرقة",
+        "number": 30,
+        "id": "U03-L02-Q030"
+      },
+      {
+        "question": "يعتبر المال في الإسلام أمانة يجب:",
+        "options": {
+          "A": "إضاعتها",
+          "B": "المحافظة عليها وتنميتها في الحلال",
+          "C": "صرفها كلها فوراً",
+          "D": "تجاهلها"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المحافظة عليها وتنميتها في الحلال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المحافظة عليها وتنميتها في الحلال"
+        },
+        "explanation": "المحافظة عليها وتنميتها في الحلال",
+        "number": 31,
+        "id": "U03-L02-Q031"
+      },
+      {
+        "question": "عندما نرى خطأً من شخص ما، النصيحة تكون:",
+        "options": {
+          "A": "بالتوبيخ أمام الناس",
+          "B": "بالستر واللطف والحكمة",
+          "C": "بالفضيحة",
+          "D": "بإهمال الأمر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بالستر واللطف والحكمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالستر واللطف والحكمة"
+        },
+        "explanation": "بالستر واللطف والحكمة",
+        "number": 32,
+        "id": "U03-L02-Q032"
+      },
+      {
+        "question": "قال تعالى (فاسألوا أهل الذكر إن كنتم لا تعلمون)، هذه الآية تدل على أن السؤال الممدوح هو:",
+        "options": {
+          "A": "سؤال الفضول",
+          "B": "سؤال العلم والمعرفة",
+          "C": "سؤال التحدي",
+          "D": "سؤال الإعجاز"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "سؤال العلم والمعرفة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "سؤال العلم والمعرفة"
+        },
+        "explanation": "سؤال العلم والمعرفة",
+        "number": 33,
+        "id": "U03-L02-Q033"
+      },
+      {
+        "question": "من آثار تطبيق هذا الحديث على الفرد:",
+        "options": {
+          "A": "نيل رضا الله وسعادة الدارين",
+          "B": "كثرة الأعداء",
+          "C": "ضياع الوقت",
+          "D": "خسارة المال"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "نيل رضا الله وسعادة الدارين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نيل رضا الله وسعادة الدارين"
+        },
+        "explanation": "نيل رضا الله وسعادة الدارين",
+        "number": 34,
+        "id": "U03-L02-Q034"
+      },
+      {
+        "question": "إدارة المال بحكمة تعني:",
+        "options": {
+          "A": "البخل",
+          "B": "التوازن بين الإنفاق والادخار من غير إبذار",
+          "C": "صرف المال في اللهو",
+          "D": "كنز المال وعدم إخراج زكاته"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التوازن بين الإنفاق والادخار من غير إبذار",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التوازن بين الإنفاق والادخار من غير إبذار"
+        },
+        "explanation": "التوازن بين الإنفاق والادخار من غير إبذار",
+        "number": 35,
+        "id": "U03-L02-Q035"
+      },
+      {
+        "question": "أخبر النبي أن الله يرضى لنا (أن نعبدوه ولا نشركوا به شيئاً)، كلمة 'شيئاً' تدل على:",
+        "options": {
+          "A": "العموم (أي لا شرك أصغر ولا أكبر)",
+          "B": "شيء واحد فقط",
+          "C": "الجماد فقط",
+          "D": "الأصنام فقط"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "العموم (أي لا شرك أصغر ولا أكبر)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العموم (أي لا شرك أصغر ولا أكبر)"
+        },
+        "explanation": "العموم (أي لا شرك أصغر ولا أكبر)",
+        "number": 36,
+        "id": "U03-L02-Q036"
+      },
+      {
+        "question": "الهدف من النهي عن 'القيل والقال' هو الحفاظ على:",
+        "options": {
+          "A": "الأبنية",
+          "B": "الأعراض وسلامة الصدور",
+          "C": "الشركات",
+          "D": "المزارع"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأعراض وسلامة الصدور",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأعراض وسلامة الصدور"
+        },
+        "explanation": "الأعراض وسلامة الصدور",
+        "number": 37,
+        "id": "U03-L02-Q037"
+      },
+      {
+        "question": "من هو النبي الذي دعا لأبي هريرة بالحفظ؟",
+        "options": {
+          "A": "إبراهيم عليه السلام",
+          "B": "موسى عليه السلام",
+          "C": "محمد صلى الله عليه وسلم",
+          "D": "عيسى عليه السلام"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "محمد صلى الله عليه وسلم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "محمد صلى الله عليه وسلم"
+        },
+        "explanation": "محمد صلى الله عليه وسلم",
+        "number": 38,
+        "id": "U03-L02-Q038"
+      },
+      {
+        "question": "الاعتصام الجماعي بحبل الله يمنع:",
+        "options": {
+          "A": "القوة",
+          "B": "التفكك والضياع",
+          "C": "النجاح",
+          "D": "التقدم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التفكك والضياع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التفكك والضياع"
+        },
+        "explanation": "التفكك والضياع",
+        "number": 39,
+        "id": "U03-L02-Q039"
+      },
+      {
+        "question": "معنى 'يرضى لكم' في الحديث:",
+        "options": {
+          "A": "يسمح لكم",
+          "B": "يطلب منكم",
+          "C": "يحب لكم ويثيبكم عليه",
+          "D": "يفضل لكم"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "يحب لكم ويثيبكم عليه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يحب لكم ويثيبكم عليه"
+        },
+        "explanation": "يحب لكم ويثيبكم عليه",
+        "number": 40,
+        "id": "U03-L02-Q040"
+      }
+    ]
+  }
+}

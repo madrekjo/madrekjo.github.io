@@ -1,0 +1,992 @@
+{
+  "lesson": {
+    "lesson_number": "2.3",
+    "lesson_name": "الدوال المثلثية بشكل عام",
+    "unit_number": 2,
+    "unit_name": "الوحدة الثانية",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما هو المجال للاقترانين f(x) = sin x و f(x) = cos x؟",
+        "options": {
+          "A": "[-1, 1]",
+          "B": "[0, 2π]",
+          "C": "مجموعة الأعداد الحقيقية R",
+          "D": "(0, ∞)"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "مجموعة الأعداد الحقيقية R",
+        "difficulty": "easy",
+        "source": {
+          "page": 166,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مجال كل من اقتراني الجيب وجيب التمام هو مجموعة الأعداد الحقيقية [1]."
+        },
+        "explanation": "مجال كل من اقتراني الجيب وجيب التمام هو مجموعة الأعداد الحقيقية [1].",
+        "number": 1,
+        "id": "U02-L03-Q001"
+      },
+      {
+        "question": "ما هو مدى الاقترانين f(x) = sin x و f(x) = cos x؟",
+        "options": {
+          "A": "R",
+          "B": "[-1, 1]",
+          "C": "[2]",
+          "D": "[-π, π]"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "[-1, 1]",
+        "difficulty": "easy",
+        "source": {
+          "page": 166,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مدى كل من الاقترانين هو الفترة المغلقة من -1 إلى 1 [1]."
+        },
+        "explanation": "مدى كل من الاقترانين هو الفترة المغلقة من -1 إلى 1 [1].",
+        "number": 2,
+        "id": "U02-L03-Q002"
+      },
+      {
+        "question": "ماذا نطلق على الاقتران الذي له نمط بياني متكرر بفترات منتظمة؟",
+        "options": {
+          "A": "اقتران خطي",
+          "B": "اقتران دوري",
+          "C": "اقتران محايد",
+          "D": "اقتران واحد لواحد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اقتران دوري",
+        "difficulty": "easy",
+        "source": {
+          "page": 167,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يُسمى الاقتران دورياً إذا كان لتمثيله البياني نمط متكرر [3]."
+        },
+        "explanation": "يُسمى الاقتران دورياً إذا كان لتمثيله البياني نمط متكرر [3].",
+        "number": 3,
+        "id": "U02-L03-Q003"
+      },
+      {
+        "question": "كم يبلغ طول دورة الاقترانين الرئيسين sin x و cos x؟",
+        "options": {
+          "A": "π",
+          "B": "2π",
+          "C": "360",
+          "D": "π/2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "2π",
+        "difficulty": "easy",
+        "source": {
+          "page": 167,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يُظهر التمثيل البياني أن طول الدورة للأقترانات الجيبية الرئيسة هو 2π [3]."
+        },
+        "explanation": "يُظهر التمثيل البياني أن طول الدورة للأقترانات الجيبية الرئيسة هو 2π [3].",
+        "number": 4,
+        "id": "U02-L03-Q004"
+      },
+      {
+        "question": "ما هو تعريف 'السعة' (amplitude) للمنحنى الجيبي؟",
+        "options": {
+          "A": "المسافة الأفقية لدورة واحدة.",
+          "B": "نصف الفرق بين القيمة العظمى والقيمة الصغرى.",
+          "C": "نقطة تقاطع المنحنى مع محور y.",
+          "D": "أكبر قيمة يصل إليها x."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نصف الفرق بين القيمة العظمى والقيمة الصغرى.",
+        "difficulty": "medium",
+        "source": {
+          "page": 167,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السعة هي نصف المسافة الرأسية بين القمة والقاع [167، 169]."
+        },
+        "explanation": "السعة هي نصف المسافة الرأسية بين القمة والقاع [167، 169].",
+        "number": 5,
+        "id": "U02-L03-Q005"
+      },
+      {
+        "question": "كم تبلغ سعة الاقتران f(x) = sin x؟",
+        "options": {
+          "A": "2",
+          "B": "1/2",
+          "C": "1",
+          "D": "2π"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "1",
+        "difficulty": "easy",
+        "source": {
+          "page": 167,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "السعة = 0.5 * (1 - (-1)) = 1."
+          ],
+          "summary": "بما أن القيمة العظمى 1 والصغرى -1، فإن السعة تساوي 1 [3]."
+        },
+        "explanation": "بما أن القيمة العظمى 1 والصغرى -1، فإن السعة تساوي 1 [3].",
+        "number": 6,
+        "id": "U02-L03-Q006"
+      },
+      {
+        "question": "في الاقتران g(x) = a sin x، ماذا يمثل المعامل 'a'؟",
+        "options": {
+          "A": "طول الدورة",
+          "B": "الإزاحة الأفقية",
+          "C": "السعة (مطلقة a)",
+          "D": "خط الوسط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "السعة (مطلقة a)",
+        "difficulty": "medium",
+        "source": {
+          "page": 169,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المعامل 'a' يؤثر في تمدد المنحنى رأسياً وتساوي قيمته المطلقة السعة [4]."
+        },
+        "explanation": "المعامل 'a' يؤثر في تمدد المنحنى رأسياً وتساوي قيمته المطلقة السعة [4].",
+        "number": 7,
+        "id": "U02-L03-Q007"
+      },
+      {
+        "question": "ما هي سعة الاقتران g(x) = 4 cos x؟",
+        "options": {
+          "A": "1",
+          "B": "4",
+          "C": "π/4",
+          "D": "2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "4",
+        "difficulty": "medium",
+        "source": {
+          "page": 171,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السعة تساوي القيمة المطلقة للمعامل 'a'، وهنا |4| = 4 [5]."
+        },
+        "explanation": "السعة تساوي القيمة المطلقة للمعامل 'a'، وهنا |4| = 4 [5].",
+        "number": 8,
+        "id": "U02-L03-Q008"
+      },
+      {
+        "question": "إذا كان |a| > 1، فما نوع التحويل الهندسي الرأسي الذي يطرأ على المنحنى؟",
+        "options": {
+          "A": "تضييق رأسي",
+          "B": "توسيع رأسي",
+          "C": "انسحاب للأعلى",
+          "D": "انعكاس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "توسيع رأسي",
+        "difficulty": "medium",
+        "source": {
+          "page": 169,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المعامل 'a' يؤدي لتوسيع رأسي إذا كان أكبر من 1 [4]."
+        },
+        "explanation": "المعامل 'a' يؤدي لتوسيع رأسي إذا كان أكبر من 1 [4].",
+        "number": 9,
+        "id": "U02-L03-Q009"
+      },
+      {
+        "question": "كيف نحسب طول دورة الاقتران g(x) = sin (bx) حيث b ≠ 0؟",
+        "options": {
+          "A": "2π * |b|",
+          "B": "2π / |b|",
+          "C": "π / |b|",
+          "D": "|b| / 2π"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "2π / |b|",
+        "difficulty": "medium",
+        "source": {
+          "page": 175,
+          "reference": "طول دورة الاقترانات الجيبية"
+        },
+        "solution": {
+          "formula": "طول دورة الاقترانات الجيبية",
+          "steps": [],
+          "summary": "طول الدورة يساوي دورة الاقتران الرئيس مقسومة على المعامل 'b' [6]."
+        },
+        "explanation": "طول الدورة يساوي دورة الاقتران الرئيس مقسومة على المعامل 'b' [6].",
+        "number": 10,
+        "id": "U02-L03-Q010"
+      },
+      {
+        "question": "ما طول دورة الاقتران g(x) = cos (2x)؟",
+        "options": {
+          "A": "2π",
+          "B": "π",
+          "C": "4π",
+          "D": "π/2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "π",
+        "difficulty": "hard",
+        "source": {
+          "page": 177,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "طول الدورة = 2π / |2| = π."
+          ],
+          "summary": "بتطبيق قانون طول الدورة مع المعامل b=2 [7]."
+        },
+        "explanation": "بتطبيق قانون طول الدورة مع المعامل b=2 [7].",
+        "number": 11,
+        "id": "U02-L03-Q011"
+      },
+      {
+        "question": "ما هو طول دورة الاقتران g(x) = sin (x/2)؟",
+        "options": {
+          "A": "π",
+          "B": "2π",
+          "C": "4π",
+          "D": "π/2"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "4π",
+        "difficulty": "hard",
+        "source": {
+          "page": 176,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "طول الدورة = 2π / (1/2) = 2π * 2 = 4π."
+          ],
+          "summary": "المعامل b هنا هو 1/2، مما يؤدي لتوسيع أفقي [8]."
+        },
+        "explanation": "المعامل b هنا هو 1/2، مما يؤدي لتوسيع أفقي [8].",
+        "number": 12,
+        "id": "U02-L03-Q012"
+      },
+      {
+        "question": "ماذا يسمى المحور الذي يتذبذب حوله منحنى الاقتران الجيبي بعد الانسحاب الرأسي؟",
+        "options": {
+          "A": "المحور x",
+          "B": "المحور y",
+          "C": "خط الوسط (midline)",
+          "D": "محور التماثل"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "خط الوسط (midline)",
+        "difficulty": "medium",
+        "source": {
+          "page": 180,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خط الوسط هو المستقيم الأفقي الذي يتوسط القمة والقاع [9]."
+        },
+        "explanation": "خط الوسط هو المستقيم الأفقي الذي يتوسط القمة والقاع [9].",
+        "number": 13,
+        "id": "U02-L03-Q013"
+      },
+      {
+        "question": "ما هي معادلة خط الوسط للاقتران g(x) = a sin (bx) + d؟",
+        "options": {
+          "A": "y = a",
+          "B": "y = b",
+          "C": "y = d",
+          "D": "x = d"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "y = d",
+        "difficulty": "medium",
+        "source": {
+          "page": 180,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الثابت المضاف 'd' يمثل مقدار الانسحاب الرأسي وهو يحدد خط الوسط [9]."
+        },
+        "explanation": "الثابت المضاف 'd' يمثل مقدار الانسحاب الرأسي وهو يحدد خط الوسط [9].",
+        "number": 14,
+        "id": "U02-L03-Q014"
+      },
+      {
+        "question": "ما هو خط الوسط للاقتران g(x) = 2 + cos x؟",
+        "options": {
+          "A": "y = 0",
+          "B": "y = 1",
+          "C": "y = 2",
+          "D": "y = -2"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "y = 2",
+        "difficulty": "medium",
+        "source": {
+          "page": 181,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المنحنى أزيح وحدتين للأعلى، فصار خط الوسط y=2 [10]."
+        },
+        "explanation": "المنحنى أزيح وحدتين للأعلى، فصار خط الوسط y=2 [10].",
+        "number": 15,
+        "id": "U02-L03-Q015"
+      },
+      {
+        "question": "الاقتران g(x) = sin (x - π/3) يمثل انسحاباً لمنحنى sin x بمقدار π/3 وحدة إلى:",
+        "options": {
+          "A": "الأعلى",
+          "B": "الأسفل",
+          "C": "اليمين",
+          "D": "اليسار"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "اليمين",
+        "difficulty": "medium",
+        "source": {
+          "page": 182,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القيمة المطروحة داخل القوس تمثل انسحاباً أفقياً لليمين [11]."
+        },
+        "explanation": "القيمة المطروحة داخل القوس تمثل انسحاباً أفقياً لليمين [11].",
+        "number": 16,
+        "id": "U02-L03-Q016"
+      },
+      {
+        "question": "ما هو تأثير المعامل السالب في g(x) = -sin x على الرسم البياني؟",
+        "options": {
+          "A": "انسحاب لليسار",
+          "B": "انعكاس حول المحور x",
+          "C": "تمدد رأسي",
+          "D": "لا يؤثر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "انعكاس حول المحور x",
+        "difficulty": "medium",
+        "source": {
+          "page": 184,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عندما تكون a سالبة، ينعكس المنحنى حول المحور الأفقي (خط الوسط) [12]."
+        },
+        "explanation": "عندما تكون a سالبة، ينعكس المنحنى حول المحور الأفقي (خط الوسط) [12].",
+        "number": 17,
+        "id": "U02-L03-Q017"
+      },
+      {
+        "question": "أوجد القيمة العظمى للاقتران g(x) = 3 sin x + 5.",
+        "options": {
+          "A": "3",
+          "B": "5",
+          "C": "8",
+          "D": "2"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "8",
+        "difficulty": "hard",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "العظمى = السعة + d = 3 + 5 = 8."
+          ],
+          "summary": "تجمع السعة مع ثابت الإزاحة الرأسية لإيجاد أعلى نقطة [10]."
+        },
+        "explanation": "تجمع السعة مع ثابت الإزاحة الرأسية لإيجاد أعلى نقطة [10].",
+        "number": 18,
+        "id": "U02-L03-Q018"
+      },
+      {
+        "question": "أوجد القيمة الصغرى للاقتران g(x) = 2 cos x - 4.",
+        "options": {
+          "A": "-2",
+          "B": "-6",
+          "C": "-4",
+          "D": "0"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-6",
+        "difficulty": "hard",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "الصغرى = -|a| + d = -2 - 4 = -6."
+          ],
+          "summary": "تُطرح السعة من ثابت الإزاحة الرأسية لإيجاد أقل نقطة [10]."
+        },
+        "explanation": "تُطرح السعة من ثابت الإزاحة الرأسية لإيجاد أقل نقطة [10].",
+        "number": 19,
+        "id": "U02-L03-Q019"
+      },
+      {
+        "question": "في مسألة النجوم المتغيرة (ص 161)، ما هي سعة اقتران السطوع b(t) = 7.9 - 2.1 cos(...)؟",
+        "options": {
+          "A": "7.9",
+          "B": "2.1",
+          "C": "5.8",
+          "D": "10"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "2.1",
+        "difficulty": "medium",
+        "source": {
+          "page": 161,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السعة هي القيمة المطلقة لمعامل جيب التمام، وهي 2.1 [13]."
+        },
+        "explanation": "السعة هي القيمة المطلقة لمعامل جيب التمام، وهي 2.1 [13].",
+        "number": 20,
+        "id": "U02-L03-Q020"
+      },
+      {
+        "question": "ما هي 'النقاط المفتاحية' المستخدمة لتمثيل الاقتران الجيبي بيانياً؟",
+        "options": {
+          "A": "نقاط التقاطع مع x والقمم والقيعان.",
+          "B": "نقطة الأصل فقط.",
+          "C": "الأصفار النسبية.",
+          "D": "أي 10 نقاط عشوائية."
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "نقاط التقاطع مع x والقمم والقيعان.",
+        "difficulty": "easy",
+        "source": {
+          "page": 171,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تُستخدم هذه الخمس نقاط الرئيسية لرسم دورة واحدة دقيقة [5]."
+        },
+        "explanation": "تُستخدم هذه الخمس نقاط الرئيسية لرسم دورة واحدة دقيقة [5].",
+        "number": 21,
+        "id": "U02-L03-Q021"
+      },
+      {
+        "question": "عند رسم f(x) = sin x في الفترة [0, 2π]، أين تقع القمة (النقطة العظمى)؟",
+        "options": {
+          "A": "(0, 0)",
+          "B": "(π/2, 1)",
+          "C": "(π, 0)",
+          "D": "(2π, 0)"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "(π/2, 1)",
+        "difficulty": "medium",
+        "source": {
+          "page": 163,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حسب جدول القيم والتمثيل البياني للجيب [14]."
+        },
+        "explanation": "حسب جدول القيم والتمثيل البياني للجيب [14].",
+        "number": 22,
+        "id": "U02-L03-Q022"
+      },
+      {
+        "question": "عند رسم f(x) = cos x في الفترة [0, 2π]، أين يقع القاع (النقطة الصغرى)؟",
+        "options": {
+          "A": "(0, 1)",
+          "B": "(π/2, 0)",
+          "C": "(π, -1)",
+          "D": "(3π/2, 0)"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "(π, -1)",
+        "difficulty": "medium",
+        "source": {
+          "page": 164,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "منحنى جيب التمام يصل لأقل قيمة له عند π راديان [15]."
+        },
+        "explanation": "منحنى جيب التمام يصل لأقل قيمة له عند π راديان [15].",
+        "number": 23,
+        "id": "U02-L03-Q023"
+      },
+      {
+        "question": "ما هو تأثير المعامل b إذا كان |b| > 1 على طول الدورة؟",
+        "options": {
+          "A": "يزيد طول الدورة (توسيع أفقي).",
+          "B": "يقلل طول الدورة (تضييق أفقي).",
+          "C": "لا يؤثر على الدورة.",
+          "D": "يقلب المنحنى."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يقلل طول الدورة (تضييق أفقي).",
+        "difficulty": "medium",
+        "source": {
+          "page": 174,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "زيادة قيمة b داخل الزاوية تسرع من تكرار النمط فتقل الدورة [16]."
+        },
+        "explanation": "زيادة قيمة b داخل الزاوية تسرع من تكرار النمط فتقل الدورة [16].",
+        "number": 24,
+        "id": "U02-L03-Q024"
+      },
+      {
+        "question": "أي اقتران مما يلي له سعة تساوي 3؟",
+        "options": {
+          "A": "y = sin 3x",
+          "B": "y = 3 + cos x",
+          "C": "y = 3 sin x",
+          "D": "y = sin x + 3"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "y = 3 sin x",
+        "difficulty": "medium",
+        "source": {
+          "page": 187,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السعة هي المعامل المضروب في الاقتران [17]."
+        },
+        "explanation": "السعة هي المعامل المضروب في الاقتران [17].",
+        "number": 25,
+        "id": "U02-L03-Q025"
+      },
+      {
+        "question": "ما مدى الاقتران g(x) = 2 sin x - 3؟",
+        "options": {
+          "A": "[-2, 2]",
+          "B": "[-3, 2]",
+          "C": "[-5, -1]",
+          "D": "[-1, 1]"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "[-5, -1]",
+        "difficulty": "hard",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "العظمى = 2 - 3 = -1. الصغرى = -2 - 3 = -5."
+          ],
+          "summary": "بدمج تأثير السعة والانسحاب الرأسي [10]."
+        },
+        "explanation": "بدمج تأثير السعة والانسحاب الرأسي [10].",
+        "number": 26,
+        "id": "U02-L03-Q026"
+      },
+      {
+        "question": "المنحنى g(x) = cos (x + π/2) هو انسحاب لليُسار لمنحنى cos x بمقدار:",
+        "options": {
+          "A": "π وحدة",
+          "B": "π/2 وحدة",
+          "C": "وحدتين",
+          "D": "1 وحدة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "π/2 وحدة",
+        "difficulty": "medium",
+        "source": {
+          "page": 182,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإضافة داخل القوس تعني إزاحة أفقية لليسار [11]."
+        },
+        "explanation": "الإضافة داخل القوس تعني إزاحة أفقية لليسار [11].",
+        "number": 27,
+        "id": "U02-L03-Q027"
+      },
+      {
+        "question": "في معمل جيوجبرا، ما الخيار الذي يفعل تقسيم المحور x بوحدات الراديان؟",
+        "options": {
+          "A": "Extremum",
+          "B": "Distance",
+          "C": "Unit",
+          "D": "xAxis"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "Distance",
+        "difficulty": "medium",
+        "source": {
+          "page": 191,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بعد تفعيل Distance يمكن اختيار التقسيم π/2 أو غيره [18]."
+        },
+        "explanation": "بعد تفعيل Distance يمكن اختيار التقسيم π/2 أو غيره [18].",
+        "number": 28,
+        "id": "U02-L03-Q028"
+      },
+      {
+        "question": "ماذا يمثل الرقم 30 في معادلة العجلة الدوارة h = 25 sin(...) + 30؟ (ص 189)",
+        "options": {
+          "A": "السعة",
+          "B": "طول الدورة",
+          "C": "خط الوسط (الارتفاع المتوسط)",
+          "D": "أقصى ارتفاع"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "خط الوسط (الارتفاع المتوسط)",
+        "difficulty": "medium",
+        "source": {
+          "page": 189,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يمثل الثابت المضاف d الارتفاع الذي تتذبذب حوله العجلة [19]."
+        },
+        "explanation": "يمثل الثابت المضاف d الارتفاع الذي تتذبذب حوله العجلة [19].",
+        "number": 29,
+        "id": "U02-L03-Q029"
+      },
+      {
+        "question": "أقصى ارتفاع يصل إليه الشخص في العجلة الدوارة (h = 25 sin... + 30) هو:",
+        "options": {
+          "A": "25 ft",
+          "B": "30 ft",
+          "C": "55 ft",
+          "D": "5 ft"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "55 ft",
+        "difficulty": "hard",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "الارتفاع الأقصى = 25 + 30 = 55."
+          ],
+          "summary": "بجمع السعة مع الارتفاع الابتدائي لخط الوسط [19]."
+        },
+        "explanation": "بجمع السعة مع الارتفاع الابتدائي لخط الوسط [19].",
+        "number": 30,
+        "id": "U02-L03-Q030"
+      },
+      {
+        "question": "ما طول دورة الاقتران g(x) = sin (3x)؟",
+        "options": {
+          "A": "6π",
+          "B": "2π/3",
+          "C": "3π/2",
+          "D": "2π"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "2π/3",
+        "difficulty": "medium",
+        "source": {
+          "page": 178,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بتقسيم 2π على المعامل 3 [20]."
+        },
+        "explanation": "بتقسيم 2π على المعامل 3 [20].",
+        "number": 31,
+        "id": "U02-L03-Q031"
+      },
+      {
+        "question": "عند تمثيل g(x) = -2 sin (x-π) - 3، ما هي معادلة خط الوسط؟",
+        "options": {
+          "A": "y = -2",
+          "B": "y = -3",
+          "C": "y = 3",
+          "D": "y = 2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "y = -3",
+        "difficulty": "medium",
+        "source": {
+          "page": 186,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خط الوسط يحدده الثابت d، وهو هنا -3 [21]."
+        },
+        "explanation": "خط الوسط يحدده الثابت d، وهو هنا -3 [21].",
+        "number": 32,
+        "id": "U02-L03-Q032"
+      },
+      {
+        "question": "ما سعة الاقتران الممثل بالشكل (c) في ص 188؟ (g(x) = 1 + sin (x/2))",
+        "options": {
+          "A": "2",
+          "B": "1",
+          "C": "4π",
+          "D": "0"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1",
+        "difficulty": "medium",
+        "source": {
+          "page": 188,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "معامل الجيب هو 1، لذا السعة 1 [22]."
+        },
+        "explanation": "معامل الجيب هو 1، لذا السعة 1 [22].",
+        "number": 33,
+        "id": "U02-L03-Q033"
+      },
+      {
+        "question": "المنحنى g(x) = 1/4 cos x هو:",
+        "options": {
+          "A": "توسيع رأسي لمنحنى جيب التمام.",
+          "B": "تضييق رأسي لمنحنى جيب التمام.",
+          "C": "انعكاس لمنحنى جيب التمام.",
+          "D": "انسحاب للأسفل."
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تضييق رأسي لمنحنى جيب التمام.",
+        "difficulty": "medium",
+        "source": {
+          "page": 173,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بما أن المعامل a أقل من 1 (1/4)، فهو تضييق رأسي [23]."
+        },
+        "explanation": "بما أن المعامل a أقل من 1 (1/4)، فهو تضييق رأسي [23].",
+        "number": 34,
+        "id": "U02-L03-Q034"
+      },
+      {
+        "question": "ما قيمة g(0) للاقتران g(x) = 2 + cos x؟",
+        "options": {
+          "A": "2",
+          "B": "3",
+          "C": "1",
+          "D": "0"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "3",
+        "difficulty": "medium",
+        "source": {
+          "page": 181,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "2 + cos(0) = 2 + 1 = 3."
+          ],
+          "summary": "تعويض مباشر لإيجاد المقطع y [10]."
+        },
+        "explanation": "تعويض مباشر لإيجاد المقطع y [10].",
+        "number": 35,
+        "id": "U02-L03-Q035"
+      },
+      {
+        "question": "دورة الاقتران g(x) = cos (πx) تساوي:",
+        "options": {
+          "A": "2π",
+          "B": "2",
+          "C": "π",
+          "D": "1"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "2",
+        "difficulty": "hard",
+        "source": {
+          "page": 187,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "2π / π = 2."
+          ],
+          "summary": "تطبيق القانون عندما يكون المعامل b يحتوي على π [17]."
+        },
+        "explanation": "تطبيق القانون عندما يكون المعامل b يحتوي على π [17].",
+        "number": 36,
+        "id": "U02-L03-Q036"
+      },
+      {
+        "question": "في أي فترة يكمل الاقتران sin x دورة كاملة واحدة بدءاً من الصفر؟",
+        "options": {
+          "A": "[0, π]",
+          "B": "[0, 2π]",
+          "C": "[-π, π]",
+          "D": "[0, 4π]"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "[0, 2π]",
+        "difficulty": "easy",
+        "source": {
+          "page": 162,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدورة الأساسية للأقترانات الجيبية هي 360 درجة أو 2π راديان [24]."
+        },
+        "explanation": "الدورة الأساسية للأقترانات الجيبية هي 360 درجة أو 2π راديان [24].",
+        "number": 37,
+        "id": "U02-L03-Q037"
+      },
+      {
+        "question": "ماذا يحدث للمنحنى f(x) = cos x إذا طُبق عليه التحويل g(x) = cos x - 3؟",
+        "options": {
+          "A": "انسحاب لليمين 3 وحدات.",
+          "B": "انسحاب للأعلى 3 وحدات.",
+          "C": "انسحاب للأسفل 3 وحدات.",
+          "D": "تضييق أفقي."
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "انسحاب للأسفل 3 وحدات.",
+        "difficulty": "easy",
+        "source": {
+          "page": 181,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طرح ثابت من الاقتران خارج الزاوية يعني انسحاباً رأسياً للأسفل [10]."
+        },
+        "explanation": "طرح ثابت من الاقتران خارج الزاوية يعني انسحاباً رأسياً للأسفل [10].",
+        "number": 38,
+        "id": "U02-L03-Q038"
+      },
+      {
+        "question": "سعة الاقتران g(x) = -5 sin (x - π/2) + 3 هي:",
+        "options": {
+          "A": "-5",
+          "B": "5",
+          "C": "3",
+          "D": "8"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "5",
+        "difficulty": "medium",
+        "source": {
+          "page": 195,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السعة دائماً موجبة وتساوي القيمة المطلقة لـ a، وهي |-5| = 5 [25]."
+        },
+        "explanation": "السعة دائماً موجبة وتساوي القيمة المطلقة لـ a، وهي |-5| = 5 [25].",
+        "number": 39,
+        "id": "U02-L03-Q039"
+      },
+      {
+        "question": "ما طول دورة الاقتران g(x) = 3 cos (π/2 * (x + 1/2))؟",
+        "options": {
+          "A": "2",
+          "B": "4",
+          "C": "π",
+          "D": "2π"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "4",
+        "difficulty": "hard",
+        "source": {
+          "page": 195,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "2π / (π/2) = 2π * 2 / π = 4."
+          ],
+          "summary": "تطبيق قانون طول الدورة مع المعامل b=π/2 [25]."
+        },
+        "explanation": "تطبيق قانون طول الدورة مع المعامل b=π/2 [25].",
+        "number": 40,
+        "id": "U02-L03-Q040"
+      }
+    ]
+  }
+}

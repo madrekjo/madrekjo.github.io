@@ -1,0 +1,47 @@
+{
+  "subject_id": "geography",
+  "subject": "الجغرافيا",
+  "generation_id": "2009",
+  "generation": "2009",
+  "semester_id": "semester-1",
+  "semester": 1,
+  "semester_label": "ف1",
+  "units": [
+    {
+      "id": "U01",
+      "number": 1,
+      "name": "أشكال سطح الأرض",
+      "lessons": [
+        {
+          "id": "L01",
+          "number": 1,
+          "name": "دور الحركات الأرضية البطيئة",
+          "file": "unit-01/lesson-01.json"
+        },
+        {
+          "id": "L02",
+          "number": 2,
+          "name": "دور الحركات الأرضية السريعة",
+          "file": "unit-01/lesson-02.json"
+        },
+        {
+          "id": "L03",
+          "number": 3,
+          "name": "دور التجوية",
+          "file": "unit-01/lesson-03.json"
+        },
+        {
+          "id": "L04",
+          "number": 4,
+          "name": "دور المياه",
+          "file": "unit-01/lesson-04.json"
+        }
+      ],
+      "review": {
+        "id": "REV",
+        "name": "مراجعة الوحدة",
+        "file": "unit-01/review.json"
+      }
+    }
+  ]
+}

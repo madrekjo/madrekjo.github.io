@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "2.3",
+    "lesson_name": "معركة مؤتة",
+    "unit_number": 2,
+    "unit_name": "الوحدة الثانية: خدم القرآن الكريم",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "وقعت معركة مؤتة في السنة:",
+        "options": {
+          "A": "السادسة للهجرة",
+          "B": "السابعة للهجرة",
+          "C": "الثامنة للهجرة",
+          "D": "التاسعة للهجرة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الثامنة للهجرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الثامنة للهجرة"
+        },
+        "explanation": "الثامنة للهجرة",
+        "number": 1,
+        "id": "U02-L03-Q001"
+      },
+      {
+        "question": "الصحابي الذي بعثه النبي ﷺ برسالة إلى حاكم بصرى هو:",
+        "options": {
+          "A": "خالد بن الوليد",
+          "B": "جعفر بن أبي طالب",
+          "C": "الحارث بن عمير الأزدي",
+          "D": "عبد الله بن رواحة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الحارث بن عمير الأزدي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحارث بن عمير الأزدي"
+        },
+        "explanation": "الحارث بن عمير الأزدي",
+        "number": 2,
+        "id": "U02-L03-Q002"
+      },
+      {
+        "question": "من هو أمير الروم على الشام الذي قتل رسول النبي ﷺ؟",
+        "options": {
+          "A": "هرقل",
+          "B": "شرحبيل بن عمرو الغساني",
+          "C": "أبو سفيان",
+          "D": "كسرى"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "شرحبيل بن عمرو الغساني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "شرحبيل بن عمرو الغساني"
+        },
+        "explanation": "شرحبيل بن عمرو الغساني",
+        "number": 3,
+        "id": "U02-L03-Q003"
+      },
+      {
+        "question": "المكان الذي اعترض فيه شرحبيل طريق الصحابي الحارث بن عمير وقتله هو:",
+        "options": {
+          "A": "معان",
+          "B": "مؤتة",
+          "C": "أرض الطفيلة",
+          "D": "بصرى"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "أرض الطفيلة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أرض الطفيلة"
+        },
+        "explanation": "أرض الطفيلة",
+        "number": 4,
+        "id": "U02-L03-Q004"
+      },
+      {
+        "question": "يُعد قتل الرسل والتعرض لهم عملاً:",
+        "options": {
+          "A": "مباحاً في الحرب",
+          "B": "مخالفاً للعادة والمواثيق",
+          "C": "محبباً",
+          "D": "شجاعة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مخالفاً للعادة والمواثيق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مخالفاً للعادة والمواثيق"
+        },
+        "explanation": "مخالفاً للعادة والمواثيق",
+        "number": 5,
+        "id": "U02-L03-Q005"
+      },
+      {
+        "question": "كان الهدف من تجهيز جيش مؤتة هو:",
+        "options": {
+          "A": "جمع الغنائم",
+          "B": "حفظ هيبة الدولة وتأديب المعتدين",
+          "C": "احتلال الشام",
+          "D": "ملاحقة قريش"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حفظ هيبة الدولة وتأديب المعتدين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حفظ هيبة الدولة وتأديب المعتدين"
+        },
+        "explanation": "حفظ هيبة الدولة وتأديب المعتدين",
+        "number": 6,
+        "id": "U02-L03-Q006"
+      },
+      {
+        "question": "كم كان قوام جيش المسلمين في معركة مؤتة؟",
+        "options": {
+          "A": "ألف مقاتل",
+          "B": "ألفا مقاتل",
+          "C": "ثلاثة آلاف مقاتل",
+          "D": "عشرة آلاف مقاتل"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "ثلاثة آلاف مقاتل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ثلاثة آلاف مقاتل"
+        },
+        "explanation": "ثلاثة آلاف مقاتل",
+        "number": 7,
+        "id": "U02-L03-Q007"
+      },
+      {
+        "question": "القائد الأول الذي عينه النبي ﷺ لجيش مؤتة هو:",
+        "options": {
+          "A": "جعفر بن أبي طالب",
+          "B": "زيد بن حارثة",
+          "C": "عبد الله بن رواحة",
+          "D": "خالد بن الوليد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "زيد بن حارثة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "زيد بن حارثة"
+        },
+        "explanation": "زيد بن حارثة",
+        "number": 8,
+        "id": "U02-L03-Q008"
+      },
+      {
+        "question": "قال ﷺ: (إن قُتل زيد فجعفر، وإن قُتل جعفر فـ...):",
+        "options": {
+          "A": "خالد بن الوليد",
+          "B": "عبد الله بن عمر",
+          "C": "عبد الله بن رواحة",
+          "D": "أسامة بن زيد"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "عبد الله بن رواحة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد الله بن رواحة"
+        },
+        "explanation": "عبد الله بن رواحة",
+        "number": 9,
+        "id": "U02-L03-Q009"
+      },
+      {
+        "question": "من أخلاقيات الحرب التي أوصى بها النبي ﷺ جيش مؤتة عدم قتل:",
+        "options": {
+          "A": "المحاربين",
+          "B": "الوليد (الطفل)",
+          "C": "الجواسيس",
+          "D": "الخونة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الوليد (الطفل)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الوليد (الطفل)"
+        },
+        "explanation": "الوليد (الطفل)",
+        "number": 10,
+        "id": "U02-L03-Q010"
+      },
+      {
+        "question": "نهى النبي ﷺ في وصيته للجيش عن (الغلو)، والمقصود به هنا:",
+        "options": {
+          "A": "السرقة من الغنائم قبل قسمتها",
+          "B": "الشدة في القتال",
+          "C": "كثرة الكلام",
+          "D": "المبالغة في اللباس"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "السرقة من الغنائم قبل قسمتها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السرقة من الغنائم قبل قسمتها"
+        },
+        "explanation": "السرقة من الغنائم قبل قسمتها",
+        "number": 11,
+        "id": "U02-L03-Q011"
+      },
+      {
+        "question": "ما هي المدينة التي توقف فيها جيش المسلمين للتشاور بعد سماعهم بعدد الروم؟",
+        "options": {
+          "A": "المدينة المنورة",
+          "B": "معان",
+          "C": "الطفيلة",
+          "D": "الكرك"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "معان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "معان"
+        },
+        "explanation": "معان",
+        "number": 12,
+        "id": "U02-L03-Q012"
+      },
+      {
+        "question": "الصحابي الذي شجع المسلمين في معان على المضي للقتال هو:",
+        "options": {
+          "A": "زيد بن حارثة",
+          "B": "جعفر بن أبي طالب",
+          "C": "عبد الله بن رواحة",
+          "D": "خالد بن الوليد"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "عبد الله بن رواحة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد الله بن رواحة"
+        },
+        "explanation": "عبد الله بن رواحة",
+        "number": 13,
+        "id": "U02-L03-Q013"
+      },
+      {
+        "question": "عبارة (إنما هي إحدى الحسنيين: إما ظهور، وإما شهادة) قالها القائد:",
+        "options": {
+          "A": "زيد بن حارثة",
+          "B": "جعفر بن أبي طالب",
+          "C": "عبد الله بن رواحة",
+          "D": "علي بن أبي طالب"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "عبد الله بن رواحة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد الله بن رواحة"
+        },
+        "explanation": "عبد الله بن رواحة",
+        "number": 14,
+        "id": "U02-L03-Q014"
+      },
+      {
+        "question": "تعتبر معركة مؤتة أول مواجهة عسكرية للمسلمين مع:",
+        "options": {
+          "A": "قريش",
+          "B": "اليهود",
+          "C": "الروم",
+          "D": "الفرس"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الروم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الروم"
+        },
+        "explanation": "الروم",
+        "number": 15,
+        "id": "U02-L03-Q015"
+      },
+      {
+        "question": "أول القادة الثلاثة استشهاداً في المعركة هو:",
+        "options": {
+          "A": "جعفر بن أبي طالب",
+          "B": "عبد الله بن رواحة",
+          "C": "زيد بن حارثة",
+          "D": "خالد بن الوليد"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "زيد بن حارثة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "زيد بن حارثة"
+        },
+        "explanation": "زيد بن حارثة",
+        "number": 16,
+        "id": "U02-L03-Q016"
+      },
+      {
+        "question": "بعد استشهاد القادة الثلاثة، أجمع المسلمون على اختيار القائد:",
+        "options": {
+          "A": "ثابت بن أقرم",
+          "B": "خالد بن الوليد",
+          "C": "أسامة بن زيد",
+          "D": "عبد الله بن عمر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "خالد بن الوليد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خالد بن الوليد"
+        },
+        "explanation": "خالد بن الوليد",
+        "number": 17,
+        "id": "U02-L03-Q017"
+      },
+      {
+        "question": "لقب النبي ﷺ خالد بن الوليد بلقب:",
+        "options": {
+          "A": "أمين الأمة",
+          "B": "سيف الله",
+          "C": "سيد القراء",
+          "D": "أسد الله"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "سيف الله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "سيف الله"
+        },
+        "explanation": "سيف الله",
+        "number": 18,
+        "id": "U02-L03-Q018"
+      },
+      {
+        "question": "اعتمدت خطة خالد بن الوليد لإنقاذ الجيش على:",
+        "options": {
+          "A": "الهجوم الشامل",
+          "B": "طلب المدد من المدينة",
+          "C": "الانسحاب التدريجي بخدعة ذكية",
+          "D": "الاستسلام"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الانسحاب التدريجي بخدعة ذكية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الانسحاب التدريجي بخدعة ذكية"
+        },
+        "explanation": "الانسحاب التدريجي بخدعة ذكية",
+        "number": 19,
+        "id": "U02-L03-Q019"
+      },
+      {
+        "question": "من مظاهر خدعة خالد بن الوليد في مؤتة أنه جعل:",
+        "options": {
+          "A": "الميمنة ميسرة والميسرة ميمنة",
+          "B": "المقدمة مؤخرة والمؤخرة مقدمة",
+          "C": "الخيل تثير الغبار من بعيد",
+          "D": "جميع ما ذكر"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "جميع ما ذكر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جميع ما ذكر"
+        },
+        "explanation": "جميع ما ذكر",
+        "number": 20,
+        "id": "U02-L03-Q020"
+      },
+      {
+        "question": "لماذا أحجم الروم عن ملاحقة جيش المسلمين أثناء انسحابه؟",
+        "options": {
+          "A": "بسبب التعب",
+          "B": "خوفاً من وجود مكيدة ومدد جديد للمسلمين",
+          "C": "بسبب انتهاء وقت الحرب",
+          "D": "بسبب هطول المطر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "خوفاً من وجود مكيدة ومدد جديد للمسلمين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خوفاً من وجود مكيدة ومدد جديد للمسلمين"
+        },
+        "explanation": "خوفاً من وجود مكيدة ومدد جديد للمسلمين",
+        "number": 21,
+        "id": "U02-L03-Q021"
+      },
+      {
+        "question": "يدل نجاح خالد بن الوليد في إعادة الجيش بسلام إلى المدينة على:",
+        "options": {
+          "A": "ضعفه",
+          "B": "حكمته ونظره الثاقب لعواقب الأمور",
+          "C": "الصدفة",
+          "D": "خوف الروم فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حكمته ونظره الثاقب لعواقب الأمور",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حكمته ونظره الثاقب لعواقب الأمور"
+        },
+        "explanation": "حكمته ونظره الثاقب لعواقب الأمور",
+        "number": 22,
+        "id": "U02-L03-Q022"
+      },
+      {
+        "question": "القائد الذي قاتل ببسالة وأنشد (يا حبذا الجنة واقترابها..) هو:",
+        "options": {
+          "A": "زيد بن حارثة",
+          "B": "جعفر بن أبي طالب",
+          "C": "عبد الله بن رواحة",
+          "D": "خالد بن الوليد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "جعفر بن أبي طالب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جعفر بن أبي طالب"
+        },
+        "explanation": "جعفر بن أبي طالب",
+        "number": 23,
+        "id": "U02-L03-Q023"
+      },
+      {
+        "question": "أين تقع مقامات قادة معركة مؤتة (زيد وجعفر وعبد الله)؟",
+        "options": {
+          "A": "في معان",
+          "B": "في الطفيلة",
+          "C": "في بلدة المزار بمحافظة الكرك",
+          "D": "في الشوبك"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "في بلدة المزار بمحافظة الكرك",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "في بلدة المزار بمحافظة الكرك"
+        },
+        "explanation": "في بلدة المزار بمحافظة الكرك",
+        "number": 24,
+        "id": "U02-L03-Q024"
+      },
+      {
+        "question": "أين يقع مقام الصحابي الحارث بن عمير الأزدي؟",
+        "options": {
+          "A": "الكرك",
+          "B": "بلدة بصيرا في محافظة الطفيلة",
+          "C": "عمان",
+          "D": "إربد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بلدة بصيرا في محافظة الطفيلة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بلدة بصيرا في محافظة الطفيلة"
+        },
+        "explanation": "بلدة بصيرا في محافظة الطفيلة",
+        "number": 25,
+        "id": "U02-L03-Q025"
+      },
+      {
+        "question": "من هي الجهة المسؤولة عن إعمار وتجديد مقامات الصحابة في الأردن؟",
+        "options": {
+          "A": "وزارة السياحة",
+          "B": "البلدية",
+          "C": "اللجنة الملكية لإعمار مقامات الأنبياء والصحابة",
+          "D": "التجار"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "اللجنة الملكية لإعمار مقامات الأنبياء والصحابة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اللجنة الملكية لإعمار مقامات الأنبياء والصحابة"
+        },
+        "explanation": "اللجنة الملكية لإعمار مقامات الأنبياء والصحابة",
+        "number": 26,
+        "id": "U02-L03-Q026"
+      },
+      {
+        "question": "وصف النبي ﷺ حاله عند نعي القادة الثلاثة بقول الراوي:",
+        "options": {
+          "A": "كان يبتسم",
+          "B": "وعيناه تذرفان",
+          "C": "كان غاضباً",
+          "D": "لم يتأثر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "وعيناه تذرفان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وعيناه تذرفان"
+        },
+        "explanation": "وعيناه تذرفان",
+        "number": 27,
+        "id": "U02-L03-Q027"
+      },
+      {
+        "question": "يدل موقف جعفر بن أبي طالب عند استبدال يديه المقطوعتين بجناحين في الجنة على:",
+        "options": {
+          "A": "مكانته العظيمة وتضحيته",
+          "B": "حبه للمال",
+          "C": "رغبته في السفر",
+          "D": "لا شيء"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مكانته العظيمة وتضحيته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مكانته العظيمة وتضحيته"
+        },
+        "explanation": "مكانته العظيمة وتضحيته",
+        "number": 28,
+        "id": "U02-L03-Q028"
+      },
+      {
+        "question": "من القيم المستفادة من الدرس تقدير تضحيات الصحابة في:",
+        "options": {
+          "A": "جمع الأموال",
+          "B": "الدفاع عن دين الإسلام",
+          "C": "بناء القصور",
+          "D": "التجارة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الدفاع عن دين الإسلام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدفاع عن دين الإسلام"
+        },
+        "explanation": "الدفاع عن دين الإسلام",
+        "number": 29,
+        "id": "U02-L03-Q029"
+      },
+      {
+        "question": "كانت وصية النبي ﷺ (لا تغدروا) تهدف إلى ترسيخ:",
+        "options": {
+          "A": "الخوف",
+          "B": "أخلاقيات الحرب في الإسلام",
+          "C": "القوة",
+          "D": "السيطرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أخلاقيات الحرب في الإسلام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أخلاقيات الحرب في الإسلام"
+        },
+        "explanation": "أخلاقيات الحرب في الإسلام",
+        "number": 30,
+        "id": "U02-L03-Q030"
+      },
+      {
+        "question": "أي من القادة التاليين لم يعينه النبي ﷺ ابتداءً بل اختاره الجيش؟",
+        "options": {
+          "A": "زيد بن حارثة",
+          "B": "جعفر بن أبي طالب",
+          "C": "عبد الله بن رواحة",
+          "D": "خالد بن الوليد"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "خالد بن الوليد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خالد بن الوليد"
+        },
+        "explanation": "خالد بن الوليد",
+        "number": 31,
+        "id": "U02-L03-Q031"
+      },
+      {
+        "question": "ما معنى كلمة (يؤدم بينكما) في سياق دروس الوحدة (للمراجعة الذاتية)؟",
+        "options": {
+          "A": "تحدث الفرقة",
+          "B": "تكون المحبة والاتفاق",
+          "C": "يكون المال",
+          "D": "يكون السكن"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تكون المحبة والاتفاق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تكون المحبة والاتفاق"
+        },
+        "explanation": "تكون المحبة والاتفاق",
+        "number": 32,
+        "id": "U02-L03-Q032"
+      },
+      {
+        "question": "عندما وصل جيش المسلمين إلى (مر الظهران) في فتح مكة (للمراجعة)، أمر النبي بـ:",
+        "options": {
+          "A": "الانسحاب",
+          "B": "إشعال النيران لإرهاب قريش",
+          "C": "الراحة",
+          "D": "الهجوم فوراً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إشعال النيران لإرهاب قريش",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إشعال النيران لإرهاب قريش"
+        },
+        "explanation": "إشعال النيران لإرهاب قريش",
+        "number": 33,
+        "id": "U02-L03-Q033"
+      },
+      {
+        "question": "في معركة مؤتة، شجاعة القادة كانت سبباً في:",
+        "options": {
+          "A": "الهزيمة",
+          "B": "ثبات الجيش ورفع معنوياته",
+          "C": "الخوف",
+          "D": "الهروب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ثبات الجيش ورفع معنوياته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ثبات الجيش ورفع معنوياته"
+        },
+        "explanation": "ثبات الجيش ورفع معنوياته",
+        "number": 34,
+        "id": "U02-L03-Q034"
+      },
+      {
+        "question": "تعتبر مقامات الصحابة في الأردن شاهداً على:",
+        "options": {
+          "A": "السياحة فقط",
+          "B": "تضحيات الصحابة على أرض الأردن",
+          "C": "المباني القديمة",
+          "D": "التجارة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تضحيات الصحابة على أرض الأردن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تضحيات الصحابة على أرض الأردن"
+        },
+        "explanation": "تضحيات الصحابة على أرض الأردن",
+        "number": 35,
+        "id": "U02-L03-Q035"
+      },
+      {
+        "question": "من دروس المعركة أن القلة المؤمنة قد تغلب الكثرة بـ:",
+        "options": {
+          "A": "المال",
+          "B": "الإيمان والثبات وحسن التخطيط",
+          "C": "الصدفة",
+          "D": "الاستسلام"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الإيمان والثبات وحسن التخطيط",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإيمان والثبات وحسن التخطيط"
+        },
+        "explanation": "الإيمان والثبات وحسن التخطيط",
+        "number": 36,
+        "id": "U02-L03-Q036"
+      },
+      {
+        "question": "أي من القادة قال لنفسه (يا نفس إلا تُقتلي تموتي..)؟",
+        "options": {
+          "A": "زيد بن حارثة",
+          "B": "جعفر بن أبي طالب",
+          "C": "عبد الله بن رواحة",
+          "D": "خالد بن الوليد"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "عبد الله بن رواحة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد الله بن رواحة"
+        },
+        "explanation": "عبد الله بن رواحة",
+        "number": 37,
+        "id": "U02-L03-Q037"
+      },
+      {
+        "question": "يُقصد بـ (التمثيل بالقتلى) الذي نهى عنه النبي ﷺ:",
+        "options": {
+          "A": "دفنهم",
+          "B": "تشويه جثث الأعداء",
+          "C": "الصلاة عليهم",
+          "D": "تركهم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تشويه جثث الأعداء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تشويه جثث الأعداء"
+        },
+        "explanation": "تشويه جثث الأعداء",
+        "number": 38,
+        "id": "U02-L03-Q038"
+      },
+      {
+        "question": "خالد بن الوليد غيّر ترتيب الجيش في مؤتة ليوهم الروم بـ:",
+        "options": {
+          "A": "انتهاء الحرب",
+          "B": "وصول مدد جديد للمسلمين",
+          "C": "الرغبة في التفاوض",
+          "D": "الانسحاب الفوري"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "وصول مدد جديد للمسلمين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وصول مدد جديد للمسلمين"
+        },
+        "explanation": "وصول مدد جديد للمسلمين",
+        "number": 39,
+        "id": "U02-L03-Q039"
+      },
+      {
+        "question": "أثر العفو النبوي في فتح مكة (مراجعة) كان دخول الناس في دين الله:",
+        "options": {
+          "A": "فرادى",
+          "B": "أفواجاً",
+          "C": "كرهاً",
+          "D": "خوفاً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أفواجاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أفواجاً"
+        },
+        "explanation": "أفواجاً",
+        "number": 40,
+        "id": "U02-L03-Q040"
+      }
+    ]
+  }
+}

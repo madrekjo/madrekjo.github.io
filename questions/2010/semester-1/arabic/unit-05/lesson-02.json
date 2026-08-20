@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "5.2",
+    "lesson_name": "قواعد (أنواع ما) وبلاغة (الاستفهام)",
+    "unit_number": 5,
+    "unit_name": "الوحدة الخامسة",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما نوع (ما) في جملة (إنّما الحياةُ البرلمانيّةُ نوعٌ مِنَ التَّطوُّ)؟",
+        "options": {
+          "A": "موصولة",
+          "B": "كافّة (تكفّ إنّ عن العمل)",
+          "C": "شرطية",
+          "D": "نافية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كافّة (تكفّ إنّ عن العمل)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كافّة (تكفّ إنّ عن العمل)"
+        },
+        "explanation": "كافّة (تكفّ إنّ عن العمل)",
+        "number": 1,
+        "id": "U05-L02-Q001"
+      },
+      {
+        "question": "في جملة (سأعملُ الخيرَ ما دمتُ حيًّا)، نوع (ما) هو:",
+        "options": {
+          "A": "مصدرية ظرفية (زمانية)",
+          "B": "نافية",
+          "C": "استفهامية",
+          "D": "زائدة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مصدرية ظرفية (زمانية)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مصدرية ظرفية (زمانية)"
+        },
+        "explanation": "مصدرية ظرفية (زمانية)",
+        "number": 2,
+        "id": "U05-L02-Q002"
+      },
+      {
+        "question": "ما نوع (ما) في قوله تعالى (وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ)؟",
+        "options": {
+          "A": "موصولة",
+          "B": "تعجبية",
+          "C": "شرطية جازمة",
+          "D": "كافة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "شرطية جازمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "شرطية جازمة"
+        },
+        "explanation": "شرطية جازمة",
+        "number": 3,
+        "id": "U05-L02-Q003"
+      },
+      {
+        "question": "حدد نوع (ما) في (ستقومُ المهندسةُ بما طُلِبَ إليها):",
+        "options": {
+          "A": "نافية",
+          "B": "اسم موصول بمعنى (الذي)",
+          "C": "كافة",
+          "D": "نكرة تامة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اسم موصول بمعنى (الذي)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اسم موصول بمعنى (الذي)"
+        },
+        "explanation": "اسم موصول بمعنى (الذي)",
+        "number": 4,
+        "id": "U05-L02-Q004"
+      },
+      {
+        "question": "في أسلوب التعجب (ما أعظمَ شهداءَنا!)، تعرب (ما) في محل:",
+        "options": {
+          "A": "رفع خبر",
+          "B": "رفع مبتدأ",
+          "C": "نصب مفعول به",
+          "D": "جر مضاف إليه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "رفع مبتدأ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رفع مبتدأ"
+        },
+        "explanation": "رفع مبتدأ",
+        "number": 5,
+        "id": "U05-L02-Q005"
+      },
+      {
+        "question": "ما نوع (ما) في جملة (ما رَبِحَ تاجرٌ أَقامَ تجارتَهُ على الغشِّ)؟",
+        "options": {
+          "A": "نافية",
+          "B": "موصولة",
+          "C": "كافة",
+          "D": "استفهامية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "نافية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نافية"
+        },
+        "explanation": "نافية",
+        "number": 6,
+        "id": "U05-L02-Q006"
+      },
+      {
+        "question": "عندما تسبق (ما) االستفهامية بحرف جر، ماذا يحدث لألفها؟",
+        "options": {
+          "A": "تبقى كما هي",
+          "B": "تُحذف (مثل: فيمَ، عمَّ)",
+          "C": "تتحول إلى واو",
+          "D": "تُضاعف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تُحذف (مثل: فيمَ، عمَّ)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تُحذف (مثل: فيمَ، عمَّ)"
+        },
+        "explanation": "تُحذف (مثل: فيمَ، عمَّ)",
+        "number": 7,
+        "id": "U05-L02-Q007"
+      },
+      {
+        "question": "ما نوع (ما) في عبارة (ألمرٍ ما تقدَّمَ الجنديُّ)؟",
+        "options": {
+          "A": "كافة",
+          "B": "موصولة",
+          "C": "نكرة مبهمة (للتنويع أو الإبهام)",
+          "D": "شرطية"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "نكرة مبهمة (للتنويع أو الإبهام)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نكرة مبهمة (للتنويع أو الإبهام)"
+        },
+        "explanation": "نكرة مبهمة (للتنويع أو الإبهام)",
+        "number": 8,
+        "id": "U05-L02-Q008"
+      },
+      {
+        "question": "في جملة (إنّما أوطانُنا أَرواحُنا)، الاسم بعد (إنّما) يعرب:",
+        "options": {
+          "A": "اسم إن منصوب",
+          "B": "مبتدأ مرفوع",
+          "C": "مفعول به",
+          "D": "مضاف إليه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مبتدأ مرفوع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مبتدأ مرفوع"
+        },
+        "explanation": "مبتدأ مرفوع",
+        "number": 9,
+        "id": "U05-L02-Q009"
+      },
+      {
+        "question": "ما نوع (ما) في (ما الهدفُ الذي تطمحُ إليه؟)؟",
+        "options": {
+          "A": "تعجبية",
+          "B": "استفهامية",
+          "C": "نافية",
+          "D": "كافة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "استفهامية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "استفهامية"
+        },
+        "explanation": "استفهامية",
+        "number": 10,
+        "id": "U05-L02-Q010"
+      },
+      {
+        "question": "تعتبر (ما) في جملة (التزمْ كما التزمَ الناسُ) نوعها:",
+        "options": {
+          "A": "مصدرية (غير زمانية)",
+          "B": "كافة",
+          "C": "شرطية",
+          "D": "نافية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مصدرية (غير زمانية)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مصدرية (غير زمانية)"
+        },
+        "explanation": "مصدرية (غير زمانية)",
+        "number": 11,
+        "id": "U05-L02-Q011"
+      },
+      {
+        "question": "أي من الآتية مثال على (ما) النافية المشبهة بليس؟",
+        "options": {
+          "A": "إنما الأعمال بالنيات",
+          "B": "ما ابتعادُك مقبولاً",
+          "C": "ما تفعل تجده",
+          "D": "ما أجمل السماء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ما ابتعادُك مقبولاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ما ابتعادُك مقبولاً"
+        },
+        "explanation": "ما ابتعادُك مقبولاً",
+        "number": 12,
+        "id": "U05-L02-Q012"
+      },
+      {
+        "question": "في قوله تعالى (إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ)، (ما) هنا هي:",
+        "options": {
+          "A": "موصولة",
+          "B": "كافة",
+          "C": "نافية",
+          "D": "شرطية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كافة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كافة"
+        },
+        "explanation": "كافة",
+        "number": 13,
+        "id": "U05-L02-Q013"
+      },
+      {
+        "question": "نوع (ما) في (فبما رحمةٍ من الله لنتَ لهم) هي:",
+        "options": {
+          "A": "كافة",
+          "B": "زائدة (للتوكيد)",
+          "C": "نافية",
+          "D": "موصولة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "زائدة (للتوكيد)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "زائدة (للتوكيد)"
+        },
+        "explanation": "زائدة (للتوكيد)",
+        "number": 14,
+        "id": "U05-L02-Q014"
+      },
+      {
+        "question": "تأتي (ما) بمعنى (الذي) إذا كانت:",
+        "options": {
+          "A": "شرطية",
+          "B": "استفهامية",
+          "C": "موصولة",
+          "D": "كافة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "موصولة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "موصولة"
+        },
+        "explanation": "موصولة",
+        "number": 15,
+        "id": "U05-L02-Q015"
+      },
+      {
+        "question": "في جملة (ما تبذله من جهد تعد ثمرته)، نوع (ما):",
+        "options": {
+          "A": "استفهامية",
+          "B": "موصولة",
+          "C": "شرطية",
+          "D": "تعجبية"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "شرطية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "شرطية"
+        },
+        "explanation": "شرطية",
+        "number": 16,
+        "id": "U05-L02-Q016"
+      },
+      {
+        "question": "المقصود بـ (ما) المصدرية الظرفية أنها تؤول بـ:",
+        "options": {
+          "A": "اسم موصول",
+          "B": "كلمة (مدة) + المصدر",
+          "C": "أداة نفي",
+          "D": "أداة شرط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كلمة (مدة) + المصدر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كلمة (مدة) + المصدر"
+        },
+        "explanation": "كلمة (مدة) + المصدر",
+        "number": 17,
+        "id": "U05-L02-Q017"
+      },
+      {
+        "question": "إعراب كلمة (الحياة) في (إنما الحياةُ تعب) هو:",
+        "options": {
+          "A": "اسم إن",
+          "B": "مبتدأ مرفوع بالضمة",
+          "C": "خبر",
+          "D": "مفعول به"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مبتدأ مرفوع بالضمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مبتدأ مرفوع بالضمة"
+        },
+        "explanation": "مبتدأ مرفوع بالضمة",
+        "number": 18,
+        "id": "U05-L02-Q018"
+      },
+      {
+        "question": "أي أداة مما يلي تُحذف ألفها عند دخول حرف الجر (عن) عليها؟",
+        "options": {
+          "A": "ما الموصولة",
+          "B": "ما الاستفهامية (عِمّـا تصبح عمَّ)",
+          "C": "ما الشرطية",
+          "D": "ما الكافة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ما الاستفهامية (عِمّـا تصبح عمَّ)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ما الاستفهامية (عِمّـا تصبح عمَّ)"
+        },
+        "explanation": "ما الاستفهامية (عِمّـا تصبح عمَّ)",
+        "number": 19,
+        "id": "U05-L02-Q019"
+      },
+      {
+        "question": "في جملة (أعطني ما عندك)، نوع (ما):",
+        "options": {
+          "A": "موصولة",
+          "B": "نافية",
+          "C": "استفهامية",
+          "D": "كافة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "موصولة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "موصولة"
+        },
+        "explanation": "موصولة",
+        "number": 20,
+        "id": "U05-L02-Q020"
+      },
+      {
+        "question": "ما هو التعريف الحقيقي للاستفهام؟",
+        "options": {
+          "A": "طلب العلم بشيء لم يكن معلوماً من قبل",
+          "B": "الإقرار بالحق",
+          "C": "نفي وقوع الفعل",
+          "D": "تخويف السامع"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "طلب العلم بشيء لم يكن معلوماً من قبل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طلب العلم بشيء لم يكن معلوماً من قبل"
+        },
+        "explanation": "طلب العلم بشيء لم يكن معلوماً من قبل",
+        "number": 21,
+        "id": "U05-L02-Q021"
+      },
+      {
+        "question": "في قوله تعالى (أَلَيْسَ اللَّهُ بِكَافٍ عَبْدَهُ)، ما المعنى البلاغي للاستفهام؟",
+        "options": {
+          "A": "النفي",
+          "B": "التقرير (الإقرار والاعتراف)",
+          "C": "التشويق",
+          "D": "التعجب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التقرير (الإقرار والاعتراف)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التقرير (الإقرار والاعتراف)"
+        },
+        "explanation": "التقرير (الإقرار والاعتراف)",
+        "number": 22,
+        "id": "U05-L02-Q022"
+      },
+      {
+        "question": "ما المعنى البلاغي للاستفهام في (كيفَ يُمكِنُ أَنْ يَخونَ الخائنون؟)؟",
+        "options": {
+          "A": "التقرير",
+          "B": "التعجب",
+          "C": "التشويق",
+          "D": "التهويل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التعجب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التعجب"
+        },
+        "explanation": "التعجب",
+        "number": 23,
+        "id": "U05-L02-Q023"
+      },
+      {
+        "question": "في قولنا (وهلْ يَخفى القَمرُ؟)، ما المعنى البلاغي للاستفهام؟",
+        "options": {
+          "A": "النفي (أي لا يخفى)",
+          "B": "التشويق",
+          "C": "الإنكار",
+          "D": "التحقير"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "النفي (أي لا يخفى)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النفي (أي لا يخفى)"
+        },
+        "explanation": "النفي (أي لا يخفى)",
+        "number": 24,
+        "id": "U05-L02-Q024"
+      },
+      {
+        "question": "ما المعنى البلاغي في قوله تعالى (وَمَا أَدْرَاكَ مَا الْحَرْبُ؟)؟",
+        "options": {
+          "A": "التقرير",
+          "B": "التهويل (لبيان عظم الأمر)",
+          "C": "النفي",
+          "D": "التعجب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التهويل (لبيان عظم الأمر)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التهويل (لبيان عظم الأمر)"
+        },
+        "explanation": "التهويل (لبيان عظم الأمر)",
+        "number": 25,
+        "id": "U05-L02-Q025"
+      },
+      {
+        "question": "عندما يهدف الاستفهام إلى إثارة الفضول مثل (أفال أَدُلُّكُمْ عَلَى شيءٍ...)، فإنه يفيد:",
+        "options": {
+          "A": "التشويق",
+          "B": "التحقير",
+          "C": "الإنكار",
+          "D": "النفي"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "التشويق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التشويق"
+        },
+        "explanation": "التشويق",
+        "number": 26,
+        "id": "U05-L02-Q026"
+      },
+      {
+        "question": "ما المعنى البلاغي من سؤال شخص يرتكب خطأ (أَتَعوقُ غَيْرَكَ عَنِ السَّيْرِ؟)؟",
+        "options": {
+          "A": "التشويق",
+          "B": "الإنكار (لرفض السلوك)",
+          "C": "التقرير",
+          "D": "النفي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الإنكار (لرفض السلوك)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإنكار (لرفض السلوك)"
+        },
+        "explanation": "الإنكار (لرفض السلوك)",
+        "number": 27,
+        "id": "U05-L02-Q027"
+      },
+      {
+        "question": "الاستفهام الذي يفيد (التحقير) يهدف إلى:",
+        "options": {
+          "A": "تعظيم الشأن",
+          "B": "التقليل من شأن المستفهم عنه",
+          "C": "الإقرار بالذنب",
+          "D": "إثارة الشوق"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التقليل من شأن المستفهم عنه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التقليل من شأن المستفهم عنه"
+        },
+        "explanation": "التقليل من شأن المستفهم عنه",
+        "number": 28,
+        "id": "U05-L02-Q028"
+      },
+      {
+        "question": "أي من الأدوات الآتية تستخدم لطلب التعيين بين شيئين وتسبق بـ (أم)؟",
+        "options": {
+          "A": "هل",
+          "B": "الهمزة",
+          "C": "متى",
+          "D": "كيف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الهمزة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الهمزة"
+        },
+        "explanation": "الهمزة",
+        "number": 29,
+        "id": "U05-L02-Q029"
+      },
+      {
+        "question": "ما الأداة التي يسأل بها عن (العدد)؟",
+        "options": {
+          "A": "متى",
+          "B": "أين",
+          "C": "كم",
+          "D": "كيف"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "كم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كم"
+        },
+        "explanation": "كم",
+        "number": 30,
+        "id": "U05-L02-Q030"
+      },
+      {
+        "question": "تستخدم (أنى) في اللغة العربية لثلاثة معانٍ، منها:",
+        "options": {
+          "A": "بمعنى كيف، ومن أين، ومتى",
+          "B": "بمعنى العدد فقط",
+          "C": "بمعنى التعجب فقط",
+          "D": "بمعنى النفي فقط"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "بمعنى كيف، ومن أين، ومتى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بمعنى كيف، ومن أين، ومتى"
+        },
+        "explanation": "بمعنى كيف، ومن أين، ومتى",
+        "number": 31,
+        "id": "U05-L02-Q031"
+      },
+      {
+        "question": "في جملة (أأنتَ تدّعي التَّطويرَ وأنتَ جاهلٌ؟)، المعنى البلاغي هو:",
+        "options": {
+          "A": "التشويق",
+          "B": "التحقير والإنكار",
+          "C": "التقرير",
+          "D": "التهويل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التحقير والإنكار",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التحقير والإنكار"
+        },
+        "explanation": "التحقير والإنكار",
+        "number": 32,
+        "id": "U05-L02-Q032"
+      },
+      {
+        "question": "المعنى البلاغي في (متى نرى القدس محررَة؟) الموجه لغير العاقل أو في المستحيل هو:",
+        "options": {
+          "A": "التقرير",
+          "B": "التمني",
+          "C": "النفي",
+          "D": "التشويق"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التمني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التمني"
+        },
+        "explanation": "التمني",
+        "number": 33,
+        "id": "U05-L02-Q033"
+      },
+      {
+        "question": "يسأل بـ (أيّ) عن:",
+        "options": {
+          "A": "الزمان فقط",
+          "B": "المكان فقط",
+          "C": "العاقل وغير العاقل والزمان والمكان (بحسب ما تضاف إليه)",
+          "D": "الحال فقط"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "العاقل وغير العاقل والزمان والمكان (بحسب ما تضاف إليه)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العاقل وغير العاقل والزمان والمكان (بحسب ما تضاف إليه)"
+        },
+        "explanation": "العاقل وغير العاقل والزمان والمكان (بحسب ما تضاف إليه)",
+        "number": 34,
+        "id": "U05-L02-Q034"
+      },
+      {
+        "question": "تعتبر (هل) و (الهمزة) في الاستفهام:",
+        "options": {
+          "A": "أسماء",
+          "B": "حروف",
+          "C": "أفعال",
+          "D": "ظروف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حروف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حروف"
+        },
+        "explanation": "حروف",
+        "number": 35,
+        "id": "U05-L02-Q035"
+      },
+      {
+        "question": "ما الأداة التي يسأل بها عن (الزمان)؟",
+        "options": {
+          "A": "كيف",
+          "B": "متى وأيان",
+          "C": "من",
+          "D": "أين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "متى وأيان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "متى وأيان"
+        },
+        "explanation": "متى وأيان",
+        "number": 36,
+        "id": "U05-L02-Q036"
+      },
+      {
+        "question": "في قوله تعالى (هَلْ جَزَاءُ الْإِحْسَانِ إِلَّا الْإِحْسَانُ؟)، المعنى البلاغي هو:",
+        "options": {
+          "A": "النفي",
+          "B": "التشويق",
+          "C": "التقرير",
+          "D": "التهويل"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "النفي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "النفي"
+        },
+        "explanation": "النفي",
+        "number": 37,
+        "id": "U05-L02-Q037"
+      },
+      {
+        "question": "أي الجمل الآتية تمثل استفهاماً (حقيقياً) يحتاج لجواب؟",
+        "options": {
+          "A": "وهل يرحل الشتاء؟",
+          "B": "أين تقع جامعة آل البيت؟",
+          "C": "ألم نشرح لك صدرك؟",
+          "D": "كيف تكفرون بالله؟"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أين تقع جامعة آل البيت؟",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أين تقع جامعة آل البيت؟"
+        },
+        "explanation": "أين تقع جامعة آل البيت؟",
+        "number": 38,
+        "id": "U05-L02-Q038"
+      },
+      {
+        "question": "عندما نسأل عن (الحال)، نستخدم الأداة:",
+        "options": {
+          "A": "من",
+          "B": "ما",
+          "C": "كيف",
+          "D": "متى"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "كيف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كيف"
+        },
+        "explanation": "كيف",
+        "number": 39,
+        "id": "U05-L02-Q039"
+      },
+      {
+        "question": "في قول الشاعر (أَلَسْتَ خَيْرَ مَنْ رَكِبَ المَطايا؟)، المعنى البلاغي هو:",
+        "options": {
+          "A": "التقرير (بمعنى بلى أنت خيرهم)",
+          "B": "النفي",
+          "C": "التمني",
+          "D": "الإنكار"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "التقرير (بمعنى بلى أنت خيرهم)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التقرير (بمعنى بلى أنت خيرهم)"
+        },
+        "explanation": "التقرير (بمعنى بلى أنت خيرهم)",
+        "number": 40,
+        "id": "U05-L02-Q040"
+      }
+    ]
+  }
+}

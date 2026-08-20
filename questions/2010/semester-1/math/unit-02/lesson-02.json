@@ -1,0 +1,986 @@
+{
+  "lesson": {
+    "lesson_number": "2.2",
+    "lesson_name": "الدوال المثلثية للزاوية الحادة",
+    "unit_number": 2,
+    "unit_name": "الوحدة الثانية",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "في المثلث قائم الزاوية، ما هي النسبة التي تمثل جيب التمام (cos) للزاوية الحادة θ؟",
+        "options": {
+          "A": "المقابل / الوتر",
+          "B": "المجاور / الوتر",
+          "C": "المقابل / المجاور",
+          "D": "الوتر / المجاور"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المجاور / الوتر",
+        "difficulty": "easy",
+        "source": {
+          "page": 63,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وفقاً لتعريف الاقترانات المثلثية في المثلث القائم، فإن جيب التمام يساوي طول الضلع المجاور مقسوماً على طول الوتر [1]."
+        },
+        "explanation": "وفقاً لتعريف الاقترانات المثلثية في المثلث القائم، فإن جيب التمام يساوي طول الضلع المجاور مقسوماً على طول الوتر [1].",
+        "number": 1,
+        "id": "U02-L02-Q001"
+      },
+      {
+        "question": "أي من الاقترانات التالية يمثل مقلوب اقتران الجيب (sin)؟",
+        "options": {
+          "A": "القاطع (sec)",
+          "B": "ظل التمام (cot)",
+          "C": "قاطع التمام (csc)",
+          "D": "الظل (tan)"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "قاطع التمام (csc)",
+        "difficulty": "easy",
+        "source": {
+          "page": 64,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قاطع التمام (cosecant) هو مقلوب نسبة الجيب، ويُعرف بـ csc θ = 1/sin θ [2]."
+        },
+        "explanation": "قاطع التمام (cosecant) هو مقلوب نسبة الجيب، ويُعرف بـ csc θ = 1/sin θ [2].",
+        "number": 2,
+        "id": "U02-L02-Q002"
+      },
+      {
+        "question": "إذا كانت النقطة P(x, y) تقع على ضلع انتهاء الزاوية θ في الوضع القياسي، فما قيمة r (البعد عن الأصل)؟",
+        "options": {
+          "A": "x + y",
+          "B": "√(x + y)",
+          "C": "√(x² + y²)",
+          "D": "x² + y²"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "√(x² + y²)",
+        "difficulty": "easy",
+        "source": {
+          "page": 65,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يُحسب البعد r باستعمال نظرية فيثاغورس r = √(x² + y²) [3]."
+        },
+        "explanation": "يُحسب البعد r باستعمال نظرية فيثاغورس r = √(x² + y²) [3].",
+        "number": 3,
+        "id": "U02-L02-Q003"
+      },
+      {
+        "question": "بناءً على إحداثيات النقطة P(x, y)، ما هو تعريف الظل (tan θ)؟",
+        "options": {
+          "A": "y / r",
+          "B": "x / r",
+          "C": "y / x",
+          "D": "x / y"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "y / x",
+        "difficulty": "easy",
+        "source": {
+          "page": 65,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يُعرف اقتران الظل بأنه ناتج قسمة الإحداثي y على الإحداثي x للنقطة الواقعة على ضلع الانتهاء [3]."
+        },
+        "explanation": "يُعرف اقتران الظل بأنه ناتج قسمة الإحداثي y على الإحداثي x للنقطة الواقعة على ضلع الانتهاء [3].",
+        "number": 4,
+        "id": "U02-L02-Q004"
+      },
+      {
+        "question": "تقع النقطة (-3, -5) على ضلع انتهاء الزاوية θ. ما قيمة r؟",
+        "options": {
+          "A": "8",
+          "B": "√34",
+          "C": "34",
+          "D": "√8"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "√34",
+        "difficulty": "medium",
+        "source": {
+          "page": 65,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "r = √((-3)² + (-5)²) = √(9 + 25) = √34."
+          ],
+          "summary": "تطبيق مباشر لقانون المسافة من نقطة الأصل [4]."
+        },
+        "explanation": "تطبيق مباشر لقانون المسافة من نقطة الأصل [4].",
+        "number": 5,
+        "id": "U02-L02-Q005"
+      },
+      {
+        "question": "ماذا تُسمى الزاوية التي ينطبق ضلع انتهائها على أحد المحورين الإحداثيين؟",
+        "options": {
+          "A": "زاوية مرجعية",
+          "B": "زاوية حادة",
+          "C": "زاوية ربعية",
+          "D": "زاوية مشتركة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "زاوية ربعية",
+        "difficulty": "easy",
+        "source": {
+          "page": 66,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تُسمى الزاوية ربعية (quadrantal angle) إذا وقع ضلع انتهائها على محور x أو محور y [5]."
+        },
+        "explanation": "تُسمى الزاوية ربعية (quadrantal angle) إذا وقع ضلع انتهائها على محور x أو محور y [5].",
+        "number": 6,
+        "id": "U02-L02-Q006"
+      },
+      {
+        "question": "ما قيمة sin 270°؟",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "-1",
+          "D": "غير معرف"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "-1",
+        "difficulty": "medium",
+        "source": {
+          "page": 66,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عند 270°، ضلع الانتهاء يمر بالنقطة (0, -1) على دائرة الوحدة، فيكون الجيب هو الإحداثي y ويساوي -1 [5]."
+        },
+        "explanation": "عند 270°، ضلع الانتهاء يمر بالنقطة (0, -1) على دائرة الوحدة، فيكون الجيب هو الإحداثي y ويساوي -1 [5].",
+        "number": 7,
+        "id": "U02-L02-Q007"
+      },
+      {
+        "question": "ما هو اقتران الظل (tan) للزاوية 90°؟",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "-1",
+          "D": "غير معرف"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "غير معرف",
+        "difficulty": "medium",
+        "source": {
+          "page": 67,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "tan 90° = y/x = 1/0، وبما أن القسمة على صفر مستحيلة، فالناتج غير معرف [6]."
+        },
+        "explanation": "tan 90° = y/x = 1/0، وبما أن القسمة على صفر مستحيلة، فالناتج غير معرف [6].",
+        "number": 8,
+        "id": "U02-L02-Q008"
+      },
+      {
+        "question": "ما هي الزاوية المرجعية (θ') للزاوية 135°؟",
+        "options": {
+          "A": "35°",
+          "B": "45°",
+          "C": "60°",
+          "D": "135°"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "45°",
+        "difficulty": "medium",
+        "source": {
+          "page": 67,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "θ' = 180° - 135° = 45°."
+          ],
+          "summary": "في الربع الثاني، الزاوية المرجعية تساوي 180 مطروحاً منها الزاوية الأصلية [7]."
+        },
+        "explanation": "في الربع الثاني، الزاوية المرجعية تساوي 180 مطروحاً منها الزاوية الأصلية [7].",
+        "number": 9,
+        "id": "U02-L02-Q009"
+      },
+      {
+        "question": "في أي الأرباع تكون قيمة جيب التمام (cos) موجبة؟",
+        "options": {
+          "A": "الأول والثاني",
+          "B": "الأول والثالث",
+          "C": "الأول والرابع",
+          "D": "الثاني والرابع"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الأول والرابع",
+        "difficulty": "medium",
+        "source": {
+          "page": 68,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يكون جيب التمام موجباً حيث يكون الإحداثي x موجباً، أي في الربعين الأول والرابع [8]."
+        },
+        "explanation": "يكون جيب التمام موجباً حيث يكون الإحداثي x موجباً، أي في الربعين الأول والرابع [8].",
+        "number": 10,
+        "id": "U02-L02-Q010"
+      },
+      {
+        "question": "ما القيمة الدقيقة لـ sin 210°؟",
+        "options": {
+          "A": "1/2",
+          "B": "-1/2",
+          "C": "√3 / 2",
+          "D": "-√3 / 2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-1/2",
+        "difficulty": "hard",
+        "source": {
+          "page": 70,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "1) θ' = 210 - 180 = 30°. 2) sin 30° = 1/2. 3) الجيب سالب في الربع الثالث، إذن -1/2."
+          ],
+          "summary": "استخدام الزاوية المرجعية وتحديد الإشارة حسب الربع [9]."
+        },
+        "explanation": "استخدام الزاوية المرجعية وتحديد الإشارة حسب الربع [9].",
+        "number": 11,
+        "id": "U02-L02-Q011"
+      },
+      {
+        "question": "إذا كان tan θ = -4 و sin θ < 0، في أي ربع يقع ضلع انتهاء الزاوية θ؟",
+        "options": {
+          "A": "الأول",
+          "B": "الثاني",
+          "C": "الثالث",
+          "D": "الربع الرابع"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "الربع الرابع",
+        "difficulty": "hard",
+        "source": {
+          "page": 70,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الظل سالب في الثاني والرابع، والجيب سالب في الثالث والرابع، إذن المشترك هو الربع الرابع [10]."
+        },
+        "explanation": "الظل سالب في الثاني والرابع، والجيب سالب في الثالث والرابع، إذن المشترك هو الربع الرابع [10].",
+        "number": 12,
+        "id": "U02-L02-Q012"
+      },
+      {
+        "question": "ما هو مدى اقتران الجيب العكسي (y = sin⁻¹ x)؟",
+        "options": {
+          "A": "[0, π]",
+          "B": "[-π/2, π/2]",
+          "C": "(-π/2, π/2)",
+          "D": "(-∞, ∞)"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "[-π/2, π/2]",
+        "difficulty": "medium",
+        "source": {
+          "page": 72,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يُعرف مدى الجيب العكسي في الفترة المغلقة من سالب تسعين إلى موجب تسعين درجة بالراديان [11]."
+        },
+        "explanation": "يُعرف مدى الجيب العكسي في الفترة المغلقة من سالب تسعين إلى موجب تسعين درجة بالراديان [11].",
+        "number": 13,
+        "id": "U02-L02-Q013"
+      },
+      {
+        "question": "ما قيمة sin⁻¹ (1/2) في الفترة [-π/2, π/2]؟",
+        "options": {
+          "A": "π/3",
+          "B": "π/6",
+          "C": "π/4",
+          "D": "π/2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "π/6",
+        "difficulty": "medium",
+        "source": {
+          "page": 73,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الزاوية التي جيبها يساوي نصف في الفترة المحددة هي 30 درجة، أي π/6 [12]."
+        },
+        "explanation": "الزاوية التي جيبها يساوي نصف في الفترة المحددة هي 30 درجة، أي π/6 [12].",
+        "number": 14,
+        "id": "U02-L02-Q014"
+      },
+      {
+        "question": "أي من الخيارات التالية يمثل متطابقة صحيحة للظل (tan θ)؟",
+        "options": {
+          "A": "cos θ / sin θ",
+          "B": "sin θ / cos θ",
+          "C": "1 / csc θ",
+          "D": "1 / sec θ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "sin θ / cos θ",
+        "difficulty": "easy",
+        "source": {
+          "page": 64,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اقتران الظل يساوي ناتج قسمة الجيب على جيب التمام [2]."
+        },
+        "explanation": "اقتران الظل يساوي ناتج قسمة الجيب على جيب التمام [2].",
+        "number": 15,
+        "id": "U02-L02-Q015"
+      },
+      {
+        "question": "ما قيمة cos 180°؟",
+        "options": {
+          "A": "1",
+          "B": "-1",
+          "C": "0",
+          "D": "غير معرف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-1",
+        "difficulty": "easy",
+        "source": {
+          "page": 66,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عند الزاوية 180°، ضلع الانتهاء يمر بالنقطة (-1, 0) على دائرة الوحدة، وقيمة x تمثل جيب التمام [5]."
+        },
+        "explanation": "عند الزاوية 180°، ضلع الانتهاء يمر بالنقطة (-1, 0) على دائرة الوحدة، وقيمة x تمثل جيب التمام [5].",
+        "number": 16,
+        "id": "U02-L02-Q016"
+      },
+      {
+        "question": "إذا كان sin θ = 0.8، فما قيمة csc θ؟",
+        "options": {
+          "A": "0.8",
+          "B": "1.25",
+          "C": "0.2",
+          "D": "-0.8"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1.25",
+        "difficulty": "medium",
+        "source": {
+          "page": 64,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "csc θ = 1 / sin θ = 1 / 0.8 = 10 / 8 = 1.25."
+          ],
+          "summary": "قاطع التمام هو مقلوب الجيب [2]."
+        },
+        "explanation": "قاطع التمام هو مقلوب الجيب [2].",
+        "number": 17,
+        "id": "U02-L02-Q017"
+      },
+      {
+        "question": "في أي ربع يكون الظل (tan) وظل التمام (cot) فقط هما الموجبان؟",
+        "options": {
+          "A": "الأول",
+          "B": "الثاني",
+          "C": "الثالث",
+          "D": "الرابع"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الثالث",
+        "difficulty": "medium",
+        "source": {
+          "page": 68,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "في الربع الثالث، تكون x و y سالبتين، لذا ناتج قسمتهما (الظل) يكون موجباً [8]."
+        },
+        "explanation": "في الربع الثالث، تكون x و y سالبتين، لذا ناتج قسمتهما (الظل) يكون موجباً [8].",
+        "number": 18,
+        "id": "U02-L02-Q018"
+      },
+      {
+        "question": "الزاوية المرجعية للزاوية θ في الربع الرابع تُحسب بالقانون:",
+        "options": {
+          "A": "180° - θ",
+          "B": "θ - 180°",
+          "C": "360° - θ",
+          "D": "θ - 270°"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "360° - θ",
+        "difficulty": "easy",
+        "source": {
+          "page": 67,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تُعرف الزاوية المرجعية في الربع الرابع بالفرق بين دورة كاملة والزاوية الأصلية [7]."
+        },
+        "explanation": "تُعرف الزاوية المرجعية في الربع الرابع بالفرق بين دورة كاملة والزاوية الأصلية [7].",
+        "number": 19,
+        "id": "U02-L02-Q019"
+      },
+      {
+        "question": "ما القيمة الدقيقة لـ cos (π/4)؟",
+        "options": {
+          "A": "1/2",
+          "B": "√3 / 2",
+          "C": "1 / √2",
+          "D": "1"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "1 / √2",
+        "difficulty": "easy",
+        "source": {
+          "page": 68,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "هذه قيمة محفوظة للزاوية الخاصة 45 درجة [13]."
+        },
+        "explanation": "هذه قيمة محفوظة للزاوية الخاصة 45 درجة [13].",
+        "number": 20,
+        "id": "U02-L02-Q020"
+      },
+      {
+        "question": "ما هو مجال اقتران جيب التمام العكسي (y = cos⁻¹ x)؟",
+        "options": {
+          "A": "[-1, 1]",
+          "B": "[-π, π]",
+          "C": "[0, π]",
+          "D": "(-∞, ∞)"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "[-1, 1]",
+        "difficulty": "medium",
+        "source": {
+          "page": 72,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مجال الاقتران العكسي هو مدى الاقتران الأصلي، ومدى جيب التمام هو [-1, 1] [11]."
+        },
+        "explanation": "مجال الاقتران العكسي هو مدى الاقتران الأصلي، ومدى جيب التمام هو [-1, 1] [11].",
+        "number": 21,
+        "id": "U02-L02-Q021"
+      },
+      {
+        "question": "أوجد قيمة tan⁻¹ (1) في الفترة (-π/2, π/2).",
+        "options": {
+          "A": "π/6",
+          "B": "π/4",
+          "C": "π/3",
+          "D": "0"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "π/4",
+        "difficulty": "medium",
+        "source": {
+          "page": 73,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الزاوية التي ظلها 1 في الفترة المفتوحة المذكورة هي 45 درجة (π/4) [14]."
+        },
+        "explanation": "الزاوية التي ظلها 1 في الفترة المفتوحة المذكورة هي 45 درجة (π/4) [14].",
+        "number": 22,
+        "id": "U02-L02-Q022"
+      },
+      {
+        "question": "إذا كانت θ = 300°، فما قياس الزاوية المرجعية θ'؟",
+        "options": {
+          "A": "30°",
+          "B": "60°",
+          "C": "120°",
+          "D": "210°"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "60°",
+        "difficulty": "medium",
+        "source": {
+          "page": 67,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "θ' = 360° - 300° = 60°."
+          ],
+          "summary": "بما أن 300° تقع في الربع الرابع، نستخدم قانون الـ 360 [7]."
+        },
+        "explanation": "بما أن 300° تقع في الربع الرابع، نستخدم قانون الـ 360 [7].",
+        "number": 23,
+        "id": "U02-L02-Q023"
+      },
+      {
+        "question": "ما قيمة sec 60°؟",
+        "options": {
+          "A": "2",
+          "B": "1/2",
+          "C": "√3",
+          "D": "غير معرف"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "2",
+        "difficulty": "medium",
+        "source": {
+          "page": 64,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "1) cos 60° = 1/2. 2) sec 60° = 1 / cos 60° = 2."
+          ],
+          "summary": "القاطع هو مقلوب جيب التمام [2]."
+        },
+        "explanation": "القاطع هو مقلوب جيب التمام [2].",
+        "number": 24,
+        "id": "U02-L02-Q024"
+      },
+      {
+        "question": "في المثلث القائم، إذا كان المقابل = 5 والوتر = 13، فما قيمة sin θ؟",
+        "options": {
+          "A": "5/12",
+          "B": "12/13",
+          "C": "5/13",
+          "D": "13/5"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "5/13",
+        "difficulty": "easy",
+        "source": {
+          "page": 64,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الجيب يساوي المقابل تقسيم الوتر [1]."
+        },
+        "explanation": "الجيب يساوي المقابل تقسيم الوتر [1].",
+        "number": 25,
+        "id": "U02-L02-Q025"
+      },
+      {
+        "question": "ما هي إشارة csc θ في الربع الثاني؟",
+        "options": {
+          "A": "موجبة",
+          "B": "سالبة",
+          "C": "صفر",
+          "D": "غير معرفة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "موجبة",
+        "difficulty": "medium",
+        "source": {
+          "page": 68,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "csc هو مقلوب sin، والجيب موجب في الربع الثاني، لذا قاطع التمام موجب أيضاً [8]."
+        },
+        "explanation": "csc هو مقلوب sin، والجيب موجب في الربع الثاني، لذا قاطع التمام موجب أيضاً [8].",
+        "number": 26,
+        "id": "U02-L02-Q026"
+      },
+      {
+        "question": "ما قيمة cot 90°؟",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "-1",
+          "D": "غير معرف"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "0",
+        "difficulty": "medium",
+        "source": {
+          "page": 67,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [
+            "cot 90° = x/y. عند 90 درجة، النقطة هي (0, 1)، إذن 0/1 = 0."
+          ],
+          "summary": "تطبيق تعريف ظل التمام للزوايا الربعية [15]."
+        },
+        "explanation": "تطبيق تعريف ظل التمام للزوايا الربعية [15].",
+        "number": 27,
+        "id": "U02-L02-Q027"
+      },
+      {
+        "question": "الزاوية -π راديان، ينطبق ضلع انتهائها على المحور:",
+        "options": {
+          "A": "x الموجب",
+          "B": "x السالب",
+          "C": "y الموجب",
+          "D": "y السالب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "x السالب",
+        "difficulty": "medium",
+        "source": {
+          "page": 67,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدوران بمقدار π (180 درجة) مع عقارب الساعة ينتهي عند محور x السالب [15]."
+        },
+        "explanation": "الدوران بمقدار π (180 درجة) مع عقارب الساعة ينتهي عند محور x السالب [15].",
+        "number": 28,
+        "id": "U02-L02-Q028"
+      },
+      {
+        "question": "لإيجاد المشتّقة العكسية، يجب أن يكون الاقتران المثلثي الأصلي:",
+        "options": {
+          "A": "اقتران واحد لواحد",
+          "B": "اقتران ثابت",
+          "C": "موجود في الربع الأول فقط",
+          "D": "لا يشترط شيء"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "اقتران واحد لواحد",
+        "difficulty": "medium",
+        "source": {
+          "page": 71,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاقتران العكسي يوجد فقط إذا كان الاقتران الأصلي يحقق اختبار الخط الأفقي (واحد لواحد) [16]."
+        },
+        "explanation": "الاقتران العكسي يوجد فقط إذا كان الاقتران الأصلي يحقق اختبار الخط الأفقي (واحد لواحد) [16].",
+        "number": 29,
+        "id": "U02-L02-Q029"
+      },
+      {
+        "question": "ما هو مدى اقتران الظل العكسي (y = tan⁻¹ x)؟",
+        "options": {
+          "A": "[-π/2, π/2]",
+          "B": "(-π/2, π/2)",
+          "C": "[0, π]",
+          "D": "R"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "(-π/2, π/2)",
+        "difficulty": "hard",
+        "source": {
+          "page": 72,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المدى هو فترة مفتوحة لأن الظل غير معرف عند π/2 و -π/2 [11]."
+        },
+        "explanation": "المدى هو فترة مفتوحة لأن الظل غير معرف عند π/2 و -π/2 [11].",
+        "number": 30,
+        "id": "U02-L02-Q030"
+      },
+      {
+        "question": "إذا كان sin θ = 0.5، فما هي قيم θ الممكنة في الدورة الأولى [0, 2π]؟",
+        "options": {
+          "A": "30° فقط",
+          "B": "30° و 150°",
+          "C": "30° و 210°",
+          "D": "30° و 330°"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "30° و 150°",
+        "difficulty": "hard",
+        "source": {
+          "page": 68,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الجيب موجب في الربعين الأول والثاني، والزاوية المرجعية هي 30 [8]."
+        },
+        "explanation": "الجيب موجب في الربعين الأول والثاني، والزاوية المرجعية هي 30 [8].",
+        "number": 31,
+        "id": "U02-L02-Q031"
+      },
+      {
+        "question": "ما قيمة cos (-π/3)؟",
+        "options": {
+          "A": "1/2",
+          "B": "-1/2",
+          "C": "√3 / 2",
+          "D": "0"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "1/2",
+        "difficulty": "medium",
+        "source": {
+          "page": 70,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الزاوية تقع في الربع الرابع حيث جيب التمام موجب، ومرجعها 60 درجة [17]."
+        },
+        "explanation": "الزاوية تقع في الربع الرابع حيث جيب التمام موجب، ومرجعها 60 درجة [17].",
+        "number": 32,
+        "id": "U02-L02-Q032"
+      },
+      {
+        "question": "في أي ربع تقع الزاوية θ إذا كان cos θ < 0 و tan θ > 0؟",
+        "options": {
+          "A": "الأول",
+          "B": "الثاني",
+          "C": "الثالث",
+          "D": "الرابع"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الثالث",
+        "difficulty": "medium",
+        "source": {
+          "page": 68,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الظل موجب في الأول والثالث، وجيب التمام سالب في الثاني والثالث، المشترك هو الثالث [8]."
+        },
+        "explanation": "الظل موجب في الأول والثالث، وجيب التمام سالب في الثاني والثالث، المشترك هو الثالث [8].",
+        "number": 33,
+        "id": "U02-L02-Q033"
+      },
+      {
+        "question": "ما قيمة sin 0؟",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "-1",
+          "D": "غير معرف"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "0",
+        "difficulty": "easy",
+        "source": {
+          "page": 66,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عند زاوية صفر، الإحداثي y للنقطة على دائرة الوحدة (1, 0) هو صفر [5]."
+        },
+        "explanation": "عند زاوية صفر، الإحداثي y للنقطة على دائرة الوحدة (1, 0) هو صفر [5].",
+        "number": 34,
+        "id": "U02-L02-Q034"
+      },
+      {
+        "question": "قيمة الزاوية θ بالراديان التي تقابل 225° هي:",
+        "options": {
+          "A": "3π/4",
+          "B": "5π/4",
+          "C": "4π/3",
+          "D": "7π/6"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "5π/4",
+        "difficulty": "medium",
+        "source": {
+          "page": 55,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بناءً على جدول الزوايا الخاصة المكافئة [18]."
+        },
+        "explanation": "بناءً على جدول الزوايا الخاصة المكافئة [18].",
+        "number": 35,
+        "id": "U02-L02-Q035"
+      },
+      {
+        "question": "ما هو مقلوب قاطع التمام (csc θ)؟",
+        "options": {
+          "A": "sin θ",
+          "B": "cos θ",
+          "C": "tan θ",
+          "D": "sec θ"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "sin θ",
+        "difficulty": "easy",
+        "source": {
+          "page": 64,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الجيب وقاطع التمام هما اقترانا مقلوب لبعضهما البعض [2]."
+        },
+        "explanation": "الجيب وقاطع التمام هما اقترانا مقلوب لبعضهما البعض [2].",
+        "number": 36,
+        "id": "U02-L02-Q036"
+      },
+      {
+        "question": "أوجد قيمة cos⁻¹ (0) في الفترة [0, π].",
+        "options": {
+          "A": "0",
+          "B": "π",
+          "C": "π/2",
+          "D": "π/4"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "π/2",
+        "difficulty": "medium",
+        "source": {
+          "page": 73,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الزاوية التي جيب تمامها صفر في هذه الفترة هي 90 درجة (π/2) [14]."
+        },
+        "explanation": "الزاوية التي جيب تمامها صفر في هذه الفترة هي 90 درجة (π/2) [14].",
+        "number": 37,
+        "id": "U02-L02-Q037"
+      },
+      {
+        "question": "ما قيمة tan 45°؟",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "√3",
+          "D": "1/√3"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1",
+        "difficulty": "easy",
+        "source": {
+          "page": 68,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الظل للزاوية 45 درجة دائماً يساوي 1 [13]."
+        },
+        "explanation": "الظل للزاوية 45 درجة دائماً يساوي 1 [13].",
+        "number": 38,
+        "id": "U02-L02-Q038"
+      },
+      {
+        "question": "إذا كانت النقطة P على دائرة الوحدة هي (-√2/2, √2/2)، فما قيمة θ؟",
+        "options": {
+          "A": "45°",
+          "B": "135°",
+          "C": "225°",
+          "D": "315°"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "135°",
+        "difficulty": "hard",
+        "source": {
+          "page": 68,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الإحداثيات تدل على زاوية مرجعها 45 وتقع في الربع الثاني (x سالب، y موجب) [13]."
+        },
+        "explanation": "الإحداثيات تدل على زاوية مرجعها 45 وتقع في الربع الثاني (x سالب، y موجب) [13].",
+        "number": 39,
+        "id": "U02-L02-Q039"
+      },
+      {
+        "question": "ما قيمة sin (-30°)؟",
+        "options": {
+          "A": "1/2",
+          "B": "-1/2",
+          "C": "√3 / 2",
+          "D": "-√3 / 2"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "-1/2",
+        "difficulty": "medium",
+        "source": {
+          "page": 68,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الزاوية في الربع الرابع حيث الجيب سالب، ومرجعها 30 درجة [8]."
+        },
+        "explanation": "الزاوية في الربع الرابع حيث الجيب سالب، ومرجعها 30 درجة [8].",
+        "number": 40,
+        "id": "U02-L02-Q040"
+      }
+    ]
+  }
+}

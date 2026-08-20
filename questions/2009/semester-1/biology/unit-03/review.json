@@ -1,0 +1,1402 @@
+[
+  {
+    "id": "U03-REV-Q001",
+    "number": 1,
+    "question": "في نبات فم السمكة، تلقيح أحمر RR مع أبيض WW يproduk F1:",
+    "options": {
+      "A": "أحمر",
+      "B": "أبيض",
+      "C": "وردي",
+      "D": "أحمر وأبيض"
+    },
+    "correct_answer": "C",
+    "correct_answer_text": "وردي",
+    "difficulty": "easy",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "RW = وردي"
+      ],
+      "summary": "وردي."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q002",
+    "number": 2,
+    "question": "في السيادة المُشترَكة، تأثير الأليلين يظهر:",
+    "options": {
+      "A": "واحد فقط",
+      "B": "كلاهما بشكل مستقل",
+      "C": "يختفي أحدهما",
+      "D": "يختفي الاثنان"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "كلاهما بشكل مستقل",
+    "difficulty": "easy",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "يظهر الاثنان معاً"
+      ],
+      "summary": "كلاهما بشكل مستقل."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q003",
+    "number": 3,
+    "question": "نظام فصائل الدم ABO فيه:",
+    "options": {
+      "A": "أليلان",
+      "B": "ثلاثة أليلات",
+      "C": "أربعة أليلات",
+      "D": "أليل واحد"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "ثلاثة أليلات",
+    "difficulty": "easy",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "IA, IB, i"
+      ],
+      "summary": "ثلاثة أليلات."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q004",
+    "number": 4,
+    "question": "الفرد الذي فصيلة دمه O يكون طرازه الجيني:",
+    "options": {
+      "A": "IAIA",
+      "B": "IBi",
+      "C": "IAi",
+      "D": "ii"
+    },
+    "correct_answer": "D",
+    "correct_answer_text": "ii",
+    "difficulty": "easy",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "ii فقط"
+      ],
+      "summary": "ii."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q005",
+    "number": 5,
+    "question": "السيادة بين IA وIB هي سيادة:",
+    "options": {
+      "A": "تامة",
+      "B": "غير تامة",
+      "C": "مُشترَكة",
+      "D": "مندلية"
+    },
+    "correct_answer": "C",
+    "correct_answer_text": "مُشترَكة",
+    "difficulty": "medium",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "يظهر الاثنان معاً"
+      ],
+      "summary": "مُشترَكة."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q006",
+    "number": 6,
+    "question": "في الوراثة مُتعدِّدة الجينات، لون الجلد يتحكَّم فيه:",
+    "options": {
+      "A": "جين واحد",
+      "B": "جينان",
+      "C": "أكثر من جينين",
+      "D": "لا جينات"
+    },
+    "correct_answer": "C",
+    "correct_answer_text": "أكثر من جينين",
+    "difficulty": "medium",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "عدة جينات"
+      ],
+      "summary": "أكثر من جينين."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q007",
+    "number": 7,
+    "question": "يتحدد الجنس في الإنسان وفق نظام:",
+    "options": {
+      "A": "XX/XY",
+      "B": "ZW/ZZ",
+      "C": "XO",
+      "D": "YY"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "XX/XY",
+    "difficulty": "easy",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "XX أنثى وXY ذكر"
+      ],
+      "summary": "XX/XY."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q008",
+    "number": 8,
+    "question": "في الطيور، الذكر يكون:",
+    "options": {
+      "A": "ZZ",
+      "B": "ZW",
+      "C": "XY",
+      "D": "XX"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "ZZ",
+    "difficulty": "medium",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "ZZ ذكر وZW أنثى"
+      ],
+      "summary": "ZZ."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q009",
+    "number": 9,
+    "question": "الجينات المُرتبِطة موجودة على:",
+    "options": {
+      "A": "كروموسومات مختلفة",
+      "B": "نفس الكروموسوم",
+      "C": "الكروموسومات الجنسية فقط",
+      "D": "البلاستيدات"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "نفس الكروموسوم",
+    "difficulty": "easy",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "تميل للوراثة معاً"
+      ],
+      "summary": "نفس الكروموسوم."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q010",
+    "number": 10,
+    "question": "الخريطة الجينية تُحدد:",
+    "options": {
+      "A": "شكل الكروموسوم",
+      "B": "مسافات الجينات",
+      "C": "عدد الكروموسومات",
+      "D": "نوع الطفرة"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "مسافات الجينات",
+    "difficulty": "medium",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "المسافات النسبية بين الجينات"
+      ],
+      "summary": "مسافات الجينات."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q011",
+    "number": 11,
+    "question": "الوراثة فوق الجينية تُغيِّر:",
+    "options": {
+      "A": "تسلسل DNA",
+      "B": "تعبير الجينات",
+      "C": "عدد الكروموسومات",
+      "D": "البروتينات"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "تعبير الجينات",
+    "difficulty": "medium",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "تغيير في التعبير فقط"
+      ],
+      "summary": "تعبير الجينات."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q012",
+    "number": 12,
+    "question": "طفرة الاستبدال هي استبدال:",
+    "options": {
+      "A": "كودون كامل",
+      "B": "زوج من النيوكليوتيدات بآخر",
+      "C": "كروموسوم كامل",
+      "D": "جين كامل"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "زوج من النيوكليوتيدات بآخر",
+    "difficulty": "easy",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "زوج بآخر"
+      ],
+      "summary": "زوج من النيوكليوتيدات بآخر."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q013",
+    "number": 13,
+    "question": "في الطفرة الصامتة، لا يتغير:",
+    "options": {
+      "A": "الكودون",
+      "B": "الحمض الأميني",
+      "C": "إطار القراءة",
+      "D": "تسلسل DNA"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "الحمض الأميني",
+    "difficulty": "easy",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "نفس الحمض الأميني"
+      ],
+      "summary": "الحمض الأميني."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q014",
+    "number": 14,
+    "question": "طفرة غير المُعبِّرة تُحوِّل الكودون إلى:",
+    "options": {
+      "A": "كودون وقف",
+      "B": "كودون بداية",
+      "C": "حمض أميني جديد",
+      "D": "لا شيء"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "كودون وقف",
+    "difficulty": "medium",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "يوقف الترجمة"
+      ],
+      "summary": "كودون وقف."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q015",
+    "number": 15,
+    "question": "طفرة الإزاحة تُغيِّر:",
+    "options": {
+      "A": "زوجاً واحداً فقط",
+      "B": "إطار قراءة جميع الكودونات",
+      "C": "الكروموسومات فقط",
+      "D": "عدد الجينات"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "إطار قراءة جميع الكودونات",
+    "difficulty": "medium",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "تُغيِّر جميع الكودونات"
+      ],
+      "summary": "إطار قراءة جميع الكودونات."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q016",
+    "number": 16,
+    "question": "الطفرات الكروموسومية هي تغيُّرات في:",
+    "options": {
+      "A": "تسلسل النيوكليوتيدات",
+      "B": "عدد أو تركيب الكروموسومات",
+      "C": "البروتينات فقط",
+      "D": "الحموض النووية"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "عدد أو تركيب الكروموسومات",
+    "difficulty": "easy",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "تغيير في الكروموسومات"
+      ],
+      "summary": "عدد أو تركيب الكروموسومات."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q017",
+    "number": 17,
+    "question": "متلازمة داون ناتجة عن:",
+    "options": {
+      "A": "فقدان كروموسوم",
+      "B": "ثلاثية صبغية 21",
+      "C": "تبديل كروموسوم",
+      "D": "قلب كروموسوم"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "ثلاثية صبغية 21",
+    "difficulty": "medium",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "3n21 = 47 كروموسوماً"
+      ],
+      "summary": "ثلاثية صبغية 21."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q018",
+    "number": 18,
+    "question": "متلازمة تيرنر تعني:",
+    "options": {
+      "A": "47 كروموسوماً",
+      "B": "45 كروموسوماً",
+      "C": "46 كروموسوماً",
+      "D": "48 كروموسوماً"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "45 كروموسوماً",
+    "difficulty": "medium",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "XO = 45"
+      ],
+      "summary": "45 كروموسوماً."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q019",
+    "number": 19,
+    "question": "الحذف الكروموسومي يعني:",
+    "options": {
+      "A": "تكرار جزء",
+      "B": "فقدان جزء من الكروموسوم",
+      "C": "قلب جزء",
+      "D": "انتقال جزء"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "فقدان جزء من الكروموسوم",
+    "difficulty": "easy",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "فقدان جزء"
+      ],
+      "summary": "فقدان جزء من الكروموسوم."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q020",
+    "number": 20,
+    "question": "التبديل الكروموسومي يعني:",
+    "options": {
+      "A": "حذف جزء",
+      "B": "انتقال جزء لكروموسوم آخر",
+      "C": "تكرار جزء",
+      "D": "قلب جزء"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "انتقال جزء لكروموسوم آخر",
+    "difficulty": "medium",
+    "source": {
+      "page": 142,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "نقل جزء لكروموسوم غير متماثل"
+      ],
+      "summary": "انتقال جزء لكروموسوم آخر."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q021",
+    "number": 21,
+    "question": "السكري من النوع الأول هو اختلال:",
+    "options": {
+      "A": "متنحي",
+      "B": "سائد",
+      "C": "مُرتبط بالجنس",
+      "D": "لا وراثة فيه"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "متنحي",
+    "difficulty": "medium",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "mutation وراثية متنحية"
+      ],
+      "summary": "متنحي."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q022",
+    "number": 22,
+    "question": "فقر الدم المنجلي ناتج عن:",
+    "options": {
+      "A": "فقدان كروموسوم",
+      "B": "طفرة في جين الهموغلوبين",
+      "C": "متلازمة داون",
+      "D": "لا علاقة للوراثة"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "طفرة في جين الهموغلوبين",
+    "difficulty": "medium",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "mutation في جين hemoglobin"
+      ],
+      "summary": "طفرة في جين الهموغلوبين."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q023",
+    "number": 23,
+    "question": "في فقر الدم المنجلي، الطراز (ss) يعني:",
+    "options": {
+      "A": "سليم",
+      "B": "حامل",
+      "C": "مصاب",
+      "D": "لا علاقة"
+    },
+    "correct_answer": "C",
+    "correct_answer_text": "مصاب",
+    "difficulty": "easy",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "ss = مصاب"
+      ],
+      "summary": "مصاب."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q024",
+    "number": 24,
+    "question": "في فقر الدم المنجلي، الطراز (Ss) يعني:",
+    "options": {
+      "A": "سليم",
+      "B": "حامل",
+      "C": "مصاب",
+      "D": "لا علاقة"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "حامل",
+    "difficulty": "easy",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Ss = حامل"
+      ],
+      "summary": "حامل."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q025",
+    "number": 25,
+    "question": "العلبة هي اختلال:",
+    "options": {
+      "A": "متنحي",
+      "B": "سائد",
+      "C": "مُرتبط بالجنس",
+      "D": "لا وراثة فيه"
+    },
+    "correct_answer": "C",
+    "correct_answer_text": "مُرتبط بالجنس",
+    "difficulty": "medium",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "محمولة على الجنسية"
+      ],
+      "summary": "مُرتبط بالجنس."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q026",
+    "number": 26,
+    "question": "في العلبة، الذكر المصاب طرازه:",
+    "options": {
+      "A": "XBXB",
+      "B": "XBXb",
+      "C": "XbY",
+      "D": "XBY"
+    },
+    "correct_answer": "C",
+    "correct_answer_text": "XbY",
+    "difficulty": "easy",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "الذكر XbY مصاب"
+      ],
+      "summary": "XbY."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q027",
+    "number": 27,
+    "question": "في العلبة، الأب مصاب (XbY) والأم سليمة (XBXB):",
+    "options": {
+      "A": "جميع الأبناء مصابون",
+      "B": "جميع الذكور سليمون",
+      "C": "جميع الإناث حاملات",
+      "D": "B وC معاً"
+    },
+    "correct_answer": "D",
+    "correct_answer_text": "B وC معاً",
+    "difficulty": "hard",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "الذكور سليمون والإناث حاملات"
+      ],
+      "summary": "B وC معاً."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q028",
+    "number": 28,
+    "question": "في وراثة السكري الأول، إذا كان كلا الأبوين (Aa):",
+    "options": {
+      "A": "جميع الأطفال مصابون",
+      "B": "25% مصابون",
+      "C": "50% مصابون",
+      "D": "لا أحد مصاب"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "25% مصابون",
+    "difficulty": "hard",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Aa x Aa -> 25% aa"
+      ],
+      "summary": "25%."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q029",
+    "number": 29,
+    "question": "في وراثة فصائل الدم، تلقيح IAi x IBi ينتج:",
+    "options": {
+      "A": "1A:1B:1AB:1O",
+      "B": "2A:1B:1O",
+      "C": "1A:2B:1O",
+      "D": "2AB:1A:1B"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "1A:1B:1AB:1O",
+    "difficulty": "hard",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "IAi x IBi -> جميع الفصائل"
+      ],
+      "summary": "1:1:1:1."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q030",
+    "number": 30,
+    "question": "في فقر الدم المنجلي، إذا كان أحد الأبوين (Ss) والآخر (ss):",
+    "options": {
+      "A": "جميع الأبناء مصابون",
+      "B": "50% مصابون",
+      "C": "25% مصابون",
+      "D": "لا أحد مصاب"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "50% مصابون",
+    "difficulty": "hard",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "Ss x ss -> 50% ss"
+      ],
+      "summary": "50%."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q031",
+    "number": 31,
+    "question": "الكروموسومات المتماثلة تحمل جينات:",
+    "options": {
+      "A": "مختلفة",
+      "B": "متماثلة",
+      "C": "لا تحمل جينات",
+      "D": "صامتة فقط"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "متماثلة",
+    "difficulty": "easy",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "متماثلة في الشكل والحجم والجينات"
+      ],
+      "summary": "متماثلة."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q032",
+    "number": 32,
+    "question": "في متلازمة داون، عدد الكروموسومات:",
+    "options": {
+      "A": "46",
+      "B": "47",
+      "C": "45",
+      "D": "48"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "47",
+    "difficulty": "medium",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "2n+1 = 47"
+      ],
+      "summary": "47."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q033",
+    "number": 33,
+    "question": "طفرة الإزاحة أخطر من الاستبدال لأنها:",
+    "options": {
+      "A": "تُغيِّر حمض أميني واحداً",
+      "B": "تُغيِّر إطار القراءة بالكامل",
+      "C": "لا تُغيِّر شيئاً",
+      "D": "توقف الترجمة فقط"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "تُغيِّر إطار القراءة بالكامل",
+    "difficulty": "hard",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "تُغيِّر جميع الكودونات"
+      ],
+      "summary": "إطار القراءة بالكامل."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q034",
+    "number": 34,
+    "question": "في ذبابة الفاكهة، صفة لون العينين مُرتبطة بـ:",
+    "options": {
+      "A": "الكروموسوم X فقط",
+      "B": "الكروموسوم Y فقط",
+      "C": "الجسمية",
+      "D": "X وY معاً"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "الكروموسوم X فقط",
+    "difficulty": "medium",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "لا يوجد أليل على Y"
+      ],
+      "summary": "الكروموسوم X فقط."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q035",
+    "number": 35,
+    "question": "في ذبابة الفاكهة، أليل العيون الحمراء (XR) هو:",
+    "options": {
+      "A": "متنحي",
+      "B": "سائد",
+      "C": "صامت",
+      "D": "مُتعدِّد"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "سائد",
+    "difficulty": "easy",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "أحمر سائد على أبيض"
+      ],
+      "summary": "سائد."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q036",
+    "number": 36,
+    "question": "التبديل غير المتماثل يعني نقل جزء لكروموسوم:",
+    "options": {
+      "A": "متماثل",
+      "B": "غير متماثل",
+      "C": "نفسه",
+      "D": "لا شيء"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "غير متماثل",
+    "difficulty": "hard",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "للكروموسوم غير المتماثل"
+      ],
+      "summary": "غير متماثل."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q037",
+    "number": 37,
+    "question": "الكاريوتايب يكشف عن:",
+    "options": {
+      "A": "الطفرات الجينية",
+      "B": "الطفرات الكروموسومية",
+      "C": "البروتينات فقط",
+      "D": "لا شيء"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "الطفرات الكروموسومية",
+    "difficulty": "medium",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "يكشف تغيرات الكروموسومات"
+      ],
+      "summary": "الطفرات الكروموسومية."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q038",
+    "number": 38,
+    "question": "في السيادة غير التامة، نسبة F2 هي:",
+    "options": {
+      "A": "3:1",
+      "B": "1:2:1",
+      "C": "1:1",
+      "D": "9:3:3:1"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "1:2:1",
+    "difficulty": "medium",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "1 أحمر : 2 وردي : 1 أبيض"
+      ],
+      "summary": "1:2:1."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q039",
+    "number": 39,
+    "question": "الوراثة مُتعدِّدة الجينات تتميز بـ:",
+    "options": {
+      "A": "أثر أليل واحد",
+      "B": "تأثير تراكمي ومتساوٍ",
+      "C": "أثر عشوائي",
+      "D": "لا تأثير"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "تأثير تراكمي ومتساوٍ",
+    "difficulty": "medium",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "تأثير تراكمي"
+      ],
+      "summary": "تأثير تراكمي ومتساوٍ."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q040",
+    "number": 40,
+    "question": "الحذف الكروموسومي قد يؤدي إلى:",
+    "options": {
+      "A": "زيادة الجينات",
+      "B": "فقدان جينات مهمة",
+      "C": "تكرار جينات",
+      "D": "لا تغيير"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "فقدان جينات مهمة",
+    "difficulty": "medium",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "فقدان جينات مهمة"
+      ],
+      "summary": "فقدان جينات مهمة."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q041",
+    "number": 41,
+    "question": "في وراثة فصائل الدم، فصيلة AB تعني وجود:",
+    "options": {
+      "A": "مولد الضد A فقط",
+      "B": "مولد الضد B فقط",
+      "C": "مولد الضد A وB معاً",
+      "D": "لا مولدات ضد"
+    },
+    "correct_answer": "C",
+    "correct_answer_text": "مولد الضد A وB معاً",
+    "difficulty": "easy",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "IAIB = A وB معاً"
+      ],
+      "summary": "مولد الضد A وB معاً."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q042",
+    "number": 42,
+    "question": "في العلبة، الأب سليم (XBY) والأم حاملة (XBXb):",
+    "options": {
+      "A": "جميع الذكور مصابون",
+      "B": "نصف الذكور مصابون",
+      "C": "جميع الإناث مصابات",
+      "D": "لا أحد مصاب"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "نصف الذكور مصابون",
+    "difficulty": "hard",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "نصف الذكور XbY"
+      ],
+      "summary": "نصف الذكور مصابون."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q043",
+    "number": 43,
+    "question": "السمات الوراثية فوق الجينية تنتقل عبر:",
+    "options": {
+      "A": "تغيير في تسلسل DNA",
+      "B": "تعديل في التعبير دون تغيير التسلسل",
+      "C": "طفرة كروموسومية",
+      "D": "فقدان جين"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "تعديل في التعبير دون تغيير التسلسل",
+    "difficulty": "medium",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "تغيير في التعبير فقط"
+      ],
+      "summary": "تعديل في التعبير."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q044",
+    "number": 44,
+    "question": "الكمي في الطفرات الكروموسومية يشمل:",
+    "options": {
+      "A": "التكرار والقلب فقط",
+      "B": "Aneuploidy وPolyploidy",
+      "C": "طفرة الاستبدال فقط",
+      "D": "لا يوجد"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "Aneuploidy وPolyploidy",
+    "difficulty": "medium",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "نقص العدد وتعتُدُّد المجموعات"
+      ],
+      "summary": "Aneuploidy وPolyploidy."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q045",
+    "number": 45,
+    "question": "في وراثة لون الجلد، فرد به 6 أليلات سائدة:",
+    "options": {
+      "A": "فاتح جداً",
+      "B": "غامق جداً",
+      "C": "متوسط",
+      "D": "أبيض"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "غامق جداً",
+    "difficulty": "medium",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "كل سائد يزيد الغمق"
+      ],
+      "summary": "غامق جداً."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q046",
+    "number": 46,
+    "question": "الخريطة الجينية تُقاس بوحدة:",
+    "options": {
+      "A": "nm",
+      "B": "cM",
+      "C": "bp",
+      "D": "KB"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "cM",
+    "difficulty": "easy",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "cM = سنتي مورغان"
+      ],
+      "summary": "cM."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q047",
+    "number": 47,
+    "question": "في الطيور، تحديد الجنس يختلف عن الإنسان في أن:",
+    "options": {
+      "A": "الذكر XY",
+      "B": "الأنثى تحمل الكروموسومين المختلفين",
+      "C": "لا يوجد كروموسومات جنسية",
+      "D": "الجنس بالبيئة"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "الأنثى تحمل الكروموسومين المختلفين",
+    "difficulty": "medium",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "الأنثى ZW والذكر ZZ"
+      ],
+      "summary": "الأنثى تحمل الكروموسومين المختلفين."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q048",
+    "number": 48,
+    "question": "من أنواع الطفرات الكروموسومية الهيكلية:",
+    "options": {
+      "A": "الحذف والتكرار والقلب والتبديل",
+      "B": "طفرة الاستبدال فقط",
+      "C": "طفرة الإزاحة فقط",
+      "D": "لا توجد"
+    },
+    "correct_answer": "A",
+    "correct_answer_text": "الحذف والتكرار والقلب والتبديل",
+    "difficulty": "easy",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "4 أنواع رئيسية"
+      ],
+      "summary": "حذف، تكرار، قلب، تبديل."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q049",
+    "number": 49,
+    "question": "في فقر الدم المنجلي، الطراز (SS) يعني:",
+    "options": {
+      "A": "مصاب",
+      "B": "سليم",
+      "C": "حامل",
+      "D": "لا علاقة"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "سليم",
+    "difficulty": "easy",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "SS = سليم"
+      ],
+      "summary": "سليم."
+    },
+    "explanation": ""
+  },
+  {
+    "id": "U03-REV-Q050",
+    "number": 50,
+    "question": "في الوراثة فوق الجينية، مثيلة DNA تُعدِّل:",
+    "options": {
+      "A": "تسلسل DNA",
+      "B": "تعبير الجينات",
+      "C": "عدد الكروموسومات",
+      "D": "البروتينات"
+    },
+    "correct_answer": "B",
+    "correct_answer_text": "تعبير الجينات",
+    "difficulty": "medium",
+    "source": {
+      "page": 143,
+      "reference": "مراجعة الوحدة 3",
+      "lesson_number": "review",
+      "lesson_name": "مراجعة الوحدة 3"
+    },
+    "solution": {
+      "formula": null,
+      "steps": [
+        "تؤثر في التعبير فقط"
+      ],
+      "summary": "تعبير الجينات."
+    },
+    "explanation": ""
+  }
+]

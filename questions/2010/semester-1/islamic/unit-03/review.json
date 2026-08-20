@@ -1,0 +1,1212 @@
+{
+  "lesson": {
+    "lesson_number": "3.review",
+    "lesson_name": "مراجعة الوحدة 3",
+    "unit_number": 3,
+    "unit_name": "الوحدة الثالثة: علاقة المسلم بكتاب الله وسنة نبيه",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما المقصود بقوله تعالى (يَكُ مُل) في سورة آل عمران؟",
+        "options": {
+          "A": "لا تتكلموا",
+          "B": "لا تظنوا",
+          "C": "لا تحزنوا",
+          "D": "لا تبتعدوا"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا تظنوا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا تظنوا"
+        },
+        "explanation": "لا تظنوا",
+        "number": 1,
+        "id": "U03-L99-Q001"
+      },
+      {
+        "question": "بماذا وصف الله تعالى الشهداء في سياق تكريمهم؟",
+        "options": {
+          "A": "أحياء عند ربهم يرزقون",
+          "B": "موتى لا يشعرون",
+          "C": "ينتظرون البعث فقط",
+          "D": "ملائكة في السماء"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "أحياء عند ربهم يرزقون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أحياء عند ربهم يرزقون"
+        },
+        "explanation": "أحياء عند ربهم يرزقون",
+        "number": 2,
+        "id": "U03-L99-Q002"
+      },
+      {
+        "question": "ما هو الدعاء الذي ردده المؤمنون في 'حمراء الأسد' وزادهم إيماناً؟",
+        "options": {
+          "A": "الحمد لله",
+          "B": "حسبنا الله ونعم الوكيل",
+          "C": "لا إله إلا الله",
+          "D": "أستغفر الله"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حسبنا الله ونعم الوكيل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حسبنا الله ونعم الوكيل"
+        },
+        "explanation": "حسبنا الله ونعم الوكيل",
+        "number": 3,
+        "id": "U03-L99-Q003"
+      },
+      {
+        "question": "ما الغاية الأساسية من خروج النبي وأصحابه إلى 'حمراء الأسد' بعد معركة أحد؟",
+        "options": {
+          "A": "جمع الغنائم",
+          "B": "إظهار قوة المسلمين ومنع المشركين من العودة للمدينة",
+          "C": "البحث عن بئر ماء",
+          "D": "لقاء وفود تجارية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إظهار قوة المسلمين ومنع المشركين من العودة للمدينة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إظهار قوة المسلمين ومنع المشركين من العودة للمدينة"
+        },
+        "explanation": "إظهار قوة المسلمين ومنع المشركين من العودة للمدينة",
+        "number": 4,
+        "id": "U03-L99-Q004"
+      },
+      {
+        "question": "كم كان عدد الصحابة الذين أمرهم النبي بالوقوف على جبل الرماة في أحد؟",
+        "options": {
+          "A": "ثلاثون",
+          "B": "أربعون",
+          "C": "خمسون",
+          "D": "ستون"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "خمسون",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خمسون"
+        },
+        "explanation": "خمسون",
+        "number": 5,
+        "id": "U03-L99-Q005"
+      },
+      {
+        "question": "من هو الصحابي راوي حديث 'إن الله يرضى لكم ثلاثاً'؟",
+        "options": {
+          "A": "عمر بن الخطاب",
+          "B": "أبو هريرة",
+          "C": "أبو بكر الصديق",
+          "D": "عثمان بن عفان"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أبو هريرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أبو هريرة"
+        },
+        "explanation": "أبو هريرة",
+        "number": 6,
+        "id": "U03-L99-Q006"
+      },
+      {
+        "question": "ما هما المصطلحان اللذان يشيران إلى 'الغضب' و 'الرضا' في حديث رضا الله تعالى؟",
+        "options": {
+          "A": "الحب والكره",
+          "B": "يرضى ويسخط",
+          "C": "يقبل ويرفض",
+          "D": "يعطي ويمنع"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "يرضى ويسخط",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يرضى ويسخط"
+        },
+        "explanation": "يرضى ويسخط",
+        "number": 7,
+        "id": "U03-L99-Q007"
+      },
+      {
+        "question": "المقصود بـ 'حبل الله' في حديث الاعتصام هو:",
+        "options": {
+          "A": "السلاسل",
+          "B": "المال والقوة",
+          "C": "دين الله والقرآن الكريم",
+          "D": "التحالفات العسكرية"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "دين الله والقرآن الكريم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "دين الله والقرآن الكريم"
+        },
+        "explanation": "دين الله والقرآن الكريم",
+        "number": 8,
+        "id": "U03-L99-Q008"
+      },
+      {
+        "question": "ما معنى 'القيل والقال' المنهي عنه في الحديث الشريف؟",
+        "options": {
+          "A": "قراءة الكتب",
+          "B": "ذكر الله",
+          "C": "الخوض في أخبار الناس وما لا فائدة فيه",
+          "D": "الخطابة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الخوض في أخبار الناس وما لا فائدة فيه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الخوض في أخبار الناس وما لا فائدة فيه"
+        },
+        "explanation": "الخوض في أخبار الناس وما لا فائدة فيه",
+        "number": 9,
+        "id": "U03-L99-Q009"
+      },
+      {
+        "question": "أي من الآتية يعتبر من صور 'إضاعة المال' التي يكرهها الله؟",
+        "options": {
+          "A": "الصدقة",
+          "B": "إنفاقه في المحرمات أو التبذير في المباح",
+          "C": "الاستثمار في التجارة",
+          "D": "ادخاره للحاجة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إنفاقه في المحرمات أو التبذير في المباح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إنفاقه في المحرمات أو التبذير في المباح"
+        },
+        "explanation": "إنفاقه في المحرمات أو التبذير في المباح",
+        "number": 10,
+        "id": "U03-L99-Q010"
+      },
+      {
+        "question": "الصحابي عبد الرحمن بن صخر الدوسي هو نفسه:",
+        "options": {
+          "A": "أبو عبيدة",
+          "B": "أبو هريرة",
+          "C": "أبو ذر",
+          "D": "أبو الدرداء"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أبو هريرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أبو هريرة"
+        },
+        "explanation": "أبو هريرة",
+        "number": 11,
+        "id": "U03-L99-Q011"
+      },
+      {
+        "question": "ما هو السبب المباشر لفتح مكة في السنة الثامنة للهجرة؟",
+        "options": {
+          "A": "رغبة النبي في الحج",
+          "B": "نقض قريش لصلح الحديبية بإعانة بني بكر على خزاعة",
+          "C": "بناء الكعبة من جديد",
+          "D": "انتهاء مدة الهدنة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نقض قريش لصلح الحديبية بإعانة بني بكر على خزاعة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نقض قريش لصلح الحديبية بإعانة بني بكر على خزاعة"
+        },
+        "explanation": "نقض قريش لصلح الحديبية بإعانة بني بكر على خزاعة",
+        "number": 12,
+        "id": "U03-L99-Q012"
+      },
+      {
+        "question": "كم كان عدد جيش المسلمين عند الانطلاق لفتح مكة؟",
+        "options": {
+          "A": "ثلاثة آلاف",
+          "B": "خمسة آلاف",
+          "C": "عشرة آلاف",
+          "D": "عشرون ألفاً"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "عشرة آلاف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عشرة آلاف"
+        },
+        "explanation": "عشرة آلاف",
+        "number": 13,
+        "id": "U03-L99-Q013"
+      },
+      {
+        "question": "ماذا أمر النبي صلى الله عليه وسلم أبا سفيان أن يقول لأهل مكة يوم الفتح؟",
+        "options": {
+          "A": "كلكم عبيد",
+          "B": "من دخل دار أبي سفيان فهو آمن",
+          "C": "استعدوا للقتال",
+          "D": "اخرجوا من مكة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "من دخل دار أبي سفيان فهو آمن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "من دخل دار أبي سفيان فهو آمن"
+        },
+        "explanation": "من دخل دار أبي سفيان فهو آمن",
+        "number": 14,
+        "id": "U03-L99-Q014"
+      },
+      {
+        "question": "ما هي العبارة الشهيرة التي قالها النبي لأهل مكة بعد التمكن منهم؟",
+        "options": {
+          "A": "اليوم ننتقم",
+          "B": "اذهبوا فأنتم الطلقاء",
+          "C": "ادفعوا الجزية",
+          "D": "أنتم أعدائي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "اذهبوا فأنتم الطلقاء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اذهبوا فأنتم الطلقاء"
+        },
+        "explanation": "اذهبوا فأنتم الطلقاء",
+        "number": 15,
+        "id": "U03-L99-Q015"
+      },
+      {
+        "question": "من هو الصحابي الذي أمره النبي بالأذان فوق الكعبة يوم الفتح؟",
+        "options": {
+          "A": "عمر بن الخطاب",
+          "B": "بلال بن رباح",
+          "C": "علي بن أبي طالب",
+          "D": "خالد بن الوليد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بلال بن رباح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بلال بن رباح"
+        },
+        "explanation": "بلال بن رباح",
+        "number": 16,
+        "id": "U03-L99-Q016"
+      },
+      {
+        "question": "أبقى النبي صلى الله عليه وسلم مفتاح الكعبة مع:",
+        "options": {
+          "A": "عثمان بن عفان",
+          "B": "عثمان بن طلحة",
+          "C": "العباس بن عبد المطلب",
+          "D": "أبي بكر الصديق"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عثمان بن طلحة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عثمان بن طلحة"
+        },
+        "explanation": "عثمان بن طلحة",
+        "number": 17,
+        "id": "U03-L99-Q017"
+      },
+      {
+        "question": "ما هو اللقب الذي أطلقه النبي على خالد بن الوليد بعد معركة مؤتة؟",
+        "options": {
+          "A": "أمين الأمة",
+          "B": "سيف الله المسلول",
+          "C": "الفاروق",
+          "D": "أسد الله"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "سيف الله المسلول",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "سيف الله المسلول"
+        },
+        "explanation": "سيف الله المسلول",
+        "number": 18,
+        "id": "U03-L99-Q018"
+      },
+      {
+        "question": "الإيجابية في الشريعة الإسلامية تعني:",
+        "options": {
+          "A": "ترك الدنيا للآخرة",
+          "B": "فاعلية المسلم وسعيه للخير في جميع أحواله",
+          "C": "الانعزال عن المجتمع",
+          "D": "البحث عن الراحة فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فاعلية المسلم وسعيه للخير في جميع أحواله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فاعلية المسلم وسعيه للخير في جميع أحواله"
+        },
+        "explanation": "فاعلية المسلم وسعيه للخير في جميع أحواله",
+        "number": 19,
+        "id": "U03-L99-Q019"
+      },
+      {
+        "question": "أي حديث نبوي يحث على العمل حتى في أصعب الظروف؟",
+        "options": {
+          "A": "الدين النصيحة",
+          "B": "إن قامت الساعة وبيد أحدكم فسيلة فليغرسها",
+          "C": "خياركم خياركم لأهله",
+          "D": "الكلمة الطيبة صدقة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إن قامت الساعة وبيد أحدكم فسيلة فليغرسها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إن قامت الساعة وبيد أحدكم فسيلة فليغرسها"
+        },
+        "explanation": "إن قامت الساعة وبيد أحدكم فسيلة فليغرسها",
+        "number": 20,
+        "id": "U03-L99-Q020"
+      },
+      {
+        "question": "ما هو موقف النبي من أهل الطائف بعد إيذائهم له؟",
+        "options": {
+          "A": "دعا عليهم بالهلاك",
+          "B": "استبشر خيراً بأجيالهم القادمة ورفض الدعاء عليهم",
+          "C": "قاطعهم نهائياً",
+          "D": "أمر الجيش بغزوهم فوراً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "استبشر خيراً بأجيالهم القادمة ورفض الدعاء عليهم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "استبشر خيراً بأجيالهم القادمة ورفض الدعاء عليهم"
+        },
+        "explanation": "استبشر خيراً بأجيالهم القادمة ورفض الدعاء عليهم",
+        "number": 21,
+        "id": "U03-L99-Q021"
+      },
+      {
+        "question": "ما اسم المنصة التطوعية التي أطلقتها مؤسسة ولي العهد لتعزيز الإيجابية؟",
+        "options": {
+          "A": "منصة أردني",
+          "B": "منصة نوى",
+          "C": "منصة خير",
+          "D": "منصة شباب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "منصة نوى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "منصة نوى"
+        },
+        "explanation": "منصة نوى",
+        "number": 22,
+        "id": "U03-L99-Q022"
+      },
+      {
+        "question": "تعتبر 'إماطة الأذى عن الطريق' في الإسلام:",
+        "options": {
+          "A": "عملاً عادياً",
+          "B": "صدقة وعبادة",
+          "C": "واجباً اختيارياً",
+          "D": "ممنوعة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "صدقة وعبادة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "صدقة وعبادة"
+        },
+        "explanation": "صدقة وعبادة",
+        "number": 23,
+        "id": "U03-L99-Q023"
+      },
+      {
+        "question": "من مقتضيات الإيجابية تجاه المستقبل أن المسلم:",
+        "options": {
+          "A": "يخشى الفقر دائماً",
+          "B": "لا يخشى على رزقه ولا أجله لأنهما بيد الله",
+          "C": "يترك العمل",
+          "D": "ينتظر المعونة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "لا يخشى على رزقه ولا أجله لأنهما بيد الله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لا يخشى على رزقه ولا أجله لأنهما بيد الله"
+        },
+        "explanation": "لا يخشى على رزقه ولا أجله لأنهما بيد الله",
+        "number": 24,
+        "id": "U03-L99-Q024"
+      },
+      {
+        "question": "ما هو الحكم الشرعي للزواج للقادر عليه في الإسلام؟",
+        "options": {
+          "A": "واجب",
+          "B": "مندوب (مستحب)",
+          "C": "مكروه",
+          "D": "حرام"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مندوب (مستحب)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مندوب (مستحب)"
+        },
+        "explanation": "مندوب (مستحب)",
+        "number": 25,
+        "id": "U03-L99-Q025"
+      },
+      {
+        "question": "ما هو السن القانوني للزواج في قانون الأحوال الشخصية الأردني؟",
+        "options": {
+          "A": "16 سنة",
+          "B": "17 سنة",
+          "C": "18 سنة شمسية",
+          "D": "20 سنة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "18 سنة شمسية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "18 سنة شمسية"
+        },
+        "explanation": "18 سنة شمسية",
+        "number": 26,
+        "id": "U03-L99-Q026"
+      },
+      {
+        "question": "ما حكم الزواج الذي يتم بالإكراه دون رضا أحد الطرفين؟",
+        "options": {
+          "A": "صحيح",
+          "B": "باطل وغير صحيح",
+          "C": "مكروه",
+          "D": "مباح في السفر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "باطل وغير صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "باطل وغير صحيح"
+        },
+        "explanation": "باطل وغير صحيح",
+        "number": 27,
+        "id": "U03-L99-Q027"
+      },
+      {
+        "question": "من هو 'الولي' في عقد الزواج؟",
+        "options": {
+          "A": "أي جار للعائلة",
+          "B": "من يتولى أمر المرأة في الزواج من أقاربها العصبة",
+          "C": "شاهد العقد فقط",
+          "D": "المأذون"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "من يتولى أمر المرأة في الزواج من أقاربها العصبة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "من يتولى أمر المرأة في الزواج من أقاربها العصبة"
+        },
+        "explanation": "من يتولى أمر المرأة في الزواج من أقاربها العصبة",
+        "number": 28,
+        "id": "U03-L99-Q028"
+      },
+      {
+        "question": "ما هو النصاب الشرعي للشهود في عقد الزواج؟",
+        "options": {
+          "A": "شاهد واحد",
+          "B": "رجلان أو رجل وامرأتان",
+          "C": "أربع نساء",
+          "D": "عشرة رجال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "رجلان أو رجل وامرأتان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رجلان أو رجل وامرأتان"
+        },
+        "explanation": "رجلان أو رجل وامرأتان",
+        "number": 29,
+        "id": "U03-L99-Q029"
+      },
+      {
+        "question": "ما هو أثر توثيق عقد الزواج في المحكمة الشرعية؟",
+        "options": {
+          "A": "زيادة التكاليف فقط",
+          "B": "حفظ حقوق الزوجين والأطفال",
+          "C": "تعقيد الإجراءات",
+          "D": "لا أثر له"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حفظ حقوق الزوجين والأطفال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حفظ حقوق الزوجين والأطفال"
+        },
+        "explanation": "حفظ حقوق الزوجين والأطفال",
+        "number": 30,
+        "id": "U03-L99-Q030"
+      },
+      {
+        "question": "الحقوق المالية للمرأة في الإسلام تشمل:",
+        "options": {
+          "A": "النفقة فقط",
+          "B": "الميراث فقط",
+          "C": "المهر والنفقة والميراث والتملك",
+          "D": "لا يوجد لها حقوق مالية"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "المهر والنفقة والميراث والتملك",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المهر والنفقة والميراث والتملك"
+        },
+        "explanation": "المهر والنفقة والميراث والتملك",
+        "number": 31,
+        "id": "U03-L99-Q031"
+      },
+      {
+        "question": "على من تجب نفقة الزوجة في الإسلام؟",
+        "options": {
+          "A": "على والدها",
+          "B": "على نفسها",
+          "C": "على زوجها ولو كانت غنية",
+          "D": "على أخيها"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "على زوجها ولو كانت غنية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "على زوجها ولو كانت غنية"
+        },
+        "explanation": "على زوجها ولو كانت غنية",
+        "number": 32,
+        "id": "U03-L99-Q032"
+      },
+      {
+        "question": "استقلال الذمة المالية للمرأة يعني:",
+        "options": {
+          "A": "أن أموالها تابعة لزوجها",
+          "B": "حقها في إدارة أموالها والتصرف بها باستقلال تام",
+          "C": "عدم قدرتها على البيع",
+          "D": "وجوب أخذ إذن أبيها في كل قرش"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حقها في إدارة أموالها والتصرف بها باستقلال تام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حقها في إدارة أموالها والتصرف بها باستقلال تام"
+        },
+        "explanation": "حقها في إدارة أموالها والتصرف بها باستقلال تام",
+        "number": 33,
+        "id": "U03-L99-Q033"
+      },
+      {
+        "question": "ما حكم أخذ الزوج شيئاً من مهر زوجته دون رضاها؟",
+        "options": {
+          "A": "مباح",
+          "B": "حرام ولا يحل إلا بطيب نفس منها",
+          "C": "واجب عليه",
+          "D": "مكروه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حرام ولا يحل إلا بطيب نفس منها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حرام ولا يحل إلا بطيب نفس منها"
+        },
+        "explanation": "حرام ولا يحل إلا بطيب نفس منها",
+        "number": 34,
+        "id": "U03-L99-Q034"
+      },
+      {
+        "question": "تعتبر النفقة واجبة لتوفير الحاجات الأساسية وهي:",
+        "options": {
+          "A": "المأكل والملبس والمسكن والدواء",
+          "B": "السفر للسياحة",
+          "C": "الهدايا الثمينة",
+          "D": "المجوهرات"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "المأكل والملبس والمسكن والدواء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المأكل والملبس والمسكن والدواء"
+        },
+        "explanation": "المأكل والملبس والمسكن والدواء",
+        "number": 35,
+        "id": "U03-L99-Q035"
+      },
+      {
+        "question": "الشهادة في سبيل الله مرتبة يمنحها الله تعالى لـ:",
+        "options": {
+          "A": "كل الناس مجبرين",
+          "B": "من يختاره الله ممن بذلوا أنفسهم لنصرة الدين والوطن",
+          "C": "من مات في بيته",
+          "D": "من أراد الشهرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "من يختاره الله ممن بذلوا أنفسهم لنصرة الدين والوطن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "من يختاره الله ممن بذلوا أنفسهم لنصرة الدين والوطن"
+        },
+        "explanation": "من يختاره الله ممن بذلوا أنفسهم لنصرة الدين والوطن",
+        "number": 36,
+        "id": "U03-L99-Q036"
+      },
+      {
+        "question": "من هو الصحابي الذي أشار بجمع القرآن في عهد أبي بكر الصديق؟",
+        "options": {
+          "A": "علي بن أبي طالب",
+          "B": "عمر بن الخطاب",
+          "C": "زيد بن ثابت",
+          "D": "خالد بن الوليد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عمر بن الخطاب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عمر بن الخطاب"
+        },
+        "explanation": "عمر بن الخطاب",
+        "number": 37,
+        "id": "U03-L99-Q037"
+      },
+      {
+        "question": "أي من الآتية ليست من 'الثلاث التي تسخط الله' كما ورد في الحديث؟",
+        "options": {
+          "A": "القيل والقال",
+          "B": "إضاعة المال",
+          "C": "بر الوالدين",
+          "D": "كثرة السؤال"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "بر الوالدين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بر الوالدين"
+        },
+        "explanation": "بر الوالدين",
+        "number": 38,
+        "id": "U03-L99-Q038"
+      },
+      {
+        "question": "تعتبر حادثة 'بئر معونة' مرتبطة بـ:",
+        "options": {
+          "A": "غدر المشركين بالقراء من الصحابة",
+          "B": "فتح مكة",
+          "C": "غزوة بدر",
+          "D": "صلح الحديبية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "غدر المشركين بالقراء من الصحابة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "غدر المشركين بالقراء من الصحابة"
+        },
+        "explanation": "غدر المشركين بالقراء من الصحابة",
+        "number": 39,
+        "id": "U03-L99-Q039"
+      },
+      {
+        "question": "ما دلالة قول النبي 'هاك مفتاحك يا عثمان' يوم الفتح؟",
+        "options": {
+          "A": "القوة",
+          "B": "الوفاء بالعهد والبر",
+          "C": "التكبر",
+          "D": "الخوف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الوفاء بالعهد والبر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الوفاء بالعهد والبر"
+        },
+        "explanation": "الوفاء بالعهد والبر",
+        "number": 40,
+        "id": "U03-L99-Q040"
+      },
+      {
+        "question": "شرط 'أهلية الزوجين' يتطلب وجود:",
+        "options": {
+          "A": "المال فقط",
+          "B": "العقل والبلوغ",
+          "C": "الجمال",
+          "D": "الجنسية الواحدة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العقل والبلوغ",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العقل والبلوغ"
+        },
+        "explanation": "العقل والبلوغ",
+        "number": 41,
+        "id": "U03-L99-Q041"
+      },
+      {
+        "question": "من مظاهر 'المناصحة' لولاة الأمر كما ورد في الدرس:",
+        "options": {
+          "A": "التشهير بهم",
+          "B": "تقديم الرأي الصائب والمشورة بالحكمة والسر",
+          "C": "الصمت عن الأخطاء",
+          "D": "المعارضة لأجل المعارضة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تقديم الرأي الصائب والمشورة بالحكمة والسر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تقديم الرأي الصائب والمشورة بالحكمة والسر"
+        },
+        "explanation": "تقديم الرأي الصائب والمشورة بالحكمة والسر",
+        "number": 42,
+        "id": "U03-L99-Q042"
+      },
+      {
+        "question": "الزواج هو وسيلة شرعية لبناء:",
+        "options": {
+          "A": "الأسرة",
+          "B": "الشركات التجارية",
+          "C": "المدن",
+          "D": "النوادي"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "الأسرة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأسرة"
+        },
+        "explanation": "الأسرة",
+        "number": 43,
+        "id": "U03-L99-Q043"
+      },
+      {
+        "question": "ما معنى لفظ 'الطلقاء'؟",
+        "options": {
+          "A": "المسافرون",
+          "B": "الذين عفا عنهم النبي من أهل مكة يوم الفتح",
+          "C": "المقاتلون",
+          "D": "المهاجرون"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الذين عفا عنهم النبي من أهل مكة يوم الفتح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الذين عفا عنهم النبي من أهل مكة يوم الفتح"
+        },
+        "explanation": "الذين عفا عنهم النبي من أهل مكة يوم الفتح",
+        "number": 44,
+        "id": "U03-L99-Q044"
+      },
+      {
+        "question": "في قوله تعالى (يَسْتَبْشِرُونَ بِنِعْمَةٍ مِّنَ اللَّهِ)، الفرحة تعود على:",
+        "options": {
+          "A": "المشركين",
+          "B": "المنافقين",
+          "C": "الشهداء",
+          "D": "التجار"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الشهداء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الشهداء"
+        },
+        "explanation": "الشهداء",
+        "number": 45,
+        "id": "U03-L99-Q045"
+      },
+      {
+        "question": "أخبر النبي أن الله يرضى لنا (أن نعبده ولا نشرك به شيئاً)، كلمة 'شيئاً' تدل على:",
+        "options": {
+          "A": "العموم (لا شرك أصغر ولا أكبر)",
+          "B": "شيء واحد فقط",
+          "C": "الأصنام فقط",
+          "D": "البشر فقط"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "العموم (لا شرك أصغر ولا أكبر)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العموم (لا شرك أصغر ولا أكبر)"
+        },
+        "explanation": "العموم (لا شرك أصغر ولا أكبر)",
+        "number": 46,
+        "id": "U03-L99-Q046"
+      },
+      {
+        "question": "الهدف من النهي عن 'القيل والقال' هو الحفاظ على:",
+        "options": {
+          "A": "الأبنية",
+          "B": "الأعراض وسلامة الصدور والوقت",
+          "C": "الأموال",
+          "D": "الحدود"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأعراض وسلامة الصدور والوقت",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأعراض وسلامة الصدور والوقت"
+        },
+        "explanation": "الأعراض وسلامة الصدور والوقت",
+        "number": 47,
+        "id": "U03-L99-Q047"
+      },
+      {
+        "question": "من القيم المستفادة من درس 'الشهداء' التضحية في سبيل:",
+        "options": {
+          "A": "المال",
+          "B": "الدين والوطن",
+          "C": "الشهرة",
+          "D": "القبيلة فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الدين والوطن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الدين والوطن"
+        },
+        "explanation": "الدين والوطن",
+        "number": 48,
+        "id": "U03-L99-Q048"
+      },
+      {
+        "question": "المساهمة المالية للمرأة في بيتها تعتبر نوعاً من:",
+        "options": {
+          "A": "الواجب الإجباري",
+          "B": "البر والإحسان والمشاركة الاختيارية",
+          "C": "الضريبة",
+          "D": "الدين المسترد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "البر والإحسان والمشاركة الاختيارية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "البر والإحسان والمشاركة الاختيارية"
+        },
+        "explanation": "البر والإحسان والمشاركة الاختيارية",
+        "number": 49,
+        "id": "U03-L99-Q049"
+      },
+      {
+        "question": "ما هي السورة التي نزلت تبشر بالنصر ودخول الناس في دين الله أفواجاً؟",
+        "options": {
+          "A": "سورة الفتح",
+          "B": "سورة النصر",
+          "C": "سورة آل عمران",
+          "D": "سورة البقرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "سورة النصر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "سورة النصر"
+        },
+        "explanation": "سورة النصر",
+        "number": 50,
+        "id": "U03-L99-Q050"
+      }
+    ]
+  }
+}

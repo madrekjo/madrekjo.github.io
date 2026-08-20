@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "4.2",
+    "lesson_name": "السنة النبوية الشريفة",
+    "unit_number": 4,
+    "unit_name": "الوحدة الرابعة: الزواج والحياة الزوجية",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "ما هو التعريف الشامل للسنة النبوية الشريفة؟",
+        "options": {
+          "A": "كل ما ورد عن النبي من قول فقط",
+          "B": "كل ما ورد عن النبي من قول أو فعل أو تقرير أو صفة خُلقية أو خَلقية",
+          "C": "القرآن الكريم المفسر",
+          "D": "قصص الأنبياء السابقين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كل ما ورد عن النبي من قول أو فعل أو تقرير أو صفة خُلقية أو خَلقية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل ما ورد عن النبي من قول أو فعل أو تقرير أو صفة خُلقية أو خَلقية"
+        },
+        "explanation": "كل ما ورد عن النبي من قول أو فعل أو تقرير أو صفة خُلقية أو خَلقية",
+        "number": 1,
+        "id": "U04-L02-Q001"
+      },
+      {
+        "question": "ما نوع السنة في قول النبي صلى الله عليه وسلم (لا يؤمن أحدكم حتى أكون أحب إليه من والده...)؟",
+        "options": {
+          "A": "سنة فعلية",
+          "B": "سنة قولية",
+          "C": "سنة تقريرية",
+          "D": "صفة خَلقية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "سنة قولية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "سنة قولية"
+        },
+        "explanation": "سنة قولية",
+        "number": 2,
+        "id": "U04-L02-Q002"
+      },
+      {
+        "question": "فعل النبي للصلاة أمام الصحابة ليتعلموا منه يُعد من قبيل السنة:",
+        "options": {
+          "A": "القولية",
+          "B": "الفعلية",
+          "C": "التقريرية",
+          "D": "الصفة الخُلقية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الفعلية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الفعلية"
+        },
+        "explanation": "الفعلية",
+        "number": 3,
+        "id": "U04-L02-Q003"
+      },
+      {
+        "question": "ما المقصود بالسنة التقريرية؟",
+        "options": {
+          "A": "أوامر النبي الشفهية",
+          "B": "أفعال النبي اليومية",
+          "C": "سكوت النبي عن فعل أو قول حدث أمامه مما يدل على موافقته",
+          "D": "وصف شكل النبي"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "سكوت النبي عن فعل أو قول حدث أمامه مما يدل على موافقته",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "سكوت النبي عن فعل أو قول حدث أمامه مما يدل على موافقته"
+        },
+        "explanation": "سكوت النبي عن فعل أو قول حدث أمامه مما يدل على موافقته",
+        "number": 4,
+        "id": "U04-L02-Q004"
+      },
+      {
+        "question": "أكل (الضب) على مائدة النبي صلى الله عليه وسلم دون إنكار منه يُعد سنة:",
+        "options": {
+          "A": "فعلية",
+          "B": "تقريرية",
+          "C": "قولية",
+          "D": "صفة خَلقية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تقريرية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تقريرية"
+        },
+        "explanation": "تقريرية",
+        "number": 5,
+        "id": "U04-L02-Q005"
+      },
+      {
+        "question": "وصف السيدة عائشة للنبي بأنه (ما رؤي ضاحكاً حتى ترى منه لهواته...) يندرج تحت:",
+        "options": {
+          "A": "السنة القولية",
+          "B": "السنة الفعلية",
+          "C": "الصفة الخُلقية",
+          "D": "الصفة الخَلقية"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الصفة الخُلقية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الصفة الخُلقية"
+        },
+        "explanation": "الصفة الخُلقية",
+        "number": 6,
+        "id": "U04-L02-Q006"
+      },
+      {
+        "question": "تعتبر السنة النبوية الشريفة من حيث المصدر:",
+        "options": {
+          "A": "اجتهاداً بشرياً محضاً",
+          "B": "وحياً من الله تعالى",
+          "C": "تقاليد عربية قديمة",
+          "D": "فلسفة أخلاقية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "وحياً من الله تعالى",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وحياً من الله تعالى"
+        },
+        "explanation": "وحياً من الله تعالى",
+        "number": 7,
+        "id": "U04-L02-Q007"
+      },
+      {
+        "question": "قال تعالى: {وَمَا يَنْطِقُ عَنِ الْهَوَى * إِنْ هُوَ إِلَّا وَحْيٌ يُوحَى}، تدل هذه الآية على أن:",
+        "options": {
+          "A": "السنة وحي من الله",
+          "B": "القرآن صعب الفهم",
+          "C": "النبي يحب الكلام",
+          "D": "السنة ليست حجة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "السنة وحي من الله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السنة وحي من الله"
+        },
+        "explanation": "السنة وحي من الله",
+        "number": 8,
+        "id": "U04-L02-Q008"
+      },
+      {
+        "question": "ما هي مرتبة السنة النبوية الشريفة في التشريع الإسلامي؟",
+        "options": {
+          "A": "المصدر الأول",
+          "B": "المصدر الثاني بعد القرآن الكريم",
+          "C": "المصدر الثالث",
+          "D": "ليست مصدراً للتشريع"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المصدر الثاني بعد القرآن الكريم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المصدر الثاني بعد القرآن الكريم"
+        },
+        "explanation": "المصدر الثاني بعد القرآن الكريم",
+        "number": 9,
+        "id": "U04-L02-Q009"
+      },
+      {
+        "question": "ما معنى (حجية السنة النبوية)؟",
+        "options": {
+          "A": "أنها قصص للتسلية",
+          "B": "أنها دليل شرعي يجب العمل بأحكامه",
+          "C": "أنها اختيارية للمسلم",
+          "D": "أنها خاصة بزمان النبي فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أنها دليل شرعي يجب العمل بأحكامه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أنها دليل شرعي يجب العمل بأحكامه"
+        },
+        "explanation": "أنها دليل شرعي يجب العمل بأحكامه",
+        "number": 10,
+        "id": "U04-L02-Q010"
+      },
+      {
+        "question": "حكم ترك السنة النبوية بدعوى الاكتفاء بالقرآن الكريم هو:",
+        "options": {
+          "A": "جائز",
+          "B": "غير جائز لأنه يؤدي لتضييع أحكام الدين",
+          "C": "مستحب",
+          "D": "مباح في العبادات فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "غير جائز لأنه يؤدي لتضييع أحكام الدين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "غير جائز لأنه يؤدي لتضييع أحكام الدين"
+        },
+        "explanation": "غير جائز لأنه يؤدي لتضييع أحكام الدين",
+        "number": 11,
+        "id": "U04-L02-Q011"
+      },
+      {
+        "question": "ربط الله تعالى طاعة الرسول بطاعته سبحانه في قوله تعالى:",
+        "options": {
+          "A": "{مَنْ يُطِعِ الرَّسُولَ فَقَدْ أَطَاعَ اللَّهَ}",
+          "B": "{قل هو الله أحد}",
+          "C": "{والعصر}",
+          "D": "{إذا جاء نصر الله}"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "{مَنْ يُطِعِ الرَّسُولَ فَقَدْ أَطَاعَ اللَّهَ}",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "{مَنْ يُطِعِ الرَّسُولَ فَقَدْ أَطَاعَ اللَّهَ}"
+        },
+        "explanation": "{مَنْ يُطِعِ الرَّسُولَ فَقَدْ أَطَاعَ اللَّهَ}",
+        "number": 12,
+        "id": "U04-L02-Q012"
+      },
+      {
+        "question": "العلاقة التي تؤكد فيها السنة حكماً ورد في القرآن تسمى:",
+        "options": {
+          "A": "علاقة تفسير",
+          "B": "علاقة تأكيد",
+          "C": "علاقة إضافة",
+          "D": "علاقة نسخ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "علاقة تأكيد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "علاقة تأكيد"
+        },
+        "explanation": "علاقة تأكيد",
+        "number": 13,
+        "id": "U04-L02-Q013"
+      },
+      {
+        "question": "قول النبي (إن دماءكم وأموالكم وأعراضكم عليكم حرام) هو تأكيد لآيات القرآن التي حرمت:",
+        "options": {
+          "A": "الصيد",
+          "B": "الاعتداء على النفس والمال",
+          "C": "السفر",
+          "D": "التجارة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الاعتداء على النفس والمال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الاعتداء على النفس والمال"
+        },
+        "explanation": "الاعتداء على النفس والمال",
+        "number": 14,
+        "id": "U04-L02-Q014"
+      },
+      {
+        "question": "تفسير السنة النبوية لقوله تعالى (بظلم) في سورة الأنعام بأن المقصود به (الشرك) هو مثال على:",
+        "options": {
+          "A": "التأكيد",
+          "B": "تفسير القرآن وبيانه",
+          "C": "إضافة حكم جديد",
+          "D": "إلغاء الحكم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تفسير القرآن وبيانه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تفسير القرآن وبيانه"
+        },
+        "explanation": "تفسير القرآن وبيانه",
+        "number": 15,
+        "id": "U04-L02-Q015"
+      },
+      {
+        "question": "كيف بينت السنة النبوية كيفية أداء الصلاة التي أمر بها القرآن إجمالاً؟",
+        "options": {
+          "A": "بترك الأمر للناس",
+          "B": "بقوله صلى الله عليه وسلم (صلوا كما رأيتموني أصلي)",
+          "C": "بالتجاهل",
+          "D": "بالإشارة فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بقوله صلى الله عليه وسلم (صلوا كما رأيتموني أصلي)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بقوله صلى الله عليه وسلم (صلوا كما رأيتموني أصلي)"
+        },
+        "explanation": "بقوله صلى الله عليه وسلم (صلوا كما رأيتموني أصلي)",
+        "number": 16,
+        "id": "U04-L02-Q016"
+      },
+      {
+        "question": "حددت السنة النبوية مقدار (الوصية) بأن لا تزيد عن:",
+        "options": {
+          "A": "النصف",
+          "B": "الربع",
+          "C": "الثلث",
+          "D": "كل المال"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الثلث",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الثلث"
+        },
+        "explanation": "الثلث",
+        "number": 17,
+        "id": "U04-L02-Q017"
+      },
+      {
+        "question": "استثنت السنة النبوية من تحريم (الميتة) نوعين هما:",
+        "options": {
+          "A": "الإبل والبقر",
+          "B": "الحوت (السمك) والجراد",
+          "C": "الدجاج والبط",
+          "D": "الغنم والماعز"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحوت (السمك) والجراد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحوت (السمك) والجراد"
+        },
+        "explanation": "الحوت (السمك) والجراد",
+        "number": 18,
+        "id": "U04-L02-Q018"
+      },
+      {
+        "question": "استثنت السنة النبوية من تحريم (الدم) نوعين هما:",
+        "options": {
+          "A": "القلب والرئة",
+          "B": "الكبد والطحال",
+          "C": "العروق والأعصاب",
+          "D": "الشرايين"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الكبد والطحال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الكبد والطحال"
+        },
+        "explanation": "الكبد والطحال",
+        "number": 19,
+        "id": "U04-L02-Q019"
+      },
+      {
+        "question": "ما المقصود بـ (إضافة أحكام جديدة لم ترد في القرآن)؟",
+        "options": {
+          "A": "نسخ القرآن",
+          "B": "استقلال السنة بتشريع أحكام سكت عنها القرآن وهي وحي",
+          "C": "تغيير القرآن",
+          "D": "تأويل القرآن"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "استقلال السنة بتشريع أحكام سكت عنها القرآن وهي وحي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "استقلال السنة بتشريع أحكام سكت عنها القرآن وهي وحي"
+        },
+        "explanation": "استقلال السنة بتشريع أحكام سكت عنها القرآن وهي وحي",
+        "number": 20,
+        "id": "U04-L02-Q020"
+      },
+      {
+        "question": "تحريم الجمع في الزواج بين المرأة وعمتها أو المرأة وخالتها ثبت بـ:",
+        "options": {
+          "A": "القرآن الكريم صراحة",
+          "B": "السنة النبوية (حكم مضاف)",
+          "C": "الإجماع فقط",
+          "D": "العرف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "السنة النبوية (حكم مضاف)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السنة النبوية (حكم مضاف)"
+        },
+        "explanation": "السنة النبوية (حكم مضاف)",
+        "number": 21,
+        "id": "U04-L02-Q021"
+      },
+      {
+        "question": "حكم أكل كل ذي ناب من السباع (كالأسد والنمر) في الإسلام هو:",
+        "options": {
+          "A": "مباح",
+          "B": "حرام بناءً على السنة النبوية",
+          "C": "مكروه",
+          "D": "واجب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حرام بناءً على السنة النبوية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حرام بناءً على السنة النبوية"
+        },
+        "explanation": "حرام بناءً على السنة النبوية",
+        "number": 22,
+        "id": "U04-L02-Q022"
+      },
+      {
+        "question": "أي من الآتية يعتبر من واجبات المسلم تجاه السنة النبوية؟",
+        "options": {
+          "A": "التمسك بها والتزامها",
+          "B": "تعلمها وتعليمها",
+          "C": "الدفاع عنها ورد الشبهات",
+          "D": "كل ما ذكر صحيح"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "كل ما ذكر صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل ما ذكر صحيح"
+        },
+        "explanation": "كل ما ذكر صحيح",
+        "number": 23,
+        "id": "U04-L02-Q023"
+      },
+      {
+        "question": "ما معنى (فوعاها) في حديث (نضّر الله امرأً سمع مقالتي فوعاها)؟",
+        "options": {
+          "A": "نساها",
+          "B": "حفظها وفهمها",
+          "C": "كتبها فقط",
+          "D": "أنكرها"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حفظها وفهمها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حفظها وفهمها"
+        },
+        "explanation": "حفظها وفهمها",
+        "number": 24,
+        "id": "U04-L02-Q024"
+      },
+      {
+        "question": "بذل العلماء جهوداً كبيرة في حفظ السنة من خلال:",
+        "options": {
+          "A": "جمعها وتدوينها وبيان صحيحها من ضعيفها",
+          "B": "إهمالها",
+          "C": "تحريفها",
+          "D": "حرقها"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "جمعها وتدوينها وبيان صحيحها من ضعيفها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جمعها وتدوينها وبيان صحيحها من ضعيفها"
+        },
+        "explanation": "جمعها وتدوينها وبيان صحيحها من ضعيفها",
+        "number": 25,
+        "id": "U04-L02-Q025"
+      },
+      {
+        "question": "الرجوع إلى السنة النبوية عند التنازع هو مقتضى قوله تعالى:",
+        "options": {
+          "A": "{فإن تنازعتم في شيء فردوه إلى الله والرسول}",
+          "B": "{الحمد لله}",
+          "C": "{قل يا أيها الكافرون}",
+          "D": "{تبت يدا أبي لهب}"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "{فإن تنازعتم في شيء فردوه إلى الله والرسول}",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "{فإن تنازعتم في شيء فردوه إلى الله والرسول}"
+        },
+        "explanation": "{فإن تنازعتم في شيء فردوه إلى الله والرسول}",
+        "number": 26,
+        "id": "U04-L02-Q026"
+      },
+      {
+        "question": "تحريم لبس الذهب والحرير على رجال أمة محمد ثبت بـ:",
+        "options": {
+          "A": "القرآن الكريم",
+          "B": "السنة النبوية",
+          "C": "القياس",
+          "D": "العرف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "السنة النبوية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السنة النبوية"
+        },
+        "explanation": "السنة النبوية",
+        "number": 27,
+        "id": "U04-L02-Q027"
+      },
+      {
+        "question": "قال صلى الله عليه وسلم: (ألا إني أوتيت الكتاب ومثله معه)، المقصود بـ (مثله معه) هو:",
+        "options": {
+          "A": "التوراة",
+          "B": "الإنجيل",
+          "C": "السنة النبوية",
+          "D": "الزبور"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "السنة النبوية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السنة النبوية"
+        },
+        "explanation": "السنة النبوية",
+        "number": 28,
+        "id": "U04-L02-Q028"
+      },
+      {
+        "question": "من صور الدفاع عن السنة في العصر الحاضر:",
+        "options": {
+          "A": "تأليف الكتب وعقد الندوات وتوظيف الفضائيات",
+          "B": "الصمت عن المشككين",
+          "C": "ترك تعلمها",
+          "D": "الاكتفاء بالقرآن"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "تأليف الكتب وعقد الندوات وتوظيف الفضائيات",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تأليف الكتب وعقد الندوات وتوظيف الفضائيات"
+        },
+        "explanation": "تأليف الكتب وعقد الندوات وتوظيف الفضائيات",
+        "number": 29,
+        "id": "U04-L02-Q029"
+      },
+      {
+        "question": "تعتبر السنة النبوية بياناً للقرآن الكريم بنص قوله تعالى:",
+        "options": {
+          "A": "{وأنزلنا إليك الذكر لتبين للناس ما نزل إليهم}",
+          "B": "{إنا نحن نزلنا الذكر}",
+          "C": "{قل هو الله أحد}",
+          "D": "{تبارك الذي نزل الفرقان}"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "{وأنزلنا إليك الذكر لتبين للناس ما نزل إليهم}",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "{وأنزلنا إليك الذكر لتبين للناس ما نزل إليهم}"
+        },
+        "explanation": "{وأنزلنا إليك الذكر لتبين للناس ما نزل إليهم}",
+        "number": 30,
+        "id": "U04-L02-Q030"
+      },
+      {
+        "question": "التحذير من مخالفة أمر النبي جاء في قوله تعالى {فليحذر الذين يخالفون عن أمره أن تصيبهم...}:",
+        "options": {
+          "A": "مطر",
+          "B": "فتنة أو يصيبهم عذاب أليم",
+          "C": "جوع",
+          "D": "سعادة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "فتنة أو يصيبهم عذاب أليم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "فتنة أو يصيبهم عذاب أليم"
+        },
+        "explanation": "فتنة أو يصيبهم عذاب أليم",
+        "number": 31,
+        "id": "U04-L02-Q031"
+      },
+      {
+        "question": "السنة النبوية التي تتعلق بـ (مناسك الحج) هي مثال على:",
+        "options": {
+          "A": "التأكيد",
+          "B": "تفسير القرآن وبيانه",
+          "C": "إضافة حكم جديد",
+          "D": "العرف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تفسير القرآن وبيانه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تفسير القرآن وبيانه"
+        },
+        "explanation": "تفسير القرآن وبيانه",
+        "number": 32,
+        "id": "U04-L02-Q032"
+      },
+      {
+        "question": "وجوب صدقة الفطر ثبت بـ:",
+        "options": {
+          "A": "القرآن الكريم",
+          "B": "السنة النبوية",
+          "C": "رأي الناس",
+          "D": "القياس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "السنة النبوية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السنة النبوية"
+        },
+        "explanation": "السنة النبوية",
+        "number": 33,
+        "id": "U04-L02-Q033"
+      },
+      {
+        "question": "تعتبر (الصفة الخَلقية) للنبي (مثل وصف طوله ولونه) جزءاً من السنة النبوية عند:",
+        "options": {
+          "A": "الفقهاء فقط",
+          "B": "علماء الحديث (المحدثين)",
+          "C": "اللغويين",
+          "D": "الفلاسفة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "علماء الحديث (المحدثين)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "علماء الحديث (المحدثين)"
+        },
+        "explanation": "علماء الحديث (المحدثين)",
+        "number": 34,
+        "id": "U04-L02-Q034"
+      },
+      {
+        "question": "أي من الأفعال التالية يعد (سنة فعلية)؟",
+        "options": {
+          "A": "قوله: لا ضرر ولا ضرار",
+          "B": "طريقة وضوئه صلى الله عليه وسلم",
+          "C": "سكوته عن أكل الضب",
+          "D": "وصف خُلقه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "طريقة وضوئه صلى الله عليه وسلم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طريقة وضوئه صلى الله عليه وسلم"
+        },
+        "explanation": "طريقة وضوئه صلى الله عليه وسلم",
+        "number": 35,
+        "id": "U04-L02-Q035"
+      },
+      {
+        "question": "تؤدي الوحدة الوطنية والتمسك بالسنة إلى:",
+        "options": {
+          "A": "الضعف",
+          "B": "قوة المجتمع وتماسكه",
+          "C": "الفرقة",
+          "D": "التراجع الاقتصادي"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "قوة المجتمع وتماسكه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قوة المجتمع وتماسكه"
+        },
+        "explanation": "قوة المجتمع وتماسكه",
+        "number": 36,
+        "id": "U04-L02-Q036"
+      },
+      {
+        "question": "تلقي الأمة للسنة النبوية بالقبول والعمل عبر العصور يسمى:",
+        "options": {
+          "A": "عُرفاً",
+          "B": "إجماعاً على حجيتها",
+          "C": "تقليداً",
+          "D": "عادة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إجماعاً على حجيتها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إجماعاً على حجيتها"
+        },
+        "explanation": "إجماعاً على حجيتها",
+        "number": 37,
+        "id": "U04-L02-Q037"
+      },
+      {
+        "question": "ما فائدة وجود (نظام الحسبة) قديماً في مراقبة السنة؟",
+        "options": {
+          "A": "جمع الأموال",
+          "B": "ضمان جودة البضائع ومحاربة الغش تماشياً مع السنة",
+          "C": "الترفيه",
+          "D": "السفر"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ضمان جودة البضائع ومحاربة الغش تماشياً مع السنة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ضمان جودة البضائع ومحاربة الغش تماشياً مع السنة"
+        },
+        "explanation": "ضمان جودة البضائع ومحاربة الغش تماشياً مع السنة",
+        "number": 38,
+        "id": "U04-L02-Q038"
+      },
+      {
+        "question": "المقصود بـ (الذكر) في قوله تعالى {وأنزلنا إليك الذكر} هو:",
+        "options": {
+          "A": "التسبيح",
+          "B": "القرآن الكريم",
+          "C": "الشعر",
+          "D": "التاريخ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "القرآن الكريم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القرآن الكريم"
+        },
+        "explanation": "القرآن الكريم",
+        "number": 39,
+        "id": "U04-L02-Q039"
+      },
+      {
+        "question": "التزام المسلم بالسنة النبوية في حياته هو دليل على:",
+        "options": {
+          "A": "حبه لله ورسوله",
+          "B": "خوفه من الناس",
+          "C": "رغبته في المال",
+          "D": "مجرد تقليد أعمى"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "حبه لله ورسوله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حبه لله ورسوله"
+        },
+        "explanation": "حبه لله ورسوله",
+        "number": 40,
+        "id": "U04-L02-Q040"
+      }
+    ]
+  }
+}

@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "3.3",
+    "lesson_name": "فتح مكة (8هـ)",
+    "unit_number": 3,
+    "unit_name": "الوحدة الثالثة: علاقة المسلم بكتاب الله وسنة نبيه",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "في أي سنة هجرية وقعت أحداث فتح مكة؟",
+        "options": {
+          "A": "السنة السادسة",
+          "B": "السنة السابعة",
+          "C": "السنة الثامنة",
+          "D": "السنة التاسعة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "السنة الثامنة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "السنة الثامنة"
+        },
+        "explanation": "السنة الثامنة",
+        "number": 1,
+        "id": "U03-L03-Q001"
+      },
+      {
+        "question": "ما هو السبب المباشر لفتح مكة؟",
+        "options": {
+          "A": "رغبة المسلمين في التجارة",
+          "B": "نقض قريش لصلح الحديبية",
+          "C": "بناء الكعبة",
+          "D": "انتهاء مدة العشر سنوات"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "نقض قريش لصلح الحديبية",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نقض قريش لصلح الحديبية"
+        },
+        "explanation": "نقض قريش لصلح الحديبية",
+        "number": 2,
+        "id": "U03-L03-Q002"
+      },
+      {
+        "question": "من هي القبيلة التي كانت في حلف الرسول صلى الله عليه وسلم واعتدت عليها قريش؟",
+        "options": {
+          "A": "بنو بكر",
+          "B": "خزاعة",
+          "C": "ثقيف",
+          "D": "هوازن"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "خزاعة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خزاعة"
+        },
+        "explanation": "خزاعة",
+        "number": 3,
+        "id": "U03-L03-Q003"
+      },
+      {
+        "question": "من الذي قاد وفد خزاعة إلى المدينة لإخبار النبي بنقض العهد؟",
+        "options": {
+          "A": "أبو سفيان",
+          "B": "عمرو بن سالم الخزاعي",
+          "C": "خالد بن الوليد",
+          "D": "العباس بن عبد المطلب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عمرو بن سالم الخزاعي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عمرو بن سالم الخزاعي"
+        },
+        "explanation": "عمرو بن سالم الخزاعي",
+        "number": 4,
+        "id": "U03-L03-Q004"
+      },
+      {
+        "question": "ماذا كان رد النبي صلى الله عليه وسلم على عمرو بن سالم عندما استنصره؟",
+        "options": {
+          "A": "نُصرت يا عمرو بن سالم",
+          "B": "انتظر حتى العام المقبل",
+          "C": "اذهب لطلب الصلح",
+          "D": "لا أستطيع فعل شيء"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "نُصرت يا عمرو بن سالم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نُصرت يا عمرو بن سالم"
+        },
+        "explanation": "نُصرت يا عمرو بن سالم",
+        "number": 5,
+        "id": "U03-L03-Q005"
+      },
+      {
+        "question": "في أي يوم وشهر خرج جيش المسلمين لفتح مكة؟",
+        "options": {
+          "A": "1 شوال",
+          "B": "10 رمضان",
+          "C": "17 رمضان",
+          "D": "12 ربيع الأول"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "10 رمضان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "10 رمضان"
+        },
+        "explanation": "10 رمضان",
+        "number": 6,
+        "id": "U03-L03-Q006"
+      },
+      {
+        "question": "كم كان عدد مقاتلي جيش المسلمين في فتح مكة؟",
+        "options": {
+          "A": "ثلاثة آلاف",
+          "B": "خمسة آلاف",
+          "C": "عشرة آلاف",
+          "D": "خمسة عشر ألفاً"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "عشرة آلاف",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عشرة آلاف"
+        },
+        "explanation": "عشرة آلاف",
+        "number": 7,
+        "id": "U03-L03-Q007"
+      },
+      {
+        "question": "لماذا حرص النبي على إخفاء وجهة الجيش وسرية الاستعداد؟",
+        "options": {
+          "A": "خوفاً من قريش",
+          "B": "حقناً للدماء ومباغتة العدو",
+          "C": "لأن المسلمين كانوا قلة",
+          "D": "لعدم جاهزية السلاح"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حقناً للدماء ومباغتة العدو",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حقناً للدماء ومباغتة العدو"
+        },
+        "explanation": "حقناً للدماء ومباغتة العدو",
+        "number": 8,
+        "id": "U03-L03-Q008"
+      },
+      {
+        "question": "ما هي المنطقة التي نزل فيها جيش المسلمين وأمر النبي بإشعال النيران فيها؟",
+        "options": {
+          "A": "مرّ الظهران",
+          "B": "بدر",
+          "C": "حمراء الأسد",
+          "D": "الحديبية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "مرّ الظهران",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مرّ الظهران"
+        },
+        "explanation": "مرّ الظهران",
+        "number": 9,
+        "id": "U03-L03-Q009"
+      },
+      {
+        "question": "من هو الشخص الذي خرج من مكة لاستطلاع الأمر وأسلم عند مرّ الظهران؟",
+        "options": {
+          "A": "عكرمة بن أبي جهل",
+          "B": "صفوان بن أمية",
+          "C": "أبو سفيان بن حرب",
+          "D": "عتبة بن ربيعة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "أبو سفيان بن حرب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أبو سفيان بن حرب"
+        },
+        "explanation": "أبو سفيان بن حرب",
+        "number": 10,
+        "id": "U03-L03-Q010"
+      },
+      {
+        "question": "ما هو الأمان الذي منحه النبي صلى الله عليه وسلم لأهل مكة؟",
+        "options": {
+          "A": "دخول دار أبي سفيان",
+          "B": "إغلاق الباب على النفس",
+          "C": "دخول المسجد",
+          "D": "كل ما ذكر صحيح"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "كل ما ذكر صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل ما ذكر صحيح"
+        },
+        "explanation": "كل ما ذكر صحيح",
+        "number": 11,
+        "id": "U03-L03-Q011"
+      },
+      {
+        "question": "كيف دخل النبي صلى الله عليه وسلم مكة؟",
+        "options": {
+          "A": "متكبراً مفتخراً",
+          "B": "خافضاً رأسه تواضعاً لله",
+          "C": "راكضاً بسيفه",
+          "D": "باكياً من الحزن"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "خافضاً رأسه تواضعاً لله",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خافضاً رأسه تواضعاً لله"
+        },
+        "explanation": "خافضاً رأسه تواضعاً لله",
+        "number": 12,
+        "id": "U03-L03-Q012"
+      },
+      {
+        "question": "ما هي الآية التي قرأها النبي أثناء تحطيم الأصنام حول الكعبة؟",
+        "options": {
+          "A": "إنا فتحنا لك فتحاً مبيناً",
+          "B": "جاء الحق وزهق الباطل",
+          "C": "نصر من الله وفتح قريب",
+          "D": "اليوم أكملت لكم دينكم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "جاء الحق وزهق الباطل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جاء الحق وزهق الباطل"
+        },
+        "explanation": "جاء الحق وزهق الباطل",
+        "number": 13,
+        "id": "U03-L03-Q013"
+      },
+      {
+        "question": "من الذي أمره النبي بالأذان فوق ظهر الكعبة يوم الفتح؟",
+        "options": {
+          "A": "عمر بن الخطاب",
+          "B": "علي بن أبي طالب",
+          "C": "بلال بن رباح",
+          "D": "زيد بن ثابت"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "بلال بن رباح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بلال بن رباح"
+        },
+        "explanation": "بلال بن رباح",
+        "number": 14,
+        "id": "U03-L03-Q014"
+      },
+      {
+        "question": "ماذا قال النبي صلى الله عليه وسلم لأهل مكة بعد أن تمكن منهم؟",
+        "options": {
+          "A": "سأنتقم منكم",
+          "B": "الجزاء من جنس العمل",
+          "C": "اذهبوا فأنتم الطلقاء",
+          "D": "ادفعوا الجزية"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "اذهبوا فأنتم الطلقاء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اذهبوا فأنتم الطلقاء"
+        },
+        "explanation": "اذهبوا فأنتم الطلقاء",
+        "number": 15,
+        "id": "U03-L03-Q015"
+      },
+      {
+        "question": "مع من أبقى النبي صلى الله عليه وسلم مفاتيح الكعبة؟",
+        "options": {
+          "A": "أبي بكر الصديق",
+          "B": "عثمان بن طلحة",
+          "C": "العباس بن عبد المطلب",
+          "D": "خالد بن الوليد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عثمان بن طلحة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عثمان بن طلحة"
+        },
+        "explanation": "عثمان بن طلحة",
+        "number": 16,
+        "id": "U03-L03-Q016"
+      },
+      {
+        "question": "ما هي السورة التي نزلت تبشر بالنصر ودخول الناس في دين الله أفواجاً؟",
+        "options": {
+          "A": "سورة الفتح",
+          "B": "سورة النصر",
+          "C": "سورة الإخلاص",
+          "D": "سورة البقرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "سورة النصر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "سورة النصر"
+        },
+        "explanation": "سورة النصر",
+        "number": 17,
+        "id": "U03-L03-Q017"
+      },
+      {
+        "question": "من هو القائد الذي واجه مقاومة يسيرة عند دخوله مكة؟",
+        "options": {
+          "A": "أبو عبيدة بن الجراح",
+          "B": "سعد بن عبادة",
+          "C": "خالد بن الوليد",
+          "D": "الزبير بن العوام"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "خالد بن الوليد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "خالد بن الوليد"
+        },
+        "explanation": "خالد بن الوليد",
+        "number": 18,
+        "id": "U03-L03-Q018"
+      },
+      {
+        "question": "لماذا سمي يوم الفتح بـ 'يوم المرحمة'؟",
+        "options": {
+          "A": "لكثرة المطر",
+          "B": "لعفو النبي عن أهل مكة وحقن دمائهم",
+          "C": "لأن الكفار رحموا المسلمين",
+          "D": "لوقوع معركة كبيرة"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "يوم المرحمة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "يوم المرحمة"
+        },
+        "explanation": "يوم المرحمة",
+        "number": 19,
+        "id": "U03-L03-Q019"
+      },
+      {
+        "question": "ما هو الدرس المستفاد من قول النبي 'هاك مفتاحك يا عثمان'؟",
+        "options": {
+          "A": "البر والوفاء بالعهد",
+          "B": "القوة والشجاعة",
+          "C": "أهمية المال",
+          "D": "ضرورة السفر"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "البر والوفاء بالعهد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "البر والوفاء بالعهد"
+        },
+        "explanation": "البر والوفاء بالعهد",
+        "number": 20,
+        "id": "U03-L03-Q020"
+      },
+      {
+        "question": "ماذا فعل النبي صلى الله عليه وسلم في صلح الحديبية شجع على الفتح لاحقاً؟",
+        "options": {
+          "A": "اعترف بضعف المسلمين",
+          "B": "أعطى فرصة للقبائل للدخول في حلفه",
+          "C": "هاجم مكة سراً",
+          "D": "بنى معسكراً حربياً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أعطى فرصة للقبائل للدخول في حلفه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أعطى فرصة للقبائل للدخول في حلفه"
+        },
+        "explanation": "أعطى فرصة للقبائل للدخول في حلفه",
+        "number": 21,
+        "id": "U03-L03-Q021"
+      },
+      {
+        "question": "من الذي أخذ أبا سفيان إلى النبي صلى الله عليه وسلم؟",
+        "options": {
+          "A": "عمر بن الخطاب",
+          "B": "العباس بن عبد المطلب",
+          "C": "علي بن أبي طالب",
+          "D": "زيد بن حارثة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "العباس بن عبد المطلب",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "العباس بن عبد المطلب"
+        },
+        "explanation": "العباس بن عبد المطلب",
+        "number": 22,
+        "id": "U03-L03-Q022"
+      },
+      {
+        "question": "قال النبي صلى الله عليه وسلم لعمر بن الخطاب عن والد أبي بكر (أبو قحافة):",
+        "options": {
+          "A": "اتركه في بيته",
+          "B": "هلا تركت الشيخ في بيته حتى أكون أنا آتيه فيه",
+          "C": "يجب أن يأتي هو إلي",
+          "D": "لا حاجة لنا بإسلامه"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "هلا تركت الشيخ في بيته حتى أكون أنا آتيه فيه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "هلا تركت الشيخ في بيته حتى أكون أنا آتيه فيه"
+        },
+        "explanation": "هلا تركت الشيخ في بيته حتى أكون أنا آتيه فيه",
+        "number": 23,
+        "id": "U03-L03-Q023"
+      },
+      {
+        "question": "من هو الصحابي الذي قال 'اليوم يوم الملحمة' فصحح له النبي 'اليوم يوم المرحمة'؟",
+        "options": {
+          "A": "خالد بن الوليد",
+          "B": "سعد بن عبادة",
+          "C": "عمر بن الخطاب",
+          "D": "حمزة بن عبد المطلب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "سعد بن عبادة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "سعد بن عبادة"
+        },
+        "explanation": "سعد بن عبادة",
+        "number": 24,
+        "id": "U03-L03-Q024"
+      },
+      {
+        "question": "ما معنى لفظ 'الطلقاء' في سياق الدرس؟",
+        "options": {
+          "A": "المسافرون",
+          "B": "الذين أُعتقوا وعُفي عنهم من أهل مكة",
+          "C": "المقاتلون الأشداء",
+          "D": "المهاجرون الجدد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الذين أُعتقوا وعُفي عنهم من أهل مكة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الذين أُعتقوا وعُفي عنهم من أهل مكة"
+        },
+        "explanation": "الذين أُعتقوا وعُفي عنهم من أهل مكة",
+        "number": 25,
+        "id": "U03-L03-Q025"
+      },
+      {
+        "question": "ما هو أثر عفو النبي صلى الله عليه وسلم عن أهل مكة؟",
+        "options": {
+          "A": "خوف الناس منه",
+          "B": "دخول الناس في الإسلام أفواجاً",
+          "C": "هرب الناس من مكة",
+          "D": "عودة الأصنام"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "دخول الناس في الإسلام أفواجاً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "دخول الناس في الإسلام أفواجاً"
+        },
+        "explanation": "دخول الناس في الإسلام أفواجاً",
+        "number": 26,
+        "id": "U03-L03-Q026"
+      },
+      {
+        "question": "أي من المبادئ التالية تجلى في تعامل النبي مع 'أبو قحافة'؟",
+        "options": {
+          "A": "التكبر",
+          "B": "إنزال الناس منازلهم ومعاملتهم بمقامهم",
+          "C": "القسوة",
+          "D": "الإهمال"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إنزال الناس منازلهم ومعاملتهم بمقامهم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إنزال الناس منازلهم ومعاملتهم بمقامهم"
+        },
+        "explanation": "إنزال الناس منازلهم ومعاملتهم بمقامهم",
+        "number": 27,
+        "id": "U03-L03-Q027"
+      },
+      {
+        "question": "متى نقضت قريش عهدها مع النبي صلى الله عليه وسلم؟",
+        "options": {
+          "A": "بمجرد توقيع الصلح",
+          "B": "عندما أعانت بني بكر على خزاعة",
+          "C": "بعد وفاة النبي",
+          "D": "في السنة الثانية للهجرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عندما أعانت بني بكر على خزاعة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عندما أعانت بني بكر على خزاعة"
+        },
+        "explanation": "عندما أعانت بني بكر على خزاعة",
+        "number": 28,
+        "id": "U03-L03-Q028"
+      },
+      {
+        "question": "ما هي الرؤيا التي رآها النبي صلى الله عليه وسلم في السنة السادسة؟",
+        "options": {
+          "A": "فتح خيبر",
+          "B": "دخوله مكة معتمراً بسلم",
+          "C": "معركة مؤتة",
+          "D": "وفاته"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "دخوله مكة معتمراً بسلم",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "دخوله مكة معتمراً بسلم"
+        },
+        "explanation": "دخوله مكة معتمراً بسلم",
+        "number": 29,
+        "id": "U03-L03-Q029"
+      },
+      {
+        "question": "كم عدد الأصنام التي كانت حول الكعبة عند الفتح؟",
+        "options": {
+          "A": "100 صنم",
+          "B": "200 صنم",
+          "C": "360 صنماً",
+          "D": "500 صنم"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "360 صنماً",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "360 صنماً"
+        },
+        "explanation": "360 صنماً",
+        "number": 30,
+        "id": "U03-L03-Q030"
+      },
+      {
+        "question": "لماذا أمر النبي بإشعال عشرة آلاف نار في مرّ الظهران؟",
+        "options": {
+          "A": "للتدفئة من البرد",
+          "B": "لطهي الطعام",
+          "C": "لإرهاب قريش ودفعهم للاستسلام دون قتال",
+          "D": "كإشارة للمهاجرين"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "لإرهاب قريش ودفعهم للاستسلام دون قتال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "لإرهاب قريش ودفعهم للاستسلام دون قتال"
+        },
+        "explanation": "لإرهاب قريش ودفعهم للاستسلام دون قتال",
+        "number": 31,
+        "id": "U03-L03-Q031"
+      },
+      {
+        "question": "أي من الآتية يعتبر من نتائج فتح مكة؟",
+        "options": {
+          "A": "القضاء على الشرك في مكة",
+          "B": "تطهير البيت الحرام من الأصنام",
+          "C": "إعزاز قريش بالإسلام",
+          "D": "كل ما ذكر صحيح"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "كل ما ذكر صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل ما ذكر صحيح"
+        },
+        "explanation": "كل ما ذكر صحيح",
+        "number": 32,
+        "id": "U03-L03-Q032"
+      },
+      {
+        "question": "ما هو الحكم الشرعي الذي استخدمه النبي للإفطار في طريقه لمكة؟",
+        "options": {
+          "A": "العزيمة",
+          "B": "الرخصة (للسفر)",
+          "C": "الوجوب",
+          "D": "الندب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الرخصة (للسفر)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الرخصة (للسفر)"
+        },
+        "explanation": "الرخصة (للسفر)",
+        "number": 33,
+        "id": "U03-L03-Q033"
+      },
+      {
+        "question": "من الذي قال للنبي 'اللهم غفرانك، كل الناس أفقه من عمر'؟",
+        "options": {
+          "A": "أبو بكر",
+          "B": "علي بن أبي طالب",
+          "C": "عمر بن الخطاب (قالها عن نفسه)",
+          "D": "امرأة اعترضت عليه"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "عمر بن الخطاب (قالها عن نفسه)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عمر بن الخطاب (قالها عن نفسه)"
+        },
+        "explanation": "عمر بن الخطاب (قالها عن نفسه)",
+        "number": 34,
+        "id": "U03-L03-Q034"
+      },
+      {
+        "question": "بماذا دعا النبي صلى الله عليه وسلم ربه قبل انطلاقه للفتح؟",
+        "options": {
+          "A": "اللهم خذ العيون والأخبار عن قريش",
+          "B": "اللهم أهلك قريشاً",
+          "C": "اللهم زدني مالاً",
+          "D": "اللهم انصرني وحدي"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "اللهم خذ العيون والأخبار عن قريش",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "اللهم خذ العيون والأخبار عن قريش"
+        },
+        "explanation": "اللهم خذ العيون والأخبار عن قريش",
+        "number": 35,
+        "id": "U03-L03-Q035"
+      },
+      {
+        "question": "ما هي القيمة المستفادة من دخول النبي مكة وهو يطأطئ رأسه؟",
+        "options": {
+          "A": "الشجاعة",
+          "B": "التواضع والشكر لله عند النصر",
+          "C": "الخوف من العدو",
+          "D": "الرغبة في النوم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التواضع والشكر لله عند النصر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التواضع والشكر لله عند النصر"
+        },
+        "explanation": "التواضع والشكر لله عند النصر",
+        "number": 36,
+        "id": "U03-L03-Q036"
+      },
+      {
+        "question": "أي من الشخصيات التالية كان يقود المشركين لمحاولة المقاومة عند الفتح؟",
+        "options": {
+          "A": "أبو سفيان",
+          "B": "عكرمة بن أبي جهل",
+          "C": "أبو لهب",
+          "D": "الوليد بن المغيرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عكرمة بن أبي جهل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عكرمة بن أبي جهل"
+        },
+        "explanation": "عكرمة بن أبي جهل",
+        "number": 37,
+        "id": "U03-L03-Q037"
+      },
+      {
+        "question": "ماذا فعل النبي صلى الله عليه وسلم فور دخوله المسجد الحرام؟",
+        "options": {
+          "A": "نام فيه",
+          "B": "طاف بالكعبة وحطم الأصنام",
+          "C": "بنى منبراً جديداً",
+          "D": "غادر مكة فوراً"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "طاف بالكعبة وحطم الأصنام",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "طاف بالكعبة وحطم الأصنام"
+        },
+        "explanation": "طاف بالكعبة وحطم الأصنام",
+        "number": 38,
+        "id": "U03-L03-Q038"
+      },
+      {
+        "question": "الهدف من تقسيم الجيش إلى فِرق عند دخول مكة هو:",
+        "options": {
+          "A": "الضياع في مكة",
+          "B": "إرباك قريش ومنعهم من المقاومة وتسهيل الدخول",
+          "C": "البحث عن الغنائم",
+          "D": "لقاء الأقارب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "إرباك قريش ومنعهم من المقاومة وتسهيل الدخول",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "إرباك قريش ومنعهم من المقاومة وتسهيل الدخول"
+        },
+        "explanation": "إرباك قريش ومنعهم من المقاومة وتسهيل الدخول",
+        "number": 39,
+        "id": "U03-L03-Q039"
+      },
+      {
+        "question": "يعتبر فتح مكة درساً عظيماً في:",
+        "options": {
+          "A": "التخطيط والسرية",
+          "B": "العفو والرحمة",
+          "C": "الوفاء بالعهود",
+          "D": "كل ما ذكر صحيح"
+        },
+        "correct_answer": "D",
+        "correct_answer_text": "كل ما ذكر صحيح",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كل ما ذكر صحيح"
+        },
+        "explanation": "كل ما ذكر صحيح",
+        "number": 40,
+        "id": "U03-L03-Q040"
+      }
+    ]
+  }
+}

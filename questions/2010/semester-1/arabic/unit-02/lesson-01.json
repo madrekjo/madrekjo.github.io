@@ -1,0 +1,972 @@
+{
+  "lesson": {
+    "lesson_number": "2.1",
+    "lesson_name": "نصوص (قصائد عربية)",
+    "unit_number": 2,
+    "unit_name": "الوحدة الثانية",
+    "page_start": null,
+    "page_end": null,
+    "questions": [
+      {
+        "question": "من هو مؤلف قصيدة (عمان) التي يبدأ مطلعها بـ 'يا حُبَّ عمّانُ'؟",
+        "options": {
+          "A": "حيدر محمود",
+          "B": "عبد الله رضوان",
+          "C": "عبد المنعم الرفاعي",
+          "D": "مصطفى وهبي التل"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "عبد المنعم الرفاعي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد المنعم الرفاعي"
+        },
+        "explanation": "عبد المنعم الرفاعي",
+        "number": 1,
+        "id": "U02-L01-Q001"
+      },
+      {
+        "question": "ما المقصود بكلمة (الغانية) في قول الشاعر: 'يا زهرةً في كفِّ غانيةٍ'؟",
+        "options": {
+          "A": "المرأة الفقيرة",
+          "B": "المرأة التي استغنت بحسنها عن الزينة",
+          "C": "المرأة الغاضبة",
+          "D": "المرأة المسافرة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "المرأة التي استغنت بحسنها عن الزينة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "المرأة التي استغنت بحسنها عن الزينة"
+        },
+        "explanation": "المرأة التي استغنت بحسنها عن الزينة",
+        "number": 2,
+        "id": "U02-L01-Q002"
+      },
+      {
+        "question": "ما هو عنوان قصيدة الشاعر عبد الله رضوان في الوحدة الثانية؟",
+        "options": {
+          "A": "عمان في القلب",
+          "B": "وشوشة العاشقين",
+          "C": "صباحات عمان",
+          "D": "أرجواني"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "وشوشة العاشقين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "وشوشة العاشقين"
+        },
+        "explanation": "وشوشة العاشقين",
+        "number": 3,
+        "id": "U02-L01-Q003"
+      },
+      {
+        "question": "كلمة (باسقة) في قول رضوان: 'باسقةً كالصَّبْرِ' تعني:",
+        "options": {
+          "A": "منخفضة",
+          "B": "مرتفعة الأغصان",
+          "C": "يابسة",
+          "D": "مقطوعة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مرتفعة الأغصان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مرتفعة الأغصان"
+        },
+        "explanation": "مرتفعة الأغصان",
+        "number": 4,
+        "id": "U02-L01-Q004"
+      },
+      {
+        "question": "ما دلالة قول الرفاعي: 'أبكي المنابر والأعلام والقِببا'؟",
+        "options": {
+          "A": "الحزن على فقدان صديق",
+          "B": "الحنين إلى الماضي ومظاهر المجد",
+          "C": "الرغبة في السفر",
+          "D": "الخوف من المستقبل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحنين إلى الماضي ومظاهر المجد",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحنين إلى الماضي ومظاهر المجد"
+        },
+        "explanation": "الحنين إلى الماضي ومظاهر المجد",
+        "number": 5,
+        "id": "U02-L01-Q005"
+      },
+      {
+        "question": "بمَ نعت الرفاعي (المنزل) في قوله: 'كان المنزل الرَّحْبَا'؟",
+        "options": {
+          "A": "بالضيق",
+          "B": "بالجمال والاتساع",
+          "C": "بالقدم",
+          "D": "بالبعد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بالجمال والاتساع",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالجمال والاتساع"
+        },
+        "explanation": "بالجمال والاتساع",
+        "number": 6,
+        "id": "U02-L01-Q006"
+      },
+      {
+        "question": "ما هو الجذر اللغوي لكلمة (مزدانة)؟",
+        "options": {
+          "A": "زدن",
+          "B": "زين",
+          "C": "زدأ",
+          "D": "وزن"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "زين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "زين"
+        },
+        "explanation": "زين",
+        "number": 7,
+        "id": "U02-L01-Q007"
+      },
+      {
+        "question": "الشاعر الذي نظم نشيد العلم الأردني (السلام الملكي) هو:",
+        "options": {
+          "A": "عبد الله رضوان",
+          "B": "عبد المنعم الرفاعي",
+          "C": "حبيب الزيودي",
+          "D": "سعيد عقل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عبد المنعم الرفاعي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد المنعم الرفاعي"
+        },
+        "explanation": "عبد المنعم الرفاعي",
+        "number": 8,
+        "id": "U02-L01-Q008"
+      },
+      {
+        "question": "ماذا تعني كلمة (البِطاح) التي وردت في النص؟",
+        "options": {
+          "A": "الجبال العالية",
+          "B": "الأرض المنبسطة الواسعة",
+          "C": "الأودية العميقة",
+          "D": "الصحاري القاحلة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأرض المنبسطة الواسعة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأرض المنبسطة الواسعة"
+        },
+        "explanation": "الأرض المنبسطة الواسعة",
+        "number": 9,
+        "id": "U02-L01-Q009"
+      },
+      {
+        "question": "في قصيدة رضوان، شبه الشاعر عمان بأنها 'ملكة من...':",
+        "options": {
+          "A": "ذهب",
+          "B": "نور",
+          "C": "أهازيج",
+          "D": "ياسمين"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "أهازيج",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أهازيج"
+        },
+        "explanation": "أهازيج",
+        "number": 10,
+        "id": "U02-L01-Q010"
+      },
+      {
+        "question": "المقصود بكلمة (النجوى) في قوله: 'باحت بنا النجوى' هو:",
+        "options": {
+          "A": "الصراخ",
+          "B": "الحديث السري بصوت منخفض",
+          "C": "الغناء العالي",
+          "D": "الشكوى"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحديث السري بصوت منخفض",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحديث السري بصوت منخفض"
+        },
+        "explanation": "الحديث السري بصوت منخفض",
+        "number": 11,
+        "id": "U02-L01-Q011"
+      },
+      {
+        "question": "من مؤلفات الشاعر عبد الله رضوان ديوان:",
+        "options": {
+          "A": "المسافر",
+          "B": "ثورة العرب",
+          "C": "مقام عمان",
+          "D": "الأعمال الكاملة"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "مقام عمان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مقام عمان"
+        },
+        "explanation": "مقام عمان",
+        "number": 12,
+        "id": "U02-L01-Q012"
+      },
+      {
+        "question": "أي من المدن الآتية ولد فيها الشاعر عبد الله رضوان؟",
+        "options": {
+          "A": "عمان",
+          "B": "أريحا",
+          "C": "بيروت",
+          "D": "القدس"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أريحا",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أريحا"
+        },
+        "explanation": "أريحا",
+        "number": 13,
+        "id": "U02-L01-Q013"
+      },
+      {
+        "question": "ما دلالة استخدام الفعل (وشوشة) في عنوان قصيدة رضوان؟",
+        "options": {
+          "A": "القوة والجبروت",
+          "B": "القرب والهمس الحميم بين المحبين",
+          "C": "الخوف والرهبة",
+          "D": "الجهل بالمدينة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "القرب والهمس الحميم بين المحبين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "القرب والهمس الحميم بين المحبين"
+        },
+        "explanation": "القرب والهمس الحميم بين المحبين",
+        "number": 14,
+        "id": "U02-L01-Q014"
+      },
+      {
+        "question": "ما معنى كلمة (أهازيج)؟",
+        "options": {
+          "A": "قصص تاريخية",
+          "B": "ما يترنم به من الأغاني",
+          "C": "أصوات الرعد",
+          "D": "صرخات الحرب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "ما يترنم به من الأغاني",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "ما يترنم به من الأغاني"
+        },
+        "explanation": "ما يترنم به من الأغاني",
+        "number": 15,
+        "id": "U02-L01-Q015"
+      },
+      {
+        "question": "شبه الرفاعي عمان في إحدى أبياته بأنها (عروس)، فما وجه الشبه؟",
+        "options": {
+          "A": "القوة",
+          "B": "الجمال",
+          "C": "الثراء",
+          "D": "القدم"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الجمال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الجمال"
+        },
+        "explanation": "الجمال",
+        "number": 16,
+        "id": "U02-L01-Q016"
+      },
+      {
+        "question": "في قول رضوان: 'أحبكِ ما وشوشَ الماءُ'، ما نوع (ما) هنا؟",
+        "options": {
+          "A": "استفهامية",
+          "B": "مصدريّة ظرفية (بمعنى مدة)",
+          "C": "نافية",
+          "D": "تعجبية"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "مصدريّة ظرفية (بمعنى مدة)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "مصدريّة ظرفية (بمعنى مدة)"
+        },
+        "explanation": "مصدريّة ظرفية (بمعنى مدة)",
+        "number": 17,
+        "id": "U02-L01-Q017"
+      },
+      {
+        "question": "ما الوظيفة الفنية لتوظيف عناصر (اللون والحركة والصوت) في القصيدتين؟",
+        "options": {
+          "A": "إضعاف المعنى",
+          "B": "رسم لوحة فنية حيوية للمدينة",
+          "C": "تقليل عدد الكلمات",
+          "D": "إرباك القارئ"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "رسم لوحة فنية حيوية للمدينة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رسم لوحة فنية حيوية للمدينة"
+        },
+        "explanation": "رسم لوحة فنية حيوية للمدينة",
+        "number": 18,
+        "id": "U02-L01-Q018"
+      },
+      {
+        "question": "من المناصب التي شغلها الشاعر عبد المنعم الرفاعي:",
+        "options": {
+          "A": "طبيب جراح",
+          "B": "رئيس وزراء الأردن",
+          "C": "مدير مدرسة",
+          "D": "مهندس معماري"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "رئيس وزراء الأردن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "رئيس وزراء الأردن"
+        },
+        "explanation": "رئيس وزراء الأردن",
+        "number": 19,
+        "id": "U02-L01-Q019"
+      },
+      {
+        "question": "كلمة (الأَنّات) في قول الرفاعي: 'مِلتُ نحوها بالأَنّات' تعني:",
+        "options": {
+          "A": "الأفراح",
+          "B": "التأوهات الصادرة عن الألم والحنين",
+          "C": "الضحكات",
+          "D": "النداءات البعيدة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "التأوهات الصادرة عن الألم والحنين",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "التأوهات الصادرة عن الألم والحنين"
+        },
+        "explanation": "التأوهات الصادرة عن الألم والحنين",
+        "number": 20,
+        "id": "U02-L01-Q020"
+      },
+      {
+        "question": "بمَ نعت رضوان (الوجد) في قصيدته؟",
+        "options": {
+          "A": "بالخيانة",
+          "B": "بالوفاء",
+          "C": "بالضياع",
+          "D": "بالقسوة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "بالوفاء",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "بالوفاء"
+        },
+        "explanation": "بالوفاء",
+        "number": 21,
+        "id": "U02-L01-Q021"
+      },
+      {
+        "question": "ما الغرض الشعري الرئيسي للقصيدتين في الوحدة الثانية؟",
+        "options": {
+          "A": "الهجاء",
+          "B": "المدح الشخصي",
+          "C": "الشعر الوطني (حب الوطن)",
+          "D": "الرثاء"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "الشعر الوطني (حب الوطن)",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الشعر الوطني (حب الوطن)"
+        },
+        "explanation": "الشعر الوطني (حب الوطن)",
+        "number": 22,
+        "id": "U02-L01-Q022"
+      },
+      {
+        "question": "المقصود بـ (سحر رِداها) في قصيدة الرفاعي هو:",
+        "options": {
+          "A": "ثوبها الجميل",
+          "B": "جمال طبيعتها وجاذبيتها",
+          "C": "خوفها",
+          "D": "صوتها"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "جمال طبيعتها وجاذبيتها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "جمال طبيعتها وجاذبيتها"
+        },
+        "explanation": "جمال طبيعتها وجاذبيتها",
+        "number": 23,
+        "id": "U02-L01-Q023"
+      },
+      {
+        "question": "شبه عبد الله رضوان عمان في علاقتها به بأنها:",
+        "options": {
+          "A": "صديقة عابرة",
+          "B": "أمه ونصيبه",
+          "C": "عدوة لدودة",
+          "D": "سراب"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أمه ونصيبه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أمه ونصيبه"
+        },
+        "explanation": "أمه ونصيبه",
+        "number": 24,
+        "id": "U02-L01-Q024"
+      },
+      {
+        "question": "ما معنى كلمة (يَنعه) في سياق وصف الثمر؟",
+        "options": {
+          "A": "نضجه واستواؤه",
+          "B": "فساده",
+          "C": "صغره",
+          "D": "جفافه"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "نضجه واستواؤه",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "نضجه واستواؤه"
+        },
+        "explanation": "نضجه واستواؤه",
+        "number": 25,
+        "id": "U02-L01-Q025"
+      },
+      {
+        "question": "في أي سنة ولد الشاعر عبد المنعم الرفاعي؟",
+        "options": {
+          "A": "1949م",
+          "B": "1917م",
+          "C": "1985م",
+          "D": "2015م"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "1917م",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "1917م"
+        },
+        "explanation": "1917م",
+        "number": 26,
+        "id": "U02-L01-Q026"
+      },
+      {
+        "question": "ماذا تمثل (نبعة الروح) في قول رضوان: 'يا اسماً تشكّل من نبعة الروح'؟",
+        "options": {
+          "A": "الماء الجاري",
+          "B": "أصل المحبة والارتباط الوجداني العميق",
+          "C": "الخيال المحض",
+          "D": "اسم مستعار"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "أصل المحبة والارتباط الوجداني العميق",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "أصل المحبة والارتباط الوجداني العميق"
+        },
+        "explanation": "أصل المحبة والارتباط الوجداني العميق",
+        "number": 27,
+        "id": "U02-L01-Q027"
+      },
+      {
+        "question": "بمَ تميز أسلوب عبد المنعم الرفاعي في قصيدته؟",
+        "options": {
+          "A": "البناء العمودي الكلاسيكي",
+          "B": "شعر التفعيلة فقط",
+          "C": "الغموض الشديد",
+          "D": "استخدام اللغة العامية"
+        },
+        "correct_answer": "A",
+        "correct_answer_text": "البناء العمودي الكلاسيكي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "البناء العمودي الكلاسيكي"
+        },
+        "explanation": "البناء العمودي الكلاسيكي",
+        "number": 28,
+        "id": "U02-L01-Q028"
+      },
+      {
+        "question": "استخدم الشاعر رضوان نمط (شعر التفعيلة)، ما ميزة هذا النمط؟",
+        "options": {
+          "A": "الالتزام بقافية واحدة",
+          "B": "الحرية الموسيقية وتدفق المشاعر",
+          "C": "صعوبة الفهم",
+          "D": "الجمود"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الحرية الموسيقية وتدفق المشاعر",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الحرية الموسيقية وتدفق المشاعر"
+        },
+        "explanation": "الحرية الموسيقية وتدفق المشاعر",
+        "number": 29,
+        "id": "U02-L01-Q029"
+      },
+      {
+        "question": "ما دلالة قول الرفاعي: 'أأنسى أنَّ مجلسنا ري'؟",
+        "options": {
+          "A": "نسيان ذكريات الطفولة",
+          "B": "استذكار الأيام الجميلة في عمان",
+          "C": "الرغبة في الرحيل",
+          "D": "كره المدينة"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "استذكار الأيام الجميلة في عمان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "استذكار الأيام الجميلة في عمان"
+        },
+        "explanation": "استذكار الأيام الجميلة في عمان",
+        "number": 30,
+        "id": "U02-L01-Q030"
+      },
+      {
+        "question": "كلمة (صبا) في 'بالذكرى هو￯ وصبا' تعني:",
+        "options": {
+          "A": "الريح الشرقية",
+          "B": "الشوق والفتوة",
+          "C": "الصباح الباكر",
+          "D": "البرد الشديد"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الشوق والفتوة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الشوق والفتوة"
+        },
+        "explanation": "الشوق والفتوة",
+        "number": 31,
+        "id": "U02-L01-Q031"
+      },
+      {
+        "question": "من هو الشاعر الذي توفي في الزرقاء عام 2015م؟",
+        "options": {
+          "A": "عبد المنعم الرفاعي",
+          "B": "عبد الله رضوان",
+          "C": "حيدر محمود",
+          "D": "سعيد عقل"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عبد الله رضوان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عبد الله رضوان"
+        },
+        "explanation": "عبد الله رضوان",
+        "number": 32,
+        "id": "U02-L01-Q032"
+      },
+      {
+        "question": "ما العاطفة البارزة في قصيدة 'عمان' للرفاعي؟",
+        "options": {
+          "A": "عاطفة الغضب",
+          "B": "عاطفة الشوق والحنين والوفاء للمدينة",
+          "C": "عاطفة اليأس",
+          "D": "عاطفة الخوف"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "عاطفة الشوق والحنين والوفاء للمدينة",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "عاطفة الشوق والحنين والوفاء للمدينة"
+        },
+        "explanation": "عاطفة الشوق والحنين والوفاء للمدينة",
+        "number": 33,
+        "id": "U02-L01-Q033"
+      },
+      {
+        "question": "قول رضوان: 'حقلاً من النرجس العذب'، شبه عمان بـ:",
+        "options": {
+          "A": "صحراء قاحلة",
+          "B": "حقل ورد يبعث الراحة والجمال",
+          "C": "غابة مخيفة",
+          "D": "بحر هائج"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "حقل ورد يبعث الراحة والجمال",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "حقل ورد يبعث الراحة والجمال"
+        },
+        "explanation": "حقل ورد يبعث الراحة والجمال",
+        "number": 34,
+        "id": "U02-L01-Q034"
+      },
+      {
+        "question": "ما معنى (حاشا) في قول الرفاعي: 'حاشا لِحبِّكِ'؟",
+        "options": {
+          "A": "للتوكيد",
+          "B": "للتنزيه والاستثناء من النسيان",
+          "C": "للذم",
+          "D": "للشك"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "للتنزيه والاستثناء من النسيان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "للتنزيه والاستثناء من النسيان"
+        },
+        "explanation": "للتنزيه والاستثناء من النسيان",
+        "number": 35,
+        "id": "U02-L01-Q035"
+      },
+      {
+        "question": "من القائل: 'ببالي عودي مُري مثلما الآه'؟",
+        "options": {
+          "A": "عبد المنعم الرفاعي",
+          "B": "عبد الله رضوان",
+          "C": "سعيد عقل",
+          "D": "أحمد شوقي"
+        },
+        "correct_answer": "C",
+        "correct_answer_text": "سعيد عقل",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "سعيد عقل"
+        },
+        "explanation": "سعيد عقل",
+        "number": 36,
+        "id": "U02-L01-Q036"
+      },
+      {
+        "question": "ما دلالة تكرار كلمة (أحبك) في قصيدة 'وشوشة العاشقين'؟",
+        "options": {
+          "A": "التلعثم",
+          "B": "تأكيد شدة التعلق والارتباط بالوطن",
+          "C": "ضيق المعجم اللغوي",
+          "D": "للسجع فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "تأكيد شدة التعلق والارتباط بالوطن",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "تأكيد شدة التعلق والارتباط بالوطن"
+        },
+        "explanation": "تأكيد شدة التعلق والارتباط بالوطن",
+        "number": 37,
+        "id": "U02-L01-Q037"
+      },
+      {
+        "question": "كلمة (قنوا) التي وردت في دروس سابقة وتعني عذق النخلة، ما جمعها الذي ورد في النصوص؟",
+        "options": {
+          "A": "أقناء",
+          "B": "قنوان",
+          "C": "قنويات",
+          "D": "قواني"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "قنوان",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "قنوان"
+        },
+        "explanation": "قنوان",
+        "number": 38,
+        "id": "U02-L01-Q038"
+      },
+      {
+        "question": "ما هي ميزة عمان 'عند ظلال العين' كما وصفها الرفاعي؟",
+        "options": {
+          "A": "بشاعتها",
+          "B": "كونها غانية فاتنة بجمالها",
+          "C": "قسوتها",
+          "D": "جفافها"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "كونها غانية فاتنة بجمالها",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "كونها غانية فاتنة بجمالها"
+        },
+        "explanation": "كونها غانية فاتنة بجمالها",
+        "number": 39,
+        "id": "U02-L01-Q039"
+      },
+      {
+        "question": "تعتبر مدينة عمان في القصيدتين رمزاً لـ:",
+        "options": {
+          "A": "الغربة والضياع",
+          "B": "الأمن والاستقرار والملاذ العاطفي",
+          "C": "الصراعات السياسية",
+          "D": "التجارة فقط"
+        },
+        "correct_answer": "B",
+        "correct_answer_text": "الأمن والاستقرار والملاذ العاطفي",
+        "difficulty": "medium",
+        "source": {
+          "page": null,
+          "reference": ""
+        },
+        "solution": {
+          "formula": null,
+          "steps": [],
+          "summary": "الأمن والاستقرار والملاذ العاطفي"
+        },
+        "explanation": "الأمن والاستقرار والملاذ العاطفي",
+        "number": 40,
+        "id": "U02-L01-Q040"
+      }
+    ]
+  }
+}
