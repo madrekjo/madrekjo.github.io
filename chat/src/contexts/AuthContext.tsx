@@ -270,6 +270,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         userId: nextSession?.user?.id ?? null,
       });
 
+      if (!nextSession?.user && source.includes("SIGNED_OUT")) {
+        console.log("[AuthContext] SIGNED_OUT received, attempting recovery...");
+        await new Promise(r => setTimeout(r, 2000));
+        if (cancelled) return;
+        const { data: { session: retrySession } } = await supabase.auth.getSession();
+        if (retrySession?.user) {
+          console.log("[AuthContext] session recovered after retry");
+          return;
+        }
+      }
+
       setSession(nextSession);
       setUser(nextSession?.user ?? null);
 
