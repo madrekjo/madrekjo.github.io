@@ -163,7 +163,7 @@ const Chat = () => {
     if (containsBannedWord(content, isAdmin)) { toast.error("المحتوى يحتوي على كلمات محظورة"); return; }
     setPosting(true);
     let imageUrls: string[] | null = null;
-    let imageUrl: string | null = null;
+    const imageUrl: string | null = null;
     let videoUrl: string | null = null;
 
     if (mediaFiles.length > 0) {
