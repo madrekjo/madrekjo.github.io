@@ -6,16 +6,19 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "sonner";
-import { Send, Loader2, MessageSquare, ChevronDown, ChevronUp, Trash2, Edit2, Check, X, Settings } from "lucide-react";
+import { Send, Loader2, MessageSquare, ChevronDown, ChevronUp, Trash2, Edit2, Check, X, Settings, ImagePlus } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import UserActionsDialog from "@/components/UserActionsDialog";
+import Lightbox from "@/components/Lightbox";
+import { compressImage } from "@/lib/mediaCompression";
 
 interface SupportMessage {
   id: string;
   user_id: string;
   sender_id: string;
   content: string;
+  image_urls?: string[] | null;
   is_read: boolean;
   created_at: string;
 }
@@ -48,8 +51,32 @@ const Support = () => {
   const [editMsgText, setEditMsgText] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [actionsUserId, setActionsUserId] = useState<string | null>(null);
+  const [sendImages, setSendImages] = useState<File[]>([]);
+  const [replyImages, setReplyImages] = useState<File[]>([]);
+  const [lightbox, setLightbox] = useState<{ images: string[]; index: number } | null>(null);
+  const sendFileInputRef = useRef<HTMLInputElement>(null);
+  const replyFileInputRef = useRef<HTMLInputElement>(null);
 
   const isStaff = isAdmin || isModerator;
+
+  const uploadSupportImages = async (files: File[], ownerId: string): Promise<string[] | null> => {
+    const urls: string[] = [];
+    for (const file of files) {
+      try {
+        const compressed = await compressImage(file);
+        const fileExt = compressed.name.split(".").pop() || "webp";
+        const filePath = `${ownerId}/support/${Date.now()}-${Math.random().toString(36).slice(2, 7)}.${fileExt}`;
+        const { error: uploadError } = await supabase.storage.from("support-media").upload(filePath, compressed);
+        if (uploadError) { console.error("support upload", uploadError); return null; }
+        const { data: urlData } = supabase.storage.from("support-media").getPublicUrl(filePath);
+        urls.push(urlData.publicUrl);
+      } catch (e) {
+        console.error("support upload failed", e);
+        return null;
+      }
+    }
+    return urls.length > 0 ? urls : null;
+  };
 
   useEffect(() => {
     fetchMessages();
@@ -126,34 +153,67 @@ const Support = () => {
     setConversations(convos);
   };
 
+  const renderMessageImages = (msg: SupportMessage) => {
+    if (!msg.image_urls || msg.image_urls.length === 0) return null;
+    return (
+      <div className={`grid gap-1 mt-2 ${msg.image_urls.length > 1 ? "grid-cols-2" : "grid-cols-1"} max-w-[260px]`}>
+        {msg.image_urls.map((src, i) => (
+          <button
+            key={i}
+            onClick={() => setLightbox({ images: msg.image_urls!, index: i })}
+            className="overflow-hidden rounded-lg"
+          >
+            <img src={src} alt="صورة" className="w-full h-auto object-cover rounded-lg hover:opacity-90 transition-opacity" loading="lazy" />
+          </button>
+        ))}
+      </div>
+    );
+  };
+
   const handleSend = async (text?: string) => {
     const messageText = text || content.trim();
-    if (!user || !messageText) return;
+    if (!user || (!messageText && sendImages.length === 0)) return;
     setSending(true);
-    const { error } = await (supabase as any).from("support_messages").insert({
+    let imageUrls: string[] | null = null;
+    if (sendImages.length > 0) {
+      imageUrls = await uploadSupportImages(sendImages, user.id);
+      if (!imageUrls) { toast.error("فشل رفع الصور"); setSending(false); return; }
+    }
+    const insertData: any = {
       user_id: user.id,
       sender_id: user.id,
       content: messageText,
-    });
+    };
+    if (imageUrls) insertData.image_urls = imageUrls;
+    const { error } = await (supabase as any).from("support_messages").insert(insertData);
     if (error) toast.error("فشل إرسال الرسالة");
     else {
       setContent("");
+      setSendImages([]);
       fetchMessages();
     }
     setSending(false);
   };
 
   const handleAdminReply = async (targetUserId: string) => {
-    if (!user || !replyText.trim()) return;
+    if (!user || (!replyText.trim() && replyImages.length === 0)) return;
     setSending(true);
-    const { error } = await (supabase as any).from("support_messages").insert({
+    let imageUrls: string[] | null = null;
+    if (replyImages.length > 0) {
+      imageUrls = await uploadSupportImages(replyImages, user.id);
+      if (!imageUrls) { toast.error("فشل رفع الصور"); setSending(false); return; }
+    }
+    const insertData: any = {
       user_id: targetUserId,
       sender_id: user.id,
       content: replyText.trim(),
-    });
+    };
+    if (imageUrls) insertData.image_urls = imageUrls;
+    const { error } = await (supabase as any).from("support_messages").insert(insertData);
     if (error) toast.error("فشل إرسال الرد");
     else {
       setReplyText("");
+      setReplyImages([]);
       fetchMessages();
     }
     setSending(false);
@@ -212,6 +272,33 @@ const Support = () => {
   };
 
   const userMessages = messages.filter(m => m.user_id === user?.id);
+
+  const renderImagePreview = (files: File[], onRemove: (i: number) => void) => {
+    if (files.length === 0) return null;
+    return (
+      <div className="flex gap-2 flex-wrap mt-2">
+        {files.map((f, i) => (
+          <div key={i} className="relative">
+            <img src={URL.createObjectURL(f)} alt="معاينة" className="w-14 h-14 object-cover rounded-lg border" />
+            <button
+              type="button"
+              onClick={() => onRemove(i)}
+              className="absolute -top-1.5 -left-1.5 bg-destructive text-white rounded-full w-4.5 h-4.5 w-[18px] h-[18px] text-[10px] leading-none flex items-center justify-center"
+            >
+              <X className="w-2.5 h-2.5" />
+            </button>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  const pickImages = (fileList: FileList | null, setter: (f: File[]) => void, current: File[]) => {
+    if (!fileList) return;
+    const files = Array.from(fileList).filter(f => f.type.startsWith("image/"));
+    const merged = [...current, ...files].slice(0, 4);
+    setter(merged);
+  };
 
   if (loading) {
     return (
@@ -315,6 +402,7 @@ const Support = () => {
                           ) : (
                             <>
                               <p>{msg.content}</p>
+                              {renderMessageImages(msg)}
                               <div className="flex items-center justify-between mt-1">
                                 <p className="text-xs text-muted-foreground">
                                   {msg.sender_id !== convo.user_id && "🛡️ رد الإدارة • "}
@@ -343,22 +431,43 @@ const Support = () => {
                           )}
                         </div>
                       ))}
-                      <div className="flex gap-2 mt-2">
-                        <Textarea
-                          value={selectedUserId === convo.user_id ? replyText : ""}
-                          onChange={e => { setSelectedUserId(convo.user_id); setReplyText(e.target.value); }}
-                          onFocus={() => setSelectedUserId(convo.user_id)}
-                          placeholder="اكتب رد الإدارة..."
-                          className="resize-none min-h-[40px] text-sm"
+                      <div className="mt-2">
+                        <div className="flex gap-2">
+                          <Textarea
+                            value={selectedUserId === convo.user_id ? replyText : ""}
+                            onChange={e => { setSelectedUserId(convo.user_id); setReplyText(e.target.value); }}
+                            onFocus={() => setSelectedUserId(convo.user_id)}
+                            placeholder="اكتب رد الإدارة..."
+                            className="resize-none min-h-[40px] text-sm"
+                          />
+                          <div className="flex flex-col gap-2 shrink-0">
+                            <Button
+                              size="icon"
+                              variant="outline"
+                              onClick={() => replyFileInputRef.current?.click()}
+                              title="إرفاق صور"
+                            >
+                              <ImagePlus className="w-4 h-4" />
+                            </Button>
+                            <Button
+                              size="icon"
+                              className="shrink-0"
+                              disabled={sending || (!replyText.trim() && replyImages.length === 0) || selectedUserId !== convo.user_id}
+                              onClick={() => handleAdminReply(convo.user_id)}
+                            >
+                              {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+                            </Button>
+                          </div>
+                        </div>
+                        <input
+                          ref={replyFileInputRef}
+                          type="file"
+                          accept="image/*"
+                          multiple
+                          hidden
+                          onChange={e => { pickImages(e.target.files, setReplyImages, replyImages); e.target.value = ""; }}
                         />
-                        <Button
-                          size="icon"
-                          className="shrink-0"
-                          disabled={sending || !replyText.trim() || selectedUserId !== convo.user_id}
-                          onClick={() => handleAdminReply(convo.user_id)}
-                        >
-                          <Send className="w-4 h-4" />
-                        </Button>
+                        {selectedUserId === convo.user_id ? renderImagePreview(replyImages, i => setReplyImages(replyImages.filter((_, idx) => idx !== i))) : null}
                       </div>
                     </div>
                   )}
@@ -368,6 +477,13 @@ const Support = () => {
           </div>
         )}
         <UserActionsDialog userId={actionsUserId} open={!!actionsUserId} onOpenChange={(o) => { if (!o) setActionsUserId(null); }} onChanged={fetchMessages} />
+        {lightbox && (
+          <Lightbox
+            images={lightbox.images}
+            initialIndex={lightbox.index}
+            onClose={() => setLightbox(null)}
+          />
+        )}
       </div>
     );
   }
@@ -421,6 +537,7 @@ const Support = () => {
                 </p>
               )}
               <p>{msg.content}</p>
+              {renderMessageImages(msg)}
               <p className="text-xs text-muted-foreground mt-1">
                 {formatDistanceToNow(new Date(msg.created_at), { addSuffix: true, locale: ar })}
               </p>
@@ -430,18 +547,42 @@ const Support = () => {
         <div ref={messagesEndRef} />
       </div>
 
-      <div className="flex gap-2">
-        <Textarea
-          value={content}
-          onChange={e => setContent(e.target.value)}
-          placeholder="اكتب رسالتك هنا..."
-          className="resize-none min-h-[40px] text-sm"
-          onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleSend(); } }}
+      <div>
+        <div className="flex gap-2">
+          <Textarea
+            value={content}
+            onChange={e => setContent(e.target.value)}
+            placeholder="اكتب رسالتك هنا..."
+            className="resize-none min-h-[40px] text-sm"
+            onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleSend(); } }}
+          />
+          <div className="flex flex-col gap-2 shrink-0">
+            <Button size="icon" variant="outline" onClick={() => sendFileInputRef.current?.click()} title="إرفاق صور">
+              <ImagePlus className="w-4 h-4" />
+            </Button>
+            <Button size="icon" className="shrink-0" disabled={sending || (!content.trim() && sendImages.length === 0)} onClick={() => handleSend()}>
+              {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+            </Button>
+          </div>
+        </div>
+        <input
+          ref={sendFileInputRef}
+          type="file"
+          accept="image/*"
+          multiple
+          hidden
+          onChange={e => { pickImages(e.target.files, setSendImages, sendImages); e.target.value = ""; }}
         />
-        <Button size="icon" className="shrink-0" disabled={sending || !content.trim()} onClick={() => handleSend()}>
-          {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
-        </Button>
+        {renderImagePreview(sendImages, i => setSendImages(sendImages.filter((_, idx) => idx !== i)))}
       </div>
+
+      {lightbox && (
+        <Lightbox
+          images={lightbox.images}
+          initialIndex={lightbox.index}
+          onClose={() => setLightbox(null)}
+        />
+      )}
     </div>
   );
 };
