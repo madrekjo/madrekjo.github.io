@@ -89,6 +89,8 @@ const Support = () => {
     return () => { supabase.removeChannel(channel); };
   }, []);
 
+  const newAdminRepliesLocal = messages.filter(m => m.user_id === user?.id && m.sender_id !== user?.id && !m.is_read).length;
+
   // Regular user: mark admin replies as read after showing the notification
   useEffect(() => {
     if (!user || isStaff) return;
@@ -105,8 +107,6 @@ const Support = () => {
       return () => clearTimeout(t);
     }
   }, [user?.id, isStaff, newAdminRepliesLocal]);
-
-  const newAdminRepliesLocal = messages.filter(m => m.user_id === user?.id && m.sender_id !== user?.id && !m.is_read).length;
 
   const fetchMessages = async () => {
     const { data, error } = await (supabase as any)
