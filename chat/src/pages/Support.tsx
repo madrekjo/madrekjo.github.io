@@ -62,6 +62,25 @@ const Support = () => {
     return () => { supabase.removeChannel(channel); };
   }, []);
 
+  // Regular user: mark admin replies as read after showing the notification
+  useEffect(() => {
+    if (!user || isStaff) return;
+    if (newAdminRepliesLocal > 0) {
+      const t = setTimeout(() => {
+        (supabase as any)
+          .from("support_messages")
+          .update({ is_read: true })
+          .eq("user_id", user.id)
+          .neq("sender_id", user.id)
+          .eq("is_read", false)
+          .then(() => fetchMessages());
+      }, 6000);
+      return () => clearTimeout(t);
+    }
+  }, [user?.id, isStaff, newAdminRepliesLocal]);
+
+  const newAdminRepliesLocal = messages.filter(m => m.user_id === user?.id && m.sender_id !== user?.id && !m.is_read).length;
+
   const fetchMessages = async () => {
     const { data, error } = await (supabase as any)
       .from("support_messages")
@@ -362,6 +381,16 @@ const Support = () => {
       </div>
       <p className="text-muted-foreground mb-4">أرسل رسالة للإدارة وسيتم الرد عليك</p>
 
+      {newAdminRepliesLocal > 0 && (
+        <div className="flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary rounded-lg p-3 mb-4 animate-fade-in">
+          <span className="relative flex w-2.5 h-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+          </span>
+          <p className="text-sm font-medium">لديك رد جديد من الإدارة</p>
+        </div>
+      )}
+
       <div className="flex flex-wrap gap-2 mb-6">
         {SUGGESTED_QUESTIONS.map((q, i) => (
           <Button key={i} variant="outline" size="sm" className="text-xs" onClick={() => handleSend(q)}>
@@ -380,11 +409,16 @@ const Support = () => {
               className={`p-3 rounded-lg text-sm ${
                 msg.sender_id === user?.id
                   ? "bg-primary/10 ml-8"
-                  : "bg-muted mr-8"
+                  : `bg-muted mr-8 ${!msg.is_read ? "ring-2 ring-primary/50" : ""}`
               }`}
             >
               {msg.sender_id !== user?.id && (
-                <p className="text-xs font-medium text-primary mb-1">🛡️ رد الإدارة</p>
+                <p className="text-xs font-medium text-primary mb-1 flex items-center gap-1">
+                  🛡️ رد الإدارة
+                  {!msg.is_read && (
+                    <span className="bg-primary/10 text-primary border border-primary/20 text-[10px] font-bold rounded-full px-1.5 py-0.5">جديد</span>
+                  )}
+                </p>
               )}
               <p>{msg.content}</p>
               <p className="text-xs text-muted-foreground mt-1">

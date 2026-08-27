@@ -6,7 +6,7 @@ import PostCard from "@/components/PostCard";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Send, Image as ImageIcon, Video, Loader2 } from "lucide-react";
+import { Send, Image as ImageIcon, Video, Loader2, Lock } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { compressMedia } from "@/lib/mediaCompression";
 
@@ -17,6 +17,7 @@ interface Post {
   user_id: string;
   content: string;
   image_url: string | null;
+  image_urls: string[] | null;
   video_url: string | null;
   created_at: string;
   updated_at: string;
@@ -43,7 +44,7 @@ const Chat = () => {
   const [loadingMore, setLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [posting, setPosting] = useState(false);
-  const [mediaFile, setMediaFile] = useState<File | null>(null);
+  const [mediaFiles, setMediaFiles] = useState<File[]>([]);
   const [mediaType, setMediaType] = useState<"image" | "video" | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -161,31 +162,41 @@ const Chat = () => {
     }
     if (containsBannedWord(content, isAdmin)) { toast.error("المحتوى يحتوي على كلمات محظورة"); return; }
     setPosting(true);
+    let imageUrls: string[] | null = null;
     let imageUrl: string | null = null;
     let videoUrl: string | null = null;
 
-    if (mediaFile) {
-      const compressed = await compressMedia(mediaFile);
-      const fileExt = compressed.name.split(".").pop();
-      const filePath = `${user.id}/${Date.now()}.${fileExt}`;
-      const { error: uploadError } = await supabase.storage.from("post-media").upload(filePath, compressed);
-      if (uploadError) { toast.error("فشل رفع الملف"); setPosting(false); return; }
-      const { data: urlData } = supabase.storage.from("post-media").getPublicUrl(filePath);
-      if (mediaType === "image") imageUrl = urlData.publicUrl;
-      else videoUrl = urlData.publicUrl;
+    if (mediaFiles.length > 0) {
+      const urls: string[] = [];
+      for (const file of mediaFiles) {
+        const compressed = await compressMedia(file);
+        const fileExt = compressed.name.split(".").pop();
+        const filePath = `${user.id}/${Date.now()}-${Math.random().toString(36).slice(2, 7)}.${fileExt}`;
+        const { error: uploadError } = await supabase.storage.from("post-media").upload(filePath, compressed);
+        if (uploadError) { toast.error("فشل رفع الملف"); setPosting(false); return; }
+        const { data: urlData } = supabase.storage.from("post-media").getPublicUrl(filePath);
+        urls.push(urlData.publicUrl);
+      }
+      if (mediaType === "image") imageUrls = urls;
+      else videoUrl = urls[0];
     }
 
     const insertData: any = {
-      user_id: user.id, content: content.trim(), image_url: imageUrl, video_url: videoUrl,
+      user_id: user.id,
+      content: content.trim(),
+      image_url: imageUrl || (imageUrls && imageUrls.length ? imageUrls[0] : null),
+      image_urls: imageUrls,
+      video_url: videoUrl,
       channel: postTarget,
     };
+    if (!imageUrls) delete insertData.image_urls;
 
     const { error } = await supabase.from("posts").insert(insertData);
     if (error) {
       if ((error as any).message?.includes("section_locked")) toast.error("هذه القناة مقفلة حالياً من قبل الإدارة");
       else toast.error("فشل نشر المنشور");
     }
-    else { setContent(""); setMediaFile(null); setMediaType(null); toast.success("تم النشر"); }
+    else { setContent(""); setMediaFiles([]); setMediaType(null); toast.success("تم النشر"); }
     setPosting(false);
   };
 
@@ -193,12 +204,32 @@ const Chat = () => {
     setMediaType(type);
     if (fileInputRef.current) {
       fileInputRef.current.accept = type === "image" ? "image/*" : "video/*";
+      fileInputRef.current.multiple = type === "image";
       fileInputRef.current.click();
     }
   };
 
   const inTimeout = profile?.timeout_until && new Date(profile.timeout_until) > new Date();
   const chatBanned = profile?.chat_banned;
+
+  // Auto-switch to an open channel if current filter is somehow locked
+  useEffect(() => {
+    const haveTabs = isStaff || !!(profile?.gender) || !!myGen;
+    if (!haveTabs) return;
+    const tabs = isStaff
+      ? [{ key: "all" }, { key: "male" }, { key: "female" }, { key: "09" }, { key: "10" }]
+      : [
+          { key: "all" },
+          ...(profile?.gender === "male" ? [{ key: "male" }] : []),
+          ...(profile?.gender === "female" ? [{ key: "female" }] : []),
+          ...(myGen ? [{ key: myGen }] : []),
+        ];
+    const tab = tabs.find(t => t.key === channelFilter);
+    if (tab && !(channelSettings[tab.key] ?? true)) {
+      const firstOpen = tabs.find(t => channelSettings[t.key] ?? true);
+      if (firstOpen) setChannelFilter(firstOpen.key);
+    }
+  }, [channelFilter, channelSettings, profile?.gender, myGen, isStaff]);
 
   if (profile?.is_banned) {
     return (
@@ -219,20 +250,25 @@ const Chat = () => {
 
   const channelTabs = isStaff
     ? [
-        { key: "all", label: "الجميع" },
-        { key: "male", label: "شباب" },
-        { key: "female", label: "بنات" },
-        { key: "09", label: "2009" },
-        { key: "10", label: "2010" },
+        { key: "all", label: "الجميع", locked: false },
+        { key: "male", label: "شباب", locked: false },
+        { key: "female", label: "بنات", locked: false },
+        { key: "09", label: "2009", locked: false },
+        { key: "10", label: "2010", locked: false },
       ]
     : [
-        { key: "all", label: "الجميع" },
-        ...(profile?.gender === "male" && channelSettings["male"] ? [{ key: "male", label: "شباب" }] : []),
-        ...(profile?.gender === "female" && channelSettings["female"] ? [{ key: "female", label: "بنات" }] : []),
-        ...(myGen && channelSettings[myGen] ? [{ key: myGen, label: `20${myGen}` }] : []),
+        { key: "all", label: "الجميع", locked: !(channelSettings["all"] ?? true) },
+        ...(profile?.gender === "male" ? [{ key: "male", label: "شباب", locked: !(channelSettings["male"] ?? true) }] : []),
+        ...(profile?.gender === "female" ? [{ key: "female", label: "بنات", locked: !(channelSettings["female"] ?? true) }] : []),
+        ...(myGen ? [{ key: myGen, label: `20${myGen}`, locked: !(channelSettings[myGen] ?? true) }] : []),
       ];
 
+  // Channels that are open (=1 or 2 buttons floating at bottom)
+  const openChannels = channelTabs.filter(t => !t.locked);
+
   const myGenderChannel = profile?.gender === "male" ? "male" : profile?.gender === "female" ? "female" : null;
+
+  const lockedKeys = new Set(channelTabs.filter(t => t.locked).map(t => t.key));
 
   const postTargets = isStaff
     ? [
@@ -244,19 +280,21 @@ const Chat = () => {
       ]
     : [
         { key: "all", label: "الجميع" },
-        ...(myGenderChannel && channelSettings[myGenderChannel] ? [{ key: myGenderChannel, label: profile?.gender === "male" ? "شباب" : "بنات" }] : []),
-        ...(myGen && channelSettings[myGen] ? [{ key: myGen, label: `20${myGen}` }] : []),
-      ];
+        ...(myGenderChannel ? [{ key: myGenderChannel, label: profile?.gender === "male" ? "شباب" : "بنات" }] : []),
+        ...(myGen ? [{ key: myGen, label: `20${myGen}` }] : []),
+      ].filter(t => !lockedKeys.has(t.key));
 
   return (
     <div className="container mx-auto px-4 py-6 max-w-2xl">
       {user && (
         <div className="bg-card border rounded-xl p-4 mb-6 animate-fade-in">
           <Textarea value={content} onChange={e => setContent(e.target.value)} placeholder="شارك أفكارك..." className="min-h-[80px] resize-none mb-3" />
-          {mediaFile && (
+          {mediaFiles.length > 0 && (
             <div className="mb-3 p-2 bg-muted rounded-lg flex items-center justify-between">
-              <span className="text-sm text-muted-foreground truncate">{mediaFile.name}</span>
-              <Button variant="ghost" size="sm" onClick={() => { setMediaFile(null); setMediaType(null); }}>إزالة</Button>
+              <span className="text-sm text-muted-foreground truncate">
+                {mediaFiles.length} ملف: {mediaFiles.map(f => f.name).join(", ")}
+              </span>
+              <Button variant="ghost" size="sm" onClick={() => { setMediaFiles([]); setMediaType(null); }}>إزالة</Button>
             </div>
           )}
           <div className="flex items-center gap-2 mb-3">
@@ -284,7 +322,7 @@ const Chat = () => {
               نشر
             </Button>
           </div>
-          <input ref={fileInputRef} type="file" className="hidden" onChange={e => { const file = e.target.files?.[0]; if (file) setMediaFile(file); }} />
+          <input ref={fileInputRef} type="file" className="hidden" onChange={e => { const files = e.target.files; if (files) { const list = Array.from(files); setMediaFiles(prev => [...prev, ...list]); } e.target.value = ""; }} />
         </div>
       )}
 
@@ -293,13 +331,23 @@ const Chat = () => {
         {channelTabs.map(opt => (
           <button
             key={opt.key}
-            onClick={() => setChannelFilter(opt.key)}
-            className={`text-xs px-3 py-1 rounded-md transition-colors ${channelFilter === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
+            onClick={() => { if (opt.locked) { toast.error(opt.label + " مقفلة حالياً من قبل الإدارة"); return; } setChannelFilter(opt.key); }}
+            className={`text-xs px-3 py-1 rounded-md transition-colors flex items-center gap-1 ${opt.locked ? "text-muted-foreground/50 line-through cursor-not-allowed" : channelFilter === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
+            title={opt.locked ? "مقفلة" : ""}
           >
+            {opt.locked && <Lock className="w-3 h-3" />}
             {opt.label}
           </button>
         ))}
       </div>
+
+      {/* Locked current-channel message */}
+      {channelTabs.find(t => t.key === channelFilter)?.locked && (
+        <div className="flex items-center gap-2 bg-destructive/10 border border-destructive/20 text-destructive rounded-lg p-3 mb-4">
+          <Lock className="w-4 h-4" />
+          <p className="text-sm">هذه القناة مقفلة حالياً من قبل الإدارة.</p>
+        </div>
+      )}
 
       {loading ? (
         <div className="text-center py-12"><Loader2 className="w-8 h-8 animate-spin mx-auto text-primary" /></div>
@@ -308,7 +356,11 @@ const Chat = () => {
       ) : (
         <div className="space-y-4">
           {posts
-            .filter(p => channelFilter === "all" ? (p.channel === "all" || p.channel === null) : p.channel === channelFilter)
+            .filter(p => {
+              const inLocked = !isStaff && !(channelSettings[p.channel || "all"] ?? true);
+              if (inLocked) return false;
+              return channelFilter === "all" ? (p.channel === "all" || p.channel === null) : p.channel === channelFilter;
+            })
             .map(post => (
               <PostCard
                 key={post.id}
@@ -329,6 +381,21 @@ const Chat = () => {
               )}
             </div>
           )}
+        </div>
+      )}
+
+      {/* Floating quick-switch to open channels — appears only when some channels are locked */}
+      {!isStaff && openChannels.length > 0 && openChannels.length < 3 && (
+        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 flex gap-2 bg-card/90 backdrop-blur border rounded-full p-1 shadow-lg animate-fade-in">
+          {openChannels.map(opt => (
+            <button
+              key={opt.key}
+              onClick={() => setChannelFilter(opt.key)}
+              className={`text-xs font-medium px-4 py-2 rounded-full transition-colors ${channelFilter === opt.key ? "bg-primary text-primary-foreground" : "bg-muted/60 hover:bg-muted"}`}
+            >
+              {opt.label}
+            </button>
+          ))}
         </div>
       )}
     </div>

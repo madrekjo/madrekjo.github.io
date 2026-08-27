@@ -35,6 +35,7 @@ interface PostProps {
     user_id: string;
     content: string;
     image_url: string | null;
+    image_urls: string[] | null;
     video_url: string | null;
     created_at: string;
     profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null; gender?: string | null } | null;
@@ -65,7 +66,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
   const [profileUserId, setProfileUserId] = useState<string | null>(null);
   const [editingCommentId, setEditingCommentId] = useState<string | null>(null);
   const [editCommentText, setEditCommentText] = useState("");
-  const [lightbox, setLightbox] = useState<{ src: string; type: "image" | "video" } | null>(null);
+  const [lightbox, setLightbox] = useState<{ src: string; images?: string[]; index?: number; type: "image" | "video" } | null>(null);
   const [reportOpen, setReportOpen] = useState(false);
   const [authorIsAdmin, setAuthorIsAdmin] = useState(false);
 
@@ -296,14 +297,26 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
       )}
 
       {/* Media */}
-      {post.image_url && (
+      {(post.image_urls && post.image_urls.length > 0) ? (
+        <div className={`grid gap-2 mb-3 ${post.image_urls.length === 1 ? "grid-cols-1" : "grid-cols-2"}`}>
+          {post.image_urls.map((url, i) => (
+            <img
+              key={i}
+              src={url}
+              alt={`صورة ${i + 1}`}
+              className={`rounded-lg object-cover cursor-zoom-in ${post.image_urls!.length === 1 ? "max-h-96 w-full" : "h-48 w-full"}`}
+              onClick={() => setLightbox({ src: url, images: post.image_urls!, index: i, type: "image" })}
+            />
+          ))}
+        </div>
+      ) : post.image_url ? (
         <img
           src={post.image_url}
           alt="صورة المنشور"
           className="rounded-lg mb-3 max-h-96 w-full object-cover cursor-zoom-in"
           onClick={() => setLightbox({ src: post.image_url!, type: "image" })}
         />
-      )}
+      ) : null}
       {post.video_url && (
         <div className="relative mb-3">
           <video src={post.video_url} controls className="rounded-lg max-h-96 w-full" />
@@ -488,6 +501,8 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
 
       <Lightbox
         src={lightbox?.src || null}
+        images={lightbox?.images}
+        initialIndex={lightbox?.index || 0}
         type={lightbox?.type || "image"}
         onClose={() => setLightbox(null)}
       />

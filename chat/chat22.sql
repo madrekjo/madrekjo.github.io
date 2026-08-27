@@ -51,6 +51,7 @@ CREATE POLICY "Authenticated users can create posts" ON public.posts
 -- 3. إصلاح سياسات COMMENTS — everyone can CRUD
 DROP POLICY IF EXISTS "comments select by generation" ON public.comments;
 DROP POLICY IF EXISTS "comments select by channel" ON public.comments;
+DROP POLICY IF EXISTS "comments select all for authenticated" ON public.comments;
 DROP POLICY IF EXISTS "Authenticated users can create comments" ON public.comments;
 
 CREATE POLICY "comments select all for authenticated" ON public.comments
@@ -63,6 +64,8 @@ CREATE POLICY "Authenticated users can create comments" ON public.comments
 -- 4. إصلاح سياسات LIKES — everyone can CRUD
 DROP POLICY IF EXISTS "Likes are viewable by everyone" ON public.likes;
 DROP POLICY IF EXISTS "Authenticated users can like" ON public.likes;
+DROP POLICY IF EXISTS "likes select all for authenticated" ON public.likes;
+DROP POLICY IF EXISTS "Authenticated users can like" ON public.likes;
 
 CREATE POLICY "likes select all for authenticated" ON public.likes
   FOR SELECT TO authenticated USING (true);
@@ -74,6 +77,8 @@ CREATE POLICY "Authenticated users can like" ON public.likes
 -- 5. إصلاح سياسات COMMENT_LIKES — everyone can CRUD
 DROP POLICY IF EXISTS "Comment likes viewable by everyone" ON public.comment_likes;
 DROP POLICY IF EXISTS "Authenticated users can like comments" ON public.comment_likes;
+DROP POLICY IF EXISTS "comment_likes select all for authenticated" ON public.comment_likes;
+DROP POLICY IF EXISTS "Authenticated users can like comment_likes" ON public.comment_likes;
 
 CREATE POLICY "comment_likes select all for authenticated" ON public.comment_likes
   FOR SELECT TO authenticated USING (true);

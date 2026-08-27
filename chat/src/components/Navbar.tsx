@@ -37,6 +37,7 @@ const Navbar = () => {
 
   const [unreadSuggestions, setUnreadSuggestions] = useState(0);
   const [unreadSupport, setUnreadSupport] = useState(0);
+  const [userUnreadSupport, setUserUnreadSupport] = useState(0);
   const [chatHidden, setChatHidden] = useState<boolean>(() => localStorage.getItem("chat_hidden") === "1");
 
   const isActive = (path: string) => location.pathname === path;
@@ -54,20 +55,14 @@ const Navbar = () => {
     if (location.pathname === "/support") setUnreadSupport(0);
   }, [location.pathname, isStaff]);
 
+  // Regular user: reset their own reply badge when visiting support
   useEffect(() => {
-    if (!isStaff) return;
+    if (isStaff) return;
+    if (location.pathname === "/support") setUserUnreadSupport(0);
+  }, [location.pathname, isStaff]);
 
-    const fetchCounts = async () => {
-      // Only fetch if not currently on that page
-      if (location.pathname !== "/suggestions") {
-        const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
-        const { count: sugCount } = await supabase
-          .from("suggestions")
-          .select("*", { count: "exact", head: true })
-          .gte("created_at", oneDayAgo);
-        setUnreadSuggestions(sugCount || 0);
-      }
-
+  const fetchSupportCounts = async () => {
+    if (isStaff) {
       if (location.pathname !== "/support") {
         const { count: supCount } = await supabase
           .from("support_messages")
@@ -75,6 +70,30 @@ const Navbar = () => {
           .eq("is_read", false);
         setUnreadSupport(supCount || 0);
       }
+    } else if (user && location.pathname !== "/support") {
+      // Admin replies to this user that they haven't read
+      const { count } = await supabase
+        .from("support_messages")
+        .select("*", { count: "exact", head: true })
+        .eq("user_id", user.id)
+        .neq("sender_id", user.id)
+        .eq("is_read", false);
+      setUserUnreadSupport(count || 0);
+    }
+  };
+
+  useEffect(() => {
+    const fetchCounts = async () => {
+      // Only fetch if not currently on that page
+      if (isStaff && location.pathname !== "/suggestions") {
+        const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
+        const { count: sugCount } = await supabase
+          .from("suggestions")
+          .select("*", { count: "exact", head: true })
+          .gte("created_at", oneDayAgo);
+        setUnreadSuggestions(sugCount || 0);
+      }
+      await fetchSupportCounts();
     };
 
     fetchCounts();
@@ -93,7 +112,7 @@ const Navbar = () => {
       supabase.removeChannel(ch1);
       supabase.removeChannel(ch2);
     };
-  }, [isStaff, location.pathname]);
+  }, [isStaff, location.pathname, user?.id]);
 
   const Badge = ({ count }: { count: number }) => {
     if (count <= 0) return null;
@@ -165,7 +184,7 @@ const Navbar = () => {
                 <Button variant={isActive("/support") ? "secondary" : "ghost"} size="sm" className="gap-1 relative">
                   <MessageSquare className="w-4 h-4" />
                   <span className="hidden sm:inline">الدعم</span>
-                  {isStaff && <Badge count={unreadSupport} />}
+                  {isStaff ? <Badge count={unreadSupport} /> : <Badge count={userUnreadSupport} />}
                 </Button>
               </Link>
               {(isAdmin || isModerator) && (
