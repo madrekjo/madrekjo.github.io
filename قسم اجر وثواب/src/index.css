@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 30% 97%;
+    --foreground: 150 30% 10%;
+
+    --card: 40 25% 95%;
+    --card-foreground: 150 30% 10%;
+
+    --popover: 40 25% 95%;
+    --popover-foreground: 150 30% 10%;
+
+    --primary: 152 45% 28%;
+    --primary-foreground: 40 30% 97%;
+
+    --secondary: 42 60% 50%;
+    --secondary-foreground: 150 30% 10%;
+
+    --muted: 40 20% 90%;
+    --muted-foreground: 150 10% 40%;
+
+    --accent: 42 60% 50%;
+    --accent-foreground: 150 30% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 40 20% 85%;
+    --input: 40 20% 85%;
+    --ring: 152 45% 28%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 152 30% 15%;
+    --sidebar-foreground: 40 30% 97%;
+    --sidebar-primary: 42 60% 50%;
+    --sidebar-primary-foreground: 150 30% 10%;
+    --sidebar-accent: 152 25% 20%;
+    --sidebar-accent-foreground: 40 30% 97%;
+    --sidebar-border: 152 20% 25%;
+    --sidebar-ring: 42 60% 50%;
+
+    --gold: 42 60% 50%;
+    --gold-light: 42 50% 70%;
+    --green-dark: 152 40% 18%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Cairo', sans-serif;
+    direction: rtl;
+  }
+
+  .font-amiri {
+    font-family: 'Amiri', serif;
+  }
+}

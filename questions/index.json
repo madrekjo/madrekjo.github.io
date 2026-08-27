@@ -1,16 +1,18 @@
 {
   "generations": ["2009", "2010"],
   "subjects": [
-    { "subject_id": "math", "slug": "math", "name": "الرياضيات" },
-    { "subject_id": "physics", "slug": "physics", "name": "الفيزياء" },
-    { "subject_id": "english", "slug": "english", "name": "اللغة الإنجليزية" },
     { "subject_id": "arabic", "slug": "arabic", "name": "اللغة العربية" },
-    { "subject_id": "earth-science", "slug": "earth-science", "name": "علوم الأرض والبيئة" },
-    { "subject_id": "islamic", "slug": "islamic", "name": "التربية الإسلامية" },
-    { "subject_id": "biology", "slug": "biology", "name": "الأحياء" },
+    { "subject_id": "biology", "slug": "biology", "name": "العلوم الحياتية" },
     { "subject_id": "chemistry", "slug": "chemistry", "name": "الكيمياء" },
-    { "subject_id": "geography", "slug": "geography", "name": "الجغرافيا" },
     { "subject_id": "digital-skills", "slug": "digital-skills", "name": "المهارات الرقمية" },
-    { "subject_id": "financial-culture", "slug": "financial-culture", "name": "الثقافة المالية" }
-  ]
+    { "subject_id": "earth-science", "slug": "earth-science", "name": "علوم الأرض والبيئة" },
+    { "subject_id": "english", "slug": "english", "name": "اللغة الإنجليزية" },
+    { "subject_id": "financial-culture", "slug": "financial-culture", "name": "الثقافة المالية" },
+    { "subject_id": "geography", "slug": "geography", "name": "الجغرافيا" },
+    { "subject_id": "history", "slug": "history", "name": "التاريخ" },
+    { "subject_id": "islamic", "slug": "islamic", "name": "التربية الإسلامية" },
+    { "subject_id": "math", "slug": "math", "name": "الرياضيات" },
+    { "subject_id": "physics", "slug": "physics", "name": "الفيزياء" }
+  ],
+  "note": "ملاحظة: مادة التاريخ (history) فارغة — لم يتم إنشاء أسئلة لها بعد."
 }

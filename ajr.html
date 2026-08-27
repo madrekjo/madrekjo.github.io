@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أجر وثواب — مدارك جو</title>
+<meta name="description" content="قسم أجر وثواب: صفحة يومية من القرآن الكريم مع تلاوتها وحديث من أحاديث الرسول ﷺ مع شرح الشيخ ابن باز رحمه الله — مدارك جو.">
+<meta name="google-adsense-account" content="ca-pub-3351421535309022">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a0a0f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="مدارك جو">
+<link rel="icon" type="image/jpeg" href="https://d.top4top.io/p_3816yfhp01.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep: #0a0a0f;
+  --surface: #111118;
+  --surface2: #1a1a24;
+  --surface3: #232330;
+  --gold: #FFD700;
+  --gold-light: #FFF3B0;
+  --gold-dim: rgba(255,215,0,0.1);
+  --gold-border: rgba(255,215,0,0.22);
+  --text: #f0f0f5;
+  --muted: #888899;
+  --ok: #69f0ae;
+  --err: #ff6b6b;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Cairo',sans-serif;
+  background: var(--deep);
+  color: var(--text);
+  min-height:100vh;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,215,0,0.02) 2px, rgba(255,215,0,0.02) 3px),
+    radial-gradient(ellipse at 50% 20%, rgba(255,215,0,0.05) 0%, transparent 55%);
+}
+.wrap { max-width:760px; margin:0 auto; padding:20px 16px 40px; }
+
+.app-header { text-align:center; margin-bottom:4px; }
+.app-title {
+  font-weight:900; font-size:1.7rem;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light), #B8860B);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.app-sub { color:var(--muted); font-size:0.85rem; margin-top:4px; }
+
+.date-line {
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  color:var(--muted); font-size:0.9rem; margin:14px 0;
+  flex-wrap:wrap;
+}
+.date-line b { color:var(--gold); font-weight:700; }
+
+.sec { background:var(--surface); border:1px solid var(--gold-border); border-radius:20px; padding:20px 18px; margin-bottom:18px; box-shadow:0 6px 24px rgba(0,0,0,.35); }
+.sec-head { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px; flex-wrap:wrap; }
+.sec-title { display:flex; align-items:center; gap:10px; color:var(--gold); font-weight:900; font-size:1.15rem; }
+.sec-icon { background:var(--gold-dim); border:1px solid var(--gold-border); border-radius:50%; width:38px; height:38px; display:flex; align-items:center; justify-content:center; font-size:1.05rem; }
+
+.icon-btn {
+  background:var(--surface2); color:var(--text); border:1px solid var(--gold-border);
+  border-radius:12px; padding:8px 12px; font-family:'Cairo',sans-serif; font-size:0.85rem;
+  cursor:pointer; transition:all .2s; display:flex; align-items:center; gap:6px;
+}
+.icon-btn:hover { border-color:var(--gold); color:var(--gold); }
+
+.page-badge {
+  background:var(--surface2); border:1px solid var(--gold-border); border-radius:12px;
+  padding:8px 14px; text-align:center; font-size:0.86rem; color:var(--muted); margin-bottom:12px;
+}
+.page-badge span { color:var(--text); }
+.return-today { color:var(--gold); text-decoration:underline; cursor:pointer; margin-right:8px; font-size:0.82rem; }
+
+.player-bar {
+  display:flex; flex-direction:column; gap:10px; background:var(--surface2);
+  border:1px solid var(--gold-border); border-radius:14px; padding:12px;
+  margin-bottom:10px;
+}
+@media(min-width:520px){ .player-bar { flex-direction:row; align-items:center; } }
+.reciter-select {
+  flex:1; background:var(--deep); color:var(--text); border:1px solid var(--gold-border);
+  border-radius:12px; padding:10px 12px; font-family:'Cairo',sans-serif; font-size:0.92rem;
+  cursor:pointer; min-width:0;
+}
+.player-btns { display:flex; gap:8px; }
+.play-btn {
+  flex:1; background:linear-gradient(135deg, var(--gold), #E6C200); color:#1a1200;
+  border:none; border-radius:12px; padding:10px 18px; font-family:'Cairo',sans-serif;
+  font-weight:800; font-size:0.95rem; cursor:pointer; transition:filter .2s;
+  display:flex; align-items:center; justify-content:center; gap:6px;
+}
+.play-btn:hover { filter:brightness(1.08); }
+.play-btn:disabled { opacity:.4; cursor:not-allowed; }
+.nav-btn {
+  background:var(--deep); color:var(--text); border:1px solid var(--gold-border);
+  border-radius:12px; padding:10px 14px; cursor:pointer; font-size:1rem; transition:all .2s;
+}
+.nav-btn:hover:not(:disabled) { border-color:var(--gold); color:var(--gold); }
+.nav-btn:disabled { opacity:.35; cursor:not-allowed; }
+.now-playing { text-align:center; font-size:0.82rem; color:var(--muted); margin-bottom:8px; min-height:20px; }
+.now-playing span { color:var(--gold); }
+
+.ayah-box {
+  background:var(--deep); border:1px solid var(--gold-border); border-radius:14px;
+  padding:20px 16px; min-height:120px; display:flex; align-items:center; justify-content:center;
+}
+.ayah-text {
+  font-family:'Amiri', serif; font-size:1.45rem; line-height:2.3; text-align:right;
+  direction:rtl; white-space:normal; overflow-wrap:break-word; word-break:break-word;
+}
+.ayah-text .ayah { transition:background .2s; border-radius:6px; padding:0 2px; }
+.ayah-text .ayah.playing { background:var(--gold-dim); border:1px solid var(--gold-border); }
+.ayah-number { color:var(--gold); }
+.loading { color:var(--muted); font-size:0.95rem; }
+.error { color:var(--err); font-size:0.95rem; text-align:center; }
+
+.bismallah {
+  font-family:'Amiri',serif; text-align:center; color:var(--gold); font-size:1.3rem;
+  margin-bottom:14px; opacity:.9;
+}
+
+.hadith-counter {
+  background:var(--gold-dim); border:1px solid var(--gold-border); color:var(--gold);
+  border-radius:12px; padding:6px 12px; font-size:0.82rem; font-weight:700; margin-bottom:6px;
+  display:inline-block;
+}
+.hadith-quote { font-family:'Amiri',serif; font-size:1.35rem; line-height:2.1; margin:14px 0; }
+.hadith-meta { color:var(--muted); font-size:0.88rem; margin-top:6px; }
+.hadith-meta b { color:var(--text); font-weight:600; }
+.explain-btn {
+  margin-top:12px; background:var(--surface2); border:1px solid var(--gold-border); color:var(--gold);
+  border-radius:12px; padding:8px 14px; font-family:'Cairo',sans-serif; font-size:0.85rem; font-weight:700;
+  cursor:pointer; width:100%; transition:all .2s; text-align:right;
+}
+.explain-btn:hover { border-color:var(--gold); }
+.explain-body {
+  display:none; background:var(--deep); border:1px solid var(--gold-border); border-radius:12px;
+  padding:14px; margin-top:10px; font-size:0.95rem; line-height:1.9; color:var(--text);
+}
+.explain-open .explain-body { display:block; }
+
+.page-modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.72); z-index:50; align-items:flex-end; justify-content:center; }
+.page-modal.open { display:flex; }
+.page-panel {
+  width:100%; max-width:720px; max-height:78vh; background:var(--surface); border:1px solid var(--gold-border);
+  border-radius:20px 20px 0 0; overflow:hidden; display:flex; flex-direction:column;
+}
+.page-panel-head { display:flex; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid var(--gold-border); }
+.page-panel-head h3 { color:var(--gold); font-size:1rem; }
+.page-list { overflow-y:auto; padding:12px; display:flex; flex-direction:column; gap:8px; }
+.page-item {
+  text-align:right; background:var(--surface2); border:1px solid var(--gold-border); border-radius:12px;
+  padding:12px 14px; cursor:pointer; transition:all .2s; font-family:'Cairo',sans-serif;
+}
+.page-item:hover { border-color:var(--gold); background:var(--surface3); }
+.page-item.active { border-color:var(--gold); background:var(--gold-dim); }
+.page-item .pi-day { font-weight:800; color:var(--text); font-size:0.95rem; }
+.page-item .pi-day span { color:var(--gold); }
+.page-item .pi-sub { color:var(--muted); font-size:0.82rem; margin-top:2px; }
+
+.footer { text-align:center; padding:16px 0 4px; color:var(--muted); font-size:0.8rem; }
+.footer b { color:var(--gold); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="app-header">
+    <div class="app-title">🌙 أجر وثواب</div>
+    <div class="app-sub">قرآن وحديث لكل يوم — للجميع</div>
+  </header>
+
+  <div class="date-line" id="dateLine"></div>
+
+  <section class="sec" id="quranSec">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-icon">📖</span> القرآن الكريم</div>
+      <button class="icon-btn" id="menuBtn">☰ الصفحات السابقة</button>
+    </div>
+    <div class="page-badge" id="pageBadge"></div>
+    <div class="player-bar">
+      <select class="reciter-select" id="reciterSelect"></select>
+      <div class="player-btns">
+        <button class="nav-btn" id="prevBtn" title="الآية السابقة">⏮</button>
+        <button class="play-btn" id="playBtn">▶ استماع</button>
+        <button class="nav-btn" id="nextBtn" title="الآية التالية">⏭</button>
+      </div>
+    </div>
+    <div class="now-playing" id="nowPlaying"></div>
+    <div class="ayah-box">
+      <div id="ayahContent"><div class="loading">جاري تحميل الآيات…</div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="hadithSec">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-icon">✅</span> حديث اليوم</div>
+    </div>
+    <div class="hadith-counter" id="hadithCounter"></div>
+    <div class="hadith-quote" id="hadithText"></div>
+    <div class="hadith-meta" id="hadithMeta"></div>
+    <button class="explain-btn" id="explainBtn">▼ عرض شرح الشيخ ابن باز رحمه الله</button>
+    <div class="explain-body" id="explainBody"></div>
+  </section>
+
+  <footer class="footer">أجر وثواب للجميع — <b>اللهم اجعله في ميزان حسناتنا</b></footer>
+</div>
+
+<div class="page-modal" id="pageModal">
+  <div class="page-panel">
+    <div class="page-panel-head">
+      <h3>📖 الصفحات السابقة</h3>
+      <button class="icon-btn" id="closeMenu">✕ إغلاق</button>
+    </div>
+    <div class="page-list" id="pageList"></div>
+  </div>
+</div>
+
+<script>
+const quranPages = [{"page": 1, "surahName": "الفاتحة", "surahNumber": 1, "startAyah": 1, "endAyah": 7}, {"page": 2, "surahName": "البقرة", "surahNumber": 2, "startAyah": 1, "endAyah": 10}, {"page": 3, "surahName": "البقرة", "surahNumber": 2, "startAyah": 11, "endAyah": 20}, {"page": 4, "surahName": "البقرة", "surahNumber": 2, "startAyah": 21, "endAyah": 30}, {"page": 5, "surahName": "البقرة", "surahNumber": 2, "startAyah": 31, "endAyah": 40}, {"page": 6, "surahName": "البقرة", "surahNumber": 2, "startAyah": 41, "endAyah": 50}, {"page": 7, "surahName": "البقرة", "surahNumber": 2, "startAyah": 51, "endAyah": 60}, {"page": 8, "surahName": "البقرة", "surahNumber": 2, "startAyah": 61, "endAyah": 70}, {"page": 9, "surahName": "البقرة", "surahNumber": 2, "startAyah": 71, "endAyah": 80}, {"page": 10, "surahName": "البقرة", "surahNumber": 2, "startAyah": 81, "endAyah": 90}, {"page": 11, "surahName": "البقرة", "surahNumber": 2, "startAyah": 91, "endAyah": 100}, {"page": 12, "surahName": "البقرة", "surahNumber": 2, "startAyah": 101, "endAyah": 110}, {"page": 13, "surahName": "البقرة", "surahNumber": 2, "startAyah": 111, "endAyah": 120}, {"page": 14, "surahName": "البقرة", "surahNumber": 2, "startAyah": 121, "endAyah": 130}, {"page": 15, "surahName": "البقرة", "surahNumber": 2, "startAyah": 131, "endAyah": 140}, {"page": 16, "surahName": "البقرة", "surahNumber": 2, "startAyah": 141, "endAyah": 150}, {"page": 17, "surahName": "البقرة", "surahNumber": 2, "startAyah": 151, "endAyah": 160}, {"page": 18, "surahName": "البقرة", "surahNumber": 2, "startAyah": 161, "endAyah": 170}, {"page": 19, "surahName": "البقرة", "surahNumber": 2, "startAyah": 171, "endAyah": 180}, {"page": 20, "surahName": "البقرة", "surahNumber": 2, "startAyah": 181, "endAyah": 190}, {"page": 21, "surahName": "البقرة", "surahNumber": 2, "startAyah": 191, "endAyah": 200}, {"page": 22, "surahName": "البقرة", "surahNumber": 2, "startAyah": 201, "endAyah": 210}, {"page": 23, "surahName": "البقرة", "surahNumber": 2, "startAyah": 211, "endAyah": 220}, {"page": 24, "surahName": "البقرة", "surahNumber": 2, "startAyah": 221, "endAyah": 230}, {"page": 25, "surahName": "البقرة", "surahNumber": 2, "startAyah": 231, "endAyah": 240}, {"page": 26, "surahName": "البقرة", "surahNumber": 2, "startAyah": 241, "endAyah": 250}, {"page": 27, "surahName": "البقرة", "surahNumber": 2, "startAyah": 258, "endAyah": 272}, {"page": 28, "surahName": "البقرة", "surahNumber": 2, "startAyah": 273, "endAyah": 286}, {"page": 29, "surahName": "آل عمران", "surahNumber": 3, "startAyah": 1, "endAyah": 15}, {"page": 30, "surahName": "آل عمران", "surahNumber": 3, "startAyah": 16, "endAyah": 30}, {"page": 31, "surahName": "آل عمران", "surahNumber": 3, "startAyah": 31, "endAyah": 45}, {"page": 32, "surahName": "آل عمران", "surahNumber": 3, "startAyah": 46, "endAyah": 60}, {"page": 33, "surahName": "آل عمران", "surahNumber": 3, "startAyah": 61, "endAyah": 75}, {"page": 34, "surahName": "آل عمران", "surahNumber": 3, "startAyah": 76, "endAyah": 90}, {"page": 35, "surahName": "آل عمران", "surahNumber": 3, "startAyah": 91, "endAyah": 105}, {"page": 36, "surahName": "آل عمران", "surahNumber": 3, "startAyah": 106, "endAyah": 120}, {"page": 37, "surahName": "آل عمران", "surahNumber": 3, "startAyah": 121, "endAyah": 135}, {"page": 38, "surahName": "آل عمران", "surahNumber": 3, "startAyah": 136, "endAyah": 150}, {"page": 39, "surahName": "آل عمران", "surahNumber": 3, "startAyah": 151, "endAyah": 165}, {"page": 40, "surahName": "آل عمران", "surahNumber": 3, "startAyah": 166, "endAyah": 180}, {"page": 41, "surahName": "آل عمران", "surahNumber": 3, "startAyah": 181, "endAyah": 195}, {"page": 42, "surahName": "آل عمران", "surahNumber": 3, "startAyah": 196, "endAyah": 200}, {"page": 43, "surahName": "النساء", "surahNumber": 4, "startAyah": 1, "endAyah": 15}, {"page": 44, "surahName": "النساء", "surahNumber": 4, "startAyah": 16, "endAyah": 30}, {"page": 45, "surahName": "النساء", "surahNumber": 4, "startAyah": 31, "endAyah": 45}, {"page": 46, "surahName": "النساء", "surahNumber": 4, "startAyah": 46, "endAyah": 60}, {"page": 47, "surahName": "النساء", "surahNumber": 4, "startAyah": 61, "endAyah": 75}, {"page": 48, "surahName": "النساء", "surahNumber": 4, "startAyah": 76, "endAyah": 90}, {"page": 49, "surahName": "النساء", "surahNumber": 4, "startAyah": 91, "endAyah": 105}, {"page": 50, "surahName": "النساء", "surahNumber": 4, "startAyah": 106, "endAyah": 120}, {"page": 51, "surahName": "النساء", "surahNumber": 4, "startAyah": 121, "endAyah": 135}, {"page": 52, "surahName": "النساء", "surahNumber": 4, "startAyah": 136, "endAyah": 150}, {"page": 53, "surahName": "النساء", "surahNumber": 4, "startAyah": 151, "endAyah": 165}, {"page": 54, "surahName": "النساء", "surahNumber": 4, "startAyah": 166, "endAyah": 176}, {"page": 55, "surahName": "المائدة", "surahNumber": 5, "startAyah": 1, "endAyah": 15}, {"page": 56, "surahName": "المائدة", "surahNumber": 5, "startAyah": 16, "endAyah": 30}, {"page": 57, "surahName": "المائدة", "surahNumber": 5, "startAyah": 31, "endAyah": 45}, {"page": 58, "surahName": "المائدة", "surahNumber": 5, "startAyah": 46, "endAyah": 60}, {"page": 59, "surahName": "المائدة", "surahNumber": 5, "startAyah": 61, "endAyah": 75}, {"page": 60, "surahName": "المائدة", "surahNumber": 5, "startAyah": 76, "endAyah": 90}, {"page": 61, "surahName": "المائدة", "surahNumber": 5, "startAyah": 91, "endAyah": 105}, {"page": 62, "surahName": "المائدة", "surahNumber": 5, "startAyah": 106, "endAyah": 120}, {"page": 63, "surahName": "الأنعام", "surahNumber": 6, "startAyah": 1, "endAyah": 15}, {"page": 64, "surahName": "الأنعام", "surahNumber": 6, "startAyah": 16, "endAyah": 30}, {"page": 65, "surahName": "الأنعام", "surahNumber": 6, "startAyah": 31, "endAyah": 45}, {"page": 66, "surahName": "الأنعام", "surahNumber": 6, "startAyah": 46, "endAyah": 60}, {"page": 67, "surahName": "الأنعام", "surahNumber": 6, "startAyah": 61, "endAyah": 75}, {"page": 68, "surahName": "الأنعام", "surahNumber": 6, "startAyah": 76, "endAyah": 90}, {"page": 69, "surahName": "الأنعام", "surahNumber": 6, "startAyah": 91, "endAyah": 105}, {"page": 70, "surahName": "الأنعام", "surahNumber": 6, "startAyah": 106, "endAyah": 120}, {"page": 71, "surahName": "الأنعام", "surahNumber": 6, "startAyah": 121, "endAyah": 135}, {"page": 72, "surahName": "الأنعام", "surahNumber": 6, "startAyah": 136, "endAyah": 150}, {"page": 73, "surahName": "الأنعام", "surahNumber": 6, "startAyah": 151, "endAyah": 165}, {"page": 74, "surahName": "الأعراف", "surahNumber": 7, "startAyah": 1, "endAyah": 15}, {"page": 75, "surahName": "الأعراف", "surahNumber": 7, "startAyah": 16, "endAyah": 30}, {"page": 76, "surahName": "الأعراف", "surahNumber": 7, "startAyah": 31, "endAyah": 45}, {"page": 77, "surahName": "الأعراف", "surahNumber": 7, "startAyah": 46, "endAyah": 60}, {"page": 78, "surahName": "الأعراف", "surahNumber": 7, "startAyah": 61, "endAyah": 75}, {"page": 79, "surahName": "الأعراف", "surahNumber": 7, "startAyah": 76, "endAyah": 90}, {"page": 80, "surahName": "الأعراف", "surahNumber": 7, "startAyah": 91, "endAyah": 105}, {"page": 81, "surahName": "الأعراف", "surahNumber": 7, "startAyah": 106, "endAyah": 120}, {"page": 82, "surahName": "الأعراف", "surahNumber": 7, "startAyah": 121, "endAyah": 135}, {"page": 83, "surahName": "الأعراف", "surahNumber": 7, "startAyah": 136, "endAyah": 150}, {"page": 84, "surahName": "الأعراف", "surahNumber": 7, "startAyah": 151, "endAyah": 165}, {"page": 85, "surahName": "الأعراف", "surahNumber": 7, "startAyah": 166, "endAyah": 180}, {"page": 86, "surahName": "الأعراف", "surahNumber": 7, "startAyah": 181, "endAyah": 195}, {"page": 87, "surahName": "الأعراف", "surahNumber": 7, "startAyah": 196, "endAyah": 206}, {"page": 88, "surahName": "الأنفال", "surahNumber": 8, "startAyah": 1, "endAyah": 15}, {"page": 89, "surahName": "الأنفال", "surahNumber": 8, "startAyah": 16, "endAyah": 30}, {"page": 90, "surahName": "الأنفال", "surahNumber": 8, "startAyah": 31, "endAyah": 45}, {"page": 91, "surahName": "الأنفال", "surahNumber": 8, "startAyah": 46, "endAyah": 60}, {"page": 92, "surahName": "الأنفال", "surahNumber": 8, "startAyah": 61, "endAyah": 75}, {"page": 93, "surahName": "التوبة", "surahNumber": 9, "startAyah": 1, "endAyah": 15}, {"page": 94, "surahName": "التوبة", "surahNumber": 9, "startAyah": 16, "endAyah": 30}, {"page": 95, "surahName": "التوبة", "surahNumber": 9, "startAyah": 31, "endAyah": 45}, {"page": 96, "surahName": "التوبة", "surahNumber": 9, "startAyah": 46, "endAyah": 60}, {"page": 97, "surahName": "التوبة", "surahNumber": 9, "startAyah": 61, "endAyah": 75}, {"page": 98, "surahName": "التوبة", "surahNumber": 9, "startAyah": 76, "endAyah": 90}, {"page": 99, "surahName": "التوبة", "surahNumber": 9, "startAyah": 91, "endAyah": 105}, {"page": 100, "surahName": "التوبة", "surahNumber": 9, "startAyah": 106, "endAyah": 120}, {"page": 101, "surahName": "التوبة", "surahNumber": 9, "startAyah": 121, "endAyah": 129}, {"page": 102, "surahName": "يونس", "surahNumber": 10, "startAyah": 1, "endAyah": 15}, {"page": 103, "surahName": "يونس", "surahNumber": 10, "startAyah": 16, "endAyah": 30}, {"page": 104, "surahName": "يونس", "surahNumber": 10, "startAyah": 31, "endAyah": 45}, {"page": 105, "surahName": "يونس", "surahNumber": 10, "startAyah": 46, "endAyah": 60}, {"page": 106, "surahName": "يونس", "surahNumber": 10, "startAyah": 61, "endAyah": 75}, {"page": 107, "surahName": "يونس", "surahNumber": 10, "startAyah": 76, "endAyah": 90}, {"page": 108, "surahName": "يونس", "surahNumber": 10, "startAyah": 91, "endAyah": 105}, {"page": 109, "surahName": "يونس", "surahNumber": 10, "startAyah": 106, "endAyah": 109}, {"page": 110, "surahName": "هود", "surahNumber": 11, "startAyah": 1, "endAyah": 15}, {"page": 111, "surahName": "هود", "surahNumber": 11, "startAyah": 16, "endAyah": 30}, {"page": 112, "surahName": "هود", "surahNumber": 11, "startAyah": 31, "endAyah": 45}, {"page": 113, "surahName": "هود", "surahNumber": 11, "startAyah": 46, "endAyah": 60}, {"page": 114, "surahName": "هود", "surahNumber": 11, "startAyah": 61, "endAyah": 75}, {"page": 115, "surahName": "هود", "surahNumber": 11, "startAyah": 76, "endAyah": 90}, {"page": 116, "surahName": "هود", "surahNumber": 11, "startAyah": 91, "endAyah": 105}, {"page": 117, "surahName": "هود", "surahNumber": 11, "startAyah": 106, "endAyah": 120}, {"page": 118, "surahName": "هود", "surahNumber": 11, "startAyah": 121, "endAyah": 123}, {"page": 119, "surahName": "يوسف", "surahNumber": 12, "startAyah": 1, "endAyah": 15}, {"page": 120, "surahName": "يوسف", "surahNumber": 12, "startAyah": 16, "endAyah": 30}, {"page": 121, "surahName": "يوسف", "surahNumber": 12, "startAyah": 31, "endAyah": 45}, {"page": 122, "surahName": "يوسف", "surahNumber": 12, "startAyah": 46, "endAyah": 60}, {"page": 123, "surahName": "يوسف", "surahNumber": 12, "startAyah": 61, "endAyah": 75}, {"page": 124, "surahName": "يوسف", "surahNumber": 12, "startAyah": 76, "endAyah": 90}, {"page": 125, "surahName": "يوسف", "surahNumber": 12, "startAyah": 91, "endAyah": 105}, {"page": 126, "surahName": "يوسف", "surahNumber": 12, "startAyah": 106, "endAyah": 111}, {"page": 127, "surahName": "الرعد", "surahNumber": 13, "startAyah": 1, "endAyah": 15}, {"page": 128, "surahName": "الرعد", "surahNumber": 13, "startAyah": 16, "endAyah": 30}, {"page": 129, "surahName": "الرعد", "surahNumber": 13, "startAyah": 31, "endAyah": 43}, {"page": 130, "surahName": "إبراهيم", "surahNumber": 14, "startAyah": 1, "endAyah": 15}, {"page": 131, "surahName": "إبراهيم", "surahNumber": 14, "startAyah": 16, "endAyah": 30}, {"page": 132, "surahName": "إبراهيم", "surahNumber": 14, "startAyah": 31, "endAyah": 45}, {"page": 133, "surahName": "إبراهيم", "surahNumber": 14, "startAyah": 46, "endAyah": 52}, {"page": 134, "surahName": "الحجر", "surahNumber": 15, "startAyah": 1, "endAyah": 15}, {"page": 135, "surahName": "الحجر", "surahNumber": 15, "startAyah": 16, "endAyah": 30}, {"page": 136, "surahName": "الحجر", "surahNumber": 15, "startAyah": 31, "endAyah": 45}, {"page": 137, "surahName": "الحجر", "surahNumber": 15, "startAyah": 46, "endAyah": 60}, {"page": 138, "surahName": "الحجر", "surahNumber": 15, "startAyah": 61, "endAyah": 75}, {"page": 139, "surahName": "الحجر", "surahNumber": 15, "startAyah": 76, "endAyah": 90}, {"page": 140, "surahName": "الحجر", "surahNumber": 15, "startAyah": 91, "endAyah": 99}, {"page": 141, "surahName": "النحل", "surahNumber": 16, "startAyah": 1, "endAyah": 15}, {"page": 142, "surahName": "النحل", "surahNumber": 16, "startAyah": 16, "endAyah": 30}, {"page": 143, "surahName": "النحل", "surahNumber": 16, "startAyah": 31, "endAyah": 45}, {"page": 144, "surahName": "النحل", "surahNumber": 16, "startAyah": 46, "endAyah": 60}, {"page": 145, "surahName": "النحل", "surahNumber": 16, "startAyah": 61, "endAyah": 75}, {"page": 146, "surahName": "النحل", "surahNumber": 16, "startAyah": 76, "endAyah": 90}, {"page": 147, "surahName": "النحل", "surahNumber": 16, "startAyah": 91, "endAyah": 105}, {"page": 148, "surahName": "النحل", "surahNumber": 16, "startAyah": 106, "endAyah": 120}, {"page": 149, "surahName": "النحل", "surahNumber": 16, "startAyah": 121, "endAyah": 128}, {"page": 150, "surahName": "الإسراء", "surahNumber": 17, "startAyah": 1, "endAyah": 15}, {"page": 151, "surahName": "الإسراء", "surahNumber": 17, "startAyah": 16, "endAyah": 30}, {"page": 152, "surahName": "الإسراء", "surahNumber": 17, "startAyah": 31, "endAyah": 45}, {"page": 153, "surahName": "الإسراء", "surahNumber": 17, "startAyah": 46, "endAyah": 60}, {"page": 154, "surahName": "الإسراء", "surahNumber": 17, "startAyah": 61, "endAyah": 75}, {"page": 155, "surahName": "الإسراء", "surahNumber": 17, "startAyah": 76, "endAyah": 90}, {"page": 156, "surahName": "الإسراء", "surahNumber": 17, "startAyah": 91, "endAyah": 105}, {"page": 157, "surahName": "الإسراء", "surahNumber": 17, "startAyah": 106, "endAyah": 111}, {"page": 158, "surahName": "الكهف", "surahNumber": 18, "startAyah": 1, "endAyah": 15}, {"page": 159, "surahName": "الكهف", "surahNumber": 18, "startAyah": 16, "endAyah": 30}, {"page": 160, "surahName": "الكهف", "surahNumber": 18, "startAyah": 31, "endAyah": 45}, {"page": 161, "surahName": "الكهف", "surahNumber": 18, "startAyah": 46, "endAyah": 60}, {"page": 162, "surahName": "الكهف", "surahNumber": 18, "startAyah": 61, "endAyah": 75}, {"page": 163, "surahName": "الكهف", "surahNumber": 18, "startAyah": 76, "endAyah": 90}, {"page": 164, "surahName": "الكهف", "surahNumber": 18, "startAyah": 91, "endAyah": 105}, {"page": 165, "surahName": "الكهف", "surahNumber": 18, "startAyah": 106, "endAyah": 110}, {"page": 166, "surahName": "مريم", "surahNumber": 19, "startAyah": 1, "endAyah": 15}, {"page": 167, "surahName": "مريم", "surahNumber": 19, "startAyah": 16, "endAyah": 30}, {"page": 168, "surahName": "مريم", "surahNumber": 19, "startAyah": 31, "endAyah": 45}, {"page": 169, "surahName": "مريم", "surahNumber": 19, "startAyah": 46, "endAyah": 60}, {"page": 170, "surahName": "مريم", "surahNumber": 19, "startAyah": 61, "endAyah": 75}, {"page": 171, "surahName": "مريم", "surahNumber": 19, "startAyah": 76, "endAyah": 90}, {"page": 172, "surahName": "مريم", "surahNumber": 19, "startAyah": 91, "endAyah": 98}, {"page": 173, "surahName": "طه", "surahNumber": 20, "startAyah": 1, "endAyah": 15}, {"page": 174, "surahName": "طه", "surahNumber": 20, "startAyah": 16, "endAyah": 30}, {"page": 175, "surahName": "طه", "surahNumber": 20, "startAyah": 31, "endAyah": 45}, {"page": 176, "surahName": "طه", "surahNumber": 20, "startAyah": 46, "endAyah": 60}, {"page": 177, "surahName": "طه", "surahNumber": 20, "startAyah": 61, "endAyah": 75}, {"page": 178, "surahName": "طه", "surahNumber": 20, "startAyah": 76, "endAyah": 90}, {"page": 179, "surahName": "طه", "surahNumber": 20, "startAyah": 91, "endAyah": 105}, {"page": 180, "surahName": "طه", "surahNumber": 20, "startAyah": 106, "endAyah": 120}, {"page": 181, "surahName": "طه", "surahNumber": 20, "startAyah": 121, "endAyah": 135}, {"page": 182, "surahName": "الأنبياء", "surahNumber": 21, "startAyah": 1, "endAyah": 15}, {"page": 183, "surahName": "الأنبياء", "surahNumber": 21, "startAyah": 16, "endAyah": 30}, {"page": 184, "surahName": "الأنبياء", "surahNumber": 21, "startAyah": 31, "endAyah": 45}, {"page": 185, "surahName": "الأنبياء", "surahNumber": 21, "startAyah": 46, "endAyah": 60}, {"page": 186, "surahName": "الأنبياء", "surahNumber": 21, "startAyah": 61, "endAyah": 75}, {"page": 187, "surahName": "الأنبياء", "surahNumber": 21, "startAyah": 76, "endAyah": 90}, {"page": 188, "surahName": "الأنبياء", "surahNumber": 21, "startAyah": 91, "endAyah": 105}, {"page": 189, "surahName": "الأنبياء", "surahNumber": 21, "startAyah": 106, "endAyah": 112}, {"page": 190, "surahName": "الحج", "surahNumber": 22, "startAyah": 1, "endAyah": 15}, {"page": 191, "surahName": "الحج", "surahNumber": 22, "startAyah": 16, "endAyah": 30}, {"page": 192, "surahName": "الحج", "surahNumber": 22, "startAyah": 31, "endAyah": 45}, {"page": 193, "surahName": "الحج", "surahNumber": 22, "startAyah": 46, "endAyah": 60}, {"page": 194, "surahName": "الحج", "surahNumber": 22, "startAyah": 61, "endAyah": 75}, {"page": 195, "surahName": "الحج", "surahNumber": 22, "startAyah": 76, "endAyah": 78}, {"page": 196, "surahName": "المؤمنون", "surahNumber": 23, "startAyah": 1, "endAyah": 15}, {"page": 197, "surahName": "المؤمنون", "surahNumber": 23, "startAyah": 16, "endAyah": 30}, {"page": 198, "surahName": "المؤمنون", "surahNumber": 23, "startAyah": 31, "endAyah": 45}, {"page": 199, "surahName": "المؤمنون", "surahNumber": 23, "startAyah": 46, "endAyah": 60}, {"page": 200, "surahName": "المؤمنون", "surahNumber": 23, "startAyah": 61, "endAyah": 75}, {"page": 201, "surahName": "المؤمنون", "surahNumber": 23, "startAyah": 76, "endAyah": 90}, {"page": 202, "surahName": "المؤمنون", "surahNumber": 23, "startAyah": 91, "endAyah": 105}, {"page": 203, "surahName": "المؤمنون", "surahNumber": 23, "startAyah": 106, "endAyah": 118}, {"page": 204, "surahName": "النور", "surahNumber": 24, "startAyah": 1, "endAyah": 15}, {"page": 205, "surahName": "النور", "surahNumber": 24, "startAyah": 16, "endAyah": 30}, {"page": 206, "surahName": "النور", "surahNumber": 24, "startAyah": 31, "endAyah": 45}, {"page": 207, "surahName": "النور", "surahNumber": 24, "startAyah": 46, "endAyah": 60}, {"page": 208, "surahName": "النور", "surahNumber": 24, "startAyah": 61, "endAyah": 64}, {"page": 209, "surahName": "الفرقان", "surahNumber": 25, "startAyah": 1, "endAyah": 15}, {"page": 210, "surahName": "الفرقان", "surahNumber": 25, "startAyah": 16, "endAyah": 30}, {"page": 211, "surahName": "الفرقان", "surahNumber": 25, "startAyah": 31, "endAyah": 45}, {"page": 212, "surahName": "الفرقان", "surahNumber": 25, "startAyah": 46, "endAyah": 60}, {"page": 213, "surahName": "الفرقان", "surahNumber": 25, "startAyah": 61, "endAyah": 75}, {"page": 214, "surahName": "الفرقان", "surahNumber": 25, "startAyah": 76, "endAyah": 77}, {"page": 215, "surahName": "الشعراء", "surahNumber": 26, "startAyah": 1, "endAyah": 15}, {"page": 216, "surahName": "الشعراء", "surahNumber": 26, "startAyah": 16, "endAyah": 30}, {"page": 217, "surahName": "الشعراء", "surahNumber": 26, "startAyah": 31, "endAyah": 45}, {"page": 218, "surahName": "الشعراء", "surahNumber": 26, "startAyah": 46, "endAyah": 60}, {"page": 219, "surahName": "الشعراء", "surahNumber": 26, "startAyah": 61, "endAyah": 75}, {"page": 220, "surahName": "الشعراء", "surahNumber": 26, "startAyah": 76, "endAyah": 90}, {"page": 221, "surahName": "الشعراء", "surahNumber": 26, "startAyah": 91, "endAyah": 105}, {"page": 222, "surahName": "الشعراء", "surahNumber": 26, "startAyah": 106, "endAyah": 120}, {"page": 223, "surahName": "الشعراء", "surahNumber": 26, "startAyah": 121, "endAyah": 135}, {"page": 224, "surahName": "الشعراء", "surahNumber": 26, "startAyah": 136, "endAyah": 150}, {"page": 225, "surahName": "الشعراء", "surahNumber": 26, "startAyah": 151, "endAyah": 165}, {"page": 226, "surahName": "الشعراء", "surahNumber": 26, "startAyah": 166, "endAyah": 180}, {"page": 227, "surahName": "الشعراء", "surahNumber": 26, "startAyah": 181, "endAyah": 195}, {"page": 228, "surahName": "الشعراء", "surahNumber": 26, "startAyah": 196, "endAyah": 210}, {"page": 229, "surahName": "الشعراء", "surahNumber": 26, "startAyah": 211, "endAyah": 225}, {"page": 230, "surahName": "الشعراء", "surahNumber": 26, "startAyah": 226, "endAyah": 227}, {"page": 231, "surahName": "النمل", "surahNumber": 27, "startAyah": 1, "endAyah": 15}, {"page": 232, "surahName": "النمل", "surahNumber": 27, "startAyah": 16, "endAyah": 30}, {"page": 233, "surahName": "النمل", "surahNumber": 27, "startAyah": 31, "endAyah": 45}, {"page": 234, "surahName": "النمل", "surahNumber": 27, "startAyah": 46, "endAyah": 60}, {"page": 235, "surahName": "النمل", "surahNumber": 27, "startAyah": 61, "endAyah": 75}, {"page": 236, "surahName": "النمل", "surahNumber": 27, "startAyah": 76, "endAyah": 90}, {"page": 237, "surahName": "النمل", "surahNumber": 27, "startAyah": 91, "endAyah": 93}, {"page": 238, "surahName": "القصص", "surahNumber": 28, "startAyah": 1, "endAyah": 15}, {"page": 239, "surahName": "القصص", "surahNumber": 28, "startAyah": 16, "endAyah": 30}, {"page": 240, "surahName": "القصص", "surahNumber": 28, "startAyah": 31, "endAyah": 45}, {"page": 241, "surahName": "القصص", "surahNumber": 28, "startAyah": 46, "endAyah": 60}, {"page": 242, "surahName": "القصص", "surahNumber": 28, "startAyah": 61, "endAyah": 75}, {"page": 243, "surahName": "القصص", "surahNumber": 28, "startAyah": 76, "endAyah": 88}, {"page": 244, "surahName": "العنكبوت", "surahNumber": 29, "startAyah": 1, "endAyah": 15}, {"page": 245, "surahName": "العنكبوت", "surahNumber": 29, "startAyah": 16, "endAyah": 30}, {"page": 246, "surahName": "العنكبوت", "surahNumber": 29, "startAyah": 31, "endAyah": 45}, {"page": 247, "surahName": "العنكبوت", "surahNumber": 29, "startAyah": 46, "endAyah": 60}, {"page": 248, "surahName": "العنكبوت", "surahNumber": 29, "startAyah": 61, "endAyah": 69}, {"page": 249, "surahName": "الروم", "surahNumber": 30, "startAyah": 1, "endAyah": 15}, {"page": 250, "surahName": "الروم", "surahNumber": 30, "startAyah": 16, "endAyah": 30}, {"page": 251, "surahName": "الروم", "surahNumber": 30, "startAyah": 31, "endAyah": 45}, {"page": 252, "surahName": "الروم", "surahNumber": 30, "startAyah": 46, "endAyah": 60}, {"page": 253, "surahName": "لقمان", "surahNumber": 31, "startAyah": 1, "endAyah": 15}, {"page": 254, "surahName": "لقمان", "surahNumber": 31, "startAyah": 16, "endAyah": 30}, {"page": 255, "surahName": "لقمان", "surahNumber": 31, "startAyah": 31, "endAyah": 34}, {"page": 256, "surahName": "السجدة", "surahNumber": 32, "startAyah": 1, "endAyah": 15}, {"page": 257, "surahName": "السجدة", "surahNumber": 32, "startAyah": 16, "endAyah": 30}, {"page": 258, "surahName": "الأحزاب", "surahNumber": 33, "startAyah": 1, "endAyah": 15}, {"page": 259, "surahName": "الأحزاب", "surahNumber": 33, "startAyah": 16, "endAyah": 30}, {"page": 260, "surahName": "الأحزاب", "surahNumber": 33, "startAyah": 31, "endAyah": 45}, {"page": 261, "surahName": "الأحزاب", "surahNumber": 33, "startAyah": 46, "endAyah": 60}, {"page": 262, "surahName": "الأحزاب", "surahNumber": 33, "startAyah": 61, "endAyah": 73}, {"page": 263, "surahName": "سبأ", "surahNumber": 34, "startAyah": 1, "endAyah": 15}, {"page": 264, "surahName": "سبأ", "surahNumber": 34, "startAyah": 16, "endAyah": 30}, {"page": 265, "surahName": "سبأ", "surahNumber": 34, "startAyah": 31, "endAyah": 45}, {"page": 266, "surahName": "سبأ", "surahNumber": 34, "startAyah": 46, "endAyah": 54}, {"page": 267, "surahName": "فاطر", "surahNumber": 35, "startAyah": 1, "endAyah": 15}, {"page": 268, "surahName": "فاطر", "surahNumber": 35, "startAyah": 16, "endAyah": 30}, {"page": 269, "surahName": "فاطر", "surahNumber": 35, "startAyah": 31, "endAyah": 45}, {"page": 270, "surahName": "يس", "surahNumber": 36, "startAyah": 1, "endAyah": 15}, {"page": 271, "surahName": "يس", "surahNumber": 36, "startAyah": 16, "endAyah": 30}, {"page": 272, "surahName": "يس", "surahNumber": 36, "startAyah": 31, "endAyah": 45}, {"page": 273, "surahName": "يس", "surahNumber": 36, "startAyah": 46, "endAyah": 60}, {"page": 274, "surahName": "يس", "surahNumber": 36, "startAyah": 61, "endAyah": 75}, {"page": 275, "surahName": "يس", "surahNumber": 36, "startAyah": 76, "endAyah": 83}, {"page": 276, "surahName": "الصافات", "surahNumber": 37, "startAyah": 1, "endAyah": 15}, {"page": 277, "surahName": "الصافات", "surahNumber": 37, "startAyah": 16, "endAyah": 30}, {"page": 278, "surahName": "الصافات", "surahNumber": 37, "startAyah": 31, "endAyah": 45}, {"page": 279, "surahName": "الصافات", "surahNumber": 37, "startAyah": 46, "endAyah": 60}, {"page": 280, "surahName": "الصافات", "surahNumber": 37, "startAyah": 61, "endAyah": 75}, {"page": 281, "surahName": "الصافات", "surahNumber": 37, "startAyah": 76, "endAyah": 90}, {"page": 282, "surahName": "الصافات", "surahNumber": 37, "startAyah": 91, "endAyah": 105}, {"page": 283, "surahName": "الصافات", "surahNumber": 37, "startAyah": 106, "endAyah": 120}, {"page": 284, "surahName": "الصافات", "surahNumber": 37, "startAyah": 121, "endAyah": 135}, {"page": 285, "surahName": "الصافات", "surahNumber": 37, "startAyah": 136, "endAyah": 150}, {"page": 286, "surahName": "الصافات", "surahNumber": 37, "startAyah": 151, "endAyah": 165}, {"page": 287, "surahName": "الصافات", "surahNumber": 37, "startAyah": 166, "endAyah": 180}, {"page": 288, "surahName": "الصافات", "surahNumber": 37, "startAyah": 181, "endAyah": 182}, {"page": 289, "surahName": "ص", "surahNumber": 38, "startAyah": 1, "endAyah": 15}, {"page": 290, "surahName": "ص", "surahNumber": 38, "startAyah": 16, "endAyah": 30}, {"page": 291, "surahName": "ص", "surahNumber": 38, "startAyah": 31, "endAyah": 45}, {"page": 292, "surahName": "ص", "surahNumber": 38, "startAyah": 46, "endAyah": 60}, {"page": 293, "surahName": "ص", "surahNumber": 38, "startAyah": 61, "endAyah": 75}, {"page": 294, "surahName": "ص", "surahNumber": 38, "startAyah": 76, "endAyah": 88}, {"page": 295, "surahName": "الزمر", "surahNumber": 39, "startAyah": 1, "endAyah": 15}, {"page": 296, "surahName": "الزمر", "surahNumber": 39, "startAyah": 16, "endAyah": 30}, {"page": 297, "surahName": "الزمر", "surahNumber": 39, "startAyah": 31, "endAyah": 45}, {"page": 298, "surahName": "الزمر", "surahNumber": 39, "startAyah": 46, "endAyah": 60}, {"page": 299, "surahName": "الزمر", "surahNumber": 39, "startAyah": 61, "endAyah": 75}, {"page": 300, "surahName": "غافر", "surahNumber": 40, "startAyah": 1, "endAyah": 15}, {"page": 301, "surahName": "غافر", "surahNumber": 40, "startAyah": 16, "endAyah": 30}, {"page": 302, "surahName": "غافر", "surahNumber": 40, "startAyah": 31, "endAyah": 45}, {"page": 303, "surahName": "غافر", "surahNumber": 40, "startAyah": 46, "endAyah": 60}, {"page": 304, "surahName": "غافر", "surahNumber": 40, "startAyah": 61, "endAyah": 75}, {"page": 305, "surahName": "غافر", "surahNumber": 40, "startAyah": 76, "endAyah": 85}, {"page": 306, "surahName": "فصلت", "surahNumber": 41, "startAyah": 1, "endAyah": 15}, {"page": 307, "surahName": "فصلت", "surahNumber": 41, "startAyah": 16, "endAyah": 30}, {"page": 308, "surahName": "فصلت", "surahNumber": 41, "startAyah": 31, "endAyah": 45}, {"page": 309, "surahName": "فصلت", "surahNumber": 41, "startAyah": 46, "endAyah": 54}, {"page": 310, "surahName": "الشورى", "surahNumber": 42, "startAyah": 1, "endAyah": 15}, {"page": 311, "surahName": "الشورى", "surahNumber": 42, "startAyah": 16, "endAyah": 30}, {"page": 312, "surahName": "الشورى", "surahNumber": 42, "startAyah": 31, "endAyah": 45}, {"page": 313, "surahName": "الشورى", "surahNumber": 42, "startAyah": 46, "endAyah": 53}, {"page": 314, "surahName": "الزخرف", "surahNumber": 43, "startAyah": 1, "endAyah": 15}, {"page": 315, "surahName": "الزخرف", "surahNumber": 43, "startAyah": 16, "endAyah": 30}, {"page": 316, "surahName": "الزخرف", "surahNumber": 43, "startAyah": 31, "endAyah": 45}, {"page": 317, "surahName": "الزخرف", "surahNumber": 43, "startAyah": 46, "endAyah": 60}, {"page": 318, "surahName": "الزخرف", "surahNumber": 43, "startAyah": 61, "endAyah": 75}, {"page": 319, "surahName": "الزخرف", "surahNumber": 43, "startAyah": 76, "endAyah": 89}, {"page": 320, "surahName": "الدخان", "surahNumber": 44, "startAyah": 1, "endAyah": 15}, {"page": 321, "surahName": "الدخان", "surahNumber": 44, "startAyah": 16, "endAyah": 30}, {"page": 322, "surahName": "الدخان", "surahNumber": 44, "startAyah": 31, "endAyah": 45}, {"page": 323, "surahName": "الدخان", "surahNumber": 44, "startAyah": 46, "endAyah": 59}, {"page": 324, "surahName": "الجاثية", "surahNumber": 45, "startAyah": 1, "endAyah": 15}, {"page": 325, "surahName": "الجاثية", "surahNumber": 45, "startAyah": 16, "endAyah": 30}, {"page": 326, "surahName": "الجاثية", "surahNumber": 45, "startAyah": 31, "endAyah": 37}, {"page": 327, "surahName": "الأحقاف", "surahNumber": 46, "startAyah": 1, "endAyah": 15}, {"page": 328, "surahName": "الأحقاف", "surahNumber": 46, "startAyah": 16, "endAyah": 30}, {"page": 329, "surahName": "الأحقاف", "surahNumber": 46, "startAyah": 31, "endAyah": 35}, {"page": 330, "surahName": "محمد", "surahNumber": 47, "startAyah": 1, "endAyah": 15}, {"page": 331, "surahName": "محمد", "surahNumber": 47, "startAyah": 16, "endAyah": 30}, {"page": 332, "surahName": "محمد", "surahNumber": 47, "startAyah": 31, "endAyah": 38}, {"page": 333, "surahName": "الفتح", "surahNumber": 48, "startAyah": 1, "endAyah": 15}, {"page": 334, "surahName": "الفتح", "surahNumber": 48, "startAyah": 16, "endAyah": 29}, {"page": 335, "surahName": "الحجرات", "surahNumber": 49, "startAyah": 1, "endAyah": 15}, {"page": 336, "surahName": "الحجرات", "surahNumber": 49, "startAyah": 16, "endAyah": 18}, {"page": 337, "surahName": "ق", "surahNumber": 50, "startAyah": 1, "endAyah": 15}, {"page": 338, "surahName": "ق", "surahNumber": 50, "startAyah": 16, "endAyah": 30}, {"page": 339, "surahName": "ق", "surahNumber": 50, "startAyah": 31, "endAyah": 45}, {"page": 340, "surahName": "الذاريات", "surahNumber": 51, "startAyah": 1, "endAyah": 15}, {"page": 341, "surahName": "الذاريات", "surahNumber": 51, "startAyah": 16, "endAyah": 30}, {"page": 342, "surahName": "الذاريات", "surahNumber": 51, "startAyah": 31, "endAyah": 45}, {"page": 343, "surahName": "الذاريات", "surahNumber": 51, "startAyah": 46, "endAyah": 60}, {"page": 344, "surahName": "الطور", "surahNumber": 52, "startAyah": 1, "endAyah": 15}, {"page": 345, "surahName": "الطور", "surahNumber": 52, "startAyah": 16, "endAyah": 30}, {"page": 346, "surahName": "الطور", "surahNumber": 52, "startAyah": 31, "endAyah": 45}, {"page": 347, "surahName": "الطور", "surahNumber": 52, "startAyah": 46, "endAyah": 49}, {"page": 348, "surahName": "النجم", "surahNumber": 53, "startAyah": 1, "endAyah": 15}, {"page": 349, "surahName": "النجم", "surahNumber": 53, "startAyah": 16, "endAyah": 30}, {"page": 350, "surahName": "النجم", "surahNumber": 53, "startAyah": 31, "endAyah": 45}, {"page": 351, "surahName": "النجم", "surahNumber": 53, "startAyah": 46, "endAyah": 60}, {"page": 352, "surahName": "النجم", "surahNumber": 53, "startAyah": 61, "endAyah": 62}, {"page": 353, "surahName": "القمر", "surahNumber": 54, "startAyah": 1, "endAyah": 15}, {"page": 354, "surahName": "القمر", "surahNumber": 54, "startAyah": 16, "endAyah": 30}, {"page": 355, "surahName": "القمر", "surahNumber": 54, "startAyah": 31, "endAyah": 45}, {"page": 356, "surahName": "القمر", "surahNumber": 54, "startAyah": 46, "endAyah": 55}, {"page": 357, "surahName": "الرحمن", "surahNumber": 55, "startAyah": 1, "endAyah": 15}, {"page": 358, "surahName": "الرحمن", "surahNumber": 55, "startAyah": 16, "endAyah": 30}, {"page": 359, "surahName": "الرحمن", "surahNumber": 55, "startAyah": 31, "endAyah": 45}, {"page": 360, "surahName": "الرحمن", "surahNumber": 55, "startAyah": 46, "endAyah": 60}, {"page": 361, "surahName": "الرحمن", "surahNumber": 55, "startAyah": 61, "endAyah": 75}, {"page": 362, "surahName": "الرحمن", "surahNumber": 55, "startAyah": 76, "endAyah": 78}, {"page": 363, "surahName": "الواقعة", "surahNumber": 56, "startAyah": 1, "endAyah": 15}, {"page": 364, "surahName": "الواقعة", "surahNumber": 56, "startAyah": 16, "endAyah": 30}, {"page": 365, "surahName": "الواقعة", "surahNumber": 56, "startAyah": 31, "endAyah": 45}, {"page": 366, "surahName": "الواقعة", "surahNumber": 56, "startAyah": 46, "endAyah": 60}, {"page": 367, "surahName": "الواقعة", "surahNumber": 56, "startAyah": 61, "endAyah": 75}, {"page": 368, "surahName": "الواقعة", "surahNumber": 56, "startAyah": 76, "endAyah": 90}, {"page": 369, "surahName": "الواقعة", "surahNumber": 56, "startAyah": 91, "endAyah": 96}, {"page": 370, "surahName": "الحديد", "surahNumber": 57, "startAyah": 1, "endAyah": 15}, {"page": 371, "surahName": "الحديد", "surahNumber": 57, "startAyah": 16, "endAyah": 29}, {"page": 372, "surahName": "المجادلة", "surahNumber": 58, "startAyah": 1, "endAyah": 15}, {"page": 373, "surahName": "المجادلة", "surahNumber": 58, "startAyah": 16, "endAyah": 22}, {"page": 374, "surahName": "الحشر", "surahNumber": 59, "startAyah": 1, "endAyah": 15}, {"page": 375, "surahName": "الحشر", "surahNumber": 59, "startAyah": 16, "endAyah": 24}, {"page": 376, "surahName": "الممتحنة", "surahNumber": 60, "startAyah": 1, "endAyah": 13}, {"page": 377, "surahName": "الصف", "surahNumber": 61, "startAyah": 1, "endAyah": 14}, {"page": 378, "surahName": "الجمعة", "surahNumber": 62, "startAyah": 1, "endAyah": 11}, {"page": 379, "surahName": "المنافقون", "surahNumber": 63, "startAyah": 1, "endAyah": 11}, {"page": 380, "surahName": "التغابن", "surahNumber": 64, "startAyah": 1, "endAyah": 15}, {"page": 381, "surahName": "التغابن", "surahNumber": 64, "startAyah": 16, "endAyah": 18}, {"page": 382, "surahName": "الطلاق", "surahNumber": 65, "startAyah": 1, "endAyah": 12}, {"page": 383, "surahName": "التحريم", "surahNumber": 66, "startAyah": 1, "endAyah": 12}, {"page": 384, "surahName": "الملك", "surahNumber": 67, "startAyah": 1, "endAyah": 15}, {"page": 385, "surahName": "الملك", "surahNumber": 67, "startAyah": 16, "endAyah": 30}, {"page": 386, "surahName": "القلم", "surahNumber": 68, "startAyah": 1, "endAyah": 15}, {"page": 387, "surahName": "القلم", "surahNumber": 68, "startAyah": 16, "endAyah": 30}, {"page": 388, "surahName": "القلم", "surahNumber": 68, "startAyah": 31, "endAyah": 45}, {"page": 389, "surahName": "القلم", "surahNumber": 68, "startAyah": 46, "endAyah": 52}, {"page": 390, "surahName": "الحاقة", "surahNumber": 69, "startAyah": 1, "endAyah": 15}, {"page": 391, "surahName": "الحاقة", "surahNumber": 69, "startAyah": 16, "endAyah": 30}, {"page": 392, "surahName": "الحاقة", "surahNumber": 69, "startAyah": 31, "endAyah": 45}, {"page": 393, "surahName": "الحاقة", "surahNumber": 69, "startAyah": 46, "endAyah": 52}, {"page": 394, "surahName": "المعارج", "surahNumber": 70, "startAyah": 1, "endAyah": 15}, {"page": 395, "surahName": "المعارج", "surahNumber": 70, "startAyah": 16, "endAyah": 30}, {"page": 396, "surahName": "المعارج", "surahNumber": 70, "startAyah": 31, "endAyah": 44}, {"page": 397, "surahName": "نوح", "surahNumber": 71, "startAyah": 1, "endAyah": 15}, {"page": 398, "surahName": "نوح", "surahNumber": 71, "startAyah": 16, "endAyah": 28}, {"page": 399, "surahName": "الجن", "surahNumber": 72, "startAyah": 1, "endAyah": 15}, {"page": 400, "surahName": "الجن", "surahNumber": 72, "startAyah": 16, "endAyah": 28}, {"page": 401, "surahName": "المزمل", "surahNumber": 73, "startAyah": 1, "endAyah": 15}, {"page": 402, "surahName": "المزمل", "surahNumber": 73, "startAyah": 16, "endAyah": 20}, {"page": 403, "surahName": "المدثر", "surahNumber": 74, "startAyah": 1, "endAyah": 15}, {"page": 404, "surahName": "المدثر", "surahNumber": 74, "startAyah": 16, "endAyah": 30}, {"page": 405, "surahName": "المدثر", "surahNumber": 74, "startAyah": 31, "endAyah": 45}, {"page": 406, "surahName": "المدثر", "surahNumber": 74, "startAyah": 46, "endAyah": 56}, {"page": 407, "surahName": "القيامة", "surahNumber": 75, "startAyah": 1, "endAyah": 15}, {"page": 408, "surahName": "القيامة", "surahNumber": 75, "startAyah": 16, "endAyah": 30}, {"page": 409, "surahName": "القيامة", "surahNumber": 75, "startAyah": 31, "endAyah": 40}, {"page": 410, "surahName": "الإنسان", "surahNumber": 76, "startAyah": 1, "endAyah": 15}, {"page": 411, "surahName": "الإنسان", "surahNumber": 76, "startAyah": 16, "endAyah": 30}, {"page": 412, "surahName": "الإنسان", "surahNumber": 76, "startAyah": 31, "endAyah": 31}, {"page": 413, "surahName": "المرسلات", "surahNumber": 77, "startAyah": 1, "endAyah": 15}, {"page": 414, "surahName": "المرسلات", "surahNumber": 77, "startAyah": 16, "endAyah": 30}, {"page": 415, "surahName": "المرسلات", "surahNumber": 77, "startAyah": 31, "endAyah": 45}, {"page": 416, "surahName": "المرسلات", "surahNumber": 77, "startAyah": 46, "endAyah": 50}, {"page": 417, "surahName": "النبأ", "surahNumber": 78, "startAyah": 1, "endAyah": 15}, {"page": 418, "surahName": "النبأ", "surahNumber": 78, "startAyah": 16, "endAyah": 30}, {"page": 419, "surahName": "النبأ", "surahNumber": 78, "startAyah": 31, "endAyah": 40}, {"page": 420, "surahName": "النازعات", "surahNumber": 79, "startAyah": 1, "endAyah": 15}, {"page": 421, "surahName": "النازعات", "surahNumber": 79, "startAyah": 16, "endAyah": 30}, {"page": 422, "surahName": "النازعات", "surahNumber": 79, "startAyah": 31, "endAyah": 45}, {"page": 423, "surahName": "النازعات", "surahNumber": 79, "startAyah": 46, "endAyah": 46}, {"page": 424, "surahName": "عبس", "surahNumber": 80, "startAyah": 1, "endAyah": 15}, {"page": 425, "surahName": "عبس", "surahNumber": 80, "startAyah": 16, "endAyah": 30}, {"page": 426, "surahName": "عبس", "surahNumber": 80, "startAyah": 31, "endAyah": 42}, {"page": 427, "surahName": "التكوير", "surahNumber": 81, "startAyah": 1, "endAyah": 15}, {"page": 428, "surahName": "التكوير", "surahNumber": 81, "startAyah": 16, "endAyah": 29}, {"page": 429, "surahName": "الانفطار", "surahNumber": 82, "startAyah": 1, "endAyah": 15}, {"page": 430, "surahName": "الانفطار", "surahNumber": 82, "startAyah": 16, "endAyah": 19}, {"page": 431, "surahName": "المطففين", "surahNumber": 83, "startAyah": 1, "endAyah": 15}, {"page": 432, "surahName": "المطففين", "surahNumber": 83, "startAyah": 16, "endAyah": 30}, {"page": 433, "surahName": "المطففين", "surahNumber": 83, "startAyah": 31, "endAyah": 36}, {"page": 434, "surahName": "الانشقاق", "surahNumber": 84, "startAyah": 1, "endAyah": 15}, {"page": 435, "surahName": "الانشقاق", "surahNumber": 84, "startAyah": 16, "endAyah": 25}, {"page": 436, "surahName": "البروج", "surahNumber": 85, "startAyah": 1, "endAyah": 15}, {"page": 437, "surahName": "البروج", "surahNumber": 85, "startAyah": 16, "endAyah": 22}, {"page": 438, "surahName": "الطارق", "surahNumber": 86, "startAyah": 1, "endAyah": 15}, {"page": 439, "surahName": "الطارق", "surahNumber": 86, "startAyah": 16, "endAyah": 17}, {"page": 440, "surahName": "الأعلى", "surahNumber": 87, "startAyah": 1, "endAyah": 15}, {"page": 441, "surahName": "الأعلى", "surahNumber": 87, "startAyah": 16, "endAyah": 19}, {"page": 442, "surahName": "الغاشية", "surahNumber": 88, "startAyah": 1, "endAyah": 15}, {"page": 443, "surahName": "الغاشية", "surahNumber": 88, "startAyah": 16, "endAyah": 26}, {"page": 444, "surahName": "الفجر", "surahNumber": 89, "startAyah": 1, "endAyah": 15}, {"page": 445, "surahName": "الفجر", "surahNumber": 89, "startAyah": 16, "endAyah": 30}, {"page": 446, "surahName": "البلد", "surahNumber": 90, "startAyah": 1, "endAyah": 15}, {"page": 447, "surahName": "البلد", "surahNumber": 90, "startAyah": 16, "endAyah": 20}, {"page": 448, "surahName": "الشمس", "surahNumber": 91, "startAyah": 1, "endAyah": 15}, {"page": 449, "surahName": "الليل", "surahNumber": 92, "startAyah": 1, "endAyah": 15}, {"page": 450, "surahName": "الليل", "surahNumber": 92, "startAyah": 16, "endAyah": 21}, {"page": 451, "surahName": "الضحى", "surahNumber": 93, "startAyah": 1, "endAyah": 11}, {"page": 452, "surahName": "الشرح", "surahNumber": 94, "startAyah": 1, "endAyah": 8}, {"page": 453, "surahName": "التين", "surahNumber": 95, "startAyah": 1, "endAyah": 8}, {"page": 454, "surahName": "العلق", "surahNumber": 96, "startAyah": 1, "endAyah": 15}, {"page": 455, "surahName": "العلق", "surahNumber": 96, "startAyah": 16, "endAyah": 19}, {"page": 456, "surahName": "القدر", "surahNumber": 97, "startAyah": 1, "endAyah": 5}, {"page": 457, "surahName": "البينة", "surahNumber": 98, "startAyah": 1, "endAyah": 8}, {"page": 458, "surahName": "الزلزلة", "surahNumber": 99, "startAyah": 1, "endAyah": 8}, {"page": 459, "surahName": "العاديات", "surahNumber": 100, "startAyah": 1, "endAyah": 11}, {"page": 460, "surahName": "القارعة", "surahNumber": 101, "startAyah": 1, "endAyah": 11}, {"page": 461, "surahName": "التكاثر", "surahNumber": 102, "startAyah": 1, "endAyah": 8}, {"page": 462, "surahName": "العصر", "surahNumber": 103, "startAyah": 1, "endAyah": 3}, {"page": 463, "surahName": "الهمزة", "surahNumber": 104, "startAyah": 1, "endAyah": 9}, {"page": 464, "surahName": "الفيل", "surahNumber": 105, "startAyah": 1, "endAyah": 5}, {"page": 465, "surahName": "قريش", "surahNumber": 106, "startAyah": 1, "endAyah": 4}, {"page": 466, "surahName": "الماعون", "surahNumber": 107, "startAyah": 1, "endAyah": 7}, {"page": 467, "surahName": "الكوثر", "surahNumber": 108, "startAyah": 1, "endAyah": 3}, {"page": 468, "surahName": "الكافرون", "surahNumber": 109, "startAyah": 1, "endAyah": 6}, {"page": 469, "surahName": "النصر", "surahNumber": 110, "startAyah": 1, "endAyah": 3}, {"page": 470, "surahName": "المسد", "surahNumber": 111, "startAyah": 1, "endAyah": 5}, {"page": 471, "surahName": "الإخلاص", "surahNumber": 112, "startAyah": 1, "endAyah": 4}, {"page": 472, "surahName": "الفلق", "surahNumber": 113, "startAyah": 1, "endAyah": 5}, {"page": 473, "surahName": "الناس", "surahNumber": 114, "startAyah": 1, "endAyah": 6}];
+const hadiths = [{"id": 1, "text": "إنما الأعمال بالنيات، وإنما لكل امرئ ما نوى", "narrator": "عمر بن الخطاب رضي الله عنه", "source": "صحيح البخاري", "explanation": "هذا الحديث أصلٌ عظيم في الإسلام، يبيّن أن قبول الأعمال وأجرها يتوقف على نية صاحبها، فمن أخلص لله نال الأجر، ومن قصد الدنيا لم يكن له إلا ما نوى. لذلك قال العلماء: هذا الحديث ثلث الإسلام."}, {"id": 2, "text": "لا يؤمن أحدكم حتى يحب لأخيه ما يحب لنفسه", "narrator": "أنس بن مالك رضي الله عنه", "source": "صحيح البخاري", "explanation": "كمال الإيمان يقتضي محبة الخير للآخرين كما يحبه المرء لنفسه، وهذا يشمل المسلم وكل من يستحق المحبة. والحديث يدعو لتطهير القلب من الحسد والأنانية، وبناء مجتمع متحاب متعاون."}, {"id": 3, "text": "من كان يؤمن بالله واليوم الآخر فليقل خيراً أو ليصمت", "narrator": "أبو هريرة رضي الله عنه", "source": "صحيح البخاري", "explanation": "حفظ اللسان من علامات الإيمان، فالمؤمن إما أن ينطق بالخير من ذكر ونصيحة وكلمة طيبة، وإما أن يصمت. والحديث يحذّر من الكلام الذي لا فائدة فيه أو فيه أذية للآخرين."}, {"id": 4, "text": "المسلم من سلم المسلمون من لسانه ويده", "narrator": "عبد الله بن عمرو رضي الله عنهما", "source": "صحيح البخاري", "explanation": "حقيقة الإسلام تظهر في معاملة الإنسان للآخرين، فالمسلم الكامل من لا يؤذي غيره بقوله (لسانه) ولا بفعله (يده). وهذا يشمل ترك الغيبة والسبّ والاعتداء بكل صوره."}, {"id": 5, "text": "لا تغضب، لا تغضب، لا تغضب", "narrator": "أبو هريرة رضي الله عنه", "source": "صحيح البخاري", "explanation": "كرّر النبي ﷺ الوصية ثلاث مرات لأهميتها، فالغضب مفتاح الشرور وسبب لكثير من الذنوب كالقتل والطلاق والقطيعة. والمطلوب: ضبط النفس عند الغضب وعدم تنفيذ ما يمليه من تصرفات."}, {"id": 6, "text": "الدين النصيحة", "narrator": "تميم الداري رضي الله عنه", "source": "صحيح مسلم", "explanation": "النصيحة هي إرادة الخير للمنصوح. والحديث يبيّن أن الدين كله مبني على النصيحة لله (بطاعته)، ولكتابه (بتدبره)، ولرسوله (باتباعه)، ولأئمة المسلمين (بطاعتهم في المعروف)، وعامتهم (بإرشادهم)."}, {"id": 7, "text": "من حسن إسلام المرء تركه ما لا يعنيه", "narrator": "أبو هريرة رضي الله عنه", "source": "سنن الترمذي", "explanation": "من علامات قوة الإيمان أن يترك المرء كل ما لا يفيده في دينه أو دنياه، فلا يتدخل فيما لا يخصه ولا يشغل وقته بما لا ينفعه. وهذا الحديث قاعدة عظيمة لتنظيم الحياة وحفظ الوقت."}, {"id": 8, "text": "لا يؤمن أحدكم حتى أكون أحب إليه من والده وولده والناس أجمعين", "narrator": "أنس بن مالك رضي الله عنه", "source": "صحيح البخاري", "explanation": "محبة النبي ﷺ ركن من أركان الإيمان، ويجب أن تكون مقدّمة على محبة كل مخلوق. وعلامة هذه المحبة: اتباع سنته وتقديم أمره على هوى النفس ورغبات الناس."}, {"id": 9, "text": "اتق الله حيثما كنت، وأتبع السيئة الحسنة تمحها، وخالق الناس بخلق حسن", "narrator": "معاذ بن جبل رضي الله عنه", "source": "سنن الترمذي", "explanation": "وصية جامعة تحوي ثلاثة أصول: تقوى الله في السر والعلن، ومحو الذنوب بالحسنات والتوبة، ومعاملة الناس بأخلاق حسنة. من جمع هذه الثلاث فقد جمع خير الدنيا والآخرة."}, {"id": 10, "text": "ازهد في الدنيا يحبك الله، وازهد فيما عند الناس يحبك الناس", "narrator": "سهل بن سعد رضي الله عنه", "source": "سنن ابن ماجه", "explanation": "الزهد في الدنيا لا يعني تركها بالكلية، بل عدم تعلق القلب بها. ومن لم يطمع فيما عند الناس استراح وأحبّوه. والحديث يرسم طريق محبة الله ومحبة الناس معاً."}, {"id": 11, "text": "من سلك طريقاً يلتمس فيه علماً سهل الله له به طريقاً إلى الجنة", "narrator": "أبو هريرة رضي الله عنه", "source": "صحيح مسلم", "explanation": "طلب العلم الشرعي من أعظم القربات، ومن جزاء طالب العلم أن الله ييسّر له طريق الجنة. والطريق هنا يشمل المسير الحسي للمجالس العلمية، والمعنوي بالقراءة والمذاكرة."}, {"id": 12, "text": "المؤمن القوي خير وأحب إلى الله من المؤمن الضعيف", "narrator": "أبو هريرة رضي الله عنه", "source": "صحيح مسلم", "explanation": "القوة المقصودة هي قوة الإيمان والعزيمة، وكذلك القوة البدنية والعلمية والمالية إذا استُعملت في طاعة الله. فالمسلم مطالَب بالسعي في كل ما يُقوّي دينه ودنياه."}, {"id": 13, "text": "إن الله طيب لا يقبل إلا طيباً", "narrator": "أبو هريرة رضي الله عنه", "source": "صحيح مسلم", "explanation": "الله سبحانه منزّه عن كل نقص، ولا يقبل من الأعمال إلا ما كان خالصاً صحيحاً، ولا من الأموال إلا ما كان حلالاً. لذلك يجب على المسلم أن يحرص على طيب المطعم والمكسب."}, {"id": 14, "text": "دع ما يريبك إلى ما لا يريبك", "narrator": "الحسن بن علي رضي الله عنهما", "source": "سنن الترمذي", "explanation": "إذا اشتبه عليك أمر هل هو حلال أو حرام، فاتركه إلى ما لا شك فيه. وهذه قاعدة الورع التي تحفظ المسلم من الوقوع في الحرام بسبب التساهل في المشتبهات."}, {"id": 15, "text": "لا ضرر ولا ضرار", "narrator": "أبو سعيد الخدري رضي الله عنه", "source": "سنن ابن ماجه", "explanation": "قاعدة فقهية كبرى: لا يجوز للمسلم أن يضرّ نفسه ابتداءً، ولا أن يضرّ غيره. وعلى هذه القاعدة بُنيت كثير من أحكام الشريعة في المعاملات والجوار والبيئة."}, {"id": 16, "text": "من رأى منكم منكراً فليغيره بيده، فإن لم يستطع فبلسانه، فإن لم يستطع فبقلبه وذلك أضعف الإيمان", "narrator": "أبو سعيد الخدري رضي الله عنه", "source": "صحيح مسلم", "explanation": "إنكار المنكر واجب على كل مسلم بحسب قدرته: باليد لمن يملك السلطة، باللسان للناصح والمعلم، وبالقلب لمن لا يقدر على غيرهما. وإنكار القلب هو الحد الأدنى الذي لا يُعذر أحد بتركه."}, {"id": 17, "text": "ما نهيتكم عنه فاجتنبوه، وما أمرتكم به فافعلوا منه ما استطعتم", "narrator": "أبو هريرة رضي الله عنه", "source": "صحيح البخاري", "explanation": "النواهي يجب اجتنابها كلها مهما كانت، أما الأوامر فيُؤتى منها قدر المستطاع. والحديث يبيّن يُسر الإسلام ورفع الحرج عن الأمة."}, {"id": 18, "text": "إن الحلال بيّن وإن الحرام بيّن وبينهما أمور مشتبهات", "narrator": "النعمان بن بشير رضي الله عنهما", "source": "صحيح البخاري", "explanation": "الأحكام ثلاثة أقسام: حلال واضح، وحرام واضح، ومشتبهات بينهما. ومن اتقى المشتبهات فقد استبرأ لدينه وعرضه، ومن وقع فيها أوشك أن يقع في الحرام."}, {"id": 19, "text": "البر حسن الخلق، والإثم ما حاك في نفسك وكرهت أن يطلع عليه الناس", "narrator": "النواس بن سمعان رضي الله عنه", "source": "صحيح مسلم", "explanation": "البر معناه الواسع: حسن الخلق مع الناس. والإثم ميزانه: ما تردد في صدرك وخفت أن يراه الناس. فالقلب السليم له فطرة تميّز بين الخير والشر."}, {"id": 20, "text": "قل آمنت بالله ثم استقم", "narrator": "سفيان بن عبد الله رضي الله عنه", "source": "صحيح مسلم", "explanation": "كلمة جامعة في الإسلام: الإيمان بالله، ثم الاستقامة على شرعه. والاستقامة تعني السير على الصراط المستقيم في كل العبادات والمعاملات والأخلاق."}, {"id": 21, "text": "تبسمك في وجه أخيك صدقة", "narrator": "أبو ذر الغفاري رضي الله عنه", "source": "سنن الترمذي", "explanation": "الإسلام دين سهل ميسّر، حتى البسمة الصادقة في وجه الأخ المسلم تُحتسب صدقة عند الله. وفي الحديث ترغيب في إدخال السرور على القلوب وتطييب الخواطر."}, {"id": 22, "text": "الطهور شطر الإيمان", "narrator": "أبو مالك الأشعري رضي الله عنه", "source": "صحيح مسلم", "explanation": "الطهارة من الحدث والنجس نصف الإيمان من حيث الأهمية، لأنها شرط لصحة الصلاة التي هي عمود الدين. وتشمل الطهارة الحسية والمعنوية بتزكية القلب من الذنوب."}, {"id": 23, "text": "من قام ليلة القدر إيماناً واحتساباً غفر له ما تقدم من ذنبه", "narrator": "أبو هريرة رضي الله عنه", "source": "صحيح البخاري", "explanation": "ليلة القدر خير من ألف شهر، ومن أحياها بالصلاة والدعاء مؤمناً بفضلها راجياً ثوابها، غفر الله له ذنوبه السابقة. لذلك يُستحب الاجتهاد في العشر الأواخر من رمضان."}, {"id": 24, "text": "خيركم من تعلم القرآن وعلمه", "narrator": "عثمان بن عفان رضي الله عنه", "source": "صحيح البخاري", "explanation": "أعظم الناس منزلة من جمع بين تعلّم القرآن وتعليمه، لأنه يُكمّل غيره بعد أن يكمّل نفسه. والحديث ترغيب عظيم في خدمة كتاب الله تلاوة وحفظاً وتفسيراً."}, {"id": 25, "text": "الدعاء هو العبادة", "narrator": "النعمان بن بشير رضي الله عنه", "source": "سنن الترمذي", "explanation": "الدعاء من أعظم العبادات وأفضلها، لأنه يجمع بين التوحيد والافتقار إلى الله. ومن ترك الدعاء فقد تكبّر، ومن داوم عليه قرّبه الله إليه."}, {"id": 26, "text": "إن الله يحب إذا عمل أحدكم عملاً أن يتقنه", "narrator": "عائشة رضي الله عنها", "source": "المعجم الأوسط", "explanation": "الإسلام دين الإتقان، يحب الله من العبد إتقان عمله مهما كان نوعه: عبادة أو وظيفة أو حرفة. والإتقان يعني أداء العمل بأكمل وجه وأحسن صورة."}, {"id": 27, "text": "ما ملأ ابن آدم وعاء شراً من بطنه", "narrator": "المقدام بن معدي كرب رضي الله عنه", "source": "سنن الترمذي", "explanation": "الإسراف في الأكل من أكبر أسباب الأمراض وقسوة القلب وكسل العبادة. والسنة: ثلث للطعام وثلث للشراب وثلث للنفس. وفي الحديث دعوة للاعتدال والصحة البدنية."}, {"id": 28, "text": "الكلمة الطيبة صدقة", "narrator": "أبو هريرة رضي الله عنه", "source": "صحيح البخاري", "explanation": "الكلمة الطيبة من ذكر أو نصيحة أو ثناء أو تطييب خاطر، تُكتب صدقة عند الله. وهذا يبيّن سعة فضل الله، حيث جعل الأقوال الحسنة من جنس الصدقات."}, {"id": 29, "text": "أحب الأعمال إلى الله أدومها وإن قل", "narrator": "عائشة رضي الله عنها", "source": "صحيح البخاري", "explanation": "الاستمرار على العمل الصالح وإن كان قليلاً أحب إلى الله من العمل الكثير المنقطع. لذلك يُستحب اختيار الأذكار والنوافل التي يُمكن المداومة عليها دون انقطاع."}, {"id": 30, "text": "إنما بعثت لأتمم مكارم الأخلاق", "narrator": "أبو هريرة رضي الله عنه", "source": "مسند أحمد", "explanation": "من مقاصد بعثة النبي ﷺ إكمال وتتميم الأخلاق الفاضلة. فالإسلام دين الأخلاق قبل أن يكون دين عبادات منفصلة، والأخلاق ميزان قبول الأعمال عند الله."}];
+const reciters = [{"id": "afasy", "name": "مشاري راشد العفاسي", "source": "everyayah", "path": "Alafasy_128kbps"}, {"id": "sudais", "name": "عبدالرحمن السديس", "source": "everyayah", "path": "Abdurrahmaan_As-Sudais_192kbps"}, {"id": "husary", "name": "محمود خليل الحصري (مرتل)", "source": "everyayah", "path": "Husary_128kbps"}, {"id": "minshawi", "name": "محمد صديق المنشاوي (مرتل)", "source": "everyayah", "path": "Minshawy_Murattal_128kbps"}, {"id": "ghamdi", "name": "سعد الغامدي", "source": "everyayah", "path": "Ghamadi_40kbps"}, {"id": "shuraim", "name": "سعود الشريم", "source": "everyayah", "path": "Saood_ash-Shuraym_128kbps"}, {"id": "muaiqly", "name": "ماهر المعيقلي", "source": "everyayah", "path": "MaherAlMuaiqly128kbps"}, {"id": "dossari", "name": "ياسر الدوسري", "source": "everyayah", "path": "Yasser_Ad-Dussary_128kbps"}, {"id": "jaber", "name": "علي جابر", "source": "everyayah", "path": "Ali_Jaber_64kbps"}];
+const RECITER_KEY = 'preferred_reciter';
+
+const START = new Date(2026, 3, 6);
+const now = new Date();
+now.setHours(0,0,0,0);
+const start = new Date(START); start.setHours(0,0,0,0);
+const dayIndex = Math.max(0, Math.floor((now.getTime() - start.getTime()) / (1000*60*60*24)));
+const todayStr = new Date().toLocaleDateString('ar-SA', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+document.getElementById('dateLine').innerHTML = '📅 ' + todayStr + ' — اليوم رقم <b>' + (dayIndex+1) + '</b>';
+
+const NUM = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+const toAr = n => String(n).split('').map(d => NUM[parseInt(d,10)] ?? d).join('');
+
+const currentPageIndex = dayIndex % quranPages.length;
+let viewedPageIndex = currentPageIndex;
+let ayat = [];
+let loading = true;
+let error = null;
+let reciterId = localStorage.getItem(RECITER_KEY) || 'afasy';
+if (!reciters.some(r => r.id === reciterId)) reciterId = 'afasy';
+let isPlaying = false;
+let currentAyahIdx = 0;
+
+const monthDayYearShort = new Date().toLocaleDateString('ar-SA'); // padding not needed
+
+const el = id => document.getElementById(id);
+const reciterSelect = el('reciterSelect');
+const playBtn = el('playBtn');
+const prevBtn = el('prevBtn');
+const nextBtn = el('nextBtn');
+const nowPlaying = el('nowPlaying');
+const ayahContent = el('ayahContent');
+const pageBadge = el('pageBadge');
+const pageList = el('pageList');
+const pageModal = el('pageModal');
+
+reciters.forEach(r => {
+  const o = document.createElement('option');
+  o.value = r.id; o.textContent = r.name;
+  reciterSelect.appendChild(o);
+});
+reciterSelect.value = reciterId;
+
+const reciter = () => reciters.find(r => r.id === reciterId) || reciters[0];
+const page = () => quranPages[viewedPageIndex];
+const getAyahSrc = n => {
+  const p = page(); const r = reciter();
+  const s = String(p.surahNumber).padStart(3,'0');
+  const a = String(n).padStart(3,'0');
+  return 'https://everyayah.com/data/' + r.path + '/' + s + a + '.mp3';
+};
+
+const audio = new Audio();
+audio.addEventListener('ended', () => {
+  const next = currentAyahIdx + 1;
+  if (next < ayat.length) {
+    currentAyahIdx = next;
+    audio.src = getAyahSrc(ayat[next].number);
+    audio.play().catch(() => {});
+    updateNowPlaying();
+  } else {
+    isPlaying = false; currentAyahIdx = 0;
+    updatePlayBtn(); updateNowPlaying(); updateHighlight();
+  }
+});
+
+const fetchWithRetry = async (url, retries = 3) => {
+  for (let i = 0; i < retries; i++) {
+    try {
+      const r = await fetch(url);
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return await r.json();
+    } catch (e) {
+      if (i === retries - 1) throw e;
+      await new Promise(res => setTimeout(res, 500 * (i + 1)));
+    }
+  }
+};
+
+async function loadAyat() {
+  loading = true; error = null; ayat = []; currentAyahIdx = 0; isPlaying = false;
+  audio.pause(); audio.removeAttribute('src');
+  updatePlayBtn(); updateNowPlaying();
+  ayahContent.innerHTML = '<div class="loading">جاري تحميل الآيات…</div>';
+  const p = page();
+  const sources = [
+    'https://api.alquran.cloud/v1/surah/' + p.surahNumber + '/quran-uthmani',
+    'https://api.alquran.cloud/v1/surah/' + p.surahNumber
+  ];
+  for (const url of sources) {
+    try {
+      const json = await fetchWithRetry(url);
+      const all = json?.data?.ayahs ?? [];
+      const slice = [];
+      for (let n = p.startAyah; n <= p.endAyah; n++) {
+        const a = all.find(x => x.numberInSurah === n);
+        if (a && a.text) slice.push({ number: n, text: a.text });
+      }
+      if (slice.length > 0) {
+        ayat = slice;
+        loading = false;
+        renderAyat();
+        updatePlayBtn();
+        return;
+      }
+    } catch (e) { /* try next source */ }
+  }
+  loading = false;
+  error = 'تعذر تحميل الآيات. تحقق من الاتصال بالإنترنت.';
+  renderAyat();
+  updatePlayBtn();
+}
+
+function renderAyat() {
+  if (loading) {
+    ayahContent.innerHTML = '<div class="loading">جاري تحميل الآيات…</div>';
+    return;
+  }
+  if (error) { ayahContent.innerHTML = '<div class="error">' + error + '</div>'; return; }
+  if (page().surahNumber !== 1 && page().startAyah === 1 && page().surahNumber !== 9) {
+    ayahContent.innerHTML = '<div class="bismallah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>' + buildAyahHtml();
+  } else {
+    ayahContent.innerHTML = buildAyahHtml();
+  }
+  updateHighlight();
+}
+
+function buildAyahHtml() {
+  return '<div class="ayah-text">' + ayat.map((a, i) =>
+    '<span class="ayah" data-i="' + i + '">' + a.text + ' <span class="ayah-number">﴿' + toAr(a.number) + '﴾</span></span>&nbsp;'
+  ).join('') + '</div>';
+}
+
+function updateHighlight() {
+  document.querySelectorAll('.ayah').forEach((sp, i) => {
+    sp.classList.toggle('playing', isPlaying && !loading && i === currentAyahIdx);
+  });
+}
+
+function updatePlayBtn() {
+  playBtn.textContent = isPlaying ? '⏸ إيقاف' : '▶ استماع';
+  const locked = loading || ayat.length === 0;
+  playBtn.disabled = locked;
+  prevBtn.disabled = locked || currentAyahIdx === 0;
+  nextBtn.disabled = locked || currentAyahIdx >= ayat.length - 1;
+}
+
+function updateNowPlaying() {
+  if (isPlaying && ayat[currentAyahIdx]) {
+    nowPlaying.innerHTML = '🎧 الآن: آية <span>' + toAr(ayat[currentAyahIdx].number) + '</span>';
+  } else nowPlaying.textContent = '';
+}
+
+playBtn.addEventListener('click', () => {
+  if (!audio || (ayat.length === 0)) return;
+  if (isPlaying) { audio.pause(); isPlaying = false; }
+  else {
+    if (!audio.src || audio.ended) {
+      audio.src = getAyahSrc(ayat[currentAyahIdx].number);
+    }
+    audio.play().catch(() => {});
+    isPlaying = true;
+  }
+  updatePlayBtn(); updateNowPlaying(); updateHighlight();
+});
+
+prevBtn.addEventListener('click', () => {
+  if (ayat.length === 0) return;
+  currentAyahIdx = Math.max(currentAyahIdx - 1, 0);
+  audio.src = getAyahSrc(ayat[currentAyahIdx].number);
+  if (isPlaying) audio.play().catch(() => {});
+  updatePlayBtn(); updateNowPlaying(); updateHighlight();
+});
+
+nextBtn.addEventListener('click', () => {
+  if (ayat.length === 0) return;
+  currentAyahIdx = Math.min(currentAyahIdx + 1, ayat.length - 1);
+  audio.src = getAyahSrc(ayat[currentAyahIdx].number);
+  if (isPlaying) audio.play().catch(() => {});
+  updatePlayBtn(); updateNowPlaying(); updateHighlight();
+});
+
+reciterSelect.addEventListener('change', () => {
+  reciterId = reciterSelect.value;
+  localStorage.setItem(RECITER_KEY, reciterId);
+  const wasPlaying = isPlaying;
+  audio.pause();
+  const p = page();
+  const currentAyah = ayat[currentAyahIdx];
+  if (!currentAyah) return;
+  audio.src = getAyahSrc(currentAyah.number);
+  if (wasPlaying) { isPlaying = true; audio.play().catch(() => {}); }
+  updatePlayBtn(); updateNowPlaying();
+});
+
+function renderPageInfo() {
+  const p = page();
+  let html = 'الصفحة <span>' + p.page + '</span> — سورة ' + p.surahName + ' (آية ' + p.startAyah + ' - ' + p.endAyah + ')';
+  if (viewedPageIndex !== currentPageIndex) {
+    html += '<span class="return-today" data-action="today">العودة لصفحة اليوم</span>';
+  }
+  pageBadge.innerHTML = html;
+}
+
+function goToday() { setPageIndex(currentPageIndex); }
+function setPageIndex(idx) {
+  if (idx < 0 || idx >= quranPages.length) return;
+  viewedPageIndex = idx;
+  renderPageInfo();
+  renderMenu();
+  loadAyat();
+}
+
+function renderMenu() {
+  const available = quranPages.slice(0, Math.min(dayIndex + 1, quranPages.length));
+  pageList.innerHTML = available.map((p, idx) =>
+    '<div class="page-item' + (idx === viewedPageIndex ? ' active' : '') + '" data-page="' + idx + '">' +
+      '<div class="pi-day">اليوم <span>' + (idx + 1) + '</span> — صفحة ' + p.page + '</div>' +
+      '<div class="pi-sub">سورة ' + p.surahName + ' (آية ' + p.startAyah + ' - ' + p.endAyah + ')</div>' +
+    '</div>'
+  ).join('');
+}
+function pickPage(idx) { setPageIndex(idx); pageModal.classList.remove('open'); }
+
+el('menuBtn').addEventListener('click', () => { renderMenu(); pageModal.classList.add('open'); });
+el('closeMenu').addEventListener('click', () => pageModal.classList.remove('open'));
+pageModal.addEventListener('click', e => { if (e.target === pageModal) pageModal.classList.remove('open'); });
+pageList.addEventListener('click', e => {
+  const item = e.target.closest('.page-item');
+  if (item && item.dataset.page !== undefined) pickPage(parseInt(item.dataset.page, 10));
+});
+pageBadge.addEventListener('click', e => {
+  if (e.target.closest('[data-action="today"]')) goToday();
+});
+
+function renderHadith() {
+  const hadithIndex = dayIndex % hadiths.length;
+  const h = hadiths[hadithIndex];
+  el('hadithCounter').textContent = 'حديث اليوم رقم ' + (hadithIndex + 1) + ' من ' + hadiths.length;
+  el('hadithText').textContent = 'قال رسول الله ﷺ: «' + h.text + '»';
+  el('hadithMeta').innerHTML = 'الراوي: <b>' + h.narrator + '</b> &nbsp;·&nbsp; المصدر: <b>' + h.source + '</b>';
+  el('explainBody').textContent = h.explanation || '';
+  el('hadithSec').classList.remove('explain-open');
+}
+
+el('explainBtn').addEventListener('click', () => {
+  const open = el('hadithSec').classList.toggle('explain-open');
+  el('explainBtn').textContent = open ? '▲ إخفاء شرح الشيخ ابن باز' : '▼ عرض شرح الشيخ ابن باز رحمه الله';
+});
+
+renderPageInfo();
+renderHadith();
+loadAyat();
+
+if (location.hash === '#recitations') {
+  setTimeout(() => {
+    const el2 = document.getElementById('quranSec');
+    if (el2) el2.scrollIntoView({ behavior:'smooth', block:'start' });
+  }, 800);
+}
+</script>
+</body>
+</html>
