@@ -8,6 +8,7 @@ import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import { PresenceProvider } from "@/contexts/PresenceContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import Navbar from "@/components/Navbar";
+import ErrorBoundary from "@/components/ErrorBoundary";
 import Onboarding from "@/components/Onboarding";
 import GenerationOnboardingDialog from "@/components/GenerationOnboardingDialog";
 import GenderOnboardingDialog from "@/components/GenderOnboardingDialog";
@@ -122,7 +123,9 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter basename="/chat" future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-            <AppRoutes />
+            <ErrorBoundary>
+              <AppRoutes />
+            </ErrorBoundary>
           </BrowserRouter>
         </TooltipProvider>
         </PresenceProvider>
