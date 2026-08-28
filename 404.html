@@ -11,13 +11,14 @@
          ------------------------------------------------------------
          - إذا بدأ المسار بـ /achievement -> يشغّل تطبيق الإنجاز (SPA)
          - إذا بدأ المسار بـ /chat         -> يشغّل تطبيق الدردشة (SPA)
+         - إذا بدأ المسار بـ /anon         -> يشغّل تطبيق أنا مجهول (SPA)
          - غير ذلك                          -> يرجع للصفحة الرئيسية
            (بما أن صفحات الموقع الأم الحقيقية لا تصل لهذا الملف أبداً)
          ============================================================ */
       (function () {
         try {
           var p = window.location.pathname;
-          if (p.indexOf('/achievement') !== 0 && p.indexOf('/chat') !== 0) {
+          if (p.indexOf('/achievement') !== 0 && p.indexOf('/chat') !== 0 && p.indexOf('/anon') !== 0) {
             window.location.replace('/');
           }
         } catch (e) {}
@@ -35,6 +36,7 @@
         var app = null;
         if (p.indexOf('/achievement') === 0) app = 'achievement';
         else if (p.indexOf('/chat') === 0) app = 'chat';
+        else if (p.indexOf('/anon') === 0) app = 'anon';
 
         function inject(urls) {
           for (var i = 0; i < urls.length; i++) {
@@ -56,6 +58,8 @@
         function fallback() {
           if (app === 'achievement') {
             inject(['/achievement/assets/index-BeHiXrcM.js', '/achievement/assets/index-95flcqDC.css']);
+          } else if (app === 'anon') {
+            inject(['/anon/assets/index-BZo05V7t.js', '/anon/assets/index-CiqmyTcO.css']);
           } else {
             inject(['/chat/assets/index-CgUQBLw2.js', '/chat/assets/index-BOi2AWlU.css']);
           }
