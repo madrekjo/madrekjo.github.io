@@ -49,11 +49,13 @@ const Chat = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const highlightPostId = searchParams.get("post");
+  const CHANNEL_KEYS = ["all", "male", "female", "09", "10"];
+  const urlChannel = searchParams.get("channel");
+  const [channelFilter, setChannelFilter] = useState<string>(CHANNEL_KEYS.includes(urlChannel || "") ? (urlChannel as string) : "all");
+  const [postTarget, setPostTarget] = useState<string>(CHANNEL_KEYS.includes(urlChannel || "") ? (urlChannel as string) : "all");
   const postRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const hasScrolled = useRef(false);
   const loaderRef = useRef<HTMLDivElement | null>(null);
-  const [channelFilter, setChannelFilter] = useState<string>("all");
-  const [postTarget, setPostTarget] = useState<string>("all");
   const [channelSettings, setChannelSettings] = useState<Record<string, boolean>>({ all: true, male: true, female: true, "09": true, "10": true });
   const [sectionLocks, setSectionLocks] = useState<Record<string, boolean>>({});
 
@@ -255,24 +257,23 @@ const Chat = () => {
   const inTimeout = profile?.timeout_until && new Date(profile.timeout_until) > new Date();
   const chatBanned = profile?.chat_banned;
 
+  // متابعة تغيّر رابط القسم (channel) أثناء التنقل داخل التطبيق
+  useEffect(() => {
+    const ch = searchParams.get("channel");
+    if (CHANNEL_KEYS.includes(ch || "")) {
+      setChannelFilter(ch as string);
+      setPostTarget(ch as string);
+    }
+  }, [searchParams]);
+
   // Auto-switch to an open channel if current filter is somehow locked
   useEffect(() => {
-    const haveTabs = isStaff || !!(profile?.gender) || !!myGen;
-    if (!haveTabs) return;
-    const tabs = isStaff
-      ? [{ key: "all" }, { key: "male" }, { key: "female" }, { key: "09" }, { key: "10" }]
-      : [
-          { key: "all" },
-          ...(profile?.gender === "male" ? [{ key: "male" }] : []),
-          ...(profile?.gender === "female" ? [{ key: "female" }] : []),
-          ...(myGen ? [{ key: myGen }] : []),
-        ];
-    const tab = tabs.find(t => t.key === channelFilter);
-    if (tab && isChannelLocked(tab.key)) {
-      const firstOpen = tabs.find(t => !isChannelLocked(t.key));
-      if (firstOpen) setChannelFilter(firstOpen.key);
+    const allKeys = ["all", "male", "female", "09", "10"];
+    if (isChannelLocked(channelFilter)) {
+      const firstOpen = allKeys.find(k => !isChannelLocked(k));
+      if (firstOpen) setChannelFilter(firstOpen);
     }
-  }, [channelFilter, channelSettings, sectionLocks, profile?.gender, myGen, isStaff]);
+  }, [channelFilter, channelSettings, sectionLocks, isStaff]);
 
   if (profile?.is_banned) {
     return (
@@ -291,41 +292,28 @@ const Chat = () => {
     );
   }
 
-  const channelTabs = isStaff
-    ? [
-        { key: "all", label: "الجميع", locked: false },
-        { key: "male", label: "شباب", locked: false },
-        { key: "female", label: "بنات", locked: false },
-        { key: "09", label: "2009", locked: false },
-        { key: "10", label: "2010", locked: false },
-      ]
-    : [
-        { key: "all", label: "الجميع", locked: isChannelLocked("all") },
-        ...(profile?.gender === "male" ? [{ key: "male", label: "شباب", locked: isChannelLocked("male") }] : []),
-        ...(profile?.gender === "female" ? [{ key: "female", label: "بنات", locked: isChannelLocked("female") }] : []),
-        ...(myGen ? [{ key: myGen, label: `20${myGen}`, locked: isChannelLocked(myGen) }] : []),
-      ];
+  // كل الأقسام تظهر للجميع (الأقفال فقط مقادرة للإدارة)
+  const channelTabs = [
+    { key: "all", label: "الجميع", locked: !isStaff && isChannelLocked("all") },
+    { key: "male", label: "شباب", locked: !isStaff && isChannelLocked("male") },
+    { key: "female", label: "بنات", locked: !isStaff && isChannelLocked("female") },
+    { key: "09", label: "2009", locked: !isStaff && isChannelLocked("09") },
+    { key: "10", label: "2010", locked: !isStaff && isChannelLocked("10") },
+  ];
 
   // Channels that are open (=1 or 2 buttons floating at bottom)
   const openChannels = channelTabs.filter(t => !t.locked);
 
-  const myGenderChannel = profile?.gender === "male" ? "male" : profile?.gender === "female" ? "female" : null;
-
   const lockedKeys = new Set(channelTabs.filter(t => t.locked).map(t => t.key));
 
-  const postTargets = isStaff
-    ? [
-        { key: "all", label: "الجميع" },
-        { key: "male", label: "شباب" },
-        { key: "female", label: "بنات" },
-        { key: "09", label: "2009" },
-        { key: "10", label: "2010" },
-      ]
-    : [
-        { key: "all", label: "الجميع" },
-        ...(myGenderChannel ? [{ key: myGenderChannel, label: profile?.gender === "male" ? "شباب" : "بنات" }] : []),
-        ...(myGen ? [{ key: myGen, label: `20${myGen}` }] : []),
-      ].filter(t => !lockedKeys.has(t.key));
+  // كل الأقسام متاحة للنشر للجميع (الأقفال تمنع النشر في المقفل)
+  const postTargets = [
+    { key: "all", label: "الجميع" },
+    { key: "male", label: "شباب" },
+    { key: "female", label: "بنات" },
+    { key: "09", label: "2009" },
+    { key: "10", label: "2010" },
+  ].filter(t => !lockedKeys.has(t.key));
 
   return (
     <div className="container mx-auto px-4 py-6 max-w-2xl">
@@ -374,7 +362,7 @@ const Chat = () => {
         {channelTabs.map(opt => (
           <button
             key={opt.key}
-            onClick={() => { if (opt.locked) { toast.error(opt.label + " مقفلة حالياً من قبل الإدارة"); return; } setChannelFilter(opt.key); }}
+            onClick={() => { if (opt.locked) { toast.error(opt.label + " مقفلة حالياً من قبل الإدارة"); return; } setChannelFilter(opt.key); setPostTarget(opt.key); }}
             className={`text-xs px-3 py-1 rounded-md transition-colors flex items-center gap-1 ${opt.locked ? "text-muted-foreground/50 line-through cursor-not-allowed" : channelFilter === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
             title={opt.locked ? "مقفلة" : ""}
           >
@@ -435,7 +423,7 @@ const Chat = () => {
           {openChannels.map(opt => (
             <button
               key={opt.key}
-              onClick={() => setChannelFilter(opt.key)}
+              onClick={() => { setChannelFilter(opt.key); setPostTarget(opt.key); }}
               className={`text-xs font-medium px-4 py-2 rounded-full transition-colors ${channelFilter === opt.key ? "bg-primary text-primary-foreground" : "bg-muted/60 hover:bg-muted"}`}
             >
               {opt.label}
