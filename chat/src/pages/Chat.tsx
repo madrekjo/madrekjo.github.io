@@ -55,18 +55,26 @@ const Chat = () => {
   const [channelFilter, setChannelFilter] = useState<string>("all");
   const [postTarget, setPostTarget] = useState<string>("all");
   const [channelSettings, setChannelSettings] = useState<Record<string, boolean>>({ all: true, male: true, female: true, "09": true, "10": true });
+  const [sectionLocks, setSectionLocks] = useState<Record<string, boolean>>({});
 
   const myGen = profile?.generation as string | null;
 
   const fetchPosts = useCallback(async (offset = 0, append = false) => {
     if (append) setLoadingMore(true);
     try {
-      const { data: rows, error } = await supabase
+      let query = supabase
         .from("posts")
         .select("*, profiles!posts_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
         .is("deleted_at", null)
-        .order("created_at", { ascending: false })
-        .range(offset, offset + PAGE_SIZE - 1);
+        .order("created_at", { ascending: false });
+
+      if (channelFilter === "all") {
+        query = query.or("channel.is.null,channel.eq.all");
+      } else {
+        query = query.eq("channel", channelFilter);
+      }
+
+      const { data: rows, error } = await query.range(offset, offset + PAGE_SIZE - 1);
 
       if (error) throw error;
       const baseRows = (rows || []) as any[];
@@ -106,7 +114,7 @@ const Chat = () => {
       setLoading(false);
       setLoadingMore(false);
     }
-  }, []);
+  }, [channelFilter]);
 
   const fetchChannelSettings = useCallback(async () => {
     const { data } = await supabase.from("channel_settings" as any).select("*");
@@ -117,20 +125,43 @@ const Chat = () => {
     }
   }, []);
 
+  const fetchSectionLocks = useCallback(async () => {
+    const { data } = await (supabase as any).from("section_locks").select("section, locked, locked_until");
+    const map: Record<string, boolean> = {};
+    (data || []).forEach((r: any) => {
+      const stillLocked = r.locked && (!r.locked_until || new Date(r.locked_until) > new Date());
+      map[r.section] = !!stillLocked;
+    });
+    setSectionLocks(map);
+  }, []);
+
+  const sectionKeyFor = (ch: string) =>
+    ch === "all" ? "chat_all" : ch === "09" ? "chat_09" : ch === "10" ? "chat_10" : null;
+
+  const isChannelLocked = (key: string) => {
+    if (isStaff) return false;
+    const sec = sectionKeyFor(key);
+    if (sec && sectionLocks[sec]) return true;
+    return !(channelSettings[key] ?? true);
+  };
+
   useEffect(() => {
     loadBannedWords();
     fetchPosts(0, false);
     fetchChannelSettings();
+    fetchSectionLocks();
 
     const channel = supabase
       .channel("posts-realtime")
       .on("postgres_changes", { event: "*", schema: "public", table: "posts" }, () => { fetchPosts(0, false); })
       .on("postgres_changes", { event: "*", schema: "public", table: "comments" }, () => { fetchPosts(0, false); })
       .on("postgres_changes", { event: "*", schema: "public", table: "likes" }, () => { fetchPosts(0, false); })
+      .on("postgres_changes", { event: "*", schema: "public", table: "section_locks" }, () => { fetchSectionLocks(); })
+      .on("postgres_changes", { event: "*", schema: "public", table: "channel_settings" }, () => { fetchChannelSettings(); })
       .subscribe();
 
     return () => { supabase.removeChannel(channel); };
-  }, [fetchPosts, fetchChannelSettings]);
+  }, [fetchPosts, fetchChannelSettings, fetchSectionLocks]);
 
   useEffect(() => {
     if (highlightPostId && !hasScrolled.current && posts.length > 0) {
@@ -225,11 +256,11 @@ const Chat = () => {
           ...(myGen ? [{ key: myGen }] : []),
         ];
     const tab = tabs.find(t => t.key === channelFilter);
-    if (tab && !(channelSettings[tab.key] ?? true)) {
-      const firstOpen = tabs.find(t => channelSettings[t.key] ?? true);
+    if (tab && isChannelLocked(tab.key)) {
+      const firstOpen = tabs.find(t => !isChannelLocked(t.key));
       if (firstOpen) setChannelFilter(firstOpen.key);
     }
-  }, [channelFilter, channelSettings, profile?.gender, myGen, isStaff]);
+  }, [channelFilter, channelSettings, sectionLocks, profile?.gender, myGen, isStaff]);
 
   if (profile?.is_banned) {
     return (
@@ -257,10 +288,10 @@ const Chat = () => {
         { key: "10", label: "2010", locked: false },
       ]
     : [
-        { key: "all", label: "الجميع", locked: !(channelSettings["all"] ?? true) },
-        ...(profile?.gender === "male" ? [{ key: "male", label: "شباب", locked: !(channelSettings["male"] ?? true) }] : []),
-        ...(profile?.gender === "female" ? [{ key: "female", label: "بنات", locked: !(channelSettings["female"] ?? true) }] : []),
-        ...(myGen ? [{ key: myGen, label: `20${myGen}`, locked: !(channelSettings[myGen] ?? true) }] : []),
+        { key: "all", label: "الجميع", locked: isChannelLocked("all") },
+        ...(profile?.gender === "male" ? [{ key: "male", label: "شباب", locked: isChannelLocked("male") }] : []),
+        ...(profile?.gender === "female" ? [{ key: "female", label: "بنات", locked: isChannelLocked("female") }] : []),
+        ...(myGen ? [{ key: myGen, label: `20${myGen}`, locked: isChannelLocked(myGen) }] : []),
       ];
 
   // Channels that are open (=1 or 2 buttons floating at bottom)
@@ -357,8 +388,8 @@ const Chat = () => {
         <div className="space-y-4">
           {posts
             .filter(p => {
-              const inLocked = !isStaff && !(channelSettings[p.channel || "all"] ?? true);
-              if (inLocked) return false;
+              const ch = p.channel || "all";
+              if (!isStaff && isChannelLocked(ch)) return false;
               return channelFilter === "all" ? (p.channel === "all" || p.channel === null) : p.channel === channelFilter;
             })
             .map(post => (

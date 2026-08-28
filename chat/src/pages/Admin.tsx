@@ -127,8 +127,7 @@ const Admin = () => {
   const toggleChannel = async (ch: string, enabled: boolean) => {
     const { data, error } = await (supabase as any)
       .from("channel_settings")
-      .update({ enabled, updated_at: new Date().toISOString() })
-      .eq("channel", ch);
+      .upsert({ channel: ch, enabled, updated_at: new Date().toISOString() }, { onConflict: "channel" });
     if (error) {
       console.error("toggleChannel error:", error);
       toast.error("فشل الحفظ: " + (error.message || error.details || "خطأ غير معروف"));
@@ -634,10 +633,13 @@ const Admin = () => {
             );
           })}
 
-          <p className="text-sm font-medium text-muted-foreground mt-4">قنوات الدردشة ( تفعيل / تعطيل ):</p>
+          <p className="text-sm font-medium text-muted-foreground mt-4">قنوات الدردشة (تحدد القناة الواحدة فقط — الجميع/شباب/بنات/09/10):</p>
           {[
+            { key: "all", label: "قناة الجميع", color: "text-primary" },
             { key: "male", label: "قناة شباب", color: "text-blue-500" },
             { key: "female", label: "قناة بنات", color: "text-pink-500" },
+            { key: "09", label: "قناة جيل 09", color: "text-emerald-600" },
+            { key: "10", label: "قناة جيل 10", color: "text-orange-600" },
           ].map(ch => (
             <Card key={ch.key}>
               <CardContent className="py-3">
