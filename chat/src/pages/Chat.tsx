@@ -71,10 +71,22 @@ const Chat = () => {
       if (channelFilter === "all") {
         query = query.or("channel.is.null,channel.eq.all");
       } else {
-        query = query.eq("channel", channelFilter);
+        query = query.or(`channel.is.null,channel.in.(${channelFilter},all)`);
       }
 
-      const { data: rows, error } = await query.range(offset, offset + PAGE_SIZE - 1);
+      let { data: rows, error } = await query.range(offset, offset + PAGE_SIZE - 1);
+
+      if (error) {
+        // عمود channel لسه ما موجود بقاعدة البيانات → نرجع للجلب الكامل مؤقتاً
+        const { data: rows2, error: err2 } = await supabase
+          .from("posts")
+          .select("*, profiles!posts_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
+          .is("deleted_at", null)
+          .order("created_at", { ascending: false })
+          .range(offset, offset + PAGE_SIZE - 1);
+        rows = rows2;
+        error = err2;
+      }
 
       if (error) throw error;
       const baseRows = (rows || []) as any[];
@@ -390,7 +402,9 @@ const Chat = () => {
             .filter(p => {
               const ch = p.channel || "all";
               if (!isStaff && isChannelLocked(ch)) return false;
-              return channelFilter === "all" ? (p.channel === "all" || p.channel === null) : p.channel === channelFilter;
+              return channelFilter === "all"
+                 ? p.channel === "all" || p.channel === null
+                 : p.channel === channelFilter || p.channel === "all" || p.channel === null;
             })
             .map(post => (
               <PostCard
