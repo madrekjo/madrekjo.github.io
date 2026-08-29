@@ -9,27 +9,6 @@ import { toast } from "sonner";
 import { Send, Image as ImageIcon, Video, Loader2, Lock } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { compressMedia } from "@/lib/mediaCompression";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
-
-const SALAWAT_KEY = "madrekjo_salawat_last";
-const SALAWAT_INTERVAL = 24 * 60 * 60 * 1000;
-
-function shouldShowSalawat() {
-  try {
-    const last = Number(localStorage.getItem(SALAWAT_KEY) || 0);
-    if (!last) {
-      localStorage.setItem(SALAWAT_KEY, String(Date.now()));
-      return true;
-    }
-    if (Date.now() - last >= SALAWAT_INTERVAL) {
-      localStorage.setItem(SALAWAT_KEY, String(Date.now()));
-      return true;
-    }
-    return false;
-  } catch {
-    return true;
-  }
-}
 
 const PAGE_SIZE = 20;
 
@@ -58,7 +37,7 @@ interface Post {
 }
 
 const Chat = () => {
-  const { user, profile, isAdmin, isStaff } = useAuth();
+  const { user, profile, isAdmin, isStaff, refreshProfile } = useAuth();
   const [posts, setPosts] = useState<Post[]>([]);
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(true);
@@ -75,7 +54,6 @@ const Chat = () => {
   const loaderRef = useRef<HTMLDivElement | null>(null);
   const [channelFilter, setChannelFilter] = useState<string>("all");
   const [postTarget, setPostTarget] = useState<string>("all");
-  const [showSalawat, setShowSalawat] = useState(false);
   const [channelSettings, setChannelSettings] = useState<Record<string, boolean>>({ all: true, male: true, female: true, "09": true, "10": true });
   const [sectionLocks, setSectionLocks] = useState<Record<string, boolean>>({});
 
@@ -180,7 +158,6 @@ const Chat = () => {
   };
 
   useEffect(() => {
-    if (shouldShowSalawat()) setShowSalawat(true);
     loadBannedWords();
     fetchPosts(0, false);
     fetchChannelSettings();
@@ -314,6 +291,8 @@ const Chat = () => {
     );
   }
 
+  // الأقسام: ذكر للذكر وأنثى للأنثى.
+// لو الجنس غير محدد بعد → يظهر قسمي شباب/بنات كخيار، وأول ضغطة تحدد الجنس.
   const channelTabs = isStaff
     ? [
         { key: "all", label: "الجميع", locked: false },
@@ -324,17 +303,37 @@ const Chat = () => {
       ]
     : [
         { key: "all", label: "الجميع", locked: isChannelLocked("all") },
-        ...(profile?.gender === "male" ? [{ key: "male", label: "شباب", locked: isChannelLocked("male") }] : []),
-        ...(profile?.gender === "female" ? [{ key: "female", label: "بنات", locked: isChannelLocked("female") }] : []),
+        ...(profile?.gender !== "female" ? [{ key: "male", label: "شباب", locked: isChannelLocked("male") }] : []),
+        ...(profile?.gender !== "male" ? [{ key: "female", label: "بنات", locked: isChannelLocked("female") }] : []),
         ...(myGen ? [{ key: myGen, label: `20${myGen}`, locked: isChannelLocked(myGen) }] : []),
       ];
 
   // Channels that are open (=1 or 2 buttons floating at bottom)
   const openChannels = channelTabs.filter(t => !t.locked);
 
-  const myGenderChannel = profile?.gender === "male" ? "male" : profile?.gender === "female" ? "female" : null;
-
   const lockedKeys = new Set(channelTabs.filter(t => t.locked).map(t => t.key));
+
+  // عند اختيار قسم من نوع جنسي والجنس غير محدد → نحفظ الجنس أولاً ثم نفتح القسم
+  const chooseSection = async (key: string) => {
+    if (!profile?.gender && (key === "male" || key === "female")) {
+      const { error } = await supabase.from("profiles").update({ gender: key } as any).eq("user_id", user?.id);
+      if (error) { toast.error("تعذر حفظ اختيارك، حاول مجدداً"); return false; }
+      await refreshProfile();
+    }
+    return true;
+  };
+
+  const openTab = async (opt: { key: string; label: string; locked: boolean }) => {
+    if (opt.locked) { toast.error(opt.label + " مقفلة حالياً من قبل الإدارة"); return; }
+    if (!(await chooseSection(opt.key))) return;
+    setChannelFilter(opt.key);
+    setPostTarget(opt.key);
+  };
+
+  const pickTarget = async (key: string) => {
+    if (!(await chooseSection(key))) return;
+    setPostTarget(key);
+  };
 
   const postTargets = isStaff
     ? [
@@ -346,12 +345,12 @@ const Chat = () => {
       ]
     : [
         { key: "all", label: "الجميع" },
-        ...(myGenderChannel ? [{ key: myGenderChannel, label: profile?.gender === "male" ? "شباب" : "بنات" }] : []),
+        ...(profile?.gender !== "female" ? [{ key: "male", label: "شباب" }] : []),
+        ...(profile?.gender !== "male" ? [{ key: "female", label: "بنات" }] : []),
         ...(myGen ? [{ key: myGen, label: `20${myGen}` }] : []),
       ].filter(t => !lockedKeys.has(t.key));
 
   return (
-    <>
     <div className="container mx-auto px-4 py-6 max-w-2xl">
       {user && (
         <div className="bg-card border rounded-xl p-4 mb-6 animate-fade-in">
@@ -371,7 +370,7 @@ const Chat = () => {
                 <button
                   key={opt.key}
                   type="button"
-                  onClick={() => setPostTarget(opt.key)}
+                  onClick={() => void pickTarget(opt.key)}
                   className={`text-xs px-3 py-1 rounded-md transition-colors ${postTarget === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
                 >
                   {opt.label}
@@ -398,7 +397,7 @@ const Chat = () => {
         {channelTabs.map(opt => (
           <button
             key={opt.key}
-            onClick={() => { if (opt.locked) { toast.error(opt.label + " مقفلة حالياً من قبل الإدارة"); return; } setChannelFilter(opt.key); setPostTarget(opt.key); }}
+            onClick={() => void openTab(opt)}
             className={`text-xs px-3 py-1 rounded-md transition-colors flex items-center gap-1 ${opt.locked ? "text-muted-foreground/50 line-through cursor-not-allowed" : channelFilter === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
             title={opt.locked ? "مقفلة" : ""}
           >
@@ -459,7 +458,7 @@ const Chat = () => {
           {openChannels.map(opt => (
             <button
               key={opt.key}
-              onClick={() => { setChannelFilter(opt.key); setPostTarget(opt.key); }}
+              onClick={() => void openTab(opt)}
               className={`text-xs font-medium px-4 py-2 rounded-full transition-colors ${channelFilter === opt.key ? "bg-primary text-primary-foreground" : "bg-muted/60 hover:bg-muted"}`}
             >
               {opt.label}
@@ -468,25 +467,6 @@ const Chat = () => {
         </div>
       )}
     </div>
-
-    <Dialog open={showSalawat} onOpenChange={setShowSalawat}>
-      <DialogContent className="text-center">
-        <DialogHeader>
-          <DialogTitle className="text-xl">🙏 ذِكر الدخول</DialogTitle>
-          <DialogDescription className="text-base leading-relaxed text-foreground">
-            اللهم صلِّ وسلم وبارك على نبينا محمد ﷺ
-          </DialogDescription>
-        </DialogHeader>
-        <div className="space-y-2 py-2">
-          <p className="text-2xl font-semibold text-primary leading-relaxed">ﷺ</p>
-          <p className="text-sm text-muted-foreground">اللهم صلِّ على محمد وعلى آل محمد، كما صليت على آل إبراهيم، وبارك على محمد وعلى آل محمد، كما باركت على آل إبراهيم، إنك حميد مجيد.</p>
-        </div>
-        <DialogFooter className="sm:justify-center">
-          <Button onClick={() => setShowSalawat(false)}>ﷺ صلِّ على النبي ×3</Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
-    </>
   );
 };
 
