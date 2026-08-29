@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { useTasks } from "@/hooks/useTasks";
@@ -8,13 +8,40 @@ import { CategorySection } from "@/components/CategorySection";
 import { AdminPanel } from "@/components/AdminPanel";
 import { OnboardingDialog } from "@/components/OnboardingDialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 import { Loader2, Clock, Calendar, CalendarDays, Shield } from "lucide-react";
+
+const STUDY_DUA_KEY = "al-injaz-study-dua-last";
+const STUDY_DUA_INTERVAL = 24 * 60 * 60 * 1000;
+
+function shouldShowStudyDua() {
+  try {
+    const last = Number(localStorage.getItem(STUDY_DUA_KEY) || 0);
+    if (!last) {
+      localStorage.setItem(STUDY_DUA_KEY, String(Date.now()));
+      return true;
+    }
+    if (Date.now() - last >= STUDY_DUA_INTERVAL) {
+      localStorage.setItem(STUDY_DUA_KEY, String(Date.now()));
+      return true;
+    }
+    return false;
+  } catch {
+    return true;
+  }
+}
 
 const Dashboard = () => {
   const { user, loading } = useAuth();
   const navigate = useNavigate();
   const { loadingMyTasks } = useTasks();
   const { isAdmin } = useAdmin();
+  const [showStudyDua, setShowStudyDua] = useState(false);
+
+  useEffect(() => {
+    if (shouldShowStudyDua()) setShowStudyDua(true);
+  }, []);
 
   useEffect(() => {
     if (!loading && !user) navigate("/login");
@@ -73,6 +100,28 @@ const Dashboard = () => {
           </div>
         </Tabs>
       </main>
+
+      <Dialog open={showStudyDua} onOpenChange={setShowStudyDua}>
+        <DialogContent className="text-center">
+          <DialogHeader>
+            <DialogTitle className="text-xl">📖 دعاء قبل الدراسة</DialogTitle>
+            <DialogDescription className="text-base leading-relaxed text-foreground">
+              اللهم انفعني بما علمتني، وعلّمني ما ينفعني، وزدني علماً.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-2 py-2">
+            <p className="text-base leading-relaxed">
+              اللهم إني أسألك فهم النبيين، وحفظ المرسلين والملائكة المقربين، يا رب اجعل لساني عامراً بذكرك، وقلبي بخشيتك، وسري بطاعتك، إنك على كل شيء قدير.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              رب اشرح لي صدري، ويسّر لي أمري، واحلل عقدة من لساني يفقهوا قولي.
+            </p>
+          </div>
+          <DialogFooter className="sm:justify-center">
+            <Button onClick={() => setShowStudyDua(false)}>بسم الله، أبدأ بحول الله</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

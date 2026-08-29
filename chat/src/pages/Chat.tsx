@@ -9,6 +9,27 @@ import { toast } from "sonner";
 import { Send, Image as ImageIcon, Video, Loader2, Lock } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { compressMedia } from "@/lib/mediaCompression";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
+
+const SALAWAT_KEY = "madrekjo_salawat_last";
+const SALAWAT_INTERVAL = 24 * 60 * 60 * 1000;
+
+function shouldShowSalawat() {
+  try {
+    const last = Number(localStorage.getItem(SALAWAT_KEY) || 0);
+    if (!last) {
+      localStorage.setItem(SALAWAT_KEY, String(Date.now()));
+      return true;
+    }
+    if (Date.now() - last >= SALAWAT_INTERVAL) {
+      localStorage.setItem(SALAWAT_KEY, String(Date.now()));
+      return true;
+    }
+    return false;
+  } catch {
+    return true;
+  }
+}
 
 const PAGE_SIZE = 20;
 
@@ -54,6 +75,7 @@ const Chat = () => {
   const loaderRef = useRef<HTMLDivElement | null>(null);
   const [channelFilter, setChannelFilter] = useState<string>("all");
   const [postTarget, setPostTarget] = useState<string>("all");
+  const [showSalawat, setShowSalawat] = useState(false);
   const [channelSettings, setChannelSettings] = useState<Record<string, boolean>>({ all: true, male: true, female: true, "09": true, "10": true });
   const [sectionLocks, setSectionLocks] = useState<Record<string, boolean>>({});
 
@@ -158,6 +180,7 @@ const Chat = () => {
   };
 
   useEffect(() => {
+    if (shouldShowSalawat()) setShowSalawat(true);
     loadBannedWords();
     fetchPosts(0, false);
     fetchChannelSettings();
@@ -328,6 +351,7 @@ const Chat = () => {
       ].filter(t => !lockedKeys.has(t.key));
 
   return (
+    <>
     <div className="container mx-auto px-4 py-6 max-w-2xl">
       {user && (
         <div className="bg-card border rounded-xl p-4 mb-6 animate-fade-in">
@@ -444,6 +468,25 @@ const Chat = () => {
         </div>
       )}
     </div>
+
+    <Dialog open={showSalawat} onOpenChange={setShowSalawat}>
+      <DialogContent className="text-center">
+        <DialogHeader>
+          <DialogTitle className="text-xl">🙏 ذِكر الدخول</DialogTitle>
+          <DialogDescription className="text-base leading-relaxed text-foreground">
+            اللهم صلِّ وسلم وبارك على نبينا محمد ﷺ
+          </DialogDescription>
+        </DialogHeader>
+        <div className="space-y-2 py-2">
+          <p className="text-2xl font-semibold text-primary leading-relaxed">ﷺ</p>
+          <p className="text-sm text-muted-foreground">اللهم صلِّ على محمد وعلى آل محمد، كما صليت على آل إبراهيم، وبارك على محمد وعلى آل محمد، كما باركت على آل إبراهيم، إنك حميد مجيد.</p>
+        </div>
+        <DialogFooter className="sm:justify-center">
+          <Button onClick={() => setShowSalawat(false)}>ﷺ صلِّ على النبي ×3</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+    </>
   );
 };
 
