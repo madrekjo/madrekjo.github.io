@@ -41,7 +41,7 @@ interface PostProps {
     video_url: string | null;
     created_at: string;
     profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null; gender?: string | null } | null;
-    likes: { user_id: string; profiles?: { full_name: string; avatar_url: string | null; gender?: string | null } | null }[];
+    likes: { user_id: string }[];
     comments: {
       id: string;
       content: string;
@@ -72,6 +72,8 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
   const [reportOpen, setReportOpen] = useState(false);
   const [authorIsAdmin, setAuthorIsAdmin] = useState(false);
   const [showLikers, setShowLikers] = useState(false);
+  const [likersData, setLikersData] = useState<{ user_id: string; full_name: string | null; avatar_url: string | null; gender?: string | null }[] | null>(null);
+  const [likersLoading, setLikersLoading] = useState(false);
 
   const canDelete = isAdmin || isModerator;
   const isOwner = user?.id === post.user_id;
@@ -137,6 +139,24 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
       }
     }
     onRefresh();
+  };
+
+  const toggleLikers = async () => {
+    if (!isAdmin && !isModerator) return;
+    if (showLikers) { setShowLikers(false); return; }
+    setShowLikers(true);
+    if (likersData !== null) return;
+    if (post.likes.length === 0) { setLikersData([]); return; }
+    setLikersLoading(true);
+    const ids = Array.from(new Set(post.likes.map(l => l.user_id)));
+    const { data } = await supabase
+      .from("profiles")
+      .select("user_id, full_name, avatar_url, gender")
+      .in("user_id", ids);
+    const map: Record<string, any> = {};
+    (data || []).forEach((p: any) => { map[p.user_id] = p; });
+    setLikersData(post.likes.map(l => map[l.user_id] || { user_id: l.user_id, full_name: null, avatar_url: null }));
+    setLikersLoading(false);
   };
 
   const handleCommentLike = async (commentId: string) => {
@@ -342,15 +362,24 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
 
       {/* Actions */}
       <div className="flex items-center gap-4 border-t pt-3">
-        <Button variant="ghost" size="sm" onClick={handleLike} className={`flex items-center gap-1 px-1 h-auto ${isLiked ? "text-destructive" : "text-muted-foreground hover:text-destructive"}`}>
-          <Heart className={`w-5 h-5 ${isLiked ? "fill-current" : ""}`} />
-          <span>{post.likes.length}</span>
-        </Button>
-        {(isAdmin || isModerator) && post.likes.length > 0 && (
-          <Button variant="ghost" size="sm" onClick={() => setShowLikers(!showLikers)} className="px-1 h-auto text-xs text-muted-foreground hover:text-primary" title="معرفة من وضع لايك">
-            {showLikers ? "إخفاء المعجبين" : "المعجبون"}
-          </Button>
-        )}
+        <div className="flex items-center gap-1">
+          <button onClick={handleLike} className={`flex items-center gap-1 text-sm transition-colors ${isLiked ? "text-destructive" : "text-muted-foreground hover:text-destructive"}`}>
+            <Heart className={`w-5 h-5 ${isLiked ? "fill-current" : ""}`} />
+          </button>
+          {post.likes.length > 0 && (
+            (isAdmin || isModerator) ? (
+              <button
+                onClick={toggleLikers}
+                className={`text-sm font-semibold transition-colors ${showLikers ? "text-primary" : "text-muted-foreground hover:text-primary"}`}
+                title="معرفة من وضع لايك"
+              >
+                {post.likes.length}
+              </button>
+            ) : (
+              <span className="text-sm font-semibold text-muted-foreground">{post.likes.length}</span>
+            )
+          )}
+        </div>
         <button onClick={() => setShowComments(!showComments)} className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors">
           <MessageCircle className="w-5 h-5" />
           <span>{post.comments.length}</span>
@@ -369,29 +398,29 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
           <p className="text-xs font-semibold text-muted-foreground mb-2">
             المعجبون ({post.likes.length})
           </p>
-          {post.likes.length === 0 ? (
+          {likersLoading ? (
+            <p className="text-sm text-muted-foreground">جارٍ التحميل...</p>
+          ) : (likersData || []).length === 0 ? (
             <p className="text-sm text-muted-foreground">لا يوجد معجبون</p>
           ) : (
             <ul className="space-y-1">
-              {post.likes.map((l) => (
+              {(likersData || []).map((l) => (
                 <li key={l.user_id} className="flex items-center gap-2">
                   <button
                     onClick={() => setProfileUserId(l.user_id)}
                     className="flex items-center gap-2 hover:underline"
                   >
                     <Avatar className="w-6 h-6">
-                      <AvatarImage src={l.profiles?.avatar_url || ""} />
+                      <AvatarImage src={l.avatar_url || ""} />
                       <AvatarFallback className="bg-primary/10 text-primary text-xs">
-                        {l.profiles?.full_name?.charAt(0) || "م"}
+                        {l.full_name?.charAt(0) || "م"}
                       </AvatarFallback>
                     </Avatar>
                     <span className="text-sm">
-                      {l.profiles
-                        ? formatDisplayName(l.profiles)
-                        : "مستخدم"}
+                      {formatDisplayName(l as any)}
                     </span>
-                    {l.profiles?.gender === "male" && <span className="inline-flex items-center justify-center w-2.5 h-2.5 rounded-full bg-blue-500 shrink-0" />}
-                    {l.profiles?.gender === "female" && <span className="inline-flex items-center justify-center w-2.5 h-2.5 rounded-full bg-pink-500 shrink-0" />}
+                    {l.gender === "male" && <span className="inline-flex items-center justify-center w-2.5 h-2.5 rounded-full bg-blue-500 shrink-0" />}
+                    {l.gender === "female" && <span className="inline-flex items-center justify-center w-2.5 h-2.5 rounded-full bg-pink-500 shrink-0" />}
                   </button>
                 </li>
               ))}

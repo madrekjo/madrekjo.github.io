@@ -1,7 +1,7 @@
 /* ========================================
    مدارك جو — Service Worker
    ======================================== */
-const CACHE = 'madrekjo-v17';
+const CACHE = 'madrekjo-v18';
 const CORE = [
   '/',
   '/index.html',

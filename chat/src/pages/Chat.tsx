@@ -47,7 +47,7 @@ interface Post {
   generation: string | null;
   channel: string | null;
   profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null; gender?: string | null } | null;
-  likes: { user_id: string; profiles?: { full_name: string; avatar_url: string | null; gender?: string | null } | null }[];
+  likes: { user_id: string }[];
   comments: {
     id: string;
     content: string;
@@ -128,22 +128,9 @@ const Chat = () => {
           ])
         : [{ data: [] }, { data: [] }];
 
-      let likersMap: Record<string, any> = {};
-      const likesRows = (likesRes.data || []) as any[];
-      if (isStaff && likesRows.length) {
-        const likerIds = Array.from(new Set(likesRows.map((l: any) => l.user_id)));
-        const { data: likerProfiles } = await supabase
-          .from("profiles")
-          .select("user_id, full_name, avatar_url, gender")
-          .in("user_id", likerIds);
-        (likerProfiles || []).forEach((p: any) => { likersMap[p.user_id] = p; });
-      }
-
       const cleaned = baseRows.map((p: any) => ({
         ...p,
-        likes: likesRows
-          .filter((l: any) => l.post_id === p.id)
-          .map((l: any) => isStaff ? { ...l, profiles: likersMap[l.user_id] || null } : l),
+        likes: (likesRes.data || []).filter((l: any) => l.post_id === p.id),
         comments: (commentsRes.data || []).filter((c: any) => c.post_id === p.id),
       })) as unknown as Post[];
 
