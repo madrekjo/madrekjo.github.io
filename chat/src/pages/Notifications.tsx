@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useCallback, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -6,6 +6,12 @@ import { Bell, Heart, MessageCircle, CornerDownLeft, AtSign, Loader2 } from "luc
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+
+function dedupe(list: Notification[]): Notification[] {
+  const seen = new Set<string>();
+  return list.filter(n => (seen.has(n.id) ? false : (seen.add(n.id), true)));
+}
 
 interface Notification {
   id: string;
@@ -25,35 +31,51 @@ const Notifications = () => {
   const navigate = useNavigate();
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const BATCH = 50;
+
+  const fetchBatch = useCallback(async (offset: number, append: boolean) => {
+    if (!user) return;
+    if (append) setLoadingMore(true);
+    const { data, error } = await supabase
+      .from("notifications")
+      .select("*")
+      .eq("user_id", user.id)
+      .order("created_at", { ascending: false })
+      .range(offset, offset + BATCH - 1);
+    if (error || !data) { if (append) setLoadingMore(false); else setLoading(false); return; }
+    const actorIds = [...new Set(data.map(n => n.actor_id))];
+    const { data: profiles } = await supabase
+      .from("profiles")
+      .select("user_id, full_name, avatar_url")
+      .in("user_id", actorIds);
+    const map = new Map(profiles?.map(p => [p.user_id, p]) || []);
+    const { data: allMentions } = await supabase
+      .from("post_mentions")
+      .select("actor_id, post_id, comment_id")
+      .eq("is_all", true);
+    const allSet = new Set(allMentions?.map(r => `${r.actor_id}|${r.post_id}|${r.comment_id}`) || []);
+    const enriched = data.map(n => ({ ...n, actor_profile: map.get(n.actor_id) || null,
+      is_all: n.type === "mention" && allSet.has(`${n.actor_id}|${n.post_id}|${n.comment_id}`)
+    }));
+    setNotifications(prev => append ? dedupe([...prev, ...enriched]) : enriched);
+    setHasMore(data.length === BATCH);
+    if (append) setLoadingMore(false); else setLoading(false);
+  }, [user]);
 
   useEffect(() => {
     if (!user) return;
     (async () => {
-      const { data } = await supabase
-        .from("notifications")
-        .select("*")
-        .eq("user_id", user.id)
-        .order("created_at", { ascending: false });
-      if (!data) { setLoading(false); return; }
-      const actorIds = [...new Set(data.map(n => n.actor_id))];
-      const { data: profiles } = await supabase
-        .from("profiles")
-        .select("user_id, full_name, avatar_url")
-        .in("user_id", actorIds);
-      const map = new Map(profiles?.map(p => [p.user_id, p]) || []);
-      const { data: allMentions } = await supabase
-        .from("post_mentions")
-        .select("actor_id, post_id, comment_id")
-        .eq("is_all", true);
-      const allSet = new Set(allMentions?.map(r => `${r.actor_id}|${r.post_id}|${r.comment_id}`) || []);
-      setNotifications(data.map(n => ({ ...n, actor_profile: map.get(n.actor_id) || null,
-        is_all: n.type === "mention" && allSet.has(`${n.actor_id}|${n.post_id}|${n.comment_id}`)
-      })));
-      // Mark all as read
+      await fetchBatch(0, false);
       await supabase.from("notifications").update({ is_read: true }).eq("user_id", user.id).eq("is_read", false);
-      setLoading(false);
     })();
-  }, [user]);
+  }, [user, fetchBatch]);
+
+  const loadMore = async () => {
+    await fetchBatch(notifications.length, true);
+  };
+
 
   const getIcon = (type: string) => {
     switch (type) {
@@ -111,6 +133,13 @@ const Notifications = () => {
               </div>
             </div>
           ))}
+        </div>
+      )}
+      {!loading && notifications.length > 0 && hasMore && (
+        <div className="mt-4 text-center">
+          <Button variant="outline" size="sm" onClick={loadMore} disabled={loadingMore}>
+            {loadingMore ? <Loader2 className="w-4 h-4 animate-spin mx-auto" /> : "عرض المزيد"}
+          </Button>
         </div>
       )}
     </div>

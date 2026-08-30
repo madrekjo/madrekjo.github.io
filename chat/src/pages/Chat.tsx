@@ -82,6 +82,31 @@ const Chat = () => {
   const [sectionLocks, setSectionLocks] = useState<Record<string, boolean>>({});
 
   const myGen = profile?.generation as string | null;
+  const channelFilterRef = useRef<string>("all");
+  const loadedPostIdsRef = useRef<Set<string>>(new Set());
+  useEffect(() => { channelFilterRef.current = channelFilter; }, [channelFilter]);
+  useEffect(() => { loadedPostIdsRef.current = new Set(posts.map(p => p.id)); }, [posts]);
+
+  const upsertComment = (comments: Post["comments"], comment: Post["comments"][number]): Post["comments"] => {
+    const idx = comments.findIndex(c => c.id === comment.id);
+    if (idx === -1) return [...comments, comment];
+    const next = [...comments];
+    next[idx] = comment;
+    return next;
+  };
+
+  const sortPosts = (a: any, b: any) => {
+    if (a.is_pinned && !b.is_pinned) return -1;
+    if (!a.is_pinned && b.is_pinned) return 1;
+    return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+  };
+
+  const postMatchesFilter = (channel: string | null | undefined) => {
+    const filter = channelFilterRef.current;
+    const ch = channel || "all";
+    if (filter === "all") return ch === "all";
+    return ch === filter || ch === "all";
+  };
 
   const fetchPosts = useCallback(async (offset = 0, append = false) => {
     if (append) setLoadingMore(true);
@@ -134,11 +159,7 @@ const Chat = () => {
         comments: (commentsRes.data || []).filter((c: any) => c.post_id === p.id),
       })) as unknown as Post[];
 
-      const sorted = cleaned.sort((a, b) => {
-        if ((a as any).is_pinned && !(b as any).is_pinned) return -1;
-        if (!(a as any).is_pinned && (b as any).is_pinned) return 1;
-        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
-      });
+      const sorted = cleaned.sort(sortPosts);
       setPosts(prev => append ? [...prev, ...sorted] : sorted);
       setHasMore(baseRows.length === PAGE_SIZE);
     } catch (err) {
@@ -171,6 +192,64 @@ const Chat = () => {
     setSectionLocks(map);
   }, []);
 
+  const refreshPost = useCallback(async (postId: string) => {
+    if (!postId) return;
+    try {
+      const { data: row, error } = await supabase
+        .from("posts")
+        .select("*, profiles!posts_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
+        .is("deleted_at", null)
+        .eq("id", postId)
+        .maybeSingle();
+
+      if (error || !row) {
+        // المنشور محذوف (soft-delete) أو غير مرئي → نزيله من القائمة محلياً
+        setPosts(prev => prev.filter(p => p.id !== postId));
+        return;
+      }
+
+      const [likesRes, commentsRes] = await Promise.all([
+        supabase.from("likes").select("post_id, user_id").eq("post_id", postId),
+        supabase
+          .from("comments")
+          .select("id, post_id, content, user_id, parent_comment_id, created_at, is_pinned, profiles:profiles!comments_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
+          .eq("post_id", postId)
+          .is("deleted_at", null)
+          .order("created_at", { ascending: true }),
+      ]);
+
+      const cleaned = {
+        ...row,
+        likes: likesRes.data || [],
+        comments: commentsRes.data || [],
+      } as unknown as Post;
+
+      setPosts(prev => {
+        const exists = prev.some(p => p.id === postId);
+        const base = exists ? prev.map(p => (p.id === postId ? cleaned : p)) : [cleaned, ...prev];
+        return base.sort(sortPosts);
+      });
+    } catch {
+      console.error("Failed to refresh post", postId);
+    }
+  }, []);
+
+  const refreshSingleComment = useCallback(async (commentId: string) => {
+    if (!commentId) return;
+    try {
+      const { data: comment, error } = await supabase
+        .from("comments")
+        .select("id, post_id, content, user_id, parent_comment_id, created_at, is_pinned, profiles:profiles!comments_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
+        .eq("id", commentId)
+        .eq("deleted_at", null)
+        .maybeSingle();
+      if (error || !comment) return;
+      setPosts(prev => prev.map(p => (p.id === comment.post_id ? { ...p, comments: upsertComment(p.comments, comment) } : p)));
+    } catch {
+      // تجاهل — عند فشل الجلب يبقى الوضع السابق
+    }
+  }, []);
+
   const sectionKeyFor = (ch: string) =>
     ch === "all" ? "chat_all" : ch === "09" ? "chat_09" : ch === "10" ? "chat_10" : null;
 
@@ -190,15 +269,68 @@ const Chat = () => {
 
     const channel = supabase
       .channel("posts-realtime")
-      .on("postgres_changes", { event: "*", schema: "public", table: "posts" }, () => { fetchPosts(0, false); })
-      .on("postgres_changes", { event: "*", schema: "public", table: "comments" }, () => { fetchPosts(0, false); })
-      .on("postgres_changes", { event: "*", schema: "public", table: "likes" }, () => { fetchPosts(0, false); })
+      .on("postgres_changes", { event: "INSERT", schema: "public", table: "posts" }, (payload: any) => {
+        const row = payload.new;
+        if (!row?.id || !postMatchesFilter(row.channel)) return;
+        refreshPost(row.id);
+      })
+      .on("postgres_changes", { event: "UPDATE", schema: "public", table: "posts" }, (payload: any) => {
+        const row = payload.new;
+        if (!row?.id) return;
+        if (row.deleted_at) {
+          setPosts(prev => prev.filter(p => p.id !== row.id));
+          return;
+        }
+        refreshPost(row.id);
+      })
+      .on("postgres_changes", { event: "DELETE", schema: "public", table: "posts" }, (payload: any) => {
+        const id = payload.old?.id ?? payload.new?.id;
+        if (id) setPosts(prev => prev.filter(p => p.id !== id));
+      })
+      .on("postgres_changes", { event: "INSERT", schema: "public", table: "comments" }, (payload: any) => {
+        const row = payload.new;
+        if (!row?.id || !row?.post_id) return;
+        // نحدّث التعليق فقط إذا كان منشوره محمّلاً أصلاً (نتجنّب طلب بلا فائدة)
+        if (!loadedPostIdsRef.current.has(row.post_id)) return;
+        refreshSingleComment(row.id);
+      })
+      .on("postgres_changes", { event: "UPDATE", schema: "public", table: "comments" }, (payload: any) => {
+        const row = payload.new;
+        if (!row?.id) return;
+        if (row.deleted_at) {
+          setPosts(prev => prev.map(p => ({ ...p, comments: p.comments.filter(c => c.id !== row.id) })));
+          return;
+        }
+        setPosts(prev => prev.map(p => ({
+          ...p,
+          comments: p.comments.map(c => (c.id === row.id ? { ...c, content: row.content, is_pinned: row.is_pinned } : c)),
+        })));
+      })
+      .on("postgres_changes", { event: "DELETE", schema: "public", table: "comments" }, (payload: any) => {
+        const id = payload.old?.id ?? payload.new?.id;
+        if (!id) return;
+        setPosts(prev => prev.map(p => ({ ...p, comments: p.comments.filter(c => c.id !== id && c.parent_comment_id !== id) })));
+      })
+      .on("postgres_changes", { event: "INSERT", schema: "public", table: "likes" }, (payload: any) => {
+        const row = payload.new;
+        if (!row?.post_id || !row?.user_id) return;
+        setPosts(prev => prev.map(p => (p.id === row.post_id && !p.likes.some(l => l.user_id === row.user_id)
+          ? { ...p, likes: [...p.likes, { user_id: row.user_id }] }
+          : p)));
+      })
+      .on("postgres_changes", { event: "DELETE", schema: "public", table: "likes" }, (payload: any) => {
+        const row = payload.old;
+        if (!row?.post_id || !row?.user_id) return;
+        setPosts(prev => prev.map(p => (p.id === row.post_id
+          ? { ...p, likes: p.likes.filter(l => l.user_id !== row.user_id) }
+          : p)));
+      })
       .on("postgres_changes", { event: "*", schema: "public", table: "section_locks" }, () => { fetchSectionLocks(); })
       .on("postgres_changes", { event: "*", schema: "public", table: "channel_settings" }, () => { fetchChannelSettings(); })
       .subscribe();
 
     return () => { supabase.removeChannel(channel); };
-  }, [fetchPosts, fetchChannelSettings, fetchSectionLocks]);
+  }, [fetchPosts, fetchChannelSettings, fetchSectionLocks, refreshPost, refreshSingleComment]);
 
   useEffect(() => {
     if (highlightPostId && !hasScrolled.current && posts.length > 0) {
@@ -269,6 +401,30 @@ const Chat = () => {
       const postId = inserted?.[0]?.id;
       if (postId) {
         await submitMentions(supabase, { postId, actorId: user.id, text: content, channel: postTarget });
+        const now = new Date().toISOString();
+        const optimisticPost = {
+          id: postId,
+          user_id: user.id,
+          content: content.trim(),
+          image_url: imageUrls && imageUrls.length ? imageUrls[0] : null,
+          image_urls: imageUrls,
+          video_url: videoUrl,
+          channel: postTarget,
+          created_at: now,
+          updated_at: now,
+          generation: null,
+          is_pinned: false,
+          profiles: {
+            full_name: profile?.full_name || "",
+            avatar_url: profile?.avatar_url || null,
+            generation: profile?.generation || null,
+            field: profile?.field || null,
+            gender: profile?.gender || null,
+          },
+          likes: [],
+          comments: [],
+        } as unknown as Post;
+        setPosts(prev => [optimisticPost, ...prev].sort(sortPosts));
       }
     }
     setPosting(false);
@@ -474,7 +630,7 @@ const Chat = () => {
                 key={post.id}
                 ref={(el) => { postRefs.current[post.id] = el; }}
                 post={post}
-                onRefresh={() => fetchPosts(0, false)}
+                onRefresh={() => refreshPost(post.id)}
                 highlight={post.id === highlightPostId}
               />
             ))}
