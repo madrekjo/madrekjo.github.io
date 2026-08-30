@@ -3,6 +3,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { containsBannedWord, loadBannedWords } from "@/lib/bannedWords";
 import PostCard from "@/components/PostCard";
+import MentionInput, { extractMentions } from "@/components/MentionInput";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
@@ -257,12 +258,28 @@ const Chat = () => {
     };
     if (!imageUrls) delete insertData.image_urls;
 
-    const { error } = await supabase.from("posts").insert(insertData);
+    const { data: inserted, error } = await supabase.from("posts").insert(insertData).select("id");
     if (error) {
       if ((error as any).message?.includes("section_locked")) toast.error("هذه القناة مقفلة حالياً من قبل الإدارة");
       else toast.error("فشل نشر المنشور");
     }
-    else { setContent(""); setMediaFiles([]); setMediaType(null); toast.success("تم النشر"); }
+    else {
+      setContent(""); setMediaFiles([]); setMediaType(null); toast.success("تم النشر");
+      const postId = inserted?.[0]?.id;
+      if (postId) {
+        const mentions = extractMentions(content);
+        for (const mt of mentions) {
+          if (!mt.userId || mt.userId === user.id) continue;
+          await (supabase as any).from("post_mentions").insert({
+            post_id: postId, comment_id: null, actor_id: user.id, user_id: mt.userId,
+            mentioned_name: mt.name, channel: postTarget,
+          });
+          await (supabase as any).from("notifications").insert({
+            user_id: mt.userId, actor_id: user.id, type: "mention", post_id: postId,
+          });
+        }
+      }
+    }
     setPosting(false);
   };
 
@@ -376,7 +393,16 @@ const Chat = () => {
     <div className="container mx-auto px-4 py-6 max-w-2xl">
       {user && (
         <div className="bg-card border rounded-xl p-4 mb-6 animate-fade-in">
-          <Textarea value={content} onChange={e => setContent(e.target.value)} placeholder="شارك أفكارك..." className="min-h-[80px] resize-none mb-3" />
+          <MentionInput
+            value={content}
+            onChange={setContent}
+            placeholder="شارك أفكارك... (اكتب @ لمنشن)"
+            channel={postTarget}
+            currentGender={profile?.gender}
+            currentGeneration={myGen}
+            minRows={3}
+            className="min-h-[80px] mb-3"
+          />
           {mediaFiles.length > 0 && (
             <div className="mb-3 p-2 bg-muted rounded-lg flex items-center justify-between">
               <span className="text-sm text-muted-foreground truncate">

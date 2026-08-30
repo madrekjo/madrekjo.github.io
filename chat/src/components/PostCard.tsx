@@ -14,6 +14,8 @@ import RoundsBadge from "@/components/RoundsBadge";
 import Lightbox from "@/components/Lightbox";
 import ReportDialog from "@/components/ReportDialog";
 import { formatDisplayName } from "@/lib/displayName";
+import MentionInput, { extractMentions } from "@/components/MentionInput";
+import { renderMentions } from "@/lib/mentions";
 import { ShieldCheck } from "lucide-react";
 
 const VerificationBadge = ({ gender, isAuthorAdmin }: { gender?: string | null; isAuthorAdmin: boolean }) => {
@@ -160,7 +162,21 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
     if (!user || !commentText.trim()) return;
     if (profile?.is_banned) { toast.error("حسابك محظور، لا يمكنك التعليق"); return; }
     if (containsBannedWord(commentText, isAdmin)) { toast.error("التعليق يحتوي على كلمات محظورة"); return; }
-    await supabase.from("comments").insert({ post_id: post.id, user_id: user.id, content: commentText.trim() });
+    const { data: insertedC, error } = await supabase.from("comments").insert({ post_id: post.id, user_id: user.id, content: commentText.trim() }).select("id");
+    if (!error && insertedC?.[0]?.id) {
+      const commentId = insertedC[0].id;
+      const mentions = extractMentions(commentText);
+      for (const mt of mentions) {
+        if (!mt.userId || mt.userId === user.id) continue;
+        await (supabase as any).from("post_mentions").insert({
+          post_id: post.id, comment_id: commentId, actor_id: user.id, user_id: mt.userId,
+          mentioned_name: mt.name, channel: (post as any).channel || "all",
+        });
+        await (supabase as any).from("notifications").insert({
+          user_id: mt.userId, actor_id: user.id, type: "mention", post_id: post.id, comment_id: commentId,
+        });
+      }
+    }
     if (post.user_id !== user.id) {
       await supabase.from("notifications").insert({ user_id: post.user_id, actor_id: user.id, type: "comment", post_id: post.id });
     }
@@ -172,7 +188,21 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
     if (!user || !replyText.trim()) return;
     if (profile?.is_banned) { toast.error("حسابك محظور، لا يمكنك الرد"); return; }
     if (containsBannedWord(replyText, isAdmin)) { toast.error("الرد يحتوي على كلمات محظورة"); return; }
-    await supabase.from("comments").insert({ post_id: post.id, user_id: user.id, content: replyText.trim(), parent_comment_id: parentId });
+    const { data: insertedR, error } = await supabase.from("comments").insert({ post_id: post.id, user_id: user.id, content: replyText.trim(), parent_comment_id: parentId }).select("id");
+    if (!error && insertedR?.[0]?.id) {
+      const commentId = insertedR[0].id;
+      const mentions = extractMentions(replyText);
+      for (const mt of mentions) {
+        if (!mt.userId || mt.userId === user.id) continue;
+        await (supabase as any).from("post_mentions").insert({
+          post_id: post.id, comment_id: commentId, actor_id: user.id, user_id: mt.userId,
+          mentioned_name: mt.name, channel: (post as any).channel || "all",
+        });
+        await (supabase as any).from("notifications").insert({
+          user_id: mt.userId, actor_id: user.id, type: "mention", post_id: post.id, comment_id: commentId,
+        });
+      }
+    }
     const parentComment = post.comments.find(c => c.id === parentId);
     if (parentComment && parentComment.user_id !== user.id) {
       await supabase.from("notifications").insert({ user_id: parentComment.user_id, actor_id: user.id, type: "reply", post_id: post.id, comment_id: parentId });
@@ -293,7 +323,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
           </div>
         </div>
       ) : (
-        <p className="mb-3 whitespace-pre-wrap">{post.content}</p>
+        <p className="mb-3 whitespace-pre-wrap">{renderMentions(post.content, setProfileUserId)}</p>
       )}
 
       {/* Media */}
@@ -406,7 +436,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
                       </div>
                     </div>
                   ) : (
-                    <p className="text-sm whitespace-pre-wrap break-words">{comment.content}</p>
+                    <p className="text-sm whitespace-pre-wrap break-words">{renderMentions(comment.content, setProfileUserId)}</p>
                   )}
                   <div className="flex items-center gap-3 mt-1">
                     {renderCommentLike(comment.id)}
@@ -451,7 +481,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
                         )}
                       </div>
                     </div>
-                    <p className="text-sm">{reply.content}</p>
+                    <p className="text-sm whitespace-pre-wrap break-words">{renderMentions(reply.content, setProfileUserId)}</p>
                     <div className="mt-1">
                       {renderCommentLike(reply.id)}
                     </div>
@@ -461,12 +491,15 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
 
               {/* Reply input */}
               {replyTo === comment.id && (
-                <div className="flex gap-2 mr-8">
-                  <Textarea
+                <div className="flex gap-2 mr-8 items-end">
+                  <MentionInput
                     value={replyText}
-                    onChange={e => setReplyText(e.target.value)}
-                    placeholder="اكتب ردك..."
-                    className="resize-none min-h-[40px] text-sm"
+                    onChange={setReplyText}
+                    placeholder="اكتب ردك... (اكتب @ لمنشن)"
+                    channel={(post as any).channel || "all"}
+                    currentGender={user && (profile as any)?.gender}
+                    minRows={1}
+                    className="min-h-[40px] text-sm"
                   />
                   <Button size="icon" className="shrink-0" onClick={() => handleReply(comment.id)}>
                     <Send className="w-4 h-4" />
@@ -478,12 +511,15 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
 
           {/* New comment */}
           {user && (
-            <div className="flex gap-2">
-              <Textarea
+            <div className="flex gap-2 items-end">
+              <MentionInput
                 value={commentText}
-                onChange={e => setCommentText(e.target.value)}
-                placeholder="اكتب تعليقاً..."
-                className="resize-none min-h-[40px] text-sm"
+                onChange={setCommentText}
+                placeholder="اكتب تعليقاً... (اكتب @ لمنشن)"
+                channel={(post as any).channel || "all"}
+                currentGender={user && (profile as any)?.gender}
+                minRows={1}
+                className="min-h-[40px] text-sm"
               />
               <Button size="icon" className="shrink-0" onClick={handleComment} disabled={!commentText.trim()}>
                 <Send className="w-4 h-4" />
