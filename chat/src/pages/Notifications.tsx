@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Bell, Heart, MessageCircle, CornerDownLeft, Loader2 } from "lucide-react";
+import { Bell, Heart, MessageCircle, CornerDownLeft, AtSign, Loader2 } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { useNavigate } from "react-router-dom";
@@ -17,6 +17,7 @@ interface Notification {
   is_read: boolean;
   created_at: string;
   actor_profile?: { full_name: string; avatar_url: string | null } | null;
+  is_all?: boolean;
 }
 
 const Notifications = () => {
@@ -40,7 +41,14 @@ const Notifications = () => {
         .select("user_id, full_name, avatar_url")
         .in("user_id", actorIds);
       const map = new Map(profiles?.map(p => [p.user_id, p]) || []);
-      setNotifications(data.map(n => ({ ...n, actor_profile: map.get(n.actor_id) || null })));
+      const { data: allMentions } = await supabase
+        .from("post_mentions")
+        .select("actor_id, post_id, comment_id")
+        .eq("is_all", true);
+      const allSet = new Set(allMentions?.map(r => `${r.actor_id}|${r.post_id}|${r.comment_id}`) || []);
+      setNotifications(data.map(n => ({ ...n, actor_profile: map.get(n.actor_id) || null,
+        is_all: n.type === "mention" && allSet.has(`${n.actor_id}|${n.post_id}|${n.comment_id}`)
+      })));
       // Mark all as read
       await supabase.from("notifications").update({ is_read: true }).eq("user_id", user.id).eq("is_read", false);
       setLoading(false);
@@ -52,15 +60,17 @@ const Notifications = () => {
       case "like": return <Heart className="w-4 h-4 text-destructive fill-current" />;
       case "comment": return <MessageCircle className="w-4 h-4 text-primary" />;
       case "reply": return <CornerDownLeft className="w-4 h-4 text-primary" />;
+      case "mention": return <AtSign className="w-4 h-4 text-primary" />;
       default: return <Bell className="w-4 h-4" />;
     }
   };
 
-  const getText = (type: string, name: string) => {
+  const getText = (type: string, name: string, isAll?: boolean) => {
     switch (type) {
       case "like": return `${name} أعجب بمنشورك`;
       case "comment": return `${name} علّق على منشورك`;
       case "reply": return `${name} رد على تعليقك`;
+      case "mention": return isAll ? `${name} منشن الجميع في منشور` : `${name} منشنك`;
       default: return `${name} تفاعل معك`;
     }
   };
@@ -93,7 +103,7 @@ const Notifications = () => {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
                   {getIcon(n.type)}
-                  <p className="text-sm">{getText(n.type, n.actor_profile?.full_name || "مستخدم")}</p>
+                  <p className="text-sm">{getText(n.type, n.actor_profile?.full_name || "مستخدم", n.is_all)}</p>
                 </div>
                 <p className="text-xs text-muted-foreground mt-1">
                   {formatDistanceToNow(new Date(n.created_at), { addSuffix: true, locale: ar })}

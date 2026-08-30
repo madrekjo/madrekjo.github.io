@@ -34,3 +34,32 @@ CREATE TRIGGER guard_all_mention_trigger
 BEFORE INSERT OR UPDATE OF is_all ON public.post_mentions
 FOR EACH ROW
 EXECUTE FUNCTION public.guard_all_mention();
+
+-- ============================================================================
+-- 5) السماح بإشعارات المنشن في جدول notifications
+-- السياسة القديمة "Valid notifications only" ترفض أي إشعار مستلمه ليس صاحب
+-- المنشور/التعليق — لهذا إشعارات المنشن (فردية/جماعية) كانت تُرفض.
+-- الإصلاح: إشعار type='mention' مقبول فقط إذا وُجد صف مطابق في post_mentions
+-- (نفس المصدر/النص نفس الحماية: post_mentions نفسه لا يُقبل إلا بصفة المستخدم أو trigger)
+-- ============================================================================
+DROP POLICY IF EXISTS "Valid notifications only" ON public.notifications;
+CREATE POLICY "Valid notifications only" ON public.notifications
+  FOR INSERT TO authenticated
+  WITH CHECK (
+    auth.uid() = actor_id
+    AND user_id <> actor_id
+    AND (
+      (
+        type = 'mention'
+        AND EXISTS (
+          SELECT 1 FROM public.post_mentions pm
+          WHERE pm.actor_id = auth.uid()
+            AND pm.post_id IS NOT DISTINCT FROM notifications.post_id
+            AND pm.comment_id IS NOT DISTINCT FROM notifications.comment_id
+            AND (pm.user_id = notifications.user_id OR pm.is_all)
+        )
+      )
+      OR (post_id IS NOT NULL AND EXISTS (SELECT 1 FROM public.posts p WHERE p.id = post_id AND p.user_id = notifications.user_id))
+      OR (comment_id IS NOT NULL AND EXISTS (SELECT 1 FROM public.comments c WHERE c.id = comment_id AND c.user_id = notifications.user_id))
+    )
+  );
