@@ -229,7 +229,7 @@ const Admin = () => {
   const handleChangeField = async () => {
     if (!fieldUserId) return;
     const { error } = await supabase.from("profiles").update({ field: newField } as any).eq("user_id", fieldUserId);
-    if (error) toast.error("فشل تغيير التخصص");
+    if (error) toast.error(`فشل تغيير التخصص: ${(error as any).message || JSON.stringify(error)}`);
     else {
       toast.success(newField ? `تم تعيين التخصص: ${FIELD_LABEL_AR[newField]}` : "تم إزالة التخصص");
       logAction("change_field", fieldUserId, newField ? `→ ${newField}` : "→ (بدون تخصص)");

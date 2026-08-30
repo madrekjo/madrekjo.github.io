@@ -25,3 +25,11 @@ DROP POLICY IF EXISTS "Users can delete their support media" ON storage.objects;
 CREATE POLICY "Users can delete their support media"
 ON storage.objects FOR DELETE TO authenticated
 USING (bucket_id = 'support-media' AND auth.uid()::text = (storage.foldername(name))[1]);
+-- ============================================================================
+-- chat24 إضافة: توسيع قيد profiles_field_check ليشمل law (قانون)
+-- يسمح للأدمن بإسناد تخصص القانون، وإن كان لا يختاره المستخدم بنفسه
+-- (trigger الحماية يمنع غير الأدمن من تعيينه)
+-- ============================================================================
+ALTER TABLE public.profiles DROP CONSTRAINT IF EXISTS profiles_field_check;
+ALTER TABLE public.profiles ADD CONSTRAINT profiles_field_check
+  CHECK (field IS NULL OR field IN ('medical','engineering','languages','business','law'));
