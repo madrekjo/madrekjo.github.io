@@ -76,7 +76,6 @@ const Chat = () => {
   const hasScrolled = useRef(false);
   const loaderRef = useRef<HTMLDivElement | null>(null);
   const [channelFilter, setChannelFilter] = useState<string>("all");
-  const [postTarget, setPostTarget] = useState<string>("all");
   const [showSalawat, setShowSalawat] = useState(false);
   const [channelSettings, setChannelSettings] = useState<Record<string, boolean>>({ all: true, male: true, female: true, "09": true, "10": true });
   const [sectionLocks, setSectionLocks] = useState<Record<string, boolean>>({});
@@ -361,6 +360,12 @@ const Chat = () => {
       return;
     }
     if (containsBannedWord(content, isAdmin)) { toast.error("المحتوى يحتوي على كلمات محظورة"); return; }
+    // المنشور يُنشر تلقائياً في القناة المعروضة حالياً فقط، ولا يُسمح بالنشر في
+    // قناة مقفلة (يُغلق القسم للجميع ما عدا الإدارة).
+    if (!isStaff && isChannelLocked(channelFilter)) {
+      toast.error("هذه القناة مقفلة حالياً من قبل الإدارة — لا يمكن النشر فيها");
+      return;
+    }
     setPosting(true);
     let imageUrls: string[] | null = null;
     const imageUrl: string | null = null;
@@ -387,7 +392,7 @@ const Chat = () => {
       image_url: imageUrl || (imageUrls && imageUrls.length ? imageUrls[0] : null),
       image_urls: imageUrls,
       video_url: videoUrl,
-      channel: postTarget,
+      channel: channelFilter,
     };
     if (!imageUrls) delete insertData.image_urls;
 
@@ -400,7 +405,7 @@ const Chat = () => {
       setContent(""); setMediaFiles([]); setMediaType(null); toast.success("تم النشر");
       const postId = inserted?.[0]?.id;
       if (postId) {
-        await submitMentions(supabase, { postId, actorId: user.id, text: content, channel: postTarget });
+        await submitMentions(supabase, { postId, actorId: user.id, text: content, channel: channelFilter });
         const now = new Date().toISOString();
         const optimisticPost = {
           id: postId,
@@ -409,7 +414,7 @@ const Chat = () => {
           image_url: imageUrls && imageUrls.length ? imageUrls[0] : null,
           image_urls: imageUrls,
           video_url: videoUrl,
-          channel: postTarget,
+          channel: channelFilter,
           created_at: now,
           updated_at: now,
           generation: null,
@@ -496,8 +501,6 @@ const Chat = () => {
   // Channels that are open (=1 or 2 buttons floating at bottom)
   const openChannels = channelTabs.filter(t => !t.locked);
 
-  const lockedKeys = new Set(channelTabs.filter(t => t.locked).map(t => t.key));
-
   // عند اختيار قسم من نوع جنسي والجنس غير محدد → نحفظ الجنس أولاً ثم نفتح القسم
   const chooseSection = async (key: string) => {
     if (!profile?.gender && (key === "male" || key === "female")) {
@@ -512,28 +515,7 @@ const Chat = () => {
     if (opt.locked) { toast.error(opt.label + " مقفلة حالياً من قبل الإدارة"); return; }
     if (!(await chooseSection(opt.key))) return;
     setChannelFilter(opt.key);
-    setPostTarget(opt.key);
   };
-
-  const pickTarget = async (key: string) => {
-    if (!(await chooseSection(key))) return;
-    setPostTarget(key);
-  };
-
-  const postTargets = isStaff
-    ? [
-        { key: "all", label: "الجميع" },
-        { key: "male", label: "شباب" },
-        { key: "female", label: "بنات" },
-        { key: "09", label: "2009" },
-        { key: "10", label: "2010" },
-      ]
-    : [
-        { key: "all", label: "الجميع" },
-        ...(profile?.gender !== "female" ? [{ key: "male", label: "شباب" }] : []),
-        ...(profile?.gender !== "male" ? [{ key: "female", label: "بنات" }] : []),
-        ...(myGen ? [{ key: myGen, label: `20${myGen}` }] : []),
-      ].filter(t => !lockedKeys.has(t.key));
 
   return (
     <>
@@ -544,7 +526,7 @@ const Chat = () => {
             value={content}
             onChange={setContent}
             placeholder="شارك أفكارك... (اكتب @ لمنشن)"
-            channel={postTarget}
+            channel={channelFilter}
             currentGender={profile?.gender}
             currentGeneration={myGen}
             isAdmin={isAdmin}
@@ -559,20 +541,10 @@ const Chat = () => {
               <Button variant="ghost" size="sm" onClick={() => { setMediaFiles([]); setMediaType(null); }}>إزالة</Button>
             </div>
           )}
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-xs text-muted-foreground">نشر إلى:</span>
-            <div className="flex gap-1 bg-muted/60 rounded-lg p-1 flex-wrap">
-              {postTargets.map(opt => (
-                <button
-                  key={opt.key}
-                  type="button"
-                  onClick={() => void pickTarget(opt.key)}
-                  className={`text-xs px-3 py-1 rounded-md transition-colors ${postTarget === opt.key ? "bg-primary text-primary-foreground font-medium" : "hover:bg-background"}`}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
+          <div className="flex items-center justify-between mb-3">
+            <span className="text-xs text-muted-foreground">
+              سيُنشر منشورك تلقائياً في قناة {channelTabs.find(t => t.key === channelFilter)?.label ?? "الجميع"} نظراً لكونك داخلها
+            </span>
           </div>
           <div className="flex items-center justify-between">
             <div className="flex gap-1">

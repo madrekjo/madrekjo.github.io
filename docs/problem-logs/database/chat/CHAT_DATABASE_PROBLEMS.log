@@ -19,5 +19,20 @@
 - **Solution:** عمود `post_mentions.is_all` + Trigger `guard_all_mention` يمنع غير الأدمن من إرسال منشن جماعي.
 - **Built-in file:** chat25.sql
 
+## Problem 4: النشر التلقائي لقناة مقفلة (فصل القنوات + سياسة الإغلاق)
+- **Date:** 2026-08-30
+- **Problem:** كانت الواجهة تعرض منتقي "نشر إلى" افتراضياً على "الجميع"،
+  فإذا أُغلقت قناة الجميع ودخل المستخدم دون أن يختار، يُنشر منشوره على
+  "الجميع" وهو مغلق — أي تعارض بين الإغلاق والنشر.
+- **Solution (Client + Server):**
+  - الواجهة (`Chat.tsx`): إلغاء منتقي "نشر إلى" نهائياً، ويُحسب هدف النشر
+    تلقائياً = القناة المعروضة حالياً (2009/2010/شباب/بنات/الجميع)، مع
+    حاجز يمنع النشر لو كانت القناة مقفلة.
+  - قاعدة البيانات (`chat27.sql`): Trigger `enforce_post_channel_lock`
+    يمنع غير الأدمن من إدراج منشور في قناة مقفلة (عبر
+    `channel_settings.enabled=false` أو `section_locks` الموازي
+    all→chat_all / 09→chat_09 / 10→chat_10) برفع `section_locked`.
+- **Built-in files:** chat27.sql / chat/src/pages/Chat.tsx
+
 ---
 _Last updated: 2026-08-30_
