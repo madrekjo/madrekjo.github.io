@@ -1,0 +1,36 @@
+-- ============================================================================
+-- Migration: منشن "الجميع" للجميع — مميز للأدمن فقط
+-- يسمح بتخزين منشن جماعي (user_id فارغ + is_all) ويحصر استخدامه بالأدمن
+-- ============================================================================
+
+-- 1) السماح بأن يكون user_id فارغاً لصف المُنشن الجماعي
+ALTER TABLE public.post_mentions ALTER COLUMN user_id DROP NOT NULL;
+
+-- 2) علامة "منشن للجميع"
+ALTER TABLE public.post_mentions ADD COLUMN IF NOT EXISTS is_all BOOLEAN NOT NULL DEFAULT false;
+
+-- 3) ضمان الاستخدام السليم: is_all يجب أن يحمل user_id فارغاً، والعكس
+ALTER TABLE public.post_mentions DROP CONSTRAINT IF EXISTS post_mentions_all_check;
+ALTER TABLE public.post_mentions ADD CONSTRAINT post_mentions_all_check
+  CHECK ((is_all AND user_id IS NULL) OR (NOT is_all AND user_id IS NOT NULL));
+
+-- 4) لا يُسمح بمنشن الجميع إلا من قبل الأدمن (يُستدعى من التطبيق أيضاً، لكن الحماية هنا قاطعة)
+CREATE OR REPLACE FUNCTION public.guard_all_mention()
+RETURNS TRIGGER
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $$
+BEGIN
+  IF NEW.is_all AND NOT public.has_role(NEW.actor_id, 'admin') THEN
+    RAISE EXCEPTION 'only_admins_can_mention_all';
+  END IF;
+  RETURN NEW;
+END;
+$$;
+
+DROP TRIGGER IF EXISTS guard_all_mention_trigger ON public.post_mentions;
+CREATE TRIGGER guard_all_mention_trigger
+BEFORE INSERT OR UPDATE OF is_all ON public.post_mentions
+FOR EACH ROW
+EXECUTE FUNCTION public.guard_all_mention();

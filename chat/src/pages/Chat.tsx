@@ -3,7 +3,8 @@ import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { containsBannedWord, loadBannedWords } from "@/lib/bannedWords";
 import PostCard from "@/components/PostCard";
-import MentionInput, { extractMentions } from "@/components/MentionInput";
+import MentionInput from "@/components/MentionInput";
+import { renderMentions, submitMentions } from "@/lib/mentions";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
@@ -267,17 +268,7 @@ const Chat = () => {
       setContent(""); setMediaFiles([]); setMediaType(null); toast.success("تم النشر");
       const postId = inserted?.[0]?.id;
       if (postId) {
-        const mentions = extractMentions(content);
-        for (const mt of mentions) {
-          if (!mt.userId || mt.userId === user.id) continue;
-          await (supabase as any).from("post_mentions").insert({
-            post_id: postId, comment_id: null, actor_id: user.id, user_id: mt.userId,
-            mentioned_name: mt.name, channel: postTarget,
-          });
-          await (supabase as any).from("notifications").insert({
-            user_id: mt.userId, actor_id: user.id, type: "mention", post_id: postId,
-          });
-        }
+        await submitMentions(supabase, { postId, actorId: user.id, text: content, channel: postTarget });
       }
     }
     setPosting(false);
@@ -400,6 +391,7 @@ const Chat = () => {
             channel={postTarget}
             currentGender={profile?.gender}
             currentGeneration={myGen}
+            isAdmin={isAdmin}
             minRows={3}
             className="min-h-[80px] mb-3"
           />

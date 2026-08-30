@@ -26,6 +26,7 @@ interface MentionInputProps {
   maxRows?: number;
   className?: string;
   disabled?: boolean;
+  isAdmin?: boolean;
   onKeyDown?: (e: React.KeyboardEvent<HTMLTextAreaElement>) => void;
 }
 
@@ -61,6 +62,7 @@ const MentionInput = ({
   minRows = 1,
   className,
   disabled,
+  isAdmin,
   onKeyDown,
 }: MentionInputProps) => {
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
@@ -136,20 +138,20 @@ const MentionInput = ({
   };
 
   const onSuggestionKey = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (mentionActive && suggestions.length > 0) {
+    if (mentionActive && shownItems.length > 0) {
       if (e.key === "ArrowDown") {
         e.preventDefault();
-        setSuggestionIndex(i => (i + 1) % suggestions.length);
+        setSuggestionIndex(i => (i + 1) % shownItems.length);
         return;
       }
       if (e.key === "ArrowUp") {
         e.preventDefault();
-        setSuggestionIndex(i => (i - 1 + suggestions.length) % suggestions.length);
+        setSuggestionIndex(i => (i - 1 + shownItems.length) % shownItems.length);
         return;
       }
       if (e.key === "Enter" || e.key === "Tab") {
         e.preventDefault();
-        insertSuggestion(suggestions[suggestionIndex]);
+        insertSuggestion(shownItems[suggestionIndex]);
         return;
       }
       if (e.key === "Escape") {
@@ -162,13 +164,22 @@ const MentionInput = ({
     onKeyDown?.(e);
   };
 
-  const activeSuggestion = mentionActive && suggestions.length > 0;
+  const activeSuggestion = mentionActive && (isAdmin || suggestions.length > 0);
+
+  const allSuggestion: Suggestion = {
+    user_id: "everyone",
+    full_name: "الجميع",
+    avatar_url: null,
+    gender: null,
+    generation: null,
+  };
+  const shownItems = isAdmin ? [allSuggestion, ...suggestions] : suggestions;
 
   return (
     <div className="relative w-full">
       {activeSuggestion && (
         <div className="absolute top-full left-0 right-0 z-30 mt-1 rounded-lg border bg-background shadow-lg max-h-60 overflow-y-auto">
-          {suggestions.map((s, i) => (
+          {shownItems.map((s, i) => (
             <button
               key={s.user_id}
               type="button"
@@ -180,18 +191,28 @@ const MentionInput = ({
                 i === suggestionIndex && "bg-muted"
               )}
             >
-              <Avatar className="w-6 h-6 shrink-0">
-                {s.avatar_url ? <AvatarImage src={s.avatar_url} /> : null}
-                <AvatarFallback className="text-[10px]">{(s.full_name || "؟").charAt(0)}</AvatarFallback>
-              </Avatar>
-              <span className="font-medium">{s.full_name}</span>
-              <span className="text-[10px] text-muted-foreground mr-auto">
-                {s.gender === "male" ? "شباب" : s.gender === "female" ? "بنات" : ""}
-                {s.generation ? ` · ${s.generation}` : ""}
-              </span>
+              {s.user_id === "everyone" ? (
+                <>
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/15 text-primary font-bold text-xs shrink-0">✦</span>
+                  <span className="font-bold text-primary">{s.full_name}</span>
+                  <span className="text-[10px] text-primary mr-auto">منشن لجميع الطلاب هنا</span>
+                </>
+              ) : (
+                <>
+                  <Avatar className="w-6 h-6 shrink-0">
+                    {s.avatar_url ? <AvatarImage src={s.avatar_url} /> : null}
+                    <AvatarFallback className="text-[10px]">{(s.full_name || "؟").charAt(0)}</AvatarFallback>
+                  </Avatar>
+                  <span className="font-medium">{s.full_name}</span>
+                  <span className="text-[10px] text-muted-foreground mr-auto">
+                    {s.gender === "male" ? "شباب" : s.gender === "female" ? "بنات" : ""}
+                    {s.generation ? ` · ${s.generation}` : ""}
+                  </span>
+                </>
+              )}
             </button>
           ))}
-          {suggestions.length === 0 && (
+          {shownItems.length === 0 && (
             <div className="px-3 py-2 text-xs text-muted-foreground">لا توجد نتائج</div>
           )}
         </div>

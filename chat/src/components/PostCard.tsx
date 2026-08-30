@@ -14,8 +14,8 @@ import RoundsBadge from "@/components/RoundsBadge";
 import Lightbox from "@/components/Lightbox";
 import ReportDialog from "@/components/ReportDialog";
 import { formatDisplayName } from "@/lib/displayName";
-import MentionInput, { extractMentions } from "@/components/MentionInput";
-import { renderMentions } from "@/lib/mentions";
+import MentionInput from "@/components/MentionInput";
+import { renderMentions, submitMentions } from "@/lib/mentions";
 import { ShieldCheck } from "lucide-react";
 
 const VerificationBadge = ({ gender, isAuthorAdmin }: { gender?: string | null; isAuthorAdmin: boolean }) => {
@@ -165,17 +165,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
     const { data: insertedC, error } = await supabase.from("comments").insert({ post_id: post.id, user_id: user.id, content: commentText.trim() }).select("id");
     if (!error && insertedC?.[0]?.id) {
       const commentId = insertedC[0].id;
-      const mentions = extractMentions(commentText);
-      for (const mt of mentions) {
-        if (!mt.userId || mt.userId === user.id) continue;
-        await (supabase as any).from("post_mentions").insert({
-          post_id: post.id, comment_id: commentId, actor_id: user.id, user_id: mt.userId,
-          mentioned_name: mt.name, channel: (post as any).channel || "all",
-        });
-        await (supabase as any).from("notifications").insert({
-          user_id: mt.userId, actor_id: user.id, type: "mention", post_id: post.id, comment_id: commentId,
-        });
-      }
+      await submitMentions(supabase, { postId: post.id, commentId, actorId: user.id, text: commentText, channel: (post as any).channel || "all" });
     }
     if (post.user_id !== user.id) {
       await supabase.from("notifications").insert({ user_id: post.user_id, actor_id: user.id, type: "comment", post_id: post.id });
@@ -191,17 +181,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
     const { data: insertedR, error } = await supabase.from("comments").insert({ post_id: post.id, user_id: user.id, content: replyText.trim(), parent_comment_id: parentId }).select("id");
     if (!error && insertedR?.[0]?.id) {
       const commentId = insertedR[0].id;
-      const mentions = extractMentions(replyText);
-      for (const mt of mentions) {
-        if (!mt.userId || mt.userId === user.id) continue;
-        await (supabase as any).from("post_mentions").insert({
-          post_id: post.id, comment_id: commentId, actor_id: user.id, user_id: mt.userId,
-          mentioned_name: mt.name, channel: (post as any).channel || "all",
-        });
-        await (supabase as any).from("notifications").insert({
-          user_id: mt.userId, actor_id: user.id, type: "mention", post_id: post.id, comment_id: commentId,
-        });
-      }
+      await submitMentions(supabase, { postId: post.id, commentId, actorId: user.id, text: replyText, channel: (post as any).channel || "all" });
     }
     const parentComment = post.comments.find(c => c.id === parentId);
     if (parentComment && parentComment.user_id !== user.id) {
@@ -498,6 +478,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
                     placeholder="اكتب ردك... (اكتب @ لمنشن)"
                     channel={(post as any).channel || "all"}
                     currentGender={user && (profile as any)?.gender}
+                    isAdmin={isAdmin}
                     minRows={1}
                     className="min-h-[40px] text-sm"
                   />
@@ -518,6 +499,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
                 placeholder="اكتب تعليقاً... (اكتب @ لمنشن)"
                 channel={(post as any).channel || "all"}
                 currentGender={user && (profile as any)?.gender}
+                isAdmin={isAdmin}
                 minRows={1}
                 className="min-h-[40px] text-sm"
               />
