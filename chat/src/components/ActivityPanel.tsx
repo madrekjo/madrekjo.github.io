@@ -68,7 +68,7 @@ const ActivityPanel = ({ onClose }: { onClose: () => void }) => {
 
   useEffect(() => {
     refreshDb();
-    const timer = setInterval(refreshDb, 15000);
+    const timer = setInterval(refreshDb, 5 * 60 * 1000);
     return () => clearInterval(timer);
   }, [refreshDb]);
 
