@@ -3,6 +3,7 @@ export const FIELD_PREFIX: Record<string, string> = {
   engineering: "Eng.",
   languages: "Lang.",
   business: "Bus.",
+  law: "Law.",
 };
 
 export const FIELD_LABEL_AR: Record<string, string> = {
@@ -10,7 +11,11 @@ export const FIELD_LABEL_AR: Record<string, string> = {
   engineering: "هندسي",
   languages: "لغات",
   business: "أعمال",
+  law: "قانون",
 };
+
+// حقول لا يمكن للمستخدم اختيارها بنفسه — الإدارة فقط تسندها
+export const FIELD_ADMIN_ONLY: Set<string> = new Set(["law"]);
 
 interface DisplayProfile {
   full_name?: string | null;

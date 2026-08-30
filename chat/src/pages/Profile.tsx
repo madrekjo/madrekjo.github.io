@@ -12,7 +12,7 @@ import { Camera, Save, FileText, Users as UsersIcon, Clock } from "lucide-react"
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { compressImage } from "@/lib/mediaCompression";
-import { FIELD_LABEL_AR, FIELD_PREFIX, formatDisplayName } from "@/lib/displayName";
+import { FIELD_LABEL_AR, FIELD_PREFIX, FIELD_ADMIN_ONLY, formatDisplayName } from "@/lib/displayName";
 import { useTheme, type Theme } from "@/contexts/ThemeContext";
 
 const Profile = () => {
@@ -211,16 +211,23 @@ const Profile = () => {
             </div>
             {profile.generation === "09" && (
               <div className="grid grid-cols-2 gap-2">
-                {Object.entries(FIELD_LABEL_AR).map(([k, l]) => (
-                  <Button key={k} type="button" size="sm" variant={profile.field === k ? "default" : "outline"}
-                    onClick={async () => {
-                      if (!user) return;
-                      await supabase.from("profiles").update({ field: k } as any).eq("user_id", user.id);
-                      await refreshProfile();
-                      toast.success("تم الحفظ");
-                    }}
-                  >{l} <span className="text-xs opacity-70 ml-1">{FIELD_PREFIX[k]}</span></Button>
-                ))}
+                {Object.entries(FIELD_LABEL_AR)
+                  .filter(([k]) => !FIELD_ADMIN_ONLY.has(k))
+                  .map(([k, l]) => (
+                    <Button key={k} type="button" size="sm" variant={profile.field === k ? "default" : "outline"}
+                      onClick={async () => {
+                        if (!user) return;
+                        await supabase.from("profiles").update({ field: k } as any).eq("user_id", user.id);
+                        await refreshProfile();
+                        toast.success("تم الحفظ");
+                      }}
+                    >{l} <span className="text-xs opacity-70 ml-1">{FIELD_PREFIX[k]}</span></Button>
+                  ))}
+                {profile.field && FIELD_ADMIN_ONLY.has(profile.field) && (
+                  <div className="col-span-2 text-xs text-muted-foreground bg-muted rounded-lg px-3 py-2">
+                    تخصصك الحالي: <b>{FIELD_LABEL_AR[profile.field]}</b> ({FIELD_PREFIX[profile.field]}) — هذا التخصص تُسنده الإدارة ولا يمكنك تغييره.
+                  </div>
+                )}
               </div>
             )}
           </div>

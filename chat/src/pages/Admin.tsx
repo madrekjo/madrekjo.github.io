@@ -11,7 +11,7 @@ import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { Navigate, Link } from "react-router-dom";
 import RoundsBadge from "@/components/RoundsBadge";
-import { formatDisplayName, FIELD_LABEL_AR } from "@/lib/displayName";
+import { formatDisplayName, FIELD_LABEL_AR, FIELD_PREFIX, FIELD_ADMIN_ONLY } from "@/lib/displayName";
 import BanDialog from "@/components/BanDialog";
 import RolesDialog from "@/components/RolesDialog";
 import PermissionsPanel from "@/components/PermissionsPanel";
@@ -46,6 +46,8 @@ const Admin = () => {
   const [tab, setTab] = useState<Tab>("stats");
   const [renameUserId, setRenameUserId] = useState<string | null>(null);
   const [newName, setNewName] = useState("");
+  const [fieldUserId, setFieldUserId] = useState<string | null>(null);
+  const [newField, setNewField] = useState<string | null>(null);
   const [deletedPosts, setDeletedPosts] = useState<any[]>([]);
   const [deletedComments, setDeletedComments] = useState<any[]>([]);
   const [warnUser, setWarnUser] = useState<string | null>(null);
@@ -222,6 +224,17 @@ const Admin = () => {
     const { error } = await supabase.from("profiles").update({ theme: newTheme } as any).eq("user_id", uid);
     if (error) toast.error("فشل تغيير الثيم");
     else { toast.success(`تم تغيير الثيم`); logAction("change_theme", uid, `→ ${newTheme}`); fetchUsers(); }
+  };
+
+  const handleChangeField = async () => {
+    if (!fieldUserId) return;
+    const { error } = await supabase.from("profiles").update({ field: newField } as any).eq("user_id", fieldUserId);
+    if (error) toast.error("فشل تغيير التخصص");
+    else {
+      toast.success(newField ? `تم تعيين التخصص: ${FIELD_LABEL_AR[newField]}` : "تم إزالة التخصص");
+      logAction("change_field", fieldUserId, newField ? `→ ${newField}` : "→ (بدون تخصص)");
+      setFieldUserId(null); setNewField(null); fetchUsers();
+    }
   };
   const addBannedWord = async () => {
     if (!newWord.trim()) return;
@@ -423,6 +436,11 @@ const Admin = () => {
                     {isAdmin && (
                       <Button variant="ghost" size="sm" onClick={() => { setRenameUserId(u.user_id); setNewName(u.full_name); }} className="gap-1" title="تغيير الاسم">
                         <Edit2 className="w-4 h-4" />
+                      </Button>
+                    )}
+                    {isAdmin && (
+                      <Button variant="ghost" size="sm" onClick={() => { setFieldUserId(u.user_id); setNewField(u.field ?? null); }} className="gap-1" title="تغيير التخصص">
+                        <Layers className="w-4 h-4" />
                       </Button>
                     )}
                     {isAdmin && (
@@ -683,6 +701,32 @@ const Admin = () => {
           <DialogFooter>
             <Button variant="ghost" onClick={() => setRenameUserId(null)}>إلغاء</Button>
             <Button onClick={handleRenameUser} disabled={!newName.trim()}>حفظ</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={!!fieldUserId} onOpenChange={(o) => { if (!o) { setFieldUserId(null); setNewField(null); } }}>
+        <DialogContent>
+          <DialogHeader><DialogTitle>تغيير التخصص</DialogTitle></DialogHeader>
+          <div className="grid grid-cols-2 gap-2">
+            {Object.entries(FIELD_LABEL_AR).map(([k, l]) => (
+              <Button key={k} type="button" variant={newField === k ? "default" : "outline"}
+                onClick={() => setNewField(k)} className="justify-start">
+                {l} <span className="text-xs opacity-70 ml-1">{FIELD_PREFIX[k]}</span>
+              </Button>
+            ))}
+            <Button type="button" variant={newField === null ? "default" : "outline"} onClick={() => setNewField(null)} className="justify-start">
+              بدون تخصص
+            </Button>
+          </div>
+          {FIELD_ADMIN_ONLY.size > 0 && (
+            <p className="text-xs text-muted-foreground">
+              ⚖️ خانات التخصص المميزة (مثل {FIELD_LABEL_AR["law"]}) لا يختارها المستخدم نفسه — إسنادها حصري للإدارة.
+            </p>
+          )}
+          <DialogFooter>
+            <Button variant="ghost" onClick={() => setFieldUserId(null)}>إلغاء</Button>
+            <Button onClick={handleChangeField}>حفظ</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
