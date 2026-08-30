@@ -167,8 +167,8 @@ const MentionInput = ({
   return (
     <div className="relative w-full">
       {activeSuggestion && (
-        <div className="absolute bottom-full left-0 right-0 z-30 mb-1 rounded-lg border bg-background shadow-lg overflow-hidden">
-          {suggestions.slice(0, 6).map((s, i) => (
+        <div className="absolute top-full left-0 right-0 z-30 mt-1 rounded-lg border bg-background shadow-lg max-h-60 overflow-y-auto">
+          {suggestions.map((s, i) => (
             <button
               key={s.user_id}
               type="button"
