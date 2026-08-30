@@ -73,9 +73,14 @@ export const useMessages = (chatWithUserId?: string) => {
       );
     },
     enabled: !!user,
-    refetchInterval: 2000,
+    // Primary freshness is driven by the Realtime subscription below (and by
+    // sendMessage/markAsRead which invalidate). A low-frequency, background-paused
+    // refetch is kept only as a safe fallback if the Realtime socket ever drops —
+    // it no longer polls every 2s.
     refetchOnWindowFocus: true,
-    staleTime: 0,
+    staleTime: 30_000,
+    refetchInterval: 60_000,
+    refetchIntervalInBackground: false,
   });
 
   // Unread count for current user

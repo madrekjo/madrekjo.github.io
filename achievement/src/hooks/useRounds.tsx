@@ -48,7 +48,10 @@ export const useRounds = () => {
       return ((data ?? []) as unknown as Round[]);
     },
     enabled: !!user,
-    refetchInterval: 15000,
+    // Rounds rarely change outside of create/finalize (both invalidate the cache
+    // below). A 30s refresh keeps the list fresh without polling every 15s.
+    refetchInterval: 30000,
+    staleTime: 30_000,
   });
 
   const { data: participants = [] } = useQuery<Participant[]>({
@@ -59,7 +62,10 @@ export const useRounds = () => {
       return ((data ?? []) as unknown as Participant[]);
     },
     enabled: !!user,
-    refetchInterval: 10000,
+    // joinRound invalidates this cache, so 30s polling is a freshness floor, not
+    // the primary update path (10s -> 30s reduces requests while mounted).
+    refetchInterval: 30000,
+    staleTime: 30_000,
   });
 
   const { data: canCreate = false } = useQuery({

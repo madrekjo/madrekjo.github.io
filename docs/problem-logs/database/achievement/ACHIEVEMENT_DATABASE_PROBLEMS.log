@@ -1,0 +1,19 @@
+# ACHIEVEMENT — Database Problem Log
+# تطبيق النجاحات — سجل مشاكل قاعدة البيانات
+
+## Problem 1: استهلاك مفرط للاستعلامات بسبب الاستطلاع الكثيف (polling)
+- **Date:** 2026-08-30
+- **Problem:** كان تطبيق النجاحات يسحب بيانات الرسائل كل 2 ثانية والجولات كل 2
+  ثانية، وحتى في الخلفية، ما يولّد حملًا كبيراً على قاعدة البيانات يزداد
+  مع كل مستخدم جديد (تقديرياً ≈ 90 استعلام/دقيقة/مستخدم قبل التعديل).
+- **Solution:**
+  - الرسائل (useMessages): `refetchInterval` 2000 → 60000 ملّي ثانية،
+    `staleTime` 0 → 30000، وإضافة `refetchIntervalInBackground: false`.
+  - الجولات (useRounds): `refetchInterval` 2000 → 30000، `staleTime` 30000.
+  - قائمة المتصدرين (Leaderboard): `refetchInterval` 30000 / `staleTime` 60000.
+  - النتيجة: بعد التعديل ≈ 5 استعلام/دقيقة/مستخدم (تخفيض ≈ 90%+).
+- **Files:** useMessages.tsx / useRounds.tsx / App.tsx / Leaderboard.tsx
+- **External report:** chat/errochat112.txt
+
+---
+_Last updated: 2026-08-30_

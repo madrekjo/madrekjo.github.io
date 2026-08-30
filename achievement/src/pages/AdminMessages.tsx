@@ -122,9 +122,10 @@ const AdminMessages = () => {
       return out;
     },
     enabled: !!user && isAdmin && !loadingAdminIds,
-    refetchInterval: 2000,
+    // Freshness driven by the Realtime subscription below (and by the
+    // read/send actions that invalidate). Polling every 2s was redundant.
     refetchOnWindowFocus: true,
-    staleTime: 0,
+    staleTime: 30_000,
   });
 
   // Profiles for sidebar

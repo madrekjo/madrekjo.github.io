@@ -16,7 +16,16 @@ import AuthCallback from "./pages/AuthCallback";
 import NotFound from "./pages/NotFound";
 
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      // Reduce needless refetches on window focus / remount. Queries that need
+      // fresher data (messages, etc.) set their own staleTime locally.
+      staleTime: 30_000,
+      refetchOnWindowFocus: true,
+    },
+  },
+});
 
 const UnloadCleanupMount = () => { useUnloadCleanup(); return null; };
 

@@ -58,6 +58,10 @@ export const useTasks = () => {
       });
     },
     enabled: !!user,
+    // Task state is written locally and invalidated by every mutation
+    // (pause/resume/edit/complete/delete), so a modest staleTime avoids
+    // needless refetches on every window focus without affecting freshness.
+    staleTime: 30_000,
   });
 
   const { data: allSuccessfulTasks = [], isLoading: loadingAll } = useQuery<SuccessfulTaskWithProfile[]>({
@@ -90,6 +94,10 @@ export const useTasks = () => {
       }));
     },
     enabled: !!user,
+    // Large cross-user fetch; weight changes are reflected by the explicit
+    // invalidation after completeTask, so cache it to avoid repeated window-focus
+    // refetches and repeated profile lookups within a short window.
+    staleTime: 60_000,
   });
 
   const createTask = useMutation({

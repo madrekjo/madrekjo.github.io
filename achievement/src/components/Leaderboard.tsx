@@ -19,6 +19,7 @@ const useCompletedRoundCounts = () => {
       return map;
     },
     refetchInterval: 30000,
+    staleTime: 60_000,
   });
 };
 

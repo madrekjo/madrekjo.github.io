@@ -140,9 +140,9 @@ export const TaskCard = ({ task, showActions = false, showUser = false, userName
 
   /**
    * Stopwatch offline protection:
-   *  - On mount, if the last heartbeat is stale by > 20s while task is unpaused,
+   *  - On mount, if the last heartbeat is stale by > 75s while task is unpaused,
    *    freeze it at the last heartbeat (offline gap does NOT count as study time).
-   *  - Otherwise, send a heartbeat every 10s so we can detect the next gap.
+   *  - Otherwise, send a heartbeat every 60s so we can detect the next gap.
    */
   useEffect(() => {
     if (!showActions || task.completed || !isStopwatch) return;
@@ -151,7 +151,7 @@ export const TaskCard = ({ task, showActions = false, showUser = false, userName
     let cancelled = false;
     (async () => {
       const last = task.heartbeat_at ? new Date(task.heartbeat_at).getTime() : null;
-      if (last && Date.now() - last > 20_000) {
+      if (last && Date.now() - last > 75_000) {
         await catchUpOfflineGap({
           taskId: task.id,
           lastHeartbeat: task.heartbeat_at as string,
@@ -163,7 +163,7 @@ export const TaskCard = ({ task, showActions = false, showUser = false, userName
       if (!cancelled) await heartbeat(task.id);
     })();
 
-    const hb = setInterval(() => { void heartbeat(task.id); }, 10_000);
+    const hb = setInterval(() => { void heartbeat(task.id); }, 60_000);
     return () => { cancelled = true; clearInterval(hb); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [task.id, isStopwatch, isPaused, task.completed, showActions]);
