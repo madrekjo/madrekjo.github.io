@@ -93,7 +93,7 @@ const Chat = () => {
       if (channelFilter === "all") {
         query = query.or("channel.is.null,channel.eq.all");
       } else {
-        query = query.or(`channel.is.null,channel.in.(${channelFilter},all)`);
+        query = query.eq("channel", channelFilter);
       }
 
       let { data: rows, error } = await query.range(offset, offset + PAGE_SIZE - 1);
