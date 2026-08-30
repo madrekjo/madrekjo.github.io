@@ -63,9 +63,9 @@ CREATE INDEX IF NOT EXISTS post_mentions_comment_idx ON public.post_mentions(com
 CREATE INDEX IF NOT EXISTS post_mentions_user_idx ON public.post_mentions(user_id);
 
 ALTER TABLE public.post_mentions ENABLE ROW LEVEL SECURITY;
-CREATE POLICY IF NOT EXISTS "Mentions are viewable by everyone"
+CREATE POLICY "Mentions are viewable by everyone"
   ON public.post_mentions FOR SELECT USING (true);
-CREATE POLICY IF NOT EXISTS "Authenticated users can create mentions"
+CREATE POLICY "Authenticated users can create mentions"
   ON public.post_mentions FOR INSERT
   WITH CHECK (auth.uid() = actor_id);
 
