@@ -12,13 +12,14 @@
          - إذا بدأ المسار بـ /achievement -> يشغّل تطبيق الإنجاز (SPA)
          - إذا بدأ المسار بـ /chat         -> يشغّل تطبيق الدردشة (SPA)
          - إذا بدأ المسار بـ /anon         -> يشغّل تطبيق أنا مجهول (SPA)
+         - إذا بدأ المسار بـ /talaawat     -> يشغّل تطبيق التلاوات (SPA)
          - غير ذلك                          -> يرجع للصفحة الرئيسية
            (بما أن صفحات الموقع الأم الحقيقية لا تصل لهذا الملف أبداً)
          ============================================================ */
       (function () {
         try {
           var p = window.location.pathname;
-          if (p.indexOf('/achievement') !== 0 && p.indexOf('/chat') !== 0 && p.indexOf('/anon') !== 0) {
+          if (p.indexOf('/achievement') !== 0 && p.indexOf('/chat') !== 0 && p.indexOf('/anon') !== 0 && p.indexOf('/talaawat') !== 0) {
             window.location.replace('/');
           }
         } catch (e) {}
@@ -37,6 +38,7 @@
         if (p.indexOf('/achievement') === 0) app = 'achievement';
         else if (p.indexOf('/chat') === 0) app = 'chat';
         else if (p.indexOf('/anon') === 0) app = 'anon';
+        else if (p.indexOf('/talaawat') === 0) app = 'talaawat';
 
         function inject(urls) {
           for (var i = 0; i < urls.length; i++) {
@@ -60,6 +62,8 @@
             inject(['/achievement/assets/index-BeHiXrcM.js', '/achievement/assets/index-95flcqDC.css']);
           } else if (app === 'anon') {
             inject(['/anon/assets/index-BHR4XTb9.js', '/anon/assets/index-CiqmyTcO.css']);
+          } else if (app === 'talaawat') {
+            inject(['/talaawat/index-CuWB-i-N.js', '/talaawat/index-BzB1TOUg.css']);
           } else {
             inject(['/chat/assets/index-CLvMKEwP.js', '/chat/assets/index-phCncopu.css']);
           }
@@ -75,8 +79,9 @@
             while ((m = re.exec(html))) urls.push(m[1]);
             var good = [];
             var prefix = '/' + app + '/assets/';
+            var tprefix = '/' + app + '/';
             for (var j = 0; j < urls.length; j++) {
-              if (urls[j].indexOf(prefix) === 0) good.push(urls[j]);
+              if (urls[j].indexOf(prefix) === 0 || (app === 'talaawat' && urls[j].indexOf(tprefix) === 0)) good.push(urls[j]);
             }
             if (good.length > 0) inject(good); else fallback();
           } catch (e) { fallback(); }
