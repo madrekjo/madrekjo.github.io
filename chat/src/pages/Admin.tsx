@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { toast } from "sonner";
-import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, Lock, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key, Activity } from "lucide-react";
+import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, Lock, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key, Activity, Clock } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { Navigate, Link } from "react-router-dom";
@@ -35,10 +35,10 @@ interface UserRole {
   role: string;
 }
 
-type Tab = "stats" | "users" | "staff" | "banned" | "reports" | "words" | "deleted" | "sections" | "permissions" | "audit";
+type Tab = "stats" | "users" | "staff" | "banned" | "reports" | "words" | "deleted" | "sections" | "permissions" | "audit" | "pending";
 
 const Admin = () => {
-  const { isAdmin, isModerator, isSupervisor, hasPermission } = useAuth();
+  const { isAdmin, isModerator, isSupervisor, hasPermission, user } = useAuth();
   const [users, setUsers] = useState<UserProfile[]>([]);
   const [userRoles, setUserRoles] = useState<UserRole[]>([]);
   const [bannedWords, setBannedWords] = useState<{ id: string; word: string }[]>([]);
@@ -64,6 +64,8 @@ const Admin = () => {
   const [rolesDialogUser, setRolesDialogUser] = useState<{ id: string; name: string } | null>(null);
   const [showActivity, setShowActivity] = useState(false);
   const [channelSettings, setChannelSettings] = useState<Record<string, boolean>>({ all: true, male: true, female: true, "09": true, "10": true });
+  const [pendingPosts, setPendingPosts] = useState<any[]>([]);
+  const [pendingCount, setPendingCount] = useState(0);
 
   const canManageWords = hasPermission("can_manage_words");
   const canLockSections = hasPermission("can_lock_sections");
@@ -108,6 +110,15 @@ const Admin = () => {
     fetchDeleted();
   };
 
+  const fetchPendingPosts = async () => {
+    if (!(isAdmin || isModerator)) return;
+    const { data } = await (supabase.from("posts") as any)
+      .select("id, content, image_url, image_urls, video_url, user_id, created_at, status, reviewed_by, reviewed_at, profiles!posts_user_id_profiles_fkey(full_name, avatar_url)")
+      .eq("status", "pending")
+      .order("created_at", { ascending: false });
+    if (data) { setPendingPosts(data); setPendingCount(data.length); }
+  };
+
   useEffect(() => {
     if (isAdmin || isModerator || isSupervisor) {
       fetchUsers();
@@ -115,7 +126,38 @@ const Admin = () => {
       if (isAdmin) { fetchBannedWords(); fetchDeleted(); fetchSectionLocks(); fetchChannelSettings(); }
       (supabase as any).from("post_reports").select("*", { count: "exact", head: true }).eq("status", "pending").then((r: any) => setPendingReports(r.count || 0));
     }
+    if (isAdmin || isModerator) fetchPendingPosts();
   }, [isAdmin, isModerator, isSupervisor]);
+
+  useEffect(() => {
+    if (!(isAdmin || isModerator)) return;
+    const channel = (supabase as any)
+      .channel("admin-pending-posts")
+      .on("postgres_changes", { event: "INSERT", schema: "public", table: "posts", filter: "status=eq.pending" }, () => fetchPendingPosts())
+      .on("postgres_changes", { event: "UPDATE", schema: "public", table: "posts", filter: "status=eq.pending" }, () => fetchPendingPosts())
+      .on("postgres_changes", { event: "DELETE", schema: "public", table: "posts", filter: "status=eq.pending" }, () => fetchPendingPosts())
+      .subscribe();
+    return () => { (supabase as any).removeChannel(channel); };
+  }, [isAdmin, isModerator]);
+
+  const approvePost = async (postId: string) => {
+    const { error } = await (supabase.from("posts") as any)
+      .update({ status: "approved", reviewed_by: user?.id, reviewed_at: new Date().toISOString() })
+      .eq("id", postId);
+    if (error) { toast.error("فشل الموافقة"); return; }
+    toast.success("تمت الموافقة على المنشور");
+    logAction("approve_post", null, `post:${postId}`);
+    fetchPendingPosts();
+  };
+
+  const rejectPost = async (postId: string) => {
+    if (!confirm("حذف المنشور المرفوض نهائياً؟")) return;
+    const { error } = await (supabase.from("posts") as any).delete().eq("id", postId);
+    if (error) { toast.error("فشل الرفض"); return; }
+    toast.success("تم رفض وحذف المنشور");
+    logAction("reject_post", null, `post:${postId}`);
+    fetchPendingPosts();
+  };
 
   const fetchChannelSettings = async () => {
     const { data } = await supabase.from("channel_settings" as any).select("*");
@@ -331,6 +373,16 @@ const Admin = () => {
         {isAdmin && <Button variant={tab === "deleted" ? "default" : "outline"} onClick={() => setTab("deleted")} className="gap-1"><Archive className="w-4 h-4" /> المحذوفات</Button>}
         {(canLockSections || isAdmin) && <Button variant={tab === "sections" ? "default" : "outline"} onClick={() => setTab("sections")} className="gap-1"><Layers className="w-4 h-4" /> الأقسام</Button>}
         <Button variant={tab === "audit" ? "default" : "outline"} onClick={() => { setTab("audit"); fetchAuditLog(); }} className="gap-1"><Archive className="w-4 h-4" /> سجل الإدارة</Button>
+        {(isAdmin || isModerator) && (
+          <Button variant={tab === "pending" ? "default" : "outline"} onClick={() => setTab("pending")} className="gap-1 relative">
+            <Clock className="w-4 h-4" /> للمراجعة
+            {pendingCount > 0 && (
+              <span className="absolute -top-1 -right-1 bg-amber-500 text-white text-[10px] font-bold rounded-full min-w-[16px] h-4 flex items-center justify-center px-1">
+                {pendingCount > 99 ? "99+" : pendingCount}
+              </span>
+            )}
+          </Button>
+        )}
       </div>
 
       {tab === "stats" && (
@@ -691,6 +743,55 @@ const Admin = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+      )}
+
+      {tab === "pending" && (isAdmin || isModerator) && (
+        <div className="space-y-4">
+          <h3 className="font-semibold flex items-center gap-2">
+            <Clock className="w-4 h-4 text-amber-500" /> منشورات بانتظار المراجعة ({pendingCount})
+          </h3>
+          {pendingPosts.length === 0 ? (
+            <p className="text-sm text-muted-foreground text-center py-8">لا توجد منشورات بانتظار المراجعة</p>
+          ) : (
+            pendingPosts.map((p: any) => (
+              <Card key={p.id} className="border-amber-500/40">
+                <CardContent className="py-3 space-y-2">
+                  <div className="flex items-center gap-2">
+                    {p.profiles?.avatar_url ? (
+                      <img src={p.profiles.avatar_url} alt="" className="w-8 h-8 rounded-full object-cover" />
+                    ) : (
+                      <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center text-xs font-bold">
+                        {(p.profiles?.full_name || "؟").charAt(0)}
+                      </div>
+                    )}
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold">{p.profiles?.full_name || "عضو"}</p>
+                      <p className="text-xs text-muted-foreground">{new Date(p.created_at).toLocaleString("ar")}</p>
+                    </div>
+                  </div>
+                  <p className="text-sm whitespace-pre-wrap break-words bg-muted/50 p-2 rounded">{p.content}</p>
+                  {p.image_url && <img src={p.image_url} alt="" className="rounded-lg max-h-60 object-cover" />}
+                  {p.image_urls && Array.isArray(p.image_urls) && p.image_urls.length > 0 && (
+                    <div className="grid grid-cols-2 gap-2">
+                      {p.image_urls.map((u: string, i: number) => (
+                        <img key={i} src={u} alt="" className="rounded-lg max-h-60 object-cover" />
+                      ))}
+                    </div>
+                  )}
+                  {p.video_url && <video src={p.video_url} controls className="rounded-lg max-h-60 w-full" />}
+                  <div className="flex justify-end gap-2">
+                    <Button variant="destructive" size="sm" onClick={() => rejectPost(p.id)} className="gap-1">
+                      <Trash2 className="w-4 h-4" /> رفض وحذف
+                    </Button>
+                    <Button size="sm" onClick={() => approvePost(p.id)} className="gap-1">
+                      <ShieldCheck className="w-4 h-4" /> موافقة ونشر
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))
+          )}
         </div>
       )}
 

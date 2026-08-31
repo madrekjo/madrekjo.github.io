@@ -2,7 +2,7 @@ import { useEffect, useCallback, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Bell, Heart, MessageCircle, CornerDownLeft, AtSign, Loader2 } from "lucide-react";
+import { Bell, Heart, MessageCircle, CornerDownLeft, AtSign, Loader2, MessageSquare } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { useNavigate } from "react-router-dom";
@@ -83,6 +83,7 @@ const Notifications = () => {
       case "comment": return <MessageCircle className="w-4 h-4 text-primary" />;
       case "reply": return <CornerDownLeft className="w-4 h-4 text-primary" />;
       case "mention": return <AtSign className="w-4 h-4 text-primary" />;
+      case "support_reply": return <MessageSquare className="w-4 h-4 text-primary" />;
       default: return <Bell className="w-4 h-4" />;
     }
   };
@@ -93,6 +94,7 @@ const Notifications = () => {
       case "comment": return `${name} علّق على منشورك`;
       case "reply": return `${name} رد على تعليقك`;
       case "mention": return isAll ? `${name} منشن الجميع في منشور` : `${name} منشنك`;
+      case "support_reply": return "الإدارة ردّت على رسالتك في الدعم";
       default: return `${name} تفاعل معك`;
     }
   };
@@ -113,7 +115,7 @@ const Notifications = () => {
           {notifications.map(n => (
             <div
               key={n.id}
-              onClick={() => n.post_id && navigate(`/?post=${n.post_id}`)}
+              onClick={() => n.type === "support_reply" ? navigate("/support") : (n.post_id && navigate(`/?post=${n.post_id}`))}
               className="flex items-start gap-3 p-4 hover:bg-muted/50 cursor-pointer transition-colors"
             >
               <Avatar className="w-10 h-10 shrink-0">

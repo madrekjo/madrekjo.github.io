@@ -8,7 +8,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Bell, Heart, MessageCircle, CornerDownLeft } from "lucide-react";
+import { Bell, Heart, MessageCircle, CornerDownLeft, MessageSquare } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -90,6 +90,11 @@ const NotificationBell = () => {
   };
 
   const handleNotificationClick = (n: Notification) => {
+    if (n.type === "support_reply") {
+      setOpen(false);
+      navigate("/support");
+      return;
+    }
     if (n.post_id) {
       setOpen(false);
       navigate(`/?post=${n.post_id}`);
@@ -101,6 +106,7 @@ const NotificationBell = () => {
       case "like": return <Heart className="w-4 h-4 text-destructive fill-current" />;
       case "comment": return <MessageCircle className="w-4 h-4 text-primary" />;
       case "reply": return <CornerDownLeft className="w-4 h-4 text-primary" />;
+      case "support_reply": return <MessageSquare className="w-4 h-4 text-primary" />;
       default: return <Bell className="w-4 h-4" />;
     }
   };
@@ -110,6 +116,7 @@ const NotificationBell = () => {
       case "like": return `${actorName} أعجب بمنشورك`;
       case "comment": return `${actorName} علّق على منشورك`;
       case "reply": return `${actorName} رد على تعليقك`;
+      case "support_reply": return "الإدارة ردّت على رسالتك في الدعم";
       default: return `${actorName} تفاعل معك`;
     }
   };

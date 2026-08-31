@@ -46,6 +46,7 @@ interface Post {
   updated_at: string;
   generation: string | null;
   channel: string | null;
+  status?: string | null;
   profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null; gender?: string | null } | null;
   likes: { user_id: string }[];
   comments: {
@@ -368,6 +369,7 @@ const Chat = () => {
       return;
     }
     setPosting(true);
+    const needsReview = !isStaff && (channelFilter === "all");
     let imageUrls: string[] | null = null;
     const imageUrl: string | null = null;
     let videoUrl: string | null = null;
@@ -403,7 +405,8 @@ const Chat = () => {
       else toast.error("فشل نشر المنشور");
     }
     else {
-      setContent(""); setMediaFiles([]); setMediaType(null); toast.success("تم النشر");
+      setContent(""); setMediaFiles([]); setMediaType(null);
+      toast.success(needsReview ? "تم إرسال المنشور للمراجعة، سيظهر بعد موافقة الإدارة" : "تم النشر");
       const postId = inserted?.[0]?.id;
       if (postId) {
         await submitMentions(supabase, { postId, actorId: user.id, text: content, channel: channelFilter });
@@ -416,6 +419,7 @@ const Chat = () => {
           image_urls: imageUrls,
           video_url: videoUrl,
           channel: channelFilter,
+          status: needsReview ? "pending" : "approved",
           created_at: now,
           updated_at: now,
           generation: null,
@@ -562,7 +566,9 @@ const Chat = () => {
           )}
           <div className="flex items-center justify-between mb-3">
             <span className="text-xs text-muted-foreground">
-              سيُنشر منشورك تلقائياً في قناة {channelTabs.find(t => t.key === channelFilter)?.label ?? "الجميع"} نظراً لكونك داخلها
+              {!isStaff && channelFilter === "all"
+                ? "سيُراجع منشورك قبل النشر في قناة الجميع — يظهر بعد موافقة الإدارة"
+                : `سيُنشر منشورك تلقائياً في قناة ${channelTabs.find(t => t.key === channelFilter)?.label ?? "الجميع"} نظراً لكونك داخلها`}
             </span>
           </div>
           <div className="flex items-center justify-between">
@@ -610,6 +616,7 @@ const Chat = () => {
         <div className="space-y-4">
           {posts
             .filter(p => {
+              if (p.status === "pending" && p.user_id !== user?.id) return false;
               const ch = p.channel || "all";
               if (!isStaff && isChannelLocked(ch)) return false;
               return channelFilter === "all"

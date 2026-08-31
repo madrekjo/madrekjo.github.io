@@ -212,6 +212,13 @@ const Support = () => {
     const { error } = await (supabase as any).from("support_messages").insert(insertData);
     if (error) toast.error("فشل إرسال الرد");
     else {
+      if (targetUserId !== user.id) {
+        await (supabase as any).from("notifications").insert({
+          user_id: targetUserId,
+          actor_id: user.id,
+          type: "support_reply",
+        });
+      }
       setReplyText("");
       setReplyImages([]);
       fetchMessages();

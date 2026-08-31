@@ -6,7 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Heart, MessageCircle, Trash2, Edit2, Send, CornerDownLeft, Pin, PinOff, Flag } from "lucide-react";
+import { Heart, MessageCircle, Trash2, Edit2, Send, CornerDownLeft, Pin, PinOff, Flag, Loader2 } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import UserProfileDialog from "@/components/UserProfileDialog";
@@ -40,6 +40,7 @@ interface PostProps {
     image_urls: string[] | null;
     video_url: string | null;
     created_at: string;
+    status?: string | null;
     profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null; gender?: string | null } | null;
     likes: { user_id: string }[];
     comments: {
@@ -269,6 +270,11 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
       {(post as any).is_pinned && (
         <div className="flex items-center gap-1 text-primary text-xs font-medium mb-2">
           <Pin className="w-3 h-3" /> منشور مثبت
+        </div>
+      )}
+      {(post as any).status === "pending" && isOwner && !isAdmin && !isModerator && (
+        <div className="flex items-center gap-1.5 text-amber-600 bg-amber-500/10 text-xs font-medium rounded-lg px-2 py-1.5 mb-2">
+          <Loader2 className="w-3 h-3 animate-spin" /> بانتظار موافقة الإدارة — سيظهر للجميع بعد المراجعة
         </div>
       )}
       {/* Header */}

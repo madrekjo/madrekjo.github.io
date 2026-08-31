@@ -495,15 +495,17 @@ const Rounds = () => {
         </div>
       </div>
 
-      {/* Meetings widget — admins only */}
-      {user && isAdmin && (
+      {/* Meetings widget — owner & members (RLS enforces visibility) */}
+      {user && (
         <Card className="mb-4 border-primary/30 bg-primary/5">
           <CardHeader className="pb-2">
             <div className="flex items-center justify-between">
               <CardTitle className="text-sm flex items-center gap-2"><Lock className="w-4 h-4" /> الاجتماعات الخاصة</CardTitle>
-              <Button size="sm" variant="outline" onClick={() => setCreateMeetingOpen(true)} className="gap-1">
-                <Plus className="w-3 h-3" /> اجتماع
-              </Button>
+              {isAdmin && (
+                <Button size="sm" variant="outline" onClick={() => setCreateMeetingOpen(true)} className="gap-1">
+                  <Plus className="w-3 h-3" /> اجتماع
+                </Button>
+              )}
             </div>
           </CardHeader>
           <CardContent>
