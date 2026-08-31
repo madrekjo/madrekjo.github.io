@@ -166,46 +166,6 @@ body {
 
 .footer { text-align:center; padding:16px 0 4px; color:var(--muted); font-size:0.8rem; }
 .footer b { color:var(--gold); }
-
-/* ===== تفاعلية الأذكار ===== */
-.azkar-modal {
-  display:none; position:fixed; inset:0; background:rgba(0,0,0,.8); z-index:80;
-  align-items:center; justify-content:center; padding:16px;
-}
-.azkar-modal.open { display:flex; }
-.azkar-panel {
-  width:100%; max-width:440px; background:var(--surface); border:1px solid var(--gold-border);
-  border-radius:22px; padding:22px 20px; box-shadow:0 10px 40px rgba(0,0,0,.55);
-  text-align:center;
-}
-.azkar-title { font-family:'Amiri',serif; color:var(--gold); font-size:1.35rem; font-weight:700; margin-bottom:4px; }
-.azkar-sub { color:var(--muted); font-size:0.85rem; margin-bottom:16px; }
-.azkar-phase { font-size:0.9rem; color:var(--gold); margin-bottom:14px; min-height:22px; font-weight:700; }
-.azkar-list { display:flex; flex-direction:column; gap:10px; margin-bottom:14px; }
-.azkar-item {
-  display:flex; justify-content:space-between; align-items:center; gap:10px;
-  background:var(--surface2); border:1px solid var(--gold-border); border-radius:14px;
-  padding:12px 14px; transition:all .2s;
-}
-.azkar-item.done { border-color:var(--ok); background:rgba(105,240,174,0.08); }
-.azkar-item-txt { font-family:'Amiri',serif; font-size:1.1rem; color:var(--text); }
-.azkar-btn {
-  background:var(--deep); border:1px solid var(--gold-border); color:var(--gold);
-  border-radius:12px; min-width:74px; padding:8px 12px; font-family:'Cairo',sans-serif;
-  font-size:0.9rem; font-weight:700; cursor:pointer; transition:all .2s;
-}
-.azkar-item.done .azkar-btn { background:var(--ok); color:#062a1b; border-color:var(--ok); cursor:default; }
-.azkar-btn:hover:not(.done) { background:var(--gold-dim); }
-.azkar-item .azkar-count { color:var(--muted); font-size:0.78rem; display:block; margin-top:2px; }
-.azkar-item.done .azkar-count { color:var(--ok); }
-.azkar-finish {
-  width:100%; background:linear-gradient(135deg, var(--gold), #E6C200); color:#1a1200;
-  border:none; border-radius:14px; padding:12px; font-family:'Cairo',sans-serif;
-  font-weight:800; font-size:1rem; cursor:pointer; transition:filter .2s;
-}
-.azkar-finish:disabled { opacity:.45; cursor:not-allowed; }
-.azkar-finish:hover:not(:disabled) { filter:brightness(1.08); }
-.azkar-closing { margin-top:14px; font-family:'Amiri',serif; font-size:1.05rem; line-height:1.9; color:var(--text); display:none; }
 </style>
 </head>
 <body>
@@ -251,19 +211,9 @@ body {
   <footer class="footer">أجر وثواب للجميع — <b>اللهم اجعله في ميزان حسناتنا</b></footer>
 </div>
 
-<div class="azkar-modal" id="azkarModal" aria-hidden="true">
-  <div class="azkar-panel">
-    <div class="azkar-title">أذكار تبدأ بها يومك</div>
-    <div class="azkar-sub">اضغط على كل ذكر ثلاث مرات، ثم اختم بالدعاء.</div>
-    <div class="azkar-phase" id="azkarPhase"></div>
-    <div class="azkar-list" id="azkarList"></div>
-    <button class="azkar-finish" id="azkarFinish" disabled>بيّض الله وجوهكم، وأكمل بسم الله</button>
-    <div class="azkar-closing" id="azkarClosing">لا إلهَ إلا اللهُ وحدَه لا شريكَ له، له المُلكُ وله الحمدُ، وهو على كلِّ شيءٍ قديرٌ. <br><br><b>اللهم ارزقنا الإخلاص في النية، والقبول في العمل.</b></div>
-  </div>
-</div>
-
 <div class="page-modal" id="pageModal">
-  <div class="page-panel">    <div class="page-panel-head">
+  <div class="page-panel">
+    <div class="page-panel-head">
       <h3>📖 الصفحات السابقة</h3>
       <button class="icon-btn" id="closeMenu">✕ إغلاق</button>
     </div>
@@ -535,76 +485,6 @@ if (location.hash === '#recitations') {
     if (el2) el2.scrollIntoView({ behavior:'smooth', block:'start' });
   }, 800);
 }
-
-// ===== تذكير الأذكار التفاعلي (مرة كل 24 ساعة) =====
-(function initAzkar() {
-  const AZKAR_KEY = 'madrekjo_azkar_last';
-  const AZKAR_INTERVAL = 24 * 60 * 60 * 1000;
-  const items = [
-    { txt: 'سُبْحَانَ اللهِ', count: 3 },
-    { txt: 'الْحَمْدُ لِلَّهِ', count: 3 },
-    { txt: 'اللهُ أَكْبَرُ', count: 3 },
-  ];
-  const counts = items.map(() => 0);
-
-  function shouldShow() {
-    try {
-      const last = Number(localStorage.getItem(AZKAR_KEY) || 0);
-      if (!last) { localStorage.setItem(AZKAR_KEY, String(Date.now())); return true; }
-      if (Date.now() - last >= AZKAR_INTERVAL) { localStorage.setItem(AZKAR_KEY, String(Date.now())); return true; }
-      return false;
-    } catch { return true; }
-  }
-
-  const modal = el('azkarModal');
-  const list = el('azkarList');
-  const phase = el('azkarPhase');
-  const finish = el('azkarFinish');
-  const closing = el('azkarClosing');
-  const FR = ['١','٢','٣'];
-
-  function render() {
-    const allDone = counts.every(c => c >= 3);
-    phase.textContent = allDone
-      ? 'جزاك الله خيراً — الآن اختم بالدعاء'
-      : 'أذكار الصباح — كرّر كل ذكر ثلاث مرات';
-    list.innerHTML = items.map((it, i) => {
-      const done = counts[i] >= 3;
-      const remaining = Math.max(3 - counts[i], 0);
-      return '<div class="azkar-item' + (done ? ' done' : '') + '">' +
-        '<div class="azkar-item-txt">' + it.txt +
-          '<span class="azkar-count">' + (done ? '✓ تم' : 'المتبقي: ' + FR[remaining-1] + ' (من ' + FR[2] + ')') + '</span>' +
-        '</div>' +
-        '<button class="azkar-btn" data-i="' + i + '"' + (done ? ' disabled' : '') + '>' + (done ? '✓' : FR[Math.min(counts[i],2)]) + '</button>' +
-      '</div>';
-    }).join('');
-    finish.disabled = !allDone;
-  }
-
-  list.addEventListener('click', e => {
-    const btn = e.target.closest('.azkar-btn');
-    if (!btn || btn.disabled) return;
-    const i = parseInt(btn.getAttribute('data-i'), 10);
-    if (counts[i] >= 3) return;
-    counts[i]++;
-    if (counts[i] >= 3) {
-      if (items.every((_, j) => counts[j] >= 3)) {
-        closing.style.display = 'block';
-      }
-    }
-    render();
-  });
-
-  finish.addEventListener('click', () => { modal.classList.remove('open'); });
-
-  modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
-
-  if (shouldShow()) {
-    render();
-    modal.classList.add('open');
-    closing.style.display = 'none';
-  }
-})();
 </script>
 </body>
 </html>

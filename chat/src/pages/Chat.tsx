@@ -82,6 +82,7 @@ const Chat = () => {
 
   const myGen = profile?.generation as string | null;
   const channelFilterRef = useRef<string>("all");
+  const userPickedChannel = useRef(false);
   const loadedPostIdsRef = useRef<Set<string>>(new Set());
   useEffect(() => { channelFilterRef.current = channelFilter; }, [channelFilter]);
   useEffect(() => { loadedPostIdsRef.current = new Set(posts.map(p => p.id)); }, [posts]);
@@ -447,22 +448,39 @@ const Chat = () => {
   const inTimeout = profile?.timeout_until && new Date(profile.timeout_until) > new Date();
   const chatBanned = profile?.chat_banned;
 
-  // Auto-switch to an open channel if current filter is somehow locked
+  // Channel label map for notifications
+  const channelLabel = (key: string) =>
+    ({ all: "الجميع", male: "شباب", female: "بنات", "09": "2009", "10": "2010" } as Record<string, string>)[key] ?? key;
+
+  // Redirect to user's own channel once gender is known, and auto-switch
+  // on lock preferring the user's channel before falling back to الجميع
   useEffect(() => {
     const haveTabs = isStaff || !!(profile?.gender) || !!myGen;
     if (!haveTabs) return;
+
+    const ownChannels = [
+      ...(profile?.gender ? [{ key: profile.gender }] : []),
+      ...(myGen ? [{ key: myGen }] : []),
+    ];
+
+    // Preference order: own channel(s) first, الجميع last (only fallback)
     const tabs = isStaff
       ? [{ key: "all" }, { key: "male" }, { key: "female" }, { key: "09" }, { key: "10" }]
-      : [
-          { key: "all" },
-          ...(profile?.gender === "male" ? [{ key: "male" }] : []),
-          ...(profile?.gender === "female" ? [{ key: "female" }] : []),
-          ...(myGen ? [{ key: myGen }] : []),
-        ];
-    const tab = tabs.find(t => t.key === channelFilter);
-    if (tab && isChannelLocked(tab.key)) {
+      : [...ownChannels, { key: "all" }];
+
+    const current = tabs.find(t => t.key === channelFilter);
+
+    // Case 1: current channel got locked — redirect to first open, preferring own channels
+    if (current && isChannelLocked(current.key)) {
       const firstOpen = tabs.find(t => !isChannelLocked(t.key));
-      if (firstOpen) setChannelFilter(firstOpen.key);
+      if (firstOpen && firstOpen.key !== channelFilter) {
+        toast.info(`انتقلت إلى ${channelLabel(firstOpen.key)} لأن ${channelLabel(channelFilter)} أُغلقت`);
+        setChannelFilter(firstOpen.key);
+      }
+    // Case 2: first visit — steer user to their own channel instead of defaulting to الجميع
+    } else if (!isStaff && !userPickedChannel.current && channelFilter === "all") {
+      const home = ownChannels.find(c => !isChannelLocked(c.key));
+      if (home && home.key !== channelFilter) setChannelFilter(home.key);
     }
   }, [channelFilter, channelSettings, sectionLocks, profile?.gender, myGen, isStaff]);
 
@@ -514,6 +532,7 @@ const Chat = () => {
   const openTab = async (opt: { key: string; label: string; locked: boolean }) => {
     if (opt.locked) { toast.error(opt.label + " مقفلة حالياً من قبل الإدارة"); return; }
     if (!(await chooseSection(opt.key))) return;
+    userPickedChannel.current = true;
     setChannelFilter(opt.key);
   };
 
