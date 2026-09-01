@@ -1,7 +1,7 @@
 /* ========================================
    مدارك جو — Service Worker
    ======================================== */
-const CACHE = 'madrekjo-v21';
+const CACHE = 'madrekjo-v22';
 const CORE = [
   '/',
   '/index.html',
@@ -127,13 +127,20 @@ self.addEventListener('fetch', function(e) {
     return;
   }
 
-  e.respondWith(
-    fetch(req).then(function(res) {
-      var copy = res.clone();
-      caches.open(CACHE).then(function(c) { c.put(req, copy); });
+  // طلبات من نطاقات خارجية: مرّر دائماً للشبكة مباشرة دون أي كاش أو تحويل.
+  // (يشمل واجهات API مثل supabase.co/function، Cloudinary، والصور الخارجية)
+  // لا نستجيب لها أبداً حتى لا يكسر كاش/تحويل أخطاء الطلبات الحيوية.
+  e.respondWith((function () {
+    return fetch(req).then(function (res) {
+      if (res && res.ok) {
+        try {
+          var cc = res.clone();
+          caches.open(CACHE).then(function (c) { c.put(req, cc); });
+        } catch (err) { /* ignore */ }
+      }
       return res;
-    }).catch(function() {
-      return caches.match(req);
-    })
-  );
+    }).catch(function () {
+      return caches.match(req).then(function (hit) { return hit || Response.error(); });
+    });
+  })());
 });
