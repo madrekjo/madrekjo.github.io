@@ -12,6 +12,7 @@ import { Camera, Save, FileText, Users as UsersIcon, Clock } from "lucide-react"
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { compressImage } from "@/lib/mediaCompression";
+import { uploadToCloudinary } from "@/lib/cloudinary";
 import { FIELD_LABEL_AR, FIELD_PREFIX, FIELD_ADMIN_ONLY, formatDisplayName } from "@/lib/displayName";
 import { useTheme, type Theme } from "@/contexts/ThemeContext";
 
@@ -105,24 +106,18 @@ const Profile = () => {
     setLoading(true);
 
     const file = await compressImage(original, { maxWidth: 512, maxHeight: 512, quality: 0.85 });
-    const fileExt = file.name.split(".").pop();
-    const filePath = `${user.id}/${Date.now()}.${fileExt}`;
-
-    const { error: uploadError } = await supabase.storage
-      .from("avatars")
-      .upload(filePath, file, { upsert: true });
-
-    if (uploadError) {
+    let avatarUrl: string;
+    try {
+      avatarUrl = await uploadToCloudinary(file);
+    } catch {
       toast.error("فشل رفع الصورة");
       setLoading(false);
       return;
     }
 
-    const { data: urlData } = supabase.storage.from("avatars").getPublicUrl(filePath);
-    
     const { error } = await supabase
       .from("profiles")
-      .update({ avatar_url: urlData.publicUrl })
+      .update({ avatar_url: avatarUrl })
       .eq("user_id", user.id);
 
     if (error) toast.error("فشل تحديث الصورة");

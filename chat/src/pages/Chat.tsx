@@ -11,6 +11,7 @@ import { toast } from "sonner";
 import { Send, Image as ImageIcon, Video, Loader2, Lock } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { compressMedia } from "@/lib/mediaCompression";
+import { uploadToCloudinary } from "@/lib/cloudinary";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 
 const SALAWAT_KEY = "madrekjo_salawat_last";
@@ -378,12 +379,12 @@ const Chat = () => {
       const urls: string[] = [];
       for (const file of mediaFiles) {
         const compressed = await compressMedia(file);
-        const fileExt = compressed.name.split(".").pop();
-        const filePath = `${user.id}/${Date.now()}-${Math.random().toString(36).slice(2, 7)}.${fileExt}`;
-        const { error: uploadError } = await supabase.storage.from("post-media").upload(filePath, compressed);
-        if (uploadError) { toast.error("فشل رفع الملف"); setPosting(false); return; }
-        const { data: urlData } = supabase.storage.from("post-media").getPublicUrl(filePath);
-        urls.push(urlData.publicUrl);
+        try {
+          const cdnUrl = await uploadToCloudinary(compressed);
+          urls.push(cdnUrl);
+        } catch {
+          toast.error("فشل رفع الملف"); setPosting(false); return;
+        }
       }
       if (mediaType === "image") imageUrls = urls;
       else videoUrl = urls[0];

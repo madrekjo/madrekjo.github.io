@@ -12,6 +12,7 @@ import { CalendarDays, Plus, Loader2, Trash2, Pin, Send, ImageIcon } from "lucid
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { compressImage } from "@/lib/mediaCompression";
+import { uploadToCloudinary } from "@/lib/cloudinary";
 
 interface Schedule {
   id: string; user_id: string; title: string | null; image_url: string;
@@ -88,13 +89,14 @@ const Schedules = () => {
     if (!user || !file) return;
     setUploading(true);
     const compressed = await compressImage(file);
-    const ext = compressed.name.split(".").pop();
-    const path = `${user.id}/${Date.now()}.${ext}`;
-    const { error: upErr } = await supabase.storage.from("schedules").upload(path, compressed);
-    if (upErr) { toast.error("فشل رفع الصورة"); setUploading(false); return; }
-    const { data: pub } = supabase.storage.from("schedules").getPublicUrl(path);
+    let imageUrl: string;
+    try {
+      imageUrl = await uploadToCloudinary(compressed);
+    } catch {
+      toast.error("فشل رفع الصورة"); setUploading(false); return;
+    }
     const { error } = await (supabase as any).from("schedules").insert({
-      user_id: user.id, title: title.trim() || null, image_url: pub.publicUrl,
+      user_id: user.id, title: title.trim() || null, image_url: imageUrl,
     });
     if (error) toast.error("فشل النشر");
     else { toast.success("تم نشر الجدول"); setOpen(false); setTitle(""); setFile(null); fetchAll(); }

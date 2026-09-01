@@ -12,6 +12,7 @@ import { ar } from "date-fns/locale";
 import UserActionsDialog from "@/components/UserActionsDialog";
 import Lightbox from "@/components/Lightbox";
 import { compressImage } from "@/lib/mediaCompression";
+import { uploadToCloudinary } from "@/lib/cloudinary";
 
 interface SupportMessage {
   id: string;
@@ -64,12 +65,8 @@ const Support = () => {
     for (const file of files) {
       try {
         const compressed = await compressImage(file);
-        const fileExt = compressed.name.split(".").pop() || "webp";
-        const filePath = `${ownerId}/support/${Date.now()}-${Math.random().toString(36).slice(2, 7)}.${fileExt}`;
-        const { error: uploadError } = await supabase.storage.from("support-media").upload(filePath, compressed);
-        if (uploadError) { console.error("support upload", uploadError); return null; }
-        const { data: urlData } = supabase.storage.from("support-media").getPublicUrl(filePath);
-        urls.push(urlData.publicUrl);
+        const cdnUrl = await uploadToCloudinary(compressed);
+        urls.push(cdnUrl);
       } catch (e) {
         console.error("support upload failed", e);
         return null;

@@ -10,6 +10,7 @@ import { Lock, Send, Loader2, Trash2, ImagePlus, X } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { compressImage } from "@/lib/mediaCompression";
+import { uploadToCloudinary } from "@/lib/cloudinary";
 
 interface StaffMessage {
   id: string; user_id: string; content: string | null; image_url: string | null; created_at: string;
@@ -58,12 +59,11 @@ const StaffMeeting = () => {
     let imageUrl: string | null = null;
     if (file) {
       const compressed = await compressImage(file);
-      const ext = compressed.name.split(".").pop();
-      const path = `${user.id}/${Date.now()}.${ext}`;
-      const { error: upErr } = await supabase.storage.from("staff-chat").upload(path, compressed);
-      if (upErr) { toast.error("فشل رفع الصورة"); setSending(false); return; }
-      const { data: signed } = await supabase.storage.from("staff-chat").createSignedUrl(path, 60 * 60 * 24 * 365);
-      imageUrl = signed?.signedUrl || null;
+      try {
+        imageUrl = await uploadToCloudinary(compressed);
+      } catch {
+        toast.error("فشل رفع الصورة"); setSending(false); return;
+      }
     }
     const { error } = await (supabase as any).from("staff_chat").insert({
       user_id: user.id, content: content.trim() || null, image_url: imageUrl,

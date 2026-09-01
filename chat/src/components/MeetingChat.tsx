@@ -10,6 +10,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Input } from "@/components/ui/input";
 import Lightbox from "@/components/Lightbox";
 import { compressImage } from "@/lib/mediaCompression";
+import { uploadToCloudinary } from "@/lib/cloudinary";
 
 interface Msg {
   id: string; user_id: string; content: string | null; image_url: string | null; created_at: string;
@@ -66,12 +67,11 @@ const MeetingChat = ({ meetingId, ownerId, title, onClose }: { meetingId: string
     let imageUrl: string | null = null;
     if (file) {
       const compressed = await compressImage(file);
-      const ext = compressed.name.split(".").pop();
-      const path = `${user.id}/${Date.now()}.${ext}`;
-      const { error: upErr } = await supabase.storage.from("round-meetings").upload(path, compressed);
-      if (upErr) { toast.error("فشل رفع الصورة"); setSending(false); return; }
-      const { data: signed } = await supabase.storage.from("round-meetings").createSignedUrl(path, 60 * 60 * 24 * 365);
-      imageUrl = signed?.signedUrl || null;
+      try {
+        imageUrl = await uploadToCloudinary(compressed);
+      } catch {
+        toast.error("فشل رفع الصورة"); setSending(false); return;
+      }
     }
     const { error } = await (supabase as any).from("round_meeting_messages").insert({
       meeting_id: meetingId, user_id: user.id, content: text.trim() || null, image_url: imageUrl,
