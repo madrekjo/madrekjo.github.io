@@ -23,6 +23,15 @@ export default {
         accent: { DEFAULT: "hsl(var(--accent))", foreground: "hsl(var(--accent-foreground))" },
         card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
         gold: { DEFAULT: "hsl(var(--gold))", light: "hsl(var(--gold-light))" },
+        
+        // Prayer rug colors
+        rug: {
+          dark: "hsl(210 30% 10%)",       // Main dark background
+          main: "hsl(210 30% 15%)",        // Central prayer area
+          accent: "hsl(210 20% 25%)",      // Pattern accents
+          gold: "hsl(45 100% 55%)",        // Gold decorative elements
+          cream: "hsl(45 30% 95%)",        // Light cream for patterns
+        },
       },
       borderRadius: { lg: "var(--radius)", md: "calc(var(--radius) - 2px)", sm: "calc(var(--radius) - 4px)" },
       keyframes: {
