@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
-import { MessageCircle, KeyRound, Loader2, ShieldCheck } from "lucide-react";
+import { MessageCircle, KeyRound, Loader2, ShieldCheck, LogIn } from "lucide-react";
 import { SSO_AUTH_BASE_URL, SSO_TARGET } from "@/config/sso-config";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -46,6 +46,45 @@ const Auth = () => {
   const [password, setPassword] = useState("");
   const [gender, setGender] = useState<"male" | "female" | "">("");
   const [creating, setCreating] = useState(false);
+
+  // وضع تسجيل الدخول بالإيميل وكلمة المرور (للمستخدمين الذين أُنشئت حساباتهم برمز دعوة)
+  const [mode, setMode] = useState<"login" | "invite">("login");
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [signingIn, setSigningIn] = useState(false);
+
+  const handleEmailLogin = async () => {
+    if (!EMAIL_RE.test(loginEmail.trim())) {
+      toast.error("أدخل إيميلاً بصيغة صحيحة");
+      return;
+    }
+    if (loginPassword.length < 6) {
+      toast.error("كلمة المرور يجب أن تكون 6 أحرف على الأقل");
+      return;
+    }
+    setSigningIn(true);
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: loginEmail.trim(),
+        password: loginPassword,
+      });
+      if (error) {
+        console.error("[Auth] email login failed", error);
+        toast.error(
+          error.message === "Invalid login credentials"
+            ? "الإيميل أو كلمة المرور غير صحيحة"
+            : "تعذر تسجيل الدخول، تأكد من الإيميل وكلمة المرور"
+        );
+        return;
+      }
+      // بعد نجاح تسجيل الدخول تنتقل الصفحة تلقائياً للرئيسية عبر حالة المستخدم
+    } catch (e) {
+      console.error("[Auth] email login threw", e);
+      toast.error("تعذر تسجيل الدخول، حاول مجدداً");
+    } finally {
+      setSigningIn(false);
+    }
+  };
 
   const startGoogleLogin = async () => {
     setLoading(true);
@@ -108,16 +147,26 @@ const Auth = () => {
       return;
     }
     setChecking(true);
-    const { data, error } = await (supabase.rpc as any)("validate_access_code", { p_code: value });
+    let rpcOut: any;
+    try {
+      rpcOut = await (supabase.rpc as any)("validate_access_code", { p_code: value });
+    } catch (rpcErr) {
+      setChecking(false);
+      console.error("[AUTH-DIAG] validate rpc THREW", rpcErr);
+      toast.error("تعذر التحقق من الكود (خطأ في الاتصال)");
+      return;
+    }
     setChecking(false);
 
-    if (error) {
-      console.error("[Auth] validate_access_code error", error);
+    console.log("[AUTH-DIAG] validate rpc result =", JSON.stringify(rpcOut ?? null));
+
+    if (rpcOut?.error) {
+      console.error("[AUTH-DIAG] validate rpc error", rpcOut.error);
       toast.error("تعذر التحقق من الكود، حاول مجدداً");
       return;
     }
 
-    const result = data as unknown as CodeResult | null;
+    const result = (rpcOut?.data ?? null) as unknown as CodeResult | null;
     setCodeResult(result);
     if (!result?.valid) {
       toast.error(codeErrorMessage(result?.reason || ""));
@@ -154,7 +203,7 @@ const Auth = () => {
           body: { code: code.trim(), email: email.trim(), password, name: name.trim(), gender },
         });
       } catch (invokeErr) {
-        console.error("[Auth] invite-signup invoke threw", invokeErr);
+        console.error("[AUTH-DIAG] invite-signup invoke THREW", invokeErr);
         const timedOut = invokeErr instanceof DOMException && invokeErr.name === "AbortError";
         toast.error(
           timedOut
@@ -164,11 +213,26 @@ const Auth = () => {
         return;
       }
 
-      const { data, error } = (res ?? { data: null, error: null }) as any;
+      console.log("[AUTH-DIAG] invite-signup raw response =", JSON.stringify(res ?? null));
 
-      if (data?.error && data?.ok === undefined) {
+      const parsedRes = (res ?? { data: null, error: null }) as any;
+      let data = parsedRes.data ?? null;
+      const error = parsedRes.error ?? null;
+
+      // بعض إصدارات supabase-js/الاستجابات تُرجع الحساب كنص JSON بدلاً من كائن.
+      // نحوّله دفاعياً ليكون data.ok قابلاً للفحص.
+      if (typeof data === "string") {
+        try {
+          data = data.trim() ? JSON.parse(data) : null;
+        } catch {
+          data = null;
+        }
+      }
+
+      if (data && typeof data === "object" && data.error && data.ok === undefined) {
         // استجابة من الدالة لكنها تحمل error مباشرة
-        toast.error(codeErrorMessage(data.error || ""));
+        console.log("[AUTH-DIAG] branch: data.error direct, ok absent");
+        toast.error(codeErrorMessage(data.error || "خطأ غير متوقع"));
         return;
       }
 
@@ -178,6 +242,7 @@ const Auth = () => {
           const ctx = await (error as any)?.context?.json?.();
           serverMsg = ctx?.error ?? null;
         } catch { /* ignore */ }
+        console.log("[AUTH-DIAG] branch: http error, serverMsg =", serverMsg);
         toast.error(
           serverMsg
             ? codeErrorMessage(serverMsg)
@@ -187,9 +252,16 @@ const Auth = () => {
       }
 
       if (!data?.ok) {
-        toast.error(codeErrorMessage(data?.error || ""));
+        console.log("[AUTH-DIAG] branch: data.ok falsy, data =", JSON.stringify(data ?? null));
+        toast.error(
+          data?.error
+            ? codeErrorMessage(data.error)
+            : "استجابة غير متوقعة من خادم التسجيل (بدون بيانات). حاول مرة أخرى."
+        );
         return;
       }
+
+      console.log("[AUTH-DIAG] branch: signup ok, signing in...");
 
       // تسجيل الدخول الفوري بالإيميل وكلمة المرور اللذين أدخلهما المستخدم.
       // إن فشل تسجيل الدخول هنا فالحساب أُنشئ فعلاً — نوجه المستخدم للدخول لاحقاً.
@@ -241,7 +313,77 @@ const Auth = () => {
 
           <Separator className="my-2" />
 
-          {!codeResult?.valid ? (
+          {!codeResult?.valid && (
+            <>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={() => setMode("login")}
+                  className={`rounded-lg border px-3 py-2 text-sm font-medium transition-colors flex items-center justify-center gap-1.5 ${
+                    mode === "login"
+                      ? "border-primary bg-primary/10 text-primary"
+                      : "bg-muted/40 text-muted-foreground hover:bg-muted"
+                  }`}
+                >
+                  <LogIn className="w-4 h-4" />
+                  تسجيل الدخول بإيميل
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setMode("invite")}
+                  className={`rounded-lg border px-3 py-2 text-sm font-medium transition-colors flex items-center justify-center gap-1.5 ${
+                    mode === "invite"
+                      ? "border-primary bg-primary/10 text-primary"
+                      : "bg-muted/40 text-muted-foreground hover:bg-muted"
+                  }`}
+                >
+                  <KeyRound className="w-4 h-4" />
+                  رمز الدعوة
+                </button>
+              </div>
+
+              {mode === "login" && (
+                <div className="space-y-3">
+                  <div>
+                    <Label>الإيميل</Label>
+                    <Input
+                      type="email"
+                      dir="ltr"
+                      placeholder="example@mail.com"
+                      value={loginEmail}
+                      onChange={(e) => setLoginEmail(e.target.value)}
+                      onKeyDown={(e) => { if (e.key === "Enter") void handleEmailLogin(); }}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>كلمة المرور</Label>
+                    <Input
+                      type="password"
+                      placeholder="6 أحرف على الأقل"
+                      value={loginPassword}
+                      onChange={(e) => setLoginPassword(e.target.value)}
+                      onKeyDown={(e) => { if (e.key === "Enter") void handleEmailLogin(); }}
+                    />
+                    <p className="text-xs text-muted-foreground">
+                      هذا للدخول عند خروجك من حسابك. إن لم يكن لديك حساب أصلاً استخدم رمز الدعوة أو تسجيل Google.
+                    </p>
+                  </div>
+                  <Button className="w-full" onClick={handleEmailLogin} disabled={signingIn}>
+                    {signingIn ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        جاري تسجيل الدخول...
+                      </>
+                    ) : (
+                      "دخول"
+                    )}
+                  </Button>
+                </div>
+              )}
+            </>
+          )}
+
+          {!codeResult?.valid && mode === "invite" && (
             <div className="space-y-3">
               <div>
                 <Label className="flex items-center gap-2">
@@ -249,7 +391,7 @@ const Auth = () => {
                   الدخول برمز الدعوة
                 </Label>
                 <p className="text-xs text-muted-foreground mt-1">
-                  ليس لديك حساب Google؟ أدخل الرمز المكوّن من 6 أرقام الذي أعطاك إياه المشرف.
+                  ليس لديك حساب Google؟ أدخل الرمز المكوّن من 6 أرقام الذي أعطاك إياه المشرف لتنشئ حسابك الأول.
                 </p>
               </div>
               <div className="flex gap-2">
@@ -270,7 +412,9 @@ const Auth = () => {
                 </Button>
               </div>
             </div>
-          ) : (
+          )}
+
+          {codeResult?.valid && (
             <div className="space-y-4">
               <div className="rounded-lg border bg-muted/40 p-3 text-sm space-y-2">
                 <div className="flex items-center gap-2 text-green-600 font-medium">
