@@ -12,6 +12,8 @@ function json(body: unknown, status = 200) {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MIN_PASSWORD = 6;
 
+const GENDERS = ["male", "female"];
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
@@ -20,7 +22,7 @@ Deno.serve(async (req) => {
   const adminClient = createClient(supabaseUrl, serviceRoleKey);
 
   try {
-    const { code, email, password, name } = await req.json().catch(() => ({}));
+    const { code, email, password, name, gender } = await req.json().catch(() => ({}));
 
     // --- التحقق من المدخلات -------------------------------------------------
     if (!code) return json({ error: "code_required" }, 400);
@@ -28,6 +30,7 @@ Deno.serve(async (req) => {
     if (!password || String(password).length < MIN_PASSWORD)
       return json({ error: "weak_password" }, 400);
     if (!name || !String(name).trim()) return json({ error: "name_required" }, 400);
+    if (!GENDERS.includes(String(gender))) return json({ error: "gender_required" }, 400);
 
     const codeStr = String(code).replace(/\D/g, "").padStart(6, "0");
     const normEmail = String(email).trim().toLowerCase();
@@ -62,11 +65,16 @@ Deno.serve(async (req) => {
     }
 
     // --- إنشاء حساب بدون أي تأكيد بريد ----------------------------------------
+    // gender إلزامي لمن دخل برمز دعوة، وvia_invite=true ليميّز الأدمن هذا المستخدم.
     const { data, error } = await adminClient.auth.admin.createUser({
       email: normEmail,
       password: String(password),
       email_confirm: true,
-      user_metadata: { full_name: cleanName },
+      user_metadata: {
+        full_name: cleanName,
+        gender: String(gender),
+        via_invite: true,
+      },
     });
     if (error) {
       await refund();

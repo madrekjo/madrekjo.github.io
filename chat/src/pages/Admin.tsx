@@ -500,6 +500,11 @@ const Admin = () => {
                         <RoundsBadge userId={u.user_id} />
                       </p>
                       <div className="flex items-center gap-2 text-xs text-muted-foreground flex-wrap">
+                        {(u as any).via_invite && (
+                          <span className="bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300 rounded px-1.5 py-0.5" title="سجّل عبر رمز دعوة">
+                            🔑 عبر رمز الدعوة
+                          </span>
+                        )}
                         {u.generation && <span className="bg-primary/10 text-primary rounded px-1.5 py-0.5 font-mono">{u.generation}</span>}
                         {u.field && <span className="bg-muted rounded px-1.5 py-0.5">{FIELD_LABEL_AR[u.field]}</span>}
                         {u.is_banned ? "🚫 محظور" : u.chat_banned ? "🔇 محظور شات" : "✅ نشط"}

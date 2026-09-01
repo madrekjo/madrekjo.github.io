@@ -29,6 +29,7 @@ const codeErrorMessage = (key: string) => {
     weak_password: "كلمة المرور قصيرة جداً (6 أحرف على الأقل).",
     name_required: "أدخل اسمك أولاً.",
     code_required: "أدخل الكود أولاً.",
+    gender_required: "اختر الجنس أولاً.",
   };
   return map[key] || key || "خطأ غير متوقع";
 };
@@ -43,6 +44,7 @@ const Auth = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [gender, setGender] = useState<"male" | "female" | "">("");
   const [creating, setCreating] = useState(false);
 
   const startGoogleLogin = async () => {
@@ -139,11 +141,15 @@ const Auth = () => {
       toast.error("كلمة المرور يجب أن تكون 6 أحرف على الأقل");
       return;
     }
+    if (!gender) {
+      toast.error("اختر جنسك أولاً");
+      return;
+    }
 
     setCreating(true);
     try {
       const res = await supabase.functions.invoke("invite-signup", {
-        body: { code: code.trim(), email: email.trim(), password, name: name.trim() },
+        body: { code: code.trim(), email: email.trim(), password, name: name.trim(), gender },
       });
       const { data, error } = res as any;
 
@@ -153,7 +159,7 @@ const Auth = () => {
           const ctx = await (error as any)?.context?.json?.();
           serverMsg = ctx?.error ?? null;
         } catch { /* ignore */ }
-        toast.error(serverMsg ? codeErrorMessage(serverMsg) : "تعذر إنشاء الحساب، حاول مجدداً");
+        toast.error(serverMsg ? codeErrorMessage(serverMsg) : `تعذر إنشاء الحساب (${error.message || "خطأ في السيرفر"})`);
         return;
       }
 
@@ -175,7 +181,7 @@ const Auth = () => {
       }
     } catch (e) {
       console.error("[Auth] invite-signup failed", e);
-      toast.error("خطأ غير متوقع، حاول مجدداً");
+      toast.error(e instanceof Error ? `خطأ غير متوقع: ${e.message}` : "خطأ غير متوقع، حاول مجدداً");
     }
     setCreating(false);
   };
@@ -287,6 +293,28 @@ const Auth = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
+              </div>
+              <div className="space-y-2">
+                <Label className="flex items-center gap-1">الجنس <span className="text-destructive">*</span></Label>
+                <div className="grid grid-cols-2 gap-2">
+                  {([
+                    { key: "male" as const, label: "ذكر" },
+                    { key: "female" as const, label: "أنثى" },
+                  ]).map((opt) => (
+                    <button
+                      key={opt.key}
+                      type="button"
+                      onClick={() => setGender(opt.key)}
+                      className={`rounded-lg border px-3 py-2 text-sm font-medium transition-colors ${
+                        gender === opt.key
+                          ? "border-primary bg-primary/10 text-primary"
+                          : "bg-muted/40 text-muted-foreground hover:bg-muted"
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
               </div>
 
               <Button className="w-full" onClick={handleCreate} disabled={creating}>
