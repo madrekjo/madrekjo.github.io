@@ -115,10 +115,28 @@ function remapUrl(value, map) {
   return value;
 }
 
+// ---------- تقدم محفوظ (تابع من نقطة التوقف) ----------
+const MAP_FILE = path.join("C:/Users/abdal_cw9hjgr/OneDrive/Desktop/مدارك جو موقع جديد/chat", "cloudinary-migration-map.json");
+const PROGRESS_FILE = MAP_FILE; // نستعمل نفس الملف — نضع كل = صار نجاح
+
+function loadProgress() {
+  try {
+    return JSON.parse(fs.readFileSync(MAP_FILE, "utf8")) || {};
+  } catch {
+    return {};
+  }
+}
+
+let map = loadProgress(); // key: bucket/path => {newUrl, size, type}
+let dirtyCount = 0;
+function saveProgress() {
+  fs.writeFileSync(MAP_FILE, JSON.stringify(map, null, 2));
+  dirtyCount = 0;
+}
+
 // ---------- العمليات ----------
 async function main() {
-  console.log("🚀 بدء نقل الصور من Supabase إلى Cloudinary...\n");
-  const map = {}; // key: bucket/path => {newUrl, size, type}
+  console.log("🚀 بدء نقل الصور من Supabase إلى Cloudinary (متوازي)...\n");
   const summary = { total: 0, ok: 0, failed: 0, bytes: 0 };
 
   for (const bucket of BUCKETS) {
@@ -129,27 +147,40 @@ async function main() {
       console.log(`⚠️  فشل قراءة bucket ${bucket}: ${e.message}`);
       continue;
     }
-    console.log(`📁 ${bucket}: ${files.length} ملف`);
+    const todo = files.filter((f) => !map[`${bucket}/${f}`]);
+    const done = files.length - todo.length;
+    console.log(`📁 ${bucket}: ${files.length} ملف (${done} منجز سابقاً)`);
+    if (todo.length === 0) continue;
+    summary.total += todo.length;
 
-    for (const filePath of files) {
-      summary.total++;
-      try {
-        const { data, error } = await supabase.storage.from(bucket).download(filePath);
-        if (error) throw new Error(`download: ${error.message}`);
-        const buffer = Buffer.from(await data.arrayBuffer());
-        const contentType = data.type || "";
-        const fileName = filePath.split("/").pop();
-        const resourceType = resourceTypeFromFile(fileName, contentType);
-        const newUrl = await uploadToCloudinary(buffer, contentType, fileName, resourceType);
-        map[`${bucket}/${filePath}`] = { newUrl, size: buffer.length, type: resourceType };
-        summary.ok++;
-        summary.bytes += buffer.length;
-        console.log(`   ✅ ${bucket}/${filePath} (${(buffer.length / 1024).toFixed(1)}KB) -> ${newUrl.slice(0, 60)}...`);
-      } catch (e) {
-        summary.failed++;
-        console.log(`   ❌ ${bucket}/${filePath}: ${e.message.slice(0, 120)}`);
+    // رفع متوازي: 8 في نفس الوقت
+    const queue = [...todo];
+    const workers = Array.from({ length: 8 }, async () => {
+      while (queue.length > 0) {
+        const filePath = queue.pop();
+        const key = `${bucket}/${filePath}`;
+        try {
+          const { data, error } = await supabase.storage.from(bucket).download(filePath);
+          if (error) throw new Error(`download: ${error.message}`);
+          const buffer = Buffer.from(await data.arrayBuffer());
+          const contentType = data.type || "";
+          const fileName = filePath.split("/").pop();
+          const resourceType = resourceTypeFromFile(fileName, contentType);
+          const newUrl = await uploadToCloudinary(buffer, contentType, fileName, resourceType);
+          map[key] = { newUrl, size: buffer.length, type: resourceType };
+          summary.ok++;
+          summary.bytes += buffer.length;
+          dirtyCount++;
+          if (dirtyCount >= 25) saveProgress();
+          console.log(`   ✅ ${key} (${(buffer.length / 1024).toFixed(1)}KB)`);
+        } catch (e) {
+          summary.failed++;
+          console.log(`   ❌ ${key}: ${e.message.slice(0, 120)}`);
+        }
       }
-    }
+    });
+    await Promise.all(workers);
+    saveProgress();
   }
 
   console.log(`\n📊 النتائج: ${summary.ok} نجحت / ${summary.failed} فشلت / ${summary.total} إجمالي (${(summary.bytes / 1024 / 1024).toFixed(1)}MB)`);
