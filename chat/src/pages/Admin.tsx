@@ -3,10 +3,11 @@ import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { toast } from "sonner";
-import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, Lock, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key, Activity, Clock } from "lucide-react";
+import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, Lock, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key, Activity, Clock, KeyRound, Copy, Loader2 } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { Navigate, Link } from "react-router-dom";
@@ -35,7 +36,7 @@ interface UserRole {
   role: string;
 }
 
-type Tab = "stats" | "users" | "staff" | "banned" | "reports" | "words" | "deleted" | "sections" | "permissions" | "audit" | "pending";
+type Tab = "stats" | "users" | "staff" | "banned" | "reports" | "words" | "deleted" | "sections" | "permissions" | "audit" | "pending" | "codes";
 
 const Admin = () => {
   const { isAdmin, isModerator, isSupervisor, hasPermission, user } = useAuth();
@@ -66,6 +67,11 @@ const Admin = () => {
   const [channelSettings, setChannelSettings] = useState<Record<string, boolean>>({ all: true, male: true, female: true, "09": true, "10": true });
   const [pendingPosts, setPendingPosts] = useState<any[]>([]);
   const [pendingCount, setPendingCount] = useState(0);
+  const [accessCodes, setAccessCodes] = useState<any[]>([]);
+  const [newCodeUses, setNewCodeUses] = useState("1");
+  const [newCodeDuration, setNewCodeDuration] = useState("24");
+  const [newCodeMessage, setNewCodeMessage] = useState("");
+  const [creatingCode, setCreatingCode] = useState(false);
 
   const canManageWords = hasPermission("can_manage_words");
   const canLockSections = hasPermission("can_lock_sections");
@@ -123,7 +129,7 @@ const Admin = () => {
     if (isAdmin || isModerator || isSupervisor) {
       fetchUsers();
       fetchUserRoles();
-      if (isAdmin) { fetchBannedWords(); fetchDeleted(); fetchSectionLocks(); fetchChannelSettings(); }
+      if (isAdmin) { fetchBannedWords(); fetchDeleted(); fetchSectionLocks(); fetchChannelSettings(); fetchAccessCodes(); }
       (supabase as any).from("post_reports").select("*", { count: "exact", head: true }).eq("status", "pending").then((r: any) => setPendingReports(r.count || 0));
     }
     if (isAdmin || isModerator) fetchPendingPosts();
@@ -243,6 +249,38 @@ const Admin = () => {
   const fetchBannedWords = async () => {
     const { data } = await supabase.from("banned_words").select("*").order("word");
     if (data) setBannedWords(data);
+  };
+
+  const fetchAccessCodes = async () => {
+    const { data } = await (supabase as any).rpc("list_access_codes");
+    if (data) setAccessCodes(data);
+  };
+  const createAccessCode = async () => {
+    const uses = parseInt(newCodeUses, 10);
+    const hours = parseInt(newCodeDuration, 10);
+    if (!uses || uses < 1) { toast.error("عدد الاستخدامات غير صحيح"); return; }
+    if (!hours || hours < 1) { toast.error("مدة الصلاحية غير صحيحة"); return; }
+    setCreatingCode(true);
+    const { data, error } = await (supabase as any).rpc("create_access_code", {
+      p_max_uses: uses,
+      p_duration_hours: hours,
+      p_message: newCodeMessage.trim(),
+    });
+    setCreatingCode(false);
+    if (error) { console.error("create_access_code error", error); toast.error("فشل إنشاء الكود: " + (error.message || "")); return; }
+    toast.success("تم إنشاء الكود بنجاح");
+    setNewCodeUses("1"); setNewCodeDuration("24"); setNewCodeMessage("");
+    fetchAccessCodes();
+  };
+  const revokeAccessCode = async (id: string) => {
+    if (!confirm("إلغاء هذا الكود؟ لن يتمكن أحد من استخدامه بعد الآن.")) return;
+    const { error } = await (supabase as any).rpc("revoke_access_code", { p_id: id });
+    if (error) toast.error("فشل إلغاء الكود");
+    else { toast.success("تم إلغاء الكود"); fetchAccessCodes(); }
+  };
+  const copyCode = async (text: string) => {
+    try { await navigator.clipboard.writeText(text); toast.success("تم نسخ الكود: " + text); }
+    catch { toast.error("تعذر النسخ"); }
   };
 
   const userRolesFor = (uid: string) => userRoles.filter(r => r.user_id === uid).map(r => r.role);
@@ -369,6 +407,7 @@ const Admin = () => {
           </Button>
         )}
         {isAdmin && <Button variant={tab === "permissions" ? "default" : "outline"} onClick={() => setTab("permissions")} className="gap-1"><Key className="w-4 h-4" /> الصلاحيات</Button>}
+        {isAdmin && <Button variant={tab === "codes" ? "default" : "outline"} onClick={() => setTab("codes")} className="gap-1"><KeyRound className="w-4 h-4" /> أكواد الدخول</Button>}
         {(canManageWords || isAdmin) && <Button variant={tab === "words" ? "default" : "outline"} onClick={() => setTab("words")} className="gap-1"><MessageCircle className="w-4 h-4" /> الكلمات المحظورة</Button>}
         {isAdmin && <Button variant={tab === "deleted" ? "default" : "outline"} onClick={() => setTab("deleted")} className="gap-1"><Archive className="w-4 h-4" /> المحذوفات</Button>}
         {(canLockSections || isAdmin) && <Button variant={tab === "sections" ? "default" : "outline"} onClick={() => setTab("sections")} className="gap-1"><Layers className="w-4 h-4" /> الأقسام</Button>}
@@ -743,6 +782,95 @@ const Admin = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+      )}
+
+      {tab === "codes" && isAdmin && (
+        <div className="space-y-6">
+          <div>
+            <h3 className="font-semibold flex items-center gap-2 mb-1">
+              <KeyRound className="w-4 h-4 text-primary" /> إنشاء كود دخول جديد
+            </h3>
+            <p className="text-sm text-muted-foreground mb-3">
+              الكود المكوّن من 6 أرقام يسمح لمن لا يملك حساب Google بإنشاء حساب والدخول بدون تأكيد بريد.
+            </p>
+            <Card>
+              <CardContent className="pt-6 space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <Label className="text-sm">عدد الاستخدامات المسموح</Label>
+                    <Input
+                      type="number"
+                      min={1}
+                      value={newCodeUses}
+                      onChange={(e) => setNewCodeUses(e.target.value)}
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <Label className="text-sm">مدة الصلاحية (ساعات)</Label>
+                    <Input
+                      type="number"
+                      min={1}
+                      value={newCodeDuration}
+                      onChange={(e) => setNewCodeDuration(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className="space-y-1.5">
+                  <Label className="text-sm">رسالة تظهر للمستخدم (اختياري)</Label>
+                  <Textarea
+                    placeholder="مثال: أهلاً بك، أكمل إنشاء حسابك وستدخل مباشرة إلى الدردشة."
+                    value={newCodeMessage}
+                    onChange={(e) => setNewCodeMessage(e.target.value)}
+                    rows={2}
+                  />
+                </div>
+                <Button onClick={createAccessCode} disabled={creatingCode} className="gap-2">
+                  {creatingCode ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
+                  إنشاء الكود
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div>
+            <h3 className="font-semibold flex items-center gap-2 mb-3">
+              <KeyRound className="w-4 h-4 text-primary" /> الأكواد الحالية
+            </h3>
+            {accessCodes.length === 0 ? (
+              <p className="text-center text-muted-foreground py-6">لا توجد أكواد بعد.</p>
+            ) : (
+              <div className="space-y-2">
+                {accessCodes.map((c) => (
+                  <Card key={c.id}>
+                    <CardContent className="py-3 flex flex-wrap items-center justify-between gap-2">
+                      <div className="flex items-center gap-3">
+                        <span className="text-lg font-mono font-bold tracking-widest">{c.code}</span>
+                        <button onClick={() => copyCode(c.code)} className="text-muted-foreground hover:text-primary" aria-label="نسخ">
+                          <Copy className="w-4 h-4" />
+                        </button>
+                      </div>
+                      <div className="text-xs text-muted-foreground flex flex-wrap gap-x-4 gap-y-1">
+                        <span>
+                          مستخدم {c.used_count} / {c.max_uses}
+                        </span>
+                        <span>ينتهي: {new Date(c.expires_at).toLocaleString("ar")}</span>
+                        {c.message && <span className="italic max-w-[200px] truncate">"{c.message}"</span>}
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${c.active ? "bg-green-100 text-green-700" : "bg-muted text-muted-foreground"}`}>
+                          {c.active ? "نشط" : "منتهي / مستنفذ"}
+                        </span>
+                        <Button size="sm" variant="ghost" onClick={() => revokeAccessCode(c.id)} className="text-destructive">
+                          <Trash2 className="w-4 h-4" />
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       )}
 
