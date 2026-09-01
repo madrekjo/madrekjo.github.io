@@ -1,7 +1,7 @@
 /* ========================================
    مدارك جو — Service Worker
    ======================================== */
-const CACHE = 'madrekjo-v22';
+const CACHE = 'madrekjo-v23';
 const CORE = [
   '/',
   '/index.html',
@@ -44,13 +44,48 @@ self.addEventListener('activate', function(e) {
   );
 });
 
+// يوفّر index.html لتطبيق/chat عند التنقل داخل مسارات SPA الخاصة به،
+// حتى لا تُطلَب ملفات غير موجودة فعلياً (مثل /chat/auth) من GitHub Pages.
 self.addEventListener('fetch', function(e) {
   var req = e.request;
   if (req.method !== 'GET') return;
   var url = new URL(req.url);
 
   if (url.origin === location.origin) {
-    // تنقلات الصفحات (HTML): شبكة أولاً — تعرض أحدث نسخة دائماً بعد أي تحديث،
+    // طلب /chat/index.html القادم من حاجز 404.html (طلب عادي وليس تنقلاً):
+    // شبكة أولاً حتى لا تُخدَّم نسخة قديمة من تطبيق الدردشة.
+    if (url.pathname === '/chat/index.html' || url.pathname === '/chat/') {
+      e.respondWith(
+        fetch(req).then(function(res) {
+          var copy = res.clone();
+          caches.open(CACHE).then(function(c) { c.put(req, copy); });
+          return res;
+        }).catch(function() {
+          return caches.match(req).then(function(hit) {
+            return hit || caches.match('/chat/index.html') || caches.match('/');
+          });
+        })
+      );
+      return;
+    }
+
+    // تنقّل داخل تطبيق /chat (SPA): مسارات مثل /chat/auth أو /chat/chat
+    // ليست ملفات حقيقية، فتصرف إلى /chat/index.html دائماً.
+    if (url.pathname.indexOf('/chat/') === 0 && req.mode === 'navigate') {
+      e.respondWith(
+        caches.match('/chat/index.html').then(function(hit) {
+          if (hit) return hit;
+          return fetch('/chat/index.html').then(function(res) {
+            var copy = res.clone();
+            caches.open(CACHE).then(function(c) { c.put('/chat/index.html', copy); });
+            return res;
+          });
+        })
+      );
+      return;
+    }
+
+    // تنقلات الصفحات (HTML) للأقسام الأخرى: شبكة أولاً — تعرض أحدث نسخة دائماً،
     // مع بقاء النسخة المخزنة كاحتياط عند انقطاع الإنترنت.
     if (req.mode === 'navigate') {
       e.respondWith(
@@ -66,38 +101,7 @@ self.addEventListener('fetch', function(e) {
       );
       return;
     }
-    // طلب /chat/index.html القادم من حاجز 404.html (طلب عادي وليس تنقلاً):
-    // شبكة أولاً حتى لا تُخدَّم نسخة قديمة من تطبيق الدردشة.
-    if (url.pathname === '/chat/index.html') {
-      e.respondWith(
-        fetch(req).then(function(res) {
-          var copy = res.clone();
-          caches.open(CACHE).then(function(c) { c.put(req, copy); });
-          return res;
-        }).catch(function() {
-          return caches.match(req).then(function(hit) {
-            return hit || caches.match('/');
-          });
-        })
-      );
-      return;
-    }
-    // طلب /achievement/index.html القادم من حاجز 404.html (طلب عادي وليس تنقلاً):
-    // شبكة أولاً حتى لا تُخدَّم نسخة قديمة من تطبيق الإنجاز.
-    if (url.pathname === '/achievement/index.html') {
-      e.respondWith(
-        fetch(req).then(function(res) {
-          var copy = res.clone();
-          caches.open(CACHE).then(function(c) { c.put(req, copy); });
-          return res;
-        }).catch(function() {
-          return caches.match(req).then(function(hit) {
-            return hit || caches.match('/');
-          });
-        })
-      );
-      return;
-    }
+
     // ملفات الأسئلة (questions/): شبكة أولاً دائماً حتى تظهر أي تحديثات للمحتوى
     // فوراً دون الحاجة إلى تحديث يدوي من المستخدم.
     if (url.pathname.indexOf('/questions/') === 0) {
@@ -112,6 +116,8 @@ self.addEventListener('fetch', function(e) {
       );
       return;
     }
+
+    // بقية الطلبات من نفس النطاق: كاش أولاً، ثم شبكة، واحتياط للصفحة الرئيسية.
     e.respondWith(
       caches.match(req).then(function(hit) {
         if (hit) return hit;
