@@ -24,15 +24,15 @@ export default {
         card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
         gold: { DEFAULT: "hsl(var(--gold))", light: "hsl(var(--gold-light))" },
         
-        // Prayer rug earthy palette
+        // Prayer rug earthy palette (theme-aware via CSS vars)
         rug: {
-          dark: "hsl(222 30% 11%)",        // Muted navy field (rug body)
-          main: "hsl(220 30% 15%)",        // Slightly lifted navy
-          accent: "hsl(352 34% 26%)",      // Warm burgundy accents
-          gold: "hsl(42 85% 55%)",         // Warm gold embroidery
-          cream: "hsl(40 30% 92%)",        // Off-white / beige threads
-          wine: "hsl(352 32% 17%)",        // Burgundy inner band
-          wood: "hsl(25 22% 16%)",         // Warm dark wood outer frame
+          dark: "hsl(var(--rug-dark))",        // Rug body
+          main: "hsl(var(--rug-main))",
+          accent: "hsl(var(--rug-accent))",    // Muted burgundy accents
+          gold: "hsl(var(--rug-gold))",        // Gold embroidery
+          cream: "hsl(var(--rug-cream))",      // Off-white threads
+          wine: "hsl(var(--rug-wine))",        // Burgundy inner band
+          wood: "hsl(var(--rug-wood))",        // Wood outer frame
         },
       },
       borderRadius: { lg: "var(--radius)", md: "calc(var(--radius) - 2px)", sm: "calc(var(--radius) - 4px)" },
