@@ -51,21 +51,16 @@ Deno.serve(async (req) => {
       return json({ error: reasons[consume.reason] || "code_invalid" }, 400);
     }
 
-    const refund = () =>
-      adminClient.rpc("refund_access_code", { p_code: codeStr }).catch(() => {});
-
-    // --- منع تكرار الإيميل ---------------------------------------------------
-    const { data: list } = await adminClient.auth.admin.listUsers({ page: 1, perPage: 1000 });
-    const dup = (list?.users ?? []).find(
-      (u) => u.email && u.email.toLowerCase() === normEmail
-    );
-    if (dup) {
-      await refund();
-      return json({ error: "email_exists" }, 409);
-    }
+    const refund = async () => {
+    try {
+      await adminClient.rpc("refund_access_code", { p_code: codeStr });
+    } catch { /* تجاهل أي فشل في الاسترجاع */ }
+  };
 
     // --- إنشاء حساب بدون أي تأكيد بريد ----------------------------------------
     // gender إلزامي لمن دخل برمز دعوة، وvia_invite=true ليميّز الأدمن هذا المستخدم.
+    // منع تكرار الإيميل يتم ذرّياً هنا: إن سبق تسجيل الإيميل يرفض createUser نفسه
+    // (دون الحاجة إلى مسح قائمة المستخدمين البطيء الذي قد يتجاوز مهلة الطلب).
     const { data, error } = await adminClient.auth.admin.createUser({
       email: normEmail,
       password: String(password),
@@ -78,6 +73,9 @@ Deno.serve(async (req) => {
     });
     if (error) {
       await refund();
+      if (/already been registered/i.test(error.message)) {
+        return json({ error: "email_exists" }, 409);
+      }
       return json({ error: "create_failed:" + error.message }, 400);
     }
 

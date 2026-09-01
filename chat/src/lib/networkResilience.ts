@@ -1,4 +1,5 @@
 const DEFAULT_TIMEOUT_MS = 15000;
+const MUTATION_TIMEOUT_MS = 60000;
 const UPLOAD_TIMEOUT_MS = 60000;
 const RETRY_DELAY_MS = 700;
 
@@ -30,7 +31,12 @@ const shouldRetry = (method: string, error?: unknown, response?: Response) => {
   return error instanceof TypeError;
 };
 
-const timeoutFor = (init?: FetchInit) => hasLargeBody(init?.body) ? UPLOAD_TIMEOUT_MS : DEFAULT_TIMEOUT_MS;
+// طلبات البيانات (POST/PUT/PATCH/DELETE) لا تُعاد المحاولة (غير آمنة لإعادة التنفيذ)،
+// لذا نمنحها مهلة أطول حتى لا تُقطع بسبب بطء خادم الدوال السحابية أو البرد الأولي.
+const timeoutFor = (init?: FetchInit, method = "GET") =>
+  hasLargeBody(init?.body) ? UPLOAD_TIMEOUT_MS
+  : method === "GET" || method === "HEAD" ? DEFAULT_TIMEOUT_MS
+  : MUTATION_TIMEOUT_MS;
 
 function signalWithTimeout(sourceSignal: AbortSignal | null | undefined, timeoutMs: number) {
   const controller = new AbortController();
@@ -61,7 +67,7 @@ export function installNetworkResilience() {
     let lastError: unknown;
 
     for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
-      const { signal, cleanup } = signalWithTimeout(init?.signal, timeoutFor(init));
+      const { signal, cleanup } = signalWithTimeout(init?.signal, timeoutFor(init, method));
       try {
         const response = await nativeFetch(input, { ...init, signal });
         cleanup();

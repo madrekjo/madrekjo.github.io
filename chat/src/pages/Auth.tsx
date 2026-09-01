@@ -148,10 +148,29 @@ const Auth = () => {
 
     setCreating(true);
     try {
-      const res = await supabase.functions.invoke("invite-signup", {
-        body: { code: code.trim(), email: email.trim(), password, name: name.trim(), gender },
-      });
-      const { data, error } = res as any;
+      let res: any;
+      try {
+        res = await supabase.functions.invoke("invite-signup", {
+          body: { code: code.trim(), email: email.trim(), password, name: name.trim(), gender },
+        });
+      } catch (invokeErr) {
+        console.error("[Auth] invite-signup invoke threw", invokeErr);
+        const timedOut = invokeErr instanceof DOMException && invokeErr.name === "AbortError";
+        toast.error(
+          timedOut
+            ? "استغرق إنشاء الحساب وقتاً أطول من المعتاد. تحقق من اتصالك وأعد المحاولة."
+            : `تعذر الاتصال بخادم التسجيل (${invokeErr instanceof Error ? invokeErr.message : "خطأ في الشبكة"})`
+        );
+        return;
+      }
+
+      const { data, error } = (res ?? { data: null, error: null }) as any;
+
+      if (data?.error && data?.ok === undefined) {
+        // استجابة من الدالة لكنها تحمل error مباشرة
+        toast.error(codeErrorMessage(data.error || ""));
+        return;
+      }
 
       if (error) {
         let serverMsg: string | null = null;
@@ -159,7 +178,11 @@ const Auth = () => {
           const ctx = await (error as any)?.context?.json?.();
           serverMsg = ctx?.error ?? null;
         } catch { /* ignore */ }
-        toast.error(serverMsg ? codeErrorMessage(serverMsg) : `تعذر إنشاء الحساب (${error.message || "خطأ في السيرفر"})`);
+        toast.error(
+          serverMsg
+            ? codeErrorMessage(serverMsg)
+            : `تعذر إنشاء الحساب (${error.message || "خطأ في السيرفر"})`
+        );
         return;
       }
 
@@ -168,22 +191,28 @@ const Auth = () => {
         return;
       }
 
-      // تسجيل الدخول الفوري بالإيميل وكلمة المرور اللذين أدخلهما المستخدم
-      const { error: signInErr } = await supabase.auth.signInWithPassword({
-        email: email.trim(),
-        password,
-      });
-      if (signInErr) {
-        console.error("[Auth] sign in after invite failed", signInErr);
+      // تسجيل الدخول الفوري بالإيميل وكلمة المرور اللذين أدخلهما المستخدم.
+      // إن فشل تسجيل الدخول هنا فالحساب أُنشئ فعلاً — نوجه المستخدم للدخول لاحقاً.
+      try {
+        const { error: signInErr } = await supabase.auth.signInWithPassword({
+          email: email.trim(),
+          password,
+        });
+        if (signInErr) {
+          console.error("[Auth] sign in after invite failed", signInErr);
+          toast.success("تم إنشاء حسابك! سجّل الدخول الآن بإيميلك وكلمة المرور.");
+          setCodeResult(null);
+          setCode("");
+        }
+      } catch (signInThrew) {
+        console.error("[Auth] sign in after invite threw", signInThrew);
         toast.success("تم إنشاء حسابك! سجّل الدخول الآن بإيميلك وكلمة المرور.");
         setCodeResult(null);
         setCode("");
       }
-    } catch (e) {
-      console.error("[Auth] invite-signup failed", e);
-      toast.error(e instanceof Error ? `خطأ غير متوقع: ${e.message}` : "خطأ غير متوقع، حاول مجدداً");
+    } finally {
+      setCreating(false);
     }
-    setCreating(false);
   };
 
   const resetCode = () => {
