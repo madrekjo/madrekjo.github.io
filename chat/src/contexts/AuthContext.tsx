@@ -60,7 +60,9 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const REQUEST_TIMEOUT_MS = 3000;
-const INITIAL_AUTH_TIMEOUT_MS = 10000;
+const INITIAL_AUTH_TIMEOUT_MS = 30000;
+const LOCK_RETRY_ATTEMPTS = 3;
+const LOCK_RETRY_DELAY_MS = 3000;
 
 /**
  * Executes a promise with a timeout.
@@ -80,6 +82,49 @@ function withTimeout<T>(
       setTimeout(() => resolve(fallback), timeoutMs)
     ),
   ]);
+}
+
+/**
+ * Attempts getSession() with retries to handle orphaned locks.
+ *
+ * Supabase gotrue-js uses an internal lock to prevent concurrent auth
+ * operations. If a previous lock was not released (e.g., tab crash,
+ * interrupted refresh, React Strict Mode double-mount), getSession()
+ * will hang for 5+ seconds then fail. We retry with backoff to allow
+ * the orphaned lock to be forcefully acquired by gotrue-js itself.
+ */
+async function getSessionWithRetry(
+  attempts = LOCK_RETRY_ATTEMPTS,
+  delayMs = LOCK_RETRY_DELAY_MS
+): Promise<{ data: { session: any }; error: any }> {
+  let lastError: any = null;
+
+  for (let i = 0; i < attempts; i++) {
+    try {
+      const result = await supabase.auth.getSession();
+      if (result.data?.session) {
+        console.log(`[AuthContext] getSession succeeded on attempt ${i + 1}`);
+        return result;
+      }
+      if (result.error) {
+        console.warn(`[AuthContext] getSession attempt ${i + 1} error:`, result.error.message);
+        lastError = result.error;
+      } else {
+        return result;
+      }
+    } catch (err) {
+      console.warn(`[AuthContext] getSession attempt ${i + 1} threw:`, err);
+      lastError = err;
+    }
+
+    if (i < attempts - 1) {
+      const waitMs = delayMs * (i + 1);
+      console.log(`[AuthContext] retrying getSession in ${waitMs}ms...`);
+      await new Promise((r) => setTimeout(r, waitMs));
+    }
+  }
+
+  return { data: { session: null }, error: lastError };
 }
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -191,7 +236,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
               .select("*")
               .eq("user_id", userId)
               .maybeSingle(),
-            { data: null, error: null } as any
+            { data: null, error: null } as any,
+            5000
           ),
 
           withTimeout(
@@ -199,14 +245,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
               .from("user_roles")
               .select("role")
               .eq("user_id", userId),
-            { data: [], error: null } as any
+            { data: [], error: null } as any,
+            5000
           ),
 
           withTimeout(
             (supabase as any)
               .from("role_permissions")
               .select("*"),
-            { data: [], error: null } as any
+            { data: [], error: null } as any,
+            5000
           ),
         ]);
 
@@ -272,13 +320,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       if (!nextSession?.user && source.includes("SIGNED_OUT")) {
         console.log("[AuthContext] SIGNED_OUT received, attempting recovery...");
-        await new Promise(r => setTimeout(r, 2000));
-        if (cancelled) return;
-        const { data: { session: retrySession } } = await supabase.auth.getSession();
-        if (retrySession?.user) {
-          console.log("[AuthContext] session recovered after retry");
-          return;
+        for (let attempt = 0; attempt < 3; attempt++) {
+          await new Promise(r => setTimeout(r, 2000));
+          if (cancelled) return;
+          const { data: { session: retrySession } } = await supabase.auth.getSession();
+          if (retrySession?.user) {
+            console.log("[AuthContext] session recovered after retry", { attempt });
+            return;
+          }
+          console.log(`[AuthContext] recovery attempt ${attempt + 1} failed, retrying...`);
         }
+        console.log("[AuthContext] recovery failed after 3 attempts, signing out");
       }
 
       setSession(nextSession);
@@ -319,7 +371,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
         void registerDeviceForUser(nextSession.user.id);
 
-        void fetchProfile(nextSession.user.id);
+        await fetchProfile(nextSession.user.id);
       } catch (error) {
         console.error(
           "[AuthContext] Failed while validating session",
@@ -557,25 +609,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
      */
     const initializeAuth = async () => {
       try {
-        const sessionPromise = supabase.auth.getSession();
-
-        const timeoutPromise = new Promise<never>((_, reject) => {
-          setTimeout(() => {
-            reject(
-              new Error(
-                "Initial auth session lookup timed out"
-              )
-            );
-          }, INITIAL_AUTH_TIMEOUT_MS);
-        });
-
-        const {
-          data: { session: initialSession },
-          error,
-        } = await Promise.race([
-          sessionPromise,
-          timeoutPromise,
-        ]);
+        const { data: { session: initialSession }, error } =
+          await getSessionWithRetry();
 
         if (cancelled) return;
 
@@ -585,9 +620,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           error: error?.message ?? null,
         });
 
-        if (error) {
+        if (error && !initialSession) {
           console.error(
-            "[AuthContext] initial getSession error",
+            "[AuthContext] initial getSession error after retries",
             error
           );
 

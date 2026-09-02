@@ -1,7 +1,7 @@
 /* ========================================
    مدارك جو — Service Worker
    ======================================== */
-const CACHE = 'madrekjo-v24';
+const CACHE = 'madrekjo-v25';
 const CORE = [
   '/',
   '/index.html',
@@ -53,7 +53,7 @@ self.addEventListener('fetch', function(e) {
 
   if (url.origin === location.origin) {
     // طلب /chat/index.html القادم من حاجز 404.html (طلب عادي وليس تنقلاً):
-    // شبكة أولاً حتى لا تُخدَّم نسخة قديمة من تطبيق الدردشة.
+    // شبكة أولاً دائماً — نحتاج أحدث كود دائماً لتجنب مشاكل القفل.
     if (url.pathname === '/chat/index.html' || url.pathname === '/chat/') {
       e.respondWith(
         fetch(req).then(function(res) {
@@ -62,7 +62,7 @@ self.addEventListener('fetch', function(e) {
           return res;
         }).catch(function() {
           return caches.match(req).then(function(hit) {
-            return hit || caches.match('/chat/index.html') || caches.match('/');
+            return hit || caches.match('/');
           });
         })
       );
@@ -70,15 +70,16 @@ self.addEventListener('fetch', function(e) {
     }
 
     // تنقّل داخل تطبيق /chat (SPA): مسارات مثل /chat/auth أو /chat/chat
-    // ليست ملفات حقيقية، فتصرف إلى /chat/index.html دائماً.
+    // ليست ملفات حقيقية، ف network-first مع تحديث الكاش.
     if (url.pathname.indexOf('/chat/') === 0 && req.mode === 'navigate') {
       e.respondWith(
-        caches.match('/chat/index.html').then(function(hit) {
-          if (hit) return hit;
-          return fetch('/chat/index.html').then(function(res) {
-            var copy = res.clone();
-            caches.open(CACHE).then(function(c) { c.put('/chat/index.html', copy); });
-            return res;
+        fetch('/chat/index.html').then(function(res) {
+          var copy = res.clone();
+          caches.open(CACHE).then(function(c) { c.put('/chat/index.html', copy); });
+          return res;
+        }).catch(function() {
+          return caches.match('/chat/index.html').then(function(hit) {
+            return hit || caches.match('/');
           });
         })
       );
@@ -133,20 +134,7 @@ self.addEventListener('fetch', function(e) {
     return;
   }
 
-  // طلبات من نطاقات خارجية: مرّر دائماً للشبكة مباشرة دون أي كاش أو تحويل.
-  // (يشمل واجهات API مثل supabase.co/function، Cloudinary، والصور الخارجية)
-  // لا نستجيب لها أبداً حتى لا يكسر كاش/تحويل أخطاء الطلبات الحيوية.
-  e.respondWith((function () {
-    return fetch(req).then(function (res) {
-      if (res && res.ok) {
-        try {
-          var cc = res.clone();
-          caches.open(CACHE).then(function (c) { c.put(req, cc); });
-        } catch (err) { /* ignore */ }
-      }
-      return res;
-    }).catch(function () {
-      return caches.match(req).then(function (hit) { return hit || Response.error(); });
-    });
-  })());
+  // طلبات من نطاقات خارجية: مرّر دائماً للشبكة مباشرة.
+  // لا نخزن أي شيء في الكاش — لا نريد تخزين أخطاء Supabase أو تأخيرات.
+  e.respondWith(fetch(req));
 });

@@ -55,6 +55,11 @@ function signalWithTimeout(sourceSignal: AbortSignal | null | undefined, timeout
   };
 }
 
+const isSupabaseAuthRequest = (input: FetchInput) => {
+  const url = typeof input === "string" ? input : input instanceof URL ? input.href : input instanceof Request ? input.url : "";
+  return url.includes("/auth/v1/");
+};
+
 export function installNetworkResilience() {
   if (installed || typeof window === "undefined" || typeof window.fetch !== "function") return;
   installed = true;
@@ -67,6 +72,15 @@ export function installNetworkResilience() {
     let lastError: unknown;
 
     for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+      if (isSupabaseAuthRequest(input)) {
+        try {
+          const response = await nativeFetch(input, init);
+          return response;
+        } catch (error) {
+          throw error;
+        }
+      }
+
       const { signal, cleanup } = signalWithTimeout(init?.signal, timeoutFor(init, method));
       try {
         const response = await nativeFetch(input, { ...init, signal });
