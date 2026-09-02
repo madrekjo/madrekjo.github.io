@@ -63,11 +63,32 @@ const Auth = () => {
       return;
     }
     setSigningIn(true);
-    try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email: loginEmail.trim(),
-        password: loginPassword,
+
+    // وعد يرفض بعد مهلة حتى لا يعلق الزر إلى الأبد إذا علق قفل gotrue.
+    const withSignInTimeout = (ms: number) =>
+      new Promise((resolve, reject) => {
+        let done = false;
+        const timer = setTimeout(() => {
+          if (!done) { done = true; reject(new Error("sign_in_timeout")); }
+        }, ms);
+        supabase.auth.signInWithPassword({
+          email: loginEmail.trim(),
+          password: loginPassword,
+        }).then((r) => {
+          if (done) return;
+          done = true;
+          clearTimeout(timer);
+          resolve(r);
+        }, (e) => {
+          if (done) return;
+          done = true;
+          clearTimeout(timer);
+          reject(e);
+        });
       });
+
+    try {
+      const { error } = await withSignInTimeout(15000) as any;
       if (error) {
         console.error("[Auth] email login failed", error);
         toast.error(
@@ -78,9 +99,13 @@ const Auth = () => {
         return;
       }
       // بعد نجاح تسجيل الدخول تنتقل الصفحة تلقائياً للرئيسية عبر حالة المستخدم
-    } catch (e) {
+    } catch (e: any) {
       console.error("[Auth] email login threw", e);
-      toast.error("تعذر تسجيل الدخول، حاول مجدداً");
+      if (e?.message === "sign_in_timeout") {
+        toast.error("استغرق تسجيل الدخول وقتاً أطول، حاول مرة أخرى");
+      } else {
+        toast.error("تعذر تسجيل الدخول، حاول مجدداً");
+      }
     } finally {
       setSigningIn(false);
     }
