@@ -118,11 +118,16 @@ const Admin = () => {
 
   const fetchPendingPosts = async () => {
     if (!(isAdmin || isModerator)) return;
-    const { data } = await (supabase.from("posts") as any)
-      .select("id, content, image_url, image_urls, video_url, user_id, created_at, status, reviewed_by, reviewed_at, profiles!posts_user_id_profiles_fkey(full_name, avatar_url)")
-      .eq("status", "pending")
-      .order("created_at", { ascending: false });
-    if (data) { setPendingPosts(data); setPendingCount(data.length); }
+    const { data, error } = await (supabase as any).rpc("get_pending_posts");
+    if (error) { console.error("get_pending_posts error", error); return; }
+    if (Array.isArray(data)) {
+      const mapped = (data as any[]).map((p: any) => ({
+        ...p,
+        profiles: { full_name: p?.author_full_name ?? null, avatar_url: p?.author_avatar_url ?? null },
+      }));
+      setPendingPosts(mapped);
+      setPendingCount(mapped.length);
+    }
   };
 
   useEffect(() => {
@@ -147,9 +152,7 @@ const Admin = () => {
   }, [isAdmin, isModerator]);
 
   const approvePost = async (postId: string) => {
-    const { error } = await (supabase.from("posts") as any)
-      .update({ status: "approved", reviewed_by: user?.id, reviewed_at: new Date().toISOString() })
-      .eq("id", postId);
+    const { error } = await (supabase as any).rpc("approve_post", { p_post_id: postId });
     if (error) { toast.error("فشل الموافقة"); return; }
     toast.success("تمت الموافقة على المنشور");
     logAction("approve_post", null, `post:${postId}`);
@@ -158,7 +161,7 @@ const Admin = () => {
 
   const rejectPost = async (postId: string) => {
     if (!confirm("حذف المنشور المرفوض نهائياً؟")) return;
-    const { error } = await (supabase.from("posts") as any).delete().eq("id", postId);
+    const { error } = await (supabase as any).rpc("reject_post", { p_post_id: postId });
     if (error) { toast.error("فشل الرفض"); return; }
     toast.success("تم رفض وحذف المنشور");
     logAction("reject_post", null, `post:${postId}`);

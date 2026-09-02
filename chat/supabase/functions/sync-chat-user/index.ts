@@ -42,7 +42,10 @@ Deno.serve(async (req) => {
     }
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-    const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")! || Deno.env.get("CHAT_SERVICE_ROLE")!;
+    if (!serviceRoleKey) {
+      return json({ error: "missing service role key — add CHAT_SERVICE_ROLE secret" }, 500);
+    }
     const adminClient = createClient(supabaseUrl, serviceRoleKey);
 
     // البحث عن حساب الدردشة الحالي بنفس البريد

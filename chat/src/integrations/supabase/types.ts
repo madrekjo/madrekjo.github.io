@@ -402,6 +402,9 @@ export type Database = {
           image_url: string | null
           image_urls: string[] | null
           is_pinned: boolean
+          reviewed_at: string | null
+          reviewed_by: string | null
+          status: string
           updated_at: string
           user_id: string
           video_url: string | null
@@ -417,6 +420,9 @@ export type Database = {
           image_url?: string | null
           image_urls?: string[] | null
           is_pinned?: boolean
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string
           updated_at?: string
           user_id: string
           video_url?: string | null
@@ -432,6 +438,9 @@ export type Database = {
           image_url?: string | null
           image_urls?: string[] | null
           is_pinned?: boolean
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string
           updated_at?: string
           user_id?: string
           video_url?: string | null
