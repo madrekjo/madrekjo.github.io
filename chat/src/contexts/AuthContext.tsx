@@ -93,6 +93,42 @@ function withTimeout<T>(
  * will hang for 5+ seconds then fail. We retry with backoff to allow
  * the orphaned lock to be forcefully acquired by gotrue-js itself.
  */
+/**
+ * عندما يفشل getSession بسبب قفل عالق، نقرأ الجلسة المحفوظة مباشرة من
+ * localStorage ونعيد إدخالها عبر setSession. setSession يكتب ويطلق علبه
+ * قفلاً جديداً، فنتجاوز القفل العالق الحالي.
+ */
+async function tryRestoreFromStorage(): Promise<{ data: { session: any }; error: any }> {
+  try {
+    const key = "sb-ofltanaffcxoobfvlkii-auth-token";
+    const raw = localStorage.getItem(key);
+    if (!raw) return { data: { session: null }, error: null };
+
+    const stored = JSON.parse(raw);
+    const accessToken = stored?.access_token;
+    const refreshToken = stored?.refresh_token;
+    if (!accessToken || !refreshToken) {
+      return { data: { session: null }, error: null };
+    }
+
+    console.log("[AuthContext] restoring session from storage");
+    const { data, error } = await supabase.auth.setSession({
+      access_token: accessToken,
+      refresh_token: refreshToken,
+    });
+
+    if (error) {
+      console.warn("[AuthContext] setSession restore error:", error.message);
+      return { data: { session: null }, error };
+    }
+
+    return { data, error: null };
+  } catch (err) {
+    console.warn("[AuthContext] tryRestoreFromStorage failed:", err);
+    return { data: { session: null }, error: err };
+  }
+}
+
 async function getSessionWithRetry(
   attempts = LOCK_RETRY_ATTEMPTS,
   delayMs = LOCK_RETRY_DELAY_MS
@@ -124,7 +160,13 @@ async function getSessionWithRetry(
     }
   }
 
-  return { data: { session: null }, error: lastError };
+  console.log("[AuthContext] all getSession attempts failed, trying storage restore");
+  const restored = await tryRestoreFromStorage();
+  if (restored.data?.session) {
+    return restored;
+  }
+
+  return { data: { session: null }, error: lastError || restored.error };
 }
 
 export function AuthProvider({ children }: { children: ReactNode }) {

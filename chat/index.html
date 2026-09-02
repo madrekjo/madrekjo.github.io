@@ -22,11 +22,24 @@
     <meta name="twitter:title" content="دردشة جو">
     <meta name="twitter:description" content="دردشة جو - منصة طلابية للتعاون والدراسة">
     <meta name="twitter:image" content="https://j.top4top.io/p_3809pwg4f1.png">
-    <script type="module" crossorigin src="/chat/assets/index-OfnCoONQ.js"></script>
+    <script type="module" crossorigin src="/chat/assets/index-DhnL823n.js"></script>
     <link rel="stylesheet" crossorigin href="/chat/assets/index-SK3GNQaA.css">
     <script>
       (function(){
-        var EXPECTED = "index-OfnCoONQ.js";
+        // إعادة التحميل عند العودة من BFCache (Back-Forward Cache)
+        // BFCache يبقي الصفحة القديمة حية مع WebSocket مقطوع وقفل Auth عالق —
+        // إعادة التحميل تكسر القفل العالق وتعطي جلسة نظيفة.
+        window.addEventListener('pageshow', function(event) {
+          if (event.persisted) {
+            console.warn('[chat-bfcache] restored from bfcache, reloading for clean session');
+            location.reload();
+          }
+        });
+      })();
+    </script>
+    <script>
+      (function(){
+        var EXPECTED = "index-DhnL823n.js";
         var scripts = document.querySelectorAll('script[type="module"]');
         for (var i = 0; i < scripts.length; i++) {
           if (scripts[i].src && scripts[i].src.indexOf("/chat/") !== -1) {
