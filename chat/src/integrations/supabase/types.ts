@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      access_codes: {
+        Row: {
+          code: string
+          created_at: string
+          created_by: string | null
+          expires_at: string
+          id: string
+          max_uses: number
+          message: string | null
+          used_count: number
+        }
+        Insert: {
+          code: string
+          created_at?: string
+          created_by?: string | null
+          expires_at: string
+          id?: string
+          max_uses: number
+          message?: string | null
+          used_count?: number
+        }
+        Update: {
+          code?: string
+          created_at?: string
+          created_by?: string | null
+          expires_at?: string
+          id?: string
+          max_uses?: number
+          message?: string | null
+          used_count?: number
+        }
+        Relationships: []
+      }
       admin_actions: {
         Row: {
           action_type: string
@@ -321,6 +354,42 @@ export type Database = {
           },
         ]
       }
+      post_mentions: {
+        Row: {
+          actor_id: string
+          channel: string | null
+          comment_id: string | null
+          created_at: string
+          id: string
+          is_all: boolean
+          mentioned_name: string
+          post_id: string | null
+          user_id: string | null
+        }
+        Insert: {
+          actor_id: string
+          channel?: string | null
+          comment_id?: string | null
+          created_at?: string
+          id?: string
+          is_all?: boolean
+          mentioned_name: string
+          post_id?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          actor_id?: string
+          channel?: string | null
+          comment_id?: string | null
+          created_at?: string
+          id?: string
+          is_all?: boolean
+          mentioned_name?: string
+          post_id?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       posts: {
         Row: {
           channel: string | null
@@ -388,10 +457,13 @@ export type Database = {
           generation: string | null
           id: string
           is_banned: boolean
+          last_seen_at: string | null
           name_changed_at: string | null
+          theme: string | null
           timeout_until: string | null
           updated_at: string
           user_id: string
+          via_invite: boolean
         }
         Insert: {
           avatar_url?: string | null
@@ -403,10 +475,13 @@ export type Database = {
           generation?: string | null
           id?: string
           is_banned?: boolean
+          last_seen_at?: string | null
           name_changed_at?: string | null
+          theme?: string | null
           timeout_until?: string | null
           updated_at?: string
           user_id: string
+          via_invite?: boolean
         }
         Update: {
           avatar_url?: string | null
@@ -418,10 +493,13 @@ export type Database = {
           generation?: string | null
           id?: string
           is_banned?: boolean
+          last_seen_at?: string | null
           name_changed_at?: string | null
+          theme?: string | null
           timeout_until?: string | null
           updated_at?: string
           user_id?: string
+          via_invite?: boolean
         }
         Relationships: []
       }
@@ -1039,6 +1117,31 @@ export type Database = {
     Functions: {
       admin_delete_user: { Args: { _user_id: string }; Returns: undefined }
       can_see_generation: { Args: { _gen: string }; Returns: boolean }
+      consume_access_code: {
+        Args: { p_code: string }
+        Returns: {
+          code: string | null
+          id: string | null
+          message: string | null
+          ok: boolean
+          reason: string
+        }
+      }
+      create_access_code: {
+        Args: {
+          p_duration_hours: number
+          p_max_uses: number
+          p_message?: string
+        }
+        Returns: {
+          code: string
+          expires_at: string
+          id: string
+          max_uses: number
+          message: string
+          used_count: number
+        }
+      }
       delete_old_comments: { Args: never; Returns: undefined }
       delete_old_posts: { Args: never; Returns: undefined }
       delete_old_rounds: { Args: never; Returns: undefined }
@@ -1077,6 +1180,30 @@ export type Database = {
       join_round: {
         Args: { p_round_id: string; p_user_id: string }
         Returns: string
+      }
+      list_access_codes: {
+        Args: never
+        Returns: {
+          active: boolean
+          code: string
+          created_at: string
+          expires_at: string
+          id: string
+          max_uses: number
+          message: string
+          used_count: number
+        }[]
+      }
+      refund_access_code: { Args: { p_code: string }; Returns: boolean }
+      revoke_access_code: { Args: { p_id: string }; Returns: boolean }
+      validate_access_code: {
+        Args: { p_code: string }
+        Returns: {
+          message: string | null
+          reason: string
+          remaining: number | null
+          valid: boolean
+        }
       }
     }
     Enums: {

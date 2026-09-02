@@ -21,6 +21,8 @@ interface Profile {
   field?: string | null;
   gender?: string | null;
   theme?: string | null;
+  last_seen_at?: string | null;
+  via_invite?: boolean;
 }
 
 type Permission =
