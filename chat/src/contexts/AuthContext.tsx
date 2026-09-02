@@ -61,8 +61,6 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const REQUEST_TIMEOUT_MS = 3000;
 const INITIAL_AUTH_TIMEOUT_MS = 30000;
-const LOCK_RETRY_ATTEMPTS = 3;
-const LOCK_RETRY_DELAY_MS = 3000;
 
 /**
  * Executes a promise with a timeout.
@@ -82,91 +80,6 @@ function withTimeout<T>(
       setTimeout(() => resolve(fallback), timeoutMs)
     ),
   ]);
-}
-
-/**
- * Attempts getSession() with retries to handle orphaned locks.
- *
- * Supabase gotrue-js uses an internal lock to prevent concurrent auth
- * operations. If a previous lock was not released (e.g., tab crash,
- * interrupted refresh, React Strict Mode double-mount), getSession()
- * will hang for 5+ seconds then fail. We retry with backoff to allow
- * the orphaned lock to be forcefully acquired by gotrue-js itself.
- */
-/**
- * عندما يفشل getSession بسبب قفل عالق، نقرأ الجلسة المحفوظة مباشرة من
- * localStorage ونعيد إدخالها عبر setSession. setSession يكتب ويطلق علبه
- * قفلاً جديداً، فنتجاوز القفل العالق الحالي.
- */
-async function tryRestoreFromStorage(): Promise<{ data: { session: any }; error: any }> {
-  try {
-    const key = "sb-ofltanaffcxoobfvlkii-auth-token";
-    const raw = localStorage.getItem(key);
-    if (!raw) return { data: { session: null }, error: null };
-
-    const stored = JSON.parse(raw);
-    const accessToken = stored?.access_token;
-    const refreshToken = stored?.refresh_token;
-    if (!accessToken || !refreshToken) {
-      return { data: { session: null }, error: null };
-    }
-
-    console.log("[AuthContext] restoring session from storage");
-    const { data, error } = await supabase.auth.setSession({
-      access_token: accessToken,
-      refresh_token: refreshToken,
-    });
-
-    if (error) {
-      console.warn("[AuthContext] setSession restore error:", error.message);
-      return { data: { session: null }, error };
-    }
-
-    return { data, error: null };
-  } catch (err) {
-    console.warn("[AuthContext] tryRestoreFromStorage failed:", err);
-    return { data: { session: null }, error: err };
-  }
-}
-
-async function getSessionWithRetry(
-  attempts = LOCK_RETRY_ATTEMPTS,
-  delayMs = LOCK_RETRY_DELAY_MS
-): Promise<{ data: { session: any }; error: any }> {
-  let lastError: any = null;
-
-  for (let i = 0; i < attempts; i++) {
-    try {
-      const result = await supabase.auth.getSession();
-      if (result.data?.session) {
-        console.log(`[AuthContext] getSession succeeded on attempt ${i + 1}`);
-        return result;
-      }
-      if (result.error) {
-        console.warn(`[AuthContext] getSession attempt ${i + 1} error:`, result.error.message);
-        lastError = result.error;
-      } else {
-        return result;
-      }
-    } catch (err) {
-      console.warn(`[AuthContext] getSession attempt ${i + 1} threw:`, err);
-      lastError = err;
-    }
-
-    if (i < attempts - 1) {
-      const waitMs = delayMs * (i + 1);
-      console.log(`[AuthContext] retrying getSession in ${waitMs}ms...`);
-      await new Promise((r) => setTimeout(r, waitMs));
-    }
-  }
-
-  console.log("[AuthContext] all getSession attempts failed, trying storage restore");
-  const restored = await tryRestoreFromStorage();
-  if (restored.data?.session) {
-    return restored;
-  }
-
-  return { data: { session: null }, error: lastError || restored.error };
 }
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -246,17 +159,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             error: `تعذر فتح جلسة الدردشة: ${pErr.message}`,
           };
         }
-      }
-
-      const {
-        data: { session: checkSession },
-      } = await supabase.auth.getSession();
-
-      if (!checkSession) {
-        return {
-          ok: false,
-          error: "تعذر تأكيد جلسة الدردشة بعد المزامنة",
-        };
+        // signInWithPassword نجح -> onAuthStateChange سيطلق SIGNED_IN
+        // ويطبّق الجلسة تلقائياً. لا نستدعي getSession() يدوياً هنا
+        // لأنه قد يتنازع على قفل gotrue مع معالجة الحدث.
+        return { ok: true };
       }
 
       return { ok: true };
@@ -361,18 +267,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       });
 
       if (!nextSession?.user && source.includes("SIGNED_OUT")) {
-        console.log("[AuthContext] SIGNED_OUT received, attempting recovery...");
-        for (let attempt = 0; attempt < 3; attempt++) {
-          await new Promise(r => setTimeout(r, 2000));
-          if (cancelled) return;
-          const { data: { session: retrySession } } = await supabase.auth.getSession();
-          if (retrySession?.user) {
-            console.log("[AuthContext] session recovered after retry", { attempt });
-            return;
-          }
-          console.log(`[AuthContext] recovery attempt ${attempt + 1} failed, retrying...`);
-        }
-        console.log("[AuthContext] recovery failed after 3 attempts, signing out");
+        console.log("[AuthContext] SIGNED_OUT received");
+        // لا نستدعي getSession() هنا — كان يسبب تنازعاً على قفل gotrue
+        // وهدم الجلسة النشطة. علىAuthContext الاعتماد على الجلسة الفعلية
+        // المخزنة عبر onAuthStateChange بدل محاولة استرجاع يدوي.
       }
 
       setSession(nextSession);
@@ -649,45 +547,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
      *
      * because a timeout must not be interpreted as "the user is logged out".
      */
+    /**
+     * تهيئة أولية تعتمد كلياً على onAuthStateChange.
+     *
+     * المهم: لا نستدعي supabase.auth.getSession() يدوياً هنا إطلاقاً.
+     * استدعاء getSession/setSession يدوياً بالتزامن مع onAuthStateChange
+     * كان يسبب تنازعاً على قفل gotrue
+     * ("Lock ... was released because another request stole it") —
+     * كل استدعاء getSession مع INITIAL_SESSION كان يسرق قفل الآخر
+     * فتفشل كل عمليات auth (تسجيل الدخول، التحميل) وتعلق الصفحة.
+     *
+     * بدلاً منه: onAuthStateChange يطلق INITIAL_SESSION تلقائياً عند الاشتراك
+     * ويطبّق الجلسة عبر applySession (سطر 450+). هنا فقط إنهاء شاشة التحميل
+     * عند جاهزية التطبيق، وتفقد المزامنة الشقيقة بعدها بلا أي getSession.
+     */
     const initializeAuth = async () => {
       try {
-        const { data: { session: initialSession }, error } =
-          await getSessionWithRetry();
+        // لا نقرأ الجلسة يدوياً — INITIAL_SESSION من onAuthStateChange
+        // سيطبّق الجلسة المخزنة تلقائياً. ننهي التحميل بعد مهلة قصيرة
+        // حتى لا تعلق شاشة التحميل لو لم يصل INITIAL_SESSION.
+        setTimeout(() => {
+          if (!cancelled) finishInitialLoading();
+        }, 1500);
 
-        if (cancelled) return;
-
-        console.log("[AuthContext] initial getSession", {
-          hasSession: !!initialSession,
-          userId: initialSession?.user?.id ?? null,
-          error: error?.message ?? null,
-        });
-
-        if (error && !initialSession) {
-          console.error(
-            "[AuthContext] initial getSession error after retries",
-            error
-          );
-
-          finishInitialLoading();
-          return;
-        }
-
-        /**
-         * Apply the actual session returned by Supabase.
-         *
-         * If AuthCallback already called setSession(), this should
-         * return that persisted session instead of null.
-         */
-        await applySession(
-          initialSession,
-          "initial:getSession"
-        );
-
-        finishInitialLoading();
-
-        if (!initialSession?.user) {
-          await detectSiblingSync();
-        }
+        await detectSiblingSync();
       } catch (error) {
         if (cancelled) return;
 
@@ -696,10 +579,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           error
         );
 
-        /**
-         * We only stop the loading screen after the real lookup
-         * failed/timed out. We never manufacture a null session.
-         */
         finishInitialLoading();
       }
     };
@@ -731,7 +610,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     try {
       localStorage.removeItem(
-        "sb-ofltanaffcxoobfvlkii-auth-token"
+        "sb-biabdoatwfteqwgjdxzc-auth-token"
       );
       localStorage.removeItem(
         "sb-itflhfhsfzrdfpxvlzrv-auth-token"

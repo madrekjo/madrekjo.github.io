@@ -5,7 +5,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const CHAT_AUTH_BASE = "https://ofltanaffcxoobfvlkii.supabase.co";
+const CHAT_AUTH_BASE = "https://biabdoatwfteqwgjdxzc.supabase.co";
 
 function json(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), { status, headers: corsHeaders });

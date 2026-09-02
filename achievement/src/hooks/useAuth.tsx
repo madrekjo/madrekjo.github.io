@@ -141,7 +141,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       supabase.auth.signOut(),
       achievementSupabase.auth.signOut(),
     ]);
-    try { localStorage.removeItem("sb-ofltanaffcxoobfvlkii-auth-token"); } catch { /* ignore */ }
+    try { localStorage.removeItem("sb-biabdoatwfteqwgjdxzc-auth-token"); } catch { /* ignore */ }
     try { localStorage.removeItem("sb-itflhfhsfzrdfpxvlzrv-auth-token"); } catch { /* ignore */ }
     setSiblingSync(null);
   };
