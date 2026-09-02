@@ -24,6 +24,31 @@
     <meta name="twitter:image" content="https://j.top4top.io/p_3809pwg4f1.png">
     <script type="module" crossorigin src="/chat/assets/index-OfnCoONQ.js"></script>
     <link rel="stylesheet" crossorigin href="/chat/assets/index-SK3GNQaA.css">
+    <script>
+      (function(){
+        var EXPECTED = "index-OfnCoONQ.js";
+        var scripts = document.querySelectorAll('script[type="module"]');
+        for (var i = 0; i < scripts.length; i++) {
+          if (scripts[i].src && scripts[i].src.indexOf("/chat/") !== -1) {
+            if (scripts[i].src.indexOf(EXPECTED) === -1) {
+              console.warn("[chat-refresh] stale build detected, clearing cache and reloading");
+              if ("serviceWorker" in navigator) {
+                navigator.serviceWorker.getRegistrations().then(function(regs) {
+                  for (var j = 0; j < regs.length; j++) { regs[j].unregister(); }
+                  caches.keys().then(function(names) {
+                    return Promise.all(names.map(function(n) { return caches.delete(n); }));
+                  }).then(function() { location.reload(true); });
+                });
+              } else {
+                location.reload(true);
+              }
+              return;
+            }
+            break;
+          }
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
