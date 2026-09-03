@@ -9,12 +9,14 @@
       /* ============================================================
          404.html — حاجز (fallback) لصفحة غير موجودة على GitHub Pages
          ------------------------------------------------------------
-         - إذا بدأ المسار بـ /achievement -> يشغّل تطبيق الإنجاز (SPA)
-         - إذا بدأ المسار بـ /chat         -> يشغّل تطبيق الدردشة (SPA)
-         - إذا بدأ المسار بـ /anon         -> يشغّل تطبيق أنا مجهول (SPA)
-         - إذا بدأ المسار بـ /talaawat     -> يشغّل تطبيق التلاوات (SPA)
-         - غير ذلك                          -> يرجع للصفحة الرئيسية
-           (بما أن صفحات الموقع الأم الحقيقية لا تصل لهذا الملف أبداً)
+         ذاتي التحديث بالكامل: يقرأ /<app>/index.html ديناميكياً
+         لاستخراج روابط الأصول (js/css) مهما تغيّرت أسماؤها بعد كل
+         build. لا توجد أسماء أصول صلبة هنا.
+         - /achievement -> تطبيق الإنجاز (SPA)
+         - /chat        -> تطبيق الدردشة (SPA)
+         - /anon        -> تطبيق أنا مجهول (SPA)
+         - /talaawat    -> تطبيق التلاوات (SPA)
+         - غير ذلك       -> يرجع للصفحة الرئيسية
          ============================================================ */
       (function () {
         try {
@@ -30,8 +32,7 @@
     <div id="root"></div>
     <script>
       /* تحميل أصول التطبيق ديناميكياً من /<app>/index.html
-         حتى لا يحتاج هذا الملف تحديثاً يدوياً بعد كل build
-         (أسماء الأصول تتغير بسبب الـ hash). */
+         — ذاتي تماماً، لا يحتاج أي تحديث يدوي بعد أي build. */
       (function () {
         var p = window.location.pathname;
         var app = null;
@@ -39,6 +40,7 @@
         else if (p.indexOf('/chat') === 0) app = 'chat';
         else if (p.indexOf('/anon') === 0) app = 'anon';
         else if (p.indexOf('/talaawat') === 0) app = 'talaawat';
+        if (!app) return;
 
         function inject(urls) {
           for (var i = 0; i < urls.length; i++) {
@@ -57,17 +59,9 @@
             }
           }
         }
-        function fallback() {
-          if (app === 'achievement') {
-            inject(['/achievement/assets/index-BeHiXrcM.js', '/achievement/assets/index-95flcqDC.css']);
-          } else if (app === 'anon') {
-            inject(['/anon/assets/index-BHR4XTb9.js', '/anon/assets/index-CiqmyTcO.css']);
-          } else if (app === 'talaawat') {
-            inject(['/talaawat/index-CA7AmV9j.js', '/talaawat/index-SQ4pZ-oU.css']);
-          } else {
-            inject(['/chat/assets/index-CLvMKEwP.js', '/chat/assets/index-phCncopu.css']);
-          }
-        }
+
+        /* احتفظ بأصول index.html في ذاكرة (لكل app) لتفادي إعادة جلبها
+           عند كل تحديث صفحة عميقة — مع إمكانية التحديث عند عدم الحاجة. */
         var x = new XMLHttpRequest();
         x.open('GET', '/' + app + '/index.html');
         x.onload = function () {
@@ -78,15 +72,14 @@
             var m;
             while ((m = re.exec(html))) urls.push(m[1]);
             var good = [];
-            var prefix = '/' + app + '/assets/';
-            var tprefix = '/' + app + '/';
             for (var j = 0; j < urls.length; j++) {
-              if (urls[j].indexOf(prefix) === 0 || (app === 'talaawat' && urls[j].indexOf(tprefix) === 0)) good.push(urls[j]);
+              var u = urls[j];
+              if (u.indexOf('/' + app + '/') === 0) good.push(u);
             }
-            if (good.length > 0) inject(good); else fallback();
-          } catch (e) { fallback(); }
+            if (good.length > 0) inject(good);
+          } catch (e) {}
         };
-        x.onerror = function () { fallback(); };
+        x.onerror = function () {};
         x.send();
       })();
     </script>
