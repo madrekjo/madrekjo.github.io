@@ -30,11 +30,13 @@ CREATE TABLE IF NOT EXISTS public.user_points (
 ALTER TABLE public.user_points ENABLE ROW LEVEL SECURITY;
 
 -- RLS: المستخدم يرى رصيده فقط
+DROP POLICY IF EXISTS "Users can view own points" ON public.user_points;
 CREATE POLICY "Users can view own points"
   ON public.user_points FOR SELECT
   USING (auth.uid() = user_id);
 
 -- RLS: admins يرون كل الأرصدة
+DROP POLICY IF EXISTS "Admins can view all points" ON public.user_points;
 CREATE POLICY "Admins can view all points"
   ON public.user_points FOR SELECT
   USING (public.has_role(auth.uid(), 'admin'));
@@ -92,11 +94,13 @@ CREATE TABLE IF NOT EXISTS public.point_transactions (
 ALTER TABLE public.point_transactions ENABLE ROW LEVEL SECURITY;
 
 -- RLS: المستخدم يرى معاملاته فقط
+DROP POLICY IF EXISTS "Users can view own transactions" ON public.point_transactions;
 CREATE POLICY "Users can view own transactions"
   ON public.point_transactions FOR SELECT
   USING (auth.uid() = user_id);
 
 -- RLS: admins يرون كل المعاملات
+DROP POLICY IF EXISTS "Admins can view all transactions" ON public.point_transactions;
 CREATE POLICY "Admins can view all transactions"
   ON public.point_transactions FOR SELECT
   USING (public.has_role(auth.uid(), 'admin'));
