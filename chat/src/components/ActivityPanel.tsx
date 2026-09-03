@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-import { usePresence } from "@/contexts/PresenceContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -29,7 +28,6 @@ interface ActivityRow {
 
 const ActivityPanel = ({ onClose }: { onClose: () => void }) => {
   const { user } = useAuth();
-  const { activeUsers } = usePresence();
   const [selectedUser, setSelectedUser] = useState<any>(null);
   const [timeoutMinutes, setTimeoutMinutes] = useState(30);
   const [timeoutReason, setTimeoutReason] = useState(" قضيت وقت كثير في الدردشة");
@@ -68,53 +66,20 @@ const ActivityPanel = ({ onClose }: { onClose: () => void }) => {
 
   useEffect(() => {
     refreshDb();
-    const timer = setInterval(refreshDb, 5 * 60 * 1000);
+    const timer = setInterval(refreshDb, 15 * 60 * 1000);
     return () => clearInterval(timer);
   }, [refreshDb]);
 
   const merged: ActivityRow[] = (() => {
-    const map = new Map<string, ActivityRow>();
-    for (const p of activeUsers) {
-      map.set(p.user_id, {
-        user_id: p.user_id,
-        name: p.name,
-        avatar_url: p.avatar_url,
-        gender: p.gender,
-        is_admin: p.is_admin,
-        is_live: true,
-        joined_at: p.joined_at,
-      });
-    }
-    for (const r of dbActive) {
-      const existing = map.get(r.user_id);
-      if (existing) {
-        existing.last_seen_at = r.last_seen_at;
-      } else {
-        map.set(r.user_id, r);
-      }
-    }
-    const live = [...map.values()]
-      .filter(u => u.is_live && !u.is_admin)
-      .sort((a, b) => (a.joined_at || 0) - (b.joined_at || 0));
-    const recent = [...map.values()]
-      .filter(u => !u.is_live && !u.is_admin)
+    // بدون Presence/Realtime — نعرض النشاط من last_seen_at فقط (أخف بكثير على القاعدة)
+    const recent = dbActive
+      .filter(u => !u.is_admin)
       .sort((a, b) => new Date(b.last_seen_at || 0).getTime() - new Date(a.last_seen_at || 0).getTime());
-    return [...live, ...recent];
+    return recent;
   })();
 
   const top10 = merged.slice(0, 10);
   const restCount = merged.length - top10.length;
-
-  const formatDuration = (joinedAt: number) => {
-    const diff = now - joinedAt;
-    const totalSeconds = Math.floor(diff / 1000);
-    const hours = Math.floor(totalSeconds / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    const seconds = totalSeconds % 60;
-    if (hours > 0) return `${hours}س ${minutes}د ${seconds}ث`;
-    if (minutes > 0) return `${minutes}د ${seconds}ث`;
-    return `${seconds}ث`;
-  };
 
   const formatAgo = (iso: string) => {
     const diff = Math.max(0, Math.floor((now - new Date(iso).getTime()) / 60000));
@@ -179,20 +144,8 @@ const ActivityPanel = ({ onClose }: { onClose: () => void }) => {
               {u.gender === "female" && <span className="w-2.5 h-2.5 rounded-full bg-pink-500 shrink-0" />}
               <span className="text-sm font-medium flex-1 truncate">{u.name}</span>
               <span className="text-xs text-muted-foreground flex items-center gap-1 shrink-0">
-                {u.is_live ? (
-                  <>
-                    <span className="relative flex w-2 h-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full w-2 h-2 bg-green-500" />
-                    </span>
-                    {formatDuration(u.joined_at!)}
-                  </>
-                ) : (
-                  <>
-                    <Clock className="w-3 h-3" />
-                    {u.last_seen_at ? formatAgo(u.last_seen_at) : "—"}
-                  </>
-                )}
+                <Clock className="w-3 h-3" />
+                {u.last_seen_at ? formatAgo(u.last_seen_at) : "—"}
               </span>
             </div>
           ))}
@@ -204,7 +157,7 @@ const ActivityPanel = ({ onClose }: { onClose: () => void }) => {
 
       <p className="text-[10px] text-muted-foreground mt-2 flex items-center gap-1">
         <History className="w-3 h-3" />
-        النقطة الخضراء = المتصل الآن مباشرة • المؤقت = نشاطه داخل آخر {ACTIVITY_WINDOW_MIN} دقائق
+        آخر نشاط للمستخدمين خلال آخر {ACTIVITY_WINDOW_MIN} دقائق
       </p>
 
       {selectedUser && !selectedUser.is_admin && (

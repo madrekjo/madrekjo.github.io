@@ -5,7 +5,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider, useAuth } from "@/contexts/AuthContext";
-import { PresenceProvider } from "@/contexts/PresenceContext";
 import { PointsProvider } from "@/contexts/PointsContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import Navbar from "@/components/Navbar";
@@ -120,7 +119,6 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
       <ThemeProvider>
-        <PresenceProvider>
         <PointsProvider>
         <TooltipProvider>
           <Toaster />
@@ -133,7 +131,6 @@ const App = () => (
           </BrowserRouter>
         </TooltipProvider>
         </PointsProvider>
-        </PresenceProvider>
       </ThemeProvider>
     </AuthProvider>
   </QueryClientProvider>
