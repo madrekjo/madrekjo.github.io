@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Send, Trash2, Loader2, Reply, X } from "lucide-react";
 import { toast } from "sonner";
+import { usePoints } from "@/contexts/PointsContext";
 
 interface Msg {
   id: string;
@@ -17,7 +18,8 @@ interface Msg {
 }
 
 const RoundChat = ({ roundId }: { roundId: string }) => {
-  const { user, isAdmin, isModerator } = useAuth();
+  const { user, isAdmin, isModerator, isStaff } = useAuth();
+  const { spend, getCost, balance } = usePoints();
   const [msgs, setMsgs] = useState<Msg[]>([]);
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(true);
@@ -50,12 +52,26 @@ const RoundChat = ({ roundId }: { roundId: string }) => {
 
   const send = async () => {
     if (!user || !text.trim()) return;
+    // فحص النقاط: تكلفة رسالة الجولة = 1
+    if (!isStaff) {
+      const msgCost = getCost("round_message");
+      if (balance < msgCost) {
+        toast.error(`لا نقاط كافية لإرسال رسالة. رصيدك: ${balance}`);
+        return;
+      }
+    }
     setSending(true);
     const { error } = await (supabase as any).from("round_chat").insert({
       round_id: roundId, user_id: user.id, content: text.trim(), reply_to: replyTo?.id || null,
     });
     if (error) toast.error("فشل الإرسال - تأكد من انضمامك للجولة");
-    else { setText(""); setReplyTo(null); }
+    else {
+      // خصم النقاط بعد الإرسال الناجح
+      if (!isStaff) {
+        await spend(getCost("round_message"), "round_message", "round_chat", { roundId });
+      }
+      setText(""); setReplyTo(null);
+    }
     setSending(false);
   };
 

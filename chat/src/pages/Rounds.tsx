@@ -20,6 +20,7 @@ import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import RoundChat from "@/components/RoundChat";
 import MeetingChat from "@/components/MeetingChat";
+import { usePoints } from "@/contexts/PointsContext";
 
 interface Round {
   id: string;
@@ -48,6 +49,7 @@ const fmt = (s: number) => {
 
 const Rounds = () => {
   const { user, isAdmin, isModerator, isRoundsManager } = useAuth();
+  const { rewardRound } = usePoints();
   const canCreateRound = isAdmin || isRoundsManager;
   const [rounds, setRounds] = useState<Round[]>([]);
   const [loading, setLoading] = useState(true);
@@ -162,6 +164,17 @@ const Rounds = () => {
     if (error) toast.error("فشل الحفظ");
     else {
       toast.success("تم تسجيل إنجازك! 🔥");
+      // مكافأة المشاركة في الجولة
+      if (completionRound.started_at && completionRound.status === "completed") {
+        const rewardResult = await rewardRound(
+          completionRound.id,
+          completionRound.started_at,
+          new Date().toISOString()
+        );
+        if (rewardResult.success && rewardResult.pointsEarned > 0) {
+          toast.success(`حصلت على ${rewardResult.pointsEarned} نقاط مكافأة! 🎉`);
+        }
+      }
       setMyCompletions(s => new Set([...s, completionRound.id]));
       setCompletionRound(null); setAchievement("");
     }

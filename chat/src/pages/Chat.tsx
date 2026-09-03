@@ -5,6 +5,8 @@ import { containsBannedWord, loadBannedWords } from "@/lib/bannedWords";
 import PostCard from "@/components/PostCard";
 import MentionInput from "@/components/MentionInput";
 import { renderMentions, submitMentions } from "@/lib/mentions";
+import { usePoints } from "@/contexts/PointsContext";
+import PointsDisplay from "@/components/PointsDisplay";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
@@ -63,6 +65,7 @@ interface Post {
 
 const Chat = () => {
   const { user, profile, isAdmin, isStaff, refreshProfile } = useAuth();
+  const { spend, getCost, balance } = usePoints();
   const [posts, setPosts] = useState<Post[]>([]);
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(true);
@@ -383,6 +386,13 @@ const Chat = () => {
       return;
     }
     if (containsBannedWord(content, isAdmin)) { toast.error("المحتوى يحتوي على كلمات محظورة"); return; }
+    // فحص النقاط: تكلفة المنشور = 5 (أو 10 مع @everyone)
+    const hasMentionAll = /@everyone|@الجميع/.test(content);
+    const postCost = hasMentionAll ? getCost("everyone") : getCost("post");
+    if (!isStaff && balance < postCost) {
+      toast.error(`تحتاج ${postCost} نقطة لإنشاء منشور. رصيدك الحالي: ${balance}`);
+      return;
+    }
     // المنشور يُنشر تلقائياً في القناة المعروضة حالياً فقط، ولا يُسمح بالنشر في
     // قناة مقفلة (يُغلق القسم للجميع ما عدا الإدارة).
     if (!isStaff && isChannelLocked(channelFilter)) {
@@ -426,6 +436,14 @@ const Chat = () => {
       else toast.error("فشل نشر المنشور");
     }
     else {
+      // خصم النقاط بعد النشر الناجح
+      if (!isStaff) {
+        const costType = hasMentionAll ? "everyone" : "post";
+        const spendResult = await spend(postCost, costType, "chat", { postId: inserted?.[0]?.id });
+        if (!spendResult.success) {
+          console.warn("[Chat] Points spend failed:", spendResult.errorMessage);
+        }
+      }
       setContent(""); setMediaFiles([]); setMediaType(null);
       toast.success(needsReview ? "تم إرسال المنشور للمراجعة، سيظهر بعد موافقة الإدارة" : "تم النشر");
       const postId = inserted?.[0]?.id;
@@ -564,6 +582,7 @@ const Chat = () => {
   return (
     <>
     <div className="container mx-auto px-4 py-6 max-w-2xl">
+      {user && <PointsDisplay />}
       {user && (
         <div className="bg-card border rounded-xl p-4 mb-6 animate-fade-in">
           <MentionInput

@@ -1119,6 +1119,69 @@ export type Database = {
         }
         Relationships: []
       }
+      user_points: {
+        Row: {
+          balance: number
+          created_at: string
+          daily_reset_at: string
+          last_rewarded_round_at: string | null
+          last_rewarded_round_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          balance?: number
+          created_at?: string
+          daily_reset_at?: string
+          last_rewarded_round_at?: string | null
+          last_rewarded_round_id?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          balance?: number
+          created_at?: string
+          daily_reset_at?: string
+          last_rewarded_round_at?: string | null
+          last_rewarded_round_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      point_transactions: {
+        Row: {
+          amount: number
+          balance_after: number
+          created_at: string
+          id: string
+          metadata: import("./types").Json | null
+          source: string | null
+          transaction_type: string
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          balance_after: number
+          created_at?: string
+          id?: string
+          metadata?: import("./types").Json | null
+          source?: string | null
+          transaction_type: string
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          balance_after?: number
+          created_at?: string
+          id?: string
+          metadata?: import("./types").Json | null
+          source?: string | null
+          transaction_type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -1213,6 +1276,61 @@ export type Database = {
           remaining: number | null
           valid: boolean
         }
+      }
+      spend_points: {
+        Args: {
+          p_user_id: string
+          p_amount: number
+          p_type: string
+          p_source?: string | null
+          p_metadata?: import("./types").Json | null
+        }
+        Returns: {
+          error_message: string | null
+          new_balance: number
+          success: boolean
+        }
+      }
+      daily_reset_points: { Args: Record<string, never>; Returns: undefined }
+      grant_points: {
+        Args: {
+          p_admin_id: string
+          p_target_user_id: string
+          p_amount: number
+          p_reason?: string | null
+        }
+        Returns: {
+          error_message: string | null
+          new_balance: number
+          success: boolean
+        }
+      }
+      reward_round_time: {
+        Args: {
+          p_user_id: string
+          p_round_id: string
+          p_started_at: string
+          p_ended_at: string
+        }
+        Returns: {
+          error_message: string | null
+          new_balance: number
+          points_earned: number
+          success: boolean
+        }
+      }
+      get_user_points: {
+        Args: { p_user_id: string }
+        Returns: {
+          balance: number
+          daily_reset_at: string
+          last_rewarded_round_at: string | null
+          next_reward_hours_left: number | null
+        }
+      }
+      cleanup_old_point_transactions: {
+        Args: Record<string, never>
+        Returns: undefined
       }
     }
     Enums: {

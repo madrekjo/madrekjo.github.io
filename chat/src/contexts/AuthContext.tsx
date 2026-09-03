@@ -1,11 +1,10 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
-import { Session, User, createClient } from "@supabase/supabase-js";
+import { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
+import { siblingSupabase } from "@/integrations/supabase/siblingClient";
 import { checkDeviceBanned, registerDeviceForUser } from "@/lib/deviceId";
 import {
   SSO_AUTH_BASE_URL,
-  SIBLING_SUPABASE_URL,
-  SIBLING_SUPABASE_ANON_KEY,
 } from "@/config/sso-config";
 
 interface Profile {
@@ -116,14 +115,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     error?: string;
   }> => {
     try {
-      const achievementClient = createClient(
-        SIBLING_SUPABASE_URL,
-        SIBLING_SUPABASE_ANON_KEY
-      );
-
       const {
         data: { session: achSession },
-      } = await achievementClient.auth.getSession();
+      } = await siblingSupabase.auth.getSession();
 
       const achUser = achSession?.user;
 
@@ -456,15 +450,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             );
           }
 
-          const achievementSupabase = createClient(
-            SIBLING_SUPABASE_URL,
-            SIBLING_SUPABASE_ANON_KEY
-          );
-
           const {
             data: achievementSessionData,
             error: achievementSessionError,
-          } = await achievementSupabase.auth.setSession({
+          } = await siblingSupabase.auth.setSession({
             access_token: achievementSession.access_token,
             refresh_token: achievementSession.refresh_token,
           });
@@ -540,19 +529,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           return;
         }
 
-        const achievementClient = createClient(
-          SIBLING_SUPABASE_URL,
-          SIBLING_SUPABASE_ANON_KEY
-        );
-
         const {
           data: { session: siblingSession },
-        } = await achievementClient.auth.getSession();
+        } = await siblingSupabase.auth.getSession();
 
         if (!siblingSession?.user) return;
 
         const { data: siblingUser } =
-          await achievementClient.auth.getUser();
+          await siblingSupabase.auth.getUser();
 
         if (cancelled) return;
 
@@ -647,14 +631,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signOut = async () => {
-    const achievementSupabase = createClient(
-      SIBLING_SUPABASE_URL,
-      SIBLING_SUPABASE_ANON_KEY
-    );
-
     await Promise.allSettled([
       supabase.auth.signOut(),
-      achievementSupabase.auth.signOut(),
+      siblingSupabase.auth.signOut(),
     ]);
 
     try {

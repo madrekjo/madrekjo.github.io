@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
+import { siblingSupabase } from "@/integrations/supabase/siblingClient";
 import {
   SSO_AUTH_BASE_URL,
-  SIBLING_SUPABASE_URL,
-  SIBLING_SUPABASE_ANON_KEY,
 } from "@/config/sso-config";
 
 const AuthCallback = () => {
@@ -210,15 +208,10 @@ const AuthCallback = () => {
           "[AuthCallback] applying achievement session..."
         );
 
-        const achievementSupabase = createClient(
-          SIBLING_SUPABASE_URL,
-          SIBLING_SUPABASE_ANON_KEY
-        );
-
         const {
           data: achievementSessionData,
           error: achievementSessionError,
-        } = await achievementSupabase.auth.setSession({
+        } = await siblingSupabase.auth.setSession({
           access_token:
             achievementSession.access_token,
           refresh_token:
@@ -255,7 +248,7 @@ const AuthCallback = () => {
           data: verifiedAchievementSession,
           error: verifyAchievementError,
         } =
-          await achievementSupabase.auth.getSession();
+          await siblingSupabase.auth.getSession();
 
         if (verifyAchievementError) {
           throw new Error(
