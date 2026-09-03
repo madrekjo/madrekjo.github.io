@@ -16,6 +16,7 @@ import GenderOnboardingDialog from "@/components/GenderOnboardingDialog";
 import SectionGate from "@/components/SectionGate";
 import WarningNotice from "@/components/WarningNotice";
 import SsoSyncDialog from "@/components/SsoSyncDialog";
+import UpdateNotice from "@/components/UpdateNotice";
 
 const Landing = lazy(() => import("@/pages/Landing"));
 const Auth = lazy(() => import("@/pages/Auth"));
@@ -124,6 +125,7 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <Sonner />
+          <UpdateNotice />
           <BrowserRouter basename="/chat" future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
             <ErrorBoundary>
               <AppRoutes />

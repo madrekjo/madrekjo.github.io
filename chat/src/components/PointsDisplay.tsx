@@ -45,7 +45,7 @@ const PointsDisplay = () => {
         {!isAdmin && !isStaff && nextReward && (
           <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
             <Clock className="w-3 h-3" />
-            <span>مكافأة الجولة: {nextReward}</span>
+            <span>مكافأة الجولة (+5 نقاط) بعد: {nextReward}</span>
           </div>
         )}
         {(isAdmin || isStaff) && (

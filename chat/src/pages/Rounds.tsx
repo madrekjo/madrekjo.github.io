@@ -49,7 +49,8 @@ const fmt = (s: number) => {
 
 const Rounds = () => {
   const { user, isAdmin, isModerator, isRoundsManager } = useAuth();
-  const { rewardRound } = usePoints();
+  const { rewardRound, lastRewardedRoundAt, refreshPoints } = usePoints();
+  const autoRewarded = useRef<Set<string>>(new Set());
   const canCreateRound = isAdmin || isRoundsManager;
   const [rounds, setRounds] = useState<Round[]>([]);
   const [loading, setLoading] = useState(true);
@@ -211,8 +212,28 @@ const Rounds = () => {
           }
         }
       }
+      // مكافأة تلقائية: +5 نقاط كل ساعتين حضور في الجولة
+      if (r.status === "active" && r.started_at && user) {
+        const isMember = r.user_id === user.id || (r.participants || []).find(p => p.user_id === user.id);
+        if (isMember) {
+          const rewardKey = `${r.id}-${user.id}`;
+          const lastRewardMs = lastRewardedRoundAt ? new Date(lastRewardedRoundAt).getTime() : 0;
+          const baseMs = lastRewardMs || new Date(r.started_at).getTime();
+          const twoHours = 2 * 60 * 60 * 1000;
+          if (now - baseMs >= twoHours && !autoRewarded.current.has(rewardKey)) {
+            autoRewarded.current.add(rewardKey);
+            (async () => {
+              const res = await rewardRound(r.id, r.started_at!, new Date().toISOString());
+              if (res.success && res.pointsEarned > 0) {
+                toast.success(`حصلت على +${res.pointsEarned} نقاط مكافأة حضور الجولة! 🎉`);
+                await refreshPoints();
+              }
+            })();
+          }
+        }
+      }
     });
-  }, [now, rounds, user, isAdmin]);
+  }, [now, rounds, user, isAdmin, lastRewardedRoundAt, rewardRound, refreshPoints]);
 
   const playAlarm = () => {
     if (!alarmRef.current) return;
