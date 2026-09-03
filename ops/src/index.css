@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: #1a2337;
+  }
+  body {
+    @apply bg-ops-bg text-ops-text font-sans;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0, 212, 255, 0.06), transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(139, 92, 246, 0.05), transparent 40%);
+  }
+}
+
+@layer components {
+  .ops-panel {
+    @apply bg-ops-panel border border-ops-border rounded-lg;
+  }
+  .ops-card {
+    @apply bg-ops-card border border-ops-border rounded-lg;
+  }
+  .ops-input {
+    @apply w-full rounded-md border border-ops-border bg-ops-bg px-3 py-2 text-sm text-ops-text placeholder:text-ops-dim focus:border-ops-cyan focus:outline-none focus:ring-1 focus:ring-ops-cyan/40;
+  }
+  .ops-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-ops-border bg-ops-panel px-3 py-2 text-sm font-semibold text-ops-text transition-colors hover:border-ops-cyan/60 hover:text-ops-cyan;
+  }
+  .ops-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-ops-cyan px-3 py-2 text-sm font-bold text-black transition-opacity hover:opacity-90;
+  }
+  .ops-btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-ops-red/60 bg-ops-red/10 px-3 py-2 text-sm font-semibold text-ops-red transition-colors hover:bg-ops-red/20;
+  }
+  .ops-btn-green {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-ops-green/60 bg-ops-green/10 px-3 py-2 text-sm font-semibold text-ops-green transition-colors hover:bg-ops-green/20;
+  }
+  .ops-label {
+    @apply mb-1 block text-xs font-semibold text-ops-dim;
+  }
+  .ops-table th {
+    @apply px-3 py-2 text-right text-[11px] font-bold uppercase tracking-wider text-ops-dim whitespace-nowrap;
+  }
+  .ops-table td {
+    @apply px-3 py-2 text-sm whitespace-nowrap;
+  }
+  .glow-cyan {
+    text-shadow: 0 0 12px rgba(0, 212, 255, 0.7);
+  }
+  .glow-green {
+    text-shadow: 0 0 12px rgba(0, 255, 136, 0.7);
+  }
+}

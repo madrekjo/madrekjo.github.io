@@ -1,0 +1,20 @@
+# MADARIK OPS Worker config
+#
+# 1) Set secrets (values are NOT stored in any file):
+#      wrangler secret put OPS_PASSWORD_HASH
+#      wrangler secret put OPS_TOKEN_SECRET
+#      wrangler secret put CHAT_SERVICE_KEY
+#      wrangler secret put ANON_SERVICE_KEY
+#      wrangler secret put ACHIEVEMENT_SERVICE_KEY
+#
+# 2) Deploy:
+#      wrangler deploy
+#
+name = "madarik-ops"
+main = "ops-worker.js"
+compatibility_date = "2024-12-01"
+workers_dev = true
+preview_urls = false
+
+[observability]
+enabled = true
