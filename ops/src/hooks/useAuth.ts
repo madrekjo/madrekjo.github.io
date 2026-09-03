@@ -18,11 +18,10 @@ export function useAuth() {
       if (raw) {
         const parsed = JSON.parse(raw);
         if (
-          parsed?.token &&
           parsed?.issuedAt &&
           Date.now() - parsed.issuedAt < SESSION_TTL
         ) {
-          setState({ authed: true, token: parsed.token });
+          setState({ authed: true, token: parsed.token ?? null });
         } else {
           localStorage.removeItem(SESSION_KEY);
         }
@@ -38,7 +37,14 @@ export function useAuth() {
       setFailed((f) => f + 1);
       throw new Error("كلمة المرور غير صحيحة");
     }
-    const token = await loginToWorker(password);
+    // الدخول المحلي يمر دائماً، حتى لو لم يُنشر الـ Worker بعد.
+    // التوكن من الـ Worker اختياري — يُستخدم فقط للعمليات الإدارية.
+    let token: string | null = null;
+    try {
+      token = await loginToWorker(password);
+    } catch {
+      token = null; // Worker غير منشور → وضع قراءة فقط
+    }
     setState({ authed: true, token });
     localStorage.setItem(
       SESSION_KEY,

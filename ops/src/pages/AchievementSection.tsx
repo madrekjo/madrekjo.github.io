@@ -38,7 +38,10 @@ export function AchievementSection({ token }: Props) {
   }, []);
 
   async function runAction(action: string, params: Record<string, unknown>, id: string) {
-    if (!token) return;
+    if (!token) {
+      setError("وضع القراءة فقط — انشر خادم الإدارة (madarik-ops worker) لتفعيل الإجراءات الإدارية.");
+      return;
+    }
     setBusy(id);
     setError("");
     try {
