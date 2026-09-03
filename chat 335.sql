@@ -386,18 +386,22 @@ DECLARE
   v_last_reward TIMESTAMPTZ;
   v_hours_left NUMERIC;
 BEGIN
-  SELECT balance, daily_reset_at, last_rewarded_round_at
+  -- ملاحظة مهمة: نؤهّل الأعمدة ببادئة الجدول (up.) لأن أسماء أعمدة الإخراج في
+  -- RETURNS TABLE (balance, daily_reset_at, last_rewarded_round_at) مطابقة لأعمدة
+  -- الجدول، فيحدث تعارض (PPG: column reference "balance" is ambiguous 42702)
+  -- تمنع الدالة من العمل نهائياً، فلا يخصم ولا يقرأ الرصيد الصحيح.
+  SELECT up.balance, up.daily_reset_at, up.last_rewarded_round_at
   INTO v_balance, v_daily_reset, v_last_reward
-  FROM public.user_points
-  WHERE user_id = p_user_id;
+  FROM public.user_points up
+  WHERE up.user_id = p_user_id;
 
   IF v_balance IS NULL THEN
     INSERT INTO public.user_points (user_id, balance)
     VALUES (p_user_id, 30)
     ON CONFLICT (user_id) DO NOTHING;
-    SELECT balance, daily_reset_at, last_rewarded_round_at
+    SELECT up.balance, up.daily_reset_at, up.last_rewarded_round_at
     INTO v_balance, v_daily_reset, v_last_reward
-    FROM public.user_points WHERE user_id = p_user_id;
+    FROM public.user_points up WHERE up.user_id = p_user_id;
   END IF;
 
   -- حساب الوقت المتبقي للمكافأة التالية (يحتاج آخر جولة مكتملة)

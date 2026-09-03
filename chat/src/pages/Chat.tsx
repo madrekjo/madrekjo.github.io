@@ -502,7 +502,8 @@ const Chat = () => {
     if (!haveTabs) return;
 
     const ownChannels = [
-      ...(profile?.gender ? [{ key: profile.gender }] : []),
+      // فقط الجنس الصريح المؤكد (شباب/بنات) يُوجّه صاحبه لقناته؛ المجهول لا يُدرج له قناة جندرية.
+      ...(profile?.gender === "male" || profile?.gender === "female" ? [{ key: profile.gender }] : []),
       ...(myGen ? [{ key: myGen }] : []),
     ];
 
@@ -554,21 +555,23 @@ const Chat = () => {
       ]
     : [
         { key: "all", label: "الجميع", locked: isChannelLocked("all") },
-        ...(profile?.gender !== "female" ? [{ key: "male", label: "شباب", locked: isChannelLocked("male") }] : []),
-        ...(profile?.gender !== "male" ? [{ key: "female", label: "بنات", locked: isChannelLocked("female") }] : []),
+        // الشاب (male) يرى قناة الشباب فقط، والبنت (female) ترى قناة البنات فقط.
+        // المجهول الجنس لا يرى أي قناة جندرية حتى لا تتسرب قناة البنات للشباب.
+        ...(profile?.gender === "male"
+          ? [{ key: "male", label: "شباب", locked: isChannelLocked("male") }]
+          : profile?.gender === "female"
+            ? [{ key: "female", label: "بنات", locked: isChannelLocked("female") }]
+            : []),
         ...(myGen ? [{ key: myGen, label: `20${myGen}`, locked: isChannelLocked(myGen) }] : []),
       ];
 
   // Channels that are open (=1 or 2 buttons floating at bottom)
   const openChannels = channelTabs.filter(t => !t.locked);
 
-  // عند اختيار قسم من نوع جنسي والجنس غير محدد → نحفظ الجنس أولاً ثم نفتح القسم
-  const chooseSection = async (key: string) => {
-    if (!profile?.gender && (key === "male" || key === "female")) {
-      const { error } = await supabase.from("profiles").update({ gender: key } as any).eq("user_id", user?.id);
-      if (error) { toast.error("تعذر حفظ اختيارك، حاول مجدداً"); return false; }
-      await refreshProfile();
-    }
+  // الجنس (ذكر/أنثى) يُضبط مرة واحدة فقط من الحوار الإجباري GenderOnboardingDialog
+  // ولا يُشتق أبداً من فتح تبويب هنا — حتى لا ينقلب جنس أحد عن تجربة زر فينحصر
+  // عليه جنس خاطئ (الترigger يمنع تغييره لاحقاً).
+  const chooseSection = async (_key: string) => {
     return true;
   };
 
