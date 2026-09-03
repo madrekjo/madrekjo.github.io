@@ -59,12 +59,76 @@ export function ChatSection({ token }: Props) {
     setError("");
     try {
       await opsCall({ target: "chat", action, params }, token);
-      await load();
+      applyLocal(action, params as any);
     } catch (e) {
       setError((e as Error).message);
     } finally {
       setBusy(null);
     }
+  }
+
+  // تحديث موضعي بلا إعادة تحميل — يوفر طلبات JSON (5 جداول) بعد كل زر.
+  function applyLocal(action: string, p: any) {
+    if (action === "add_banned_word") {
+      setBannedWords((w) => [...(w ?? []), { id: `local-${Date.now()}`, word: String(p.word ?? "").toLowerCase() }]);
+      return;
+    }
+    if (action === "remove_banned_word") {
+      const key = p.id ? "id" : "word";
+      setBannedWords((w) => (w ?? []).filter((x: any) => x[key] !== (p.id ?? p.word)));
+      return;
+    }
+    if (action === "approve_post") {
+      setPosts((ps) => (ps ?? []).map((x: any) => x.id === p.post_id ? { ...x, status: "approved" } : x));
+      return;
+    }
+    if (action === "reject_post") {
+      setPosts((ps) => (ps ?? []).filter((x: any) => x.id !== p.post_id));
+      return;
+    }
+    if (action === "delete_post") {
+      setPosts((ps) => (ps ?? []).filter((x: any) => x.id !== p.post_id));
+      setDeletedPosts((d) => (d ?? []).filter((x: any) => x.id !== p.post_id));
+      return;
+    }
+    if (action === "delete_user") {
+      setUsers((us) => (us ?? []).filter((x: any) => x.user_id !== p.user_id));
+      setPosts((ps) => (ps ?? []).filter((x: any) => x.user_id !== p.user_id));
+      return;
+    }
+    if (action === "toggle_pin") {
+      setPosts((ps) => (ps ?? []).map((x: any) => x.id === p.post_id ? { ...x, is_pinned: !!p.is_pinned } : x));
+      return;
+    }
+    if (action === "ban_user") {
+      setUsers((us) => (us ?? []).map((x: any) => x.user_id === p.user_id ? { ...x, is_banned: true } : x));
+      return;
+    }
+    if (action === "unban_user") {
+      setUsers((us) => (us ?? []).map((x: any) => x.user_id === p.user_id ? { ...x, is_banned: false, chat_banned: false } : x));
+      return;
+    }
+    if (action === "ban_user") {
+      setUsers((us) => (us ?? []).map((x: any) => x.user_id === p.user_id ? { ...x, is_banned: true } : x));
+      return;
+    }
+    if (action === "toggle_chat_ban") {
+      setUsers((us) => (us ?? []).map((x: any) => x.user_id === p.user_id ? { ...x, chat_banned: !!p.chat_banned } : x));
+      return;
+    }
+    if (action === "set_timeout") {
+      setUsers((us) => (us ?? []).map((x: any) => x.user_id === p.user_id ? { ...x, timeout_until: p.timeout_until ?? null } : x));
+      return;
+    }
+    if (action === "rename_user") {
+      setUsers((us) => (us ?? []).map((x: any) => x.user_id === p.user_id ? { ...x, full_name: p.full_name } : x));
+      return;
+    }
+    if (action === "cancel_round") {
+      setRounds((rs) => (rs ?? []).map((x: any) => x.id === p.round_id ? { ...x, status: "cancelled", ended_at: new Date().toISOString() } : x));
+      return;
+    }
+    // أي إجراء آخر — شبّك بيانات قابلة للتغيير بعد إعادة التحميل فقط عند الحاجة.
   }
 
   const filteredUsers = useMemo(

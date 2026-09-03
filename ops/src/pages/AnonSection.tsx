@@ -63,12 +63,29 @@ export function AnonSection({ token }: Props) {
     setError("");
     try {
       await opsCall({ target: "anon", action, params }, token);
-      await load();
+      applyLocal(action, params as any);
     } catch (e) {
       setError((e as Error).message);
     } finally {
       setBusy(null);
     }
+  }
+
+  // تحديث موضعي بلا إعادة تحميل كامل — يوفّر 5 طلبات بعد كل زر.
+  function applyLocal(action: string, p: any) {
+    if (action === "toggle_pin") setPosts((ps) => (ps ?? []).map((x: any) => x.id === p.post_id ? { ...x, pinned: !!p.pinned } : x));
+    if (action === "toggle_hide") setPosts((ps) => (ps ?? []).map((x: any) => x.id === p.post_id ? { ...x, hidden: !!p.hidden } : x));
+    if (action === "delete_post") setPosts((ps) => (ps ?? []).filter((x: any) => x.id !== p.post_id));
+    if (action === "resolve_report") setReports((rs) => (rs ?? []).map((x: any) => x.id === p.report_id ? { ...x, status: p.action === "dismissed" ? "dismissed" : "resolved" } : x));
+    if (action === "ban_device") setBlocked((bs) => (bs ?? []).some((x: any) => x.device_id === p.device_id) ? bs : [{ ...p, expires_at: p.expires_at || null, created_at: new Date().toISOString() }, ...(bs ?? [])]);
+    if (action === "unban_device") setBlocked((bs) => (bs ?? []).filter((x: any) => x.device_id !== p.device_id));
+    if (action === "set_admin_device") setAdminDevices((as) => (as ?? []).some((x: any) => x.device_id === p.device_id) ? as : [...(as ?? []), { ...p, note: p.note || "admin profile" }]);
+    if (action === "remove_admin_device") setAdminDevices((as) => (as ?? []).filter((x: any) => x.device_id !== p.device_id));
+    if (action === "set_site_enabled") setSettings((s: any) => s ? { ...s, site_enabled: !!p.enabled } : s);
+    if (action === "set_chat_mode") setSettings((s: any) => s ? { ...s, chat_mode_enabled: !!p.enabled } : s);
+    if (action === "set_maintenance") setSettings((s: any) => s ? { ...s, maintenance_message: p.message ?? "" } : s);
+    if (action === "set_reopen_at") setSettings((s: any) => s ? { ...s, site_reopen_at: p.reopen_at ?? null } : s);
+    if (action === "set_admin_colors") setSettings((s: any) => s ? { ...s, admin_post_bg: p.admin_post_bg ?? null, admin_post_text: p.admin_post_text ?? null } : s);
   }
 
   const filteredPosts = useMemo(() => {

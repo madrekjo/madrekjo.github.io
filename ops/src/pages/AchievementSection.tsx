@@ -56,12 +56,27 @@ export function AchievementSection({ token }: Props) {
     setError("");
     try {
       await opsCall({ target: "achievement", action, params }, token);
-      await load();
+      applyLocal(action, params as any);
     } catch (e) {
       setError((e as Error).message);
     } finally {
       setBusy(null);
     }
+  }
+
+  // تحديث موضعي بلا إعادة تحميل كامل — يوفّر 6 طلبات بعد كل زر.
+  function applyLocal(action: string, p: any) {
+    if (action === "set_admin_role") setAdminRoles((rs) => p.remove ? (rs ?? []).filter((x: any) => !(x.user_id === p.user_id && x.role === "admin")) : (rs ?? []).some((x: any) => x.user_id === p.user_id && x.role === "admin") ? rs : [...(rs ?? []), { user_id: p.user_id, role: "admin" }]);
+    if (action === "set_round_creator") setRoundCreators((cs) => p.remove ? (cs ?? []).filter((x: any) => x.user_id !== p.user_id) : (cs ?? []).some((x: any) => x.user_id === p.user_id) ? cs : [...(cs ?? []), { user_id: p.user_id }]);
+    if (action === "delete_task") setTasks((ts) => (ts ?? []).filter((x: any) => x.id !== p.task_id));
+    if (action === "end_round") setRounds((rs) => (rs ?? []).map((x: any) => x.id === p.round_id ? { ...x, status: "ended", credited: true } : x));
+    if (action === "achievement_delete_user") {
+      setUsers((us) => (us ?? []).filter((x: any) => x.user_id !== p.user_id));
+      setAdminRoles((rs) => (rs ?? []).filter((x: any) => x.user_id !== p.user_id));
+      setRoundCreators((cs) => (cs ?? []).filter((x: any) => x.user_id !== p.user_id));
+    }
+    if (action === "send_message") setInbox((ms) => [...(ms ?? []), { id: `local-${Date.now()}`, sender_id: p.sender_id, receiver_id: p.receiver_id, content: p.content, is_read: false, created_at: new Date().toISOString() }]);
+    if (action === "delete_conversation") setInbox((ms) => (ms ?? []).filter((x: any) => x.sender_id !== p.user_id && x.receiver_id !== p.user_id));
   }
 
   const filteredUsers = useMemo(

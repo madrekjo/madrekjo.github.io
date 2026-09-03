@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { chatClient, anonClient, achievementClient } from "@/lib/supabase-clients";
 
 export interface PlatformStats {
@@ -29,7 +29,6 @@ export function usePlatformStats(authed: boolean) {
   const [stats, setStats] = useState<PlatformStats>(emptyStats);
   const [loading, setLoading] = useState(false);
   const [workerStatus, setWorkerStatus] = useState<"checking" | "online" | "offline">("checking");
-  const timer = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const load = useCallback(async () => {
     if (!authed) return;
@@ -85,11 +84,19 @@ export function usePlatformStats(authed: boolean) {
   useEffect(() => {
     if (!authed) return;
     load();
-    timer.current = setInterval(load, 30000);
-    return () => {
-      if (timer.current) clearInterval(timer.current);
+
+    // تلميح: خفّض الاستهلاك — يُحدَّث كل 5 دقائق وفقط عندما تكون اللوحة ظاهرة أمامك.
+    const iv = setInterval(load, 5 * 60 * 1000);
+    const onVis = () => {
+      if (!document.hidden) load();
     };
-  }, [authed, load]);
+    document.addEventListener("visibilitychange", onVis);
+    return () => {
+      clearInterval(iv);
+      document.removeEventListener("visibilitychange", onVis);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [authed]);
 
   return { stats, loading, workerStatus, refresh: load };
 }
