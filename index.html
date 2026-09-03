@@ -97,9 +97,6 @@
       <div onclick="handleYearClick('2009')" class="year-card y2009"><div class="year-crown">👑</div><div class="year-num">2009</div><div class="year-sub">ادخل الآن ←</div></div>
       <div onclick="handleYearClick('2010')" class="year-card y2010"><div class="year-crown">🎓</div><div class="year-num">2010</div><div class="year-sub">ادخل الآن ←</div></div>
     </div>
-    <div id="resumeSection" style="display:none;margin-top:20px;">
-      <button id="resumeBtn" onclick="resumeSession()" class="resume-btn" style="background:linear-gradient(135deg,var(--gold),#ffaa00);border:none;color:#0a0a0f;font-weight:800;padding:16px 28px;border-radius:16px;font-size:1.05rem;cursor:pointer;box-shadow:0 8px 24px rgba(38,198,218,.35);transition:transform .15s,box-shadow .15s;">🚀</button>
-    </div>
   </div>
 
   <footer class="site-footer">
@@ -143,52 +140,23 @@ function handleYearClick(year) {
   if (window.MadarekSession) MadarekSession.save({ generation: year });
   window.location.href = year + '/index.html';
 }
-
-function resumeSession() {
-  var s = MadarekSession.load();
-  if (!s || !s.generation) return;
-  if (s.page && s.field) {
-    // صفحة حقل مباشرة مع إعادة تمرير الاختياري/التخصص المحفوظين
-    var q = new URLSearchParams({ elective: s.elective || '', major: s.major || '', name: 'زائر' });
-    window.location.href = s.generation + '/' + s.page + '?' + q.toString();
-  } else {
-    window.location.href = s.generation + '/index.html';
-  }
-}
-
-function setupResumeButton() {
-  var s = MadarekSession && MadarekSession.load();
-  if (!s || !s.generation) return;
-  var sec = document.getElementById('resumeSection');
-  var btn = document.getElementById('resumeBtn');
-  if (!sec || !btn) return;
-  var label;
-  var fieldLabel = '';
-  if (s.field) {
-    var map = {
-      engineering: 'العلوم والتكنولوجيا والهندسة',
-      health: 'صحي',
-      humanities: 'العلوم الإنسانية والاجتماعية',
-      business: 'الأعمال'
-    };
-    fieldLabel = map[s.field] || s.field;
-  }
-  if (s.page && fieldLabel) {
-    label = '🚀 متابعة: جيل ' + s.generation + ' · ' + fieldLabel +
-      (s.major ? ' · ' + s.major : '');
-  } else {
-    label = '🚀 متابعة: جيل ' + s.generation + ' (اختر حقل جديد)';
-  }
-  btn.textContent = label;
-  sec.style.display = 'block';
-}
 </script>
 
 
 
 
 <script src="js/session.js"></script>
-<script>setupResumeButton();</script>
+<script>
+// عند فتح الموقع، إذا كان هناك جلسة محفوظة كاملة (جيل + حقل + تخصص)
+// نأخذ المستخدم مباشرةً لصفحة حقلته المحفوظة بدل شاشة الاختيار.
+(function() {
+  var s = window.MadarekSession && MadarekSession.load();
+  if (s && s.generation && s.page && s.field) {
+    var q = new URLSearchParams({ elective: s.elective || '', major: s.major || '', name: 'زائر' });
+    window.location.replace(s.generation + '/' + s.page + '?' + q.toString());
+  }
+})();
+</script>
 <script src="js/main.js"></script>
 <script src="js/chatbot.js"></script>
 </body>
