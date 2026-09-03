@@ -271,10 +271,27 @@ const Chat = () => {
 
     const channel = supabase
       .channel("posts-realtime")
-      .on("postgres_changes", { event: "INSERT", schema: "public", table: "posts" }, (payload: any) => {
+      .on("postgres_changes", { event: "INSERT", schema: "public", table: "posts" }, async (payload: any) => {
         const row = payload.new;
         if (!row?.id || !postMatchesFilter(row.channel)) return;
-        refreshPost(row.id);
+        // منشور جديد → نباني من بيانات الـ payload مباشرة (بدل 3 استعلامات cascade).
+        const already = loadedPostIdsRef.current.has(row.id);
+        if (already) return;
+        try {
+          const { data: p } = await supabase
+            .from("posts")
+            .select("*, profiles!posts_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
+            .is("deleted_at", null)
+            .eq("id", row.id)
+            .maybeSingle();
+          if (!p) return;
+          const cleaned = { ...p, likes: [], comments: [] } as unknown as Post;
+          setPosts(prev => (prev.some(x => x.id === cleaned.id)
+            ? prev.map(x => (x.id === cleaned.id ? cleaned : x))
+            : [cleaned, ...prev]).sort(sortPosts));
+        } catch {
+          /* ignore */
+        }
       })
       .on("postgres_changes", { event: "UPDATE", schema: "public", table: "posts" }, (payload: any) => {
         const row = payload.new;
@@ -283,7 +300,10 @@ const Chat = () => {
           setPosts(prev => prev.filter(p => p.id !== row.id));
           return;
         }
-        refreshPost(row.id);
+        // تعديل منشور → ندمج حقول payload مع القائمة الحالية بلا أي استعلام
+        setPosts(prev => prev.map(p => (p.id === row.id
+          ? { ...p, content: row.content, is_pinned: row.is_pinned, status: row.status, channel: row.channel, image_url: row.image_url, image_urls: row.image_urls, video_url: row.video_url, updated_at: row.updated_at }
+          : p)));
       })
       .on("postgres_changes", { event: "DELETE", schema: "public", table: "posts" }, (payload: any) => {
         const id = payload.old?.id ?? payload.new?.id;
