@@ -48,7 +48,7 @@ export function usePlatformStats(authed: boolean) {
         chatClient.from("profiles").select("id", { count: "exact", head: true }),
         chatClient.from("posts").select("id", { count: "exact", head: true }),
         anonClient.from("posts").select("id", { count: "exact", head: true }),
-        anonClient.from("blocked_devices").select("id", { count: "exact", head: true }),
+        anonClient.from("blocked_devices").select("device_id", { count: "exact", head: true }),
         anonClient.from("reports").select("id", { count: "exact", head: true }).eq("status", "open"),
         achievementClient.from("profiles").select("id", { count: "exact", head: true }),
         achievementClient.from("rounds").select("id", { count: "exact", head: true }).eq("status", "active"),

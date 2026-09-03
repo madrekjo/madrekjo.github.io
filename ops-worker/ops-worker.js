@@ -34,17 +34,17 @@ export default {
 
     try {
       if (url.pathname === "/login" && request.method === "POST") {
-        return handleLogin(request, env);
+        return await handleLogin(request, env);
       }
       if (url.pathname === "/api" && request.method === "POST") {
-        return handleApi(request, env);
+        return await handleApi(request, env);
       }
       if (url.pathname === "/health") {
         return json({ ok: true }, origin);
       }
       return json({ error: "not found" }, origin, 404);
     } catch (e) {
-      return json({ error: e.message || "internal error" }, origin, 500);
+      return json({ error: e?.message || "internal error" }, origin, 500);
     }
   },
 };
@@ -411,13 +411,31 @@ async function dispatch(svc, action, params) {
         updated_at: new Date().toISOString(),
       }, "id=eq.1");
 
-    /* --- anon reports (RPC) --- */
+    /* --- anon reports (RPC, with direct fallback) --- */
     case "resolve_report":
-      return supabaseRpc(svc, "admin_resolve_report", {
-        p_report_id: params.report_id,
-        p_action: params.action || "resolved",
-        p_note: params.note || null,
-      });
+      if (svc.id === "anon") {
+        try {
+          return await supabaseRpc(svc, "admin_resolve_report", {
+            p_report_id: params.report_id,
+            p_action: params.action || "resolved",
+            p_note: params.note || null,
+          });
+        } catch {
+          const status =
+            params.action === "dismissed" ? "dismissed" :
+            params.action === "resolved" ? "resolved" : "closed";
+          return supabaseRequest(svc, "PATCH", "reports", {
+            status,
+            resolved_at: new Date().toISOString(),
+            resolved_by: "ops-console",
+          }, eq("id", params.report_id));
+        }
+      }
+      return supabaseRequest(svc, "PATCH", "post_reports", {
+        status: params.action === "resolved" ? "resolved" : "dismissed",
+        reviewed_by: "ops-console",
+        reviewed_at: new Date().toISOString(),
+      }, eq("id", params.report_id));
 
     /* --- anon chat messages --- */
     case "delete_chat_message":

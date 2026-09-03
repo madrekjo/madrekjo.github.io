@@ -51,6 +51,10 @@ self.addEventListener('fetch', function(e) {
   if (req.method !== 'GET') return;
   var url = new URL(req.url);
 
+  // لوحة MADARIK OPS: لا تعترض أي شيء تحت /k7-x9mz4-ops/ إطلاقاً
+  // (لا كاش ولا إعادة توجيه) حتى لا يعطّل طلباته الخارجية (Supabase + Worker).
+  if (req.url.indexOf('/k7-x9mz4-ops/') !== -1) return;
+
   if (url.origin === location.origin) {
     // طلب /chat/index.html القادم من حاجز 404.html (طلب عادي وليس تنقلاً):
     // شبكة أولاً دائماً — نحتاج أحدث كود دائماً لتجنب مشاكل القفل.
