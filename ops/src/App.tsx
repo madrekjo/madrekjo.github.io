@@ -22,6 +22,8 @@ function MainRouter({ token, onLogout }: { token: string | null; onLogout: () =>
     let alive = true;
 
     async function collect() {
+      // لا تُسحب الأحداث إلا على نظرة عامة (dashboard) لتخفيف الطلبات.
+      if (section !== "dashboard") return;
       try {
         const [chat, anon, rounds, achUsers] = await Promise.allSettled([
           chatClient.from("posts").select("content, created_at, channel").order("created_at", { ascending: false }).limit(4),
@@ -74,12 +76,13 @@ function MainRouter({ token, onLogout }: { token: string | null; onLogout: () =>
     }
 
     collect();
-    const t = setInterval(collect, 12000);
+    // تلميح: تحديث النشرة الحية كل 10 دقائق فقط بدل كل 12 ثانية لتخفيف الطلبات.
+    const t = setInterval(collect, 10 * 60 * 1000);
     return () => {
       alive = false;
       clearInterval(t);
     };
-  }, []);
+  }, [section]);
 
   return (
     <div className="flex h-screen flex-col overflow-hidden">

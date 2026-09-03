@@ -85,8 +85,8 @@ export function usePlatformStats(authed: boolean) {
     if (!authed) return;
     load();
 
-    // تلميح: خفّض الاستهلاك — يُحدَّث كل 5 دقائق وفقط عندما تكون اللوحة ظاهرة أمامك.
-    const iv = setInterval(load, 5 * 60 * 1000);
+    // تلميح: خفّض الاستهلاك — يُحدَّث كل 10 دقائق وفقط عندما تكون اللوحة ظاهرة أمامك.
+    const iv = setInterval(load, 10 * 60 * 1000);
     const onVis = () => {
       if (!document.hidden) load();
     };
