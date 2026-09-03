@@ -33,7 +33,7 @@ const Notifications = () => {
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(true);
-  const BATCH = 50;
+  const BATCH = 10;
 
   const fetchBatch = useCallback(async (offset: number, append: boolean) => {
     if (!user) return;
@@ -64,9 +64,24 @@ const Notifications = () => {
     if (append) setLoadingMore(false); else setLoading(false);
   }, [user]);
 
+  // عند كل فتح: نحذف الإشعارات الأقدم من آخر 10 تلقائياً ليُبقى فقط 10 إشعارات لكل مستخدم
   useEffect(() => {
     if (!user) return;
     (async () => {
+      const { data: keep } = await supabase
+        .from("notifications")
+        .select("id")
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: false })
+        .limit(BATCH);
+      const keepIds: string[] = (keep || []).map(n => n.id);
+      if (keepIds.length) {
+        await supabase
+          .from("notifications")
+          .delete()
+          .eq("user_id", user.id)
+          .not("id", "in", `(${keepIds.join(",")})`);
+      }
       await fetchBatch(0, false);
       await supabase.from("notifications").update({ is_read: true }).eq("user_id", user.id).eq("is_read", false);
     })();
