@@ -25,7 +25,24 @@ const OPS_ADMIN_UUID = "00000000-0000-0000-0000-000000000000";
 
 export default {
   async fetch(request, env) {
+    // =========================================================================
+    // MADARIK OPS — مؤقّتاً متوقف (disabled).
+    // هذه البوابة تعطّل لوحة التحكم بالكامل بحيث لا يصدر عنها أي طلب
+    // إلى أي قاعدة بيانات (استهلاك صفر). يُعاد التفعيل بحذف هذه البوابة
+    // وإعادة نشر الـ Worker كما كان. الكود كامل محفوظ أسفل هذه البوابة.
+    // =========================================================================
     const url = new URL(request.url);
+
+    const disabledOrigin = allowedOrigin(request, env);
+    return new Response(
+      JSON.stringify({ ok: false, error: "ops_disabled", message: "لوحة التحكم متوقفة مؤقتاً" }),
+      {
+        status: 503,
+        headers: { ...corsHeaders(disabledOrigin), "Content-Type": "application/json" },
+      }
+    );
+
+    // -------- (لم يعد يُنفَّذ خلف بوابة التعطيل) --------
     const origin = allowedOrigin(request, env);
 
     if (request.method === "OPTIONS") {
