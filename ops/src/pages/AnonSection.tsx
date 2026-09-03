@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import * as Tabs from "@radix-ui/react-tabs";
-import { Ban, Check, Eye, EyeOff, Trash2, Pin, PinOff, FileImage, Search } from "lucide-react";
+import { Ban, Check, Eye, EyeOff, Trash2, Pin, PinOff, FileImage, Search, ShieldPlus, CalendarClock } from "lucide-react";
 import { anonClient } from "@/lib/supabase-clients";
 import { opsCall } from "@/lib/ops-client";
 import { StatusBadge, LoadingScanner, EmptyState } from "@/components/ui";
@@ -21,25 +21,32 @@ export function AnonSection({ token }: Props) {
   const [posts, setPosts] = useState<any[]>([]);
   const [reports, setReports] = useState<any[]>([]);
   const [blocked, setBlocked] = useState<any[]>([]);
+  const [adminDevices, setAdminDevices] = useState<any[]>([]);
   const [settings, setSettings] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState<string | null>(null);
   const [showHidden, setShowHidden] = useState(false);
+  const [maintenance, setMaintenance] = useState("");
+  const [reopenAt, setReopenAt] = useState("");
 
   async function load() {
     setLoading(true);
-    const [p, r, b, s] = await Promise.all([
+    const [p, r, b, a, s] = await Promise.all([
       anonClient.from("posts").select("*").order("created_at", { ascending: false }).limit(150),
       anonClient.from("reports").select("*").order("created_at", { ascending: false }).limit(100),
       anonClient.from("blocked_devices").select("*").order("created_at", { ascending: false }).limit(100),
+      anonClient.from("admin_devices").select("*").order("created_at", { ascending: false }).limit(100),
       anonClient.from("site_settings").select("*").limit(1),
     ]);
     setPosts(p.data ?? []);
     setReports(r.data ?? []);
     setBlocked(b.data ?? []);
+    setAdminDevices(a.data ?? []);
     setSettings(s.data?.[0] ?? null);
+    setMaintenance(s.data?.[0]?.maintenance_message ?? "");
+    setReopenAt(s.data?.[0]?.site_reopen_at ? s.data[0].site_reopen_at.slice(0, 16) : "");
     setLoading(false);
   }
 
@@ -105,6 +112,7 @@ export function AnonSection({ token }: Props) {
             { v: "posts", l: "المنشورات", c: posts.length },
             { v: "reports", l: "البلاغات", c: reports.filter((x) => x.status === "open").length },
             { v: "blocked", l: "الأجهزة المحظورة", c: blocked.length },
+            { v: "admins", l: "أدمن الأجهزة", c: adminDevices.length },
             { v: "settings", l: "الإعدادات", c: 0 },
           ].map((t) => (
             <Tabs.Trigger
@@ -331,6 +339,59 @@ export function AnonSection({ token }: Props) {
           )}
         </Tabs.Content>
 
+        {/* ADMIN DEVICES */}
+        <Tabs.Content value="admins" className="mt-4">
+          <div className="mb-3 flex max-w-md items-center gap-2">
+            <input id="admin-device-input" className="ops-input flex-1" placeholder="device_id..." />
+            <button
+              onClick={() => {
+                const el = document.getElementById("admin-device-input") as HTMLInputElement;
+                if (el?.value.trim()) {
+                  runAction("set_admin_device", { device_id: el.value.trim() }, el.value.trim());
+                  el.value = "";
+                }
+              }}
+              className="ops-btn px-2 py-2 text-xs"
+            >
+              <ShieldPlus className="h-3 w-3" /> إضافة أدمن
+            </button>
+          </div>
+          {loading ? (
+            <LoadingScanner text="SCANNING ADMIN DEVICES" />
+          ) : adminDevices.length === 0 ? (
+            <EmptyState message="لا توجد أجهزة أدمن" />
+          ) : (
+            <div className="ops-panel overflow-x-auto">
+              <table className="ops-table w-full">
+                <thead>
+                  <tr className="border-b border-ops-border">
+                    <th>معرف الجهاز</th>
+                    <th>ملاحظة</th>
+                    <th>إجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {adminDevices.map((ad) => (
+                    <tr key={ad.device_id} className="border-b border-ops-border/50 last:border-0 hover:bg-ops-card/50">
+                      <td className="font-mono text-xs text-ops-cyan">{ad.device_id}</td>
+                      <td className="text-sm text-ops-dim">{ad.note ?? "—"}</td>
+                      <td>
+                        <button
+                          onClick={() => runAction("remove_admin_device", { device_id: ad.device_id }, ad.device_id)}
+                          disabled={busy === ad.device_id}
+                          className="ops-btn-danger px-2 py-1 text-xs"
+                        >
+                          <Trash2 className="h-3 w-3" /> إزالة
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </Tabs.Content>
+
         {/* SETTINGS */}
         <Tabs.Content value="settings" className="mt-4">
           <div className="ops-card max-w-md p-5">
@@ -378,6 +439,68 @@ export function AnonSection({ token }: Props) {
                     يعاد الفتح: {formatDate(settings.site_reopen_at)}
                   </p>
                 )}
+
+                <div className="border-t border-ops-border pt-4">
+                  <h4 className="mb-3 text-xs font-bold text-ops-dim">رسالة الصيانة</h4>
+                  <div className="flex gap-2">
+                    <input
+                      className="ops-input flex-1"
+                      value={maintenance}
+                      onChange={(e) => setMaintenance(e.target.value)}
+                      placeholder="رسالة الصيانة..."
+                    />
+                    <button
+                      onClick={() => runAction("set_maintenance", { message: maintenance }, "maint")}
+                      className="ops-btn px-2 py-2 text-xs"
+                    >
+                      حفظ
+                    </button>
+                  </div>
+                </div>
+
+                <div className="border-t border-ops-border pt-4">
+                  <h4 className="mb-3 text-xs font-bold text-ops-dim">موعد إعادة الفتح</h4>
+                  <div className="flex gap-2">
+                    <input
+                      type="datetime-local"
+                      className="ops-input flex-1"
+                      value={reopenAt}
+                      onChange={(e) => setReopenAt(e.target.value)}
+                    />
+                    <button
+                      onClick={() =>
+                        runAction(
+                          "set_reopen_at",
+                          { reopen_at: reopenAt ? new Date(reopenAt).toISOString() : null },
+                          "reopen"
+                        )
+                      }
+                      className="ops-btn px-2 py-2 text-xs"
+                    >
+                      <CalendarClock className="h-3 w-3" /> تعيين
+                    </button>
+                  </div>
+                </div>
+
+                <div className="border-t border-ops-border pt-4">
+                  <h4 className="mb-3 text-xs font-bold text-ops-dim">ألوان الأدمن (تتخزن عند الإغلاق)</h4>
+                  <button
+                    onClick={() => {
+                      const bg = prompt("لون خلفية منشور الأدمن (مثال #1e3a8a):", settings.admin_post_bg ?? "");
+                      const text = prompt("لون نص منشور الأدمن (مثال #ffffff):", settings.admin_post_text ?? "");
+                      if (bg || text) {
+                        runAction("set_admin_colors", {
+                          admin_post_bg: bg || settings.admin_post_bg || null,
+                          admin_post_text: text || settings.admin_post_text || null,
+                        }, "colors");
+                      }
+                    }}
+                    disabled={busy === "colors"}
+                    className="ops-btn px-3 py-2 text-xs"
+                  >
+                    ضبط ألوان منشور الأدمن
+                  </button>
+                </div>
               </div>
             )}
           </div>

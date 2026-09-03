@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import * as Tabs from "@radix-ui/react-tabs";
-import { Ban, Check, Search, Trash2, Pin, PinOff, ShieldAlert, User } from "lucide-react";
+import { Ban, Check, Search, Trash2, Pin, PinOff, ShieldAlert, Shield, Clock, Plus, X, Pencil } from "lucide-react";
 import { chatClient } from "@/lib/supabase-clients";
 import { opsCall } from "@/lib/ops-client";
 import { StatusBadge, LoadingScanner, EmptyState } from "@/components/ui";
@@ -15,21 +15,34 @@ export function ChatSection({ token }: Props) {
   const [users, setUsers] = useState<any[]>([]);
   const [posts, setPosts] = useState<any[]>([]);
   const [rounds, setRounds] = useState<any[]>([]);
+  const [bannedWords, setBannedWords] = useState<any[]>([]);
+  const [deletedPosts, setDeletedPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState<string | null>(null);
+  const [newWord, setNewWord] = useState("");
+  const [timeoutMin, setTimeoutMin] = useState<number>(60);
 
   async function load() {
     setLoading(true);
-    const [u, p, r] = await Promise.all([
+    const [u, p, r, w, d] = await Promise.all([
       chatClient.from("profiles").select("*").order("created_at", { ascending: false }).limit(200),
       chatClient.from("posts").select("*").order("created_at", { ascending: false }).limit(100),
       chatClient.from("study_rounds").select("*").order("created_at", { ascending: false }).limit(100),
+      chatClient.from("banned_words").select("*").order("word").limit(200),
+      chatClient
+        .from("posts")
+        .select("id, content, channel, created_at, deleted_at, profile_id")
+        .not("deleted_at", "is", null)
+        .order("deleted_at", { ascending: false })
+        .limit(100),
     ]);
     setUsers(u.data ?? []);
     setPosts(p.data ?? []);
     setRounds(r.data ?? []);
+    setBannedWords(w.data ?? []);
+    setDeletedPosts(d.data ?? []);
     setLoading(false);
   }
 
@@ -83,6 +96,9 @@ export function ChatSection({ token }: Props) {
           {[
             { v: "users", l: "المستخدمين", c: users.length },
             { v: "posts", l: "المنشورات", c: posts.length },
+            { v: "pending", l: "قيد المراجعة", c: posts.filter((p) => p.status === "pending").length },
+            { v: "banned", l: "كلمات محظورة", c: bannedWords.length },
+            { v: "deleted", l: "المحذوفة", c: deletedPosts.length },
             { v: "rounds", l: "الجولات", c: rounds.length },
           ].map((t) => (
             <Tabs.Trigger
@@ -115,6 +131,16 @@ export function ChatSection({ token }: Props) {
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
+            <label className="flex items-center gap-2 text-[11px] text-ops-dim">
+              تقييد (د):
+              <input
+                type="number"
+                className="ops-input w-20 py-1.5"
+                value={timeoutMin}
+                min={1}
+                onChange={(e) => setTimeoutMin(Number(e.target.value) || 60)}
+              />
+            </label>
           </div>
           {loading ? (
             <LoadingScanner text="SCANNING USERS" />
@@ -180,6 +206,33 @@ export function ChatSection({ token }: Props) {
                               <Ban className="h-3 w-3" /> حظر
                             </button>
                           )}
+                          <button
+                            onClick={() => runAction("toggle_chat_ban", { user_id: u.user_id, chat_banned: !u.chat_banned }, u.id)}
+                            disabled={busy === u.id}
+                            className="ops-btn px-2 py-1 text-xs"
+                            title="حظر الشات فقط"
+                          >
+                            <Shield className="h-3 w-3" /> {u.chat_banned ? "فك شات" : "حظر شات"}
+                          </button>
+                          <button
+                            onClick={() => runAction("set_timeout", { user_id: u.user_id, timeout_until: new Date(Date.now() + timeoutMin * 60000).toISOString() }, u.id)}
+                            disabled={busy === u.id}
+                            className="ops-btn px-2 py-1 text-xs"
+                            title={`تقييد ${timeoutMin} دقيقة`}
+                          >
+                            <Clock className="h-3 w-3" /> تقييد
+                          </button>
+                          <button
+                            onClick={() => {
+                              const name = prompt("الاسم الجديد:", u.full_name ?? "");
+                              if (name) runAction("rename_user", { user_id: u.user_id, full_name: name }, u.id);
+                            }}
+                            disabled={busy === u.id}
+                            className="ops-btn px-2 py-1 text-xs"
+                            title="إعادة تسمية"
+                          >
+                            <Pencil className="h-3 w-3" />
+                          </button>
                           <button
                             onClick={() => runAction("delete_user", { user_id: u.user_id }, u.id)}
                             disabled={busy === u.id}
@@ -265,6 +318,153 @@ export function ChatSection({ token }: Props) {
                           className="ms-1.5 ops-btn-danger px-2 py-1 text-xs"
                         >
                           <Trash2 className="h-3 w-3" /> حذف
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </Tabs.Content>
+
+        {/* PENDING POSTS TAB */}
+        <Tabs.Content value="pending" className="mt-4">
+          {loading ? (
+            <LoadingScanner text="SCANNING PENDING" />
+          ) : posts.filter((p) => p.status === "pending").length === 0 ? (
+            <EmptyState message="لا توجد منشورات قيد المراجعة" />
+          ) : (
+            <div className="space-y-2">
+              {posts
+                .filter((p) => p.status === "pending")
+                .map((p) => (
+                  <div key={p.id} className="ops-card p-3">
+                    <div className="mb-2 flex items-center justify-between">
+                      <StatusBadge status="pending" />
+                      <span className="font-mono text-[10px] text-ops-dim">{formatDate(p.created_at)}</span>
+                    </div>
+                    <p className="text-sm text-ops-text">{p.content}</p>
+                    <p className="mt-1 font-mono text-[10px] text-ops-dim">القناة: {p.channel ?? "عام"}</p>
+                    <div className="mt-2 flex gap-1.5">
+                      <button
+                        onClick={() => runAction("approve_post", { post_id: p.id }, p.id)}
+                        disabled={busy === p.id}
+                        className="ops-btn-green px-2 py-1 text-xs"
+                      >
+                        <Check className="h-3 w-3" /> اعتماد
+                      </button>
+                      <button
+                        onClick={() => runAction("reject_post", { post_id: p.id }, p.id)}
+                        disabled={busy === p.id}
+                        className="ops-btn-danger px-2 py-1 text-xs"
+                      >
+                        <X className="h-3 w-3" /> رفض
+                      </button>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          )}
+        </Tabs.Content>
+
+        {/* BANNED WORDS TAB */}
+        <Tabs.Content value="banned" className="mt-4">
+          <div className="mb-3 flex max-w-md items-center gap-2">
+            <input
+              className="ops-input flex-1"
+              placeholder="أضف كلمة محظورة..."
+              value={newWord}
+              onChange={(e) => setNewWord(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && newWord.trim()) {
+                  runAction("add_banned_word", { word: newWord.trim() }, "word");
+                  setNewWord("");
+                }
+              }}
+            />
+            <button
+              onClick={() => {
+                if (newWord.trim()) {
+                  runAction("add_banned_word", { word: newWord.trim() }, "word");
+                  setNewWord("");
+                }
+              }}
+              className="ops-btn px-2 py-2 text-xs"
+            >
+              <Plus className="h-3 w-3" /> إضافة
+            </button>
+          </div>
+          {loading ? (
+            <LoadingScanner text="SCANNING WORDS" />
+          ) : bannedWords.length === 0 ? (
+            <EmptyState message="لا توجد كلمات محظورة" />
+          ) : (
+            <div className="ops-panel overflow-x-auto">
+              <table className="ops-table w-full">
+                <thead>
+                  <tr className="border-b border-ops-border">
+                    <th>الكلمة</th>
+                    <th>إجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {bannedWords.map((w) => (
+                    <tr key={w.id} className="border-b border-ops-border/50 last:border-0 hover:bg-ops-card/50">
+                      <td className="text-sm text-ops-text">
+                        <span className="rounded bg-ops-red/10 px-2 py-0.5 font-mono text-xs text-ops-red">{w.word}</span>
+                      </td>
+                      <td>
+                        <button
+                          onClick={() => runAction("remove_banned_word", { id: w.id }, w.id)}
+                          disabled={busy === w.id}
+                          className="ops-btn-danger px-2 py-1 text-xs"
+                        >
+                          <Trash2 className="h-3 w-3" /> حذف
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </Tabs.Content>
+
+        {/* DELETED POSTS TAB */}
+        <Tabs.Content value="deleted" className="mt-4">
+          {loading ? (
+            <LoadingScanner text="SCANNING DELETED" />
+          ) : deletedPosts.length === 0 ? (
+            <EmptyState message="لا توجد منشورات محذوفة" />
+          ) : (
+            <div className="ops-panel overflow-x-auto">
+              <table className="ops-table w-full">
+                <thead>
+                  <tr className="border-b border-ops-border">
+                    <th>المحتوى</th>
+                    <th>القناة</th>
+                    <th>تاريخ الحذف</th>
+                    <th>إجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {deletedPosts.map((p) => (
+                    <tr key={p.id} className="border-b border-ops-border/50 last:border-0 hover:bg-ops-card/50">
+                      <td className="max-w-[300px]">
+                        <p className="truncate text-sm text-ops-text">{p.content}</p>
+                      </td>
+                      <td className="text-sm">{p.channel ?? "عام"}</td>
+                      <td className="text-sm text-ops-dim">{formatDate(p.deleted_at)}</td>
+                      <td>
+                        <button
+                          onClick={() => {
+                            if (confirm("حذف نهائي؟ لا يمكن التراجع.")) runAction("delete_post", { post_id: p.id }, p.id);
+                          }}
+                          disabled={busy === p.id}
+                          className="ops-btn-danger px-2 py-1 text-xs"
+                        >
+                          <ShieldAlert className="h-3 w-3" /> حذف نهائي
                         </button>
                       </td>
                     </tr>

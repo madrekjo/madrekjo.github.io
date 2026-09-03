@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import * as Tabs from "@radix-ui/react-tabs";
-import { Search, Trash2, Trophy, Timer, Users } from "lucide-react";
+import { Search, Trash2, Trophy, Timer, Users, Check, Minus, Send } from "lucide-react";
 import { achievementClient } from "@/lib/supabase-clients";
 import { opsCall } from "@/lib/ops-client";
 import { StatusBadge, LoadingScanner, EmptyState } from "@/components/ui";
@@ -15,21 +15,31 @@ export function AchievementSection({ token }: Props) {
   const [users, setUsers] = useState<any[]>([]);
   const [rounds, setRounds] = useState<any[]>([]);
   const [tasks, setTasks] = useState<any[]>([]);
+  const [adminRoles, setAdminRoles] = useState<any[]>([]);
+  const [roundCreators, setRoundCreators] = useState<any[]>([]);
+  const [inbox, setInbox] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState<string | null>(null);
+  const [activeConv, setActiveConv] = useState<string | null>(null);
 
   async function load() {
     setLoading(true);
-    const [u, r, t] = await Promise.all([
+    const [u, r, t, roles, creators, msgs] = await Promise.all([
       achievementClient.from("profiles").select("*").order("created_at", { ascending: false }).limit(200),
       achievementClient.from("rounds").select("*").order("created_at", { ascending: false }).limit(100),
       achievementClient.from("tasks").select("*").order("created_at", { ascending: false }).limit(150),
+      achievementClient.from("user_roles").select("user_id, role").eq("role", "admin"),
+      achievementClient.from("round_creators").select("user_id"),
+      achievementClient.from("messages").select("*").order("created_at", { ascending: false }).limit(200),
     ]);
     setUsers(u.data ?? []);
     setRounds(r.data ?? []);
     setTasks(t.data ?? []);
+    setAdminRoles(roles.data ?? []);
+    setRoundCreators(creators.data ?? []);
+    setInbox(msgs.data ?? []);
     setLoading(false);
   }
 
@@ -96,6 +106,7 @@ export function AchievementSection({ token }: Props) {
         <Tabs.List className="flex gap-1 border-b border-ops-border">
           {[
             { v: "users", l: "المستخدمين", c: users.length },
+            { v: "inbox", l: "الدعم", c: inbox.filter((m) => !m.is_read && m.sender_id !== "admin").length },
             { v: "rounds", l: "الجولات", c: rounds.length },
             { v: "tasks", l: "المهام", c: tasks.length },
           ].map((t) => (
@@ -155,18 +166,126 @@ export function AchievementSection({ token }: Props) {
                       <td className="text-sm text-ops-dim">{timeAgo(u.updated_at)}</td>
                       <td className="text-sm text-ops-dim">{formatDate(u.created_at)}</td>
                       <td>
-                        <button
-                          onClick={() => runAction("delete_user", { user_id: u.user_id }, u.id)}
-                          disabled={busy === u.id}
-                          className="ops-btn-danger px-2 py-1 text-xs"
-                        >
-                          <Trash2 className="h-3 w-3" /> حذف
-                        </button>
+                        <div className="flex items-center gap-1.5">
+                          {adminRoles.some((a) => a.user_id === u.user_id) ? (
+                            <button
+                              onClick={() => runAction("set_admin_role", { user_id: u.user_id, remove: true }, `${u.id}-a`)}
+                              disabled={busy === `${u.id}-a`}
+                              className="ops-btn px-2 py-1 text-xs"
+                              title="إزالة صلاحية أدمن"
+                            >
+                              <Minus className="h-3 w-3" /> إزالة أدمن
+                            </button>
+                          ) : (
+                            <button
+                              onClick={() => runAction("set_admin_role", { user_id: u.user_id }, `${u.id}-a`)}
+                              disabled={busy === `${u.id}-a`}
+                              className="ops-btn px-2 py-1 text-xs"
+                              title="منح صلاحية أدمن"
+                            >
+                              <Check className="h-3 w-3" /> أدمن
+                            </button>
+                          )}
+                          {roundCreators.some((c) => c.user_id === u.user_id) ? (
+                            <button
+                              onClick={() => runAction("set_round_creator", { user_id: u.user_id, remove: true }, `${u.id}-c`)}
+                              disabled={busy === `${u.id}-c`}
+                              className="ops-btn px-2 py-1 text-xs"
+                              title="إزالة صلاحية إنشاء جولات"
+                            >
+                              <Minus className="h-3 w-3" /> إزالة جولات
+                            </button>
+                          ) : (
+                            <button
+                              onClick={() => runAction("set_round_creator", { user_id: u.user_id }, `${u.id}-c`)}
+                              disabled={busy === `${u.id}-c`}
+                              className="ops-btn px-2 py-1 text-xs"
+                              title="منح صلاحية إنشاء جولات"
+                            >
+                              <Trophy className="h-3 w-3" /> جولات
+                            </button>
+                          )}
+                          <button
+                            onClick={() => runAction("achievement_delete_user", { user_id: u.user_id }, u.id)}
+                            disabled={busy === u.id}
+                            className="ops-btn-danger px-2 py-1 text-xs"
+                          >
+                            <Trash2 className="h-3 w-3" /> حذف
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
+            </div>
+          )}
+        </Tabs.Content>
+
+        {/* INBOX */}
+        <Tabs.Content value="inbox" className="mt-4">
+          {loading ? (
+            <LoadingScanner text="LOADING INBOX" />
+          ) : inbox.length === 0 ? (
+            <EmptyState message="لا توجد رسائل دعم" />
+          ) : (
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="ops-panel p-2">
+                <div className="max-h-[480px] divide-y divide-ops-border overflow-y-auto">
+                  {Object.entries(
+                    inbox
+                      .filter((m) => !!m.sender_id)
+                      .reduce<Record<string, { msg: any; count: number }>>((acc, m) => {
+                        const key = m.sender_id;
+                        if (!acc[key] || new Date(m.created_at) > new Date(acc[key].msg.created_at)) {
+                          acc[key] = {
+                            msg: m,
+                            count: inbox.filter((x) => x.sender_id === key && !x.is_read).length,
+                          };
+                        }
+                        return acc;
+                      }, {})
+                  ).map(([uid, { msg, count }]) => {
+                    const profile = users.find((u) => u.user_id === uid);
+                    return (
+                      <button
+                        key={uid}
+                        onClick={() => setActiveConv(uid)}
+                        className={cn(
+                          "flex w-full flex-col gap-1 px-3 py-2.5 text-start hover:bg-ops-card/60",
+                          activeConv === uid && "bg-ops-card/80"
+                        )}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-semibold text-ops-text">
+                            {profile?.display_name ?? "مجهول"}
+                          </span>
+                          {count > 0 && (
+                            <span className="rounded-full bg-ops-cyan/20 px-1.5 py-0.5 font-mono text-[9px] text-ops-cyan">
+                              {count} جديد
+                            </span>
+                          )}
+                        </div>
+                        <span className="truncate text-xs text-ops-dim">{msg.content}</span>
+                        <span className="font-mono text-[9px] text-ops-dim">{timeAgo(msg.created_at)}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="ops-panel p-4">
+                {activeConv ? (
+                  <ConversationThread
+                    userId={activeConv}
+                    inbox={inbox}
+                    busy={busy}
+                    onAction={runAction}
+                  />
+                ) : (
+                  <EmptyState message="اختر محادثة من القائمة لبدء التفاعل" />
+                )}
+              </div>
             </div>
           )}
         </Tabs.Content>
@@ -235,6 +354,7 @@ export function AchievementSection({ token }: Props) {
                     <th>التصنيف</th>
                     <th>المدة</th>
                     <th>الحالة</th>
+                    <th>إجراءات</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -253,6 +373,15 @@ export function AchievementSection({ token }: Props) {
                           <span className="text-xs font-bold text-ops-amber">جارية</span>
                         )}
                       </td>
+                      <td>
+                        <button
+                          onClick={() => runAction("delete_task", { task_id: t.id }, t.id)}
+                          disabled={busy === t.id}
+                          className="ops-btn-danger px-2 py-1 text-xs"
+                        >
+                          <Trash2 className="h-3 w-3" /> حذف
+                        </button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -261,6 +390,95 @@ export function AchievementSection({ token }: Props) {
           )}
         </Tabs.Content>
       </Tabs.Root>
+    </div>
+  );
+}
+
+function ConversationThread({
+  userId,
+  inbox,
+  busy,
+  onAction,
+}: {
+  userId: string;
+  inbox: any[];
+  busy: string | null;
+  onAction: (action: string, params: Record<string, unknown>, id: string) => void;
+}) {
+  const [reply, setReply] = useState("");
+  const messages = inbox.filter(
+    (m) => m.sender_id === userId || (m.sender_id !== userId && m.receiver_id === userId)
+  );
+
+  return (
+    <div className="flex h-[480px] flex-col">
+      <div className="mb-2 flex items-center justify-between">
+        <h4 className="text-sm font-bold text-ops-text">المحادثة مع {userId.slice(0, 8)}..</h4>
+        <div className="flex gap-1.5">
+          <button
+            onClick={() => onAction("delete_conversation", { user_id: userId, admin_id: "ops-root" }, `${userId}-del`)}
+            disabled={busy === `${userId}-del`}
+            className="ops-btn-danger px-2 py-1 text-xs"
+          >
+            <Trash2 className="h-3 w-3" /> حذف المحادثة
+          </button>
+        </div>
+      </div>
+
+      <div className="flex-1 space-y-2 overflow-y-auto rounded-md border border-ops-border bg-ops-bg p-3">
+        {messages
+          .slice()
+          .sort((a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime())
+          .map((m) => (
+            <div
+              key={m.id}
+              className={cn(
+                "max-w-[80%] rounded-md px-3 py-1.5 text-sm",
+                m.sender_id === userId
+                  ? "bg-ops-cyan/10 text-ops-text"
+                  : "bg-ops-green/10 text-ops-text ms-auto"
+              )}
+            >
+              <p>{m.content}</p>
+              <p className="mt-1 font-mono text-[9px] text-ops-dim">{formatDate(m.created_at)}</p>
+            </div>
+          ))}
+      </div>
+
+      <div className="mt-2 flex gap-2">
+        <input
+          className="ops-input flex-1"
+          placeholder="اكتب رسالة الدعم..."
+          value={reply}
+          onChange={(e) => setReply(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && reply.trim()) {
+              onAction(
+                "send_message",
+                { sender_id: "ops-root", receiver_id: userId, content: reply.trim() },
+                `${userId}-send`
+              );
+              setReply("");
+            }
+          }}
+        />
+        <button
+          onClick={() => {
+            if (reply.trim()) {
+              onAction(
+                "send_message",
+                { sender_id: "ops-root", receiver_id: userId, content: reply.trim() },
+                `${userId}-send`
+              );
+              setReply("");
+            }
+          }}
+          disabled={busy === `${userId}-send`}
+          className="ops-btn px-3 py-2 text-xs"
+        >
+          <Send className="h-3 w-3" /> إرسال
+        </button>
+      </div>
     </div>
   );
 }
