@@ -128,6 +128,16 @@ window.SIDEBAR_LINKS = [
   }
 ];
 </script>
+<script src="../js/session.js"></script>
+<script>
+// سجل جيل 2010 في الجلسة (لأجل زر المتابعة في الصفحة الرئيسية)
+(function() {
+  if (window.MadarekSession) {
+    var s = MadarekSession.load() || {};
+    MadarekSession.save({ generation: '2010', major: s.major || '', field: s.field || '' });
+  }
+})();
+</script>
 <script src="../js/main.js"></script>
 
 <script>

@@ -169,8 +169,18 @@ function selectMajor(major) {
   `;
   setTimeout(() => {
     const name = 'زائر';
-    const params = new URLSearchParams({ elective: selectedElective, major, name });
     const year = document.body.dataset.year;
+    // حفظ جلسة الطالب: الجيل + الحقل + الاختيارية + التخصص + الصفحة
+    if (window.MadarekSession) {
+      MadarekSession.save({
+        generation: year,
+        field: currentField,
+        elective: selectedElective,
+        major: major,
+        page: f.page,
+      });
+    }
+    const params = new URLSearchParams({ elective: selectedElective, major, name });
     window.location.href = f.page + '?' + params.toString();
   }, 1200);
 }
@@ -183,6 +193,22 @@ document.addEventListener('keydown', function(e) {
 document.getElementById('entryModal').addEventListener('click', function(e) {
   if (e.target === this) closeEntryModal();
 });
+</script>
+<script src="../js/session.js"></script>
+<script>
+// إذا كانت هناك جلسة محفوظة بنفس الجيل وصفحة حقل -> ننتقل مباشرة لها
+(function() {
+  var year = document.body.dataset.year;
+  var s = window.MadarekSession && MadarekSession.load();
+  if (s && s.generation === year && s.page && s.field) {
+    var params = new URLSearchParams({
+      elective: s.elective || '',
+      major: s.major || '',
+      name: 'زائر'
+    });
+    window.location.replace(s.page + '?' + params.toString());
+  }
+})();
 </script>
 <script src="../js/main.js"></script>
 </body>

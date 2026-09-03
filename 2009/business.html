@@ -90,7 +90,7 @@ body::before {
     <div class="topbar-title">💼 أعمال</div>
   </div>
   <div style="display:flex;gap:8px;align-items:center;">
-    <a href="index.html" class="change-field-btn">🔄 تغيير</a>
+    <a href="index.html" class="change-field-btn" onclick="window.MadarekSession && MadarekSession.save({ generation: document.body.dataset.year });">🔄 تغيير</a>
     <button onclick="goBack()" class="back-btn">←</button>
   </div>
 </div>
@@ -225,6 +225,7 @@ setTimeout(function() {
   });
 }, 0);
 </script>
+<script src="../js/session.js"></script>
 <script src="../js/main.js"></script>
 <script>
 (function() {
