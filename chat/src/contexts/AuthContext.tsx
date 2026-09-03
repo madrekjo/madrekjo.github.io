@@ -84,6 +84,10 @@ function withTimeout<T>(
   ]);
 }
 
+// يمنع تشغيل detectSiblingSync بشكل متزامن مزدوج (التطبيق يُشغِّل التهيئة
+// أكثر من مرة أحياناً)، فلا يحدث تنازع على أقفال gotrue بين استدعاءين.
+let siblingSyncCheckStarted = false;
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [user, setUser] = useState<User | null>(null);
@@ -500,23 +504,38 @@ export function AuthProvider({ children }: { children: ReactNode }) {
      * تحقق من وجود جلسة صحيحة في قسم الإنجاز (المشروع الشقيق) عبر
      * localStorage المشترك بين القسمين، لنعرض Dialog المزامنة بدلاً من
      * شاشة تسجيل الدخول مباشرة.
+     *
+     * مهم: لا نستدعي supabase.auth.getUser()/getSession() على العميل
+     * الرئيسي هنا إطلاقاً — لأنها تشغّل قفل gotrue ("lock:sb-...-auth-token")
+     * الذي يستخدمه كذلك onAuthStateChange/INITIAL_SESSION، فيتنازعان على
+     * القفل ويسرق أحدهما الآخر ("another request stole it") فيعلق التطبيق.
+     * بدلاً منه نقرأ جلسة الدردشة مباشرةً من localStorage (نفس المفتاح).
      */
     const detectSiblingSync = async () => {
       if (cancelled) return;
 
       try {
-        // ننتظر استقرار تهيئة الدردشة: نتحقق من جلسة الدردشة الحالية عبر
-        // getUser() الذي يتحقق من صلاحية التوكن المخزن. إذا كان المستخدم
-        // مسجلاً في الدردشة أصلاً، لا نعرض Dialog المزامنة أبداً.
-        const {
-          data: { user: currentChatUser },
-        } = await supabase.auth.getUser();
+        // قراءة جلسة الدردشة مباشرة من localStorage دون لمس قفل gotrue.
+        let currentChatToken: string | null = null;
+        try {
+          const raw = localStorage.getItem(
+            "sb-biabdoatwfteqwgjdxzc-auth-token"
+          );
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            currentChatToken = parsed?.access_token ?? null;
+          }
+        } catch (e) {
+          /* ignore */
+        }
 
         if (cancelled) return;
 
-        if (currentChatUser?.email) {
+        // إذا كان هناك توكين دخول دردشة مخزَن، فالمستخدم مسجّل بالفعل
+        // في الدردشة -> لا نعرض Dialog المزامنة أبداً ونتوقف هنا.
+        if (currentChatToken) {
           console.log(
-            "[AuthContext] chat session already active, skipping sync dialog"
+            "[AuthContext] chat token found in storage, skipping sync dialog"
           );
           return;
         }
@@ -594,8 +613,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         // نؤجّل فحص المزامنة الشقيقة قليلاً حتى يكتمل INITIAL_SESSION
         // وتُطبَّق جلسة الدردشة (إن وُجدت). هكذا لو كان المستخدم مسجلاً
         // في الدردشة أصلاً، لا يظهر Dialog المزامنة بتاتاً.
+        // نتأكد أيضاً من عدم تشغيل الفحص مرتين (حماية من التهيئة المزدوجة).
         setTimeout(async () => {
           if (cancelled) return;
+          if (siblingSyncCheckStarted) return;
+          siblingSyncCheckStarted = true;
           await detectSiblingSync();
         }, 1200);
       } catch (error) {
