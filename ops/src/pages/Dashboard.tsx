@@ -1,105 +1,67 @@
-import { Ghost, Trophy, Users, Timer, Activity } from "lucide-react";
-import { StatusBadge } from "@/components/ui";
+import { Ghost, Trophy, Users, Timer, Flag, Activity, Radio } from "lucide-react";
 import { usePlatformStats } from "@/hooks/usePlatformStats";
 import { useEffect, useState } from "react";
 import { chatClient, anonClient } from "@/lib/supabase-clients";
 import { timeAgo, cn } from "@/lib/utils";
 
+/* ---------------- Platform Radar ---------------- */
+
 interface RadarBar {
   label: string;
   value: number;
-  accent: string;
+  color: string;
+  glow: string;
 }
 
-const MAX_BAR = 120;
+const RMAX = 200;
 
-function RadarPip({ value }: { value: number }) {
-  const pct = Math.max(4, Math.min(MAX_BAR, value));
+function Bar({ value, color, glow }: { value: number; color: string; glow: string }) {
+  const pct = Math.max(2, Math.min(100, (value / RMAX) * 100));
   return (
-    <div className="relative h-1 w-full overflow-hidden rounded-full bg-ops-border/60">
+    <div className="relative h-[3px] w-full overflow-hidden rounded-full bg-ops-border/50">
       <div
-        className="absolute inset-y-0 start-0 rounded-full bg-ops-cyan/50"
-        style={{ width: `${(pct / MAX_BAR) * 100}%` }}
+        className={cn("absolute inset-y-0 start-0 rounded-full transition-all", color, glow)}
+        style={{ width: `${pct}%` }}
       />
     </div>
   );
 }
 
-function RadarQuarter({ title, children }: { title: string; children: React.ReactNode }) {
+function PlatformRadar({ bars, posts }: { bars: RadarBar[]; posts: number }) {
   return (
-    <div className="flex flex-col items-center gap-1.5 text-center">
-      <span className="font-mono text-[9px] uppercase tracking-widest text-ops-dim">{title}</span>
-      {children}
-    </div>
-  );
-}
-
-function PlatformRadar({ bars }: { bars: RadarBar[] }) {
-  return (
-    <div className="ops-card relative overflow-hidden p-5">
+    <div className="ops-card flex h-full flex-col p-5">
       <div className="mb-4 flex items-center justify-between">
         <span className="font-mono text-[10px] uppercase tracking-widest text-ops-dim">
           // PLATFORM RADAR
         </span>
-        <span className="font-mono text-[9px] text-ops-green">SCANNING</span>
+        <span className="flex items-center gap-1.5 font-mono text-[9px] text-ops-green">
+          <Radio className="h-3 w-3" /> SCANNING
+        </span>
       </div>
 
-      <div className="mx-auto mb-5 block h-40 w-40">
-        <svg viewBox="0 0 100 100" className="h-full w-full animate-[spin_16s_linear_infinite]">
-          <defs>
-            <radialGradient id="rad" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#00d4ff" stopOpacity="0.35" />
-              <stop offset="100%" stopColor="#00d4ff" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-          <circle cx="50" cy="50" r="48" fill="none" stroke="#1a2337" strokeWidth="0.6" />
-          <circle cx="50" cy="50" r="32" fill="none" stroke="#1a2337" strokeWidth="0.6" />
-          <circle cx="50" cy="50" r="16" fill="none" stroke="#1a2337" strokeWidth="0.6" />
-          <path d="M 50,50 L 99,50" stroke="#00d4ff" strokeWidth="0.8" opacity="0.7" />
-          <path d="M 50,6 L 50,50" stroke="#00d4ff" strokeWidth="0.8" opacity="0.3" />
-          <ellipse cx="50" cy="50" rx="30" ry="46" fill="url(#rad)" opacity="0.5" />
+      <div className="relative mx-auto mb-5 flex h-44 w-44 items-center justify-center">
+        <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full animate-[spin_20s_linear_infinite]">
+          <circle cx="50" cy="50" r="46" fill="none" stroke="#1a2337" strokeWidth="0.5" />
+          <circle cx="50" cy="50" r="31" fill="none" stroke="#1a2337" strokeWidth="0.5" />
+          <circle cx="50" cy="50" r="16" fill="none" stroke="#1a2337" strokeWidth="0.5" />
+          <line x1="6" y1="50" x2="94" y2="50" stroke="#00d4ff" strokeWidth="0.6" opacity="0.25" />
+          <line x1="50" y1="6" x2="50" y2="94" stroke="#00d4ff" strokeWidth="0.6" opacity="0.15" />
+          <line x1="50" y1="50" x2="94" y2="50" stroke="#00d4ff" strokeWidth="0.8" opacity="0.8" />
         </svg>
+        <div className="relative z-10 text-center">
+          <div className="font-mono text-3xl font-bold text-ops-text tabular-nums">{posts}</div>
+          <div className="font-mono text-[9px] uppercase tracking-widest text-ops-dim">Total Posts</div>
+        </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-x-8 gap-y-3 sm:grid-cols-4">
+      <div className="grid grid-cols-2 gap-x-6 gap-y-3">
         {bars.map((b) => (
-          <RadarQuarter key={b.label} title={b.label}>
-            <div className="flex w-full items-center gap-2">
-              <span className={cn("inline-block h-1.5 w-1.5 rounded-full", b.accent)} />
-              <RadarPip value={b.value} />
+          <div key={b.label} className="flex flex-col gap-1">
+            <div className="flex items-center justify-between font-mono text-[9px] uppercase tracking-widest text-ops-dim">
+              <span>{b.label}</span>
+              <span className="text-ops-text tabular-nums">{b.value}</span>
             </div>
-          </RadarQuarter>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-interface CrispCard {
-  title: string;
-  tone: "info" | "ok" | "warn" | "alert";
-  lines: { k: string; v: string }[];
-}
-
-function CriticalEventCard({ ev }: { ev: CrispCard }) {
-  const toneCls = {
-    info: "border-ops-cyan/25 text-ops-cyan",
-    ok: "border-ops-green/25 text-ops-green",
-    warn: "border-ops-amber/25 text-ops-amber",
-    alert: "border-ops-red/30 text-ops-red",
-  }[ev.tone];
-
-  return (
-    <div className={cn("ops-card p-4", toneCls)}>
-      <div className="mb-2 flex items-center justify-between">
-        <span className="font-mono text-[10px] uppercase tracking-widest">{ev.title}</span>
-        <span className="font-mono text-[9px] text-ops-dim">REALTIME</span>
-      </div>
-      <div className="space-y-1 font-mono text-[11px]">
-        {ev.lines.map((l, i) => (
-          <div key={i} className="flex justify-between gap-3">
-            <span className="text-ops-dim">{l.k}</span>
-            <span className="text-right text-ops-text">{l.v}</span>
+            <Bar value={b.value} color={b.color} glow={b.glow} />
           </div>
         ))}
       </div>
@@ -107,169 +69,207 @@ function CriticalEventCard({ ev }: { ev: CrispCard }) {
   );
 }
 
+/* ---------------- Critical Events ---------------- */
+
+interface EvRow {
+  time: string;
+  title: string;
+  detail: string;
+  severity: 0 | 1 | 2;
+}
+
+function CriticalEvents({ events }: { events: EvRow[] }) {
+  return (
+    <div className="ops-card h-full p-5">
+      <div className="mb-3 flex items-center gap-2">
+        <Activity className="h-3.5 w-3.5 text-ops-cyan" />
+        <span className="font-mono text-[10px] uppercase tracking-widest text-ops-cyan">
+          Critical Events
+        </span>
+      </div>
+
+      <div className="space-y-2">
+        {events.length === 0 ? (
+          <div className="flex items-center justify-center py-8 font-mono text-[11px] text-ops-dim">
+            // NO EVENTS — OPERATIONAL
+          </div>
+        ) : (
+          events.map((e, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-3 rounded-md border border-ops-border bg-ops-bg/60 px-3 py-2"
+            >
+              <span
+                className={cn(
+                  "inline-block h-1.5 w-1.5 shrink-0 rounded-full",
+                  e.severity === 2 ? "bg-ops-red" : e.severity === 1 ? "bg-ops-amber" : "bg-ops-cyan"
+                )}
+              />
+              <span className="font-mono text-[10px] text-ops-dim tabular-nums">{e.time}</span>
+              <div className="min-w-0 flex-1">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-ops-text">
+                  {e.title}
+                </p>
+                <p className="truncate text-xs text-ops-dim">{e.detail}</p>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+    </div>
+  );
+}
+
+/* ---------------- Intel Card ---------------- */
+
+function IntelCard({
+  icon,
+  accent,
+  label,
+  value,
+  rows,
+}: {
+  icon: React.ReactNode;
+  accent: string;
+  label: string;
+  value: number;
+  rows: { k: string; v: string }[];
+}) {
+  return (
+    <div className="ops-card p-4">
+      <div className="mb-3 flex items-center justify-between">
+        <span className="font-mono text-[10px] uppercase tracking-widest text-ops-dim">{label}</span>
+        {icon}
+      </div>
+      <div className={cn("font-mono text-3xl font-bold tabular-nums", accent)}>{value}</div>
+      <div className="mt-3 space-y-1.5 border-t border-ops-border/60 pt-2.5 font-mono text-[10px]">
+        {rows.map((r, i) => (
+          <div key={i} className="flex items-center justify-between">
+            <span className="text-ops-dim">{r.k}</span>
+            <span className="text-ops-text tabular-nums">{r.v}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ---------------- Dashboard ---------------- */
+
+function fmtTime(iso: string) {
+  return new Date(iso).toLocaleTimeString("en-GB", { hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit" });
+}
+
 export function Dashboard() {
-  const { stats, loading, workerStatus } = usePlatformStats(true);
-  const [recentChat, setRecentChat] = useState<any[]>([]);
-  const [recentAnon, setRecentAnon] = useState<any[]>([]);
-  const [recentReports, setRecentReports] = useState<any[]>([]);
-  const [recentRounds, setRecentRounds] = useState<any[]>([]);
+  const { stats, workerStatus } = usePlatformStats(true);
+  const [reports, setReports] = useState<any[]>([]);
+  const [rounds, setRounds] = useState<any[]>([]);
 
   useEffect(() => {
-    chatClient
-      .from("study_rounds")
-      .select("id, title, starts_at, status")
-      .order("created_at", { ascending: false })
-      .limit(3)
-      .then(({ data }) => setRecentRounds(data ?? []));
     anonClient
       .from("reports")
       .select("id, content_type, reason_code, status, created_at, content_snapshot")
       .order("created_at", { ascending: false })
-      .limit(4)
-      .then(({ data }) => setRecentReports(data ?? []));
+      .limit(6)
+      .then(({ data }) => setReports(data ?? []));
     chatClient
-      .from("posts")
-      .select("id, content, created_at, user_id, channel, status")
+      .from("study_rounds")
+      .select("id, title, starts_at, status")
       .order("created_at", { ascending: false })
-      .limit(4)
-      .then(({ data }) => setRecentChat(data ?? []));
-    anonClient
-      .from("posts")
-      .select("id, content, created_at, hidden, status, post_mode")
-      .order("created_at", { ascending: false })
-      .limit(4)
-      .then(({ data }) => setRecentAnon(data ?? []));
+      .limit(5)
+      .then(({ data }) => setRounds(data ?? []));
   }, []);
 
+  const reportEvents: EvRow[] = reports.map((r) => ({
+    time: fmtTime(r.created_at),
+    title: r.status === "open" ? "NEW REPORT" : "REPORT CLOSED",
+    detail: `${r.content_type ?? "post"} — ${r.reason_code ?? "reason"}`,
+    severity: (r.status === "open" ? 2 : 0) as 0 | 1 | 2,
+  }));
+  const roundEvents: EvRow[] = rounds.map((r) => ({
+    time: fmtTime(r.starts_at),
+    title: r.status === "active" ? "ROUND ACTIVE" : "ROUND",
+    detail: r.title ?? "",
+    severity: (r.status === "active" ? 1 : 0) as 0 | 1 | 2,
+  }));
+  const events: EvRow[] = [...reportEvents, ...roundEvents].slice(0, 6);
+
   const radarBars: RadarBar[] = [
-    { label: "CHAT", value: stats.chatPosts, accent: "bg-ops-cyan" },
-    { label: "ANON", value: stats.anonPosts, accent: "bg-ops-violet" },
-    { label: "ACHIEVEMENTS", value: stats.achievementTasks, accent: "bg-ops-green" },
-    { label: "QUIZ", value: stats.chatUsers, accent: "bg-ops-dim" },
+    { label: "CHAT", value: stats.chatPosts, color: "bg-ops-cyan", glow: "shadow-[0_0_6px_rgba(0,212,255,0.6)]" },
+    { label: "ANON", value: stats.anonPosts, color: "bg-ops-violet", glow: "shadow-[0_0_6px_rgba(139,92,246,0.6)]" },
+    { label: "ACHIEVE", value: stats.achievementTasks, color: "bg-ops-green", glow: "shadow-[0_0_6px_rgba(0,255,136,0.5)]" },
+    { label: "USERS", value: stats.chatUsers, color: "bg-ops-dim", glow: "" },
   ];
 
-  const criticalEvents: CrispCard[] = [
-    {
-      title: "NEW REPORT RECEIVED",
-      tone: "alert",
-      lines: recentReports.length
-        ? [
-            { k: "Type", v: recentReports[0].content_type ?? "post" },
-            { k: "Reason", v: recentReports[0].reason_code ?? "—" },
-            { k: "When", v: timeAgo(recentReports[0].created_at) },
-          ]
-        : [{ k: "Status", v: "قائمة فارغة" }],
-    },
-    {
-      title: "STUDY ROUND STATUS",
-      tone: "info",
-      lines: recentRounds.length
-        ? [
-            { k: "Round", v: recentRounds[0].title ?? "—" },
-            { k: "Status", v: recentRounds[0].status ?? "—" },
-            { k: "Start", v: timeAgo(recentRounds[0].starts_at) },
-          ]
-        : [{ k: "Status", v: "قائمة فارغة" }],
-    },
-  ];
+  const online =
+    workerStatus === "online"
+      ? "bg-ops-green/10 text-ops-green border-ops-green/40"
+      : workerStatus === "offline"
+        ? "bg-ops-red/10 text-ops-red border-ops-red/40"
+        : "bg-ops-amber/10 text-ops-amber border-ops-amber/40";
+  const onlineLabel = workerStatus === "online" ? "OPERATIONAL" : workerStatus === "offline" ? "OFFLINE" : "CHECKING";
 
   return (
     <div className="space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="font-mono text-lg font-bold tracking-widest text-ops-text">
-            OVERVIEW
-          </h1>
-          <p className="font-mono text-[10px] uppercase tracking-widest text-ops-dim">
-            // SYSTEM STATUS: OPERATIONAL
+          <h1 className="font-mono text-lg font-bold tracking-widest text-ops-text">OVERVIEW</h1>
+          <p className="mt-0.5 font-mono text-[10px] uppercase tracking-widest text-ops-dim">
+            // SYSTEM STATUS: {onlineLabel}
           </p>
         </div>
-      </div>
-
-      {/* CRITICAL EVENTS */}
-      <section>
-        <div className="mb-2 flex items-center gap-2">
-          <Activity className="h-3.5 w-3.5 text-ops-cyan" />
-          <span className="font-mono text-[10px] uppercase tracking-widest text-ops-cyan">
-            CRITICAL EVENTS
+        <div className="flex items-center gap-2">
+          <span className={cn("inline-flex items-center rounded-full border px-2.5 py-0.5 font-mono text-[10px]", online)}>
+            {onlineLabel}
           </span>
         </div>
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          {criticalEvents.map((ev, i) => (
-            <CriticalEventCard key={i} ev={ev} />
-          ))}
-        </div>
-      </section>
+      </div>
 
-      {/* RADAR + INTELLIGENCE */}
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-        <div className="lg:col-span-1">
-          <PlatformRadar bars={radarBars} />
-        </div>
+      <div className="grid grid-cols-1 gap-4 xl:grid-cols-3">
+        <PlatformRadar bars={radarBars} posts={stats.chatPosts + stats.anonPosts} />
 
-        <div className="lg:col-span-2 lg:col-start-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="ops-card p-4">
-            <div className="mb-3 flex items-center justify-between">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-ops-dim">Users Monitor</span>
-              <Users className="h-4 w-4 text-ops-cyan" />
-            </div>
-            <div className="font-mono text-3xl font-bold text-ops-text tabular-nums">{stats.chatUsers}</div>
-            <div className="mt-2 space-y-1 font-mono text-[11px] text-ops-dim">
-              <div className="flex justify-between"><span>ACTIVE TODAY</span><span className="text-ops-green">{stats.chatActiveToday}</span></div>
-              <div className="flex justify-between"><span>REAL-TIME FEED</span><span>{recentChat.length} posts</span></div>
-            </div>
-          </div>
-
-          <div className="ops-card p-4">
-            <div className="mb-3 flex items-center justify-between">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-ops-dim">Anonymous Monitor</span>
-              <Ghost className="h-4 w-4 text-ops-violet" />
-            </div>
-            <div className="font-mono text-3xl font-bold text-ops-text tabular-nums">{stats.anonPosts}</div>
-            <div className="mt-2 space-y-1 font-mono text-[11px] text-ops-dim">
-              <div className="flex justify-between"><span>REPORTS</span><span className="text-ops-amber">{stats.anonReportsOpen}</span></div>
-              <div className="flex justify-between"><span>BLOCKED DEVICES</span><span>{stats.anonBlocked}</span></div>
-            </div>
-          </div>
-
-          <div className="ops-card p-4">
-            <div className="mb-3 flex items-center justify-between">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-ops-dim">Study Operations</span>
-              <Timer className="h-4 w-4 text-ops-green" />
-            </div>
-            <div className="font-mono text-3xl font-bold text-ops-text tabular-nums">{stats.achievementActiveRounds}</div>
-            <div className="mt-2 space-y-1 font-mono text-[11px] text-ops-dim">
-              <div className="flex justify-between"><span>ACTIVE ROUNDS</span><span>{stats.achievementActiveRounds}</span></div>
-              <div className="flex justify-between"><span>USERS</span><span>{stats.achievementUsers}</span></div>
-            </div>
-          </div>
-
-          <div className="ops-card p-4">
-            <div className="mb-3 flex items-center justify-between">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-ops-dim">Achievement Engine</span>
-              <Trophy className="h-4 w-4 text-ops-dim" />
-            </div>
-            <div className="font-mono text-3xl font-bold text-ops-text tabular-nums">{stats.achievementTasks}</div>
-            <div className="mt-2 space-y-1 font-mono text-[11px] text-ops-dim">
-              <div className="flex justify-between"><span>ACTIVE TASKS</span><span>{stats.achievementTasks}</span></div>
-            </div>
-          </div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:col-span-2">
+          <IntelCard
+            icon={<Users className="h-4 w-4 text-ops-cyan" />}
+            accent="text-ops-cyan"
+            label="Users Monitor"
+            value={stats.chatUsers}
+            rows={[
+              { k: "ACTIVE TODAY", v: String(stats.chatActiveToday) },
+              { k: "TOTAL USERS", v: String(stats.chatUsers) },
+            ]}
+          />
+          <IntelCard
+            icon={<Ghost className="h-4 w-4 text-ops-violet" />}
+            accent="text-ops-violet"
+            label="Anonymous Monitor"
+            value={stats.anonPosts}
+            rows={[
+              { k: "REPORTS", v: String(stats.anonReportsOpen) },
+              { k: "BLOCKED", v: String(stats.anonBlocked) },
+            ]}
+          />
+          <IntelCard
+            icon={<Timer className="h-4 w-4 text-ops-green" />}
+            accent="text-ops-green"
+            label="Study Operations"
+            value={stats.achievementActiveRounds}
+            rows={[
+              { k: "OPEN ROUNDS", v: String(stats.achievementActiveRounds) },
+              { k: "USERS", v: String(stats.achievementUsers) },
+            ]}
+          />
+          <IntelCard
+            icon={<Trophy className="h-4 w-4 text-ops-dim" />}
+            accent="text-ops-text"
+            label="Achievement Engine"
+            value={stats.achievementTasks}
+            rows={[{ k: "TOTAL TASKS", v: String(stats.achievementTasks) }]}
+          />
         </div>
       </div>
 
-      {/* STATUS FOOTER */}
-      <div className="ops-panel flex items-center gap-3 p-3">
-        <span className="font-mono text-[10px] uppercase text-ops-dim">System Status</span>
-        <StatusBadge
-          status={workerStatus === "online" ? "نشط" : workerStatus === "offline" ? "مغلق" : "قيد المراجعة"}
-          mapping={{
-            "نشط": { label: "OPERATIONAL", cls: "bg-ops-green/10 text-ops-green border-ops-green/40" },
-            "مغلق": { label: "OFFLINE", cls: "bg-ops-red/10 text-ops-red border-ops-red/40" },
-            "قيد المراجعة": { label: "CHECKING", cls: "bg-ops-amber/10 text-ops-amber border-ops-amber/40" },
-          }}
-        />
-        <span className="font-mono text-[10px] text-ops-dim">SCAN: REALTIME</span>
-      </div>
+      <CriticalEvents events={events} />
     </div>
   );
 }
