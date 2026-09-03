@@ -38,3 +38,12 @@ playwright-report/
 # Email credentials (NEVER commit)
 tools/email-config.json
 tools/result-message.txt
+
+# OPS deployment secrets (local only, never commit)
+ops-worker/.secrets.local
+
+# Wrangler local state (never commit)
+ops-worker/.wrangler/
+
+# Nested git/workspace dirs (never commit)
+قسم انا مجهول/.workspace/

@@ -20,4 +20,4 @@ export const SUPABASE_PROJECTS = {
 
 // رابط الـ OPS Worker (الوسيط الإداري)
 export const OPS_WORKER_URL =
-  "https://madarik-ops.abdalrhmanmaaith1.workers.dev";
+  "https://madarik-ops.abdalrahmanmadarik.workers.dev";

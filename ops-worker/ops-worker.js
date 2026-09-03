@@ -175,14 +175,17 @@ async function handleApi(request, env) {
 async function getServices(env) {
   return {
     chat: {
+      id: "chat",
       url: CHAT_URL,
       key: env.CHAT_SERVICE_KEY,
     },
     anon: {
+      id: "anon",
       url: ANON_URL,
       key: env.ANON_SERVICE_KEY,
     },
     achievement: {
+      id: "achievement",
       url: ACHIEVEMENT_URL,
       key: env.ACHIEVEMENT_SERVICE_KEY,
     },
@@ -227,23 +230,26 @@ async function dispatch(svc, action, params) {
     case "unban_user":
       return supabaseRequest(svc, "PATCH", "profiles", { is_banned: false, chat_banned: false }, `user_id=eq.${params.user_id}`);
     case "delete_user":
+      if (svc.id === "achievement") {
+        return supabaseRequest(svc, "DELETE", "profiles", undefined, `user_id=eq.${params.user_id}`);
+      }
       return supabaseRpc(svc, "admin_delete_user", { _user_id: params.user_id });
     case "delete_post":
+      if (svc.id === "anon") {
+        return supabaseRequest(svc, "DELETE", "posts", undefined, `id=eq.${params.post_id}`);
+      }
       return supabaseRpc(svc, "hard_delete_post", { _post_id: params.post_id });
     case "approve_post":
       return supabaseRpc(svc, "approve_post", { p_post_id: params.post_id });
     case "toggle_pin":
+      if (svc.id === "anon") {
+        return supabaseRequest(svc, "PATCH", "posts", { pinned: params.pinned }, `id=eq.${params.post_id}`);
+      }
       return supabaseRequest(svc, "PATCH", "posts", { is_pinned: params.is_pinned }, `id=eq.${params.post_id}`);
-    case "cancel_round":
-      return supabaseRequest(svc, "PATCH", "study_rounds", { status: "cancelled", ended_at: new Date().toISOString() }, `id=eq.${params.round_id}`);
-
-    /* ---- ANON ---- */
-    case "delete_post":
-      return supabaseRequest(svc, "DELETE", "posts", undefined, `id=eq.${params.post_id}`);
-    case "toggle_pin":
-      return supabaseRequest(svc, "PATCH", "posts", { pinned: params.pinned }, `id=eq.${params.post_id}`);
     case "toggle_hide":
       return supabaseRequest(svc, "PATCH", "posts", { hidden: params.hidden }, `id=eq.${params.post_id}`);
+    case "cancel_round":
+      return supabaseRequest(svc, "PATCH", "study_rounds", { status: "cancelled", ended_at: new Date().toISOString() }, `id=eq.${params.round_id}`);
     case "ban_device":
       return supabaseRequest(svc, "POST", "blocked_devices", {
         device_id: params.device_id,
@@ -262,10 +268,6 @@ async function dispatch(svc, action, params) {
       return supabaseRequest(svc, "PATCH", "site_settings", { site_enabled: params.enabled, updated_at: new Date().toISOString() }, `id=eq.1`);
     case "set_chat_mode":
       return supabaseRequest(svc, "PATCH", "site_settings", { chat_mode_enabled: params.enabled, updated_at: new Date().toISOString() }, `id=eq.1`);
-
-    /* ---- ACHIEVEMENT ---- */
-    case "delete_user":
-      return supabaseRequest(svc, "DELETE", "profiles", undefined, `user_id=eq.${params.user_id}`);
     case "end_round":
       return supabaseRequest(svc, "PATCH", "rounds", { status: "ended" }, `id=eq.${params.round_id}`);
 
