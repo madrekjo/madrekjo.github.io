@@ -29,6 +29,7 @@ interface UserProfile {
   timeout_until?: string | null;
   generation?: string | null;
   field?: string | null;
+  email?: string | null;
 }
 
 interface UserRole {
@@ -513,6 +514,11 @@ const Admin = () => {
                         {u.is_banned ? "🚫 محظور" : u.chat_banned ? "🔇 محظور شات" : "✅ نشط"}
                         {inTimeout && <span className="text-amber-500">⏱ حتى {new Date(u.timeout_until!).toLocaleTimeString("ar")}</span>}
                       </div>
+                      {u.email && (
+                        <p className="text-xs text-muted-foreground mt-0.5" dir="ltr">
+                          📧 {u.email}
+                        </p>
+                      )}
                     </div>
                   </div>
                   <div className="flex gap-1 flex-wrap justify-end">
@@ -586,6 +592,9 @@ const Admin = () => {
                       {rs.includes("supervisor") && <span className="text-xs bg-purple-500/20 text-purple-600 dark:text-purple-400 rounded px-2 py-0.5">🧑‍💼 مسؤول</span>}
                       {rs.includes("rounds_manager") && <span className="text-xs bg-green-500/20 text-green-600 dark:text-green-400 rounded px-2 py-0.5">📚 مسؤول جولات</span>}
                     </div>
+                    {(u as any).email && (
+                      <p className="text-xs text-muted-foreground mt-1" dir="ltr">📧 {(u as any).email}</p>
+                    )}
                   </div>
                   {isAdmin && (
                     <Button variant="outline" size="sm" onClick={() => setRolesDialogUser({ id: u.user_id, name: u.full_name })} className="gap-1">
@@ -613,6 +622,9 @@ const Admin = () => {
                     {u.chat_banned && "🔇 محظور شات "}
                     {u.timeout_until && new Date(u.timeout_until) > new Date() && `⏱ حتى ${new Date(u.timeout_until).toLocaleString("ar")}`}
                   </p>
+                  {(u as any).email && (
+                    <p className="text-xs text-muted-foreground mt-0.5" dir="ltr">📧 {(u as any).email}</p>
+                  )}
                 </div>
                 {(isAdmin || canBanUsers || canTimeout) && (
                   <div className="flex gap-1 flex-wrap">
