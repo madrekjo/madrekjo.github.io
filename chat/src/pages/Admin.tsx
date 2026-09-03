@@ -597,9 +597,14 @@ const Admin = () => {
                     )}
                   </div>
                   {isAdmin && (
-                    <Button variant="outline" size="sm" onClick={() => setRolesDialogUser({ id: u.user_id, name: u.full_name })} className="gap-1">
-                      <ShieldCheck className="w-4 h-4" /> تعديل الرتب
-                    </Button>
+                    <div className="flex gap-1 flex-wrap justify-end">
+                      <Button variant="ghost" size="sm" onClick={() => { setRenameUserId(u.user_id); setNewName(u.full_name); }} className="gap-1" title="تغيير الاسم">
+                        <Edit2 className="w-4 h-4" /> الاسم
+                      </Button>
+                      <Button variant="outline" size="sm" onClick={() => setRolesDialogUser({ id: u.user_id, name: u.full_name })} className="gap-1">
+                        <ShieldCheck className="w-4 h-4" /> تعديل الرتب
+                      </Button>
+                    </div>
                   )}
                 </CardContent>
               </Card>
