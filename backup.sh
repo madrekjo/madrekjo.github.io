@@ -10,7 +10,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BACKUP_DIR="$ROOT/backups"
 KEY_FILE="$HOME/.config/supabase-madarek/svc.key"
-SUPABASE_URL="https://ofltanaffcxoobfvlkii.supabase.co"
+SUPABASE_URL="https://biabdoatwfteqwgjdxzc.supabase.co"
 KEEP=14
 
 TABLES="profiles user_roles role_permissions posts comments likes comment_likes suggestions suggestion_replies suggestion_likes suggestion_reply_likes support_messages notifications user_warnings banned_words banned_devices user_devices study_rounds round_participants round_chat round_meetings round_meeting_members round_meeting_messages schedules schedule_comments staff_chat round_completions admin_actions post_reports changes_messages section_locks channel_settings"

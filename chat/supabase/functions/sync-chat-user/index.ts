@@ -16,7 +16,7 @@ function json(body: unknown, status = 200) {
 async function verifyAchievementEmail(token: string, email: string): Promise<boolean> {
   try {
     const res = await fetch(`${ACHIEVEMENT_AUTH_BASE}/auth/v1/user`, {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${token}`, apikey: "sb_publishable_3mypt4J1F0sG5RD6oTSZZg_6PNgwoyY" },
     });
     if (!res.ok) return false;
     const data = await res.json();

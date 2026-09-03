@@ -16,7 +16,7 @@ function json(body: unknown, status = 200) {
 async function verifyChatEmail(token: string, email: string): Promise<boolean> {
   try {
     const res = await fetch(`${CHAT_AUTH_BASE}/auth/v1/user`, {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${token}`, apikey: "sb_publishable_V7dBpXLxsRDy9D0WdK4aig_xp5vHWJc" },
     });
     if (!res.ok) return false;
     const data = await res.json();

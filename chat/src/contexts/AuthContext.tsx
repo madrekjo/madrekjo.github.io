@@ -164,8 +164,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         // signInWithPassword نجح -> onAuthStateChange سيطلق SIGNED_IN
         // ويطبّق الجلسة تلقائياً. لا نستدعي getSession() يدوياً هنا
         // لأنه قد يتنازع على قفل gotrue مع معالجة الحدث.
-        return { ok: true };
       }
+
+      // المزامنة نجحت بالكامل: نمسح حالة siblingSync صراحةً حتى لا يبقى
+      // Dialog عرضاً بعد فتح الجلسة، أياً كان ترتيب وصول الأحداث.
+      dismissSiblingSync();
 
       return { ok: true };
     } catch (e) {
@@ -502,6 +505,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (cancelled) return;
 
       try {
+        // ننتظر استقرار تهيئة الدردشة: نتحقق من جلسة الدردشة الحالية عبر
+        // getUser() الذي يتحقق من صلاحية التوكن المخزن. إذا كان المستخدم
+        // مسجلاً في الدردشة أصلاً، لا نعرض Dialog المزامنة أبداً.
+        const {
+          data: { user: currentChatUser },
+        } = await supabase.auth.getUser();
+
+        if (cancelled) return;
+
+        if (currentChatUser?.email) {
+          console.log(
+            "[AuthContext] chat session already active, skipping sync dialog"
+          );
+          return;
+        }
+
         const achievementClient = createClient(
           SIBLING_SUPABASE_URL,
           SIBLING_SUPABASE_ANON_KEY
@@ -572,7 +591,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           if (!cancelled) finishInitialLoading();
         }, 1500);
 
-        await detectSiblingSync();
+        // نؤجّل فحص المزامنة الشقيقة قليلاً حتى يكتمل INITIAL_SESSION
+        // وتُطبَّق جلسة الدردشة (إن وُجدت). هكذا لو كان المستخدم مسجلاً
+        // في الدردشة أصلاً، لا يظهر Dialog المزامنة بتاتاً.
+        setTimeout(async () => {
+          if (cancelled) return;
+          await detectSiblingSync();
+        }, 1200);
       } catch (error) {
         if (cancelled) return;
 
