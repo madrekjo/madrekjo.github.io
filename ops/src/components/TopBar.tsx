@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { Power, Wifi, WifiOff } from "lucide-react";
+import { PlatformStats } from "@/hooks/usePlatformStats";
 
 interface Props {
   workerStatus: "checking" | "online" | "offline";
   onLogout: () => void;
+  stats: PlatformStats | null;
 }
 
-export function TopBar({ workerStatus, onLogout }: Props) {
+export function TopBar({ workerStatus, onLogout, stats }: Props) {
   const [now, setNow] = useState(new Date());
 
   useEffect(() => {
@@ -19,21 +21,59 @@ export function TopBar({ workerStatus, onLogout }: Props) {
 
   return (
     <header className="sticky top-0 z-30 border-b border-ops-border bg-ops-bg/80 backdrop-blur">
-      <div className="mx-auto flex max-w-[1600px] items-center justify-between px-4 py-2.5">
+      <div className="mx-auto flex max-w-[1600px] flex-wrap items-center justify-between gap-3 px-4 py-2.5">
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2">
-            <span className="inline-block h-2 w-2 rounded-full bg-ops-cyan animate-blink shadow-[0_0_8px_rgba(0,212,255,0.8)]" />
-            <span className="font-mono text-sm font-bold tracking-widest text-ops-cyan glow-cyan">
-              MADARIK OPS
+          <span className="inline-block h-2 w-2 rounded-full bg-ops-cyan animate-blink shadow-[0_0_8px_rgba(0,212,255,0.8)]" />
+          <div className="leading-tight">
+            <span className="font-mono text-sm font-bold tracking-[0.2em] text-ops-cyan glow-cyan">
+              MADARIK.JO
             </span>
+            <span className="ms-2 font-mono text-[10px] tracking-[0.25em] text-ops-dim">
+              CONTROL CENTER
+            </span>
+            <div className="mt-0.5 flex items-center gap-3 font-mono text-[9px] uppercase text-ops-dim">
+              <span>ROOT ACCESS</span>
+              <span>
+                LAST SYNC:{" "}
+                <span className="text-ops-green tabular-nums">{time}</span>
+              </span>
+            </div>
           </div>
-          <span className="hidden font-mono text-[10px] text-ops-dim md:inline">
-            // COMMAND CENTER
-          </span>
         </div>
 
         <div className="flex items-center gap-4">
-          <div className="flex flex-col items-end">
+          <div className="flex items-center gap-4 font-mono text-[10px]">
+            {stats && (
+              <>
+                <div className="text-center">
+                  <div className="text-base font-bold text-ops-cyan tabular-nums">
+                    {stats.chatActiveToday}
+                  </div>
+                  <div className="text-[8px] uppercase tracking-widest text-ops-dim">
+                    Active Users
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="text-base font-bold text-ops-amber tabular-nums">
+                    {stats.anonReportsOpen}
+                  </div>
+                  <div className="text-[8px] uppercase tracking-widest text-ops-dim">
+                    Reports
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="text-base font-bold text-ops-green tabular-nums">
+                    {stats.achievementActiveRounds}
+                  </div>
+                  <div className="text-[8px] uppercase tracking-widest text-ops-dim">
+                    Open Rounds
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+
+          <div className="hidden md:flex flex-col items-end">
             <span className="font-mono text-sm font-bold text-ops-green tabular-nums">
               {time}
             </span>
@@ -44,7 +84,7 @@ export function TopBar({ workerStatus, onLogout }: Props) {
             {workerStatus === "online" ? (
               <>
                 <Wifi className="h-3.5 w-3.5 text-ops-green" />
-                <span className="font-mono text-[10px] text-ops-green">ONLINE</span>
+                <span className="font-mono text-[10px] text-ops-green">OPERATIONAL</span>
               </>
             ) : workerStatus === "offline" ? (
               <>
