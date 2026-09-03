@@ -59,28 +59,20 @@ const NotificationBell = () => {
   };
 
   useEffect(() => {
-    fetchNotifications();
-
     if (!user) return;
-    const channel = supabase
-      .channel("notifications-realtime")
-      .on("postgres_changes", {
-        event: "INSERT",
-        schema: "public",
-        table: "notifications",
-        filter: `user_id=eq.${user.id}`,
-      }, () => {
-        fetchNotifications();
-      })
-      .subscribe();
-
-    return () => { supabase.removeChannel(channel); };
+    // لا Realtime هنا — الإشعارات تُجلب فقط عند فتح الجرس
   }, [user]);
 
-  const unreadCount = notifications.filter(n => !n.is_read).length;
+  const handleTooltipOpen = async (o: boolean) => {
+    setOpen(o);
+    if (o) {
+      await fetchNotifications();
+      markAllRead();
+    }
+  };
 
   const markAllRead = async () => {
-    if (!user || unreadCount === 0) return;
+    if (!user) return;
     await supabase
       .from("notifications")
       .update({ is_read: true })
@@ -88,6 +80,8 @@ const NotificationBell = () => {
       .eq("is_read", false);
     setNotifications(prev => prev.map(n => ({ ...n, is_read: true })));
   };
+
+  const unreadCount = notifications.filter(n => !n.is_read).length;
 
   const handleNotificationClick = (n: Notification) => {
     if (n.type === "support_reply") {
@@ -124,7 +118,7 @@ const NotificationBell = () => {
   if (!user) return null;
 
   return (
-    <Popover open={open} onOpenChange={(o) => { setOpen(o); if (o) markAllRead(); }}>
+    <Popover open={open} onOpenChange={handleTooltipOpen}>
       <PopoverTrigger asChild>
         <Button variant="ghost" size="icon" className="relative">
           <Bell className="w-5 h-5" />

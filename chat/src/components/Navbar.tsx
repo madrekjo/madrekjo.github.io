@@ -83,37 +83,23 @@ const Navbar = () => {
     }
   };
 
+  const fetchCounts = async () => {
+    // Only fetch if not currently on that page
+    if (isStaff && location.pathname !== "/suggestions") {
+      const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
+      const { count: sugCount } = await supabase
+        .from("suggestions")
+        .select("*", { count: "exact", head: true })
+        .gte("created_at", oneDayAgo);
+      setUnreadSuggestions(sugCount || 0);
+    }
+    await fetchSupportCounts();
+  };
+
   useEffect(() => {
-    const fetchCounts = async () => {
-      // Only fetch if not currently on that page
-      if (isStaff && location.pathname !== "/suggestions") {
-        const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
-        const { count: sugCount } = await supabase
-          .from("suggestions")
-          .select("*", { count: "exact", head: true })
-          .gte("created_at", oneDayAgo);
-        setUnreadSuggestions(sugCount || 0);
-      }
-      await fetchSupportCounts();
-    };
-
     fetchCounts();
-
-    const ch1 = supabase
-      .channel("nav-suggestions")
-      .on("postgres_changes", { event: "INSERT", schema: "public", table: "suggestions" }, () => fetchCounts())
-      .subscribe();
-
-    const ch2 = supabase
-      .channel("nav-support")
-      .on("postgres_changes", { event: "*", schema: "public", table: "support_messages" }, () => fetchCounts())
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(ch1);
-      supabase.removeChannel(ch2);
-    };
-  }, [isStaff, location.pathname, user?.id]);
+    // لا Realtime هنا — العدادات تُجلب عند فتح الصفحة/تغيير المسار فقط لتقليل الاستنزاف
+  }, [location.pathname, isStaff, user?.id]);
 
   const Badge = ({ count }: { count: number }) => {
     if (count <= 0) return null;
