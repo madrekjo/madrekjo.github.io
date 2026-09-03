@@ -10,7 +10,7 @@ import PointsDisplay from "@/components/PointsDisplay";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Send, Image as ImageIcon, Video, Loader2, Lock } from "lucide-react";
+import { Send, Image as ImageIcon, Video, Loader2, Lock, RefreshCw } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { compressMedia } from "@/lib/mediaCompression";
 import { uploadToCloudinary } from "@/lib/cloudinary";
@@ -69,6 +69,7 @@ const Chat = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [posting, setPosting] = useState(false);
@@ -86,31 +87,12 @@ const Chat = () => {
   const [sectionLocks, setSectionLocks] = useState<Record<string, boolean>>({});
 
   const myGen = profile?.generation as string | null;
-  const channelFilterRef = useRef<string>("all");
   const userPickedChannel = useRef(false);
-  const loadedPostIdsRef = useRef<Set<string>>(new Set());
-  useEffect(() => { channelFilterRef.current = channelFilter; }, [channelFilter]);
-  useEffect(() => { loadedPostIdsRef.current = new Set(posts.map(p => p.id)); }, [posts]);
-
-  const upsertComment = (comments: Post["comments"], comment: Post["comments"][number]): Post["comments"] => {
-    const idx = comments.findIndex(c => c.id === comment.id);
-    if (idx === -1) return [...comments, comment];
-    const next = [...comments];
-    next[idx] = comment;
-    return next;
-  };
 
   const sortPosts = (a: any, b: any) => {
     if (a.is_pinned && !b.is_pinned) return -1;
     if (!a.is_pinned && b.is_pinned) return 1;
     return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
-  };
-
-  const postMatchesFilter = (channel: string | null | undefined) => {
-    const filter = channelFilterRef.current;
-    const ch = channel || "all";
-    if (filter === "all") return ch === "all";
-    return ch === filter || ch === "all";
   };
 
   const fetchPosts = useCallback(async (offset = 0, append = false) => {
@@ -239,22 +221,6 @@ const Chat = () => {
     }
   }, []);
 
-  const refreshSingleComment = useCallback(async (commentId: string) => {
-    if (!commentId) return;
-    try {
-      const { data: comment, error } = await supabase
-        .from("comments")
-        .select("id, post_id, content, user_id, parent_comment_id, created_at, is_pinned, profiles:profiles!comments_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
-        .eq("id", commentId)
-        .eq("deleted_at", null)
-        .maybeSingle();
-      if (error || !comment) return;
-      setPosts(prev => prev.map(p => (p.id === comment.post_id ? { ...p, comments: upsertComment(p.comments, comment) } : p)));
-    } catch {
-      // تجاهل — عند فشل الجلب يبقى الوضع السابق
-    }
-  }, []);
-
   const sectionKeyFor = (ch: string) =>
     ch === "all" ? "chat_all" : ch === "09" ? "chat_09" : ch === "10" ? "chat_10" : null;
 
@@ -265,97 +231,20 @@ const Chat = () => {
     return !(channelSettings[key] ?? true);
   };
 
+  const handleRefresh = useCallback(async () => {
+    setRefreshing(true);
+    await fetchPosts(0, false);
+    setRefreshing(false);
+  }, [fetchPosts]);
+
   useEffect(() => {
     if (shouldShowSalawat()) setShowSalawat(true);
     loadBannedWords();
     fetchPosts(0, false);
     fetchChannelSettings();
     fetchSectionLocks();
-
-    const channel = supabase
-      .channel("posts-realtime")
-      .on("postgres_changes", { event: "INSERT", schema: "public", table: "posts" }, async (payload: any) => {
-        const row = payload.new;
-        if (!row?.id || !postMatchesFilter(row.channel)) return;
-        // منشور جديد → نباني من بيانات الـ payload مباشرة (بدل 3 استعلامات cascade).
-        const already = loadedPostIdsRef.current.has(row.id);
-        if (already) return;
-        try {
-          const { data: p } = await supabase
-            .from("posts")
-            .select("*, profiles!posts_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
-            .is("deleted_at", null)
-            .eq("id", row.id)
-            .maybeSingle();
-          if (!p) return;
-          const cleaned = { ...p, likes: [], comments: [] } as unknown as Post;
-          setPosts(prev => (prev.some(x => x.id === cleaned.id)
-            ? prev.map(x => (x.id === cleaned.id ? cleaned : x))
-            : [cleaned, ...prev]).sort(sortPosts));
-        } catch {
-          /* ignore */
-        }
-      })
-      .on("postgres_changes", { event: "UPDATE", schema: "public", table: "posts" }, (payload: any) => {
-        const row = payload.new;
-        if (!row?.id) return;
-        if (row.deleted_at) {
-          setPosts(prev => prev.filter(p => p.id !== row.id));
-          return;
-        }
-        // تعديل منشور → ندمج حقول payload مع القائمة الحالية بلا أي استعلام
-        setPosts(prev => prev.map(p => (p.id === row.id
-          ? { ...p, content: row.content, is_pinned: row.is_pinned, status: row.status, channel: row.channel, image_url: row.image_url, image_urls: row.image_urls, video_url: row.video_url, updated_at: row.updated_at }
-          : p)));
-      })
-      .on("postgres_changes", { event: "DELETE", schema: "public", table: "posts" }, (payload: any) => {
-        const id = payload.old?.id ?? payload.new?.id;
-        if (id) setPosts(prev => prev.filter(p => p.id !== id));
-      })
-      .on("postgres_changes", { event: "INSERT", schema: "public", table: "comments" }, (payload: any) => {
-        const row = payload.new;
-        if (!row?.id || !row?.post_id) return;
-        // نحدّث التعليق فقط إذا كان منشوره محمّلاً أصلاً (نتجنّب طلب بلا فائدة)
-        if (!loadedPostIdsRef.current.has(row.post_id)) return;
-        refreshSingleComment(row.id);
-      })
-      .on("postgres_changes", { event: "UPDATE", schema: "public", table: "comments" }, (payload: any) => {
-        const row = payload.new;
-        if (!row?.id) return;
-        if (row.deleted_at) {
-          setPosts(prev => prev.map(p => ({ ...p, comments: p.comments.filter(c => c.id !== row.id) })));
-          return;
-        }
-        setPosts(prev => prev.map(p => ({
-          ...p,
-          comments: p.comments.map(c => (c.id === row.id ? { ...c, content: row.content, is_pinned: row.is_pinned } : c)),
-        })));
-      })
-      .on("postgres_changes", { event: "DELETE", schema: "public", table: "comments" }, (payload: any) => {
-        const id = payload.old?.id ?? payload.new?.id;
-        if (!id) return;
-        setPosts(prev => prev.map(p => ({ ...p, comments: p.comments.filter(c => c.id !== id && c.parent_comment_id !== id) })));
-      })
-      .on("postgres_changes", { event: "INSERT", schema: "public", table: "likes" }, (payload: any) => {
-        const row = payload.new;
-        if (!row?.post_id || !row?.user_id) return;
-        setPosts(prev => prev.map(p => (p.id === row.post_id && !p.likes.some(l => l.user_id === row.user_id)
-          ? { ...p, likes: [...p.likes, { user_id: row.user_id }] }
-          : p)));
-      })
-      .on("postgres_changes", { event: "DELETE", schema: "public", table: "likes" }, (payload: any) => {
-        const row = payload.old;
-        if (!row?.post_id || !row?.user_id) return;
-        setPosts(prev => prev.map(p => (p.id === row.post_id
-          ? { ...p, likes: p.likes.filter(l => l.user_id !== row.user_id) }
-          : p)));
-      })
-      .on("postgres_changes", { event: "*", schema: "public", table: "section_locks" }, () => { fetchSectionLocks(); })
-      .on("postgres_changes", { event: "*", schema: "public", table: "channel_settings" }, () => { fetchChannelSettings(); })
-      .subscribe();
-
-    return () => { supabase.removeChannel(channel); };
-  }, [fetchPosts, fetchChannelSettings, fetchSectionLocks, refreshPost, refreshSingleComment]);
+    // لا Realtime هنا — جلب يدوي (زر تحديث) لتقليل استنزاف القاعدة كثيراً
+  }, [fetchPosts, fetchChannelSettings, fetchSectionLocks]);
 
   useEffect(() => {
     if (highlightPostId && !hasScrolled.current && posts.length > 0) {
@@ -641,6 +530,16 @@ const Chat = () => {
             {opt.label}
           </button>
         ))}
+        <Button
+          variant="ghost"
+          size="sm"
+          className="ms-auto"
+          onClick={() => void handleRefresh()}
+          disabled={refreshing || loading}
+          title="تحديث المنشورات"
+        >
+          <RefreshCw className={`w-3.5 h-3.5 ${refreshing ? "animate-spin" : ""}`} />
+        </Button>
       </div>
 
       {/* Locked current-channel message */}

@@ -63,6 +63,10 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 const REQUEST_TIMEOUT_MS = 3000;
 const INITIAL_AUTH_TIMEOUT_MS = 30000;
 
+// جدول الصلاحيات (role_permissions) إعداد عام ثابت لا يتبدل إلا نادراً.
+// نُخزّنه مرّة واحدة في الجلسة بدل جلبه كاملاً عند كل تسجيل دخول/تحديث رمز.
+let cachedRolePermissions: any[] | null = null;
+
 /**
  * Executes a promise with a timeout.
  *
@@ -200,14 +204,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             5000
           ),
 
-          withTimeout(
-            (supabase as any)
-              .from("role_permissions")
-              .select("*"),
-            { data: [], error: null } as any,
-            5000
+          // جلب جدول الصلاحيات مرة واحدة فقط (إعداد عام ثابت) بدل كل @دخول
+          Promise.resolve(
+            cachedRolePermissions
+              ? ({ data: cachedRolePermissions } as any)
+              : withTimeout(
+                  (supabase as any)
+                    .from("role_permissions")
+                    .select("*"),
+                  { data: [], error: null } as any,
+                  5000
+                )
           ),
         ]);
+
+      if (permData && !cachedRolePermissions) {
+        cachedRolePermissions = permData;
+      }
 
       setProfile(data || null);
 
