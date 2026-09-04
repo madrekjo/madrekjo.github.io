@@ -39,7 +39,7 @@ const Schedules = () => {
 
   useEffect(() => {
     fetchAll();
-    const poll = setInterval(fetchAll, 60000);
+    const poll = setInterval(fetchAll, 120000);
     return () => { clearInterval(poll); };
   }, []);
 

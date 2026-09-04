@@ -59,7 +59,7 @@ const SectionGate = ({ section, title, children }: Props) => {
       setLock(data || null);
     };
     fetchLock();
-    const poll = setInterval(fetchLock, 60000);
+    const poll = setInterval(fetchLock, 120000);
     return () => { clearInterval(poll); };
   }, [section]);
 

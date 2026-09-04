@@ -87,11 +87,18 @@ const Rounds = () => {
 
   const isStaff = isAdmin || isModerator;
 
+  // يُخزَّن المشاركون والبروفايلات خارج قائمة الجولات حتى لا يُعاد جلبها كل استطلاع.
+  // تُجلب فقط على فترات بطيئة (5 دقائق) وعند الانضمام/الخروج فقط — لتقليل استهلاك القاعدة.
+  const detailCache = useRef<{ parts: any[]; profiles: any[] }>({ parts: [], profiles: [] });
+
   useEffect(() => {
     fetchRounds();
     fetchMeetings();
-    const poll = setInterval(() => { fetchRounds(); fetchMeetings(); }, 30000);
-    return () => { clearInterval(poll); };
+    // استطلاع سريع: قائمة الجولات القصيرة فقط (بدون المشاركين/البروفايلات)
+    const poll = setInterval(() => { fetchRounds(); }, 30000);
+    // جلب التفاصيل (المشاركين + البروفايلات) على فترات بطيئة
+    const detailTimer = setInterval(() => { fetchRoundsDetail(); }, 300000);
+    return () => { clearInterval(poll); clearInterval(detailTimer); };
   }, [user?.id]);
 
   useEffect(() => {
@@ -112,22 +119,13 @@ const Rounds = () => {
         .from("study_rounds").select("id, user_id, title, description, duration_minutes, break_enabled, break_interval_minutes, break_duration_minutes, started_at, ended_at, status, created_at").order("created_at", { ascending: false }).limit(100);
       if (error) throw error;
       if (!roundsData) return;
-      const roundIds = roundsData.map((r: any) => r.id);
-      const userIds = Array.from(new Set(roundsData.map((r: any) => r.user_id)));
-      const { data: parts } = roundIds.length
-        ? await (supabase as any).from("round_participants").select("round_id, user_id").in("round_id", roundIds)
-        : { data: [] };
-      const partUserIds = Array.from(new Set((parts || []).map((p: any) => p.user_id)));
-      const allUserIds = Array.from(new Set([...userIds, ...partUserIds]));
-      const { data: profiles } = allUserIds.length
-        ? await supabase.from("profiles").select("user_id, full_name, avatar_url").in("user_id", allUserIds as string[])
-        : { data: [] };
+      const { parts, profiles } = detailCache.current;
       const enriched: Round[] = roundsData.map((r: any) => ({
         ...r,
-        profile: profiles?.find(p => p.user_id === r.user_id) || null,
+        profile: profiles?.find((p: any) => p.user_id === r.user_id) || null,
         participants: (parts || [])
           .filter((p: any) => p.round_id === r.id)
-          .map((p: any) => ({ user_id: p.user_id, profile: profiles?.find(pr => pr.user_id === p.user_id) || null })),
+          .map((p: any) => ({ user_id: p.user_id, profile: profiles?.find((pr: any) => pr.user_id === p.user_id) || null })),
       }));
       setRounds(enriched);
     } catch (err) {
@@ -137,6 +135,45 @@ const Rounds = () => {
       setLoading(false);
     }
   };
+
+  // يُجلب المشاركون والبروفايلات ببطء (مرة كل 5 دقائق وعند الانضمام/الخروج) ويُخزَّن في الكاش
+  const fetchRoundsDetail = async () => {
+    try {
+      // نجلب قائمة الجولات الحالية بأنفسنا بدلاً من الاعتماد على حالة `rounds` (حتى تعمل أول دخول)
+      let roundIds: string[] = [];
+      let userIds: string[] = [];
+      const { data: brief } = await (supabase as any)
+        .from("study_rounds").select("id, user_id").limit(100);
+      if (brief) {
+        roundIds = (brief as any[]).map(r => r.id);
+        userIds = Array.from(new Set((brief as any[]).map(r => r.user_id)));
+      }
+      const { data: parts } = roundIds.length
+        ? await (supabase as any).from("round_participants").select("round_id, user_id").in("round_id", roundIds)
+        : { data: [] };
+      const partUserIds = Array.from(new Set((parts || []).map((p: any) => p.user_id)));
+      const allUserIds = Array.from(new Set([...userIds, ...partUserIds]));
+      const { data: profiles } = allUserIds.length
+        ? await supabase.from("profiles").select("user_id, full_name, avatar_url").in("user_id", allUserIds as string[])
+        : { data: [] };
+      detailCache.current = { parts: parts || [], profiles: profiles || [] };
+      setRounds(prev => prev.map((r: any) => ({
+        ...r,
+        profile: (profiles || []).find((p: any) => p.user_id === r.user_id) || null,
+        participants: (parts || [])
+          .filter((p: any) => p.round_id === r.id)
+          .map((p: any) => ({ user_id: p.user_id, profile: (profiles || []).find((pr: any) => pr.user_id === p.user_id) || null })),
+      })));
+    } catch (err) {
+      console.error("Failed to load rounds detail", err);
+    }
+  };
+
+  // جلب التفاصيل مرة أولى عند الدخول
+  useEffect(() => {
+    fetchRoundsDetail();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.id]);
 
   const fetchMeetings = async () => {
     const { data } = await (supabase as any).from("round_meetings").select("id, owner_id, title").order("created_at", { ascending: false });
@@ -303,17 +340,17 @@ const Rounds = () => {
   const handleJoin = async (roundId: string) => {
     if (!user) return;
     const { error } = await (supabase as any).from("round_participants").insert({ round_id: roundId, user_id: user.id });
-    if (error) toast.error("فشل الانضمام"); else { toast.success("انضممت للجولة"); fetchRounds(); }
+    if (error) toast.error("فشل الانضمام"); else { toast.success("انضممت للجولة"); await fetchRoundsDetail(); fetchRounds(); }
   };
   const handleLeave = async (roundId: string) => {
     if (!user) return;
     const { error } = await (supabase as any).from("round_participants").delete().eq("round_id", roundId).eq("user_id", user.id);
-    if (error) toast.error("فشل الخروج"); else { toast.success("خرجت من الجولة"); fetchRounds(); }
+    if (error) toast.error("فشل الخروج"); else { toast.success("خرجت من الجولة"); await fetchRoundsDetail(); fetchRounds(); }
   };
   const handleKick = async (roundId: string, uid: string) => {
     if (!confirm("طرد هذا المستخدم؟")) return;
     const { error } = await (supabase as any).from("round_participants").delete().eq("round_id", roundId).eq("user_id", uid);
-    if (error) toast.error("فشل الطرد"); else { toast.success("تم الطرد"); fetchRounds(); setViewingRound(null); }
+    if (error) toast.error("فشل الطرد"); else { toast.success("تم الطرد"); await fetchRoundsDetail(); fetchRounds(); setViewingRound(null); }
   };
   const handleDelete = async (roundId: string) => {
     if (!confirm("حذف الجولة؟")) return;

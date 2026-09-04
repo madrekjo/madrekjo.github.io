@@ -36,7 +36,7 @@ const StaffMeeting = () => {
   useEffect(() => {
     if (!isStaff) return;
     fetchMessages();
-    const poll = setInterval(fetchMessages, 30000);
+    const poll = setInterval(fetchMessages, 60000);
     return () => { clearInterval(poll); };
   }, [isStaff]);
 
