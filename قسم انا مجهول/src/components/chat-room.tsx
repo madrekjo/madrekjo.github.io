@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ChangeEvent } from "react";
+import { useCallback, useEffect, useRef, useState, type ChangeEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { getDeviceId } from "@/lib/device";
 import { getProfile, setProfile, type ChatProfile } from "@/lib/profile";
@@ -235,7 +235,12 @@ function CommentNode({ c, all, profile }: { c: ChatComment; all: ChatComment[]; 
   );
 }
 
-function PostCard({ post, profile, mutedSet }: { post: ChatPost; profile: ChatProfile; mutedSet: Set<string> }) {
+type PostRealtimeReg = { postId: string; refreshComments: () => void; refreshLikes: () => void };
+
+function PostCard({ post, profile, mutedSet, realtimeReg }: {
+  post: ChatPost; profile: ChatProfile; mutedSet: Set<string>;
+  realtimeReg: (reg: PostRealtimeReg) => void;
+}) {
   const isAdminPost = post.is_admin;
   const { isAdmin } = useAuth();
   const [comments, setComments] = useState<ChatComment[]>([]);
@@ -268,11 +273,8 @@ function PostCard({ post, profile, mutedSet }: { post: ChatPost; profile: ChatPr
 
   useEffect(() => {
     loadComments(); loadLikes();
-    const ch = supabase.channel(`cp-${post.id}`)
-      .on("postgres_changes", { event: "*", schema: "public", table: "chat_comments", filter: `post_id=eq.${post.id}` }, loadComments)
-      .on("postgres_changes", { event: "*", schema: "public", table: "chat_likes", filter: `post_id=eq.${post.id}` }, loadLikes)
-      .subscribe();
-    return () => { supabase.removeChannel(ch); };
+    realtimeReg({ postId: post.id, refreshComments: loadComments, refreshLikes: loadLikes });
+    return () => realtimeReg(null as unknown as PostRealtimeReg);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [post.id]);
 
