@@ -40,7 +40,7 @@ const Notifications = () => {
     if (append) setLoadingMore(true);
     const { data, error } = await supabase
       .from("notifications")
-      .select("*")
+      .select("id, user_id, actor_id, type, post_id, comment_id, is_read, created_at")
       .eq("user_id", user.id)
       .order("created_at", { ascending: false })
       .range(offset, offset + BATCH - 1);
@@ -51,14 +51,7 @@ const Notifications = () => {
       .select("user_id, full_name, avatar_url")
       .in("user_id", actorIds);
     const map = new Map(profiles?.map(p => [p.user_id, p]) || []);
-    const { data: allMentions } = await supabase
-      .from("post_mentions")
-      .select("actor_id, post_id, comment_id")
-      .eq("is_all", true);
-    const allSet = new Set(allMentions?.map(r => `${r.actor_id}|${r.post_id}|${r.comment_id}`) || []);
-    const enriched = data.map(n => ({ ...n, actor_profile: map.get(n.actor_id) || null,
-      is_all: n.type === "mention" && allSet.has(`${n.actor_id}|${n.post_id}|${n.comment_id}`)
-    }));
+    const enriched = data.map(n => ({ ...n, actor_profile: map.get(n.actor_id) || null, is_all: false }));
     setNotifications(prev => append ? dedupe([...prev, ...enriched]) : enriched);
     setHasMore(data.length === BATCH);
     if (append) setLoadingMore(false); else setLoading(false);

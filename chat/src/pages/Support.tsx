@@ -77,14 +77,22 @@ const Support = () => {
 
   useEffect(() => {
     fetchMessages();
+    let debounceTimer: ReturnType<typeof setTimeout> | null = null;
+    const debouncedFetch = () => {
+      if (debounceTimer) clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => { fetchMessages(); }, 2000);
+    };
     const channel = supabase
       .channel("support-realtime")
-      .on("postgres_changes", { event: "*", schema: "public", table: "support_messages" }, () => {
-        fetchMessages();
-      })
+      .on("postgres_changes", {
+        event: "*",
+        schema: "public",
+        table: "support_messages",
+        filter: isStaff ? undefined : `user_id=eq.${user?.id || ""}`,
+      }, debouncedFetch)
       .subscribe();
-    return () => { supabase.removeChannel(channel); };
-  }, []);
+    return () => { if (debounceTimer) clearTimeout(debounceTimer); supabase.removeChannel(channel); };
+  }, [user?.id, isStaff]);
 
   const newAdminRepliesLocal = messages.filter(m => m.user_id === user?.id && m.sender_id !== user?.id && !m.is_read).length;
 
@@ -108,7 +116,7 @@ const Support = () => {
   const fetchMessages = async () => {
     const { data, error } = await (supabase as any)
       .from("support_messages")
-      .select("*")
+      .select("id, user_id, sender_id, content, image_urls, is_read, created_at")
       .order("created_at", { ascending: true });
 
     if (!error && data) {

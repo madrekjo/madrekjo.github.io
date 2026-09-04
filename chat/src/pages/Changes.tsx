@@ -35,7 +35,7 @@ const ChannelChat = ({ category }: { category: "change" | "motivation" }) => {
   const fetchMsgs = async () => {
     try {
       const { data, error } = await (supabase as any)
-        .from("changes_messages").select("*")
+        .from("changes_messages").select("id, user_id, category, content, created_at")
         .eq("category", category).order("created_at", { ascending: false }).limit(200);
       if (error) throw error;
       const rows = [...(data || [])].reverse();

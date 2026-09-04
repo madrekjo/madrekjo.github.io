@@ -59,11 +59,8 @@ const SectionGate = ({ section, title, children }: Props) => {
       setLock(data || null);
     };
     fetchLock();
-    const ch = supabase
-      .channel(`lock-${section}`)
-      .on("postgres_changes", { event: "*", schema: "public", table: "section_locks" }, fetchLock)
-      .subscribe();
-    return () => { supabase.removeChannel(ch); };
+    const poll = setInterval(fetchLock, 60000);
+    return () => { clearInterval(poll); };
   }, [section]);
 
   const isLocked = lock?.locked && (!lock.locked_until || new Date(lock.locked_until) > new Date());

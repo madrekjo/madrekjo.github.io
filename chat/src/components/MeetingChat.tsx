@@ -37,7 +37,7 @@ const MeetingChat = ({ meetingId, ownerId, title, onClose }: { meetingId: string
 
   const fetchAll = async () => {
     const [{ data: mData }, { data: memData }] = await Promise.all([
-      (supabase as any).from("round_meeting_messages").select("*").eq("meeting_id", meetingId).order("created_at", { ascending: true }),
+      (supabase as any).from("round_meeting_messages").select("id, meeting_id, user_id, content, image_url, created_at").eq("meeting_id", meetingId).order("created_at", { ascending: true }),
       (supabase as any).from("round_meeting_members").select("user_id").eq("meeting_id", meetingId),
     ]);
     const userIds = new Set<string>([ownerId]);

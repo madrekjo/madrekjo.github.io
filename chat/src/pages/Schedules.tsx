@@ -39,18 +39,15 @@ const Schedules = () => {
 
   useEffect(() => {
     fetchAll();
-    const ch = supabase.channel("schedules-realtime")
-      .on("postgres_changes", { event: "*", schema: "public", table: "schedules" }, fetchAll)
-      .on("postgres_changes", { event: "*", schema: "public", table: "schedule_comments" }, fetchAll)
-      .subscribe();
-    return () => { supabase.removeChannel(ch); };
+    const poll = setInterval(fetchAll, 60000);
+    return () => { clearInterval(poll); };
   }, []);
 
   const fetchAll = async () => {
     try {
       const { data: schs, error: schErr } = await (supabase as any)
         .from("schedules")
-        .select("*")
+        .select("id, user_id, title, image_url, is_pinned, created_at")
         .order("is_pinned", { ascending: false })
         .order("created_at", { ascending: false })
         .limit(50);
@@ -59,7 +56,7 @@ const Schedules = () => {
       const { data: cmts } = scheduleIds.length
         ? await (supabase as any)
             .from("schedule_comments")
-            .select("*")
+            .select("id, schedule_id, user_id, content, is_pinned, created_at")
             .in("schedule_id", scheduleIds)
             .order("is_pinned", { ascending: false })
             .order("created_at", { ascending: true })

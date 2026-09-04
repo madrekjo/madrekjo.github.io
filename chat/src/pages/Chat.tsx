@@ -85,6 +85,8 @@ const Chat = () => {
   const [showSalawat, setShowSalawat] = useState(false);
   const [channelSettings, setChannelSettings] = useState<Record<string, boolean>>({ all: true, male: true, female: true, "09": true, "10": true });
   const [sectionLocks, setSectionLocks] = useState<Record<string, boolean>>({});
+  const [adminUserIds, setAdminUserIds] = useState<Set<string>>(new Set());
+  const [batchCommentLikes, setBatchCommentLikes] = useState<Record<string, { count: number; liked: boolean }>>({});
 
   const myGen = profile?.generation as string | null;
   const userPickedChannel = useRef(false);
@@ -113,7 +115,6 @@ const Chat = () => {
       let { data: rows, error } = await query.range(offset, offset + PAGE_SIZE - 1);
 
       if (error) {
-        // عمود channel لسه ما موجود بقاعدة البيانات → نرجع للجلب الكامل مؤقتاً
         const { data: rows2, error: err2 } = await supabase
           .from("posts")
           .select("*, profiles!posts_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
@@ -149,6 +150,33 @@ const Chat = () => {
       const sorted = cleaned.sort(sortPosts);
       setPosts(prev => append ? [...prev, ...sorted] : sorted);
       setHasMore(baseRows.length === PAGE_SIZE);
+
+      // Batch fetch: admin roles + comment likes (once per page load)
+      if (postIds.length > 0) {
+        const allUserIds = Array.from(new Set(baseRows.map(p => p.user_id)));
+        const allCommentIds = (commentsRes.data || []).map((c: any) => c.id);
+        const [rolesRes, clikesRes] = await Promise.all([
+          allUserIds.length
+            ? supabase.from("user_roles").select("user_id, role").in("user_id", allUserIds)
+            : { data: [] },
+          allCommentIds.length
+            ? supabase.from("comment_likes").select("comment_id, user_id").in("comment_id", allCommentIds)
+            : { data: [] },
+        ]);
+        const adminSet = new Set(
+          (rolesRes.data || []).filter((r: any) => r.role === "admin").map((r: any) => r.user_id)
+        );
+        setAdminUserIds(adminSet);
+        const clikesMap: Record<string, { count: number; liked: boolean }> = {};
+        allCommentIds.forEach(cid => {
+          const likes = (clikesRes.data || []).filter((l: any) => l.comment_id === cid);
+          clikesMap[cid] = {
+            count: likes.length,
+            liked: user ? likes.some((l: any) => l.user_id === user.id) : false,
+          };
+        });
+        setBatchCommentLikes(clikesMap);
+      }
     } catch (err) {
       console.error("Failed to load chat posts", err);
       toast.error("تعذر تحميل الدردشة، حاول تحديث الصفحة");
@@ -158,7 +186,7 @@ const Chat = () => {
       setLoading(false);
       setLoadingMore(false);
     }
-  }, [channelFilter]);
+  }, [channelFilter, user]);
 
   const fetchChannelSettings = useCallback(async () => {
     const { data } = await supabase.from("channel_settings" as any).select("*");
@@ -572,6 +600,8 @@ const Chat = () => {
                 post={post}
                 onRefresh={() => refreshPost(post.id)}
                 highlight={post.id === highlightPostId}
+                authorIsAdmin={adminUserIds.has(post.user_id)}
+                commentLikes={batchCommentLikes}
               />
             ))}
           {hasMore && (

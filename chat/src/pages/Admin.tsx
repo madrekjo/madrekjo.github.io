@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { toast } from "sonner";
-import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, Lock, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key, Activity, Clock, KeyRound, Copy, Loader2 } from "lucide-react";
+import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, Lock, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key, Clock, KeyRound, Copy, Loader2 } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { Navigate, Link } from "react-router-dom";
@@ -17,7 +17,6 @@ import BanDialog from "@/components/BanDialog";
 import RolesDialog from "@/components/RolesDialog";
 import PermissionsPanel from "@/components/PermissionsPanel";
 import AdminReportsPanel from "@/components/AdminReportsPanel";
-import ActivityPanel from "@/components/ActivityPanel";
 
 interface UserProfile {
   id: string;
@@ -64,7 +63,6 @@ const Admin = () => {
   const [pendingReports, setPendingReports] = useState(0);
   const [banDialogUser, setBanDialogUser] = useState<string | null>(null);
   const [rolesDialogUser, setRolesDialogUser] = useState<{ id: string; name: string } | null>(null);
-  const [showActivity, setShowActivity] = useState(false);
   const [channelSettings, setChannelSettings] = useState<Record<string, boolean>>({ all: true, male: true, female: true, "09": true, "10": true });
   const [pendingPosts, setPendingPosts] = useState<any[]>([]);
   const [pendingCount, setPendingCount] = useState(0);
@@ -221,7 +219,7 @@ const Admin = () => {
   };
 
   const fetchUsers = async () => {
-    const { data } = await supabase.from("profiles").select("*").order("created_at", { ascending: true });
+    const { data } = await supabase.from("profiles").select("id, user_id, full_name, avatar_url, is_banned, chat_banned, timeout_until, generation, field, gender, theme, created_at, via_invite, email").order("created_at", { ascending: true });
     if (data) setUsers(data);
   };
   const fetchDeleted = async () => {
@@ -373,21 +371,6 @@ const Admin = () => {
         <Shield className="w-6 h-6 text-primary" />
         <h1 className="text-2xl font-bold">{isAdmin ? "لوحة الإدارة" : isModerator ? "لوحة المشرف" : "لوحة المسؤول"}</h1>
       </div>
-
-      {isAdmin && (
-        <div className="mb-4">
-          <Button variant={showActivity ? "default" : "outline"} onClick={() => setShowActivity(!showActivity)} className="gap-2 w-full">
-            <Activity className="w-4 h-4" />
-            {showActivity ? "إخفاء النشاط والمتصلين" : "عرض النشاط والمتصلين"}
-          </Button>
-        </div>
-      )}
-
-      {isAdmin && showActivity && (
-        <div className="mb-4">
-          <ActivityPanel onClose={() => setShowActivity(false)} />
-        </div>
-      )}
 
       <Link to="/staff-meeting" className="block mb-4">
         <Button variant="secondary" className="w-full gap-2">

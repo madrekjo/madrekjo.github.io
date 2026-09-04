@@ -56,9 +56,11 @@ interface PostProps {
   };
   onRefresh: () => void;
   highlight?: boolean;
+  authorIsAdmin?: boolean;
+  commentLikes?: Record<string, { count: number; liked: boolean }>;
 }
 
-const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highlight }, ref) => {
+const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highlight, authorIsAdmin: authorIsAdminProp, commentLikes: commentLikesProp }, ref) => {
   const { user, isAdmin, isModerator, profile, isStaff } = useAuth();
   const { spend, getCost, balance } = usePoints();
   const [showComments, setShowComments] = useState(false);
@@ -67,13 +69,13 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
   const [replyText, setReplyText] = useState("");
   const [editing, setEditing] = useState(false);
   const [editContent, setEditContent] = useState(post.content);
-  const [commentLikes, setCommentLikes] = useState<Record<string, { count: number; liked: boolean }>>({});
+  const [commentLikes, setCommentLikes] = useState<Record<string, { count: number; liked: boolean }>>(commentLikesProp || {});
   const [profileUserId, setProfileUserId] = useState<string | null>(null);
   const [editingCommentId, setEditingCommentId] = useState<string | null>(null);
   const [editCommentText, setEditCommentText] = useState("");
   const [lightbox, setLightbox] = useState<{ src: string; images?: string[]; index?: number; type: "image" | "video" } | null>(null);
   const [reportOpen, setReportOpen] = useState(false);
-  const [authorIsAdmin, setAuthorIsAdmin] = useState(false);
+  const [authorIsAdmin, setAuthorIsAdmin] = useState(authorIsAdminProp ?? false);
   const [showLikers, setShowLikers] = useState(false);
   const [likersData, setLikersData] = useState<{ user_id: string; full_name: string | null; avatar_url: string | null; gender?: string | null }[] | null>(null);
   const [likersLoading, setLikersLoading] = useState(false);
@@ -82,8 +84,11 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
   const isOwner = user?.id === post.user_id;
   const isLiked = post.likes.some(l => l.user_id === user?.id);
 
-  // Fetch author admin status
   useEffect(() => {
+    if (authorIsAdminProp !== undefined) {
+      setAuthorIsAdmin(authorIsAdminProp);
+      return;
+    }
     const fetchAuthorRole = async () => {
       const { data } = await supabase
         .from("user_roles")
@@ -92,10 +97,13 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
       setAuthorIsAdmin((data || []).some((r: any) => r.role === "admin"));
     };
     fetchAuthorRole();
-  }, [post.user_id]);
+  }, [post.user_id, authorIsAdminProp]);
 
-  // Fetch comment likes
   useEffect(() => {
+    if (commentLikesProp) {
+      setCommentLikes(commentLikesProp);
+      return;
+    }
     const fetchCommentLikes = async () => {
       const commentIds = post.comments.map(c => c.id);
       if (commentIds.length === 0) return;
@@ -114,7 +122,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
       setCommentLikes(map);
     };
     fetchCommentLikes();
-  }, [post.comments, user]);
+  }, [post.comments, user, commentLikesProp]);
 
   // Auto-open comments if highlighted
   useEffect(() => {

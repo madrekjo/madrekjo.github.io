@@ -90,14 +90,8 @@ const Rounds = () => {
   useEffect(() => {
     fetchRounds();
     fetchMeetings();
-    const ch = supabase
-      .channel("rounds-realtime")
-      .on("postgres_changes", { event: "*", schema: "public", table: "study_rounds" }, fetchRounds)
-      .on("postgres_changes", { event: "*", schema: "public", table: "round_participants" }, fetchRounds)
-      .on("postgres_changes", { event: "*", schema: "public", table: "round_meetings" }, fetchMeetings)
-      .on("postgres_changes", { event: "*", schema: "public", table: "round_meeting_members" }, fetchMeetings)
-      .subscribe();
-    return () => { supabase.removeChannel(ch); };
+    const poll = setInterval(() => { fetchRounds(); fetchMeetings(); }, 30000);
+    return () => { clearInterval(poll); };
   }, [user?.id]);
 
   useEffect(() => {
@@ -115,7 +109,7 @@ const Rounds = () => {
   const fetchRounds = async () => {
     try {
       const { data: roundsData, error } = await (supabase as any)
-        .from("study_rounds").select("*").order("created_at", { ascending: false }).limit(100);
+        .from("study_rounds").select("id, user_id, title, description, duration_minutes, break_enabled, break_interval_minutes, break_duration_minutes, started_at, ended_at, status, created_at").order("created_at", { ascending: false }).limit(100);
       if (error) throw error;
       if (!roundsData) return;
       const roundIds = roundsData.map((r: any) => r.id);
@@ -145,7 +139,7 @@ const Rounds = () => {
   };
 
   const fetchMeetings = async () => {
-    const { data } = await (supabase as any).from("round_meetings").select("*").order("created_at", { ascending: false });
+    const { data } = await (supabase as any).from("round_meetings").select("id, owner_id, title").order("created_at", { ascending: false });
     setMeetings(data || []);
   };
 

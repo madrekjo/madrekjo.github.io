@@ -36,16 +36,14 @@ const StaffMeeting = () => {
   useEffect(() => {
     if (!isStaff) return;
     fetchMessages();
-    const ch = supabase.channel("staff-chat-realtime")
-      .on("postgres_changes", { event: "*", schema: "public", table: "staff_chat" }, fetchMessages)
-      .subscribe();
-    return () => { supabase.removeChannel(ch); };
+    const poll = setInterval(fetchMessages, 30000);
+    return () => { clearInterval(poll); };
   }, [isStaff]);
 
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages]);
 
   const fetchMessages = async () => {
-    const { data } = await (supabase as any).from("staff_chat").select("*").order("created_at", { ascending: true });
+    const { data } = await (supabase as any).from("staff_chat").select("id, user_id, content, image_url, created_at").order("created_at", { ascending: true }).limit(200);
     if (!data) { setLoading(false); return; }
     const ids = Array.from(new Set(data.map((m: any) => m.user_id)));
     const { data: profiles } = await supabase.from("profiles").select("user_id, full_name, avatar_url").in("user_id", ids as string[]);

@@ -67,15 +67,14 @@ const Navbar = () => {
       if (location.pathname !== "/support") {
         const { count: supCount } = await supabase
           .from("support_messages")
-          .select("*", { count: "exact", head: true })
+          .select("id", { count: "exact", head: true })
           .eq("is_read", false);
         setUnreadSupport(supCount || 0);
       }
     } else if (user && location.pathname !== "/support") {
-      // Admin replies to this user that they haven't read
       const { count } = await supabase
         .from("support_messages")
-        .select("*", { count: "exact", head: true })
+        .select("id", { count: "exact", head: true })
         .eq("user_id", user.id)
         .neq("sender_id", user.id)
         .eq("is_read", false);
@@ -84,12 +83,11 @@ const Navbar = () => {
   };
 
   const fetchCounts = async () => {
-    // Only fetch if not currently on that page
     if (isStaff && location.pathname !== "/suggestions") {
       const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
       const { count: sugCount } = await supabase
         .from("suggestions")
-        .select("*", { count: "exact", head: true })
+        .select("id", { count: "exact", head: true })
         .gte("created_at", oneDayAgo);
       setUnreadSuggestions(sugCount || 0);
     }
@@ -98,7 +96,6 @@ const Navbar = () => {
 
   useEffect(() => {
     fetchCounts();
-    // لا Realtime هنا — العدادات تُجلب عند فتح الصفحة/تغيير المسار فقط لتقليل الاستنزاف
   }, [location.pathname, isStaff, user?.id]);
 
   const Badge = ({ count }: { count: number }) => {

@@ -188,7 +188,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           withTimeout(
             supabase
               .from("profiles")
-              .select("*")
+              .select("id, user_id, full_name, avatar_url, name_changed_at, is_banned, chat_banned, timeout_until, generation, field, gender, theme, last_seen_at, via_invite")
               .eq("user_id", userId)
               .maybeSingle(),
             { data: null, error: null } as any,

@@ -29,7 +29,7 @@ const RoundChat = ({ roundId }: { roundId: string }) => {
 
   const fetchMsgs = async () => {
     const { data } = await (supabase as any)
-      .from("round_chat").select("*").eq("round_id", roundId)
+      .from("round_chat").select("id, user_id, content, created_at, reply_to").eq("round_id", roundId)
       .order("created_at", { ascending: true });
     if (!data) { setLoading(false); return; }
     const ids = Array.from(new Set(data.map((m: any) => m.user_id)));
