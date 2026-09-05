@@ -75,15 +75,22 @@ self.addEventListener('fetch', function(e) {
 
     // تنقّل داخل تطبيق /chat (SPA): مسارات مثل /chat/auth أو /chat/chat
     // ليست ملفات حقيقية، ف network-first مع تحديث الكاش.
+    // مهم: نحافظ على الـ query string الأصلي (?ticket=... لإتمام تدفق SSO)
+    // ونضمن أن respondWith يستقبل Response صحيحاً دائماً (لا undefined).
     if (url.pathname.indexOf('/chat/') === 0 && req.mode === 'navigate') {
+      var indexUrl = '/chat/index.html';
+      if (url.search) indexUrl += url.search;
       e.respondWith(
-        fetch('/chat/index.html').then(function(res) {
+        fetch(indexUrl).then(function(res) {
           var copy = res.clone();
           caches.open(CACHE).then(function(c) { c.put('/chat/index.html', copy); });
           return res;
         }).catch(function() {
           return caches.match('/chat/index.html').then(function(hit) {
             return hit || caches.match('/');
+          }).then(function(fallback) {
+            // إن لم يوجد احتياطي نعيد استجابة فارغة بدل undefined (يكسر respondWith).
+            return fallback || new Response('<h1>غير متصل</h1>', { status: 503, headers: { 'Content-Type': 'text/html; charset=utf-8' } });
           });
         })
       );
@@ -101,6 +108,8 @@ self.addEventListener('fetch', function(e) {
         }).catch(function() {
           return caches.match(req).then(function(hit) {
             return hit || caches.match('/');
+          }).then(function(fallback) {
+            return fallback || new Response('<h1>غير متصل</h1>', { status: 503, headers: { 'Content-Type': 'text/html; charset=utf-8' } });
           });
         })
       );
