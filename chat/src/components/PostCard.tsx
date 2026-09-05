@@ -1,8 +1,9 @@
-import { useState, useEffect, forwardRef } from "react";
+import { useState, useEffect, useCallback, forwardRef } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { containsBannedWord } from "@/lib/bannedWords";
 import { invalidateTable } from "@/lib/invalidation";
+import { loadPostComments, type PostComment } from "@/lib/postComments";
 import { loadAdminUserIds } from "@/lib/appCache";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -46,23 +47,18 @@ interface PostProps {
     status?: string | null;
     profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null; gender?: string | null } | null;
     likes: { user_id: string }[];
-    comments: {
-      id: string;
-      content: string;
-      user_id: string;
-      parent_comment_id: string | null;
-      created_at: string;
-      is_pinned: boolean;
-      profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null; gender?: string | null } | null;
-    }[];
+    comments: PostComment[];
+    /** عدد التعليقات — من الفيد الرفيع (المنشورات الحية لا تحمل أجسام التعليقات). */
+    commentCount?: number;
   };
   onRefresh: () => void;
+  /** تغيير محلي فوري لحالة لايك المنشور عند المتصل (بلا إعادة جلب). */
+  onLikeChanged?: (postId: string, adding: boolean) => void;
   highlight?: boolean;
   authorIsAdmin?: boolean;
-  commentLikes?: Record<string, { count: number; liked: boolean }>;
 }
 
-const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highlight, authorIsAdmin: authorIsAdminProp, commentLikes: commentLikesProp }, ref) => {
+const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLikeChanged, highlight, authorIsAdmin: authorIsAdminProp }, ref) => {
   const { user, isAdmin, isModerator, profile, isStaff } = useAuth();
   const { spend, getCost, balance } = usePoints();
   const [showComments, setShowComments] = useState(false);
@@ -71,7 +67,12 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
   const [replyText, setReplyText] = useState("");
   const [editing, setEditing] = useState(false);
   const [editContent, setEditContent] = useState(post.content);
-  const [commentLikes, setCommentLikes] = useState<Record<string, { count: number; liked: boolean }>>(commentLikesProp || {});
+  const [commentLikes, setCommentLikes] = useState<Record<string, { count: number; liked: boolean }>>({});
+  // تعليقات كسولة — تُحمَّل عند فتح لوحة التعليقات فقط (ليست في أجسام الفيد).
+  const [loadedComments, setLoadedComments] = useState<PostComment[]>([]);
+  const [commentsLoaded, setCommentsLoaded] = useState(false);
+  const [commentsLoading, setCommentsLoading] = useState(false);
+  const [localCount, setLocalCount] = useState(post.commentCount ?? post.comments.length);
   const [profileUserId, setProfileUserId] = useState<string | null>(null);
   const [editingCommentId, setEditingCommentId] = useState<string | null>(null);
   const [editCommentText, setEditCommentText] = useState("");
@@ -99,37 +100,35 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
     fetchAuthorRole();
   }, [post.user_id, authorIsAdminProp]);
 
-  useEffect(() => {
-    if (commentLikesProp) {
-      setCommentLikes(commentLikesProp);
-      return;
+  const reloadComments = useCallback(async () => {
+    if (!user) { setCommentsLoaded(true); return; }
+    setCommentsLoading(true);
+    try {
+      const bundle = await loadPostComments(user.id, post.id);
+      setLoadedComments(bundle.comments);
+      setCommentLikes(bundle.commentLikes);
+      setLocalCount(bundle.comments.length);
+    } catch {
+      toast.error("تعذر تحميل التعليقات");
+    } finally {
+      setCommentsLoading(false);
+      setCommentsLoaded(true);
     }
-    const fetchCommentLikes = async () => {
-      const commentIds = post.comments.map(c => c.id);
-      if (commentIds.length === 0) return;
-      const { data } = await supabase
-        .from("comment_likes")
-        .select("comment_id, user_id")
-        .in("comment_id", commentIds);
-      const map: Record<string, { count: number; liked: boolean }> = {};
-      commentIds.forEach(cid => {
-        const likes = data?.filter(l => l.comment_id === cid) || [];
-        map[cid] = {
-          count: likes.length,
-          liked: user ? likes.some(l => l.user_id === user.id) : false,
-        };
-      });
-      setCommentLikes(map);
-    };
-    fetchCommentLikes();
-  }, [post.comments, user, commentLikesProp]);
+  }, [user, post.id]);
+
+  // تحميل كسول: عند فتح لوحة التعليقات وعدم وجود تعليقات محمّلة بعد.
+  useEffect(() => {
+    if (showComments && !commentsLoaded && !commentsLoading) {
+      void reloadComments();
+    }
+  }, [showComments, commentsLoaded, commentsLoading, reloadComments]);
 
   // Auto-open comments if highlighted
   useEffect(() => {
     if (highlight) setShowComments(true);
   }, [highlight]);
 
-  const sortedComments = [...post.comments].sort((a, b) => {
+  const sortedComments = [...loadedComments].sort((a, b) => {
     if (a.is_pinned && !b.is_pinned) return -1;
     if (!a.is_pinned && b.is_pinned) return 1;
     return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
@@ -150,7 +149,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
       }
     }
     void invalidateTable("likes");
-    onRefresh();
+    onLikeChanged?.(post.id, !isLiked);
   };
 
   const toggleLikers = async () => {
@@ -216,7 +215,8 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
     }
     setCommentText("");
     void invalidateTable("comments");
-    onRefresh();
+    setLocalCount(n => n + 1);
+    void reloadComments();
   };
 
   const handleReply = async (parentId: string) => {
@@ -239,14 +239,15 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
         await spend(replyCost, hasMentionAll ? "everyone" : "comment", "chat", { postId: post.id, commentId });
       }
     }
-    const parentComment = post.comments.find(c => c.id === parentId);
+    const parentComment = loadedComments.find(c => c.id === parentId);
     if (parentComment && parentComment.user_id !== user.id) {
       await supabase.from("notifications").insert({ user_id: parentComment.user_id, actor_id: user.id, type: "reply", post_id: post.id, comment_id: parentId });
     }
     setReplyText("");
     setReplyTo(null);
     void invalidateTable("comments");
-    onRefresh();
+    setLocalCount(n => n + 1);
+    void reloadComments();
   };
 
   const handleDeletePost = async () => {
@@ -264,21 +265,25 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
   const handleDeleteComment = async (commentId: string) => {
     await supabase.from("comments").update({ deleted_at: new Date().toISOString(), deleted_by: user?.id } as any).eq("id", commentId);
     void invalidateTable("comments");
-    onRefresh();
+    setLoadedComments(prev => prev.filter(c => c.id !== commentId));
+    setLocalCount(n => Math.max(0, n - 1));
   };
   const handleEditComment = async (commentId: string) => {
     if (!editCommentText.trim()) return;
     if (containsBannedWord(editCommentText, isAdmin)) { toast.error("التعليق يحتوي على كلمات محظورة"); return; }
     const { error } = await supabase.from("comments").update({ content: editCommentText.trim() }).eq("id", commentId);
     if (error) toast.error("فشل التعديل");
-    else { setEditingCommentId(null); setEditCommentText(""); void invalidateTable("comments"); onRefresh(); }
+    else {
+      setLoadedComments(prev => prev.map(c => c.id === commentId ? { ...c, content: editCommentText.trim() } : c));
+      setEditingCommentId(null); setEditCommentText(""); void invalidateTable("comments");
+    }
   };
   const handlePinComment = async (commentId: string, currentlyPinned: boolean) => {
     const { error } = await supabase.from("comments").update({ is_pinned: !currentlyPinned } as any).eq("id", commentId);
     if (error) toast.error("فشل تثبيت التعليق");
     else toast.success(currentlyPinned ? "تم إلغاء التثبيت" : "تم تثبيت التعليق");
     void invalidateTable("comments");
-    onRefresh();
+    setLoadedComments(prev => prev.map(c => c.id === commentId ? { ...c, is_pinned: !currentlyPinned } : c));
   };
   const handlePinPost = async () => {
     const isPinned = (post as any).is_pinned;
@@ -428,7 +433,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
         </div>
         <button onClick={() => setShowComments(!showComments)} className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors">
           <MessageCircle className="w-5 h-5" />
-          <span>{post.comments.length}</span>
+          <span>{localCount}</span>
         </button>
         {user && !isOwner && (
           <button onClick={() => setReportOpen(true)} className="flex items-center gap-1 text-sm text-muted-foreground hover:text-destructive transition-colors mr-auto" title="الإبلاغ">
@@ -478,6 +483,10 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
       {/* Comments */}
       {showComments && (
         <div className="mt-3 border-t pt-3 space-y-3">
+          {commentsLoading && loadedComments.length === 0 ? (
+            <p className="text-sm text-muted-foreground">جارٍ تحميل التعليقات...</p>
+          ) : (
+            <>
           {topComments.map(comment => (
             <div key={comment.id} className="space-y-2">
               <div className="flex gap-2">
@@ -625,6 +634,8 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
                 <Send className="w-4 h-4" />
               </Button>
             </div>
+          )}
+            </>
           )}
         </div>
       )}

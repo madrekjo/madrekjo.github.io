@@ -33,6 +33,12 @@ const DEFAULT_ALLOWED_ORIGIN = "https://madrekjo.github.io";
 
 const FEED_PAGE_SIZE = 25;
 
+/** تعليقات المنشور تُجلب عند الطلب فقط، وتُخزَّن 5 دقائق (لا تُدخل في كاش الفيد). */
+const COMMENTS_TTL_SECONDS = 300;
+
+/** تحقق صارم من معرّفات UUID (يمنع حقن معاملات PostgREST في القيم). */
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
 /** ساعة واحدة لجميع جداول البوابة (مطلوب المستخدم). */
 const CACHE_TTL_SECONDS = 3600;
 
@@ -49,12 +55,21 @@ const METRIC_TTL_SECONDS = 14 * 24 * 3600;
  * ربط كل جدول مخزّن بمجموعته المنطقية. أي جدول غير موجود هنا تُتجاهله
  * /invalidate لأنه لا يُخزَّن في البوابة (لا يحتاج إبطال).
  */
+/**
+ * ربط كل جدول مخزّن بمجموعته المنطقية. أي جدول غير موجود هنا تُتجاهله
+ * /invalidate لأنه لا يُخزَّن في البوابة (لا يحتاج إبطال).
+ *
+ * الفصل المعتمد (Phase A): التعليقات وإعجابات التعليقات في مجموعة مستقلة
+ * "comments" حتى لا يُسقط أي تعليق كاش الفيد لدى الجميع (كان يرفع stamp
+ * الفيد مع كل تعليق = إبطال شامل مستمر). كاش الفيد الآن لا يُبطل إلا عند
+ * إنشاء/تثبيت/حذف منشور أو إعجاب (الأقل تكراراً).
+ */
 const TABLE_GROUPS = {
   posts: "feed",
-  comments: "feed",
   likes: "feed",
-  comment_likes: "feed",
-  profiles: "feed",
+  comments: "comments",
+  comment_likes: "comments",
+  profiles: "profiles",
   channel_settings: "config",
   section_locks: "config",
   user_roles: "config",
@@ -204,6 +219,18 @@ async function dispatch(url, request, origin, env) {
     return json({ rounds: data }, origin, 200, "rounds");
   }
 
+  if (path === "/comments") {
+    // تعليقات منشور واحد عند الطلب — بلا إدخالها في كاش الفيد (فيد رفيع).
+    const postId = String(url.searchParams.get("post_id") || "").trim();
+    if (!UUID_RE.test(postId)) {
+      return json({ error: "bad_post_id", message: "post_id يجب أن يكون UUID" }, origin, 400, "comments");
+    }
+    const data = await withCache(kv, `comments:${postId}`, "comments", COMMENTS_TTL_SECONDS, force, () =>
+      buildComments(svc, postId)
+    );
+    return json(data, origin, 200, "comments");
+  }
+
   if (path === "/feed") {
     // /feed يُقرأ بصلاحيات المستخدم نفسه (JWT) — مفتاح الخدمة محظور هنا.
     const token = bearerToken(request.headers);
@@ -328,28 +355,24 @@ async function buildFeed(svc, page, limit, channel, token) {
 
   const postIds = posts.map((p) => p.id);
 
-  // تعليقات المنشورات دفعة واحدة (بدل طلب لكل منشور)
-  const commentsMap = {};
-  let comments = [];
+  // فيد رفيع: نُحصي التعليقات فقط (post_id) بدل إرسال كل محتواها مع الفيد.
+  // التعليقات الكاملة تُجلب عند الطلب عبر /comments?post_id=...
+  let commentCounts = {};
   if (postIds.length > 0) {
-    comments = (await fetchAll(svc, "comments",
-      `select=id,post_id,user_id,content,parent_comment_id,created_at,is_pinned&post_id=in.(${postIds.join(",")})&deleted_at=is.null&order=created_at.asc&limit=500`, token, "feed") || []);
-    comments.forEach((c) => {
-      (commentsMap[c.post_id] = commentsMap[c.post_id] || []).push(c);
+    const countRows = (await fetchAll(svc, "comments",
+      `select=post_id&post_id=in.(${postIds.join(",")})&deleted_at=is.null&limit=2000`, token, "feed") || []);
+    countRows.forEach((r) => {
+      commentCounts[r.post_id] = (commentCounts[r.post_id] || 0) + 1;
     });
   }
 
-  // تفاعلات المنشورات والتعليقات
-  const [likes, commentLikes] = await Promise.all([
-    postIds.length ? fetchAll(svc, "likes", `select=post_id,user_id&post_id=in.(${postIds.join(",")})&limit=2000`, token, "feed") : [],
-    comments.length ? fetchAll(svc, "comment_likes", `select=comment_id,user_id&comment_id=in.(${comments.map((c) => c.id).join(",")})&limit=2000`, token, "feed") : [],
-  ]);
+  // إعجابات المنشورات (لأيقونة/عداد اللايك — تبقى حية في الفيد).
+  const likes = postIds.length
+    ? (await fetchAll(svc, "likes", `select=post_id,user_id&post_id=in.(${postIds.join(",")})&limit=2000`, token, "feed") || [])
+    : [];
 
   // الملفات الشخصية المعنية بشكل مركزي — أعمدة عامة فقط، بدون is_banned.
-  const userIds = [...new Set([
-    ...posts.map((p) => p.user_id),
-    ...comments.map((c) => c.user_id),
-  ])];
+  const userIds = [...new Set(posts.map((p) => p.user_id))];
   let profiles = {};
   if (userIds.length > 0) {
     const rows = await fetchAll(svc, "profiles",
@@ -361,8 +384,41 @@ async function buildFeed(svc, page, limit, channel, token) {
     page,
     limit,
     posts,
-    commentsMap,
+    commentCounts,
     likes: likes || [],
+    profiles,
+  };
+}
+
+/**
+ * تعليقات منشور واحد عند الطلب (لازي): التعليقات + إعجاباتها + الملفات المعنية.
+ * تُخزَّن في KV معزولة بمفتاح المنشور لمدة 5 دقائق — أي مستخدم يفتح نفس
+ * المنشور يشارك نفس القراءة من القاعدة.
+ */
+async function buildComments(svc, postId) {
+  const comments = (await fetchAll(svc, "comments",
+    `select=id,post_id,user_id,content,parent_comment_id,created_at,is_pinned&post_id=eq.${postId}&deleted_at=is.null&order=created_at.asc&limit=100`, null, "comments") || []);
+
+  if (comments.length === 0) {
+    return { comments: [], commentLikes: [], profiles: {} };
+  }
+
+  const commentIds = comments.map((c) => c.id);
+  const [commentLikes, profileRows] = await Promise.all([
+    fetchAll(svc, "comment_likes",
+      `select=comment_id,user_id&comment_id=in.(${commentIds.join(",")})&limit=500`, null, "comments"),
+    (() => {
+      const userIds = [...new Set(comments.map((c) => c.user_id))];
+      return fetchAll(svc, "profiles",
+        `select=user_id,full_name,avatar_url,generation,field,gender&user_id=in.(${userIds.join(",")})&limit=500`, null, "comments");
+    })(),
+  ]);
+
+  const profiles = {};
+  (profileRows || []).forEach((r) => { profiles[r.user_id] = r; });
+
+  return {
+    comments,
     commentLikes: commentLikes || [],
     profiles,
   };

@@ -53,6 +53,7 @@ interface Post {
   generation: string | null;
   channel: string | null;
   status?: string | null;
+  is_pinned?: boolean;
   profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null; gender?: string | null } | null;
   likes: { user_id: string }[];
   comments: {
@@ -64,6 +65,8 @@ interface Post {
     is_pinned: boolean;
     profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null; gender?: string | null } | null;
   }[];
+  /** عدد التعليقات — يُملأ من الفيد الرفيع (بدل حمل أجسام التعليقات). */
+  commentCount?: number;
 }
 
 /** حِزمة /feed من البوابة (Layer 2) — تُقرأ بصلاحيات RLS الخاصة بالمستخدم. */
@@ -83,23 +86,13 @@ interface GatewayFeedPost {
   status?: string | null;
 }
 
-interface GatewayFeedComment {
-  id: string;
-  post_id: string;
-  user_id: string;
-  content: string;
-  parent_comment_id: string | null;
-  created_at: string;
-  is_pinned: boolean;
-}
-
 interface GatewayFeed {
   page: number;
   limit: number;
   posts: GatewayFeedPost[];
-  commentsMap: Record<string, GatewayFeedComment[]>;
+  /** الفيد الرفيع: عدد تعليقات كل منشور فقط (بلا أجسام). */
+  commentCounts: Record<string, number>;
   likes: { post_id: string; user_id: string }[];
-  commentLikes: { comment_id: string; user_id: string }[];
   profiles: Record<string, {
     full_name?: string | null;
     avatar_url?: string | null;
@@ -132,7 +125,6 @@ const Chat = () => {
   const [channelSettings, setChannelSettings] = useState<Record<string, boolean>>({ all: true, male: true, female: true, "09": true, "10": true });
   const [sectionLocks, setSectionLocks] = useState<Record<string, boolean>>({});
   const [adminUserIds, setAdminUserIds] = useState<Set<string>>(new Set());
-  const [batchCommentLikes, setBatchCommentLikes] = useState<Record<string, { count: number; liked: boolean }>>({});
 
   const myGen = profile?.generation as string | null;
   const userPickedChannel = useRef(false);
@@ -178,48 +170,34 @@ const Chat = () => {
         const baseRows = (rows || []) as any[];
         const postIds = baseRows.map(p => p.id);
 
-        const [likesRes, commentsRes] = postIds.length
+        const [likesRes, countsRes] = postIds.length
           ? await Promise.all([
               supabase.from("likes").select("post_id, user_id").in("post_id", postIds),
-              supabase
-                .from("comments")
-                .select("id, post_id, content, user_id, parent_comment_id, created_at, is_pinned, profiles:profiles!comments_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
-                .in("post_id", postIds)
-                .is("deleted_at", null)
-                .order("created_at", { ascending: true }),
+              // فيد رفيع مباشر: إحصاء التعليقات فقط (post_id) — لا أجسام تعليقات.
+              supabase.from("comments").select("post_id").in("post_id", postIds).is("deleted_at", null),
             ])
           : [{ data: [] }, { data: [] }];
+
+        const countsMap: Record<string, number> = {};
+        (countsRes.data || []).forEach((c: any) => {
+          countsMap[c.post_id] = (countsMap[c.post_id] || 0) + 1;
+        });
 
         const cleaned = baseRows.map((p: any) => ({
           ...p,
           likes: (likesRes.data || []).filter((l: any) => l.post_id === p.id),
-          comments: (commentsRes.data || []).filter((c: any) => c.post_id === p.id),
+          comments: [],
+          commentCount: countsMap[p.id] || 0,
         })) as unknown as Post[];
 
         const sorted = cleaned.sort(sortPosts);
         setPosts(prev => append ? [...prev, ...sorted] : sorted);
         setHasMore(baseRows.length === PAGE_SIZE);
 
-        // Batch fetch: admin roles (كاش مشترك) + comment likes (once per page load)
+        // مجموعة الأدمن من كاش مشترك (لا طلب user_roles مع كل فيد).
         if (postIds.length > 0) {
-          const allCommentIds = (commentsRes.data || []).map((c: any) => c.id);
-          const [adminSet, clikesRes] = await Promise.all([
-            // مجموعة الأدمن تُقرأ من كاش مشترك (5 دقائق) بدل استعلام user_roles مع كل فيد
-            loadAdminUserIds(),
-            allCommentIds.length
-              ? supabase.from("comment_likes").select("comment_id, user_id").in("comment_id", allCommentIds)
-              : { data: [] },
-          ]);
+          const [adminSet] = await Promise.all([loadAdminUserIds()]);
           setAdminUserIds(adminSet);
-          const clikesMap: Record<string, { count: number; liked: boolean }> = {};
-          allCommentIds.forEach(cid => {
-            const likes = (clikesRes.data || []).filter((l: any) => l.comment_id === cid);
-            clikesMap[cid] = {
-              count: likes.length,
-              liked: user ? likes.some((l: any) => l.user_id === user.id) : false,
-            };
-          });
-          setBatchCommentLikes(clikesMap);
         }
       };
 
@@ -242,28 +220,17 @@ const Chat = () => {
               ...p,
               profiles: feed.profiles?.[p.user_id] ?? null,
               likes: (feed.likes || []).filter((l) => l.post_id === p.id),
-              comments: (feed.commentsMap?.[p.id] || []).map((c: GatewayFeedComment) => ({
-                ...c,
-                profiles: feed.profiles?.[c.user_id] ?? null,
-              })),
+              comments: [],
+              commentCount: feed.commentCounts?.[p.id] ?? 0,
             }))
             .sort(sortPosts) as unknown as Post[];
 
           setPosts(prev => append ? [...prev, ...postsForPage] : postsForPage);
           setHasMore(feed.posts.length === PAGE_SIZE);
 
-          const allCommentIds = postsForPage.flatMap(p => p.comments.map(c => c.id));
+          // مجموعة الأدمن من كاش مشترك (لا طلب user_roles مع كل فيد).
           const [adminSet] = await Promise.all([loadAdminUserIds()]);
           setAdminUserIds(adminSet);
-          const clikesMap: Record<string, { count: number; liked: boolean }> = {};
-          allCommentIds.forEach(cid => {
-            const likes = (feed.commentLikes || []).filter((l) => l.comment_id === cid);
-            clikesMap[cid] = {
-              count: likes.length,
-              liked: user ? likes.some((l: any) => l.user_id === user.id) : false,
-            };
-          });
-          setBatchCommentLikes(clikesMap);
           viaGateway = true;
         }
       }
@@ -312,20 +279,16 @@ const Chat = () => {
         return;
       }
 
-      const [likesRes, commentsRes] = await Promise.all([
+      const [likesRes, countsRes] = await Promise.all([
         supabase.from("likes").select("post_id, user_id").eq("post_id", postId),
-        supabase
-          .from("comments")
-          .select("id, post_id, content, user_id, parent_comment_id, created_at, is_pinned, profiles:profiles!comments_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
-          .eq("post_id", postId)
-          .is("deleted_at", null)
-          .order("created_at", { ascending: true }),
+        supabase.from("comments").select("post_id").eq("post_id", postId).is("deleted_at", null),
       ]);
 
       const cleaned = {
         ...row,
         likes: likesRes.data || [],
-        comments: commentsRes.data || [],
+        comments: [],
+        commentCount: (countsRes.data || []).length,
       } as unknown as Post;
 
       setPosts(prev => {
@@ -353,6 +316,23 @@ const Chat = () => {
     await fetchPosts(0, false);
     setRefreshing(false);
   }, [fetchPosts]);
+
+  // تحديث محلي فوري للايكات بدون إعادة جلب (يُحافظ على كاش الفيد).
+  const handleLikeChanged = useCallback((postId: string, adding: boolean) => {
+    if (!user) return;
+    setPosts(prev =>
+      prev.map(p =>
+        p.id === postId
+          ? {
+              ...p,
+              likes: adding
+                ? [...p.likes.filter(l => l.user_id !== user.id), { user_id: user.id }]
+                : p.likes.filter(l => l.user_id !== user.id),
+            }
+          : p
+      )
+    );
+  }, [user]);
 
   useEffect(() => {
     if (shouldShowSalawat()) setShowSalawat(true);
@@ -479,6 +459,7 @@ const Chat = () => {
           },
           likes: [],
           comments: [],
+          commentCount: 0,
         } as unknown as Post;
         setPosts(prev => [optimisticPost, ...prev].sort(sortPosts));
       }
@@ -689,9 +670,9 @@ const Chat = () => {
                 ref={(el) => { postRefs.current[post.id] = el; }}
                 post={post}
                 onRefresh={() => refreshPost(post.id)}
+                onLikeChanged={handleLikeChanged}
                 highlight={post.id === highlightPostId}
                 authorIsAdmin={adminUserIds.has(post.user_id)}
-                commentLikes={batchCommentLikes}
               />
             ))}
           {hasMore && (
