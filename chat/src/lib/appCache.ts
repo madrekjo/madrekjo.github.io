@@ -132,8 +132,8 @@ export async function getSectionLockData(section: string): Promise<SectionLockDa
  * مجموعة معرّفات الأدمن — قراءة مشتركة بين كل صفحات التطبيق (كانت تُطلب مع
  * كل تحميل فيد ×81 + لكل دخول). كاش ساعة كاملة؛ يُبطل عند أي add/remove_role.
  */
-export function loadAdminUserIds(): Promise<Set<string>> {
-  return cachedRead<Set<string>>({
+export async function loadAdminUserIds(): Promise<Set<string>> {
+  const ids = await cachedRead<string[]>({
     key: ADMIN_IDS_KEY,
     ttlMs: 60 * 60 * 1000,
     persist: true,
@@ -142,9 +142,10 @@ export function loadAdminUserIds(): Promise<Set<string>> {
         .from("user_roles")
         .select("user_id")
         .eq("role", "admin");
-      return new Set((data || []).map((r) => r.user_id));
+      return (data || []).map((r) => r.user_id);
     },
   });
+  return new Set(ids);
 }
 
 /** يفحص هل القفل ما زال سارياً حسب locked_until. */
