@@ -1,5 +1,6 @@
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { useSmartPoll } from "@/lib/dataLayer";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -37,11 +38,8 @@ const Schedules = () => {
   const [commentText, setCommentText] = useState<Record<string, string>>({});
   const fileRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    fetchAll();
-    const poll = setInterval(fetchAll, 120000);
-    return () => { clearInterval(poll); };
-  }, []);
+  // استطلاع ذكي: يتوقف عند إخفاء التبويب ويُحدّث فوراً عند العودة.
+  useSmartPoll(() => { void fetchAll(); }, 120000, []);
 
   const fetchAll = async () => {
     try {

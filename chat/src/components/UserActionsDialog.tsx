@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { invalidateCache } from "@/lib/dataLayer";
 import { useAuth } from "@/contexts/AuthContext";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -40,6 +41,10 @@ const UserActionsDialog = ({ userId, open, onOpenChange, onChanged }: Props) => 
     if (!userId) return;
     const { data } = await supabase.from("profiles").select("*").eq("user_id", userId).maybeSingle();
     setProfile(data);
+    // إبطال كاش البيانات المسؤولة عن الحظر/التايم اوت/الاسم للهدف فوراً
+    // حتى لا تتأخر العقوبة بانتهاء TTL القديم على الأجهزة الأخرى.
+    invalidateCache(`auth:profile:${userId}`);
+    invalidateCache(`auth:roles:${userId}`);
     onChanged?.();
   };
 

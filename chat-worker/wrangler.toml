@@ -1,0 +1,26 @@
+# MADARIK CHAT - Read Gateway Worker config
+#
+# 1) أنشئ مساحة KV وانسخ المُعرّف هنا:
+#      wrangler kv namespace create CHAT_KV
+#
+# 2) عيّن مفتاح الخدمة (لا يُحفظ في أي ملف):
+#      wrangler secret put CHAT_SERVICE_KEY
+#
+# 3) انشر:
+#      wrangler deploy
+#
+# اختياري: نطاقات مسموحة (افتراضياً مدونة madrekjo.github.io)
+#      wrangler secret put ALLOWED_ORIGINS   -> https://madrekjo.github.io,http://localhost:5173
+#
+name = "madarik-chat-cache"
+main = "chat-worker.js"
+compatibility_date = "2024-12-01"
+workers_dev = true
+preview_urls = false
+
+[[kv_namespaces]]
+binding = "CHAT_KV"
+id = "9d4d8c334da643f4b36e64f6f538f64c"
+
+[observability]
+enabled = true

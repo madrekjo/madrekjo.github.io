@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth, invalidatePermissions } from "@/contexts/AuthContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
@@ -22,6 +23,7 @@ const ROLES: { key: string; label: string; icon: any; color: string }[] = [
 ];
 
 const PermissionsPanel = () => {
+  const { refreshProfile } = useAuth();
   const [matrix, setMatrix] = useState<Record<string, any>>({});
 
   const load = async () => {
@@ -36,7 +38,14 @@ const PermissionsPanel = () => {
   const toggle = async (role: string, perm: string, value: boolean) => {
     const { error } = await (supabase as any).from("role_permissions")
       .upsert({ role, [perm]: value, updated_at: new Date().toISOString() }, { onConflict: "role" });
-    if (error) toast.error("فشل الحفظ"); else { toast.success("تم الحفظ"); load(); }
+    if (error) toast.error("فشل الحفظ");
+    else {
+      toast.success("تم الحفظ");
+      // إبطال كاش الصلاحيات فوراً ليبقى لكل الأجهزة وتعكس الجلسة الحالية بعد الخفض.
+      invalidatePermissions();
+      refreshProfile().catch(() => {});
+      load();
+    }
   };
 
   return (

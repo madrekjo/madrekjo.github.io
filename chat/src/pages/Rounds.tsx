@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { useSmartPoll } from "@/lib/dataLayer";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -91,15 +92,11 @@ const Rounds = () => {
   // تُجلب فقط على فترات بطيئة (5 دقائق) وعند الانضمام/الخروج فقط — لتقليل استهلاك القاعدة.
   const detailCache = useRef<{ parts: any[]; profiles: any[] }>({ parts: [], profiles: [] });
 
-  useEffect(() => {
-    fetchRounds();
-    fetchMeetings();
-    // استطلاع سريع: قائمة الجولات القصيرة فقط (بدون المشاركين/البروفايلات)
-    const poll = setInterval(() => { fetchRounds(); }, 30000);
-    // جلب التفاصيل (المشاركين + البروفايلات) على فترات بطيئة
-    const detailTimer = setInterval(() => { fetchRoundsDetail(); }, 300000);
-    return () => { clearInterval(poll); clearInterval(detailTimer); };
-  }, [user?.id]);
+  // استطلاع سريع ذكي: قائمة الجولات القصيرة فقط (بدون المشاركين/البروفايلات).
+  // يتوقف تلقائياً عندما يكون التبويب مخفياً، ويُحدّث فوراً عند العودة.
+  useSmartPoll(() => { void fetchRounds(); void fetchMeetings(); }, 30000, [user?.id]);
+  // التفاصيل (المشاركين + البروفايلات) على فترات بطيئة — بلا تنفيذ فوري عند الدخول.
+  useSmartPoll(() => { void fetchRoundsDetail(); }, 300000, [user?.id], false);
 
   useEffect(() => {
     if (!localStorage.getItem("rounds_help_seen")) {

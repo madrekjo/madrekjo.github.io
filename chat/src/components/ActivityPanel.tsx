@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { useSmartPoll } from "@/lib/dataLayer";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -64,11 +65,8 @@ const ActivityPanel = ({ onClose }: { onClose: () => void }) => {
     setDbActive(rows);
   }, []);
 
-  useEffect(() => {
-    refreshDb();
-    const timer = setInterval(refreshDb, 15 * 60 * 1000);
-    return () => clearInterval(timer);
-  }, [refreshDb]);
+  // جدول النشاط يُحدَّث كل 15 دقيقة فقط، ويتوقف عندما يكون التبويب مخفياً.
+  useSmartPoll(() => void refreshDb(), 15 * 60 * 1000, [refreshDb]);
 
   const merged: ActivityRow[] = (() => {
     // بدون Presence/Realtime — نعرض النشاط من last_seen_at فقط (أخف بكثير على القاعدة)

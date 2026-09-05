@@ -2,6 +2,7 @@ import { useState, useEffect, forwardRef } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { containsBannedWord } from "@/lib/bannedWords";
+import { loadAdminUserIds } from "@/lib/appCache";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -90,11 +91,9 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
       return;
     }
     const fetchAuthorRole = async () => {
-      const { data } = await supabase
-        .from("user_roles")
-        .select("role")
-        .eq("user_id", post.user_id);
-      setAuthorIsAdmin((data || []).some((r: any) => r.role === "admin"));
+      // مجموعة الأدمن تُقرأ من كاش مشترك (بدل استعلام user_roles لكل منشور)
+      const adminSet = await loadAdminUserIds();
+      setAuthorIsAdmin(adminSet.has(post.user_id));
     };
     fetchAuthorRole();
   }, [post.user_id, authorIsAdminProp]);
@@ -179,13 +178,12 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
     } else {
       await supabase.from("comment_likes").insert({ comment_id: commentId, user_id: user.id });
     }
-    // Refresh likes locally
-    const { data } = await supabase.from("comment_likes").select("comment_id, user_id").eq("comment_id", commentId);
+    // تحديث محلي فوري — بلا إعادة جلب comment_likes من القاعدة
     setCommentLikes(prev => ({
       ...prev,
       [commentId]: {
-        count: data?.length || 0,
-        liked: data?.some(l => l.user_id === user.id) || false,
+        count: Math.max(0, (prev[commentId]?.count || 0) + (current?.liked ? -1 : 1)),
+        liked: !current?.liked,
       },
     }));
   };

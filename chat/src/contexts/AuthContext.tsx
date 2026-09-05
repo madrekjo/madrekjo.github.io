@@ -3,6 +3,7 @@ import { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import { siblingSupabase } from "@/integrations/supabase/siblingClient";
 import { checkDeviceBanned, registerDeviceForUser } from "@/lib/deviceId";
+import { cachedRead, invalidateCache, clearAllCache } from "@/lib/dataLayer";
 import {
   SSO_AUTH_BASE_URL,
 } from "@/config/sso-config";
@@ -66,6 +67,11 @@ const INITIAL_AUTH_TIMEOUT_MS = 30000;
 // جدول الصلاحيات (role_permissions) إعداد عام ثابت لا يتبدل إلا نادراً.
 // نُخزّنه مرّة واحدة في الجلسة بدل جلبه كاملاً عند كل تسجيل دخول/تحديث رمز.
 let cachedRolePermissions: any[] | null = null;
+
+/** إبطال كاش الصلاحيات (role_permissions) — يُستدعى بعد أي تعديل من لوحة الإدارة. */
+export function invalidatePermissions() {
+  cachedRolePermissions = null;
+}
 
 /**
  * Executes a promise with a timeout.
@@ -181,28 +187,40 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const fetchProfile = async (userId: string) => {
+  const fetchProfile = async (userId: string, force = false) => {
     try {
       const [{ data }, { data: roleData }, { data: permData }] =
         await Promise.all([
-          withTimeout(
-            supabase
-              .from("profiles")
-              .select("id, user_id, full_name, avatar_url, name_changed_at, is_banned, chat_banned, timeout_until, generation, field, gender, theme, last_seen_at, via_invite")
-              .eq("user_id", userId)
-              .maybeSingle(),
-            { data: null, error: null } as any,
-            5000
-          ),
+          cachedRead({
+            key: `auth:profile:${userId}`,
+            ttlMs: 60_000,
+            force,
+            fetcher: () =>
+              withTimeout(
+                supabase
+                  .from("profiles")
+                  .select("id, user_id, full_name, avatar_url, name_changed_at, is_banned, chat_banned, timeout_until, generation, field, gender, theme, last_seen_at, via_invite")
+                  .eq("user_id", userId)
+                  .maybeSingle(),
+                { data: null, error: null } as any,
+                5000
+              ),
+          }),
 
-          withTimeout(
-            supabase
-              .from("user_roles")
-              .select("role")
-              .eq("user_id", userId),
-            { data: [], error: null } as any,
-            5000
-          ),
+          cachedRead({
+            key: `auth:roles:${userId}`,
+            ttlMs: 60_000,
+            force,
+            fetcher: () =>
+              withTimeout(
+                supabase
+                  .from("user_roles")
+                  .select("role")
+                  .eq("user_id", userId),
+                { data: [], error: null } as any,
+                5000
+              ),
+          }),
 
           // جلب جدول الصلاحيات مرة واحدة فقط (إعداد عام ثابت) بدل كل @دخول
           Promise.resolve(
@@ -245,7 +263,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const refreshProfile = async () => {
     if (user) {
-      await fetchProfile(user.id);
+      // التحديث الصريح (بعد تغيير الاسم/الجنس/الثيم... إلخ) يتجاوز الكاش
+      // ويجلب من الشبكة فوراً ثم يعيد تلقائياً ملء الكاش بالقيمة الجديدة.
+      invalidateCache(`auth:profile:${user.id}`);
+      invalidateCache(`auth:roles:${user.id}`);
+      await fetchProfile(user.id, true);
     }
   };
 
@@ -666,6 +688,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setRoles([]);
     setPermMatrix({});
     setSiblingSync(null);
+    clearAllCache();
   };
 
   const isAdmin = roles.includes("admin");

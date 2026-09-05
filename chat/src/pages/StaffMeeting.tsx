@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { useSmartPoll } from "@/lib/dataLayer";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -33,12 +34,8 @@ const StaffMeeting = () => {
     if (!isStaff && user) navigate("/");
   }, [isStaff, user, navigate]);
 
-  useEffect(() => {
-    if (!isStaff) return;
-    fetchMessages();
-    const poll = setInterval(fetchMessages, 60000);
-    return () => { clearInterval(poll); };
-  }, [isStaff]);
+  // استطلاع ذكي لرسائل اجتماع الكادر — يتوقف عند إخفاء التبويب.
+  useSmartPoll(() => { if (isStaff) void fetchMessages(); }, 60000, [isStaff]);
 
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages]);
 

@@ -1,32 +1,29 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { cachedRead } from "@/lib/dataLayer";
 import { Flame } from "lucide-react";
 
-// Simple module-level cache to avoid re-fetching for same users
-const cache = new Map<string, number>();
-const pending = new Map<string, Promise<number>>();
-
+// عدّاد مشاركات المستخدم في الجولات — كاش موحّد (5 دقائق) بدل كاش الجلسة
+// الذي لا ينتهي أبداً (كان لا يعكس انضمامات جديدة أثناء الجلسة نفسها).
 async function fetchCount(userId: string): Promise<number> {
-  if (cache.has(userId)) return cache.get(userId)!;
-  if (pending.has(userId)) return pending.get(userId)!;
-  const p = (async () => {
-    const { count } = await (supabase as any)
-      .from("round_participants")
-      .select("id", { count: "exact", head: true })
-      .eq("user_id", userId);
-    const c = count || 0;
-    cache.set(userId, c);
-    pending.delete(userId);
-    return c;
-  })();
-  pending.set(userId, p);
-  return p;
+  return cachedRead<number>({
+    key: `stats:rounds:${userId}`,
+    ttlMs: 5 * 60 * 1000,
+    persist: true,
+    fetcher: async () => {
+      const { count } = await (supabase as any)
+        .from("round_participants")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", userId);
+      return count || 0;
+    },
+  });
 }
 
 interface Props { userId: string; className?: string }
 
 const RoundsBadge = ({ userId, className = "" }: Props) => {
-  const [count, setCount] = useState<number | null>(cache.get(userId) ?? null);
+  const [count, setCount] = useState<number | null>(null);
   useEffect(() => {
     let mounted = true;
     fetchCount(userId).then(c => { if (mounted) setCount(c); });

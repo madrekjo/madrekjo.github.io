@@ -2,6 +2,8 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { containsBannedWord, loadBannedWords } from "@/lib/bannedWords";
+import { loadChannelSettings, loadSectionLocks, isSectionEffectivelyLocked, loadAdminUserIds } from "@/lib/appCache";
+import { isReadGatewayConfigured, readGateway } from "@/lib/readGateway";
 import PostCard from "@/components/PostCard";
 import MentionInput from "@/components/MentionInput";
 import { renderMentions, submitMentions } from "@/lib/mentions";
@@ -63,8 +65,51 @@ interface Post {
   }[];
 }
 
+/** حِزمة /feed من البوابة (Layer 2) — تُقرأ بصلاحيات RLS الخاصة بالمستخدم. */
+interface GatewayFeedPost {
+  id: string;
+  user_id: string;
+  content: string;
+  image_url: string | null;
+  image_urls: string[] | null;
+  video_url: string | null;
+  created_at: string;
+  updated_at: string;
+  is_pinned: boolean;
+  generation: string | null;
+  field: string | null;
+  channel: string | null;
+  status?: string | null;
+}
+
+interface GatewayFeedComment {
+  id: string;
+  post_id: string;
+  user_id: string;
+  content: string;
+  parent_comment_id: string | null;
+  created_at: string;
+  is_pinned: boolean;
+}
+
+interface GatewayFeed {
+  page: number;
+  limit: number;
+  posts: GatewayFeedPost[];
+  commentsMap: Record<string, GatewayFeedComment[]>;
+  likes: { post_id: string; user_id: string }[];
+  commentLikes: { comment_id: string; user_id: string }[];
+  profiles: Record<string, {
+    full_name?: string | null;
+    avatar_url?: string | null;
+    generation?: string | null;
+    field?: string | null;
+    gender?: string | null;
+  } | undefined>;
+}
+
 const Chat = () => {
-  const { user, profile, isAdmin, isStaff, refreshProfile } = useAuth();
+  const { user, profile, isAdmin, isStaff, refreshProfile, session } = useAuth();
   const { spend, getCost, balance } = usePoints();
   const [posts, setPosts] = useState<Post[]>([]);
   const [content, setContent] = useState("");
@@ -100,82 +145,130 @@ const Chat = () => {
   const fetchPosts = useCallback(async (offset = 0, append = false) => {
     if (append) setLoadingMore(true);
     try {
-      let query = supabase
-        .from("posts")
-        .select("*, profiles!posts_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
-        .is("deleted_at", null)
-        .order("created_at", { ascending: false });
-
-      if (channelFilter === "all") {
-        query = query.or("channel.is.null,channel.eq.all");
-      } else {
-        query = query.eq("channel", channelFilter);
-      }
-
-      let { data: rows, error } = await query.range(offset, offset + PAGE_SIZE - 1);
-
-      if (error) {
-        const { data: rows2, error: err2 } = await supabase
+      // المسار المباشر (Fallback): السلوك الأصلي الحالي تماماً — يُستخدم عند
+      // غياب البوابة أو فشلها أو غياب رمز المستخدم.
+      const loadDirect = async () => {
+        let query = supabase
           .from("posts")
           .select("*, profiles!posts_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
           .is("deleted_at", null)
-          .order("created_at", { ascending: false })
-          .range(offset, offset + PAGE_SIZE - 1);
-        rows = rows2;
-        error = err2;
+          .order("created_at", { ascending: false });
+
+        if (channelFilter === "all") {
+          query = query.or("channel.is.null,channel.eq.all");
+        } else {
+          query = query.eq("channel", channelFilter);
+        }
+
+        let { data: rows, error } = await query.range(offset, offset + PAGE_SIZE - 1);
+
+        if (error) {
+          const { data: rows2, error: err2 } = await supabase
+            .from("posts")
+            .select("*, profiles!posts_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
+            .is("deleted_at", null)
+            .order("created_at", { ascending: false })
+            .range(offset, offset + PAGE_SIZE - 1);
+          rows = rows2;
+          error = err2;
+        }
+
+        if (error) throw error;
+        const baseRows = (rows || []) as any[];
+        const postIds = baseRows.map(p => p.id);
+
+        const [likesRes, commentsRes] = postIds.length
+          ? await Promise.all([
+              supabase.from("likes").select("post_id, user_id").in("post_id", postIds),
+              supabase
+                .from("comments")
+                .select("id, post_id, content, user_id, parent_comment_id, created_at, is_pinned, profiles:profiles!comments_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
+                .in("post_id", postIds)
+                .is("deleted_at", null)
+                .order("created_at", { ascending: true }),
+            ])
+          : [{ data: [] }, { data: [] }];
+
+        const cleaned = baseRows.map((p: any) => ({
+          ...p,
+          likes: (likesRes.data || []).filter((l: any) => l.post_id === p.id),
+          comments: (commentsRes.data || []).filter((c: any) => c.post_id === p.id),
+        })) as unknown as Post[];
+
+        const sorted = cleaned.sort(sortPosts);
+        setPosts(prev => append ? [...prev, ...sorted] : sorted);
+        setHasMore(baseRows.length === PAGE_SIZE);
+
+        // Batch fetch: admin roles (كاش مشترك) + comment likes (once per page load)
+        if (postIds.length > 0) {
+          const allCommentIds = (commentsRes.data || []).map((c: any) => c.id);
+          const [adminSet, clikesRes] = await Promise.all([
+            // مجموعة الأدمن تُقرأ من كاش مشترك (5 دقائق) بدل استعلام user_roles مع كل فيد
+            loadAdminUserIds(),
+            allCommentIds.length
+              ? supabase.from("comment_likes").select("comment_id, user_id").in("comment_id", allCommentIds)
+              : { data: [] },
+          ]);
+          setAdminUserIds(adminSet);
+          const clikesMap: Record<string, { count: number; liked: boolean }> = {};
+          allCommentIds.forEach(cid => {
+            const likes = (clikesRes.data || []).filter((l: any) => l.comment_id === cid);
+            clikesMap[cid] = {
+              count: likes.length,
+              liked: user ? likes.some((l: any) => l.user_id === user.id) : false,
+            };
+          });
+          setBatchCommentLikes(clikesMap);
+        }
+      };
+
+      // المسار عبر البوابة (Layer 2): طلب واحد بصلاحيات RLS الخاصة بالمستخدم.
+      const accessToken = session?.access_token ||
+        (await supabase.auth.getSession()).data.session?.access_token ||
+        "";
+      let viaGateway = false;
+
+      if (isReadGatewayConfigured() && accessToken) {
+        const page = Math.floor(offset / PAGE_SIZE) + 1;
+        const feed = await readGateway<GatewayFeed>(
+          `/feed?page=${page}&limit=${PAGE_SIZE}&channel=${encodeURIComponent(channelFilter)}`,
+          { accessToken }
+        );
+
+        if (feed && Array.isArray(feed.posts)) {
+          const postsForPage = feed.posts
+            .map((p: GatewayFeedPost) => ({
+              ...p,
+              profiles: feed.profiles?.[p.user_id] ?? null,
+              likes: (feed.likes || []).filter((l) => l.post_id === p.id),
+              comments: (feed.commentsMap?.[p.id] || []).map((c: GatewayFeedComment) => ({
+                ...c,
+                profiles: feed.profiles?.[c.user_id] ?? null,
+              })),
+            }))
+            .sort(sortPosts) as unknown as Post[];
+
+          setPosts(prev => append ? [...prev, ...postsForPage] : postsForPage);
+          setHasMore(feed.posts.length === PAGE_SIZE);
+
+          const allCommentIds = postsForPage.flatMap(p => p.comments.map(c => c.id));
+          const [adminSet] = await Promise.all([loadAdminUserIds()]);
+          setAdminUserIds(adminSet);
+          const clikesMap: Record<string, { count: number; liked: boolean }> = {};
+          allCommentIds.forEach(cid => {
+            const likes = (feed.commentLikes || []).filter((l) => l.comment_id === cid);
+            clikesMap[cid] = {
+              count: likes.length,
+              liked: user ? likes.some((l: any) => l.user_id === user.id) : false,
+            };
+          });
+          setBatchCommentLikes(clikesMap);
+          viaGateway = true;
+        }
       }
 
-      if (error) throw error;
-      const baseRows = (rows || []) as any[];
-      const postIds = baseRows.map(p => p.id);
-
-      const [likesRes, commentsRes] = postIds.length
-        ? await Promise.all([
-            supabase.from("likes").select("post_id, user_id").in("post_id", postIds),
-            supabase
-              .from("comments")
-              .select("id, post_id, content, user_id, parent_comment_id, created_at, is_pinned, profiles:profiles!comments_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
-              .in("post_id", postIds)
-              .is("deleted_at", null)
-              .order("created_at", { ascending: true }),
-          ])
-        : [{ data: [] }, { data: [] }];
-
-      const cleaned = baseRows.map((p: any) => ({
-        ...p,
-        likes: (likesRes.data || []).filter((l: any) => l.post_id === p.id),
-        comments: (commentsRes.data || []).filter((c: any) => c.post_id === p.id),
-      })) as unknown as Post[];
-
-      const sorted = cleaned.sort(sortPosts);
-      setPosts(prev => append ? [...prev, ...sorted] : sorted);
-      setHasMore(baseRows.length === PAGE_SIZE);
-
-      // Batch fetch: admin roles + comment likes (once per page load)
-      if (postIds.length > 0) {
-        const allUserIds = Array.from(new Set(baseRows.map(p => p.user_id)));
-        const allCommentIds = (commentsRes.data || []).map((c: any) => c.id);
-        const [rolesRes, clikesRes] = await Promise.all([
-          allUserIds.length
-            ? supabase.from("user_roles").select("user_id, role").in("user_id", allUserIds)
-            : { data: [] },
-          allCommentIds.length
-            ? supabase.from("comment_likes").select("comment_id, user_id").in("comment_id", allCommentIds)
-            : { data: [] },
-        ]);
-        const adminSet = new Set(
-          (rolesRes.data || []).filter((r: any) => r.role === "admin").map((r: any) => r.user_id)
-        );
-        setAdminUserIds(adminSet);
-        const clikesMap: Record<string, { count: number; liked: boolean }> = {};
-        allCommentIds.forEach(cid => {
-          const likes = (clikesRes.data || []).filter((l: any) => l.comment_id === cid);
-          clikesMap[cid] = {
-            count: likes.length,
-            liked: user ? likes.some((l: any) => l.user_id === user.id) : false,
-          };
-        });
-        setBatchCommentLikes(clikesMap);
+      if (!viaGateway) {
+        await loadDirect();
       }
     } catch (err) {
       console.error("Failed to load chat posts", err);
@@ -186,25 +279,20 @@ const Chat = () => {
       setLoading(false);
       setLoadingMore(false);
     }
-  }, [channelFilter, user]);
+  }, [channelFilter, user, session]);
 
   const fetchChannelSettings = useCallback(async () => {
-    const { data } = await supabase.from("channel_settings" as any).select("*");
-    if (data) {
-      const map: Record<string, boolean> = { all: true, male: true, female: true, "09": true, "10": true };
-      (data as any[]).forEach((r: any) => { map[r.channel] = r.enabled; });
-      setChannelSettings(map);
-    }
+    const map = await loadChannelSettings();
+    setChannelSettings(map);
   }, []);
 
   const fetchSectionLocks = useCallback(async () => {
-    const { data } = await (supabase as any).from("section_locks").select("section, locked, locked_until");
-    const map: Record<string, boolean> = {};
-    (data || []).forEach((r: any) => {
-      const stillLocked = r.locked && (!r.locked_until || new Date(r.locked_until) > new Date());
-      map[r.section] = !!stillLocked;
+    const map = await loadSectionLocks();
+    const booleans: Record<string, boolean> = {};
+    Object.keys(map).forEach((k) => {
+      booleans[k] = isSectionEffectivelyLocked(map[k]);
     });
-    setSectionLocks(map);
+    setSectionLocks(booleans);
   }, []);
 
   const refreshPost = useCallback(async (postId: string) => {

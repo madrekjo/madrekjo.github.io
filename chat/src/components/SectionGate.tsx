@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { useEffect, useState, useCallback } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { useSmartPoll } from "@/lib/dataLayer";
+import { getSectionLockData } from "@/lib/appCache";
 import { Card, CardContent } from "@/components/ui/card";
 import { Lock } from "lucide-react";
 
@@ -49,19 +50,14 @@ const SectionGate = ({ section, title, children }: Props) => {
   const { isAdmin } = useAuth();
   const [lock, setLock] = useState<LockData | null>(null);
 
-  useEffect(() => {
-    const fetchLock = async () => {
-      const { data } = await (supabase as any)
-        .from("section_locks")
-        .select("locked, message, locked_until")
-        .eq("section", section)
-        .maybeSingle();
-      setLock(data || null);
-    };
-    fetchLock();
-    const poll = setInterval(fetchLock, 120000);
-    return () => { clearInterval(poll); };
+  const refresh = useCallback(async () => {
+    // يقرأ من كاش section_locks المشترك — لا يضرب القاعدة إلا عند انتهاء TTL.
+    const data = await getSectionLockData(section);
+    setLock(data || null);
   }, [section]);
+
+  // استطلاع ذكي: يتوقف عندما يكون التبويب مخفياً، ويُحدّث فوراً عند العودة.
+  useSmartPoll(() => void refresh(), 120000, [refresh]);
 
   const isLocked = lock?.locked && (!lock.locked_until || new Date(lock.locked_until) > new Date());
 

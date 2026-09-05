@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
+import { invalidateAppConfig } from "@/lib/appCache";
+import { invalidateBannedWords } from "@/lib/bannedWords";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -186,6 +188,7 @@ const Admin = () => {
       return;
     }
     setChannelSettings(prev => ({ ...prev, [ch]: enabled }));
+    invalidateAppConfig(); // يمسح كاش القنوات حتى تُطبّق فوراً على باقي المستخدمين
     toast.success(enabled ? "تم تفعيل القناة" : "تم تعطيل القناة");
   };
 
@@ -215,7 +218,7 @@ const Admin = () => {
     const { error } = await (supabase as any).from("section_locks").upsert(
       { section, updated_at: new Date().toISOString(), ...patch }, { onConflict: "section" }
     );
-    if (error) toast.error("فشل الحفظ"); else { toast.success("تم الحفظ"); fetchSectionLocks(); }
+    if (error) toast.error("فشل الحفظ"); else { toast.success("تم الحفظ"); invalidateAppConfig(); fetchSectionLocks(); }
   };
 
   const fetchUsers = async () => {
@@ -321,12 +324,12 @@ const Admin = () => {
   const addBannedWord = async () => {
     if (!newWord.trim()) return;
     const { error } = await supabase.from("banned_words").insert({ word: newWord.trim().toLowerCase() });
-    if (error) toast.error("فشل"); else { logAction("add_banned_word", null, newWord.trim()); setNewWord(""); fetchBannedWords(); }
+    if (error) toast.error("فشل"); else { invalidateAppConfig(); invalidateBannedWords(); logAction("add_banned_word", null, newWord.trim()); setNewWord(""); fetchBannedWords(); }
   };
   const removeBannedWord = async (id: string) => {
     const w = bannedWords.find(x => x.id === id)?.word;
     await supabase.from("banned_words").delete().eq("id", id);
-    logAction("remove_banned_word", null, w || id); fetchBannedWords();
+    invalidateAppConfig(); invalidateBannedWords(); logAction("remove_banned_word", null, w || id); fetchBannedWords();
   };
   const sendWarning = async () => {
     if (!warnUser || !warnReason.trim()) return;

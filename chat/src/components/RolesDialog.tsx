@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { invalidateAppConfig } from "@/lib/appCache";
+import { invalidateCache } from "@/lib/dataLayer";
 import { useAuth } from "@/contexts/AuthContext";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -62,6 +64,10 @@ const RolesDialog = ({ userId, userName, open, onOpenChange, onChanged }: Props)
     }
     setSaving(false);
     if (!failed) toast.success("تم حفظ الرتب");
+    if (toAdd.length || toRemove.length) {
+      invalidateAppConfig(); // تحديث مجموعة الأدمن/الرتب فوراً
+      invalidateCache(`auth:roles:${userId}`); // كاش رتب المستخدم الهدف نفسه
+    }
     onChanged?.();
     onOpenChange(false);
   };
