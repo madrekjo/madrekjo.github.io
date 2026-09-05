@@ -38,13 +38,13 @@ const WarningNotice = () => {
     setWarnings(data || []);
   };
 
+  // بدون Realtime (كان يفتح قناة socket لكل مستخدم). الجلب عند الدخول +
+  // عند عودة التبويب (يظهر التحذير فوراً عند الرجوع للتطبيق).
   useEffect(() => {
-    fetch();
-    if (!user) return;
-    const ch = supabase.channel(`warnings-${user.id}`)
-      .on("postgres_changes", { event: "*", schema: "public", table: "user_warnings", filter: `user_id=eq.${user.id}` }, fetch)
-      .subscribe();
-    return () => { supabase.removeChannel(ch); };
+    void fetch();
+    const onVis = () => { if (document.visibilityState === "visible") void fetch(); };
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
   }, [user?.id]);
 
   const ack = async () => {

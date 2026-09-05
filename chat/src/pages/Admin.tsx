@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { invalidateAppConfig } from "@/lib/appCache";
+import { invalidateTable } from "@/lib/invalidation";
 import { invalidateBannedWords } from "@/lib/bannedWords";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { toast } from "sonner";
-import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, Lock, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key, Clock, KeyRound, Copy, Loader2 } from "lucide-react";
+import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, Lock, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key, Clock, KeyRound, Copy, Loader2, RefreshCw } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { Navigate, Link } from "react-router-dom";
@@ -91,7 +92,7 @@ const Admin = () => {
 
   const fetchAuditLog = async () => {
     const { data } = await (supabase as any)
-      .from("admin_actions").select("*").order("created_at", { ascending: false }).limit(200);
+      .from("admin_actions").select("id, admin_id, target_user_id, action_type, details, created_at").order("created_at", { ascending: false }).limit(200);
     if (!data) { setAuditLog([]); return; }
     const ids = Array.from(new Set([...data.map((d: any) => d.admin_id), ...data.map((d: any) => d.target_user_id).filter(Boolean)])) as string[];
     const { data: profs } = await supabase.from("profiles").select("user_id, full_name").in("user_id", ids);
@@ -107,6 +108,7 @@ const Admin = () => {
     toast.success("تم الحذف نهائياً");
     logAction("hard_delete_post", null, `post:${postId}`);
     fetchDeleted();
+    void invalidateTable("posts");
   };
   const hardDeleteComment = async (commentId: string) => {
     if (!confirm("حذف نهائي؟")) return;
@@ -115,6 +117,7 @@ const Admin = () => {
     toast.success("تم الحذف نهائياً");
     logAction("hard_delete_comment", null, `comment:${commentId}`);
     fetchDeleted();
+    void invalidateTable("comments");
   };
 
   const fetchPendingPosts = async () => {
@@ -141,15 +144,13 @@ const Admin = () => {
     if (isAdmin || isModerator) fetchPendingPosts();
   }, [isAdmin, isModerator, isSupervisor]);
 
+  // بدون Realtime (كان يفتح قناة socket لكامل جلسة الإدارة).
+  // الجلب عند الدخول + عند عودة التبويب + زر تحديث في تبويب المراجعة.
   useEffect(() => {
     if (!(isAdmin || isModerator)) return;
-    const channel = (supabase as any)
-      .channel("admin-pending-posts")
-      .on("postgres_changes", { event: "INSERT", schema: "public", table: "posts", filter: "status=eq.pending" }, () => fetchPendingPosts())
-      .on("postgres_changes", { event: "UPDATE", schema: "public", table: "posts", filter: "status=eq.pending" }, () => fetchPendingPosts())
-      .on("postgres_changes", { event: "DELETE", schema: "public", table: "posts", filter: "status=eq.pending" }, () => fetchPendingPosts())
-      .subscribe();
-    return () => { (supabase as any).removeChannel(channel); };
+    const onVis = () => { if (document.visibilityState === "visible") void fetchPendingPosts(); };
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
   }, [isAdmin, isModerator]);
 
   const approvePost = async (postId: string) => {
@@ -158,6 +159,7 @@ const Admin = () => {
     toast.success("تمت الموافقة على المنشور");
     logAction("approve_post", null, `post:${postId}`);
     fetchPendingPosts();
+    void invalidateTable("posts");
   };
 
   const rejectPost = async (postId: string) => {
@@ -167,10 +169,11 @@ const Admin = () => {
     toast.success("تم رفض وحذف المنشور");
     logAction("reject_post", null, `post:${postId}`);
     fetchPendingPosts();
+    void invalidateTable("posts");
   };
 
   const fetchChannelSettings = async () => {
-    const { data } = await supabase.from("channel_settings" as any).select("*");
+    const { data } = await supabase.from("channel_settings" as any).select("channel, enabled");
     if (data) {
       const map: Record<string, boolean> = { all: true, male: true, female: true, "09": true, "10": true };
       (data as any[]).forEach((r: any) => { map[r.channel] = r.enabled; });
@@ -189,6 +192,7 @@ const Admin = () => {
     }
     setChannelSettings(prev => ({ ...prev, [ch]: enabled }));
     invalidateAppConfig(); // يمسح كاش القنوات حتى تُطبّق فوراً على باقي المستخدمين
+    void invalidateTable("channel_settings");
     toast.success(enabled ? "تم تفعيل القناة" : "تم تعطيل القناة");
   };
 
@@ -206,10 +210,11 @@ const Admin = () => {
     toast.success(`حُذف ${ok} مستخدم${fail ? ` — فشل ${fail}` : ""}`);
     setSelectedIds(new Set()); setDeleteStep(0); setDeleteConfirm("");
     fetchUsers();
+    void invalidateTable("profiles");
   };
 
   const fetchSectionLocks = async () => {
-    const { data } = await (supabase as any).from("section_locks").select("*");
+    const { data } = await (supabase as any).from("section_locks").select("section, locked, message, locked_until");
     const map: Record<string, any> = {};
     (data || []).forEach((l: any) => { map[l.section] = l; });
     setSectionLocks(map);
@@ -218,7 +223,7 @@ const Admin = () => {
     const { error } = await (supabase as any).from("section_locks").upsert(
       { section, updated_at: new Date().toISOString(), ...patch }, { onConflict: "section" }
     );
-    if (error) toast.error("فشل الحفظ"); else { toast.success("تم الحفظ"); invalidateAppConfig(); fetchSectionLocks(); }
+    if (error) toast.error("فشل الحفظ"); else { toast.success("تم الحفظ"); invalidateAppConfig(); fetchSectionLocks(); void invalidateTable("section_locks"); }
   };
 
   const fetchUsers = async () => {
@@ -252,7 +257,7 @@ const Admin = () => {
     if (data) setUserRoles(data);
   };
   const fetchBannedWords = async () => {
-    const { data } = await supabase.from("banned_words").select("*").order("word");
+    const { data } = await supabase.from("banned_words").select("word").order("word");
     if (data) setBannedWords(data);
   };
 
@@ -889,6 +894,9 @@ const Admin = () => {
         <div className="space-y-4">
           <h3 className="font-semibold flex items-center gap-2">
             <Clock className="w-4 h-4 text-amber-500" /> منشورات بانتظار المراجعة ({pendingCount})
+            <Button size="sm" variant="ghost" className="mr-auto gap-1" onClick={() => void fetchPendingPosts()}>
+              <RefreshCw className="w-3 h-3" /> تحديث
+            </Button>
           </h3>
           {pendingPosts.length === 0 ? (
             <p className="text-sm text-muted-foreground text-center py-8">لا توجد منشورات بانتظار المراجعة</p>

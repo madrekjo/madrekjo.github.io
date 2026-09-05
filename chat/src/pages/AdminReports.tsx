@@ -42,7 +42,7 @@ const AdminReports = () => {
     setLoading(true);
     const { data } = await (supabase as any)
       .from("post_reports")
-      .select("*")
+      .select("id, post_id, reporter_id, status, reason, details, created_at")
       .eq("status", tab)
       .order("created_at", { ascending: false })
       .limit(200);

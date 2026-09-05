@@ -23,12 +23,12 @@ const BanDialog = ({ userId, open, onOpenChange, onChanged }: Props) => {
 
   useEffect(() => {
     if (!userId || !open) { setProfile(null); return; }
-    supabase.from("profiles").select("*").eq("user_id", userId).maybeSingle().then(({ data }) => setProfile(data));
+    supabase.from("profiles").select("user_id, full_name, avatar_url, is_banned, chat_banned, timeout_until, generation, gender, email, created_at").eq("user_id", userId).maybeSingle().then(({ data }) => setProfile(data));
   }, [userId, open]);
 
   const refresh = async () => {
     if (!userId) return;
-    const { data } = await supabase.from("profiles").select("*").eq("user_id", userId).maybeSingle();
+    const { data } = await supabase.from("profiles").select("user_id, full_name, avatar_url, is_banned, chat_banned, timeout_until, generation, gender, email, created_at").eq("user_id", userId).maybeSingle();
     setProfile(data);
     onChanged?.();
   };

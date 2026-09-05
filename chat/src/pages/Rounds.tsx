@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-import { useSmartPoll } from "@/lib/dataLayer";
+import { invalidateTable } from "@/lib/invalidation";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -15,7 +15,7 @@ import {
 import { toast } from "sonner";
 import {
   Users, Plus, Loader2, Trash2, LogIn, LogOut as LogOutIcon, Clock, Play,
-  Coffee, BellRing, Eye, HelpCircle, CheckCircle2, UserMinus, Edit2, Lock, MessageSquare,
+  Coffee, BellRing, Eye, HelpCircle, CheckCircle2, UserMinus, Edit2, Lock, MessageSquare, RefreshCw,
 } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
@@ -68,6 +68,7 @@ const Rounds = () => {
   const [breakDuration, setBreakDuration] = useState(5);
   const [alarmMuted, setAlarmMuted] = useState(false);
   const [creating, setCreating] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
 
   const [now, setNow] = useState(Date.now());
   const alarmRef = useRef<HTMLAudioElement | null>(null);
@@ -92,11 +93,13 @@ const Rounds = () => {
   // تُجلب فقط على فترات بطيئة (5 دقائق) وعند الانضمام/الخروج فقط — لتقليل استهلاك القاعدة.
   const detailCache = useRef<{ parts: any[]; profiles: any[] }>({ parts: [], profiles: [] });
 
-  // استطلاع سريع ذكي: قائمة الجولات القصيرة فقط (بدون المشاركين/البروفايلات).
-  // يتوقف تلقائياً عندما يكون التبويب مخفياً، ويُحدّث فوراً عند العودة.
-  useSmartPoll(() => { void fetchRounds(); void fetchMeetings(); }, 30000, [user?.id]);
-  // التفاصيل (المشاركين + البروفايلات) على فترات بطيئة — بلا تنفيذ فوري عند الدخول.
-  useSmartPoll(() => { void fetchRoundsDetail(); }, 300000, [user?.id], false);
+  // بدون استطلاع دوري (كان كل 30 ثانية + كل 5 دقائق يضربان القاعدة).
+  // الجلب يتم عند الدخول + زر التحديث اليدوي فقط.
+  useEffect(() => {
+    void fetchRounds();
+    void fetchMeetings();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.id]);
 
   useEffect(() => {
     if (!localStorage.getItem("rounds_help_seen")) {
@@ -206,6 +209,7 @@ const Rounds = () => {
       }
       setMyCompletions(s => new Set([...s, completionRound.id]));
       setCompletionRound(null); setAchievement("");
+      void invalidateTable("round_completions");
     }
   };
 
@@ -222,7 +226,7 @@ const Rounds = () => {
         if (r.user_id === user?.id || isAdmin) {
           (supabase as any).from("study_rounds")
             .update({ status: "completed", ended_at: new Date().toISOString() })
-            .eq("id", r.id).then(() => fetchRounds());
+            .eq("id", r.id).then(() => { fetchRounds(); void invalidateTable("study_rounds"); });
         }
         const isMember = r.user_id === user?.id || r.participants.find(p => p.user_id === user?.id);
         if (isMember && !myCompletions.has(r.id) && !completionRound) {
@@ -298,7 +302,7 @@ const Rounds = () => {
       status: "pending",
     });
     if (error) toast.error("فشل إنشاء الجولة");
-    else { toast.success("تم إنشاء الجولة"); setOpen(false); resetForm(); fetchRounds(); }
+    else { toast.success("تم إنشاء الجولة"); setOpen(false); resetForm(); fetchRounds(); void invalidateTable("study_rounds"); }
     setCreating(false);
   };
 
@@ -325,34 +329,34 @@ const Rounds = () => {
       alarm_muted: alarmMuted,
     }).eq("id", editingRound.id);
     if (error) toast.error("فشل التعديل");
-    else { toast.success("تم التعديل"); setEditingRound(null); resetForm(); fetchRounds(); }
+    else { toast.success("تم التعديل"); setEditingRound(null); resetForm(); fetchRounds(); void invalidateTable("study_rounds"); }
   };
 
   const handleStart = async (r: Round) => {
     const { error } = await (supabase as any).from("study_rounds")
       .update({ status: "active", started_at: new Date().toISOString() }).eq("id", r.id);
-    if (error) toast.error("فشل البدء"); else { toast.success("بدأت الجولة"); fetchRounds(); }
+    if (error) toast.error("فشل البدء"); else { toast.success("بدأت الجولة"); fetchRounds(); void invalidateTable("study_rounds"); }
   };
 
   const handleJoin = async (roundId: string) => {
     if (!user) return;
     const { error } = await (supabase as any).from("round_participants").insert({ round_id: roundId, user_id: user.id });
-    if (error) toast.error("فشل الانضمام"); else { toast.success("انضممت للجولة"); await fetchRoundsDetail(); fetchRounds(); }
+    if (error) toast.error("فشل الانضمام"); else { toast.success("انضممت للجولة"); await fetchRoundsDetail(); fetchRounds(); void invalidateTable("round_participants"); }
   };
   const handleLeave = async (roundId: string) => {
     if (!user) return;
     const { error } = await (supabase as any).from("round_participants").delete().eq("round_id", roundId).eq("user_id", user.id);
-    if (error) toast.error("فشل الخروج"); else { toast.success("خرجت من الجولة"); await fetchRoundsDetail(); fetchRounds(); }
+    if (error) toast.error("فشل الخروج"); else { toast.success("خرجت من الجولة"); await fetchRoundsDetail(); fetchRounds(); void invalidateTable("round_participants"); }
   };
   const handleKick = async (roundId: string, uid: string) => {
     if (!confirm("طرد هذا المستخدم؟")) return;
     const { error } = await (supabase as any).from("round_participants").delete().eq("round_id", roundId).eq("user_id", uid);
-    if (error) toast.error("فشل الطرد"); else { toast.success("تم الطرد"); await fetchRoundsDetail(); fetchRounds(); setViewingRound(null); }
+    if (error) toast.error("فشل الطرد"); else { toast.success("تم الطرد"); await fetchRoundsDetail(); fetchRounds(); setViewingRound(null); void invalidateTable("round_participants"); }
   };
   const handleDelete = async (roundId: string) => {
     if (!confirm("حذف الجولة؟")) return;
     const { error } = await (supabase as any).from("study_rounds").delete().eq("id", roundId);
-    if (error) toast.error("فشل الحذف"); else { toast.success("تم الحذف"); fetchRounds(); }
+    if (error) toast.error("فشل الحذف"); else { toast.success("تم الحذف"); fetchRounds(); void invalidateTable("study_rounds"); }
   };
 
   const handleCreateMeeting = async () => {
@@ -360,12 +364,13 @@ const Rounds = () => {
     const { data, error } = await (supabase as any).from("round_meetings")
       .insert({ owner_id: user.id, title: meetingTitle.trim() }).select().single();
     if (error) toast.error("فشل إنشاء الاجتماع");
-    else { setMeetingTitle(""); setCreateMeetingOpen(false); fetchMeetings(); setMeetingOpen(data); }
+    else { setMeetingTitle(""); setCreateMeetingOpen(false); fetchMeetings(); setMeetingOpen(data); void invalidateTable("round_meetings"); }
   };
   const handleDeleteMeeting = async (id: string) => {
     if (!confirm("حذف الاجتماع؟")) return;
     await (supabase as any).from("round_meetings").delete().eq("id", id);
     fetchMeetings();
+    void invalidateTable("round_meetings");
   };
 
   if (loading) return (
@@ -529,6 +534,13 @@ const Rounds = () => {
           <h1 className="text-2xl font-bold">الجولات الدراسية</h1>
         </div>
         <div className="flex gap-2">
+          <Button size="sm" variant="outline" disabled={refreshing} onClick={async () => {
+            setRefreshing(true);
+            try { await fetchRounds(); await fetchMeetings(); await fetchRoundsDetail(); }
+            finally { setRefreshing(false); }
+          }} className="gap-1">
+            {refreshing ? <Loader2 className="w-4 h-4 animate-spin" /> : <RefreshCw className="w-4 h-4" />} تحديث
+          </Button>
           <Button size="sm" variant="ghost" onClick={() => setHelpOpen(true)} className="gap-1">
             <HelpCircle className="w-4 h-4" /> شرح
           </Button>

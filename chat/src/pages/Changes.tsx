@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { toast } from "sonner";
-import { Send, Sparkles, Heart, Trash2 } from "lucide-react";
+import { Send, Sparkles, Heart, Trash2, RefreshCw } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 
@@ -31,6 +31,7 @@ const ChannelChat = ({ category }: { category: "change" | "motivation" }) => {
   const [sending, setSending] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const meta = categoryMeta[category];
+  const profilesRef = useRef<Record<string, { full_name: string; avatar_url: string | null }>>({});
 
   const fetchMsgs = async () => {
     try {
@@ -43,7 +44,8 @@ const ChannelChat = ({ category }: { category: "change" | "motivation" }) => {
       const { data: profs } = ids.length
         ? await supabase.from("profiles").select("user_id, full_name, avatar_url").in("user_id", ids as string[])
         : { data: [] };
-      setMsgs(rows.map((m: any) => ({ ...m, profile: profs?.find(p => p.user_id === m.user_id) || null })));
+      (profs || []).forEach((p: any) => { profilesRef.current[p.user_id] = p; });
+      setMsgs(rows.map((m: any) => ({ ...m, profile: profilesRef.current[m.user_id] || null })));
       setTimeout(() => scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" }), 50);
     } catch (err) {
       console.error("Failed to load changes chat", err);
@@ -51,12 +53,13 @@ const ChannelChat = ({ category }: { category: "change" | "motivation" }) => {
     }
   };
 
+  // بدون Realtime (كان يفتح قناة socket لكل تبويب). الجلب عند الفتح +
+  // عند عودة التبويب + زر تحديث + إعادة جلب بعد الإرسال/الحذف.
   useEffect(() => {
-    fetchMsgs();
-    const ch = supabase.channel(`changes-${category}`)
-      .on("postgres_changes", { event: "*", schema: "public", table: "changes_messages", filter: `category=eq.${category}` }, fetchMsgs)
-      .subscribe();
-    return () => { supabase.removeChannel(ch); };
+    void fetchMsgs();
+    const onVis = () => { if (document.visibilityState === "visible") void fetchMsgs(); };
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
   }, [category]);
 
   const send = async () => {
@@ -66,17 +69,24 @@ const ChannelChat = ({ category }: { category: "change" | "motivation" }) => {
     const { error } = await (supabase as any).from("changes_messages")
       .insert({ user_id: user.id, category, content: text.trim() });
     if (error) toast.error("فشل الإرسال");
-    else setText("");
+    else { setText(""); void fetchMsgs(); }
     setSending(false);
   };
 
   const del = async (id: string) => {
     if (!confirm("حذف الرسالة؟")) return;
     await (supabase as any).from("changes_messages").delete().eq("id", id);
+    void fetchMsgs();
   };
 
   return (
     <div className="flex flex-col h-[calc(100vh-220px)] border rounded-lg bg-card">
+      <div className="flex items-center justify-between px-3 pt-2">
+        <span className="text-xs text-muted-foreground">قراءة مباشرة مع تحديث يدوي</span>
+        <button onClick={() => void fetchMsgs()} title="تحديث" className="text-muted-foreground hover:text-foreground">
+          <RefreshCw className="w-3 h-3" />
+        </button>
+      </div>
       <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 space-y-3">
         {msgs.length === 0 ? (
           <p className="text-center text-muted-foreground py-12 text-sm">لا توجد رسائل بعد. كن أول من يكتب!</p>

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { containsBannedWord, loadBannedWords } from "@/lib/bannedWords";
+import { invalidateTable } from "@/lib/invalidation";
 import { loadChannelSettings, loadSectionLocks, isSectionEffectivelyLocked, loadAdminUserIds } from "@/lib/appCache";
 import { isReadGatewayConfigured, readGateway } from "@/lib/readGateway";
 import PostCard from "@/components/PostCard";
@@ -451,6 +452,7 @@ const Chat = () => {
       }
       setContent(""); setMediaFiles([]); setMediaType(null);
       toast.success(needsReview ? "تم إرسال المنشور للمراجعة، سيظهر بعد موافقة الإدارة" : "تم النشر");
+      void invalidateTable("posts");
       const postId = inserted?.[0]?.id;
       if (postId) {
         await submitMentions(supabase, { postId, actorId: user.id, text: content, channel: channelFilter });

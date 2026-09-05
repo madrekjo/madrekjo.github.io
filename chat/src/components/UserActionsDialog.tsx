@@ -31,7 +31,7 @@ const UserActionsDialog = ({ userId, open, onOpenChange, onChanged }: Props) => 
     setMode(null); setVal(""); setMinutes(15);
     setLoading(true);
     (async () => {
-      const { data } = await supabase.from("profiles").select("*").eq("user_id", userId).maybeSingle();
+      const { data } = await supabase.from("profiles").select("user_id, full_name, avatar_url, is_banned, chat_banned, timeout_until, generation, gender, email, created_at, via_invite").eq("user_id", userId).maybeSingle();
       setProfile(data);
       setLoading(false);
     })();
@@ -39,7 +39,7 @@ const UserActionsDialog = ({ userId, open, onOpenChange, onChanged }: Props) => 
 
   const refresh = async () => {
     if (!userId) return;
-    const { data } = await supabase.from("profiles").select("*").eq("user_id", userId).maybeSingle();
+    const { data } = await supabase.from("profiles").select("user_id, full_name, avatar_url, is_banned, chat_banned, timeout_until, generation, gender, email, created_at, via_invite").eq("user_id", userId).maybeSingle();
     setProfile(data);
     // إبطال كاش البيانات المسؤولة عن الحظر/التايم اوت/الاسم للهدف فوراً
     // حتى لا تتأخر العقوبة بانتهاء TTL القديم على الأجهزة الأخرى.

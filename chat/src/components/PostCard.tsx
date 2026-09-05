@@ -2,6 +2,7 @@ import { useState, useEffect, forwardRef } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { containsBannedWord } from "@/lib/bannedWords";
+import { invalidateTable } from "@/lib/invalidation";
 import { loadAdminUserIds } from "@/lib/appCache";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -148,6 +149,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
         await supabase.from("notifications").insert({ user_id: post.user_id, actor_id: user.id, type: "like", post_id: post.id });
       }
     }
+    void invalidateTable("likes");
     onRefresh();
   };
 
@@ -178,6 +180,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
     } else {
       await supabase.from("comment_likes").insert({ comment_id: commentId, user_id: user.id });
     }
+    void invalidateTable("comment_likes");
     // تحديث محلي فوري — بلا إعادة جلب comment_likes من القاعدة
     setCommentLikes(prev => ({
       ...prev,
@@ -212,6 +215,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
       await supabase.from("notifications").insert({ user_id: post.user_id, actor_id: user.id, type: "comment", post_id: post.id });
     }
     setCommentText("");
+    void invalidateTable("comments");
     onRefresh();
   };
 
@@ -241,21 +245,25 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
     }
     setReplyText("");
     setReplyTo(null);
+    void invalidateTable("comments");
     onRefresh();
   };
 
   const handleDeletePost = async () => {
     await supabase.from("posts").update({ deleted_at: new Date().toISOString(), deleted_by: user?.id } as any).eq("id", post.id);
+    void invalidateTable("posts");
     onRefresh();
   };
   const handleEditPost = async () => {
     if (containsBannedWord(editContent, isAdmin)) { toast.error("المحتوى يحتوي على كلمات محظورة"); return; }
     await supabase.from("posts").update({ content: editContent.trim() }).eq("id", post.id);
+    void invalidateTable("posts");
     setEditing(false);
     onRefresh();
   };
   const handleDeleteComment = async (commentId: string) => {
     await supabase.from("comments").update({ deleted_at: new Date().toISOString(), deleted_by: user?.id } as any).eq("id", commentId);
+    void invalidateTable("comments");
     onRefresh();
   };
   const handleEditComment = async (commentId: string) => {
@@ -263,12 +271,13 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
     if (containsBannedWord(editCommentText, isAdmin)) { toast.error("التعليق يحتوي على كلمات محظورة"); return; }
     const { error } = await supabase.from("comments").update({ content: editCommentText.trim() }).eq("id", commentId);
     if (error) toast.error("فشل التعديل");
-    else { setEditingCommentId(null); setEditCommentText(""); onRefresh(); }
+    else { setEditingCommentId(null); setEditCommentText(""); void invalidateTable("comments"); onRefresh(); }
   };
   const handlePinComment = async (commentId: string, currentlyPinned: boolean) => {
     const { error } = await supabase.from("comments").update({ is_pinned: !currentlyPinned } as any).eq("id", commentId);
     if (error) toast.error("فشل تثبيت التعليق");
     else toast.success(currentlyPinned ? "تم إلغاء التثبيت" : "تم تثبيت التعليق");
+    void invalidateTable("comments");
     onRefresh();
   };
   const handlePinPost = async () => {
@@ -276,6 +285,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, highl
     const { error } = await supabase.from("posts").update({ is_pinned: !isPinned } as any).eq("id", post.id);
     if (error) toast.error("فشل تثبيت المنشور");
     else toast.success(isPinned ? "تم إلغاء تثبيت المنشور" : "تم تثبيت المنشور");
+    void invalidateTable("posts");
     onRefresh();
   };
 

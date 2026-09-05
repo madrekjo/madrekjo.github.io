@@ -4,7 +4,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Send, Trash2, Loader2, Reply, X } from "lucide-react";
+import { Send, Trash2, Loader2, Reply, X, RefreshCw } from "lucide-react";
 import { toast } from "sonner";
 import { usePoints } from "@/contexts/PointsContext";
 
@@ -26,6 +26,7 @@ const RoundChat = ({ roundId }: { roundId: string }) => {
   const [sending, setSending] = useState(false);
   const [replyTo, setReplyTo] = useState<Msg | null>(null);
   const endRef = useRef<HTMLDivElement | null>(null);
+  const profilesRef = useRef<Record<string, { full_name: string; avatar_url: string | null }>>({});
 
   const fetchMsgs = async () => {
     const { data } = await (supabase as any)
@@ -35,17 +36,18 @@ const RoundChat = ({ roundId }: { roundId: string }) => {
     const ids = Array.from(new Set(data.map((m: any) => m.user_id)));
     const { data: profiles } = await supabase
       .from("profiles").select("user_id, full_name, avatar_url").in("user_id", ids as string[]);
-    setMsgs(data.map((m: any) => ({ ...m, profile: profiles?.find(p => p.user_id === m.user_id) || null })));
+    (profiles || []).forEach((p: any) => { profilesRef.current[p.user_id] = p; });
+    setMsgs(data.map((m: any) => ({ ...m, profile: profilesRef.current[m.user_id] || null })));
     setLoading(false);
   };
 
+  // بدون Realtime (كان يفتح قناة socket لكل جولة). الجلب عند الفتح +
+  // عند عودة التبويب + زر تحديث + إعادة جلب بعد الإرسال/الحذف.
   useEffect(() => {
-    fetchMsgs();
-    const ch = supabase
-      .channel(`round-chat-${roundId}`)
-      .on("postgres_changes", { event: "*", schema: "public", table: "round_chat", filter: `round_id=eq.${roundId}` }, fetchMsgs)
-      .subscribe();
-    return () => { supabase.removeChannel(ch); };
+    void fetchMsgs();
+    const onVis = () => { if (document.visibilityState === "visible") void fetchMsgs(); };
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
   }, [roundId]);
 
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }); }, [msgs]);
@@ -71,20 +73,26 @@ const RoundChat = ({ roundId }: { roundId: string }) => {
         await spend(getCost("round_message"), "round_message", "round_chat", { roundId });
       }
       setText(""); setReplyTo(null);
+      void fetchMsgs();
     }
     setSending(false);
   };
 
   const del = async (id: string) => {
     const { error } = await (supabase as any).from("round_chat").delete().eq("id", id);
-    if (error) toast.error("فشل الحذف");
+    if (error) toast.error("فشل الحذف"); else void fetchMsgs();
   };
 
   const findMsg = (id: string) => msgs.find(m => m.id === id);
 
   return (
     <div className="rounded-lg border bg-background mt-3 overflow-hidden">
-      <div className="px-3 py-2 bg-muted text-xs font-medium border-b">💬 شات البريك (للمشاركين فقط)</div>
+      <div className="px-3 py-2 bg-muted text-xs font-medium border-b flex items-center justify-between">
+        <span>💬 شات البريك (للمشاركين فقط)</span>
+        <button onClick={() => void fetchMsgs()} title="تحديث" className="text-muted-foreground hover:text-foreground">
+          <RefreshCw className="w-3 h-3" />
+        </button>
+      </div>
       <div className="max-h-64 overflow-y-auto p-3 space-y-2">
         {loading ? (
           <Loader2 className="w-4 h-4 animate-spin mx-auto text-primary" />

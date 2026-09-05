@@ -1,13 +1,12 @@
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { useSmartPoll } from "@/lib/dataLayer";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "sonner";
-import { Lock, Send, Loader2, Trash2, ImagePlus, X } from "lucide-react";
+import { Lock, Send, Loader2, Trash2, ImagePlus, X, RefreshCw } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { compressImage } from "@/lib/mediaCompression";
@@ -34,9 +33,6 @@ const StaffMeeting = () => {
     if (!isStaff && user) navigate("/");
   }, [isStaff, user, navigate]);
 
-  // استطلاع ذكي لرسائل اجتماع الكادر — يتوقف عند إخفاء التبويب.
-  useSmartPoll(() => { if (isStaff) void fetchMessages(); }, 60000, [isStaff]);
-
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages]);
 
   const fetchMessages = async () => {
@@ -47,6 +43,14 @@ const StaffMeeting = () => {
     setMessages(data.map((m: any) => ({ ...m, profile: profiles?.find(p => p.user_id === m.user_id) || null })));
     setLoading(false);
   };
+
+  // بدون استطلاع دوري (كان كل دقيقة). الجلب عند الفتح + عند عودة التبويب + زر تحديث.
+  useEffect(() => {
+    if (isStaff) void fetchMessages();
+    const onVis = () => { if (document.visibilityState === "visible") void fetchMessages(); };
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
+  }, [isStaff]);
 
   const handleSend = async () => {
     if (!user || (!content.trim() && !file)) return;
@@ -81,6 +85,9 @@ const StaffMeeting = () => {
       <div className="flex items-center gap-2 mb-2">
         <Lock className="w-6 h-6 text-primary" />
         <h1 className="text-2xl font-bold">اجتماع الإدارة</h1>
+        <Button size="sm" variant="ghost" className="mr-auto gap-1" onClick={() => void fetchMessages()}>
+          <RefreshCw className="w-3 h-3" /> تحديث
+        </Button>
       </div>
       <p className="text-sm text-muted-foreground mb-6">قناة خاصة للأدمن والمشرفين فقط 🔒</p>
 

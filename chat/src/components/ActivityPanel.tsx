@@ -1,11 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-import { useSmartPoll } from "@/lib/dataLayer";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
-import { X, Clock, History, UserX, Trophy, Medal } from "lucide-react";
+import { X, Clock, History, UserX, Trophy, Medal, RefreshCw } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const RANK_ICONS = [
@@ -65,8 +64,13 @@ const ActivityPanel = ({ onClose }: { onClose: () => void }) => {
     setDbActive(rows);
   }, []);
 
-  // جدول النشاط يُحدَّث كل 15 دقيقة فقط، ويتوقف عندما يكون التبويب مخفياً.
-  useSmartPoll(() => void refreshDb(), 15 * 60 * 1000, [refreshDb]);
+  // بدون استطلاع دوري (كان كل 15 دقيقة). الجلب عند الفتح + عند عودة التبويب + زر تحديث.
+  useEffect(() => {
+    void refreshDb();
+    const onVis = () => { if (document.visibilityState === "visible") void refreshDb(); };
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
+  }, [refreshDb]);
 
   const merged: ActivityRow[] = (() => {
     // بدون Presence/Realtime — نعرض النشاط من last_seen_at فقط (أخف بكثير على القاعدة)
@@ -114,9 +118,14 @@ const ActivityPanel = ({ onClose }: { onClose: () => void }) => {
             خلال آخر {ACTIVITY_WINDOW_MIN} دقائق من النشر/التعليق/الإعجاب
           </span>
         </h3>
-        <Button variant="ghost" size="icon" className="h-6 w-6" onClick={onClose}>
-          <X className="w-4 h-4" />
-        </Button>
+        <div className="flex items-center gap-1">
+          <Button variant="ghost" size="icon" className="h-6 w-6" onClick={() => void refreshDb()} title="تحديث">
+            <RefreshCw className="w-3.5 h-3.5" />
+          </Button>
+          <Button variant="ghost" size="icon" className="h-6 w-6" onClick={onClose}>
+            <X className="w-4 h-4" />
+          </Button>
+        </div>
       </div>
 
       {merged.length === 0 ? (

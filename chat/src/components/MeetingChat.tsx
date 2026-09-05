@@ -4,7 +4,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Send, Trash2, Loader2, ImagePlus, X, UserPlus, Reply } from "lucide-react";
+import { Send, Trash2, Loader2, ImagePlus, X, UserPlus, Reply, RefreshCw } from "lucide-react";
 import { toast } from "sonner";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
@@ -32,6 +32,7 @@ const MeetingChat = ({ meetingId, ownerId, title, onClose }: { meetingId: string
   const [lightbox, setLightbox] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const endRef = useRef<HTMLDivElement>(null);
+  const profilesRef = useRef<Record<string, { full_name: string; avatar_url: string | null }>>({});
 
   const isOwner = user?.id === ownerId;
 
@@ -44,19 +45,21 @@ const MeetingChat = ({ meetingId, ownerId, title, onClose }: { meetingId: string
     (mData || []).forEach((m: any) => userIds.add(m.user_id));
     (memData || []).forEach((m: any) => userIds.add(m.user_id));
     const { data: profiles } = await supabase.from("profiles").select("user_id, full_name, avatar_url").in("user_id", Array.from(userIds));
+    (profiles || []).forEach((p: any) => { profilesRef.current[p.user_id] = p; });
     const findP = (id: string) => profiles?.find(p => p.user_id === id) || null;
     setMsgs((mData || []).map((m: any) => ({ ...m, profile: findP(m.user_id) })));
     setMembers((memData || []).map((m: any) => ({ user_id: m.user_id, full_name: findP(m.user_id)?.full_name || "", avatar_url: findP(m.user_id)?.avatar_url || null })));
     setLoading(false);
   };
 
+  // بدون Realtime (كان يفتح قناة socket لكل اجتماع). نعتمد على:
+  //  - جلب أولي عند الفتح + إعادة جلب عند عودة التبويب (visibilitychange)
+  //  - إعادة جلب محلية بعد الإرسال/الحذف/إضافة الأعضاء (أدناه)
   useEffect(() => {
-    fetchAll();
-    const ch = supabase.channel(`meeting-${meetingId}`)
-      .on("postgres_changes", { event: "*", schema: "public", table: "round_meeting_messages", filter: `meeting_id=eq.${meetingId}` }, fetchAll)
-      .on("postgres_changes", { event: "*", schema: "public", table: "round_meeting_members", filter: `meeting_id=eq.${meetingId}` }, fetchAll)
-      .subscribe();
-    return () => { supabase.removeChannel(ch); };
+    void fetchAll();
+    const onVis = () => { if (document.visibilityState === "visible") void fetchAll(); };
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
   }, [meetingId]);
 
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }); }, [msgs]);
@@ -76,13 +79,13 @@ const MeetingChat = ({ meetingId, ownerId, title, onClose }: { meetingId: string
     const { error } = await (supabase as any).from("round_meeting_messages").insert({
       meeting_id: meetingId, user_id: user.id, content: text.trim() || null, image_url: imageUrl,
     });
-    if (error) toast.error("فشل الإرسال"); else { setText(""); setFile(null); if (fileRef.current) fileRef.current.value = ""; }
+    if (error) toast.error("فشل الإرسال"); else { setText(""); setFile(null); if (fileRef.current) fileRef.current.value = ""; void fetchAll(); }
     setSending(false);
   };
 
   const del = async (id: string) => {
     const { error } = await (supabase as any).from("round_meeting_messages").delete().eq("id", id);
-    if (error) toast.error("فشل الحذف");
+    if (error) toast.error("فشل الحذف"); else void fetchAll();
   };
 
   const openAdd = async () => {
@@ -94,11 +97,11 @@ const MeetingChat = ({ meetingId, ownerId, title, onClose }: { meetingId: string
   const addMember = async (uid: string) => {
     if (members.find(m => m.user_id === uid) || uid === ownerId) return;
     const { error } = await (supabase as any).from("round_meeting_members").insert({ meeting_id: meetingId, user_id: uid });
-    if (error) toast.error("فشل الإضافة"); else toast.success("تم إضافته");
+    if (error) toast.error("فشل الإضافة"); else { toast.success("تم إضافته"); void fetchAll(); }
   };
   const removeMember = async (uid: string) => {
     const { error } = await (supabase as any).from("round_meeting_members").delete().eq("meeting_id", meetingId).eq("user_id", uid);
-    if (error) toast.error("فشل الإزالة");
+    if (error) toast.error("فشل الإزالة"); else void fetchAll();
   };
 
   const filtered = allUsers.filter(u => u.user_id !== ownerId && u.full_name?.toLowerCase().includes(search.toLowerCase()));
@@ -109,11 +112,16 @@ const MeetingChat = ({ meetingId, ownerId, title, onClose }: { meetingId: string
         <DialogHeader>
           <DialogTitle className="flex items-center justify-between gap-2">
             <span>🔒 {title}</span>
-            {isOwner && (
-              <Button size="sm" variant="outline" onClick={openAdd} className="gap-1">
-                <UserPlus className="w-4 h-4" /> الأعضاء ({members.length + 1})
+            <div className="flex items-center gap-2">
+              <Button size="sm" variant="ghost" onClick={() => { void fetchAll(); }} title="تحديث" className="gap-1">
+                <RefreshCw className="w-3 h-3" /> تحديث
               </Button>
-            )}
+              {isOwner && (
+                <Button size="sm" variant="outline" onClick={openAdd} className="gap-1">
+                  <UserPlus className="w-4 h-4" /> الأعضاء ({members.length + 1})
+                </Button>
+              )}
+            </div>
           </DialogTitle>
         </DialogHeader>
 

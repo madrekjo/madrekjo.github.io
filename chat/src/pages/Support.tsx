@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "sonner";
-import { Send, Loader2, MessageSquare, ChevronDown, ChevronUp, Trash2, Edit2, Check, X, Settings, ImagePlus } from "lucide-react";
+import { Send, Loader2, MessageSquare, ChevronDown, ChevronUp, Trash2, Edit2, Check, X, Settings, ImagePlus, RefreshCw } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import UserActionsDialog from "@/components/UserActionsDialog";
@@ -75,23 +75,14 @@ const Support = () => {
     return urls.length > 0 ? urls : null;
   };
 
+  // بدون Realtime (كان يفتح قناة socket دائمة للدعم). الجلب عند الفتح +
+  // عند عودة التبويب + زر تحديث، وبعد أي إرسال/حذف يُعاد الجلب (أدناه).
   useEffect(() => {
-    fetchMessages();
-    let debounceTimer: ReturnType<typeof setTimeout> | null = null;
-    const debouncedFetch = () => {
-      if (debounceTimer) clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(() => { fetchMessages(); }, 2000);
-    };
-    const channel = supabase
-      .channel("support-realtime")
-      .on("postgres_changes", {
-        event: "*",
-        schema: "public",
-        table: "support_messages",
-        filter: isStaff ? undefined : `user_id=eq.${user?.id || ""}`,
-      }, debouncedFetch)
-      .subscribe();
-    return () => { if (debounceTimer) clearTimeout(debounceTimer); supabase.removeChannel(channel); };
+    void fetchMessages();
+    const onVis = () => { if (document.visibilityState === "visible") void fetchMessages(); };
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user?.id, isStaff]);
 
   const newAdminRepliesLocal = messages.filter(m => m.user_id === user?.id && m.sender_id !== user?.id && !m.is_read).length;
@@ -117,12 +108,13 @@ const Support = () => {
     const { data, error } = await (supabase as any)
       .from("support_messages")
       .select("id, user_id, sender_id, content, image_urls, is_read, created_at")
-      .order("created_at", { ascending: true });
+      .order("created_at", { ascending: false }).limit(200);
 
     if (!error && data) {
-      setMessages(data);
+      const sorted = [...data].reverse();
+      setMessages(sorted);
       if (isStaff) {
-        await buildConversations(data);
+        await buildConversations(sorted);
       }
     }
     setLoading(false);
@@ -327,6 +319,9 @@ const Support = () => {
         <div className="flex items-center gap-2 mb-6">
           <MessageSquare className="w-6 h-6 text-primary" />
           <h1 className="text-2xl font-bold">رسائل الدعم</h1>
+          <Button variant="ghost" size="sm" className="mr-auto gap-1" onClick={() => void fetchMessages()}>
+            <RefreshCw className="w-3 h-3" /> تحديث
+          </Button>
         </div>
 
         {conversations.length === 0 ? (
@@ -506,6 +501,9 @@ const Support = () => {
       <div className="flex items-center gap-2 mb-6">
         <MessageSquare className="w-6 h-6 text-primary" />
         <h1 className="text-2xl font-bold">تواصل مع الإدارة</h1>
+        <Button variant="ghost" size="sm" className="mr-auto gap-1" onClick={() => void fetchMessages()}>
+          <RefreshCw className="w-3 h-3" /> تحديث
+        </Button>
       </div>
       <p className="text-muted-foreground mb-4">أرسل رسالة للإدارة وسيتم الرد عليك</p>
 

@@ -1,6 +1,5 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-import { useSmartPoll } from "@/lib/dataLayer";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { toast } from "sonner";
-import { CalendarDays, Plus, Loader2, Trash2, Pin, Send, ImageIcon } from "lucide-react";
+import { CalendarDays, Plus, Loader2, Trash2, Pin, Send, ImageIcon, RefreshCw } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { compressImage } from "@/lib/mediaCompression";
@@ -37,9 +36,6 @@ const Schedules = () => {
   const [uploading, setUploading] = useState(false);
   const [commentText, setCommentText] = useState<Record<string, string>>({});
   const fileRef = useRef<HTMLInputElement>(null);
-
-  // استطلاع ذكي: يتوقف عند إخفاء التبويب ويُحدّث فوراً عند العودة.
-  useSmartPoll(() => { void fetchAll(); }, 120000, []);
 
   const fetchAll = async () => {
     try {
@@ -79,6 +75,16 @@ const Schedules = () => {
       setLoading(false);
     }
   };
+
+  // بدون استطلاع دوري (كان كل دقيقتين). الجلب عند الفتح + عند عودة التبويب +
+  // زر تحديث.
+  useEffect(() => {
+    void fetchAll();
+    const onVis = () => { if (document.visibilityState === "visible") void fetchAll(); };
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleUpload = async () => {
     if (!user || !file) return;
@@ -137,7 +143,11 @@ const Schedules = () => {
           <CalendarDays className="w-6 h-6 text-primary" />
           <h1 className="text-2xl font-bold">الجداول</h1>
         </div>
-        <Dialog open={open} onOpenChange={setOpen}>
+        <div className="flex items-center gap-2">
+          <Button size="sm" variant="outline" onClick={() => void fetchAll()} className="gap-1">
+            <RefreshCw className="w-3 h-3" /> تحديث
+          </Button>
+          <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild><Button size="sm" className="gap-1"><Plus className="w-4 h-4" />رفع جدول</Button></DialogTrigger>
           <DialogContent>
             <DialogHeader><DialogTitle>رفع صورة جدول</DialogTitle></DialogHeader>
@@ -238,6 +248,7 @@ const Schedules = () => {
           ))}
         </div>
       )}
+      </div>
     </div>
   );
 };

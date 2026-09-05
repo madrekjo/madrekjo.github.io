@@ -106,11 +106,12 @@ export function loadChannelSettings(): Promise<ChannelSettingsMap> {
 }
 
 /** أقفال الأقسام كاملة — قراءة مشتركة مع القنوات من نفس حِزمة /config. */
-export function loadSectionLocks(): Promise<SectionLocksMap> {
+export function loadSectionLocks(force = false): Promise<SectionLocksMap> {
   return cachedRead<SectionLocksMap>({
     key: SECTION_LOCKS_KEY,
     ttlMs: configTtlMs(),
     persist: true,
+    force,
     fetcher: async () => {
       const gateway = await loadGatewayConfig();
       if (gateway.locks) return gateway.locks;
@@ -122,9 +123,9 @@ export function loadSectionLocks(): Promise<SectionLocksMap> {
   });
 }
 
-/** حالة قفل قسم واحد (بوابة SectionGate). */
-export async function getSectionLockData(section: string): Promise<SectionLockData | null> {
-  const map = await loadSectionLocks();
+/** حالة قفل قسم واحد (بوابة SectionGate) — force للقراءة الفورية عند "تحقق الآن". */
+export async function getSectionLockData(section: string, force = false): Promise<SectionLockData | null> {
+  const map = await loadSectionLocks(force);
   return map[section] ?? null;
 }
 

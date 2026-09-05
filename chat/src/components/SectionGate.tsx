@@ -1,9 +1,9 @@
 import { useEffect, useState, useCallback } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-import { useSmartPoll } from "@/lib/dataLayer";
 import { getSectionLockData } from "@/lib/appCache";
 import { Card, CardContent } from "@/components/ui/card";
-import { Lock } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Lock, RefreshCw, Loader2 } from "lucide-react";
 
 interface Props {
   section: string;
@@ -49,6 +49,7 @@ function Countdown({ until }: { until: string }) {
 const SectionGate = ({ section, title, children }: Props) => {
   const { isAdmin } = useAuth();
   const [lock, setLock] = useState<LockData | null>(null);
+  const [checking, setChecking] = useState(false);
 
   const refresh = useCallback(async () => {
     // يقرأ من كاش section_locks المشترك — لا يضرب القاعدة إلا عند انتهاء TTL.
@@ -56,8 +57,24 @@ const SectionGate = ({ section, title, children }: Props) => {
     setLock(data || null);
   }, [section]);
 
-  // استطلاع ذكي: يتوقف عندما يكون التبويب مخفياً، ويُحدّث فوراً عند العودة.
-  useSmartPoll(() => void refresh(), 120000, [refresh]);
+  // بدون استطلاع دوري (كان كل دقيقتين). الجلب عند الفتح + عند عودة التبويب
+  // + زر "تحقق الآن" على شاشة القفل لقراءة فورية من القاعدة.
+  useEffect(() => {
+    void refresh();
+    const onVis = () => { if (document.visibilityState === "visible") void refresh(); };
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
+  }, [refresh]);
+
+  const forceCheck = async () => {
+    setChecking(true);
+    try {
+      const fresh = await getSectionLockData(section, true);
+      setLock(fresh || null);
+    } finally {
+      setChecking(false);
+    }
+  };
 
   const isLocked = lock?.locked && (!lock.locked_until || new Date(lock.locked_until) > new Date());
 
@@ -70,6 +87,9 @@ const SectionGate = ({ section, title, children }: Props) => {
             <h2 className="text-xl font-bold">{title} مغلق مؤقتاً</h2>
             {lock?.message && <p className="text-muted-foreground whitespace-pre-wrap">{lock.message}</p>}
             {lock?.locked_until && <Countdown until={lock.locked_until} />}
+            <Button variant="outline" size="sm" className="gap-1 mt-2" disabled={checking} onClick={() => void forceCheck()}>
+              {checking ? <Loader2 className="w-3 h-3 animate-spin" /> : <RefreshCw className="w-3 h-3" />} تحقق الآن
+            </Button>
           </CardContent>
         </Card>
       </div>
