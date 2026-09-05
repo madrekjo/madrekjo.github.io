@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "sonner";
-import { Send, Loader2, Shield, Trash2, Heart, Pin, PinOff, MessageCircle, Pencil, Check, X } from "lucide-react";
+import { Send, Loader2, Shield, Trash2, Heart, Pin, PinOff, MessageCircle, Pencil, Check, X, RefreshCw } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 
@@ -36,6 +36,7 @@ const Suggestions = () => {
   const [content, setContent] = useState("");
   const [replyText, setReplyText] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
   const [posting, setPosting] = useState(false);
   const [replyLikes, setReplyLikes] = useState<Record<string, { count: number; liked: boolean }>>({});
   const [showReplies, setShowReplies] = useState<Set<string>>(new Set());
@@ -44,9 +45,13 @@ const Suggestions = () => {
 
   useEffect(() => {
     fetchSuggestions();
+    const onVis = () => { if (document.visibilityState === "visible") fetchSuggestions(); };
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
   }, []);
 
   const fetchSuggestions = async () => {
+    setRefreshing(true);
     try {
       const { data, error } = await supabase
         .from("suggestions")
@@ -86,6 +91,7 @@ const Suggestions = () => {
       toast.error("تعذر تحميل الاقتراحات");
     } finally {
       setLoading(false);
+      setRefreshing(false);
     }
   };
 
@@ -191,10 +197,18 @@ const Suggestions = () => {
 
   return (
     <div className="container mx-auto px-4 py-6 max-w-2xl">
-      <h1 className="text-2xl font-bold mb-6">اقتراحات تعديل الموقع</h1>
-      <p className="text-muted-foreground mb-6">
-        شاركنا اقتراحاتك لتطوير الموقع. فقط الإدارة يمكنها الرد على الاقتراحات.
-      </p>
+      <div className="flex items-center justify-between mb-6 gap-3">
+        <div>
+          <h1 className="text-2xl font-bold">اقتراحات تعديل الموقع</h1>
+          <p className="text-muted-foreground mt-1">
+            شاركنا اقتراحاتك لتطوير الموقع. فقط الإدارة يمكنها الرد على الاقتراحات.
+          </p>
+        </div>
+        <Button size="sm" variant="outline" onClick={() => void fetchSuggestions()} disabled={refreshing} className="gap-1 shrink-0">
+          {refreshing ? <Loader2 className="w-3 h-3 animate-spin" /> : <RefreshCw className="w-3 h-3" />}
+          تحديث
+        </Button>
+      </div>
 
       {user && (
         <div className="bg-card border rounded-xl p-4 mb-6">
