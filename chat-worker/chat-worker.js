@@ -450,9 +450,16 @@ async function withCache(kv, cacheKey, group, ttlSeconds, force, fetcher) {
   }
 
   const value = await fetcher();
-  await kv.put(cacheKey, JSON.stringify({ ts: Date.now(), stamp, v: value }), {
-    expirationTtl: Math.max(ttlSeconds * 2, 60),
-  });
+  // الكتابة في KV أفضل جهد (best-effort): إذا فشلت — مثل تخطي حصة الكتابة
+  // اليومية في الخطة المجانية — نُقدّم القيمة الطازجة فقط بدون كاش ولا نسقط
+  // الطلب بـ 500. الكاش في المرة القادمة يُعاد بناؤه عند استعادة الحصة.
+  try {
+    await kv.put(cacheKey, JSON.stringify({ ts: Date.now(), stamp, v: value }), {
+      expirationTtl: Math.max(ttlSeconds * 2, 60),
+    });
+  } catch {
+    /* تجاهل: التخزين اختياري */
+  }
   return value;
 }
 
