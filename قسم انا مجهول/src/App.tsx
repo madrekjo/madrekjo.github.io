@@ -80,18 +80,18 @@ function VisitorGate({ children }: { children: ReactNode }) {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ErrorBoundary>
-      <HeartbeatRunner />
-      <VisitorGate>
-        <BrowserRouter>
+      <BrowserRouter basename="/anon">
+        <HeartbeatRunner />
+        <VisitorGate>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/login" element={<Login />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFoundComponent />} />
           </Routes>
-        </BrowserRouter>
-      </VisitorGate>
-      <Toaster />
+        </VisitorGate>
+        <Toaster />
+      </BrowserRouter>
     </ErrorBoundary>
   </QueryClientProvider>
 );

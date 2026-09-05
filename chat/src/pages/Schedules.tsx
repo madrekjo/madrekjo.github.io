@@ -134,11 +134,9 @@ const Schedules = () => {
     if (error) toast.error("فشل"); else fetchAll();
   };
 
-  if (loading) return <div className="container mx-auto px-4 py-12 text-center"><Loader2 className="w-8 h-8 animate-spin mx-auto text-primary" /></div>;
-
   return (
     <div className="container mx-auto px-4 py-6 max-w-3xl">
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between gap-3 mb-6 flex-wrap">
         <div className="flex items-center gap-2">
           <CalendarDays className="w-6 h-6 text-primary" />
           <h1 className="text-2xl font-bold">الجداول</h1>
@@ -163,7 +161,9 @@ const Schedules = () => {
         </Dialog>
       </div>
 
-      {schedules.length === 0 ? (
+      {loading ? (
+        <div className="py-12 text-center"><Loader2 className="w-8 h-8 animate-spin mx-auto text-primary" /></div>
+      ) : schedules.length === 0 ? (
         <p className="text-center py-12 text-muted-foreground">لا توجد جداول حالياً</p>
       ) : (
         <div className="space-y-4">

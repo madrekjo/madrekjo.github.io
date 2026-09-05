@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { supabase } from "@/integrations/supabase/client";
+import { cachedRead } from "@/lib/dataLayer";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 
@@ -69,7 +70,14 @@ const MentionInput = ({
   const [mentionActive, setMentionActive] = useState(false);
   const [suggestionIndex, setSuggestionIndex] = useState(0);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-  const cacheRef = useRef<Record<string, Suggestion[]>>({});
+  // تأخير كتابة @ (debounce) — يجمّع الضغطات في طلب واحد لكل حرف مكتوب كاملاً.
+  const searchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (searchTimerRef.current) clearTimeout(searchTimerRef.current);
+    };
+  }, []);
 
   const buildQuery = useCallback((search: string) => {
     let q = supabase
@@ -86,19 +94,19 @@ const MentionInput = ({
   }, [channel]);
 
   const loadSuggestions = useCallback(async (search: string) => {
-    const cacheKey = `${channel}:${search}`.toLowerCase();
-    if (cacheRef.current[cacheKey]) {
-      setSuggestions(cacheRef.current[cacheKey]);
-      setSuggestionIndex(0);
-      return;
-    }
-    const { data, error } = await buildQuery(search);
-    if (error) return;
-    const list = (data || []).filter(u => !u.chat_banned);
-    cacheRef.current[cacheKey] = list;
+    // Layer 1: كاش متصفح مؤقت (ذكر + single-flight) — نفس البحث لاحقاً لا يضرب القاعدة.
+    const list = await cachedRead<Suggestion[]>({
+      key: `mention:${channel}:${search}`.toLowerCase(),
+      ttlMs: 60 * 1000,
+      fetcher: async () => {
+        const { data, error } = await buildQuery(search);
+        if (error) return [];
+        return (data || []).filter(u => !u.chat_banned);
+      },
+    });
     setSuggestions(list);
     setSuggestionIndex(0);
-  }, [buildQuery]);
+  }, [buildQuery, channel]);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const v = e.target.value;
@@ -106,8 +114,13 @@ const MentionInput = ({
     const m = v.slice(0, e.target.selectionStart).match(MENTION_RE);
     if (m) {
       setMentionActive(true);
-      void loadSuggestions(m[1]);
+      // debounce: لا نضرب القاعدة مع كل ضغطة، بل بعد توقف الكتابة قليلاً.
+      if (searchTimerRef.current) clearTimeout(searchTimerRef.current);
+      searchTimerRef.current = setTimeout(() => {
+        void loadSuggestions(m[1]);
+      }, 250);
     } else {
+      if (searchTimerRef.current) { clearTimeout(searchTimerRef.current); searchTimerRef.current = null; }
       setMentionActive(false);
       setSuggestions([]);
     }
