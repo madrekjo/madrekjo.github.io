@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مدارك جو — مستند الشرح الفني: تخفيف الحمل على القاعدة</title>
+<style>
+  :root { --primary:#2563eb; --bg:#f8fafc; --card:#ffffff; --border:#e2e8f0; --muted:#64748b; --ok:#16a34a; --warn:#d97706; --err:#dc2626; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:"Segoe UI", Tahoma, Arial, sans-serif; background:var(--bg); color:#0f172a; line-height:1.8; }
+  .wrap { max-width:860px; margin:0 auto; padding:24px 16px 60px; }
+  header.hero { background:linear-gradient(135deg,#1e3a8a,#2563eb); color:#fff; border-radius:16px; padding:28px 24px; margin-bottom:24px; }
+  header.hero h1 { margin:0 0 6px; font-size:26px; }
+  header.hero p { margin:0; opacity:.9; font-size:15px; }
+  h2 { font-size:20px; color:#1e3a8a; border-right:4px solid var(--primary); padding-right:10px; margin-top:36px; }
+  h3 { font-size:16px; color:#1e40af; margin-top:20px; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px 18px; margin:12px 0; }
+  table { width:100%; border-collapse:collapse; margin:12px 0; background:#fff; font-size:14px; }
+  th, td { border:1px solid var(--border); padding:8px 10px; text-align:right; }
+  th { background:#eff6ff; color:#1e3a8a; }
+  code, pre { font-family:Consolas, "Courier New", monospace; direction:ltr; text-align:left; background:#0f172a; color:#e2e8f0; border-radius:6px; padding:2px 6px; font-size:13px; }
+  pre { display:block; padding:14px; overflow-x:auto; }
+  .ok { color:var(--ok); font-weight:700; }
+  .warn { color:var(--warn); font-weight:700; }
+  .err { color:var(--err); font-weight:700; }
+  .badge { display:inline-block; background:#eff6ff; color:#1e3a8a; border:1px solid #bfdbfe; border-radius:999px; padding:1px 10px; font-size:12px; }
+  ul { padding-right:20px; }
+  li { margin:4px 0; }
+  .muted { color:var(--muted); font-size:13px; }
+  footer { text-align:center; color:var(--muted); font-size:13px; margin-top:40px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>مدارك جو — مستند الشرح الفني</h1>
+    <p>مشروع تخفيف الحمل على قاعدة Supabase (لاyer 1 + Layer 2 + Layer 3) — سبتمبر 2026</p>
+  </header>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none"><defs><symbol id="check" viewBox="0 0 20 20"><path fill="currentColor" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4l3.3 3.29 6.8-6.8a1 1 0 0 1 1.4 0Z"/></symbol></defs></svg>
+
+  <h2>1) المشكلة</h2>
+  <p>
+    كانت الواجهة تقرأ من القاعدة قراءات متكررة ومتزامنة عبر كل أجهزة المستخدمين:
+    إعدادات القنوات وأقفال الأقسام والكلمات المحظورة تُطلب مئات المرات في الساعة لكل جهاز،
+    إضافة إلى اتصالات <code>Realtime</code> دائمة لكل تبويب، واستطلاعات دورية مجدولة.
+    النتيجة: استنزاف حصة <b>Egress</b> وطلبات <b>REST</b> في Supabase.
+  </p>
+
+  <h2>2) الحل — ثلاث طبقات</h2>
+
+  <h3>Layer 1 — كاش المتصفح + إبطال جدولي</h3>
+  <div class="card">
+    <span class="badge">محلّي</span> <span class="badge">Frontend</span>
+    <ul>
+      <li>قراءات مشتركة تخزَّن في المتصفح (ذاكرة + localStorage) بمدد: إعدادات/أقفال = ساعة بدون بوابة أو 60 ثانية معها، كلمات محظورة = ساعة/دقيقتان، معرّفات الأدمن = ساعة.</li>
+      <li><b>إبطال مستقل لكل جدول</b> (ملف جديد <code>src/lib/invalidation.ts</code>): أي كتابة تُبطل كاش الجدول المتأثر فقط — لا مسح شامل.</li>
+      <li>إزالة كل <code>Realtime</code> وكل الاستطلاعات الدورية، واستبدالها بجلب عند الدخول/عودة التبويب + زر تحديث يدوي لكل قسم.</li>
+      <li>تقليص <code>select("*")</code> في مسارات الإدارة لأعمدة محدودة.</li>
+    </ul>
+  </div>
+
+  <h3>Layer 2 — بوابة القراءة (Cloudflare Worker + KV)</h3>
+  <div class="card">
+    <span class="badge">على السحابة</span> <code>madarik-chat-cache.abdalrhmanmaaith1.workers.dev</code>
+    <ul>
+      <li>بيانات عامة (إعدادات/أقفال/كلمات/جولات) تُقرأ من القاعدة <b>مرة واحدة</b> ويوزّعها KV على كل الأجهزة — بدل ارتفاع طلبات المتصفحات.</li>
+      <li><code>/feed</code> يُقرأ بصلاحيات المستخدم نفسه (JWT) مع كاش مقسّم لكل حساب.</li>
+      <li><b>إبطال منطقي بالـ stamp</b>: أي كتابة تُراسل <code>POST /invalidate</code> فيُرفع stamp مجموعة الجدول؛ أي قيمة كاش بستامب أقدم تُعاد قراءتها — بلا حذف مفاتيح (يحترم حصة KV).</li>
+      <li><code>/metrics</code> يحسب كل بايت وطلب خرج من البوابة ووصل للعملاء، ويُصفّى لـ KV كل 5 دقائق.</li>
+      <li>عند تعطّل البوابة أو إفراغ الرابط تعود كل القراءات إلى Supabase مباشرة (لا تغيير في السلوك).</li>
+    </ul>
+  </div>
+
+  <h3>Layer 3 — فهارس قاعدة البيانات</h3>
+  <div class="card">
+    <span class="badge">قاعدة البيانات</span>
+    <p>
+      Migration بأربعة فهارس آمنة للتكرار (<code>IF NOT EXISTS</code>) لدعم الاستعلامات الساخنة:
+      تعليقات كل منشور، منشورات مستخدم، مواعيد الجلسات، ومرشّحات المراجعة:
+    </p>
+    <pre>
+CREATE INDEX IF NOT EXISTS idx_comments_post_id_created
+  ON public.comments (post_id, created_at ASC);
+
+CREATE INDEX IF NOT EXISTS idx_posts_user_id_created
+  ON public.posts (user_id, created_at DESC)
+  WHERE deleted_at IS NULL;
+
+CREATE INDEX IF NOT EXISTS idx_study_rounds_starts_at
+  ON public.study_rounds (starts_at DESC);
+
+CREATE INDEX IF NOT EXISTS idx_posts_status_created
+  ON public.posts (status, created_at DESC);</pre>
+    <p class="muted">يُنفَّذ من لوحة Supabase → SQL Editor (أو <code>supabase db push</code>).</p>
+  </div>
+
+  <h2>3) ما أُزيل واستُبدل</h2>
+  <table>
+    <tr><th>النظام</th><th>قبل</th><th>بعد</th></tr>
+    <tr><td>غرفة اجتماع الإدارة</td><td>Realtime دائم</td><td>جلب عند الدخول/عودة التبويب + زر تحديث</td></tr>
+    <tr><td>شات الجولة</td><td>Realtime دائم</td><td>جلب عند الدخول + زر تحديث</td></tr>
+    <tr><td>المستجدات</td><td>Realtime دائم</td><td>جلب عند الدخول + زر تحديث</td></tr>
+    <tr><td>الدعم</td><td>Realtime بضغط 2 ثانية</td><td>جلب عند الدخول + زرا تحديث</td></tr>
+    <tr><td>تنبيه التحذيرات</td><td>Realtime دائم</td><td>جلب عند التركيز فقط</td></tr>
+    <tr><td>الجولات</td><td>استطلاع كل 30 ثانية + 5 دقائق</td><td>عند الدخول + زر تحديث (ساعة العدّاد محلية 100%)</td></tr>
+    <tr><td>الجداول</td><td>استطلاع كل دقيقتين</td><td>عند الدخول + زر تحديث</td></tr>
+    <tr><td>اجتماع الإدارة</td><td>استطلاع كل 60 ثانية</td><td>عند الدخول + زر تحديث</td></tr>
+    <tr><td>بوابة قسم</td><td>استطلاع كل 120 ثانية</td><td>عند الدخول + زر «تحقق الآن»</td></tr>
+    <tr><td>لوحة النشاط</td><td>استطلاع كل 15 دقيقة</td><td>عند الدخول + زر تحديث</td></tr>
+  </table>
+
+  <h2>4) نقاط الإبطال الجدولي المضافة</h2>
+  <table>
+    <tr><th>المكوّن</th><th>عدد الاستدعاءات</th><th>الجداول</th></tr>
+    <tr><td>صفحة الجولات</td><td>11</td><td>study_rounds, round_participants, round_meetings, round_completions</td></tr>
+    <tr><td>بطاقة المنشور</td><td>10</td><td>posts, comments, likes, comment_likes</td></tr>
+    <tr><td>لوحة الإدارة</td><td>7</td><td>posts, comments, channel_settings, section_locks, profiles</td></tr>
+    <tr><td>الفييد (النشر)</td><td>1</td><td>posts</td></tr>
+  </table>
+
+  <h2>5) بنود التحقق التسعة</h2>
+  <table>
+    <tr><th>البند</th><th>الحالة</th></tr>
+    <tr><td>استطلاع الجولات (30 ث / 5 د) ملغى</td><td class="ok">✔ تم</td></tr>
+    <tr><td>جميع أنظمة الشات Manual Refresh</td><td class="ok">✔ تم</td></tr>
+    <tr><td>لا Realtime غير ضروري (صفر قنوات)</td><td class="ok">✔ تم</td></tr>
+    <tr><td>زر تحديث مستقل لكل قسم</td><td class="ok">✔ تم</td></tr>
+    <tr><td>كاش كل جدول بساعة (بوابة 3600s)</td><td class="ok">✔ تم</td></tr>
+    <tr><td>إبطال مستقل لكل جدول</td><td class="ok">✔ تم</td></tr>
+    <tr><td>عداد الجولة محلي بلا طلبات</td><td class="ok">✔ تم</td></tr>
+    <tr><td>Metrics داخل الـ Worker تعمل</td><td class="ok">✔ تم (تحقق حي)</td></tr>
+    <tr><td>لا Global Refresh / clearAllCache غير ضروري (موضع واحد فقط: تسجيل الخروج)</td><td class="ok">✔ تم</td></tr>
+  </table>
+
+  <h2>6) الملفات الرئيسية</h2>
+  <table>
+    <tr><th>الملف</th><th>الدور</th></tr>
+    <tr><td>chat/src/lib/invalidation.ts</td><td>الإبطال الجدولي (جديد)</td></tr>
+    <tr><td>chat/src/lib/dataLayer.ts</td><td>كاش المتصفح + single-flight</td></tr>
+    <tr><td>chat/src/lib/appCache.ts</td><td>إعدادات/أقفال/أدمن + دعم force</td></tr>
+    <tr><td>chat/src/lib/bannedWords.ts</td><td>كلمات محظورة بمدد مشروطة</td></tr>
+    <tr><td>chat/src/lib/readGateway.ts</td><td>عميل بوابة Layer 2 مع fallback</td></tr>
+    <tr><td>chat-worker/chat-worker.js</td><td>بوابة القراءة (نشر Version 0da638fa)</td></tr>
+    <tr><td>chat/supabase/migrations/20260905000000_reduce_supabase_load.sql</td><td>فهارس Layer 3</td></tr>
+  </table>
+
+  <h2>7) الأثر المتوقع</h2>
+  <div class="card">
+    <ul>
+      <li>إعدادات/أقفال/كلمات: من ~400 طلب/ساعة/جهاز إلى طلب واحد مشترك مخزّن كل ساعة.</li>
+      <li>Realtime: من اتصال دائم لكل تبويب إلى صفر اتصالات.</li>
+      <li>استطلاعات الصفحات: من 60–120 طلب/ساعة/تبويب إلى 1–2 عند الفتح/التركيز.</li>
+      <li>الإبطال: من مسح كامل الكاش إلى رفع stamp مجموعة واحدة.</li>
+      <li>انخفاض إجمالي Egress المتوقع: <b>60–75%</b> (يُقاس من لوحة Supabase → Usage بعد 48 ساعة).</li>
+    </ul>
+  </div>
+
+  <h2>8) الإرجاع الفوري (Rollback)</h2>
+  <div class="card">
+    <p>أفرغ الرابط في <code>chat/src/config/worker-config.ts</code>:</p>
+    <pre>export const READ_GATEWAY_URL = "";</pre>
+    <p>ثم أعد البناء — تعود كل القراءات إلى Supabase مباشرة بلا تغيير في السلوك.</p>
+  </div>
+
+  <footer>مدارك جو © 2026 — مستند الشرح الفني لمشروع تخفيف الحمل على القاعدة</footer>
+</div>
+</body>
+</html>
