@@ -1058,33 +1058,53 @@ async function handleCallback(
   );
 
   /* -------------------------------------------------------
-     KV ticket
+     Ticket storage (D1)
      ------------------------------------------------------- */
 
   const ticket =
     crypto.randomUUID();
 
-  await env.SSO_KV.put(
-    `ticket:${ticket}`,
+  const now =
+    Date.now();
 
-    JSON.stringify({
-      chat:
-        chatSession,
+  try {
+    await env.madrekjo_sso_db
+      .prepare(
+        "INSERT INTO tickets (id, payload, created_at, expires_at) VALUES (?, ?, ?, ?)"
+      )
+      .bind(
+        ticket,
+        JSON.stringify({
+          chat:
+            chatSession,
 
-      achievement:
-        achievementSession,
+          achievement:
+            achievementSession,
 
-      target,
-    }),
+          target,
+        }),
+        now,
+        now +
+          TICKET_TTL_SECONDS *
+            1000
+      )
+      .run();
+  } catch (err) {
+    console.error(
+      "[sso] D1 ticket insert failed:",
+      err
+    );
 
-    {
-      expirationTtl:
-        TICKET_TTL_SECONDS,
-    }
-  );
+    return new Response(
+      "Failed to store login ticket",
+      {
+        status: 502,
+      }
+    );
+  }
 
   console.log(
-    "[sso] Sessions stored in KV"
+    "[sso] Sessions stored in D1"
   );
 
   const appOrigin =
@@ -1190,12 +1210,47 @@ async function handleSession(
     );
   }
 
-  const raw =
-    await env.SSO_KV.get(
-      `ticket:${ticket}`
-    );
+  let storeRaw = null;
 
-  if (!raw) {
+  try {
+    const rows =
+      await env.madrekjo_sso_db
+        .prepare(
+          "SELECT payload FROM tickets WHERE id = ? AND expires_at > ?"
+        )
+        .bind(
+          ticket,
+          Date.now()
+        )
+        .first();
+
+    storeRaw =
+      rows?.payload ??
+      null;
+  } catch (err) {
+    console.error(
+      "[sso] D1 ticket read failed:",
+      err
+    );
+  }
+
+  if (storeRaw === null) {
+    // احتياط لما قبل D1: التحقق من KV القديم إن وُجد (تذاكر قديمة).
+    const kvRaw =
+      await env.SSO_KV.get(
+        `ticket:${ticket}`
+      ).catch(() => null);
+
+    if (kvRaw) {
+      await env.SSO_KV
+        .delete(`ticket:${ticket}`)
+        .catch(() => null);
+    }
+
+    storeRaw = kvRaw;
+  }
+
+  if (!storeRaw) {
     return new Response(
       "Ticket not found or expired",
       {
@@ -1204,12 +1259,22 @@ async function handleSession(
     );
   }
 
-  await env.SSO_KV.delete(
-    `ticket:${ticket}`
-  );
+  // حذف التذكرة من D1 بعد استخدامها (مرة واحدة فقط).
+  await env.madrekjo_sso_db
+    .prepare(
+      "DELETE FROM tickets WHERE id = ?"
+    )
+    .bind(ticket)
+    .run()
+    .catch((err) => {
+      console.error(
+        "[sso] D1 ticket delete failed:",
+        err
+      );
+    });
 
   return new Response(
-    raw,
+    storeRaw,
     {
       status: 200,
 
