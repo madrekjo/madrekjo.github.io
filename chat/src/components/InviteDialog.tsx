@@ -97,7 +97,8 @@ const InviteDialog = () => {
           )}
 
           <p className="text-[11px] text-muted-foreground bg-muted/50 rounded-lg p-2.5 leading-relaxed">
-            من صفحة تسجيل الدخول اضغط "رمز الدعوة" وأدخل الكود، وبعد ما يُفعَّل حسابك تصلك المكافأة.
+            من صفحة تسجيل الدخول اضغط "رمز الدعوة" وأدخل الكود. عندما يسجّل صديقك ويخش الشات أول مرة،
+            تصل لك المكافأة <b>+25 نقطة</b> تلقائياً.
           </p>
         </DialogContent>
       </Dialog>

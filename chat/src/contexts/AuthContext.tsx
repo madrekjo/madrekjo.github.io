@@ -252,6 +252,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       });
 
       setPermMatrix(map);
+
+      // نبضة "آخر ظهور": فتح التطبيق بجلسة نشطة يحدّث last_seen_at
+      // (محدودة التكرار كل 60 ثانية لتخفيف الحمل). وهي ما يطلق مكافأة
+      // الدعوة عند أول دخول فعلي للمدعو للشات.
+      try {
+        const lastTouch = Number(localStorage.getItem("touch_last_seen_ts") || 0);
+        if (Date.now() - lastTouch > 60_000) {
+          localStorage.setItem("touch_last_seen_ts", String(Date.now()));
+          void supabase
+            .from("profiles")
+            .update({ last_seen_at: new Date().toISOString() })
+            .eq("user_id", userId);
+        }
+      } catch {
+        /* لا نكسر تدفق الدخول إن فشلت النبضة */
+      }
     } catch (error) {
       console.error("[AuthContext] Failed to load auth profile", error);
 

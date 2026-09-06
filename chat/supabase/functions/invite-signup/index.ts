@@ -72,6 +72,7 @@ Deno.serve(async (req) => {
         full_name: cleanName,
         gender: String(gender),
         via_invite: true,
+        invited_code: codeStr,
       },
     });
     if (error) {
@@ -82,13 +83,9 @@ Deno.serve(async (req) => {
       return json({ error: "create_failed:" + error.message }, 400);
     }
 
-    // --- مكافأة الداعي: +25 نقطة لكل مخيب جديد ناجح ----------------
-    // بعد نجاح إنشاء الحساب فقط؛ الفشل هنا لا يفسد التسجيل (best-effort).
-    try {
-      await adminClient.rpc("reward_inviter", { p_code: codeStr });
-    } catch (e) {
-      console.error("invite-signup reward_inviter error:", e);
-    }
+    // المكافأة للداعي (+25) لا تُصرف هنا عند التسجيل، إنما عند أول دخول فعلي
+    // للمدعو للشات — يتكفل بها trigger على profiles.last_seen_at
+    // في قاعدة البيانات.
 
     return json({ ok: true, user_id: data.user!.id, email: normEmail });
   } catch (e) {
