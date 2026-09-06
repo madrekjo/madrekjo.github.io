@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, forwardRef } from "react";
+import { useState, useEffect, useCallback, useMemo, forwardRef } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { containsBannedWord } from "@/lib/bannedWords";
@@ -21,6 +21,7 @@ import { formatDisplayName } from "@/lib/displayName";
 import MentionInput from "@/components/MentionInput";
 import { renderMentions, submitMentions } from "@/lib/mentions";
 import { ShieldCheck } from "lucide-react";
+import { REACTIONS, reactionEmoji } from "@/lib/reactions";
 
 const VerificationBadge = ({ gender, isAuthorAdmin }: { gender?: string | null; isAuthorAdmin: boolean }) => {
   if (isAuthorAdmin) {
@@ -46,14 +47,15 @@ interface PostProps {
     created_at: string;
     status?: string | null;
     profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null; gender?: string | null } | null;
-    likes: { user_id: string }[];
+    likes: { user_id: string; type: string }[];
     comments: PostComment[];
     /** عدد التعليقات — من الفيد الرفيع (المنشورات الحية لا تحمل أجسام التعليقات). */
     commentCount?: number;
   };
   onRefresh: () => void;
-  /** تغيير محلي فوري لحالة لايك المنشور عند المتصل (بلا إعادة جلب). */
-  onLikeChanged?: (postId: string, adding: boolean) => void;
+  /** تغيير محلي فوري لحالة تفاعل المنشور عند المتصل (بدون إعادة جلب).
+   * reaction: نوع التفاعل الجديد، أو null عند إزالته. */
+  onLikeChanged?: (postId: string, reaction: string | null) => void;
   highlight?: boolean;
   authorIsAdmin?: boolean;
 }
@@ -80,12 +82,24 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
   const [reportOpen, setReportOpen] = useState(false);
   const [authorIsAdmin, setAuthorIsAdmin] = useState(authorIsAdminProp ?? false);
   const [showLikers, setShowLikers] = useState(false);
-  const [likersData, setLikersData] = useState<{ user_id: string; full_name: string | null; avatar_url: string | null; gender?: string | null }[] | null>(null);
+  const [likersData, setLikersData] = useState<{ user_id: string; full_name: string | null; avatar_url: string | null; gender?: string | null; type?: string }[] | null>(null);
   const [likersLoading, setLikersLoading] = useState(false);
+  const [reactionsOpen, setReactionsOpen] = useState(false);
 
   const canDelete = isAdmin || isModerator;
   const isOwner = user?.id === post.user_id;
-  const isLiked = post.likes.some(l => l.user_id === user?.id);
+  const myReaction = post.likes.find(l => l.user_id === user?.id)?.type ?? null;
+
+  // توزيع التفاعلات حسب النوع (للعرض المختصر المثل فيسبوك: أعلى 3 إيموجيات)
+  const reactionCounts = useMemo(() => {
+    const m = new Map<string, number>();
+    post.likes.forEach(l => {
+      const t = l.type || "like";
+      m.set(t, (m.get(t) || 0) + 1);
+    });
+    return Array.from(m.entries()).sort((a, b) => b[1] - a[1]);
+  }, [post.likes]);
+  const breakdownTop = reactionCounts.slice(0, 3);
 
   useEffect(() => {
     if (authorIsAdminProp !== undefined) {
@@ -137,19 +151,32 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
   const topComments = sortedComments.filter(c => !c.parent_comment_id);
   const getReplies = (commentId: string) => sortedComments.filter(c => c.parent_comment_id === commentId);
 
-  const handleLike = async () => {
+  const handleReact = async (type: string) => {
     if (!user) return;
     if (profile?.is_banned) { toast.error("حسابك محظور، لا يمكنك التفاعل"); return; }
-    if (isLiked) {
-      await supabase.from("likes").delete().eq("post_id", post.id).eq("user_id", user.id);
-    } else {
-      await supabase.from("likes").insert({ post_id: post.id, user_id: user.id });
-      if (post.user_id !== user.id) {
-        await supabase.from("notifications").insert({ user_id: post.user_id, actor_id: user.id, type: "like", post_id: post.id });
+    const my = post.likes.find(l => l.user_id === user.id)?.type ?? null;
+    try {
+      if (my === type) {
+        // ضغط نفس التفاعل مرة أخرى = إزالة
+        await supabase.from("likes").delete().eq("post_id", post.id).eq("user_id", user.id);
+        onLikeChanged?.(post.id, null);
+      } else {
+        const exists = post.likes.some(l => l.user_id === user.id);
+        if (exists) {
+          // تفاعل جديد يحل محل القديم (مثل فيسبوك)
+          await supabase.from("likes").update({ type }).eq("post_id", post.id).eq("user_id", user.id);
+        } else {
+          await supabase.from("likes").insert({ post_id: post.id, user_id: user.id, type });
+          if (post.user_id !== user.id) {
+            await supabase.from("notifications").insert({ user_id: post.user_id, actor_id: user.id, type: "like", post_id: post.id });
+          }
+        }
+        onLikeChanged?.(post.id, type);
       }
+    } catch {
+      toast.error("فشل تحديث التفاعل");
     }
     void invalidateTable("likes");
-    onLikeChanged?.(post.id, !isLiked);
   };
 
   const toggleLikers = async () => {
@@ -166,7 +193,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
       .in("user_id", ids);
     const map: Record<string, any> = {};
     (data || []).forEach((p: any) => { map[p.user_id] = p; });
-    setLikersData(post.likes.map(l => map[l.user_id] || { user_id: l.user_id, full_name: null, avatar_url: null }));
+    setLikersData(post.likes.map(l => ({ ...(map[l.user_id] || { user_id: l.user_id, full_name: null, avatar_url: null, gender: null }), type: l.type || "like" })));
     setLikersLoading(false);
   };
 
@@ -413,22 +440,69 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
 
       {/* Actions */}
       <div className="flex items-center gap-4 border-t pt-3">
-        <div className="flex items-center gap-1">
-          <button onClick={handleLike} className={`flex items-center gap-1 text-sm transition-colors ${isLiked ? "text-destructive" : "text-muted-foreground hover:text-destructive"}`}>
-            <Heart className={`w-5 h-5 ${isLiked ? "fill-current" : ""}`} />
-          </button>
-          {post.likes.length > 0 && (
-            (isAdmin || isModerator) ? (
-              <button
-                onClick={toggleLikers}
-                className={`text-sm font-semibold transition-colors ${showLikers ? "text-primary" : "text-muted-foreground hover:text-primary"}`}
-                title="معرفة من وضع لايك"
-              >
-                {post.likes.length}
-              </button>
-            ) : (
-              <span className="text-sm font-semibold text-muted-foreground">{post.likes.length}</span>
-            )
+        <div className="relative">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setReactionsOpen(o => !o)}
+              className={`flex items-center gap-1 text-sm transition-colors ${myReaction ? "text-primary" : "text-muted-foreground hover:text-primary"}`}
+              title="تفاعل مع المنشور"
+            >
+              {myReaction ? (
+                <span className="text-xl leading-none">{reactionEmoji(myReaction)}</span>
+              ) : (
+                <Heart className="w-5 h-5" />
+              )}
+            </button>
+
+            {post.likes.length > 0 && (
+              <div className="flex items-center gap-1.5">
+                {breakdownTop.map(([type, n]) => (
+                  <span key={type} className="text-[11px] text-muted-foreground flex items-center gap-0.5" title={reactionEmoji(type)}>
+                    {reactionEmoji(type)}
+                    <span className="font-semibold">{n}</span>
+                  </span>
+                ))}
+                <button
+                  onClick={toggleLikers}
+                  className={`text-sm font-semibold transition-colors ${
+                    (isAdmin || isModerator)
+                      ? `${showLikers ? "text-primary" : "text-muted-foreground hover:text-primary"} cursor-pointer`
+                      : "text-muted-foreground cursor-default"
+                  }`}
+                  title={(isAdmin || isModerator) ? "من تفاعل" : undefined}
+                >
+                  {post.likes.length}
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* منتقي الإيموجي (مثل فيسبوك) */}
+          {reactionsOpen && (
+            <>
+              <div className="fixed inset-0 z-40" onClick={() => setReactionsOpen(false)} />
+              <div className="absolute z-50 bottom-full mb-2 -left-1 flex items-center gap-0.5 bg-card border rounded-full px-2 py-1.5 shadow-lg">
+                {REACTIONS.map(r => (
+                  <button
+                    key={r.key}
+                    onClick={() => { void handleReact(r.key); setReactionsOpen(false); }}
+                    className={`text-2xl leading-none transition-transform hover:scale-125 ${myReaction === r.key ? "ring-2 ring-primary/50 rounded-full" : ""}`}
+                    title={r.label}
+                  >
+                    {r.emoji}
+                  </button>
+                ))}
+                {myReaction && (
+                  <button
+                    onClick={() => { void handleReact(myReaction); setReactionsOpen(false); }}
+                    className="text-lg leading-none opacity-40 hover:opacity-100 transition-opacity px-1"
+                    title="إزالة التفاعل"
+                  >
+                    ✕
+                  </button>
+                )}
+              </div>
+            </>
           )}
         </div>
         <button onClick={() => setShowComments(!showComments)} className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors">
@@ -472,6 +546,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
                     </span>
                     {l.gender === "male" && <span className="inline-flex items-center justify-center w-2.5 h-2.5 rounded-full bg-blue-500 shrink-0" />}
                     {l.gender === "female" && <span className="inline-flex items-center justify-center w-2.5 h-2.5 rounded-full bg-pink-500 shrink-0" />}
+                    {l.type && <span className="text-base leading-none mr-1" title={reactionEmoji(l.type)}>{reactionEmoji(l.type)}</span>}
                   </button>
                 </li>
               ))}

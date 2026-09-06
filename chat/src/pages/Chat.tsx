@@ -55,7 +55,7 @@ interface Post {
   status?: string | null;
   is_pinned?: boolean;
   profiles: { full_name: string; avatar_url: string | null; generation?: string | null; field?: string | null; gender?: string | null } | null;
-  likes: { user_id: string }[];
+  likes: { user_id: string; type: string }[];
   comments: {
     id: string;
     content: string;
@@ -92,7 +92,7 @@ interface GatewayFeed {
   posts: GatewayFeedPost[];
   /** الفيد الرفيع: عدد تعليقات كل منشور فقط (بلا أجسام). */
   commentCounts: Record<string, number>;
-  likes: { post_id: string; user_id: string }[];
+  likes: { post_id: string; user_id: string; type: string }[];
   profiles: Record<string, {
     full_name?: string | null;
     avatar_url?: string | null;
@@ -172,7 +172,7 @@ const Chat = () => {
 
         const [likesRes, countsRes] = postIds.length
           ? await Promise.all([
-              supabase.from("likes").select("post_id, user_id").in("post_id", postIds),
+              supabase.from("likes").select("post_id, user_id, type").in("post_id", postIds),
               // فيد رفيع مباشر: إحصاء التعليقات فقط (post_id) — لا أجسام تعليقات.
               supabase.from("comments").select("post_id").in("post_id", postIds).is("deleted_at", null),
             ])
@@ -280,7 +280,7 @@ const Chat = () => {
       }
 
       const [likesRes, countsRes] = await Promise.all([
-        supabase.from("likes").select("post_id, user_id").eq("post_id", postId),
+        supabase.from("likes").select("post_id, user_id, type").eq("post_id", postId),
         supabase.from("comments").select("post_id").eq("post_id", postId).is("deleted_at", null),
       ]);
 
@@ -317,16 +317,16 @@ const Chat = () => {
     setRefreshing(false);
   }, [fetchPosts]);
 
-  // تحديث محلي فوري للايكات بدون إعادة جلب (يُحافظ على كاش الفيد).
-  const handleLikeChanged = useCallback((postId: string, adding: boolean) => {
+  // تحديث محلي فوري للتفاعلات بدون إعادة جلب (يُحافظ على كاش الفيد).
+  const handleLikeChanged = useCallback((postId: string, reaction: string | null) => {
     if (!user) return;
     setPosts(prev =>
       prev.map(p =>
         p.id === postId
           ? {
               ...p,
-              likes: adding
-                ? [...p.likes.filter(l => l.user_id !== user.id), { user_id: user.id }]
+              likes: reaction
+                ? [...p.likes.filter(l => l.user_id !== user.id), { user_id: user.id, type: reaction }]
                 : p.likes.filter(l => l.user_id !== user.id),
             }
           : p
