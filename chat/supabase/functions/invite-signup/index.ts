@@ -82,6 +82,14 @@ Deno.serve(async (req) => {
       return json({ error: "create_failed:" + error.message }, 400);
     }
 
+    // --- مكافأة الداعي: +25 نقطة لكل مخيب جديد ناجح ----------------
+    // بعد نجاح إنشاء الحساب فقط؛ الفشل هنا لا يفسد التسجيل (best-effort).
+    try {
+      await adminClient.rpc("reward_inviter", { p_code: codeStr });
+    } catch (e) {
+      console.error("invite-signup reward_inviter error:", e);
+    }
+
     return json({ ok: true, user_id: data.user!.id, email: normEmail });
   } catch (e) {
     console.error("invite-signup error:", e);
