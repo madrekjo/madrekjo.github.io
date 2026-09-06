@@ -166,7 +166,7 @@ const Admin = () => {
     if (!confirm("حذف المنشور المرفوض نهائياً؟")) return;
     const { error } = await (supabase as any).rpc("reject_post", { p_post_id: postId });
     if (error) { toast.error("فشل الرفض"); return; }
-    toast.success("تم رفض وحذف المنشور");
+    toast.success("تم رفض وحذف المنشور واسترجاع نقاطه");
     logAction("reject_post", null, `post:${postId}`);
     fetchPendingPosts();
     void invalidateTable("posts");
