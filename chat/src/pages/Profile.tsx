@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { toast } from "sonner";
-import { Camera, Save, FileText, Users as UsersIcon, Clock, Gift, Copy } from "lucide-react";
+import { Camera, Save, FileText, Users as UsersIcon, Clock } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { compressImage } from "@/lib/mediaCompression";
@@ -25,16 +25,6 @@ const Profile = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [myPosts, setMyPosts] = useState<any[]>([]);
   const [myRounds, setMyRounds] = useState<any[]>([]);
-  const [inviteCode, setInviteCode] = useState<{ code: string; expires_at: string; max_uses: number; used_count: number } | null>(null);
-  const [inviteLoading, setInviteLoading] = useState(false);
-
-  useEffect(() => {
-    if (!user) return;
-    (async () => {
-      const { data: codeData, error: codeErr } = await (supabase.rpc as any)("create_my_invite_code");
-      if (!codeErr && codeData) setInviteCode(codeData as any);
-    })();
-  }, [user?.id]);
 
   useEffect(() => {
     if (!user) return;
@@ -139,28 +129,6 @@ const Profile = () => {
   };
 
   if (!user || !profile) return null;
-
-  const handleGetInviteCode = async () => {
-    if (!user) return;
-    setInviteLoading(true);
-    try {
-      const { data, error } = await (supabase.rpc as any)("create_my_invite_code");
-      if (error) {
-        toast.error("فشل إنشاء كود الدعوة: " + (error.message || ""));
-        return;
-      }
-      setInviteCode(data as any);
-      toast.success("تم إنشاء كود الدعوة");
-    } finally {
-      setInviteLoading(false);
-    }
-  };
-
-  const copyInviteCode = () => {
-    if (!inviteCode) return;
-    navigator.clipboard?.writeText(inviteCode.code);
-    toast.success("تم نسخ كود الدعوة");
-  };
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-lg">
@@ -311,38 +279,6 @@ const Profile = () => {
               تحديث كلمة المرور
             </Button>
           </div>
-        </CardContent>
-      </Card>
-
-      <Card className="mt-6">
-        <CardHeader>
-          <CardTitle className="text-lg flex items-center gap-2">
-            <Gift className="w-5 h-5 text-primary" /> دعوة الأصدقاء
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          <p className="text-sm text-muted-foreground">
-            يولّد لك كود دعوة خاص. كل ما يسجّل شخص جديد بكودك تحصل على{" "}
-            <b className="text-primary">+25 نقطة</b>، ويدعوتك تبدأ برصيد 50 نقطة تلقائياً.
-          </p>
-          {inviteCode ? (
-            <div className="space-y-2">
-              <div className="flex items-center justify-center bg-muted/60 rounded-lg px-4 py-3">
-                <span className="text-3xl font-bold tracking-[0.3em] text-primary">{inviteCode.code}</span>
-              </div>
-              <Button onClick={copyInviteCode} size="sm" variant="outline" className="w-full gap-1">
-                <Copy className="w-4 h-4" /> نسخ الكود
-              </Button>
-              <p className="text-xs text-muted-foreground text-center">
-                يستخدم {inviteCode.used_count}/{inviteCode.max_uses} مرة
-                {" · "}ينتهي {formatDistanceToNow(new Date(inviteCode.expires_at), { addSuffix: true, locale: ar })}
-              </p>
-            </div>
-          ) : (
-            <Button onClick={handleGetInviteCode} disabled={inviteLoading} className="w-full gap-1">
-              <Gift className="w-4 h-4" /> ولّد كود الدعوة
-            </Button>
-          )}
         </CardContent>
       </Card>
 
