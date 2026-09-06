@@ -58,13 +58,13 @@ const UpdateNotice = () => {
           <div className="flex items-start gap-2 bg-muted/50 rounded-lg p-3">
             <Clock className="w-4 h-4 text-amber-500 mt-0.5 shrink-0" />
             <p className="text-[13px] text-muted-foreground">
-              ما ينقصك اليوم يرجع <b className="text-foreground">تلقائياً إلى 30</b> عند منتصف الليل.
+              ما ينقصك اليوم يرجع <b className="text-foreground">تلقائياً إلى 50</b> عند منتصف الليل.
             </p>
           </div>
           <div className="flex items-start gap-2 bg-muted/50 rounded-lg p-3">
             <Trophy className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
             <p className="text-[13px] text-muted-foreground">
-              اجلس في الجولة أو أنهيها: كل <b className="text-foreground">ساعتين = +5 نقاط</b> مكافأة!
+              اجلس في الجولة أو أنهيها: كل <b className="text-foreground">ساعتين = +10 نقاط</b> مكافأة!
             </p>
           </div>
         </div>

@@ -243,7 +243,7 @@ const Rounds = () => {
           }
         }
       }
-      // مكافأة تلقائية: +5 نقاط كل ساعتين حضور في الجولة
+      // مكافأة تلقائية: +10 نقاط كل ساعتين حضور في الجولة
       if (r.status === "active" && r.started_at && user) {
         const isMember = r.user_id === user.id || (r.participants || []).find(p => p.user_id === user.id);
         if (isMember) {

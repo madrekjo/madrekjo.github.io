@@ -26,7 +26,7 @@ const PointsContext = createContext<PointsContextType | undefined>(undefined);
 export function PointsProvider({ children }: { children: ReactNode }) {
   const { user, isAdmin, isStaff } = useAuth();
   const [points, setPoints] = useState<PointsInfo>({
-    balance: 30,
+    balance: 50,
     dailyResetAt: null,
     lastRewardedRoundAt: null,
   });

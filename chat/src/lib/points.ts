@@ -1,6 +1,6 @@
 import { supabase } from "@/integrations/supabase/client";
 
-const MAX_BALANCE = 50;
+const MAX_BALANCE = 100;
 
 export interface PointsInfo {
   balance: number;
@@ -23,11 +23,11 @@ export async function fetchUserPoints(userId: string): Promise<PointsInfo> {
   }).single();
 
   if (error || !data) {
-    return { balance: 30, dailyResetAt: null, lastRewardedRoundAt: null };
+    return { balance: 50, dailyResetAt: null, lastRewardedRoundAt: null };
   }
 
   return {
-    balance: (data as any).balance ?? 30,
+    balance: (data as any).balance ?? 50,
     dailyResetAt: (data as any).daily_reset_at ?? null,
     lastRewardedRoundAt: (data as any).last_rewarded_round_at ?? null,
   };

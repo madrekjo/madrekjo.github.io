@@ -19,7 +19,7 @@
 -- ============================================================================
 CREATE TABLE IF NOT EXISTS public.user_points (
   user_id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
-  balance INTEGER NOT NULL DEFAULT 30,
+  balance INTEGER NOT NULL DEFAULT 50,
   daily_reset_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   last_rewarded_round_at TIMESTAMPTZ,
   last_rewarded_round_id UUID,
@@ -50,7 +50,7 @@ RETURNS TRIGGER LANGUAGE plpgsql SECURITY DEFINER SET search_path = public
 AS $$
 BEGIN
   INSERT INTO public.user_points (user_id, balance)
-  VALUES (NEW.id, 30)
+  VALUES (NEW.id, 50)
   ON CONFLICT (user_id) DO NOTHING;
   RETURN NEW;
 END;
@@ -158,7 +158,7 @@ BEGIN
   IF v_is_admin OR v_is_staff THEN
     -- Admin/Support: لا خصم، أعد الرصيد الحالي
     SELECT balance INTO v_current_balance FROM public.user_points WHERE user_id = p_user_id;
-    RETURN QUERY SELECT TRUE, COALESCE(v_current_balance, 50), NULL::TEXT;
+    RETURN QUERY SELECT TRUE, COALESCE(v_current_balance, 100), NULL::TEXT;
     RETURN;
   END IF;
 
@@ -171,7 +171,7 @@ BEGIN
   -- إذا لم يوجد صف نقاط، أنشئ واحداً
   IF v_current_balance IS NULL THEN
     INSERT INTO public.user_points (user_id, balance)
-    VALUES (p_user_id, 30)
+    VALUES (p_user_id, 50)
     ON CONFLICT (user_id) DO NOTHING;
     SELECT balance INTO v_current_balance
     FROM public.user_points
@@ -203,22 +203,22 @@ $$;
 -- 4. RPC: daily_reset_points — Reset يومي للرصيد
 -- ============================================================================
 -- يُشغّل مرة واحدة يومياً في منتصف الليل عبر pg_cron
--- يجعل الرصيد = 30 لكل المستخدمين (وليس إضافة 30)
--- إذا كان الرصيد > 30 يُنقص إلى 30
--- إذا كان الرصيد < 30 يُرفع إلى 30
+-- يجعل الرصيد = 50 لكل المستخدمين (وليس إضافة 50)
+-- إذا كان الرصيد > 50 يُنقص إلى 50
+-- إذا كان الرصيد < 50 يُرفع إلى 50
 -- ============================================================================
 CREATE OR REPLACE FUNCTION public.daily_reset_points()
 RETURNS void LANGUAGE plpgsql SECURITY DEFINER SET search_path = public
 AS $$
 BEGIN
   UPDATE public.user_points
-  SET balance = 30,
+  SET balance = 50,
       daily_reset_at = now()
-  WHERE balance != 30;
+  WHERE balance != 50;
 
   -- تسجيل معاملات الـ reset للمستخدمين الذين تغير رصيدهم
   INSERT INTO public.point_transactions (user_id, amount, balance_after, transaction_type, source)
-  SELECT user_id, 0, 30, 'daily_reset', 'system'
+  SELECT user_id, 0, 50, 'daily_reset', 'system'
   FROM public.user_points
   WHERE daily_reset_at < now() - INTERVAL '23 hours'
   ON CONFLICT DO NOTHING;
@@ -266,14 +266,14 @@ BEGIN
   FOR UPDATE;
 
   IF v_current_balance IS NULL THEN
-    INSERT INTO public.user_points (user_id, balance) VALUES (p_target_user_id, 30)
+    INSERT INTO public.user_points (user_id, balance) VALUES (p_target_user_id, 50)
     ON CONFLICT (user_id) DO NOTHING;
     SELECT balance INTO v_current_balance
     FROM public.user_points WHERE user_id = p_target_user_id FOR UPDATE;
   END IF;
 
-  -- الإضافة مع الحد الأقصى 50
-  v_new_balance := LEAST(v_current_balance + p_amount, 50);
+  -- الإضافة مع الحد الأقصى 100
+  v_new_balance := LEAST(v_current_balance + p_amount, 100);
   UPDATE public.user_points SET balance = v_new_balance WHERE user_id = p_target_user_id;
 
   -- تسجيل المعاملة
@@ -289,7 +289,7 @@ $$;
 -- ============================================================================
 -- 6. RPC: reward_round_time — مكافأة المشاركة في الجولة
 -- ============================================================================
--- كل ساعتين مكتملتين = +5 نقاط
+-- كل ساعتين مكتملتين في الجولة = +10 نقاط
 -- يمنع تكرار المكافأة لنفس الفترة عبر last_rewarded_round_at
 -- ============================================================================
 CREATE OR REPLACE FUNCTION public.reward_round_time(
@@ -329,7 +329,7 @@ BEGIN
   FOR UPDATE;
 
   IF v_current_balance IS NULL THEN
-    INSERT INTO public.user_points (user_id, balance) VALUES (p_user_id, 30)
+    INSERT INTO public.user_points (user_id, balance) VALUES (p_user_id, 50)
     ON CONFLICT (user_id) DO NOTHING;
     SELECT balance, last_rewarded_round_at, last_rewarded_round_id
     INTO v_current_balance, v_last_rewarded_at, v_last_rewarded_round_id
@@ -349,11 +349,11 @@ BEGIN
     RETURN;
   END IF;
 
-  -- حساب النقاط: كل блок = +5
-  v_points_to_add := v_eligible_blocks * 5;
+  -- حساب النقاط: كل block لمدة ساعتين = +10
+  v_points_to_add := v_eligible_blocks * 10;
 
-  -- الحد الأقصى 50
-  v_new_balance := LEAST(v_current_balance + v_points_to_add, 50);
+  -- الحد الأقصى 100
+  v_new_balance := LEAST(v_current_balance + v_points_to_add, 100);
 
   -- تحديث الرصيد ومعلومات آخر مكافأة
   UPDATE public.user_points
@@ -401,7 +401,7 @@ BEGIN
 
   IF v_balance IS NULL THEN
     INSERT INTO public.user_points (user_id, balance)
-    VALUES (p_user_id, 30)
+    VALUES (p_user_id, 50)
     ON CONFLICT (user_id) DO NOTHING;
     SELECT up.balance, up.daily_reset_at, up.last_rewarded_round_at
     INTO v_balance, v_daily_reset, v_last_reward
@@ -432,9 +432,9 @@ $$;
 -- ============================================================================
 -- 9. تهيئة المستخدمين الحاليين
 -- ============================================================================
--- يُنشئ سجل نقاط لكل مستخدم موجود حالياً برصيد 30
+-- يُنشئ سجل نقاط لكل مستخدم موجود حالياً برصيد 50
 INSERT INTO public.user_points (user_id, balance)
-SELECT id, 30
+SELECT id, 50
 FROM auth.users
 WHERE id NOT IN (SELECT user_id FROM public.user_points)
 ON CONFLICT (user_id) DO NOTHING;
