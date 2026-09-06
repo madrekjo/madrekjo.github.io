@@ -19,7 +19,6 @@ import {
 } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
-import RoundChat from "@/components/RoundChat";
 import MeetingChat from "@/components/MeetingChat";
 import { usePoints } from "@/contexts/PointsContext";
 
@@ -492,10 +491,6 @@ const Rounds = () => {
               <span className="text-xs flex-1">انتهت الجولة!</span>
               <Button size="sm" variant="destructive" onClick={() => stopAlarm(r.id)}>إيقاف</Button>
             </div>
-          )}
-
-          {r.break_enabled && r.status === "active" && inBreak && (joined || isOwner) && (
-            <RoundChat roundId={r.id} />
           )}
 
           <div className="flex items-center justify-between flex-wrap gap-2">
