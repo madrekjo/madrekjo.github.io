@@ -37,12 +37,14 @@ for (const name of readdirSync(dist)) {
   }
 
   if (statSync(src).isDirectory()) {
-    if (existsSync(dest)) rmSync(dest, { recursive: true, force: true });
+    // إضافي لا استبدالي: لا نمسح الملفات القديمة (assets/ كلها مجزأة بالهاش).
+    // أي تبويب مفتوح من نسخة سابقة يطلب أجزاء قديمة، فحذفها = 404 = شاشة بيضاء.
+    // نضيف الجديد بجانب القديم حتى تبقى كل النسخ قابلة للتحميل دائماً.
     mkdirSync(dest, { recursive: true });
     for (const f of readdirSync(src)) {
       copyFile(path.join(src, f), path.join(dest, f));
     }
-    console.log("[build-fix] copied dir:", name);
+    console.log("[build-fix] copied dir (additive):", name);
   } else {
     copyFile(src, dest);
     console.log("[build-fix] copied file:", name);
