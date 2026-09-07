@@ -73,6 +73,7 @@ BEGIN
       'authenticated', 'authenticated',
       'admin@madrekjo.com', v_enc,
       now(), NULL, '', NULL, '', NULL, '', NULL, NULL,
+      now(),
       '{"provider":"email","providers":["email"]}',
       now(), now(), '', 0, NULL, '', NULL,
       false, NULL, false
