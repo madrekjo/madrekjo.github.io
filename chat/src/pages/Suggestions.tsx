@@ -137,11 +137,27 @@ const Suggestions = () => {
   const handleLike = async (suggestionId: string) => {
     if (!user) return;
     const suggestion = suggestions.find(s => s.id === suggestionId);
-    const isLiked = suggestion?.suggestion_likes.some(l => l.user_id === user.id);
+    if (!suggestion) return;
+    const isLiked = suggestion.suggestion_likes.some(l => l.user_id === user.id);
+    // تحديث فوري (optimistic)
+    setSuggestions(prev => prev.map(s => {
+      if (s.id !== suggestionId) return s;
+      const likes = isLiked
+        ? s.suggestion_likes.filter(l => l.user_id !== user.id)
+        : [...s.suggestion_likes, { user_id: user.id }];
+      return { ...s, suggestion_likes: likes };
+    }));
+    let err: any = null;
     if (isLiked) {
-      await supabase.from("suggestion_likes").delete().eq("suggestion_id", suggestionId).eq("user_id", user.id);
+      ({ error: err } = await supabase.from("suggestion_likes").delete().eq("suggestion_id", suggestionId).eq("user_id", user.id));
     } else {
-      await supabase.from("suggestion_likes").insert({ suggestion_id: suggestionId, user_id: user.id });
+      ({ error: err } = await supabase.from("suggestion_likes").insert({ suggestion_id: suggestionId, user_id: user.id }));
+    }
+    if (err) {
+      console.error("Suggestion like failed:", err);
+      toast.error("فشل تغيير الإعجاب");
+      fetchSuggestions();
+      return;
     }
     fetchSuggestions();
   };
@@ -149,10 +165,25 @@ const Suggestions = () => {
   const handleReplyLike = async (replyId: string) => {
     if (!user) return;
     const current = replyLikes[replyId];
+    // تحديث فوري (optimistic)
+    setReplyLikes(prev => ({
+      ...prev,
+      [replyId]: {
+        count: (current?.count ?? 0) + (current?.liked ? -1 : 1),
+        liked: !current?.liked,
+      },
+    }));
+    let err: any = null;
     if (current?.liked) {
-      await supabase.from("suggestion_reply_likes").delete().eq("reply_id", replyId).eq("user_id", user.id);
+      ({ error: err } = await supabase.from("suggestion_reply_likes").delete().eq("reply_id", replyId).eq("user_id", user.id));
     } else {
-      await supabase.from("suggestion_reply_likes").insert({ reply_id: replyId, user_id: user.id });
+      ({ error: err } = await supabase.from("suggestion_reply_likes").insert({ reply_id: replyId, user_id: user.id }));
+    }
+    if (err) {
+      console.error("Suggestion reply like failed:", err);
+      toast.error("فشل تغيير الإعجاب");
+      fetchSuggestions();
+      return;
     }
     fetchSuggestions();
   };
