@@ -13,7 +13,7 @@ import PointsDisplay from "@/components/PointsDisplay";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Send, Image as ImageIcon, Video, Loader2, Lock, RefreshCw } from "lucide-react";
+import { Send, Image as ImageIcon, Video, Loader2, Lock, RefreshCw, X } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { compressMedia } from "@/lib/mediaCompression";
 import { uploadToCloudinary } from "@/lib/cloudinary";
@@ -125,6 +125,42 @@ const Chat = () => {
   const [channelSettings, setChannelSettings] = useState<Record<string, boolean>>({ all: true, male: true, female: true, "09": true, "10": true });
   const [sectionLocks, setSectionLocks] = useState<Record<string, boolean>>({});
   const [adminUserIds, setAdminUserIds] = useState<Set<string>>(new Set());
+
+  // إشعار جو الأريحية في شات شباب/بنات — يظهر مرة واحدة لكل قناة ويمكن إغلاقه
+  const [genderBannerDismissed, setGenderBannerDismissed] = useState<Record<string, boolean>>(() => {
+    try {
+      return {
+        male: localStorage.getItem("madrekjo_gender_banner_male") === "1",
+        female: localStorage.getItem("madrekjo_gender_banner_female") === "1",
+      };
+    } catch {
+      return {};
+    }
+  });
+  const isGenderChannel = channelFilter === "male" || channelFilter === "female";
+
+  // إشعار فوري عند الدخول لأول مرة إلى شات شباب/بنات
+  const previousChannel = useRef<string>(channelFilter);
+  useEffect(() => {
+    const prev = previousChannel.current;
+    previousChannel.current = channelFilter;
+    if (!isGenderChannel || genderBannerDismissed[channelFilter]) return;
+    if (prev === channelFilter) return;
+    const label = channelFilter === "male" ? "شباب 💙" : "بنات 🩷";
+    toast.info(
+      `أهلاً بك في شات ${label} — الجو هنا أريحية: تقدر تحكي مع زملائك، تعرّف عليهم، وتتعاونوا بهالتعاون «دراستكم»`,
+      { duration: 6000 },
+    );
+  }, [channelFilter, isGenderChannel, genderBannerDismissed]);
+
+  const dismissGenderBanner = () => {
+    setGenderBannerDismissed(prev => ({ ...prev, [channelFilter]: true }));
+    try {
+      localStorage.setItem(`madrekjo_gender_banner_${channelFilter}`, "1");
+    } catch {
+      /* ignore */
+    }
+  };
 
   const myGen = profile?.generation as string | null;
   const userPickedChannel = useRef(false);
@@ -640,6 +676,29 @@ const Chat = () => {
           <RefreshCw className={`w-3.5 h-3.5 ${refreshing ? "animate-spin" : ""}`} />
         </Button>
       </div>
+
+      {/* إشعار جو الأريحية في شات شباب/بنات */}
+      {isGenderChannel && !genderBannerDismissed[channelFilter] && (
+        <div className="flex items-start gap-3 bg-gradient-to-l from-primary/15 to-accent/10 border border-primary/20 rounded-xl p-4 mb-4 animate-fade-in">
+          <span className="text-2xl shrink-0">{channelFilter === "male" ? "💙" : "🩷"}</span>
+          <div className="flex-1">
+            <p className="font-bold text-sm mb-1">
+              أهلاً بك في شات {channelFilter === "male" ? "الشباب" : "البنات"} — الجو هنا أريحية 🔥
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              هذا الشات تقدر تحكي فيه بحرية وتريح، تعرّف على زملاء دراستك، تتعاونوا مع بعض بدراستكم،
+              وتساعدوا بعض مثل الإخوة والأخوات. باشروا رووح التآخي والتعاون 🤝📚
+            </p>
+          </div>
+          <button
+            onClick={dismissGenderBanner}
+            className="text-muted-foreground hover:text-foreground transition-colors shrink-0"
+            title="إغلاق"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+      )}
 
       {/* Locked current-channel message */}
       {channelTabs.find(t => t.key === channelFilter)?.locked && (
