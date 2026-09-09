@@ -146,11 +146,11 @@ const Chat = () => {
     previousChannel.current = channelFilter;
     if (!isGenderChannel || genderBannerDismissed[channelFilter]) return;
     if (prev === channelFilter) return;
-    const label = channelFilter === "male" ? "شباب 💙" : "بنات 🩷";
-    toast.info(
-      `أهلاً بك في شات ${label} — الجو هنا أريحية: تقدر تحكي مع زملائك، تعرّف عليهم، وتتعاونوا بهالتعاون «دراستكم»`,
-      { duration: 6000 },
-    );
+    const toastText =
+      channelFilter === "male"
+        ? "أهلاً بك في شات الشباب — المكان المناسب للدراسة والتعارف 🔥"
+        : "أهلاً بكِ في شات البنات — مساحة مريحة وآمنة 🌷";
+    toast.info(toastText, { duration: 6000 });
   }, [channelFilter, isGenderChannel, genderBannerDismissed]);
 
   const dismissGenderBanner = () => {
@@ -682,13 +682,35 @@ const Chat = () => {
         <div className="flex items-start gap-3 bg-gradient-to-l from-primary/15 to-accent/10 border border-primary/20 rounded-xl p-4 mb-4 animate-fade-in">
           <span className="text-2xl shrink-0">{channelFilter === "male" ? "💙" : "🩷"}</span>
           <div className="flex-1">
-            <p className="font-bold text-sm mb-1">
-              أهلاً بك في شات {channelFilter === "male" ? "الشباب" : "البنات"} — الجو هنا أريحية 🔥
-            </p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              هذا الشات تقدر تحكي فيه بحرية وتريح، تعرّف على زملاء دراستك، تتعاونوا مع بعض بدراستكم،
-              وتساعدوا بعض مثل الإخوة والأخوات. باشروا رووح التآخي والتعاون 🤝📚
-            </p>
+            {channelFilter === "male" ? (
+              <>
+                <p className="font-bold text-sm mb-1">
+                  أهلاً بك في شات الشباب — المكان المناسب للدراسة والتعارف 🔥
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  هذا الشات مساحة مريحة للتواصل والتعاون، تقدر تتعرف فيها على زملائك، تتبادلوا
+                  الخبرات، تساعدوا بعض بالدراسة، وتقضوا وقتًا مفيدًا بروح الأخوّة والاحترام. 🤝📚
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed mt-1">
+                  خلّوا الأجواء إيجابية، وتعاونوا على الخير والعلم، وابدؤوا النقاشات المفيدة
+                  وشاركوا ما ينفع الجميع. ✨
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="font-bold text-sm mb-1">
+                  أهلاً بكِ في شات البنات — مساحة مريحة وآمنة 🌷
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  هنا يمكنكِ التحدث بحرية، والتعرّف على زميلاتكِ في الدراسة، والتعاون معهن في
+                  المذاكرة، وتبادل المساعدة والخبرات بروح الأخوّة والاحترام. 🤝📚
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed mt-1">
+                  نتمنى أن يكون هذا المكان مليئًا بالتشجيع والدعم والتعاون، فابدأن الحوار وشاركن
+                  المعرفة، وساعدن بعضكن للوصول إلى أفضل النتائج. ✨
+                </p>
+              </>
+            )}
           </div>
           <button
             onClick={dismissGenderBanner}
