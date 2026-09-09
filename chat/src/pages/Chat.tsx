@@ -126,10 +126,11 @@ const Chat = () => {
   const [sectionLocks, setSectionLocks] = useState<Record<string, boolean>>({});
   const [adminUserIds, setAdminUserIds] = useState<Set<string>>(new Set());
 
-  // إشعار جو الأريحية في شات شباب/بنات — يظهر مرة واحدة لكل قناة ويمكن إغلاقه
-  const [genderBannerDismissed, setGenderBannerDismissed] = useState<Record<string, boolean>>(() => {
+  // إشعار ترحيبي في شات الجميع/شباب/بنات — يظهر مرة واحدة لكل قناة ويمكن إغلاقه
+  const [channelBannerDismissed, setChannelBannerDismissed] = useState<Record<string, boolean>>(() => {
     try {
       return {
+        all: localStorage.getItem("madrekjo_chat_banner_all") === "1",
         male: localStorage.getItem("madrekjo_gender_banner_male") === "1",
         female: localStorage.getItem("madrekjo_gender_banner_female") === "1",
       };
@@ -137,26 +138,29 @@ const Chat = () => {
       return {};
     }
   });
-  const isGenderChannel = channelFilter === "male" || channelFilter === "female";
+  const showChannelBanner = channelFilter === "all" || channelFilter === "male" || channelFilter === "female";
 
-  // إشعار فوري عند الدخول لأول مرة إلى شات شباب/بنات
+  // إشعار فوري عند الدخول لأول مرة إلى شات الجميع/شباب/بنات
   const previousChannel = useRef<string>(channelFilter);
   useEffect(() => {
     const prev = previousChannel.current;
     previousChannel.current = channelFilter;
-    if (!isGenderChannel || genderBannerDismissed[channelFilter]) return;
+    if (!showChannelBanner || channelBannerDismissed[channelFilter]) return;
     if (prev === channelFilter) return;
     const toastText =
-      channelFilter === "male"
-        ? "أهلاً بك في شات الشباب — المكان المناسب للدراسة والتعارف 🔥"
-        : "أهلاً بكِ في شات البنات — مساحة مريحة وآمنة 🌷";
+      channelFilter === "all"
+        ? "أهلاً بك في شات الجميع — مساحة الدراسة والتعاون 📚"
+        : channelFilter === "male"
+          ? "أهلاً بك في شات الشباب — المكان المناسب للدراسة والتعارف 🔥"
+          : "أهلاً بكِ في شات البنات — مساحة مريحة وآمنة 🌷";
     toast.info(toastText, { duration: 6000 });
-  }, [channelFilter, isGenderChannel, genderBannerDismissed]);
+  }, [channelFilter, showChannelBanner, channelBannerDismissed]);
 
-  const dismissGenderBanner = () => {
-    setGenderBannerDismissed(prev => ({ ...prev, [channelFilter]: true }));
+  const dismissChannelBanner = () => {
+    setChannelBannerDismissed(prev => ({ ...prev, [channelFilter]: true }));
+    const key = channelFilter === "all" ? "madrekjo_chat_banner_all" : `madrekjo_gender_banner_${channelFilter}`;
     try {
-      localStorage.setItem(`madrekjo_gender_banner_${channelFilter}`, "1");
+      localStorage.setItem(key, "1");
     } catch {
       /* ignore */
     }
@@ -677,12 +681,28 @@ const Chat = () => {
         </Button>
       </div>
 
-      {/* إشعار جو الأريحية في شات شباب/بنات */}
-      {isGenderChannel && !genderBannerDismissed[channelFilter] && (
+      {/* إشعار ترحيبي في شات الجميع/شباب/بنات */}
+      {showChannelBanner && !channelBannerDismissed[channelFilter] && (
         <div className="flex items-start gap-3 bg-gradient-to-l from-primary/15 to-accent/10 border border-primary/20 rounded-xl p-4 mb-4 animate-fade-in">
-          <span className="text-2xl shrink-0">{channelFilter === "male" ? "💙" : "🩷"}</span>
+          <span className="text-2xl shrink-0">
+            {channelFilter === "all" ? "🎓" : channelFilter === "male" ? "💙" : "🩷"}
+          </span>
           <div className="flex-1">
-            {channelFilter === "male" ? (
+            {channelFilter === "all" ? (
+              <>
+                <p className="font-bold text-sm mb-1">
+                  أهلاً بك في شات الجميع — مساحة الدراسة والتعاون 🎓
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  هذا الشات مخصص للدراسة والتعاون العلمي بين طلاب مدارك جو: شاركوا الأسئلة،
+                  تبادلوا الملخصات، ساعدوا بعضكم في المذاكرة، وناقشوا موادكم بشكل مفيد ومحترم. 🤝📖
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed mt-1">
+                  وتذكّروا أن منشورات قناة الجميع تُراجع قبل النشر — فخلّوا مواضيعكم دراسية
+                  ومفيدة للجميع. ✨
+                </p>
+              </>
+            ) : channelFilter === "male" ? (
               <>
                 <p className="font-bold text-sm mb-1">
                   أهلاً بك في شات الشباب — المكان المناسب للدراسة والتعارف 🔥
@@ -713,7 +733,7 @@ const Chat = () => {
             )}
           </div>
           <button
-            onClick={dismissGenderBanner}
+            onClick={dismissChannelBanner}
             className="text-muted-foreground hover:text-foreground transition-colors shrink-0"
             title="إغلاق"
           >
