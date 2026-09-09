@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Tajawal", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Amiri", ui-serif, Georgia, serif;
+
+  --color-paper: #faf4e6;
+  --color-card: #fffdf6;
+  --color-ink: #33291d;
+  --color-ink-soft: #7a6a51;
+  --color-gold: #c9a227;
+  --color-gold-deep: #a67c00;
+  --color-line: #e7dcc0;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+@keyframes enter-forward {
+  from {
+    transform: rotateY(158deg) translateX(26px);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0deg) translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes enter-backward {
+  from {
+    transform: rotateY(-158deg) translateX(-26px);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0deg) translateX(0);
+    opacity: 1;
+  }
+}
+
+.page {
+  position: absolute;
+  inset: 0;
+  transition:
+    transform 0.4s cubic-bezier(0.45, 0.05, 0.25, 1),
+    opacity 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+.page.enter-f {
+  animation: enter-forward 0.42s cubic-bezier(0.45, 0.05, 0.25, 1);
+}
+
+.page.enter-b {
+  animation: enter-backward 0.42s cubic-bezier(0.45, 0.05, 0.25, 1);
+}
+
+.page.leave-f {
+  transform: rotateY(-142deg) translateX(16px);
+  opacity: 0;
+}
+
+.page.leave-b {
+  transform: rotateY(142deg) translateX(-16px);
+  opacity: 0;
+}
+
+.ornament::before,
+.ornament::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-color: var(--color-gold);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.ornament::before {
+  top: 10px;
+  right: 10px;
+  border-width: 2px 2px 0 0;
+}
+
+.ornament::after {
+  bottom: 10px;
+  left: 10px;
+  border-width: 0 0 2px 2px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}

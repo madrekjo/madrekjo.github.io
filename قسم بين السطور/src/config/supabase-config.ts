@@ -1,0 +1,3 @@
+export const SUPABASE_URL = "https://cfwnarueaparjbetagpi.supabase.co";
+export const SUPABASE_PUBLISHABLE_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNmd25hcnVlYXBhcmpiZXRhZ3BpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg5NzQ5MTQsImV4cCI6MjEwNDU1MDkxNH0.a96Oho0lpnX2Dtpa2q52m8BH1j_1-jr1ws95ET-aIqU";
