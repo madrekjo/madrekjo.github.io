@@ -100,6 +100,6 @@
 
 - 📧 البريد الإلكتروني: **madrekjo@gmail.com**
 - 📸 إنستغرام: **@madrekjo**
-- 💬 ديسكورد: **discord.gg/JMK38hQNf**
+- 💬 ديسكورد: **discord.gg/xEEgTQPyC**
 
 _نحن نقرأ كل رسالة — خصوصيتك أمانة عندنا._
