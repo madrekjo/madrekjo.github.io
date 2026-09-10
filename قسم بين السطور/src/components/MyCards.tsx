@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { Camera, Plus } from "lucide-react";
+import { Camera, Download, Plus } from "lucide-react";
 import {
   myLines,
   myProofs,
@@ -10,6 +10,7 @@ import {
   type MyProof,
   type MyReport,
 } from "@/lib/api";
+import { downloadBlob, renderCardImage } from "@/lib/cardImage";
 import { publicFileUrl } from "@/integrations/supabase/client";
 
 const platforms = ["انستغرام", "سناب شات", "واتساب", "تيك توك", "تويتر"];
@@ -27,6 +28,20 @@ export default function MyCards() {
   const [note, setNote] = useState("");
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState("");
+
+  const onDownload = async (l: Line) => {
+    setMsg("");
+    setBusy(true);
+    try {
+      const blob = await renderCardImage(l);
+      downloadBlob(blob, `${l.category}-${l.id}.jpg`);
+      setMsg("نزّلت صورة البطاقة ✓");
+    } catch (err) {
+      setMsg(err instanceof Error ? err.message : "تعذّر إنشاء الصورة");
+    } finally {
+      setBusy(false);
+    }
+  };
 
   const load = useCallback(async () => {
     const [l, r, p] = await Promise.all([
@@ -142,10 +157,36 @@ export default function MyCards() {
 
           {selected && (
             <div className="mt-5 rounded-xl bg-paper p-4">
-              <p className="font-serif text-lg text-ink">{selected.text}</p>
-              <p className="mt-1 text-xs text-ink-soft">
-                {selected.book} — {selected.author} · المكوِّن: {selected.submitter}
-              </p>
+              <div className="flex items-start justify-between gap-2">
+                <div className="min-w-0">
+                  <p className="font-serif text-lg text-ink">{selected.text}</p>
+                  <p className="mt-1 text-xs text-ink-soft">
+                    {selected.book} — {selected.author} · المكوِّن: {selected.submitter}
+                  </p>
+                </div>
+                <button
+                  onClick={() => void onDownload(selected)}
+                  disabled={busy}
+                  className="shrink-0 inline-flex items-center gap-1.5 rounded-full border border-gold/50 px-3 py-1.5 text-xs font-bold text-gold-deep transition hover:bg-gold hover:text-white disabled:opacity-50"
+                >
+                  <Download size={14} />
+                  {busy ? "تحضير..." : "نزّل صورة"}
+                </button>
+              </div>
+              <div className="mt-3 grid grid-cols-3 gap-2 text-center">
+                <div className="rounded-xl bg-card p-2">
+                  <p className="text-sm font-bold text-rose-500">❤️ {selected.likes}</p>
+                  <p className="mt-0.5 text-[11px] text-ink-soft">قلوب</p>
+                </div>
+                <div className="rounded-xl bg-card p-2">
+                  <p className="text-sm font-bold text-gold-deep">📤 {selected.shares}</p>
+                  <p className="mt-0.5 text-[11px] text-ink-soft">مشاركات</p>
+                </div>
+                <div className="rounded-xl bg-card p-2">
+                  <p className="text-sm font-bold text-ink">👁️ {selected.visits}</p>
+                  <p className="mt-0.5 text-[11px] text-ink-soft">مشاهدات</p>
+                </div>
+              </div>
 
               <form onSubmit={onReport} className="mt-4 space-y-2">
                 <p className="text-sm font-medium text-ink">

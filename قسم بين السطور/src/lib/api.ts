@@ -202,11 +202,20 @@ export async function uploadProof(
   const path = `${lineId}/${getDeviceId()}-${Date.now()}.${ext}`;
   const { error } = await supabase.storage.from("proofs").upload(path, file);
   if (error) {
-    throw new Error(
-      error.message.includes("bucket")
-        ? "أنشئ أولاً bucket باسم proofs من Dashboard → Storage"
-        : "تعذّر رفع الصورة"
-    );
+    const m = String(error.message);
+    if (m.includes("bucket") || m.includes("does not exist")) {
+      throw new Error(
+        "احذث البكت proofs من Dashboard → Storage + نفّذ SQL ملف proofs_storage"
+      );
+    }
+    if (
+      /row-level|policy|permission|denied/i.test(m)
+    ) {
+      throw new Error(
+        "صلاحيات رفع الصور مقفولة — نفّذ SQL ملف proofs_storage من الميغريشن"
+      );
+    }
+    throw new Error("تعذّر رفع الصورة");
   }
   await attachProof(lineId, path);
   return path;

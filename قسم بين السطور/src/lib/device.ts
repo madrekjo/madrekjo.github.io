@@ -1,21 +1,20 @@
-const KEY = "bayn-al-sutur:device";
+import { syncDeviceFingerprint } from "./fingerprint";
 
-function makeId(): string {
-  if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
-    return crypto.randomUUID();
-  }
-  return "d-" + Math.random().toString(36).slice(2) + Date.now().toString(36);
-}
+const KEY = "bayn-al-sutur:device";
 
 export function getDeviceId(): string {
   try {
     let id = localStorage.getItem(KEY);
     if (!id) {
-      id = makeId();
-      localStorage.setItem(KEY, id);
+      id = syncDeviceFingerprint();
+      try {
+        localStorage.setItem(KEY, id);
+      } catch {
+        /* storage غير متاح — نبصم الجهاز مباشرة */
+      }
     }
     return id;
   } catch {
-    return makeId();
+    return syncDeviceFingerprint();
   }
 }

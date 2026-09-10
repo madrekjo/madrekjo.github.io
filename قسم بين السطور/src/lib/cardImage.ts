@@ -4,9 +4,12 @@ const W = 1080;
 const H = 1350;
 
 async function waitFont(name: string): Promise<void> {
-  try {
+  const load = async () => {
     await document.fonts.load(`700 48px "${name}"`);
     await document.fonts.load(`400 40px "${name}"`);
+  };
+  try {
+    await Promise.race([load(), new Promise((r) => setTimeout(r, 3000))]);
   } catch {
     /* ignore */
   }
@@ -138,9 +141,21 @@ export async function renderCardImage(line: Line): Promise<Blob> {
   ctx.font = "400 30px Tajawal, sans-serif";
   ctx.fillText("madrekjo.com — كل سطر بتحبه، فيه غيرك بيعيشه", W / 2, H - 80);
 
-  return new Promise<Blob>((resolve, reject) => {
+  return await new Promise<Blob>((resolve, reject) => {
     canvas.toBlob(
-      (b) => (b ? resolve(b) : reject(new Error("فشل إنشاء الصورة"))),
+      (b) => {
+        if (b) return resolve(b);
+        try {
+          const dataUrl = canvas.toDataURL("image/jpeg", 0.92);
+          const base64 = dataUrl.slice(dataUrl.indexOf(",") + 1);
+          const bin = atob(base64);
+          const arr = new Uint8Array(bin.length);
+          for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+          resolve(new Blob([arr], { type: "image/jpeg" }));
+        } catch {
+          reject(new Error("فشل إنشاء الصورة"));
+        }
+      },
       "image/jpeg",
       0.92
     );

@@ -67,6 +67,22 @@ function todayStr(): string {
   return `${d.getFullYear()}-${m}-${day}`;
 }
 
+function toLine(row: WeeklyTopRow): Line {
+  return {
+    id: row.line_id,
+    text: row.text,
+    book: row.book,
+    author: row.author,
+    category: row.category,
+    submitter: row.submitter,
+    likes: row.likes,
+    shares: row.shares,
+    visits: 0,
+    featured_date: null,
+    created_at: "",
+  };
+}
+
 function openWhatsApp(text: string): boolean {
   const win = window.open(
     `https://wa.me/?text=${encodeURIComponent(text)}`,
@@ -265,8 +281,11 @@ export default function App() {
         );
         await markShare(l, platform);
       }
-    } catch {
-      /* user cancelled */
+    } catch (e: unknown) {
+      const err = e as { name?: string };
+      if (err?.name !== "AbortError") {
+        flash(e instanceof Error ? e.message : "تعذّرت المشاركة — جرّب «نزّل صورة»");
+      }
     } finally {
       setBusyAction("");
     }
@@ -278,8 +297,28 @@ export default function App() {
       const blob = await renderCardImage(l);
       downloadBlob(blob, `${l.category}-${l.id}.jpg`);
       await markShare(l, "image");
-    } catch {
-      /* ignore */
+    } catch (e) {
+      flash(e instanceof Error ? e.message : "تعذّر إنشاء الصورة");
+    } finally {
+      setBusyAction("");
+    }
+  };
+
+  const downloadCard = async (l: Line) => {
+    setBusyAction("image");
+    try {
+      const blob = await renderCardImage(l);
+      downloadBlob(blob, `${l.category}-${l.id}.jpg`);
+      if (!demo) {
+        try {
+          await recordShare(l.id, "image");
+        } catch {
+          /* ignore */
+        }
+      }
+      flash("نزّلت صورة البطاقة ✓");
+    } catch (e) {
+      flash(e instanceof Error ? e.message : "تعذّر إنشاء الصورة");
     } finally {
       setBusyAction("");
     }
@@ -534,35 +573,48 @@ export default function App() {
           </p>
           <div className="space-y-2">
             {top.map((row, i) => (
-              <button
+              <div
                 key={row.line_id}
-                onClick={() => openTopCard(row.line_id)}
                 className="flex w-full items-center gap-3 rounded-xl border border-line bg-paper p-3 text-right transition hover:border-gold-deep"
               >
-                <span
-                  className={
-                    "grid size-9 shrink-0 place-items-center rounded-full text-sm font-bold " +
-                    (i === 0
-                      ? "bg-gold text-white"
-                      : i === 1
-                        ? "bg-slate-300 text-slate-700"
-                        : "bg-amber-700 text-white")
-                  }
+                <button
+                  onClick={() => openTopCard(row.line_id)}
+                  className="flex min-w-0 flex-1 items-center gap-3"
                 >
-                  {i + 1}
-                </span>
-                <div className="min-w-0 flex-1">
-                  <p className="truncate font-serif text-base text-ink">
-                    {row.text}
-                  </p>
-                  <p className="text-xs text-ink-soft">
-                    {row.submitter} · {row.book}
-                  </p>
-                </div>
-                <span className="shrink-0 text-sm font-bold text-gold-deep">
-                  📤 {row.week_shares}
-                </span>
-              </button>
+                  <span
+                    className={
+                      "grid size-9 shrink-0 place-items-center rounded-full text-sm font-bold " +
+                      (i === 0
+                        ? "bg-gold text-white"
+                        : i === 1
+                          ? "bg-slate-300 text-slate-700"
+                          : "bg-amber-700 text-white")
+                    }
+                  >
+                    {i + 1}
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate font-serif text-base text-ink">
+                      {row.text}
+                    </p>
+                    <p className="text-xs text-ink-soft">
+                      {row.submitter} · {row.book}
+                    </p>
+                  </div>
+                  <span className="shrink-0 text-sm font-bold text-gold-deep">
+                    📤 {row.week_shares}
+                  </span>
+                </button>
+                <button
+                  onClick={() => void downloadCard(toLine(row))}
+                  disabled={busyAction !== ""}
+                  aria-label="نزّل صورة هذه البطاقة"
+                  className="shrink-0 rounded-full border border-line bg-card px-3 py-1.5 text-xs text-ink-soft transition hover:border-gold-deep hover:text-gold-deep disabled:opacity-50"
+                >
+                  <Download size={14} className="inline" />
+                  نزّل
+                </button>
+              </div>
             ))}
           </div>
         </section>
