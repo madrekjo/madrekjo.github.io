@@ -106,11 +106,12 @@ body {
 /* ============ الدفتر — قلب الصفحات ثلاثي الأبعاد ============ */
 .book3d {
   position: relative;
-  aspect-ratio: 10 / 13;
-  max-width: 460px;
-  width: 100%;
+  height: clamp(360px, calc(100dvh - 320px), 84dvh);
+  aspect-ratio: 10 / 14;
+  width: auto;
+  max-width: 100%;
   margin: 0 auto;
-  perspective: 1700px;
+  perspective: 2200px;
 }
 
 .book3d .sheet {

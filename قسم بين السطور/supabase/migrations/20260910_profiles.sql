@@ -64,7 +64,7 @@ begin
   end if;
   v_name := btrim(coalesce(nullif(p_username, ''), 'قارئ بين السطور'));
   v_name := left(v_name, 25);
-  if char_length(v_name) < 2 or not (v_name ~ '^[\p{L}\p{N} _-]+$') then
+  if char_length(v_name) < 2 or not (v_name ~ '^[^[:cntrl:]]+$') then
     raise exception 'الاسم بين حرفين و25 حرفاً وبدون رموز';
   end if;
 

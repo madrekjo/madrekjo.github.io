@@ -36,7 +36,6 @@ import Profile from "./components/Profile";
 import Reels from "./components/Reels";
 import ShareSheet from "./components/ShareSheet";
 import NotebookReader from "./components/NotebookReader";
-import NotebookEditor from "./components/NotebookEditor";
 import BottomNav, { type NavTab } from "./components/BottomNav";
 
 function openWhatsAppText(text: string): boolean {
@@ -108,12 +107,10 @@ export default function App() {
   const [pubLines, setPubLines] = useState<Line[]>([]);
 
   const [sheetLine, setSheetLine] = useState<Line | null>(null);
-  const [readerOpen, setReaderOpen] = useState(false);
-  const [readerMine, setReaderMine] = useState(true);
+const [readerOpen, setReaderOpen] = useState(false);
+  const [readerMine, setReaderMine] = useState(false);
   const [myPages, setMyPages] = useState<NotebookPage[]>([]);
   const [pubPages, setPubPages] = useState<NotebookPage[]>([]);
-  const [editorOpen, setEditorOpen] = useState(false);
-  const [editingPage, setEditingPage] = useState<NotebookPage | null>(null);
   const [addOpen, setAddOpen] = useState(false);
   const [busyAction, setBusyAction] = useState("");
   const [notice, setNotice] = useState("");
@@ -408,8 +405,6 @@ export default function App() {
 
   const closeReader = () => {
     setReaderOpen(false);
-    setEditingPage(null);
-    setEditorOpen(false);
   };
 
   const reloadMyPages = async () => {
@@ -420,18 +415,23 @@ export default function App() {
     }
   };
 
-  const savePage = async (content: string, isPublic: boolean) => {
-    if (editingPage) {
-      await updateNotebookPage(editingPage.id, content, isPublic);
-    } else {
-      await addNotebookPage(content, isPublic);
-    }
+  const createPage = async (content: string, isPublic: boolean) => {
+    if (!ensureUserCanWrite()) return;
+    await addNotebookPage(content, isPublic);
+    await reloadMyPages();
+  };
+
+  const updatePage = async (
+    pageId: number,
+    content: string,
+    isPublic: boolean
+  ) => {
+    await updateNotebookPage(pageId, content, isPublic);
     await reloadMyPages();
   };
 
   const removePage = async (page: NotebookPage) => {
     await deleteNotebookPage(page.id);
-    if (editingPage?.id === page.id) setEditingPage(null);
     await reloadMyPages();
   };
 
@@ -597,24 +597,8 @@ export default function App() {
         ownerName={readerMine ? (me?.username ?? "دفترك") : (pubProfile?.username ?? "القارئ")}
         pages={readerMine ? myPages : pubPages}
         onClose={closeReader}
-        onEdit={(p) => {
-          setEditingPage(p);
-          setEditorOpen(true);
-        }}
-        onDelete={(p) => void removePage(p)}
-        onAdd={() => {
-          if (ensureUserCanWrite()) {
-            setEditingPage(null);
-            setEditorOpen(true);
-          }
-        }}
-      />
-
-      <NotebookEditor
-        open={editorOpen}
-        page={editingPage}
-        onClose={() => setEditorOpen(false)}
-        onSave={savePage}
+        onCreate={createPage}
+        onUpdate={updatePage}
         onDelete={removePage}
       />
 
