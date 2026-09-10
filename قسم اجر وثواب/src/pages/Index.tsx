@@ -33,9 +33,9 @@ const Index = () => {
           <span>{today} — اليوم رقم {dayIndex + 1}</span>
         </div>
 
+        <ContributionsSection />
         <QuranSection dayIndex={dayIndex} />
         <HadithSection dayIndex={dayIndex} />
-        <ContributionsSection />
 
         <footer className="text-center py-4 text-xs text-muted-foreground">
           أجر وثواب للجميع — اللهم اجعله في ميزان حسناتنا

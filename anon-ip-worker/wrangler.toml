@@ -1,0 +1,13 @@
+# MADARIK ANON IP Worker config
+# النشر:
+#   wrangler login
+#   wrangler secret put IP_HASH_SALT
+#   wrangler deploy
+name = "madarik-anon-ip"
+main = "worker.js"
+compatibility_date = "2024-12-01"
+workers_dev = true
+preview_urls = false
+
+[observability]
+enabled = true
