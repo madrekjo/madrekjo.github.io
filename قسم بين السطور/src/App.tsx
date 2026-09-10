@@ -15,6 +15,7 @@ Download,
 } from "lucide-react";
 import {
   fetchLines,
+  fetchMyLikedIds,
   likeLine,
   recordShare,
   recordVisit,
@@ -47,6 +48,18 @@ const seedLikes: Record<string, number> = {
 
 const CATS = ["الكل", "رواية", "ديني", "تنمية", "شعر", "تاريخ"] as const;
 
+const LIKED_KEY = "bayn-al-sutur:liked";
+
+function restoreLikedIds(): string[] {
+  try {
+    const raw = localStorage.getItem(LIKED_KEY);
+    const arr = raw ? JSON.parse(raw) : [];
+    return Array.isArray(arr) ? arr.filter((x) => typeof x === "string") : [];
+  } catch {
+    return [];
+  }
+}
+
 function todayStr(): string {
   const d = new Date();
   const m = String(d.getMonth() + 1).padStart(2, "0");
@@ -70,7 +83,7 @@ export default function App() {
   const [index, setIndex] = useState(0);
   const [phase, setPhase] = useState<"idle" | "leaving" | "entering">("idle");
   const [dir, setDir] = useState(1);
-  const [likedIds, setLikedIds] = useState<string[]>([]);
+  const [likedIds, setLikedIds] = useState<string[]>(restoreLikedIds);
   const [top, setTop] = useState<WeeklyTopRow[]>([]);
   const [copied, setCopied] = useState(false);
   const [busyAction, setBusyAction] = useState("");
@@ -104,10 +117,21 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    try {
+      localStorage.setItem(LIKED_KEY, JSON.stringify(likedIds));
+    } catch {
+      /* ignore */
+    }
+  }, [likedIds]);
+
+  useEffect(() => {
     void loadLines();
     weeklyTop(3)
       .then(setTop)
       .catch(() => setTop([]));
+    fetchMyLikedIds().then((ids) =>
+      setLikedIds((prev) => [...new Set([...prev, ...ids])])
+    );
   }, [loadLines]);
 
   useEffect(() => {

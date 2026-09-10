@@ -105,6 +105,14 @@ export async function likeLine(lineId: string): Promise<number> {
   return Number(data ?? 0);
 }
 
+export async function fetchMyLikedIds(): Promise<string[]> {
+  const { data, error } = await supabase.rpc("my_liked_line_ids", {
+    p_device: getDeviceId(),
+  });
+  if (error) return [];
+  return ((data ?? []) as (string | number)[]).map((x) => String(x));
+}
+
 export async function recordShare(
   lineId: string,
   platform: string
