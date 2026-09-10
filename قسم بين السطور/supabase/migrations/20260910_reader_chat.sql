@@ -53,7 +53,7 @@ begin
     raise exception 'تمهّل قليلاً قبل إرسال رسالة أخرى';
   end if;
   insert into public.reader_chat (nickname, message, device_id)
-  values (btrim(left(coalesce(nullif(p_nickname, ''), 'قارئ', 40))), btrim(left(p_message, 300)), p_device)
+  values (btrim(left(coalesce(nullif(p_nickname, ''), 'قارئ'), 40)), btrim(left(p_message, 300)), p_device)
   returning id into v_id;
   return v_id;
 end;

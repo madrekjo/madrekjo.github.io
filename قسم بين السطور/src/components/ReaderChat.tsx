@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
-import { BookOpen, Send, X } from "lucide-react";
+import { BookOpen, Pencil, Send, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { getChatMessages, postChatMessage, type ChatMessage } from "@/lib/api";
 import { getDeviceId } from "@/lib/device";
@@ -24,6 +24,7 @@ export default function ReaderChat() {
   );
   const [draft, setDraft] = useState("");
   const [nickDraft, setNickDraft] = useState("");
+  const [editingNick, setEditingNick] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [error, setError] = useState("");
   const [sending, setSending] = useState(false);
@@ -73,6 +74,17 @@ export default function ReaderChat() {
     if (!n) return;
     setNickname(n);
     localStorage.setItem(NICK_KEY, n);
+    setEditingNick(false);
+    setNickDraft("");
+  };
+
+  const startEditNick = () => {
+    setNickDraft(nickname);
+    setEditingNick(true);
+  };
+
+  const cancelEditNick = () => {
+    setEditingNick(false);
     setNickDraft("");
   };
 
@@ -103,7 +115,7 @@ export default function ReaderChat() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-4 left-4 z-40 inline-flex items-center gap-2 rounded-full bg-gold px-4 py-3 font-bold text-white shadow-lg transition hover:bg-gold-deep"
+        className="fixed bottom-4 right-4 z-40 inline-flex items-center gap-2 rounded-full bg-gold px-4 py-3 font-bold text-white shadow-lg transition hover:bg-gold-deep"
         aria-label="فتح ركن القرّاء"
       >
         <BookOpen size={18} />
@@ -112,8 +124,8 @@ export default function ReaderChat() {
 
       <div
         className={
-          "fixed inset-y-0 left-0 z-50 flex w-full max-w-sm flex-col overflow-hidden bg-paper shadow-2xl transition-transform duration-300 " +
-          (open ? "translate-x-0" : "-translate-x-full")
+          "fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col overflow-hidden bg-paper shadow-2xl transition-transform duration-300 " +
+          (open ? "translate-x-0" : "translate-x-full")
         }
         aria-hidden={!open}
       >
@@ -173,7 +185,7 @@ export default function ReaderChat() {
         </div>
 
         <div className="border-t border-line bg-card px-4 py-3">
-          {!nickname ? (
+          {(!nickname || editingNick) ? (
             <div className="flex gap-2">
               <input
                 value={nickDraft}
@@ -188,11 +200,32 @@ export default function ReaderChat() {
                 disabled={!nickDraft.trim()}
                 className="shrink-0 rounded-full bg-gold px-4 py-2.5 text-sm font-bold text-white transition hover:bg-gold-deep disabled:opacity-40"
               >
-                دخول
+                حفظ
               </button>
+              {editingNick && (
+                <button
+                  onClick={cancelEditNick}
+                  className="shrink-0 rounded-full border border-line bg-paper px-4 py-2.5 text-sm font-bold text-ink-soft transition hover:border-gold-deep hover:text-gold-deep"
+                >
+                  إلغاء
+                </button>
+              )}
             </div>
           ) : (
-            <div className="flex gap-2">
+            <>
+              <div className="mb-2 flex items-center justify-between gap-2">
+                <span className="inline-flex max-w-[70%] items-center gap-1.5 truncate rounded-full bg-gold px-2.5 py-0.5 text-xs font-bold text-white">
+                  {nickname}
+                </span>
+                <button
+                  onClick={startEditNick}
+                  className="inline-flex shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-[11px] text-ink-soft transition hover:text-gold-deep"
+                >
+                  <Pencil size={12} />
+                  غيّر الاسم
+                </button>
+              </div>
+              <div className="flex gap-2">
               <input
                 value={draft}
                 onChange={(e) => setDraft(e.target.value)}
@@ -209,7 +242,8 @@ export default function ReaderChat() {
               >
                 <Send size={17} />
               </button>
-            </div>
+              </div>
+            </>
           )}
         </div>
       </div>
