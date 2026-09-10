@@ -6,6 +6,7 @@ import {
   myReports,
   submitReport,
   uploadProof,
+  confirmShare,
   type Line,
   type MyProof,
   type MyReport,
@@ -118,7 +119,11 @@ export default function MyCards() {
     setBusy(true);
     try {
       await uploadProof(selectedId, file);
-      setMsg("رُفع الدليل (سكرين شوت) ✓");
+      const n = await confirmShare(selectedId);
+      setLines((ls) =>
+        ls.map((l) => (l.id === selectedId ? { ...l, shares: n } : l))
+      );
+      setMsg("رُفع الدليل (سكرين شوت) ✓ — تأكدت مشاركتك");
       await load();
     } catch (err) {
       setMsg(err instanceof Error ? err.message : "تعذّر رفع الصورة");

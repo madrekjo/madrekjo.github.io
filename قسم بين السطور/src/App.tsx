@@ -4,7 +4,8 @@ import {
   ChevronRight,
   Copy,
   Check,
-Download,
+  Download,
+  Camera,
   GraduationCap,
   Heart,
   Instagram,
@@ -12,12 +13,15 @@ Download,
   Plus,
   Sparkles,
   Ghost,
+  X,
 } from "lucide-react";
 import {
   fetchLines,
   fetchMyLikedIds,
   likeLine,
   recordShare,
+  confirmShare,
+  uploadProof,
   recordVisit,
   weeklyTop,
   type Line,
@@ -105,6 +109,8 @@ export default function App() {
   const [busyAction, setBusyAction] = useState("");
   const [addOpen, setAddOpen] = useState(false);
   const [notice, setNotice] = useState("");
+  const [proofLine, setProofLine] = useState<Line | null>(null);
+  const [proofBusy, setProofBusy] = useState(false);
   const visitedRef = useRef<string | null>(null);
 
   const loadLines = useCallback(async () => {
@@ -246,11 +252,11 @@ export default function App() {
       return;
     }
     try {
-      const n = await recordShare(line.id, platform);
-      patchLine(line.id, { shares: n });
+      await recordShare(line.id, platform);
     } catch {
       /* ignore */
     }
+    setProofLine(line);
   };
 
   const shareText = (l: Line) =>
@@ -309,13 +315,7 @@ export default function App() {
     try {
       const blob = await renderCardImage(l);
       downloadBlob(blob, `${l.category}-${l.id}.jpg`);
-      if (!demo) {
-        try {
-          await recordShare(l.id, "image");
-        } catch {
-          /* ignore */
-        }
-      }
+      if (!demo) await markShare(l, "image");
       flash("نزّلت صورة البطاقة ✓");
     } catch (e) {
       flash(e instanceof Error ? e.message : "تعذّر إنشاء الصورة");
@@ -349,6 +349,24 @@ export default function App() {
 
   const onAdded = () => {
     void loadLines();
+  };
+
+  const onProofPicked = async (file: File) => {
+    const line = proofLine;
+    if (!line || !file) return;
+    setProofBusy(true);
+    try {
+      await uploadProof(line.id, file);
+      const n = await confirmShare(line.id);
+      if (!demo) patchLine(line.id, { shares: n });
+      weeklyTop(3).then(setTop).catch(() => null);
+      setProofLine(null);
+      flash("تأكدت مشاركتك ✓ +١ نقطة بالمتصدر");
+    } catch (e) {
+      flash(e instanceof Error ? e.message : "تعذّر رفع الدليل");
+    } finally {
+      setProofBusy(false);
+    }
   };
 
   const openTopCard = (id: string) => {
@@ -644,6 +662,55 @@ export default function App() {
           setIndex(0);
         }}
       />
+
+      {proofLine && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4">
+          <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-gold/40 bg-card p-5 text-center shadow-2xl">
+            <button
+              onClick={() => setProofLine(null)}
+              aria-label="إغلاق"
+              className="absolute top-3 left-3 rounded-full p-1 text-ink-soft transition hover:text-ink"
+            >
+              <X size={18} />
+            </button>
+            <p className="text-3xl">📸</p>
+            <h3 className="mt-2 font-serif text-xl font-bold text-ink">
+              أكّد مشاركتك!
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-ink-soft">
+              نقطتك بالمتصدر تنحسب فقط إذا قدّمت دليلاً أنك نشرت البطاقة فعلاً.
+              شاركها على واتساب أو ستوري ثم ارفع سكرين شوت من النشر.
+            </p>
+            <p className="mt-3 rounded-xl bg-paper px-3 py-2 text-right font-serif text-sm leading-snug text-ink">
+              {proofLine.text}
+            </p>
+            <label
+              className={
+                "mt-4 flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-gold px-4 py-2.5 text-sm font-bold text-white transition hover:bg-gold-deep " +
+                (proofBusy ? "opacity-50" : "")
+              }
+            >
+              <Camera size={16} />
+              {proofBusy ? "جارٍ الاعتماد..." : "ارفع سكرين شوت النشر"}
+              <input
+                type="file"
+                accept="image/*"
+                className="hidden"
+                disabled={proofBusy}
+                onChange={(e) => {
+                  const f = e.target.files?.[0];
+                  if (f) void onProofPicked(f);
+                  e.target.value = "";
+                }}
+              />
+            </label>
+            <p className="mt-2 text-[11px] text-ink-soft">
+              يمكنك المشاركة لاحقاً من «بطاقتي» ورفع الدليل هناك أيضاً
+            </p>
+          </div>
+        </div>
+      )}
+
       <ReaderChat />
     </div>
   );

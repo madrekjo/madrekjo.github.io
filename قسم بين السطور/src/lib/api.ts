@@ -123,7 +123,16 @@ export async function recordShare(
     p_device: getDeviceId(),
   });
   if (error) throw new Error(errorMessage(error, "تعذّر تسجيل المشاركة"));
-  return Number(data ?? 0);
+  return (data as number) ?? 0;
+}
+
+export async function confirmShare(lineId: string): Promise<number> {
+  const { data, error } = await supabase.rpc("confirm_share", {
+    p_line: lineId,
+    p_device: getDeviceId(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر اعتماد المشاركة"));
+  return (data as number) ?? 0;
 }
 
 export async function recordVisit(lineId: string): Promise<void> {
