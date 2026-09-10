@@ -1,5 +1,6 @@
 import { supabase } from "@/integrations/supabase/client";
 import { getDeviceId } from "./device";
+import type { CardColor } from "./colors";
 
 export interface Line {
   id: string;
@@ -8,6 +9,7 @@ export interface Line {
   author: string;
   category: Category;
   submitter: string;
+  color: CardColor;
   likes: number;
   shares: number;
   visits: number;
@@ -26,6 +28,7 @@ export interface ReelRow {
   author: string;
   category: Category;
   submitter: string;
+  color: CardColor;
   likes: number;
   stars: number;
   shares: number;
@@ -123,6 +126,7 @@ export async function submitLine(input: {
   author?: string;
   category: Category;
   submitter: string;
+  color?: CardColor;
 }): Promise<{ id: string; tooMany?: boolean }> {
   const { data, error } = await supabase.rpc("submit_line", {
     p_text: input.text,
@@ -130,6 +134,7 @@ export async function submitLine(input: {
     p_author: input.author ?? "",
     p_category: input.category,
     p_submitter: input.submitter,
+    p_color: input.color ?? "",
     p_device: getDeviceId(),
   });
   if (error) {

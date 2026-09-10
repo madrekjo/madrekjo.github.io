@@ -2,20 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Bookmark, ChevronDown, ChevronUp, Heart, Palette, Share2, Star, X } from "lucide-react";
 import type { ReelRow } from "@/lib/api";
 import Avatar from "./Avatar";
-
-const GRADS = [
-  "reel-grad-1",
-  "reel-grad-2",
-  "reel-grad-3",
-  "reel-grad-4",
-  "reel-grad-5",
-];
-
-function gradOf(id: string): string {
-  let h = 0;
-  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
-  return GRADS[h % GRADS.length];
-}
+import { GRADS } from "@/lib/colors";
 
 const GRAD_KEY = "sutur_reel_grad";
 
@@ -160,7 +147,8 @@ export default function Reels({
       <div className="relative flex h-full flex-1 overflow-hidden">
         {rows.map((r, i) => {
           const off = i - idx;
-          const grad = manualGrads[r.line_id] ?? gradOf(r.line_id);
+          const grad = manualGrads[r.line_id] ?? r.color ?? "";
+          const beige = grad === "";
           const isPicker = pickerFor === r.line_id;
           const style: React.CSSProperties = {
             transform: `translateY(${off * 100}%)`,
@@ -177,30 +165,63 @@ export default function Reels({
                 <div className="flex h-full items-center justify-center gap-4 py-4 pl-20 pr-4">
                   <div
                     className={
-                      "relative flex w-full max-w-lg flex-col justify-between overflow-hidden rounded-3xl p-5 text-white shadow-2xl " +
-                      grad
+                      "relative flex w-full max-w-lg flex-col justify-between overflow-hidden rounded-3xl p-5 shadow-2xl " +
+                      (beige
+                        ? "border border-line bg-card text-ink"
+                        : "text-white " + grad)
                     }
                     style={{ height: "min(78vh, 560px)" }}
                   >
                     <div className="flex items-start justify-between">
-                      <span className="rounded-full bg-white/25 px-3 py-1 text-xs font-bold text-white">
+                      <span
+                        className={
+                          "rounded-full px-3 py-1 text-xs font-bold " +
+                          (beige
+                            ? "bg-gold/15 text-gold-deep"
+                            : "bg-white/25 text-white")
+                        }
+                      >
                         {r.category}
                       </span>
-                      <span className="font-serif text-3xl text-white/70">❝</span>
+                      <span
+                        className={
+                          "font-serif text-3xl " +
+                          (beige ? "text-gold-deep/80" : "text-white/70")
+                        }
+                      >
+                        ❝
+                      </span>
                     </div>
 
                     <div className="px-1">
-                      <p className="break-words font-serif text-2xl font-bold leading-relaxed text-white drop-shadow-sm md:text-[1.7rem]">
+                      <p
+                        className={
+                          "break-words font-serif text-2xl font-bold leading-relaxed drop-shadow-sm md:text-[1.7rem] " +
+                          (beige ? "text-ink" : "text-white")
+                        }
+                      >
                         {r.text}
                       </p>
                     </div>
 
                     <div>
-                      <p className="truncate text-sm font-bold text-white/90">
+                      <p
+                        className={
+                          "truncate text-sm font-bold " +
+                          (beige ? "text-ink-soft" : "text-white/90")
+                        }
+                      >
                         {r.book}
                         {r.author ? ` — ${r.author}` : ""}
                       </p>
-                      <div className="mt-2 flex items-center justify-center gap-1.5 border-t border-white/25 pt-2 text-xs font-bold text-white/90">
+                      <div
+                        className={
+                          "mt-2 flex items-center justify-center gap-1.5 border-t pt-2 text-xs font-bold " +
+                          (beige
+                            ? "border-gold/30 text-gold-deep"
+                            : "border-white/25 text-white/90")
+                        }
+                      >
                         🎓 مدارك جو · بين السطور
                       </div>
                     </div>
@@ -279,6 +300,23 @@ export default function Reels({
                     </button>
                     {isPicker && (
                       <div className="absolute bottom-full z-20 mb-2 flex flex-col gap-1.5 rounded-2xl border border-white/15 bg-ink/90 p-2 shadow-xl backdrop-blur-sm">
+                        <button
+                          onClick={() => {
+                            setManualGrads((p) => ({
+                              ...p,
+                              [r.line_id]: "",
+                            }));
+                            saveGrad(r.line_id, "");
+                            setPickerFor(null);
+                          }}
+                          aria-label="بيج (افتراضي)"
+                          title="بيج (افتراضي)"
+                          className={
+                            "size-8 rounded-full border border-white/30 transition hover:scale-110 " +
+                            (beige ? " ring-2 ring-white" : "")
+                          }
+                          style={{ backgroundColor: "#fffdf6" }}
+                        />
                         {GRADS.map((g) => (
                           <button
                             key={g}

@@ -11,17 +11,10 @@ import {
   X,
 } from "lucide-react";
 import type { Line } from "@/lib/api";
+import { GRADS } from "@/lib/colors";
 
 const btn =
   "flex flex-col items-center gap-1.5 rounded-2xl border border-line bg-card px-4 py-3 text-[11px] font-medium text-ink-soft transition hover:border-gold-deep hover:text-gold-deep disabled:opacity-50";
-
-const GRADS = [
-  "reel-grad-1",
-  "reel-grad-2",
-  "reel-grad-3",
-  "reel-grad-4",
-  "reel-grad-5",
-];
 
 export default function ShareSheet({
   line,

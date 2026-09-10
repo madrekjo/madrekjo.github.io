@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { X } from "lucide-react";
 import { submitLine, type Category } from "@/lib/api";
+import { GRADS } from "@/lib/colors";
 
 const categories: Array<Category> = ["رواية", "ديني", "تنمية", "شعر", "تاريخ"];
 
@@ -20,6 +21,7 @@ export default function AddLineModal({
   const [book, setBook] = useState("");
   const [author, setAuthor] = useState("");
   const [category, setCategory] = useState<Category>("رواية");
+  const [color, setColor] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [done, setDone] = useState(false);
@@ -32,6 +34,7 @@ export default function AddLineModal({
     setBook("");
     setAuthor("");
     setCategory("رواية");
+    setColor("");
     setError("");
     setDone(false);
   };
@@ -51,6 +54,7 @@ export default function AddLineModal({
         author: author.trim(),
         category,
         submitter: (defaultName || submitter).trim() || "طالب مدارك جو",
+        color: color as "" | (typeof GRADS)[number],
       });
       setDone(true);
       onAdded();
@@ -177,6 +181,55 @@ export default function AddLineModal({
                     {c}
                   </button>
                 ))}
+              </div>
+            </div>
+
+            <div>
+              <label className="mb-1 block text-sm font-medium text-ink">
+                لون البطاقة
+              </label>
+              <div
+                className={
+                  "flex h-14 items-center justify-center rounded-xl border px-3 text-center font-serif text-base font-bold " +
+                  (color === ""
+                    ? "border-line bg-card text-ink"
+                    : "border-transparent text-white " + color)
+                }
+              >
+                {text.trim() || "معاينة لون سطرك هنا"}
+              </div>
+              <div className="mt-2.5 flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setColor("")}
+                  aria-label="بيج (افتراضي)"
+                  title="بيج (افتراضي)"
+                  className={
+                    "size-8 rounded-full border border-line bg-card transition " +
+                    (color === ""
+                      ? "ring-2 ring-gold ring-offset-2"
+                      : "hover:ring-2 hover:ring-gold/40 hover:ring-offset-2")
+                  }
+                />
+                {GRADS.map((g) => (
+                  <button
+                    key={g}
+                    type="button"
+                    onClick={() => setColor(g)}
+                    aria-label={g}
+                    title={g}
+                    className={
+                      "size-8 rounded-full transition " +
+                      g +
+                      (color === g
+                        ? " ring-2 ring-gold ring-offset-2"
+                        : " hover:scale-110")
+                    }
+                  />
+                ))}
+                <span className="text-xs text-ink-soft">
+                  اللون الأساسي هو البيج مثل الأول
+                </span>
               </div>
             </div>
 
