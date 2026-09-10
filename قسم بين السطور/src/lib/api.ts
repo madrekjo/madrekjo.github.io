@@ -103,7 +103,10 @@ export interface NotebookPage {
 function errorMessage(err: { message?: string; details?: string; hint?: string } | null, fallback: string): string {
   if (err?.message) {
     const m = err.message;
-    return m.includes("جهاز") || m.includes("تمهّل") || m.includes("كثرة") || m.includes("ليست") ? m : fallback;
+    if (m.includes("does not exist") || m.includes("function") && m.includes("not found"))
+      return "القاعدة تنتظر تنفيذ Migration — افتح Supabase → SQL Editor ونفّذ ملف profiles.sql";
+    if (m.includes("جهاز") || m.includes("تمهّل") || m.includes("كثرة") || m.includes("ليست")) return m;
+    return m + " — " + fallback;
   }
   return fallback;
 }
@@ -341,10 +344,13 @@ export async function ensureUser(
   username: string,
   bio = ""
 ): Promise<string> {
+  const device = getDeviceId();
+  if (device.length < 4) throw new Error("تعذّر التعرّف على جهازك");
+
   const { data, error } = await supabase.rpc("ensure_user", {
-    p_username: username,
+    p_username: username.trim().slice(0, 25),
     p_bio: bio,
-    p_device: getDeviceId(),
+    p_device: device,
   });
   if (error) throw new Error(errorMessage(error, "تعذّر حفظ اسمك"));
   return data as string;
