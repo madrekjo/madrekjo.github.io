@@ -8,12 +8,14 @@ export default function AddLineModal({
   open,
   onClose,
   onAdded,
+  defaultName = "",
 }: {
   open: boolean;
   onClose: () => void;
   onAdded: () => void;
+  defaultName?: string;
 }) {
-  const [submitter, setSubmitter] = useState("");
+  const [submitter, setSubmitter] = useState(defaultName);
   const [text, setText] = useState("");
   const [book, setBook] = useState("");
   const [author, setAuthor] = useState("");
@@ -25,7 +27,7 @@ export default function AddLineModal({
   if (!open) return null;
 
   const reset = () => {
-    setSubmitter("");
+    setSubmitter(defaultName);
     setText("");
     setBook("");
     setAuthor("");
@@ -48,7 +50,7 @@ export default function AddLineModal({
         book: book.trim(),
         author: author.trim(),
         category,
-        submitter: submitter.trim() || "طالب مدارك جو",
+        submitter: (defaultName || submitter).trim() || "طالب مدارك جو",
       });
       setDone(true);
       onAdded();
@@ -98,18 +100,24 @@ export default function AddLineModal({
           </div>
         ) : (
           <form onSubmit={onSubmit} className="space-y-3">
-            <div>
-              <label className="mb-1 block text-sm font-medium text-ink">
-                اسمك (كيف نقدّمك في "بطاقتي") *
-              </label>
-              <input
-                value={submitter}
-                onChange={(e) => setSubmitter(e.target.value)}
-                maxLength={40}
-                placeholder="مثلاً: أحمد من عجمان"
-                className="w-full rounded-xl border border-line bg-paper px-4 py-2.5 text-ink outline-none focus:border-gold"
-              />
-            </div>
+            {defaultName ? (
+              <p className="rounded-xl bg-paper px-4 py-2.5 text-sm text-ink-soft">
+                بتكتب باسم: <span className="font-bold text-ink">{defaultName}</span>
+              </p>
+            ) : (
+              <div>
+                <label className="mb-1 block text-sm font-medium text-ink">
+                  اسمك (كيف نقدّمك في "بطاقتي") *
+                </label>
+                <input
+                  value={submitter}
+                  onChange={(e) => setSubmitter(e.target.value)}
+                  maxLength={40}
+                  placeholder="مثلاً: أحمد من عجمان"
+                  className="w-full rounded-xl border border-line bg-paper px-4 py-2.5 text-ink outline-none focus:border-gold"
+                />
+              </div>
+            )}
             <div>
               <label className="mb-1 block text-sm font-medium text-ink">
                 أجمل سطر قرأته *

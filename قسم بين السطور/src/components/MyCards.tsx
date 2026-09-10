@@ -16,12 +16,12 @@ import { publicFileUrl } from "@/integrations/supabase/client";
 
 const platforms = ["انستغرام", "سناب شات", "واتساب", "تيك توك", "تويتر"];
 
-export default function MyCards() {
+export default function MyCards({ defaultOpen = false }: { defaultOpen?: boolean }) {
   const [lines, setLines] = useState<Line[]>([]);
   const [reports, setReports] = useState<MyReport[]>([]);
   const [proofs, setProofs] = useState<MyProof[]>([]);
   const [loaded, setLoaded] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(defaultOpen);
   const [selectedId, setSelectedId] = useState<string>("");
   const [platform, setPlatform] = useState("انستغرام");
   const [reach, setReach] = useState("");

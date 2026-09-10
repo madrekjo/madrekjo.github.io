@@ -1,18 +1,14 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
-  ChevronLeft,
-  ChevronRight,
-  Copy,
-  Check,
   Download,
   Camera,
   GraduationCap,
   Heart,
-  Instagram,
-  MessageCircle,
+  Home,
+  Quote,
+  MessagesSquare,
   Plus,
   Sparkles,
-  Ghost,
   X,
 } from "lucide-react";
 import {
@@ -24,13 +20,15 @@ import {
   uploadProof,
   recordVisit,
   weeklyTop,
+  myProfile,
   type Line,
   type WeeklyTopRow,
 } from "./lib/api";
 import { downloadBlob, renderCardImage } from "./lib/cardImage";
-import CardComponent from "./components/Card";
 import AddLineModal from "./components/AddLineModal";
-import MyCards from "./components/MyCards";
+import ProfileHome from "./components/ProfileHome";
+import ReelsFeed from "./components/ReelsFeed";
+import Onboarding from "./components/Onboarding";
 import ReaderChat from "./components/ReaderChat";
 import { lines as sampleLines } from "./data";
 import { wait } from "./lib/helpers";
@@ -64,13 +62,6 @@ function restoreLikedIds(): string[] {
   }
 }
 
-function todayStr(): string {
-  const d = new Date();
-  const m = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${d.getFullYear()}-${m}-${day}`;
-}
-
 function toLine(row: WeeklyTopRow): Line {
   return {
     id: row.line_id,
@@ -84,6 +75,7 @@ function toLine(row: WeeklyTopRow): Line {
     visits: 0,
     featured_date: null,
     created_at: "",
+    user_id: null,
   };
 }
 
@@ -100,17 +92,20 @@ export default function App() {
   const [dbLines, setDbLines] = useState<Line[] | null>(null);
   const [demo, setDemo] = useState(false);
   const [category, setCategory] = useState<(typeof CATS)[number]>("الكل");
-  const [index, setIndex] = useState(0);
-  const [phase, setPhase] = useState<"idle" | "leaving" | "entering">("idle");
-  const [dir, setDir] = useState(1);
   const [likedIds, setLikedIds] = useState<string[]>(restoreLikedIds);
   const [top, setTop] = useState<WeeklyTopRow[]>([]);
-  const [copied, setCopied] = useState(false);
   const [busyAction, setBusyAction] = useState("");
   const [addOpen, setAddOpen] = useState(false);
   const [notice, setNotice] = useState("");
   const [proofLine, setProofLine] = useState<Line | null>(null);
   const [proofBusy, setProofBusy] = useState(false);
+  const [tab, setTab] = useState<"home" | "reels" | "corner">("home");
+  const [focusReel, setFocusReel] = useState("");
+  const [profileUser, setProfileUser] = useState<{
+    id: string;
+    username: string;
+  } | null>(null);
+  const [onboarding, setOnboarding] = useState(false);
   const visitedRef = useRef<string | null>(null);
 
   const loadLines = useCallback(async () => {
@@ -132,6 +127,7 @@ export default function App() {
           visits: 0,
           featured_date: null,
           created_at: "",
+          user_id: null,
         }))
       );
       setDemo(true);
@@ -162,11 +158,10 @@ export default function App() {
       const card = params.get("card");
       if (card && dbLines && visitedRef.current !== card) {
         visitedRef.current = card;
-        const lidx = dbLines.findIndex((l) => l.id === card);
-        if (lidx >= 0) {
+        if (dbLines.some((l) => l.id === card)) {
           setCategory("الكل");
-          setIndex(lidx);
-          setPhase("idle");
+          setFocusReel(card);
+          setTab("reels");
         }
         void recordVisit(card);
       }
@@ -184,41 +179,54 @@ export default function App() {
     [displayLines, category]
   );
 
-  const safeIndex = Math.min(index, deck.length - 1);
-  const current = deck[safeIndex];
-  const today = todayStr();
-  const isToday = current ? current.featured_date === today : false;
   const totalHearts = displayLines.reduce((a, b) => a + b.likes, 0);
 
+  const PROFILE_KEY = "bayn-al-sutur:profile";
   useEffect(() => {
-    setIndex(0);
-    setPhase("idle");
-  }, [category, demo]);
-
-  const goTo = useCallback(
-    (d: number) => {
-      if (phase !== "idle") return;
-      const next = safeIndex + d;
-      if (next < 0 || next >= deck.length) return;
-      setDir(d);
-      setPhase("leaving");
-      window.setTimeout(() => {
-        setIndex(next);
-        setPhase("entering");
-        window.setTimeout(() => setPhase("idle"), 430);
-      }, 380);
-    },
-    [phase, safeIndex, deck.length]
-  );
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") goTo(1);
-      else if (e.key === "ArrowRight") goTo(-1);
+    let active = true;
+    (async () => {
+      try {
+        const raw = localStorage.getItem(PROFILE_KEY);
+        if (raw) {
+          const p = JSON.parse(raw);
+          if (p?.id) {
+            return setProfileUser(p);
+          }
+        }
+      } catch {
+        /* ignore */
+      }
+      const prof = await myProfile();
+      if (!active) return;
+      if (prof && prof.id) {
+        setProfileUser({ id: prof.id, username: prof.username });
+        try {
+          localStorage.setItem(
+            PROFILE_KEY,
+            JSON.stringify({ id: prof.id, username: prof.username })
+          );
+        } catch {
+          /* ignore */
+        }
+      } else {
+        setOnboarding(true);
+      }
+    })();
+    return () => {
+      active = false;
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [goTo]);
+  }, []);
+
+  const handleOnboarded = (id: string, username: string) => {
+    setProfileUser({ id, username });
+    setOnboarding(false);
+    try {
+      localStorage.setItem(PROFILE_KEY, JSON.stringify({ id, username }));
+    } catch {
+      /* ignore */
+    }
+    void loadLines();
+  };
 
   const patchLine = (id: string, patch: Partial<Line>) => {
     setDbLines((prev) =>
@@ -231,18 +239,18 @@ export default function App() {
     wait(2200).then(() => setNotice(""));
   };
 
-  const onLike = async () => {
-    if (!current || likedIds.includes(current.id)) return;
-    setLikedIds((s) => [...s, current.id]);
+  const onLike = async (line: Line) => {
+    if (likedIds.includes(line.id)) return;
+    setLikedIds((s) => [...s, line.id]);
     if (demo) {
-      patchLine(current.id, { likes: current.likes + 1 });
+      patchLine(line.id, { likes: line.likes + 1 });
       return;
     }
     try {
-      const n = await likeLine(current.id);
-      patchLine(current.id, { likes: n });
+      const n = await likeLine(line.id);
+      patchLine(line.id, { likes: n });
     } catch {
-      setLikedIds((s) => s.filter((id) => id !== current.id));
+      setLikedIds((s) => s.filter((id) => id !== line.id));
     }
   };
 
@@ -324,24 +332,9 @@ export default function App() {
     }
   };
 
-  const onSystemShare = async (l: Line) => {
-    if (!navigator.share) {
-      await onDownload(l);
-      return;
-    }
-    try {
-      await navigator.share({ title: "بين السطور", text: shareText(l) });
-      await markShare(l, "system");
-    } catch {
-      /* cancelled */
-    }
-  };
-
   const onCopy = async (l: Line) => {
     try {
       await navigator.clipboard.writeText(shareText(l));
-      setCopied(true);
-      wait(1500).then(() => setCopied(false));
     } catch {
       flash("انسخ يدوياً من البطاقة");
     }
@@ -370,71 +363,33 @@ export default function App() {
   };
 
   const openTopCard = (id: string) => {
-    const lidx = displayLines.findIndex((l) => l.id === id);
-    if (lidx >= 0) {
-      setCategory("الكل");
-      setIndex(lidx);
-      setPhase("idle");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    if (!displayLines.some((l) => l.id === id)) return;
+    setCategory("الكل");
+    setFocusReel(id);
+    setTab("reels");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  if (!current) {
+if (dbLines === null) {
     return (
-      <div className="mx-auto flex min-h-screen w-full max-w-2xl flex-col items-center justify-center px-6 pb-16 text-center">
-        <Ghost className="text-gold-deep" size={48} />
-        <h1 className="mt-4 font-serif text-3xl font-bold text-ink">
-          القسم جديد
-        </h1>
-        <p className="mt-2 max-w-sm text-sm leading-6 text-ink-soft">
-          {category === "الكل"
-            ? "ما حدا كتب سطراً بعد — كن أنت أول من يفتح الجدران ✨"
-            : `ما في سطور في تصنيف ${category} بعد`}
+      <div className="mx-auto flex min-h-screen w-full max-w-2xl flex-col items-center justify-center px-6 text-center">
+        <p className="font-serif text-3xl font-bold text-gold-deep">
+          بين السطور
         </p>
-        <button
-          onClick={() => setAddOpen(true)}
-          className="mt-6 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 font-bold text-white shadow-sm transition hover:bg-gold-deep"
-        >
-          <Plus size={18} />
-          أضف أول سطر
-        </button>
-        {category === "الكل" && (
-          <p className="mt-4 text-xs text-ink-soft">
-            نصف السطر: من الكتاب، واسمه، واسمك، وينشر على الجدار مباشرة
-          </p>
-        )}
-        <AddLineModal
-          open={addOpen}
-          onClose={() => setAddOpen(false)}
-          onAdded={() => {
-            setAddOpen(false);
-            onAdded();
-          }}
-        />
-        <ReaderChat />
+        <p className="mt-2 text-sm text-ink-soft">جارٍ فتح الجدار...</p>
       </div>
     );
   }
 
-  const liked = likedIds.includes(current.id);
-  const shownLikes = current.likes;
-
-  const pageClass =
-    "page " +
-    (phase === "leaving"
-      ? dir > 0
-        ? "leave-f"
-        : "leave-b"
-      : dir > 0
-        ? "enter-f"
-        : "enter-b");
-
-  const shareBtn =
-    "flex items-center gap-1.5 rounded-full border border-line bg-card px-3.5 py-2 text-sm text-ink-soft transition hover:border-gold-deep hover:text-gold-deep disabled:opacity-50";
+  const TABS = [
+    { id: "home" as const, label: "الرئيسية", Icon: Home },
+    { id: "reels" as const, label: "عبارات", Icon: Quote },
+    { id: "corner" as const, label: "ملتقى القرّاء", Icon: MessagesSquare },
+  ];
 
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-2xl flex-col px-4 pb-10">
-      <header className="py-6 text-center">
+      <header className="pt-6 pb-4 text-center">
         <p className="text-xs font-medium tracking-wide text-gold-deep">
           مدارك جو · قسم جديد
         </p>
@@ -442,7 +397,7 @@ export default function App() {
           بين السطور
         </h1>
         <p className="mt-1.5 text-sm text-ink-soft">
-          بطاقات تقلّبها زي الكتاب — كل سطر بتحبه، فيه غيرك بيعيشه
+          بطاقة بتحكي قصته — ومشاركتها بتوصلها لغيرك
         </p>
         <div className="mt-3 flex flex-wrap items-center justify-center gap-2 text-xs">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-card px-3 py-1 text-ink-soft">
@@ -470,181 +425,138 @@ export default function App() {
       )}
 
       {notice && (
-        <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-full bg-ink px-5 py-2 text-sm text-paper shadow-lg">
+        <div className="fixed bottom-6 left-1/2 z-[70] -translate-x-1/2 rounded-full bg-ink px-5 py-2 text-sm text-paper shadow-lg">
           {notice}
         </div>
       )}
 
-      <nav className="no-scrollbar mb-5 flex gap-2 overflow-x-auto">
-        {CATS.map((c) => (
+      <nav className="mb-5 grid grid-cols-3 gap-1 rounded-full border border-line bg-card p-1">
+        {TABS.map((t) => (
           <button
-            key={c}
-            onClick={() => setCategory(c)}
+            key={t.id}
+            onClick={() => setTab(t.id)}
             className={
-              "shrink-0 rounded-full border px-4 py-1.5 text-sm font-medium transition " +
-              (category === c
-                ? "border-gold bg-gold text-white shadow-sm"
-                : "border-line bg-card text-ink-soft hover:border-gold-deep hover:text-gold-deep")
+              "flex items-center justify-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium transition " +
+              (tab === t.id
+                ? "bg-gold text-white shadow-sm"
+                : "text-ink-soft hover:bg-gold/10 hover:text-gold-deep")
             }
           >
-            {c}
+            <t.Icon size={15} />
+            {t.label}
           </button>
         ))}
       </nav>
 
-      <main className="relative" style={{ perspective: "1400px" }}>
-        <div className="relative h-96">
-          <div key={current.id} className={pageClass}>
-            <CardComponent
-              line={current}
-              liked={liked}
-              onToggle={() => void onLike()}
-              onShare={() => void onSystemShare(current)}
-              isToday={isToday}
-              demo={demo}
-            />
-          </div>
-        </div>
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-between">
-          <button
-            onClick={() => goTo(1)}
-            disabled={phase !== "idle" || safeIndex >= deck.length - 1}
-            aria-label="التالي"
-            className="pointer-events-auto -mr-12 grid size-11 place-items-center rounded-full border border-line bg-card text-ink-soft shadow-md transition hover:border-gold-deep hover:text-gold-deep disabled:opacity-30"
-          >
-            <ChevronLeft size={22} />
-          </button>
-          <button
-            onClick={() => goTo(-1)}
-            disabled={phase !== "idle" || safeIndex <= 0}
-            aria-label="السابق"
-            className="pointer-events-auto -ml-12 grid size-11 place-items-center rounded-full border border-line bg-card text-ink-soft shadow-md transition hover:border-gold-deep hover:text-gold-deep disabled:opacity-30"
-          >
-            <ChevronRight size={22} />
-          </button>
-        </div>
-      </main>
-
-      <p className="mt-5 text-center text-sm text-ink-soft">
-        سطر {safeIndex + 1} من {deck.length}
-      </p>
-      <div className="mx-auto mt-2 h-1 w-40 overflow-hidden rounded-full bg-line">
-        <div
-          className="h-full rounded-full bg-gold transition-all"
-          style={{ width: `${((safeIndex + 1) / deck.length) * 100}%` }}
-        />
-      </div>
-
-      <div className="mx-auto mt-5 flex flex-wrap items-center justify-center gap-2">
-        <button onClick={() => void onLike()} disabled={liked} className={shareBtn}>
-          <Heart className={liked ? "fill-rose-500 text-rose-500" : ""} size={16} />
-          {shownLikes}
-        </button>
-        <button
-          onClick={() => void onWhatsApp(current)}
-          className={shareBtn}
-          aria-label="مشاركة واتساب"
-        >
-          <MessageCircle size={16} />
-          واتساب
-        </button>
-        <button
-          onClick={() => void shareWithImage(current, "instagram")}
-          disabled={busyAction !== ""}
-          className={shareBtn}
-          aria-label="ستوري إنستغرام"
-        >
-          <Instagram size={16} />
-          {busyAction === "instagram" ? "جارٍ..." : "ستوري انستا"}
-        </button>
-        <button
-          onClick={() => void shareWithImage(current, "snapchat")}
-          disabled={busyAction !== ""}
-          className={shareBtn}
-          aria-label="سناب شات"
-        >
-          <Ghost size={16} />
-          {busyAction === "snapchat" ? "جارٍ..." : "سناب"}
-        </button>
-        <button
-          onClick={() => void onDownload(current)}
-          disabled={busyAction !== ""}
-          className={shareBtn}
-        >
-          <Download size={16} />
-          {busyAction === "image" ? "تحضير..." : "نزّل صورة"}
-        </button>
-        <button onClick={() => void onCopy(current)} className={shareBtn}>
-          {copied ? <Check size={16} /> : <Copy size={16} />}
-          {copied ? "نُسخ" : "انسخ"}
-        </button>
-      </div>
-
-      {top.length > 0 && !demo && (
-        <section className="mt-10 rounded-2xl border border-line bg-card p-5">
-          <h2 className="mb-3 flex items-center gap-2 font-serif text-2xl font-bold text-ink">
-            <Sparkles size={20} className="text-gold-deep" />
-            قمة الأسبوع
-          </h2>
-          <p className="mb-4 text-xs text-ink-soft">
-            البطاقات الأكثر مشاركة فعليةً هذا الأسبوع — كل مشاركة مكتملة تحسب
-          </p>
-          <div className="space-y-2">
-            {top.map((row, i) => (
-              <div
-                key={row.line_id}
-                className="flex w-full items-center gap-3 rounded-xl border border-line bg-paper p-3 text-right transition hover:border-gold-deep"
-              >
-                <button
-                  onClick={() => openTopCard(row.line_id)}
-                  className="flex min-w-0 flex-1 items-center gap-3"
-                >
-                  <span
-                    className={
-                      "grid size-9 shrink-0 place-items-center rounded-full text-sm font-bold " +
-                      (i === 0
-                        ? "bg-gold text-white"
-                        : i === 1
-                          ? "bg-slate-300 text-slate-700"
-                          : "bg-amber-700 text-white")
-                    }
+      {tab === "home" && (
+        <div className="space-y-8">
+          {top.length > 0 && !demo && (
+            <section className="rounded-2xl border border-line bg-card p-5">
+              <h2 className="mb-3 flex items-center gap-2 font-serif text-2xl font-bold text-ink">
+                <Sparkles size={20} className="text-gold-deep" />
+                قمة الأسبوع
+              </h2>
+              <p className="mb-4 text-xs text-ink-soft">
+                البطاقات الأكثر مشاركة فعليةً هذا الأسبوع — كل مشاركة مكتملة تحسب
+              </p>
+              <div className="space-y-2">
+                {top.map((row, i) => (
+                  <div
+                    key={row.line_id}
+                    className="flex w-full items-center gap-3 rounded-xl border border-line bg-paper p-3 text-right transition hover:border-gold-deep"
                   >
-                    {i + 1}
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate font-serif text-base text-ink">
-                      {row.text}
-                    </p>
-                    <p className="text-xs text-ink-soft">
-                      {row.submitter} · {row.book}
-                    </p>
+                    <button
+                      onClick={() => openTopCard(row.line_id)}
+                      className="flex min-w-0 flex-1 items-center gap-3"
+                    >
+                      <span
+                        className={
+                          "grid size-9 shrink-0 place-items-center rounded-full text-sm font-bold " +
+                          (i === 0
+                            ? "bg-gold text-white"
+                            : i === 1
+                              ? "bg-slate-300 text-slate-700"
+                              : "bg-amber-700 text-white")
+                        }
+                      >
+                        {i + 1}
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <p className="truncate font-serif text-base text-ink">
+                          {row.text}
+                        </p>
+                        <p className="text-xs text-ink-soft">
+                          {row.submitter} · {row.book}
+                        </p>
+                      </div>
+                      <span className="shrink-0 text-sm font-bold text-gold-deep">
+                        📤 {row.week_shares}
+                      </span>
+                    </button>
+                    <button
+                      onClick={() => void downloadCard(toLine(row))}
+                      disabled={busyAction !== ""}
+                      aria-label="نزّل صورة هذه البطاقة"
+                      className="shrink-0 rounded-full border border-line bg-card px-3 py-1.5 text-xs text-ink-soft transition hover:border-gold-deep hover:text-gold-deep disabled:opacity-50"
+                    >
+                      <Download size={14} className="inline" />
+                      نزّل
+                    </button>
                   </div>
-                  <span className="shrink-0 text-sm font-bold text-gold-deep">
-                    📤 {row.week_shares}
-                  </span>
-                </button>
-                <button
-                  onClick={() => void downloadCard(toLine(row))}
-                  disabled={busyAction !== ""}
-                  aria-label="نزّل صورة هذه البطاقة"
-                  className="shrink-0 rounded-full border border-line bg-card px-3 py-1.5 text-xs text-ink-soft transition hover:border-gold-deep hover:text-gold-deep disabled:opacity-50"
-                >
-                  <Download size={14} className="inline" />
-                  نزّل
-                </button>
+                ))}
               </div>
-            ))}
-          </div>
-        </section>
+            </section>
+          )}
+
+          <ProfileHome
+            profileUser={profileUser}
+            onRegister={() => setOnboarding(true)}
+            onAddCard={() => setAddOpen(true)}
+          />
+        </div>
       )}
 
-      <MyCards />
+      {tab === "reels" && (
+        <>
+          <nav className="no-scrollbar mb-4 flex gap-2 overflow-x-auto">
+            {CATS.map((c) => (
+              <button
+                key={c}
+                onClick={() => setCategory(c)}
+                className={
+                  "shrink-0 rounded-full border px-4 py-1.5 text-sm font-medium transition " +
+                  (category === c
+                    ? "border-gold bg-gold text-white shadow-sm"
+                    : "border-line bg-card text-ink-soft hover:border-gold-deep hover:text-gold-deep")
+                }
+              >
+                {c}
+              </button>
+            ))}
+          </nav>
 
-      <footer className="mt-auto pt-12 text-center text-xs leading-6 text-ink-soft">
+          <ReelsFeed
+            lines={deck}
+            likedIds={likedIds}
+            busyAction={busyAction}
+            focusId={focusReel}
+            onFocusDone={() => setFocusReel("")}
+            onToggleLike={(l) => void onLike(l)}
+            onWhatsApp={(l) => void onWhatsApp(l)}
+            onShareImage={(l, p) => void shareWithImage(l, p)}
+            onDownloadImg={(l) => void onDownload(l)}
+            onCopy={(l) => void onCopy(l)}
+          />
+        </>
+      )}
+
+      {tab === "corner" && <ReaderChat />}
+
+      <footer className="mt-10 pt-10 text-center text-xs leading-6 text-ink-soft">
         <p>
-          أُضيف السطر وينشر مباشرة — شاركها على{" "}
+          أُضيف السطر وينشر مباشرة — شاركه على{" "}
           <span className="text-gold-deep">ستوري انستغرام وسناب</span> ووثّق
-          التفاعل من «بطاقتي»
+          تفاعلك من تبويب «الرئيسية»
         </p>
         <p className="mt-1 flex items-center justify-center gap-1">
           <GraduationCap size={13} className="text-gold-deep" />
@@ -659,12 +571,12 @@ export default function App() {
           setAddOpen(false);
           onAdded();
           setCategory("الكل");
-          setIndex(0);
         }}
+        defaultName={profileUser?.username ?? ""}
       />
 
       {proofLine && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4">
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/40 p-4">
           <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-gold/40 bg-card p-5 text-center shadow-2xl">
             <button
               onClick={() => setProofLine(null)}
@@ -711,7 +623,12 @@ export default function App() {
         </div>
       )}
 
-      <ReaderChat />
+      {onboarding && (
+        <Onboarding
+          onDone={handleOnboarded}
+          onSkip={() => setOnboarding(false)}
+        />
+      )}
     </div>
   );
 }

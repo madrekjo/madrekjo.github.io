@@ -13,6 +13,7 @@ export interface Line {
   visits: number;
   featured_date: string | null;
   created_at: string;
+  user_id: string | null;
 }
 
 export type Category = "رواية" | "ديني" | "تنمية" | "شعر" | "تاريخ";
@@ -54,6 +55,28 @@ export interface ChatMessage {
   message: string;
   device_id: string;
   created_at: string;
+}
+
+export interface UserProfile {
+  id: string;
+  username: string;
+  bio: string;
+  avatar_url: string;
+  card_count: number;
+  likes_total: number;
+  shares_total: number;
+  stars_avg: number;
+  stars_count: number;
+}
+
+export interface NotebookPage {
+  id: number;
+  user_id: string;
+  content: string;
+  is_public: boolean;
+  position: number;
+  created_at: string;
+  updated_at: string;
 }
 
 function errorMessage(err: { message?: string; details?: string; hint?: string } | null, fallback: string): string {
@@ -289,4 +312,125 @@ export async function deleteChatMessage(id: string): Promise<boolean> {
     throw new Error(errorMessage(error, "تعذّر حذف الرسالة"));
   }
   return Boolean(data);
+}
+
+// ---------- البروفايلات ----------
+
+export async function ensureUser(
+  username: string,
+  bio = ""
+): Promise<string> {
+  const { data, error } = await supabase.rpc("ensure_user", {
+    p_username: username,
+    p_bio: bio,
+    p_device: getDeviceId(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر حفظ اسمك"));
+  return data as string;
+}
+
+export async function myProfile(): Promise<UserProfile | null> {
+  const { data, error } = await supabase.rpc("my_profile", {
+    p_device: getDeviceId(),
+  });
+  if (error) return null;
+  const row = Array.isArray(data) ? data[0] : data;
+  return row ? (row as UserProfile) : null;
+}
+
+export async function publicProfile(
+  userId: string
+): Promise<UserProfile | null> {
+  const { data, error } = await supabase.rpc("public_profile", {
+    p_user: userId,
+  });
+  if (error) return null;
+  const row = Array.isArray(data) ? data[0] : data;
+  return row ? (row as UserProfile) : null;
+}
+
+export async function userByLine(lineId: string): Promise<string | null> {
+  const { data, error } = await supabase.rpc("user_by_line", { p_line: lineId });
+  if (error) return null;
+  return data ?? null;
+}
+
+export async function rateUser(userId: string, stars: number): Promise<number> {
+  const { data, error } = await supabase.rpc("rate_user", {
+    p_user: userId,
+    p_stars: stars,
+    p_device: getDeviceId(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر حفظ التقييم"));
+  return (data as number) ?? 0;
+}
+
+export async function myRating(userId: string): Promise<number | null> {
+  const { data, error } = await supabase.rpc("my_rating", {
+    p_user: userId,
+    p_device: getDeviceId(),
+  });
+  if (error) return null;
+  return data ?? null;
+}
+
+export async function setBio(bio: string): Promise<void> {
+  const { error } = await supabase.rpc("set_bio", {
+    p_bio: bio,
+    p_device: getDeviceId(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر حفظ نبذتك"));
+}
+
+// ---------- الدفتر ----------
+
+export async function addNotebookPage(
+  content: string,
+  isPublic = true
+): Promise<number> {
+  const { data, error } = await supabase.rpc("add_notebook_page", {
+    p_content: content,
+    p_is_public: isPublic,
+    p_device: getDeviceId(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر إضافة صفحة الدفتر"));
+  return data as number;
+}
+
+export async function myNotebook(): Promise<NotebookPage[]> {
+  const { data, error } = await supabase.rpc("my_notebook", {
+    p_device: getDeviceId(),
+  });
+  if (error) return [];
+  return (data ?? []) as NotebookPage[];
+}
+
+export async function publicNotebook(userId: string): Promise<NotebookPage[]> {
+  const { data, error } = await supabase.rpc("public_notebook", {
+    p_user: userId,
+  });
+  if (error) return [];
+  return (data ?? []) as NotebookPage[];
+}
+
+export async function updateNotebookPage(
+  id: number,
+  content: string,
+  isPublic = true
+): Promise<void> {
+  const { error } = await supabase.rpc("update_notebook_page", {
+    p_page: id,
+    p_content: content,
+    p_is_public: isPublic,
+    p_device: getDeviceId(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر تحديث الصفحة"));
+}
+
+export async function deleteNotebookPage(id: number): Promise<void> {
+  const { error } = await supabase.rpc("delete_notebook_page", {
+    p_page: id,
+    p_device: getDeviceId(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر حذف الصفحة"));
 }
