@@ -57,7 +57,18 @@ function roundedRect(
   ctx.closePath();
 }
 
-export async function renderCardImage(line: Line): Promise<Blob> {
+export interface InteractionStats {
+  likes: number;
+  shares: number;
+  visits: number;
+  reports?: number;
+  proofShots?: number;
+}
+
+export async function renderCardImage(
+  line: Line,
+  stats?: InteractionStats
+): Promise<Blob> {
   await waitFont("Amiri");
   await waitFont("Tajawal");
 
@@ -126,11 +137,31 @@ export async function renderCardImage(line: Line): Promise<Blob> {
     ctx.fillText(line.author, W / 2, H - 290);
   }
 
+  const hasStats = Boolean(stats);
+  const dividerY = hasStats ? H - 250 : H - 220;
+
+  if (hasStats && stats) {
+    ctx.fillStyle = goldDeep;
+    ctx.font = "700 36px Tajawal, sans-serif";
+    ctx.fillText("توثيق التفاعل على بطاقتك", W / 2, H - 380);
+
+    const items: string[] = [
+      `❤️ ${stats.likes}`,
+      `📤 ${stats.shares}`,
+      `👁️ ${stats.visits}`,
+    ];
+    const docs = (stats.reports ?? 0) + (stats.proofShots ?? 0);
+    if (docs > 0) items.push(`📋 ${docs}`);
+    ctx.fillStyle = ink;
+    ctx.font = "700 44px Tajawal, sans-serif";
+    ctx.fillText(items.join("   ·   "), W / 2, H - 318);
+  }
+
   ctx.strokeStyle = lineColor;
   ctx.lineWidth = 3;
   ctx.beginPath();
-  ctx.moveTo(W / 2 - 180, H - 220);
-  ctx.lineTo(W / 2 + 180, H - 220);
+  ctx.moveTo(W / 2 - 180, dividerY);
+  ctx.lineTo(W / 2 + 180, dividerY);
   ctx.stroke();
 
   ctx.fillStyle = goldDeep;

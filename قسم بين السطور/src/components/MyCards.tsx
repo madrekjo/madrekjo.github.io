@@ -29,13 +29,22 @@ export default function MyCards() {
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState("");
 
-  const onDownload = async (l: Line) => {
+  const onDownload = async (l: Line, withStats = false) => {
     setMsg("");
     setBusy(true);
     try {
-      const blob = await renderCardImage(l);
-      downloadBlob(blob, `${l.category}-${l.id}.jpg`);
-      setMsg("نزّلت صورة البطاقة ✓");
+      const stats = withStats
+        ? {
+            likes: l.likes,
+            shares: l.shares,
+            visits: l.visits,
+            reports: reports.filter((r) => r.line_id === l.id).length,
+            proofShots: proofs.filter((p) => p.line_id === l.id).length,
+          }
+        : undefined;
+      const blob = await renderCardImage(l, stats);
+      downloadBlob(blob, `${l.category}-${l.id}${withStats ? "-تفاعل" : ""}.jpg`);
+      setMsg(withStats ? "نزّلت صورة التوثيق ✓" : "نزّلت صورة البطاقة ✓");
     } catch (err) {
       setMsg(err instanceof Error ? err.message : "تعذّر إنشاء الصورة");
     } finally {
@@ -171,6 +180,14 @@ export default function MyCards() {
                 >
                   <Download size={14} />
                   {busy ? "تحضير..." : "نزّل صورة"}
+                </button>
+                <button
+                  onClick={() => void onDownload(selected, true)}
+                  disabled={busy}
+                  className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-gold px-3 py-1.5 text-xs font-bold text-white transition hover:bg-gold-deep disabled:opacity-50"
+                >
+                  <Download size={14} />
+                  {busy ? "تحضير..." : "نزّل صورة التفاعل"}
                 </button>
               </div>
               <div className="mt-3 grid grid-cols-3 gap-2 text-center">
