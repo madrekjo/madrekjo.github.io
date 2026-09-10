@@ -1,7 +1,8 @@
 import type { Line } from "./api";
 
 const W = 1080;
-const H = 1350;
+const BASE_H = 1350;
+const TEXT_LINE_H = 96;
 
 async function waitFont(name: string): Promise<void> {
   const load = async () => {
@@ -72,6 +73,12 @@ export async function renderCardImage(
   await waitFont("Amiri");
   await waitFont("Tajawal");
 
+  const measure = document.createElement("canvas").getContext("2d")!;
+  measure.font = "700 60px Amiri, serif";
+  const linesArr = wrapText(measure, line.text, W - 320);
+  const textH = linesArr.length * TEXT_LINE_H;
+  const H = Math.max(BASE_H, textH + 960);
+
   const canvas = document.createElement("canvas");
   canvas.width = W;
   canvas.height = H;
@@ -115,14 +122,14 @@ export async function renderCardImage(
 
   ctx.fillStyle = ink;
   ctx.font = "700 60px Amiri, serif";
-  const linesArr = wrapText(ctx, line.text, W - 320);
-  const lineH = 96;
+  const lineH = TEXT_LINE_H;
   let startY = Math.max(
     300,
     H / 2 - (linesArr.length * lineH) / 2
   );
   ctx.textBaseline = "middle";
   for (const l of linesArr) {
+    if (startY >= H - 470) break;
     ctx.fillText(l, W / 2, startY);
     startY += lineH;
   }

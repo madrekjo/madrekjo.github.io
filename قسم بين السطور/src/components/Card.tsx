@@ -17,7 +17,7 @@ export default function Card({
   demo?: boolean;
 }) {
   return (
-    <div className="ornament relative flex h-96 w-full flex-col justify-between rounded-2xl border border-line bg-card p-6 shadow-[0_18px_40px_-18px_rgba(51,41,29,0.45)]">
+    <div className="ornament relative flex min-h-96 w-full flex-col justify-between rounded-2xl border border-line bg-card p-6 shadow-[0_18px_40px_-18px_rgba(51,41,29,0.45)]">
       <div className="flex items-center justify-between gap-2">
         <span className="flex items-center gap-2">
           <span
