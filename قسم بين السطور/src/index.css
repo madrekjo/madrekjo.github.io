@@ -106,21 +106,18 @@ body {
 /* ============ الدفتر — قلب الصفحات ثلاثي الأبعاد ============ */
 .book3d {
   position: relative;
-  height: clamp(360px, calc(100dvh - 320px), 84dvh);
-  aspect-ratio: 10 / 14;
-  width: auto;
-  max-width: 100%;
+  width: min(92vw, 580px);
+  aspect-ratio: 10 / 14.5;
   margin: 0 auto;
-  perspective: 2200px;
+  perspective: 2400px;
 }
 
 .book3d .sheet {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-  left: 50%;
-  transform-origin: 0 50%;
+  inset: 0;
+  left: 0;
+  width: 100%;
+  transform-origin: 100% 50%;
   transform-style: preserve-3d;
   transition: transform 0.75s cubic-bezier(0.5, 0.05, 0.28, 1);
   will-change: transform;
@@ -143,22 +140,27 @@ body {
 }
 
 .book3d .sheet.turned {
-  transform: rotateY(173deg);
+  transform: rotateY(-176deg);
 }
 
 .book3d .sheet.turned .face {
   box-shadow: -5px 6px 16px -8px rgba(51, 41, 29, 0.35);
 }
 
-/* ضلع الكتاب (العمود الفقري) */
+/* ضلع الكتاب (العمود الفقري) — على حافة التجليد */
 .book-spine {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 50%;
-  width: 26px;
-  transform: translateX(-50%);
-  background: linear-gradient(90deg, rgba(51, 41, 29, 0.16), rgba(255, 255, 255, 0.05) 45%, rgba(51, 41, 29, 0.2));
+  right: 2px;
+  width: 22px;
+  border-radius: 0 8px 8px 0;
+  background: linear-gradient(
+    270deg,
+    rgba(51, 41, 29, 0.18),
+    rgba(255, 255, 255, 0.04) 45%,
+    rgba(51, 41, 29, 0.14)
+  );
   pointer-events: none;
   z-index: 5;
 }
