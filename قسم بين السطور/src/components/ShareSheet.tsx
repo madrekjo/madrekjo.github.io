@@ -8,6 +8,7 @@ import {
   Instagram,
   MessageCircle,
   Star,
+  Trash2,
   X,
 } from "lucide-react";
 import type { Line } from "@/lib/api";
@@ -21,6 +22,7 @@ export default function ShareSheet({
   liked,
   starred,
   busyAction,
+  canDelete = false,
   onClose,
   onLike,
   onStar,
@@ -29,11 +31,13 @@ export default function ShareSheet({
   onSnap,
   onDownload,
   onCopy,
+  onDelete,
 }: {
   line: Line | null;
   liked: boolean;
   starred: boolean;
   busyAction: string;
+  canDelete?: boolean;
   onClose: () => void;
   onLike: (l: Line) => void;
   onStar: (l: Line) => void;
@@ -42,6 +46,7 @@ export default function ShareSheet({
   onSnap: (l: Line) => void;
   onDownload: (l: Line) => void;
   onCopy: (l: Line) => void;
+  onDelete?: (l: Line) => void;
 }) {
   const [copied, setCopied] = useState("");
 
@@ -170,6 +175,17 @@ export default function ShareSheet({
         <p className="mt-3 text-center text-[11px] leading-5 text-ink-soft">
           شاركها على سوشيال ميديا وخلي غيرك يعيش السطر — كل حب ونجمة ترفع صاحبها
         </p>
+
+        {canDelete && onDelete && (
+          <button
+            onClick={() => onDelete(line)}
+            disabled={busyAction !== ""}
+            className="mt-4 flex w-full items-center justify-center gap-2 rounded-full border border-rose-300 px-4 py-2.5 text-sm font-bold text-rose-600 transition hover:bg-rose-500 hover:text-white disabled:opacity-50"
+          >
+            <Trash2 size={16} />
+            حذف البطاقة نهائياً
+          </button>
+        )}
       </div>
     </div>
   );

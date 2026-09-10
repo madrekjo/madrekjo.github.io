@@ -16,6 +16,8 @@ import {
   toggleLike,
   toggleLineStar,
   toggleSave,
+  deleteLine,
+  myLines as fetchMyOwnLines,
   myFollowingIds,
   fetchMyLikedIds,
   myStarredLineIds,
@@ -99,6 +101,7 @@ export default function App() {
   const [starredIds, setStarredIds] = useState<string[]>([]);
   const [savedIds, setSavedIds] = useState<string[]>([]);
   const [followingIds, setFollowingIds] = useState<string[]>([]);
+  const [ownIds, setOwnIds] = useState<string[]>([]);
 
   const [view, setView] = useState<NavTab>("me");
   const [profTab, setProfTab] = useState<"cards" | "notebook" | "saved">("cards");
@@ -184,6 +187,19 @@ const [readerOpen, setReaderOpen] = useState(false);
       setFollowingIds(f);
     })();
   }, []);
+
+  const refreshOwnIds = useCallback(async () => {
+    try {
+      const mine = await fetchMyOwnLines();
+      setOwnIds(mine.map((l) => l.id));
+    } catch {
+      /* keep */
+    }
+  }, []);
+
+  useEffect(() => {
+    void refreshOwnIds();
+  }, [refreshOwnIds]);
 
   // ---------- الروابط العميقة ----------
   useEffect(() => {
@@ -276,6 +292,31 @@ const [readerOpen, setReaderOpen] = useState(false);
       if (isOwn)
         setMe({ ...me, stars_earned: Math.max(0, me.stars_earned - delta) });
       flash("تعذّر تسجيل النجمة");
+    }
+  };
+
+  const handleDeleteLine = async (l: Line) => {
+    if (
+      !window.confirm("متأكد إنك تريد حذف هذه البطاقة نهائياً؟ لا يمكن التراجع.")
+    ) {
+      return;
+    }
+    setBusyAction("delete");
+    try {
+      await deleteLine(l.id);
+      flash("حُذفت البطاقة ✓");
+      setSheetLine(null);
+      setDbLines((prev) => (prev ? prev.filter((x) => x.id !== l.id) : prev));
+      setReels((prev) => prev.filter((x) => x.line_id !== l.id));
+      setLikedIds((s) => s.filter((x) => x !== l.id));
+      setStarredIds((s) => s.filter((x) => x !== l.id));
+      setSavedIds((s) => s.filter((x) => x !== l.id));
+      setOwnIds((s) => s.filter((x) => x !== l.id));
+      void refreshOwnIds();
+    } catch (err) {
+      flash(err instanceof Error ? err.message : "تعذّر حذف البطاقة");
+    } finally {
+      setBusyAction("");
     }
   };
 
@@ -584,6 +625,7 @@ const [readerOpen, setReaderOpen] = useState(false);
         liked={sheetLine ? likedIds.includes(sheetLine.id) : false}
         starred={sheetLine ? starredIds.includes(sheetLine.id) : false}
         busyAction={busyAction}
+        canDelete={!!sheetLine && ownIds.includes(sheetLine.id)}
         onClose={() => setSheetLine(null)}
         onLike={shareSheetLike}
         onStar={shareSheetStar}
@@ -592,6 +634,7 @@ const [readerOpen, setReaderOpen] = useState(false);
         onSnap={(l) => void onShareImage(l, "snapchat")}
         onDownload={(l) => void onDownload(l)}
         onCopy={(l) => void onCopy(l)}
+        onDelete={handleDeleteLine}
       />
 
       <NotebookReader
@@ -624,6 +667,7 @@ const [readerOpen, setReaderOpen] = useState(false);
             }
             const prof = await myProfile();
             if (prof) setMe(prof);
+            void refreshOwnIds();
           })();
         }}
         defaultName={me?.username ?? ""}

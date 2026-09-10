@@ -157,6 +157,14 @@ export async function likeLine(lineId: string): Promise<number> {
   return Number(data ?? 0);
 }
 
+export async function deleteLine(lineId: string): Promise<void> {
+  const { error } = await supabase.rpc("delete_line", {
+    p_line: lineId,
+    p_device: getDeviceId(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر حذف البطاقة"));
+}
+
 export async function fetchMyLikedIds(): Promise<string[]> {
   const { data, error } = await supabase.rpc("my_liked_line_ids", {
     p_device: getDeviceId(),

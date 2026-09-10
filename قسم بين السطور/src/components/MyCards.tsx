@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { Camera, Download, Plus } from "lucide-react";
+import { Camera, Download, Plus, Trash2 } from "lucide-react";
 import {
   myLines,
   myProofs,
@@ -7,6 +7,7 @@ import {
   submitReport,
   uploadProof,
   confirmShare,
+  deleteLine,
   type Line,
   type MyProof,
   type MyReport,
@@ -113,6 +114,26 @@ export default function MyCards({ defaultOpen = false }: { defaultOpen?: boolean
     }
   };
 
+  const onDelete = async (l: Line) => {
+    if (
+      !window.confirm("متأكد إنك تريد حذف هذه البطاقة نهائياً؟ لا يمكن التراجع.")
+    ) {
+      return;
+    }
+    setMsg("");
+    setBusy(true);
+    try {
+      await deleteLine(l.id);
+      setMsg("حُذفت البطاقة ✓");
+      setSelectedId("");
+      await load();
+    } catch (err) {
+      setMsg(err instanceof Error ? err.message : "تعذّر حذف البطاقة");
+    } finally {
+      setBusy(false);
+    }
+  };
+
   const onUpload = async (file: File) => {
     if (!selectedId || !file) return;
     setMsg("");
@@ -198,6 +219,14 @@ export default function MyCards({ defaultOpen = false }: { defaultOpen?: boolean
                 >
                   <Download size={14} />
                   {busy ? "تحضير..." : "نزّل صورة"}
+                </button>
+                <button
+                  onClick={() => void onDelete(selected)}
+                  disabled={busy}
+                  className="shrink-0 inline-flex items-center gap-1.5 rounded-full border border-rose-300 px-3 py-1.5 text-xs font-bold text-rose-600 transition hover:bg-rose-500 hover:text-white disabled:opacity-50"
+                >
+                  <Trash2 size={14} />
+                  {busy ? "جارٍ..." : "احذف"}
                 </button>
               </div>
               <div className="mt-3 grid grid-cols-3 gap-2 text-center">
