@@ -26,6 +26,7 @@ import { downloadBlob, renderCardImage } from "./lib/cardImage";
 import CardComponent from "./components/Card";
 import AddLineModal from "./components/AddLineModal";
 import MyCards from "./components/MyCards";
+import ReaderChat from "./components/ReaderChat";
 import { lines as sampleLines } from "./data";
 import { wait } from "./lib/helpers";
 
@@ -329,6 +330,7 @@ export default function App() {
             onAdded();
           }}
         />
+        <ReaderChat />
       </div>
     );
   }
@@ -566,6 +568,7 @@ export default function App() {
           setIndex(0);
         }}
       />
+      <ReaderChat />
     </div>
   );
 }

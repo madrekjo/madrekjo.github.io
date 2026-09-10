@@ -48,10 +48,18 @@ export interface MyProof {
   created_at: string;
 }
 
+export interface ChatMessage {
+  id: string;
+  nickname: string;
+  message: string;
+  device_id: string;
+  created_at: string;
+}
+
 function errorMessage(err: { message?: string; details?: string; hint?: string } | null, fallback: string): string {
   if (err?.message) {
     const m = err.message;
-    return m.includes("جهاز") || m.includes("كثرة") || m.includes("ليست") ? m : fallback;
+    return m.includes("جهاز") || m.includes("تمهّل") || m.includes("كثرة") || m.includes("ليست") ? m : fallback;
   }
   return fallback;
 }
@@ -194,4 +202,33 @@ export async function uploadProof(
   }
   await attachProof(lineId, path);
   return path;
+}
+
+export async function getChatMessages(limit = 50): Promise<ChatMessage[]> {
+  const { data, error } = await supabase.rpc("get_chat_messages", {
+    p_limit: limit,
+  });
+  if (error) {
+    throw new Error(
+      errorMessage(error, "تعذّر تحميل ركن القرّاء — نفّذ migration الشات")
+    );
+  }
+  return (data ?? []) as ChatMessage[];
+}
+
+export async function postChatMessage(
+  nickname: string,
+  message: string
+): Promise<string> {
+  const { data, error } = await supabase.rpc("post_chat_message", {
+    p_nickname: nickname,
+    p_message: message,
+    p_device: getDeviceId(),
+  });
+  if (error) {
+    throw new Error(
+      errorMessage(error, "تعذّر إرسال الرسالة — هل نفّذت migration ركن القرّاء؟")
+    );
+  }
+  return data as string;
 }
