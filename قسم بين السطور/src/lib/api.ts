@@ -240,3 +240,31 @@ export async function postChatMessage(
   }
   return data as string;
 }
+
+export async function updateChatMessage(
+  id: string,
+  message: string
+): Promise<string> {
+  const { data, error } = await supabase.rpc("update_chat_message", {
+    p_id: id,
+    p_message: message,
+    p_device: getDeviceId(),
+  });
+  if (error) {
+    throw new Error(
+      errorMessage(error, "تعذّر تعديل الرسالة — هل نفّذت migration إدارة الرسائل؟")
+    );
+  }
+  return data as string;
+}
+
+export async function deleteChatMessage(id: string): Promise<boolean> {
+  const { data, error } = await supabase.rpc("delete_chat_message", {
+    p_id: id,
+    p_device: getDeviceId(),
+  });
+  if (error) {
+    throw new Error(errorMessage(error, "تعذّر حذف الرسالة"));
+  }
+  return Boolean(data);
+}

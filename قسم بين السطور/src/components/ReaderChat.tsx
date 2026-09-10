@@ -1,7 +1,13 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
-import { BookOpen, Pencil, Send, X } from "lucide-react";
+import { BookOpen, Check, Pencil, Send, Trash2, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { getChatMessages, postChatMessage, type ChatMessage } from "@/lib/api";
+import {
+  deleteChatMessage,
+  getChatMessages,
+  postChatMessage,
+  updateChatMessage,
+  type ChatMessage,
+} from "@/lib/api";
 import { getDeviceId } from "@/lib/device";
 
 const NICK_KEY = "bayn:reader:nickname";
@@ -28,6 +34,9 @@ export default function ReaderChat() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [error, setError] = useState("");
   const [sending, setSending] = useState(false);
+  const [managing, setManaging] = useState(false);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editDraft, setEditDraft] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
   const ownDevice = getDeviceId();
 
@@ -56,6 +65,26 @@ export default function ReaderChat() {
               ? prev
               : [row, ...prev].slice(0, 80)
           );
+        }
+      )
+      .on(
+        "postgres_changes",
+        { event: "UPDATE", schema: "public", table: "reader_chat" },
+        (payload) => {
+          const row = payload.new as ChatMessage;
+          if (!row?.id) return;
+          setMessages((prev) =>
+            prev.map((m) => (m.id === row.id ? { ...m, message: row.message } : m))
+          );
+        }
+      )
+      .on(
+        "postgres_changes",
+        { event: "DELETE", schema: "public", table: "reader_chat" },
+        (payload) => {
+          const old = payload.old as { id?: string } | null;
+          if (!old?.id) return;
+          setMessages((prev) => prev.filter((m) => m.id !== old.id));
         }
       )
       .subscribe();
@@ -110,6 +139,49 @@ export default function ReaderChat() {
 
   const isMine = (m: ChatMessage) =>
     Boolean(m.device_id) && m.device_id === ownDevice;
+
+  const startEdit = (m: ChatMessage) => {
+    setEditingId(m.id);
+    setEditDraft(m.message);
+  };
+
+  const cancelEdit = () => {
+    setEditingId(null);
+    setEditDraft("");
+  };
+
+  const saveEdit = async (m: ChatMessage) => {
+    const msg = editDraft.trim().slice(0, 300);
+    if (!msg || managing) return;
+    setManaging(true);
+    setError("");
+    try {
+      await updateChatMessage(m.id, msg);
+      setMessages((prev) =>
+        prev.map((x) => (x.id === m.id ? { ...x, message: msg } : x))
+      );
+      cancelEdit();
+    } catch (e) {
+      setError(String(e.message ?? e));
+    } finally {
+      setManaging(false);
+    }
+  };
+
+  const removeMessage = async (m: ChatMessage) => {
+    if (managing || !window.confirm("حذف هذه الرسالة؟")) return;
+    setManaging(true);
+    setError("");
+    try {
+      await deleteChatMessage(m.id);
+      setMessages((prev) => prev.filter((x) => x.id !== m.id));
+      if (editingId === m.id) cancelEdit();
+    } catch (e) {
+      setError(String(e.message ?? e));
+    } finally {
+      setManaging(false);
+    }
+  };
 
   return (
     <>
@@ -172,9 +244,61 @@ export default function ReaderChat() {
                   {timeLabel(m.created_at)}
                 </span>
               </div>
-              <p className="mt-1.5 whitespace-pre-wrap break-words text-sm leading-6 text-ink">
-                {m.message}
-              </p>
+              {isMine(m) && (
+                <div className="mt-1 flex justify-end gap-1.5">
+                  {editingId === m.id ? (
+                    <>
+                      <button
+                        onClick={() => void saveEdit(m)}
+                        disabled={!editDraft.trim() || managing}
+                        className="inline-flex items-center gap-1 rounded-full bg-gold px-2.5 py-1 text-[11px] font-bold text-white transition hover:bg-gold-deep disabled:opacity-40"
+                      >
+                        <Check size={12} />
+                        حفظ
+                      </button>
+                      <button
+                        onClick={cancelEdit}
+                        className="rounded-full border border-line bg-paper px-2.5 py-1 text-[11px] font-bold text-ink-soft transition hover:border-gold-deep hover:text-gold-deep"
+                      >
+                        إلغاء
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button
+                        onClick={() => startEdit(m)}
+                        disabled={managing}
+                        aria-label="تعديل رسالتي"
+                        className="grid size-6 place-items-center rounded-full text-ink-soft transition hover:text-gold-deep disabled:opacity-40"
+                      >
+                        <Pencil size={13} />
+                      </button>
+                      <button
+                        onClick={() => void removeMessage(m)}
+                        disabled={managing}
+                        aria-label="حذف رسالتي"
+                        className="grid size-6 place-items-center rounded-full text-ink-soft transition hover:text-rose-500 disabled:opacity-40"
+                      >
+                        <Trash2 size={13} />
+                      </button>
+                    </>
+                  )}
+                </div>
+              )}
+              {editingId === m.id ? (
+                <input
+                  value={editDraft}
+                  onChange={(e) => setEditDraft(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && void saveEdit(m)}
+                  maxLength={300}
+                  autoFocus
+                  className="mt-1.5 w-full rounded-xl border border-gold-deep bg-paper px-3 py-2 text-sm outline-none"
+                />
+              ) : (
+                <p className="mt-1.5 whitespace-pre-wrap break-words text-sm leading-6 text-ink">
+                  {m.message}
+                </p>
+              )}
             </div>
           ))}
           {error && (
