@@ -49,7 +49,7 @@ export default function ReaderChat() {
   useEffect(() => {
     if (!open) return;
     setError("");
-    if (messages.length === 0) load();
+    load();
   }, [open]);
 
   useEffect(() => {

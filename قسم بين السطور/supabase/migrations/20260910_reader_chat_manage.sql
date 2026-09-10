@@ -5,8 +5,20 @@
 -- ============================================================
 
 -- يقرأ الشات بتصير علنية حتى يشوف الآخرون التحديثات لحظياً (Realtime/REST)
+drop policy if exists "reader_chat_select_anon" on public.reader_chat;
 create policy "reader_chat_select_anon" on public.reader_chat
   for select using (true);
+
+-- نسخة وافية لرسائل UPDATE/DELETE في التحديث اللحظي
+alter table public.reader_chat replica identity full;
+
+-- التأكد أن الجدول مشترك في نشر Realtime (أمن إعادة التشغيل)
+do $$
+begin
+  alter publication supabase_realtime add table public.reader_chat;
+exception when duplicate_object then
+  null;
+end $$;
 
 -- تعديل رسالة خاصة (نص الرسالة فقط؛ النص < 300 حرف)
 create or replace function public.update_chat_message(
