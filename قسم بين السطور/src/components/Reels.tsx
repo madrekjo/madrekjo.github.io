@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Bookmark, ChevronDown, ChevronUp, Heart, Share2, Star, X } from "lucide-react";
+import { Bookmark, ChevronDown, ChevronUp, Heart, Palette, Share2, Star, X } from "lucide-react";
 import type { ReelRow } from "@/lib/api";
 import Avatar from "./Avatar";
 
@@ -15,6 +15,26 @@ function gradOf(id: string): string {
   let h = 0;
   for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
   return GRADS[h % GRADS.length];
+}
+
+const GRAD_KEY = "sutur_reel_grad";
+
+function readGrads(): Record<string, string> {
+  try {
+    return JSON.parse(localStorage.getItem(GRAD_KEY) || "{}");
+  } catch {
+    return {};
+  }
+}
+
+function saveGrad(id: string, g: string): void {
+  try {
+    const s = readGrads();
+    s[id] = g;
+    localStorage.setItem(GRAD_KEY, JSON.stringify(s));
+  } catch {
+    /* ignore */
+  }
 }
 
 export default function Reels({
@@ -51,6 +71,10 @@ export default function Reels({
     rows.findIndex((r) => r.line_id === focusId)
   );
   const [idx, setIdx] = useState(initial);
+  const [manualGrads, setManualGrads] = useState<Record<string, string>>(
+    readGrads
+  );
+  const [pickerFor, setPickerFor] = useState<string | null>(null);
   const touchY = useRef<number | null>(null);
 
   const go = (d: number) => {
@@ -136,6 +160,8 @@ export default function Reels({
       <div className="relative flex h-full flex-1 overflow-hidden">
         {rows.map((r, i) => {
           const off = i - idx;
+          const grad = manualGrads[r.line_id] ?? gradOf(r.line_id);
+          const isPicker = pickerFor === r.line_id;
           const style: React.CSSProperties = {
             transform: `translateY(${off * 100}%)`,
             opacity: Math.abs(off) > 1 ? 0 : 1,
@@ -147,31 +173,37 @@ export default function Reels({
               className="reel-page absolute inset-0"
               style={style}
             >
-              <div className="relative h-full w-full overflow-hidden">
-                <div
-                  className={
-                    "absolute inset-0 flex flex-col justify-between bg-gradient-to-br p-6 " +
-                    gradOf(r.line_id)
-                  }
-                >
-                  <div className="flex items-start justify-between">
-                    <span className="rounded-full bg-white/25 px-3 py-1 text-xs font-bold text-white">
-                      {r.category}
-                    </span>
-                    <span className="font-serif text-4xl text-white/70">❝</span>
-                  </div>
+              <div className="relative h-full w-full">
+                <div className="flex h-full items-center justify-center gap-4 py-4 pl-20 pr-4">
+                  <div
+                    className={
+                      "relative flex w-full max-w-lg flex-col justify-between overflow-hidden rounded-3xl p-5 text-white shadow-2xl " +
+                      grad
+                    }
+                    style={{ height: "min(78vh, 560px)" }}
+                  >
+                    <div className="flex items-start justify-between">
+                      <span className="rounded-full bg-white/25 px-3 py-1 text-xs font-bold text-white">
+                        {r.category}
+                      </span>
+                      <span className="font-serif text-3xl text-white/70">❝</span>
+                    </div>
 
-                  <div className="px-1">
-                    <p className="font-serif text-3xl leading-relaxed font-bold text-white drop-shadow-sm">
-                      {r.text}
-                    </p>
-                  </div>
+                    <div className="px-1">
+                      <p className="break-words font-serif text-2xl font-bold leading-relaxed text-white drop-shadow-sm md:text-[1.7rem]">
+                        {r.text}
+                      </p>
+                    </div>
 
-                  <div className="px-1">
-                    <p className="truncate text-sm font-bold text-white/90">
-                      {r.book}
-                      {r.author ? ` — ${r.author}` : ""}
-                    </p>
+                    <div>
+                      <p className="truncate text-sm font-bold text-white/90">
+                        {r.book}
+                        {r.author ? ` — ${r.author}` : ""}
+                      </p>
+                      <div className="mt-2 flex items-center justify-center gap-1.5 border-t border-white/25 pt-2 text-xs font-bold text-white/90">
+                        🎓 مدارك جو · بين السطور
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -236,6 +268,42 @@ export default function Reels({
                   >
                     <Share2 size={19} />
                   </button>
+                  <div className="relative flex flex-col items-center gap-1">
+                    <button
+                      onClick={() => setPickerFor(isPicker ? null : r.line_id)}
+                      aria-label="تغيير لون البطاقة"
+                      aria-pressed={isPicker}
+                      className="grid size-11 place-items-center rounded-full bg-ink/35 text-white backdrop-blur-sm transition hover:bg-ink/60"
+                    >
+                      <Palette size={18} />
+                    </button>
+                    {isPicker && (
+                      <div className="absolute bottom-full z-20 mb-2 flex flex-col gap-1.5 rounded-2xl border border-white/15 bg-ink/90 p-2 shadow-xl backdrop-blur-sm">
+                        {GRADS.map((g) => (
+                          <button
+                            key={g}
+                            onClick={() => {
+                              setManualGrads((p) => ({
+                                ...p,
+                                [r.line_id]: g,
+                              }));
+                              saveGrad(r.line_id, g);
+                              setPickerFor(null);
+                            }}
+                            aria-label={g}
+                            className={
+                              "size-8 rounded-full transition hover:scale-110 " +
+                              g +
+                              (grad === g ? " ring-2 ring-white" : "")
+                            }
+                          />
+                        ))}
+                      </div>
+                    )}
+                    <span className="text-[11px] font-bold text-white/90">
+                      لون
+                    </span>
+                  </div>
                   <div className="flex flex-col items-center gap-1">
                     {r.user_id ? (
                       <button
