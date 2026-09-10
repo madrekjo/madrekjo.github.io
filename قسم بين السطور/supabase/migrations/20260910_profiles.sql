@@ -96,6 +96,7 @@ end;
 $$;
 
 -- ---------- بروفايلي (الرئيسية) ----------
+drop function if exists public.my_profile(text);
 create or replace function public.my_profile(p_device text default '')
 returns table (
   id uuid, username text, bio text, avatar_url text,
@@ -118,6 +119,7 @@ as $$
 $$;
 
 -- ---------- بروفايل أي مستخدم ----------
+drop function if exists public.public_profile(uuid);
 create or replace function public.public_profile(p_user uuid default null)
 returns table (
   id uuid, username text, bio text, avatar_url text,
@@ -148,6 +150,7 @@ as $$
 $$;
 
 -- ---------- التقييم ----------
+drop function if exists public.rate_user(uuid, integer, text);
 create or replace function public.rate_user(p_user uuid, p_stars integer, p_device text default '')
 returns numeric
 language plpgsql security definer set search_path = public
@@ -247,6 +250,7 @@ begin
 end;
 $$;
 
+drop function if exists public.set_bio(text);
 create or replace function public.set_bio(p_bio text, p_device text default '')
 returns void
 language plpgsql security definer set search_path = public
