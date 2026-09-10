@@ -57,6 +57,47 @@ export default function Reels({
     setIdx((p) => Math.min(rows.length - 1, Math.max(0, p + d)));
   };
 
+  const flipLock = useRef(false);
+  const flipTimer = useRef<number | null>(null);
+  const flip = (d: number) => {
+    if (flipLock.current) return;
+    flipLock.current = true;
+    go(d);
+    if (flipTimer.current) window.clearTimeout(flipTimer.current);
+    flipTimer.current = window.setTimeout(
+      () => (flipLock.current = false),
+      650
+    );
+  };
+
+  const onWheel = (e: React.WheelEvent) => {
+    if (Math.abs(e.deltaY) < 12) return;
+    flip(e.deltaY > 0 ? 1 : -1);
+  };
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const t = e.target as HTMLElement | null;
+      if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA")) return;
+      if (e.key === "ArrowUp" || e.key === "PageUp") {
+        e.preventDefault();
+        flip(-1);
+      } else if (e.key === "ArrowDown" || e.key === "PageDown") {
+        e.preventDefault();
+        flip(1);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rows.length]);
+
+  useEffect(() => {
+    return () => {
+      if (flipTimer.current) window.clearTimeout(flipTimer.current);
+    };
+  }, []);
+
   useEffect(() => {
     const row = rows[idx];
     if (row) onView(row);
@@ -90,6 +131,7 @@ export default function Reels({
       className="fixed inset-0 z-40 flex flex-col bg-ink"
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
+      onWheel={onWheel}
     >
       <div className="relative flex h-full flex-1 overflow-hidden">
         {rows.map((r, i) => {
@@ -125,36 +167,11 @@ export default function Reels({
                     </p>
                   </div>
 
-                  <div className="flex items-end justify-between gap-3">
-                    <div className="min-w-0">
-                      <p className="truncate text-sm font-bold text-white/90">
-                        {r.book}
-                        {r.author ? ` — ${r.author}` : ""}
-                      </p>
-                      <div className="mt-2.5 flex items-center gap-2.5">
-                        {r.user_id ? (
-                          <button
-                            onClick={() => onOpenOwner(r)}
-                            className="flex min-w-0 items-center gap-2 rounded-full bg-ink/30 px-2.5 py-1.5 transition hover:bg-ink/50"
-                          >
-                            <Avatar
-                              name={r.username ?? r.submitter}
-                              className="size-8 text-sm"
-                            />
-                            <span className="truncate text-sm font-bold text-white">
-                              {r.username ?? r.submitter}
-                            </span>
-                          </button>
-                        ) : (
-                          <span className="text-xs text-white/70">
-                            {r.submitter}
-                          </span>
-                        )}
-                        <span className="rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold text-white">
-                          زيارة صاحب البطاقة
-                        </span>
-                      </div>
-                    </div>
+                  <div className="px-1">
+                    <p className="truncate text-sm font-bold text-white/90">
+                      {r.book}
+                      {r.author ? ` — ${r.author}` : ""}
+                    </p>
                   </div>
                 </div>
 
@@ -219,6 +236,31 @@ export default function Reels({
                   >
                     <Share2 size={19} />
                   </button>
+                  <div className="flex flex-col items-center gap-1">
+                    {r.user_id ? (
+                      <button
+                        onClick={() => onOpenOwner(r)}
+                        aria-label={`زيارة صاحب البطاقة: ${r.username ?? r.submitter}`}
+                        title="زيارة صاحب البطاقة"
+                        className="grid size-11 place-items-center rounded-full bg-ink/35 text-white backdrop-blur-sm transition hover:bg-ink/60"
+                      >
+                        <Avatar
+                          name={r.username ?? r.submitter}
+                          className="size-9 text-xs"
+                        />
+                      </button>
+                    ) : (
+                      <span className="grid size-11 place-items-center rounded-full bg-ink/35 text-white">
+                        <Avatar
+                          name={r.username ?? r.submitter}
+                          className="size-9 text-xs"
+                        />
+                      </span>
+                    )}
+                    <span className="w-20 truncate text-center text-[11px] font-bold text-white/90">
+                      {r.username ?? r.submitter}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

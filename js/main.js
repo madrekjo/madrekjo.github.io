@@ -117,6 +117,17 @@ let currentLink = null, currentTimeout = null;
 let viewerOpen = false;
 let pendingFrameLoad = false;
 let viewerHistoryLen = 0;
+
+// تُخفى الدائرتان العائمتان (انستغرام وديسكورد) طالما قسم «بين السطور» مفتوح
+// داخل العارض، وتعودان بمجرد إغلاقه أو فتح قسم آخر.
+function syncFloatingButtons(url) {
+  const hidden = url && url.indexOf('/sutur') !== -1;
+  ['.ig-floating', '.dc-floating'].forEach(function (sel) {
+    var el = document.querySelector(sel);
+    if (el) el.style.display = hidden ? 'none' : '';
+  });
+}
+
 function loadFrame(linkEl) {
   const url = linkEl.getAttribute('data-url');
   if (!url) return;
@@ -146,6 +157,7 @@ function loadFrame(linkEl) {
   viewer.style.display = 'flex';
   document.body.style.overflow = 'hidden';
   viewerOpen = true;
+  syncFloatingButtons(url);
 
   // يُضاف حاجز الرجوع بعد اكتمال تحميل الإطار، حتى يكون هو الإدخال الأخير في السجل.
   // لو أُضيف قبل التحميل، يسبقه إدخال تنقّل الإطار نفسه، ويضغط زر الرجوع على إدخال
@@ -201,6 +213,7 @@ function closeViewer() {
   const err = document.getElementById('iframeError');
   if (err) err.style.display = 'none';
   document.body.style.overflow = '';
+  syncFloatingButtons(null);
   if (currentLink) { currentLink.classList.remove('active'); currentLink = null; }
 
   // تنظيف سجل المتصفح: كل إدخال أضافه العارض (تنقلات الإطار بين about:blank

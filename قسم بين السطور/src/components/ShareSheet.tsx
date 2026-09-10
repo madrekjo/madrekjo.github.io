@@ -102,7 +102,7 @@ export default function ShareSheet({
           </p>
           <div className="flex items-center justify-between text-xs opacity-90">
             <span>{line.book}</span>
-            <span className="font-bold">{line.author || line.submitter}</span>
+            <span className="font-bold">{line.author}</span>
           </div>
         </div>
 
