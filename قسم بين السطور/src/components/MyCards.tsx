@@ -28,6 +28,7 @@ export default function MyCards() {
   const [note, setNote] = useState("");
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState("");
+  const [err, setErr] = useState("");
 
   const onDownload = async (l: Line, withStats = false) => {
     setMsg("");
@@ -53,15 +54,21 @@ export default function MyCards() {
   };
 
   const load = useCallback(async () => {
-    const [l, r, p] = await Promise.all([
-      myLines(),
-      myReports(),
-      myProofs(),
-    ]);
-    setLines(l);
-    setReports(r);
-    setProofs(p);
-    setLoaded(true);
+    setErr("");
+    try {
+      const [l, r, p] = await Promise.all([
+        myLines(),
+        myReports(),
+        myProofs(),
+      ]);
+      setLines(l);
+      setReports(r);
+      setProofs(p);
+    } catch (e) {
+      setErr(e instanceof Error ? e.message : "تعذّر شحن بطاقاتك");
+    } finally {
+      setLoaded(true);
+    }
   }, []);
 
   useEffect(() => {
@@ -136,6 +143,12 @@ export default function MyCards() {
 
       {!loaded ? (
         <p className="py-6 text-center text-sm text-ink-soft">جارٍ التحميل...</p>
+      ) : err ? (
+        <p className="rounded-xl bg-paper p-4 text-center text-sm text-rose-600">
+          {err} — إذا كنت سجّلت بطاقات من جهاز آخر أو ظهر لمستخدمين «ما عندك بطاقة»
+          بالخطأ، نفّذ تحديثات قاعدة البيانات الأخيرة من ملف
+          supabase/migrations/*.sql في Dashboard → SQL Editor.
+        </p>
       ) : lines.length === 0 ? (
         <p className="rounded-xl bg-paper p-4 text-center text-sm text-ink-soft">
           ما عندك بطاقات بعد — أضف أول سطر لك من زر «أضف سطرك» ✍️
@@ -180,14 +193,6 @@ export default function MyCards() {
                 >
                   <Download size={14} />
                   {busy ? "تحضير..." : "نزّل صورة"}
-                </button>
-                <button
-                  onClick={() => void onDownload(selected, true)}
-                  disabled={busy}
-                  className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-gold px-3 py-1.5 text-xs font-bold text-white transition hover:bg-gold-deep disabled:opacity-50"
-                >
-                  <Download size={14} />
-                  {busy ? "تحضير..." : "نزّل صورة التفاعل"}
                 </button>
               </div>
               <div className="mt-3 grid grid-cols-3 gap-2 text-center">
@@ -286,6 +291,21 @@ export default function MyCards() {
                   </label>
                 </div>
               </form>
+
+              <div className="mt-4">
+                <button
+                  onClick={() => void onDownload(selected, true)}
+                  disabled={busy}
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-gold px-4 py-2 text-sm font-bold text-white transition hover:bg-gold-deep disabled:opacity-50"
+                >
+                  <Download size={16} />
+                  {busy ? "تحضير..." : "نزّل صورة توثيق التفاعل"}
+                </button>
+                <p className="mt-1.5 text-center text-[11px] text-ink-soft">
+                  صورة جاهزة للمشاركة تثبت تفاعل بطاقتك (قلوب · مشاركات · مشاهدات ·
+                  توثيقاتك)
+                </p>
+              </div>
 
               {(reports.some((r) => r.line_id === selected.id) ||
                 proofs.some((p) => p.line_id === selected.id)) && (

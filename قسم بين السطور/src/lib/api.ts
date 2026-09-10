@@ -141,7 +141,11 @@ export async function myLines(): Promise<Line[]> {
     p_device: getDeviceId(),
   });
   if (error) {
-    if (String(error.message).includes("Could not find the function")) return [];
+    if (String(error.message).includes("Could not find the function")) {
+      throw new Error(
+        "تحديثات قاعدة البيانات ما اتطبّقت — نفّذ supabase/migrations/*.sql من Dashboard → SQL Editor"
+      );
+    }
     throw new Error(errorMessage(error, "تعذّر تحميل بطاقاتك"));
   }
   return (data ?? []) as Line[];
