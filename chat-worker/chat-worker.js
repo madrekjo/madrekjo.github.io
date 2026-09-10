@@ -142,7 +142,11 @@ async function maybeFlush(env) {
   // نُصفّر قبل put: إن فشلت الكتابة لا نضيّع إلا آخر نافذة.
   COUNTERS.up = {};
   COUNTERS.served = {};
-  await kv.put(key, JSON.stringify(acc), { expirationTtl: METRIC_TTL_SECONDS });
+  try {
+    await kv.put(key, JSON.stringify(acc), { expirationTtl: METRIC_TTL_SECONDS });
+  } catch {
+    /* تجاهل — سجل المقاييس اختياري */
+  }
 }
 
 export default {
@@ -268,7 +272,11 @@ async function bumpStamp(kv, group) {
   if (current > 0 && now - current < STAMP_COALESCE_MS) {
     return { stamp: current, coalesced: true };
   }
-  await kv.put(key, String(now));
+  try {
+    await kv.put(key, String(now));
+  } catch {
+    /* تجاهل — الكتابة اختيارية */
+  }
   return { stamp: now, coalesced: false };
 }
 
@@ -432,11 +440,22 @@ async function buildComments(svc, postId) {
  */
 async function withCache(kv, cacheKey, group, ttlSeconds, force, fetcher) {
   let stamp = 0;
-  const stampRaw = group ? await kv.get(`stamp:${group}`) : null;
-  if (stampRaw !== null) stamp = Number(stampRaw) || 0;
+  // قراءة KV بأسلوب best-effort: عند تجاوز حصة KV اليومية (قراءات/كتابات)
+  // أو أي فشل مؤقت نُخدم مباشرةً من Supabase بدل سقوط الطلب بـ 500.
+  try {
+    const stampRaw = group ? await kv.get(`stamp:${group}`) : null;
+    if (stampRaw !== null) stamp = Number(stampRaw) || 0;
+  } catch {
+    /* تجاهل — عملياً لا يوجد stamp */
+  }
 
   if (!force) {
-    const hit = await kv.get(cacheKey);
+    let hit = null;
+    try {
+      hit = await kv.get(cacheKey);
+    } catch {
+      /* تجاهل — نخدم طازجاً بدون كاش */
+    }
     if (hit !== null) {
       try {
         const parsed = JSON.parse(hit);

@@ -168,7 +168,7 @@ as $$
          u.id, u.username, u.bio
   from public.lines l
   left join public.users u on u.id = l.user_id
-  where l.user_id is distinct from p_exclude
+  where (p_exclude is null or l.user_id is distinct from p_exclude)
   order by l.created_at desc
   limit greatest(1, coalesce(p_limit, 50));
 $$;

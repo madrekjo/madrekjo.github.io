@@ -28,6 +28,7 @@ as $$
 declare
   v_rate int;
   v_id uuid;
+  v_usr uuid;
 begin
   if char_length(btrim(p_device)) < 4 then
     raise exception 'جهاز غير معروف';
@@ -35,7 +36,7 @@ begin
   select count(*) into v_rate
   from public.lines
   where device_id = p_device and created_at > now() - interval '60 minutes';
-  if v_rate >= 3 then
+  if v_rate >= 10 then
     raise exception 'أرسلت عدداً كبيراً من السطور — جرّب بعد قليل';
   end if;
   insert into public.lines (text, book, author, category, submitter, color, device_id)
@@ -49,6 +50,10 @@ begin
     p_device
   )
   returning id into v_id;
+  select id into v_usr from public.users where device_id = p_device limit 1;
+  if v_usr is not null then
+    update public.lines set user_id = v_usr where id = v_id and user_id is null;
+  end if;
   return v_id;
 end;
 $$;
@@ -69,7 +74,7 @@ as $$
          u.id, u.username, u.bio, l.color
   from public.lines l
   left join public.users u on u.id = l.user_id
-  where l.user_id is distinct from p_exclude
+  where (p_exclude is null or l.user_id is distinct from p_exclude)
   order by l.created_at desc
   limit greatest(1, coalesce(p_limit, 50));
 $$;
