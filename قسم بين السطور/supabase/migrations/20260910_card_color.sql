@@ -9,6 +9,7 @@ alter table public.lines
 
 -- ---------- submit_line: تستقبل اللون ----------
 drop function if exists public.submit_line(text, text, text, text, text, text);
+drop function if exists public.submit_line(text, text, text, text, text, text, text);
 
 create or replace function public.submit_line(
   p_text text,
@@ -53,6 +54,8 @@ end;
 $$;
 
 -- ---------- reels_feed: يجلب اللون ----------
+drop function if exists public.reels_feed(uuid, integer);
+
 create or replace function public.reels_feed(p_exclude uuid default null, p_limit int default 50)
 returns table (
   line_id uuid, text text, book text, author text, category text,
