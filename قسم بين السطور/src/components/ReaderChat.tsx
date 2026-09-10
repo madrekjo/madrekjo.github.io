@@ -124,10 +124,13 @@ export default function ReaderChat() {
     setError("");
     try {
       const id = await postChatMessage(nickname, msg);
-      setMessages((prev) => [...prev, { id, nickname, message: msg, created_at: new Date().toISOString() }]);
+      setMessages((prev) => [
+        ...prev,
+        { id, nickname, message: msg, device_id: ownDevice, created_at: new Date().toISOString() },
+      ]);
       setDraft("");
     } catch (e) {
-      setError(String(e.message ?? e));
+      setError(e instanceof Error ? e.message : String(e));
     } finally {
       setSending(false);
     }
@@ -160,9 +163,9 @@ export default function ReaderChat() {
       setMessages((prev) =>
         prev.map((x) => (x.id === m.id ? { ...x, message: msg } : x))
       );
-      cancelEdit();
+cancelEdit();
     } catch (e) {
-      setError(String(e.message ?? e));
+      setError(e instanceof Error ? e.message : String(e));
     } finally {
       setManaging(false);
     }
@@ -177,7 +180,7 @@ export default function ReaderChat() {
       setMessages((prev) => prev.filter((x) => x.id !== m.id));
       if (editingId === m.id) cancelEdit();
     } catch (e) {
-      setError(String(e.message ?? e));
+      setError(e instanceof Error ? e.message : String(e));
     } finally {
       setManaging(false);
     }

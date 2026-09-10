@@ -102,3 +102,121 @@ body {
 .no-scrollbar {
   scrollbar-width: none;
 }
+
+/* ============ الدفتر — قلب الصفحات ثلاثي الأبعاد ============ */
+.book3d {
+  position: relative;
+  aspect-ratio: 10 / 13;
+  max-width: 460px;
+  width: 100%;
+  margin: 0 auto;
+  perspective: 1700px;
+}
+
+.book3d .sheet {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  left: 50%;
+  transform-origin: 0 50%;
+  transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(0.5, 0.05, 0.28, 1);
+  will-change: transform;
+}
+
+.book3d .sheet .face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 8px;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 30% 8%, #fffdf2 0%, #f7efda 68%, #efe1c2 100%);
+  box-shadow: 4px 6px 18px -8px rgba(51, 41, 29, 0.4);
+}
+
+.book3d .sheet .face.back {
+  transform: rotateY(180deg);
+}
+
+.book3d .sheet.turned {
+  transform: rotateY(173deg);
+}
+
+.book3d .sheet.turned .face {
+  box-shadow: -5px 6px 16px -8px rgba(51, 41, 29, 0.35);
+}
+
+/* ضلع الكتاب (العمود الفقري) */
+.book-spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 26px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, rgba(51, 41, 29, 0.16), rgba(255, 255, 255, 0.05) 45%, rgba(51, 41, 29, 0.2));
+  pointer-events: none;
+  z-index: 5;
+}
+
+.notebook-lined {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 34px,
+    rgba(166, 124, 0, 0.16) 34px,
+    rgba(166, 124, 0, 0.16) 35px
+  );
+}
+
+.paper-sheet {
+  background:
+    radial-gradient(120% 90% at 30% 8%, #fffdf2 0%, #f7efda 68%, #efe1c2 100%);
+}
+
+/* ظل عند قلب الصفحة */
+.flip-shadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 26px;
+  background: linear-gradient(90deg, transparent, rgba(51, 41, 29, 0.24));
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* ============ الريلز — ملء الشاشة ============ */
+.reel-page {
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  will-change: transform;
+}
+
+.reel-grad-1 { background: linear-gradient(160deg, #fde68a 0%, #f97316 55%, #b91c1c 100%); }
+.reel-grad-2 { background: linear-gradient(160deg, #a7f3d0 0%, #059669 60%, #064e3b 100%); }
+.reel-grad-3 { background: linear-gradient(160deg, #bfdbfe 0%, #2563eb 60%, #1e3a8a 100%); }
+.reel-grad-4 { background: linear-gradient(160deg, #e9d5ff 0%, #9333ea 60%, #581c87 100%); }
+.reel-grad-5 { background: linear-gradient(160deg, #fecdd3 0%, #e11d48 60%, #881337 100%); }
+
+/* ============ سطر سفلي ============ */
+.app-shell {
+  padding-bottom: 84px;
+}
+
+.bottom-nav {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  z-index: 40;
+  width: min(560px, calc(100vw - 24px));
+}
+
+/* شريط تمرير للصور */
+.card-scrub::-webkit-scrollbar {
+  display: none;
+}
+.card-scrub {
+  scrollbar-width: none;
+}

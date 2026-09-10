@@ -1,85 +1,45 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import {
-  Download,
-  Camera,
-  GraduationCap,
-  Heart,
-  Home,
-  Quote,
-  MessagesSquare,
-  Plus,
-  Sparkles,
-  X,
-} from "lucide-react";
+import { GraduationCap } from "lucide-react";
 import {
   fetchLines,
-  fetchMyLikedIds,
-  likeLine,
-  recordShare,
-  confirmShare,
-  uploadProof,
-  recordVisit,
-  weeklyTop,
+  linesByUser,
   myProfile,
+  myNotebook,
+  addNotebookPage,
+  updateNotebookPage,
+  deleteNotebookPage,
+  publicNotebook,
+  publicProfile,
+  reelsFeed,
+  setBio,
+  toggleFollow,
+  toggleLike,
+  toggleLineStar,
+  toggleSave,
+  myFollowingIds,
+  fetchMyLikedIds,
+  myStarredLineIds,
+  mySavedIds,
+  recordShare,
+  recordVisit,
   type Line,
-  type WeeklyTopRow,
+  type NotebookPage,
+  type ReelRow,
+  type UserProfile,
 } from "./lib/api";
 import { downloadBlob, renderCardImage } from "./lib/cardImage";
-import AddLineModal from "./components/AddLineModal";
-import ProfileHome from "./components/ProfileHome";
-import ReelsFeed from "./components/ReelsFeed";
-import Onboarding from "./components/Onboarding";
-import ReaderChat from "./components/ReaderChat";
 import { lines as sampleLines } from "./data";
 import { wait } from "./lib/helpers";
+import AddLineModal from "./components/AddLineModal";
+import Onboarding from "./components/Onboarding";
+import Profile from "./components/Profile";
+import Reels from "./components/Reels";
+import ShareSheet from "./components/ShareSheet";
+import NotebookReader from "./components/NotebookReader";
+import NotebookEditor from "./components/NotebookEditor";
+import BottomNav, { type NavTab } from "./components/BottomNav";
 
-const seedLikes: Record<string, number> = {
-  l1: 214,
-  l2: 189,
-  l3: 233,
-  l4: 176,
-  l5: 154,
-  l6: 205,
-  l7: 141,
-  l8: 122,
-  l9: 167,
-  l10: 148,
-  l11: 196,
-  l12: 201,
-};
-
-const CATS = ["الكل", "رواية", "ديني", "تنمية", "شعر", "تاريخ"] as const;
-
-const LIKED_KEY = "bayn-al-sutur:liked";
-
-function restoreLikedIds(): string[] {
-  try {
-    const raw = localStorage.getItem(LIKED_KEY);
-    const arr = raw ? JSON.parse(raw) : [];
-    return Array.isArray(arr) ? arr.filter((x) => typeof x === "string") : [];
-  } catch {
-    return [];
-  }
-}
-
-function toLine(row: WeeklyTopRow): Line {
-  return {
-    id: row.line_id,
-    text: row.text,
-    book: row.book,
-    author: row.author,
-    category: row.category,
-    submitter: row.submitter,
-    likes: row.likes,
-    shares: row.shares,
-    visits: 0,
-    featured_date: null,
-    created_at: "",
-    user_id: null,
-  };
-}
-
-function openWhatsApp(text: string): boolean {
+function openWhatsAppText(text: string): boolean {
   const win = window.open(
     `https://wa.me/?text=${encodeURIComponent(text)}`,
     "_blank",
@@ -88,171 +48,270 @@ function openWhatsApp(text: string): boolean {
   return Boolean(win);
 }
 
+function reelToLine(r: ReelRow): Line {
+  return {
+    id: r.line_id,
+    text: r.text,
+    book: r.book,
+    author: r.author,
+    category: r.category,
+    submitter: r.submitter,
+    likes: r.likes,
+    shares: r.shares,
+    visits: r.visits,
+    stars: r.stars,
+    featured_date: null,
+    created_at: r.created_at,
+    user_id: r.user_id,
+  };
+}
+
+function demoReels(lines: Line[]): ReelRow[] {
+  return lines.map((l) => ({
+    line_id: l.id,
+    text: l.text,
+    book: l.book,
+    author: l.author,
+    category: l.category,
+    submitter: l.submitter,
+    likes: l.likes,
+    stars: 0,
+    shares: l.shares,
+    visits: l.visits,
+    created_at: l.created_at,
+    user_id: null,
+    username: l.submitter,
+    bio: null,
+  }));
+}
+
 export default function App() {
   const [dbLines, setDbLines] = useState<Line[] | null>(null);
   const [demo, setDemo] = useState(false);
-  const [category, setCategory] = useState<(typeof CATS)[number]>("الكل");
-  const [likedIds, setLikedIds] = useState<string[]>(restoreLikedIds);
-  const [top, setTop] = useState<WeeklyTopRow[]>([]);
-  const [busyAction, setBusyAction] = useState("");
-  const [addOpen, setAddOpen] = useState(false);
-  const [notice, setNotice] = useState("");
-  const [proofLine, setProofLine] = useState<Line | null>(null);
-  const [proofBusy, setProofBusy] = useState(false);
-  const [tab, setTab] = useState<"home" | "reels" | "corner">("home");
+  const [me, setMe] = useState<UserProfile | null>(null);
+  const [identityReady, setIdentityReady] = useState(false);
+  const [onboardingOpen, setOnboardingOpen] = useState(false);
+  const [reels, setReels] = useState<ReelRow[]>([]);
+  const [reelsReady, setReelsReady] = useState(false);
+
+  const [likedIds, setLikedIds] = useState<string[]>([]);
+  const [starredIds, setStarredIds] = useState<string[]>([]);
+  const [savedIds, setSavedIds] = useState<string[]>([]);
+  const [followingIds, setFollowingIds] = useState<string[]>([]);
+
+  const [view, setView] = useState<NavTab>("me");
+  const [profTab, setProfTab] = useState<"cards" | "notebook" | "saved">("cards");
   const [focusReel, setFocusReel] = useState("");
-  const [profileUser, setProfileUser] = useState<{
-    id: string;
-    username: string;
-  } | null>(null);
-  const [onboarding, setOnboarding] = useState(false);
+
+  const [openedUser, setOpenedUser] = useState<string | null>(null);
+  const [pubProfile, setPubProfile] = useState<UserProfile | null>(null);
+  const [pubLines, setPubLines] = useState<Line[]>([]);
+
+  const [sheetLine, setSheetLine] = useState<Line | null>(null);
+  const [readerOpen, setReaderOpen] = useState(false);
+  const [readerMine, setReaderMine] = useState(true);
+  const [myPages, setMyPages] = useState<NotebookPage[]>([]);
+  const [pubPages, setPubPages] = useState<NotebookPage[]>([]);
+  const [editorOpen, setEditorOpen] = useState(false);
+  const [editingPage, setEditingPage] = useState<NotebookPage | null>(null);
+  const [addOpen, setAddOpen] = useState(false);
+  const [busyAction, setBusyAction] = useState("");
+  const [notice, setNotice] = useState("");
+
   const visitedRef = useRef<string | null>(null);
 
-  const loadLines = useCallback(async () => {
-    try {
-      const rows = await fetchLines();
-      setDbLines(rows);
-      setDemo(false);
-    } catch {
-      setDbLines(
-        sampleLines.map((l) => ({
+  const flash = useCallback((m: string) => {
+    setNotice(m);
+    wait(2200).then(() => setNotice(""));
+  }, []);
+
+  // ---------- التحميل الأول ----------
+  useEffect(() => {
+    (async () => {
+      try {
+        const rows = await fetchLines();
+        setDbLines(rows);
+        setDemo(false);
+        try {
+          setReels(await reelsFeed(80));
+        } catch {
+          setReels(demoReels(rows));
+        }
+      } catch {
+        const sample = sampleLines.map((l) => ({
           id: l.id,
           text: l.text,
           book: l.book,
           author: l.author,
           category: l.category,
-          submitter: "معاينة تجريبية",
-          likes: seedLikes[l.id] ?? 0,
+          submitter: "تجريبي",
+          likes: 0,
           shares: 0,
           visits: 0,
+          stars: 0,
           featured_date: null,
           created_at: "",
           user_id: null,
-        }))
-      );
-      setDemo(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(LIKED_KEY, JSON.stringify(likedIds));
-    } catch {
-      /* ignore */
-    }
-  }, [likedIds]);
-
-  useEffect(() => {
-    void loadLines();
-    weeklyTop(3)
-      .then(setTop)
-      .catch(() => setTop([]));
-    fetchMyLikedIds().then((ids) =>
-      setLikedIds((prev) => [...new Set([...prev, ...ids])])
-    );
-  }, [loadLines]);
-
-  useEffect(() => {
-    try {
-      const params = new URLSearchParams(window.location.search);
-      const card = params.get("card");
-      if (card && dbLines && visitedRef.current !== card) {
-        visitedRef.current = card;
-        if (dbLines.some((l) => l.id === card)) {
-          setCategory("الكل");
-          setFocusReel(card);
-          setTab("reels");
-        }
-        void recordVisit(card);
+        }));
+        setDbLines(sample);
+        setReels(demoReels(sample));
+        setDemo(true);
       }
-    } catch {
-      /* ignore */
-    }
-  }, [dbLines]);
-
-  const displayLines = useMemo(() => dbLines ?? [], [dbLines]);
-  const deck = useMemo(
-    () =>
-      category === "الكل"
-        ? displayLines
-        : displayLines.filter((l) => l.category === category),
-    [displayLines, category]
-  );
-
-  const totalHearts = displayLines.reduce((a, b) => a + b.likes, 0);
-
-  const PROFILE_KEY = "bayn-al-sutur:profile";
-  useEffect(() => {
-    let active = true;
-    (async () => {
-      try {
-        const raw = localStorage.getItem(PROFILE_KEY);
-        if (raw) {
-          const p = JSON.parse(raw);
-          if (p?.id) {
-            return setProfileUser(p);
-          }
-        }
-      } catch {
-        /* ignore */
-      }
-      const prof = await myProfile();
-      if (!active) return;
-      if (prof && prof.id) {
-        setProfileUser({ id: prof.id, username: prof.username });
-        try {
-          localStorage.setItem(
-            PROFILE_KEY,
-            JSON.stringify({ id: prof.id, username: prof.username })
-          );
-        } catch {
-          /* ignore */
-        }
-      } else {
-        setOnboarding(true);
-      }
+      setReelsReady(true);
     })();
-    return () => {
-      active = false;
-    };
   }, []);
 
-  const handleOnboarded = (id: string, username: string) => {
-    setProfileUser({ id, username });
-    setOnboarding(false);
-    try {
-      localStorage.setItem(PROFILE_KEY, JSON.stringify({ id, username }));
-    } catch {
-      /* ignore */
+  useEffect(() => {
+    (async () => {
+      const prof = await myProfile();
+      setMe(prof);
+      if (!prof) setOnboardingOpen(true);
+      setIdentityReady(true);
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      const [l, s, sv, f] = await Promise.all([
+        fetchMyLikedIds(),
+        myStarredLineIds(),
+        mySavedIds(),
+        myFollowingIds(),
+      ]);
+      setLikedIds(l);
+      setStarredIds(s);
+      setSavedIds(sv);
+      setFollowingIds(f);
+    })();
+  }, []);
+
+  // ---------- الروابط العميقة ----------
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const card = params.get("card");
+    const user = params.get("user");
+    const nb = params.get("notebook");
+    if (card) {
+      setView("reels");
+      setFocusReel(card);
+      window.history.replaceState(null, "", window.location.pathname);
+    } else if (user) {
+      if (reelsReady && identityReady && me && me.id === user) {
+        setView("me");
+      } else {
+        void openUser(user);
+      }
+      if (nb === "1") openPublicNotebook(user);
     }
-    void loadLines();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [reelsReady, identityReady]);
+
+  // ---------- الوصول لبروفايل مستخدم ----------
+  const openUser = useCallback(async (id: string) => {
+    setOpenedUser(id);
+    const [p, l] = await Promise.all([publicProfile(id), linesByUser(id)]);
+    setPubProfile(p);
+    setPubLines(l);
+  }, []);
+
+  const closeUser = () => {
+    setOpenedUser(null);
+    setPubProfile(null);
+    setPubLines([]);
   };
 
+  // ---------- تعديل السطر محلياً (حتى يجي الجواب من السيرفر) ----------
   const patchLine = (id: string, patch: Partial<Line>) => {
     setDbLines((prev) =>
       prev ? prev.map((l) => (l.id === id ? { ...l, ...patch } : l)) : prev
     );
+    setReels((prev) =>
+      prev
+        ? prev.map((r) =>
+            r.line_id === id ? { ...r, ...patch } : (r as ReelRow)
+          )
+        : prev
+    );
   };
 
-  const flash = (t: string) => {
-    setNotice(t);
-    wait(2200).then(() => setNotice(""));
+  const findLine = (id: string): { likes: number; stars: number; userId: string | null } => {
+    const l = dbLines?.find((x) => x.id === id);
+    if (l) return { likes: l.likes, stars: l.stars, userId: l.user_id };
+    const r = reels.find((x) => x.line_id === id);
+    if (r) return { likes: r.likes, stars: r.stars, userId: r.user_id };
+    return { likes: 0, stars: 0, userId: null };
   };
 
-  const onLike = async (line: Line) => {
-    if (likedIds.includes(line.id)) return;
-    setLikedIds((s) => [...s, line.id]);
-    if (demo) {
-      patchLine(line.id, { likes: line.likes + 1 });
-      return;
-    }
+  const handleToggleLike = async (id: string) => {
+    const liked = likedIds.includes(id);
+    const { likes } = findLine(id);
+    const delta = liked ? -1 : 1;
+    setLikedIds((s) => (liked ? s.filter((x) => x !== id) : [...s, id]));
+    patchLine(id, { likes: Math.max(0, likes + delta) });
+    if (me) setMe({ ...me, likes_total: Math.max(0, me.likes_total + delta) });
     try {
-      const n = await likeLine(line.id);
-      patchLine(line.id, { likes: n });
+      const n = await toggleLike(id);
+      patchLine(id, { likes: n });
     } catch {
-      setLikedIds((s) => s.filter((id) => id !== line.id));
+      setLikedIds((s) => (liked ? [...s, id] : s.filter((x) => x !== id)));
+      if (me) setMe({ ...me, likes_total: Math.max(0, me.likes_total - delta) });
+      flash("تعذّر تسجيل القلب");
     }
   };
+
+  const handleToggleStar = async (id: string) => {
+    const starred = starredIds.includes(id);
+    const { stars, userId } = findLine(id);
+    const delta = starred ? -1 : 1;
+    setStarredIds((s) => (starred ? s.filter((x) => x !== id) : [...s, id]));
+    patchLine(id, { stars: Math.max(0, stars + delta) });
+    const isOwn = me && userId === me.id;
+    if (isOwn)
+      setMe({ ...me, stars_earned: Math.max(0, me.stars_earned + delta) });
+    try {
+      const n = await toggleLineStar(id);
+      patchLine(id, { stars: n });
+    } catch {
+      setStarredIds((s) => (starred ? [...s, id] : s.filter((x) => x !== id)));
+      if (isOwn)
+        setMe({ ...me, stars_earned: Math.max(0, me.stars_earned - delta) });
+      flash("تعذّر تسجيل النجمة");
+    }
+  };
+
+  const handleToggleSave = async (id: string) => {
+    const saved = savedIds.includes(id);
+    setSavedIds((s) => (saved ? s.filter((x) => x !== id) : [...s, id]));
+    try {
+      const ok = await toggleSave(id);
+      setSavedIds((s) =>
+        ok ? (s.includes(id) ? s : [...s, id]) : s.filter((x) => x !== id)
+      );
+    } catch {
+      setSavedIds((s) => (saved ? [...s, id] : s.filter((x) => x !== id)));
+      flash("تعذّر حفظ البطاقة");
+    }
+  };
+
+  const handleToggleFollow = async (id: string) => {
+    const fl = followingIds.includes(id);
+    setFollowingIds((s) => (fl ? s.filter((x) => x !== id) : [...s, id]));
+    try {
+      const ok = await toggleFollow(id);
+      if (ok === fl) {
+        setFollowingIds((s) =>
+          ok ? [...s, id] : s.filter((x) => x !== id)
+        );
+      }
+    } catch {
+      setFollowingIds((s) => (fl ? [...s, id] : s.filter((x) => x !== id)));
+      flash("تعذّر تحديث المتابعة — سجّل اسمك أولاً");
+    }
+  };
+
+  // ---------- المشاركة ----------
+  const shareText = (l: Line) =>
+    `"${l.text}" — ${l.book} (${l.author})\n\nبين السطور · مدارك جو\nاسمي: ${l.submitter}`;
 
   const markShare = async (line: Line, platform: string) => {
     if (demo) {
@@ -264,18 +323,14 @@ export default function App() {
     } catch {
       /* ignore */
     }
-    setProofLine(line);
   };
 
-  const shareText = (l: Line) =>
-    `"${l.text}" — ${l.book} (${l.author})\n\nبين السطور · مدارك جو\nاسمي: ${l.submitter}`;
-
   const onWhatsApp = async (l: Line) => {
-    const ok = openWhatsApp(shareText(l));
+    const ok = openWhatsAppText(shareText(l));
     if (ok) await markShare(l, "whatsapp");
   };
 
-  const shareWithImage = async (l: Line, platform: "instagram" | "snapchat") => {
+  const onShareImage = async (l: Line, platform: "instagram" | "snapchat") => {
     setBusyAction(platform);
     try {
       const blob = await renderCardImage(l);
@@ -318,20 +373,6 @@ export default function App() {
     }
   };
 
-  const downloadCard = async (l: Line) => {
-    setBusyAction("image");
-    try {
-      const blob = await renderCardImage(l);
-      downloadBlob(blob, `${l.category}-${l.id}.jpg`);
-      if (!demo) await markShare(l, "image");
-      flash("نزّلت صورة البطاقة ✓");
-    } catch (e) {
-      flash(e instanceof Error ? e.message : "تعذّر إنشاء الصورة");
-    } finally {
-      setBusyAction("");
-    }
-  };
-
   const onCopy = async (l: Line) => {
     try {
       await navigator.clipboard.writeText(shareText(l));
@@ -340,293 +381,287 @@ export default function App() {
     }
   };
 
-  const onAdded = () => {
-    void loadLines();
+  // ---------- الدفتر ----------
+  const openMyNotebook = async () => {
+    if (!me) {
+      flash("سجّل اسمك أولاً من البروفايل");
+      return;
+    }
+    setReaderMine(true);
+    try {
+      setMyPages(await myNotebook());
+    } catch {
+      setMyPages([]);
+    }
+    setReaderOpen(true);
   };
 
-  const onProofPicked = async (file: File) => {
-    const line = proofLine;
-    if (!line || !file) return;
-    setProofBusy(true);
+  const openPublicNotebook = useCallback(async (userId: string) => {
+    setReaderMine(false);
     try {
-      await uploadProof(line.id, file);
-      const n = await confirmShare(line.id);
-      if (!demo) patchLine(line.id, { shares: n });
-      weeklyTop(3).then(setTop).catch(() => null);
-      setProofLine(null);
-      flash("تأكدت مشاركتك ✓ +١ نقطة بالمتصدر");
-    } catch (e) {
-      flash(e instanceof Error ? e.message : "تعذّر رفع الدليل");
-    } finally {
-      setProofBusy(false);
+      setPubPages(await publicNotebook(userId));
+    } catch {
+      setPubPages([]);
+    }
+    setReaderOpen(true);
+  }, []);
+
+  const closeReader = () => {
+    setReaderOpen(false);
+    setEditingPage(null);
+    setEditorOpen(false);
+  };
+
+  const reloadMyPages = async () => {
+    try {
+      setMyPages(await myNotebook());
+    } catch {
+      /* ignore */
     }
   };
 
-  const openTopCard = (id: string) => {
-    if (!displayLines.some((l) => l.id === id)) return;
-    setCategory("الكل");
-    setFocusReel(id);
-    setTab("reels");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const savePage = async (content: string, isPublic: boolean) => {
+    if (editingPage) {
+      await updateNotebookPage(editingPage.id, content, isPublic);
+    } else {
+      await addNotebookPage(content, isPublic);
+    }
+    await reloadMyPages();
   };
 
-if (dbLines === null) {
+  const removePage = async (page: NotebookPage) => {
+    await deleteNotebookPage(page.id);
+    if (editingPage?.id === page.id) setEditingPage(null);
+    await reloadMyPages();
+  };
+
+  const ensureUserCanWrite = () => {
+    if (me) return true;
+    flash("سجّل اسمك أولاً من البروفايل");
+    return false;
+  };
+
+  // ---------- الحسابات ----------
+  const myLines = useMemo(
+    () => (me ? (dbLines ?? []).filter((l) => l.user_id === me.id) : []),
+    [dbLines, me]
+  );
+  const savedLines = useMemo(
+    () => (dbLines ?? []).filter((l) => savedIds.includes(l.id)),
+    [dbLines, savedIds]
+  );
+
+  const shareSheetLike = (l: Line) => void handleToggleLike(l.id);
+  const shareSheetStar = (l: Line) => void handleToggleStar(l.id);
+
+  // ---------- الواجهة ----------
+  if (!identityReady || !reelsReady || !dbLines) {
     return (
       <div className="mx-auto flex min-h-screen w-full max-w-2xl flex-col items-center justify-center px-6 text-center">
-        <p className="font-serif text-3xl font-bold text-gold-deep">
-          بين السطور
-        </p>
-        <p className="mt-2 text-sm text-ink-soft">جارٍ فتح الجدار...</p>
+        <p className="font-serif text-3xl font-bold text-gold-deep">بين السطور</p>
+        <p className="mt-2 text-sm text-ink-soft">جارٍ فتح منصة القرّاء...</p>
       </div>
     );
   }
 
-  const TABS = [
-    { id: "home" as const, label: "الرئيسية", Icon: Home },
-    { id: "reels" as const, label: "عبارات", Icon: Quote },
-    { id: "corner" as const, label: "ملتقى القرّاء", Icon: MessagesSquare },
-  ];
+  const navActive: NavTab = openedUser ? "me" : view;
 
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-2xl flex-col px-4 pb-10">
+    <div className="app-shell mx-auto flex min-h-screen w-full max-w-2xl flex-col px-4 pb-6">
       <header className="pt-6 pb-4 text-center">
-        <p className="text-xs font-medium tracking-wide text-gold-deep">
-          مدارك جو · قسم جديد
+        <h1 className="font-serif text-3xl font-bold text-ink">بين السطور</h1>
+        <p className="mt-1 flex items-center justify-center gap-1 text-xs text-ink-soft">
+          <GraduationCap size={13} className="text-gold-deep" />
+          منصة القرّاء والكتّاب · مدارك جو
         </p>
-        <h1 className="mt-1 font-serif text-4xl font-bold text-ink">
-          بين السطور
-        </h1>
-        <p className="mt-1.5 text-sm text-ink-soft">
-          بطاقة بتحكي قصته — ومشاركتها بتوصلها لغيرك
-        </p>
-        <div className="mt-3 flex flex-wrap items-center justify-center gap-2 text-xs">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-card px-3 py-1 text-ink-soft">
-            <Heart size={13} className="fill-rose-400 text-rose-400" />
-            {totalHearts} قلب
-          </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-card px-3 py-1 text-ink-soft">
-            {displayLines.length} سطراً
-          </span>
-          <button
-            onClick={() => setAddOpen(true)}
-            className="inline-flex items-center gap-1.5 rounded-full bg-gold px-4 py-1.5 font-bold text-white shadow-sm transition hover:bg-gold-deep"
-          >
-            <Plus size={14} />
-            أضف سطرك
-          </button>
-        </div>
       </header>
 
       {demo && (
         <div className="mb-4 rounded-xl border border-amber-300 bg-amber-50 px-4 py-2 text-center text-xs font-medium text-amber-800">
-          ⚠️ وضع المعاينة المبدئية — تُنشر السطور من الطلاب بعد ربط القاعدة
-          (نفّذ ملف migration)
+          ⚠️ وضع المعاينة — اربط قاعدة Supabase (نفّذ الـ migrations) ليعمل
+          التسجيل والبث
         </div>
       )}
 
       {notice && (
-        <div className="fixed bottom-6 left-1/2 z-[70] -translate-x-1/2 rounded-full bg-ink px-5 py-2 text-sm text-paper shadow-lg">
+        <div className="fixed bottom-24 left-1/2 z-[80] -translate-x-1/2 rounded-full bg-ink px-5 py-2 text-sm text-paper shadow-lg">
           {notice}
         </div>
       )}
 
-      <nav className="mb-5 grid grid-cols-3 gap-1 rounded-full border border-line bg-card p-1">
-        {TABS.map((t) => (
-          <button
-            key={t.id}
-            onClick={() => setTab(t.id)}
-            className={
-              "flex items-center justify-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium transition " +
-              (tab === t.id
-                ? "bg-gold text-white shadow-sm"
-                : "text-ink-soft hover:bg-gold/10 hover:text-gold-deep")
-            }
-          >
-            <t.Icon size={15} />
-            {t.label}
-          </button>
-        ))}
-      </nav>
-
-      {tab === "home" && (
-        <div className="space-y-8">
-          {top.length > 0 && !demo && (
-            <section className="rounded-2xl border border-line bg-card p-5">
-              <h2 className="mb-3 flex items-center gap-2 font-serif text-2xl font-bold text-ink">
-                <Sparkles size={20} className="text-gold-deep" />
-                قمة الأسبوع
-              </h2>
-              <p className="mb-4 text-xs text-ink-soft">
-                البطاقات الأكثر مشاركة فعليةً هذا الأسبوع — كل مشاركة مكتملة تحسب
-              </p>
-              <div className="space-y-2">
-                {top.map((row, i) => (
-                  <div
-                    key={row.line_id}
-                    className="flex w-full items-center gap-3 rounded-xl border border-line bg-paper p-3 text-right transition hover:border-gold-deep"
-                  >
-                    <button
-                      onClick={() => openTopCard(row.line_id)}
-                      className="flex min-w-0 flex-1 items-center gap-3"
-                    >
-                      <span
-                        className={
-                          "grid size-9 shrink-0 place-items-center rounded-full text-sm font-bold " +
-                          (i === 0
-                            ? "bg-gold text-white"
-                            : i === 1
-                              ? "bg-slate-300 text-slate-700"
-                              : "bg-amber-700 text-white")
-                        }
-                      >
-                        {i + 1}
-                      </span>
-                      <div className="min-w-0 flex-1">
-                        <p className="truncate font-serif text-base text-ink">
-                          {row.text}
-                        </p>
-                        <p className="text-xs text-ink-soft">
-                          {row.submitter} · {row.book}
-                        </p>
-                      </div>
-                      <span className="shrink-0 text-sm font-bold text-gold-deep">
-                        📤 {row.week_shares}
-                      </span>
-                    </button>
-                    <button
-                      onClick={() => void downloadCard(toLine(row))}
-                      disabled={busyAction !== ""}
-                      aria-label="نزّل صورة هذه البطاقة"
-                      className="shrink-0 rounded-full border border-line bg-card px-3 py-1.5 text-xs text-ink-soft transition hover:border-gold-deep hover:text-gold-deep disabled:opacity-50"
-                    >
-                      <Download size={14} className="inline" />
-                      نزّل
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          <ProfileHome
-            profileUser={profileUser}
-            onRegister={() => setOnboarding(true)}
-            onAddCard={() => setAddOpen(true)}
-          />
-        </div>
+      {openedUser ? (
+        <Profile
+          isMine={false}
+          profile={pubProfile}
+          lines={pubLines}
+          savedLines={[]}
+          likedIds={likedIds}
+          starredIds={starredIds}
+          following={followingIds.includes(openedUser)}
+          busyAction={busyAction}
+          onOpenCard={setSheetLine}
+          onOpenNotebook={() => openPublicNotebook(openedUser)}
+          onAddCard={() => void 0}
+          onToggleFollow={() => void handleToggleFollow(openedUser)}
+          onEditBio={async () => void 0}
+          onBack={closeUser}
+          tab={profTab}
+          onTabChange={setProfTab}
+        />
+      ) : (
+        <Profile
+          isMine
+          profile={me}
+          lines={myLines}
+          savedLines={savedLines}
+          likedIds={likedIds}
+          starredIds={starredIds}
+          following={false}
+          busyAction={busyAction}
+          onOpenCard={setSheetLine}
+          onOpenNotebook={() => openMyNotebook()}
+          onAddCard={() => {
+            if (ensureUserCanWrite()) setAddOpen(true);
+          }}
+          onToggleFollow={() => void 0}
+          onEditBio={async (bio) => {
+            await setBio(bio);
+            const prof = await myProfile();
+            setMe(prof);
+          }}
+          onBack={() => setView("me")}
+          tab={profTab}
+          onTabChange={setProfTab}
+        />
       )}
 
-      {tab === "reels" && (
-        <>
-          <nav className="no-scrollbar mb-4 flex gap-2 overflow-x-auto">
-            {CATS.map((c) => (
-              <button
-                key={c}
-                onClick={() => setCategory(c)}
-                className={
-                  "shrink-0 rounded-full border px-4 py-1.5 text-sm font-medium transition " +
-                  (category === c
-                    ? "border-gold bg-gold text-white shadow-sm"
-                    : "border-line bg-card text-ink-soft hover:border-gold-deep hover:text-gold-deep")
-                }
-              >
-                {c}
-              </button>
-            ))}
-          </nav>
-
-          <ReelsFeed
-            lines={deck}
-            likedIds={likedIds}
-            busyAction={busyAction}
-            focusId={focusReel}
-            onFocusDone={() => setFocusReel("")}
-            onToggleLike={(l) => void onLike(l)}
-            onWhatsApp={(l) => void onWhatsApp(l)}
-            onShareImage={(l, p) => void shareWithImage(l, p)}
-            onDownloadImg={(l) => void onDownload(l)}
-            onCopy={(l) => void onCopy(l)}
-          />
-        </>
-      )}
-
-      {tab === "corner" && <ReaderChat />}
-
-      <footer className="mt-10 pt-10 text-center text-xs leading-6 text-ink-soft">
-        <p>
-          أُضيف السطر وينشر مباشرة — شاركه على{" "}
-          <span className="text-gold-deep">ستوري انستغرام وسناب</span> ووثّق
-          تفاعلك من تبويب «الرئيسية»
-        </p>
-        <p className="mt-1 flex items-center justify-center gap-1">
-          <GraduationCap size={13} className="text-gold-deep" />
-          مدارك جو · رفيق جيل كامل
-        </p>
+      <footer className="mt-10 pt-6 text-center text-[11px] leading-5 text-ink-soft">
+        <p>بطاقات، دفتر وأفكار — شارك سطرك وخلي غيرك يعيشه</p>
       </footer>
+
+      <BottomNav
+        active={navActive}
+        onChange={(t) => {
+          if (openedUser) closeUser();
+          if (t === "me") setProfTab("cards");
+          if (t === "daf") setProfTab("notebook");
+          setView(t);
+        }}
+      />
+
+      {view === "reels" && !openedUser && (
+        <Reels
+          rows={reels}
+          likedIds={likedIds}
+          starredIds={starredIds}
+          savedIds={savedIds}
+          busyAction={busyAction}
+          focusId={focusReel}
+          onToggleLike={(id) => void handleToggleLike(id)}
+          onToggleStar={(id) => void handleToggleStar(id)}
+          onToggleSave={(id) => void handleToggleSave(id)}
+          onOpenOwner={(r) => {
+            if (r.user_id) void openUser(r.user_id);
+          }}
+          onShare={(r) => {
+            setSheetLine(reelToLine(r));
+          }}
+          onClose={() => setView("me")}
+          onView={(r) => {
+            const id = r.line_id;
+            if (demo || visitedRef.current === id) return;
+            visitedRef.current = id;
+            void recordVisit(id);
+          }}
+        />
+      )}
+
+      <ShareSheet
+        line={sheetLine}
+        liked={sheetLine ? likedIds.includes(sheetLine.id) : false}
+        starred={sheetLine ? starredIds.includes(sheetLine.id) : false}
+        busyAction={busyAction}
+        onClose={() => setSheetLine(null)}
+        onLike={shareSheetLike}
+        onStar={shareSheetStar}
+        onWhatsApp={(l) => void onWhatsApp(l)}
+        onInstagram={(l) => void onShareImage(l, "instagram")}
+        onSnap={(l) => void onShareImage(l, "snapchat")}
+        onDownload={(l) => void onDownload(l)}
+        onCopy={(l) => void onCopy(l)}
+      />
+
+      <NotebookReader
+        open={readerOpen}
+        isMine={readerMine}
+        ownerName={readerMine ? (me?.username ?? "دفترك") : (pubProfile?.username ?? "القارئ")}
+        pages={readerMine ? myPages : pubPages}
+        onClose={closeReader}
+        onEdit={(p) => {
+          setEditingPage(p);
+          setEditorOpen(true);
+        }}
+        onDelete={(p) => void removePage(p)}
+        onAdd={() => {
+          if (ensureUserCanWrite()) {
+            setEditingPage(null);
+            setEditorOpen(true);
+          }
+        }}
+      />
+
+      <NotebookEditor
+        open={editorOpen}
+        page={editingPage}
+        onClose={() => setEditorOpen(false)}
+        onSave={savePage}
+        onDelete={removePage}
+      />
 
       <AddLineModal
         open={addOpen}
         onClose={() => setAddOpen(false)}
         onAdded={() => {
           setAddOpen(false);
-          onAdded();
-          setCategory("الكل");
+          void (async () => {
+            try {
+              const rows = await fetchLines();
+              setDbLines(rows);
+              try {
+                setReels(await reelsFeed(80));
+              } catch {
+                /* preview */
+              }
+            } catch {
+              /* keep */
+            }
+            const prof = await myProfile();
+            if (prof) setMe(prof);
+          })();
         }}
-        defaultName={profileUser?.username ?? ""}
+        defaultName={me?.username ?? ""}
       />
 
-      {proofLine && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/40 p-4">
-          <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-gold/40 bg-card p-5 text-center shadow-2xl">
-            <button
-              onClick={() => setProofLine(null)}
-              aria-label="إغلاق"
-              className="absolute top-3 left-3 rounded-full p-1 text-ink-soft transition hover:text-ink"
-            >
-              <X size={18} />
-            </button>
-            <p className="text-3xl">📸</p>
-            <h3 className="mt-2 font-serif text-xl font-bold text-ink">
-              أكّد مشاركتك!
-            </h3>
-            <p className="mt-2 text-sm leading-6 text-ink-soft">
-              نقطتك بالمتصدر تنحسب فقط إذا قدّمت دليلاً أنك نشرت البطاقة فعلاً.
-              شاركها على واتساب أو ستوري ثم ارفع سكرين شوت من النشر.
-            </p>
-            <p className="mt-3 rounded-xl bg-paper px-3 py-2 text-right font-serif text-sm leading-snug text-ink">
-              {proofLine.text}
-            </p>
-            <label
-              className={
-                "mt-4 flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-gold px-4 py-2.5 text-sm font-bold text-white transition hover:bg-gold-deep " +
-                (proofBusy ? "opacity-50" : "")
-              }
-            >
-              <Camera size={16} />
-              {proofBusy ? "جارٍ الاعتماد..." : "ارفع سكرين شوت النشر"}
-              <input
-                type="file"
-                accept="image/*"
-                className="hidden"
-                disabled={proofBusy}
-                onChange={(e) => {
-                  const f = e.target.files?.[0];
-                  if (f) void onProofPicked(f);
-                  e.target.value = "";
-                }}
-              />
-            </label>
-            <p className="mt-2 text-[11px] text-ink-soft">
-              يمكنك المشاركة لاحقاً من «بطاقتي» ورفع الدليل هناك أيضاً
-            </p>
-          </div>
-        </div>
-      )}
-
-      {onboarding && (
+      {onboardingOpen && (
         <Onboarding
-          onDone={handleOnboarded}
-          onSkip={() => setOnboarding(false)}
+          onDone={(id, username) => {
+            setOnboardingOpen(false);
+            setMe((m) =>
+              m ? { ...m, id, username } : { id, username, bio: "", avatar_url: "", card_count: 0, likes_total: 0, shares_total: 0, stars_earned: 0, stars_avg: 0, stars_count: 0, followers_count: 0, following_count: 0 }
+            );
+            void (async () => {
+              const prof = await myProfile();
+              if (prof) setMe(prof);
+              try {
+                const rows = await fetchLines();
+                setDbLines(rows);
+                setReels(await reelsFeed(80));
+              } catch {
+                /* ignore */
+              }
+            })();
+          }}
+          onSkip={() => setOnboardingOpen(false)}
         />
       )}
     </div>

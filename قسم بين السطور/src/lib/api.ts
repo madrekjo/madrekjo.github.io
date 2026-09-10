@@ -11,12 +11,30 @@ export interface Line {
   likes: number;
   shares: number;
   visits: number;
+  stars: number;
   featured_date: string | null;
   created_at: string;
   user_id: string | null;
 }
 
 export type Category = "رواية" | "ديني" | "تنمية" | "شعر" | "تاريخ";
+
+export interface ReelRow {
+  line_id: string;
+  text: string;
+  book: string;
+  author: string;
+  category: Category;
+  submitter: string;
+  likes: number;
+  stars: number;
+  shares: number;
+  visits: number;
+  created_at: string;
+  user_id: string | null;
+  username: string | null;
+  bio: string | null;
+}
 
 export interface WeeklyTopRow {
   line_id: string;
@@ -65,8 +83,11 @@ export interface UserProfile {
   card_count: number;
   likes_total: number;
   shares_total: number;
+  stars_earned: number;
   stars_avg: number;
   stars_count: number;
+  followers_count: number;
+  following_count: number;
 }
 
 export interface NotebookPage {
@@ -433,4 +454,83 @@ export async function deleteNotebookPage(id: number): Promise<void> {
     p_device: getDeviceId(),
   });
   if (error) throw new Error(errorMessage(error, "تعذّر حذف الصفحة"));
+}
+
+// ---------- المنصة الاجتماعية ----------
+
+export async function toggleLike(lineId: string): Promise<number> {
+  const { data, error } = await supabase.rpc("toggle_like", {
+    p_line: lineId,
+    p_device: getDeviceId(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر تسجيل القلب"));
+  return Number(data ?? 0);
+}
+
+export async function toggleLineStar(lineId: string): Promise<number> {
+  const { data, error } = await supabase.rpc("toggle_line_star", {
+    p_line: lineId,
+    p_device: getDeviceId(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر تسجيل النجمة"));
+  return Number(data ?? 0);
+}
+
+export async function myStarredLineIds(): Promise<string[]> {
+  const { data, error } = await supabase.rpc("my_starred_line_ids", {
+    p_device: getDeviceId(),
+  });
+  if (error) return [];
+  return ((data ?? []) as (string | number)[]).map((x) => String(x));
+}
+
+export async function toggleSave(lineId: string): Promise<boolean> {
+  const { data, error } = await supabase.rpc("toggle_save", {
+    p_line: lineId,
+    p_device: getDeviceId(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر حفظ البطاقة"));
+  return Boolean(data);
+}
+
+export async function mySavedIds(): Promise<string[]> {
+  const { data, error } = await supabase.rpc("my_saved_ids", {
+    p_device: getDeviceId(),
+  });
+  if (error) return [];
+  return ((data ?? []) as (string | number)[]).map((x) => String(x));
+}
+
+export async function toggleFollow(userId: string): Promise<boolean> {
+  const { data, error } = await supabase.rpc("toggle_follow", {
+    p_user: userId,
+    p_device: getDeviceId(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر تحديث المتابعة"));
+  return Boolean(data);
+}
+
+export async function myFollowingIds(): Promise<string[]> {
+  const { data, error } = await supabase.rpc("my_following_ids", {
+    p_device: getDeviceId(),
+  });
+  if (error) return [];
+  return ((data ?? []) as (string | number)[]).map((x) => String(x));
+}
+
+export async function linesByUser(userId: string): Promise<Line[]> {
+  const { data, error } = await supabase.rpc("lines_by_user", {
+    p_user: userId,
+  });
+  if (error) return [];
+  return (data ?? []) as Line[];
+}
+
+export async function reelsFeed(limit = 50): Promise<ReelRow[]> {
+  const { data, error } = await supabase.rpc("reels_feed", {
+    p_exclude: null,
+    p_limit: limit,
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر تحميل عبارات الريلز"));
+  return (data ?? []) as ReelRow[];
 }
