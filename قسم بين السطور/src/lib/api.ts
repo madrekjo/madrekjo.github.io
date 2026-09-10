@@ -103,10 +103,10 @@ export interface NotebookPage {
 function errorMessage(err: { message?: string; details?: string; hint?: string } | null, fallback: string): string {
   if (err?.message) {
     const m = err.message;
-    if (m.includes("does not exist") || m.includes("function") && m.includes("not found"))
-      return "القاعدة تنتظر تنفيذ Migration — افتح Supabase → SQL Editor ونفّذ ملف profiles.sql";
-    if (m.includes("جهاز") || m.includes("تمهّل") || m.includes("كثرة") || m.includes("ليست")) return m;
-    return m + " — " + fallback;
+    if (m.includes("does not exist") || (m.includes("function") && m.includes("not found")))
+      return "القاعدة تنتظر تنفيذ Migration — افتح Supabase → SQL Editor ونفّذ ملف profiles.sql ثم platform.sql";
+    if (err.details) return m + " — " + err.details;
+    return m;
   }
   return fallback;
 }
@@ -352,7 +352,10 @@ export async function ensureUser(
     p_bio: bio,
     p_device: device,
   });
-  if (error) throw new Error(errorMessage(error, "تعذّر حفظ اسمك"));
+  if (error) {
+    console.error("ensure_user error:", error, { device, username });
+    throw new Error(errorMessage(error, "تعذّر حفظ اسمك"));
+  }
   return data as string;
 }
 
