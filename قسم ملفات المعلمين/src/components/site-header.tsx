@@ -8,6 +8,20 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "sonner";
+import {
+  ADMIN_ACCESS_EMAIL as ADMIN_EMAIL,
+  ADMIN_ACCESS_PASSWORD as ADMIN_PASSWORD,
+} from "@/config/supabase-config";
+
+async function signInSharedAdmin() {
+  const creds = { email: ADMIN_EMAIL, password: ADMIN_PASSWORD };
+  const first = await supabase.auth.signInWithPassword(creds);
+  if (!first.error) return;
+  const signup = await supabase.auth.signUp(creds);
+  if (signup.error && !signup.data?.user) throw signup.error;
+  const second = await supabase.auth.signInWithPassword(creds);
+  if (second.error) throw second.error;
+}
 
 function AdminCodeDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (v: boolean) => void }) {
   const [pin, setPin] = useState("");
@@ -19,11 +33,7 @@ function AdminCodeDialog({ open, onOpenChange }: { open: boolean; onOpenChange: 
     setBusy(true);
     setError("");
     try {
-      const { data: sessionData } = await supabase.auth.getSession();
-      if (!sessionData.session) {
-        const { error: anonErr } = await supabase.auth.signInAnonymously();
-        if (anonErr) throw anonErr;
-      }
+      await signInSharedAdmin();
       const { data: ok, error: rpcErr } = await supabase.rpc("login_admin_by_code", {
         p_code: pin.trim(),
       });
@@ -36,10 +46,13 @@ function AdminCodeDialog({ open, onOpenChange }: { open: boolean; onOpenChange: 
       toast.success("مرحباً بك في لوحة الإدارة");
       window.location.href = "/teacher-files/admin";
     } catch (err: any) {
+      const msg = err?.message ?? "";
       setError(
-        err?.message?.includes("Anonymous")
-          ? "فعّل «تسجيل الدخول المجهول» في القاعدة: Authentication → Sign In / Up → Anonymous"
-          : err?.message ?? "حدث خطأ، تأكد من تهيئة قاعدة البيانات",
+        msg.includes("Email not confirmed") || msg.includes("verify")
+          ? "فعّل «تأكيد الإيميل» في القاعدة حتى يعمل الرمز: Authentication → Sign In / Up → Confirm email — أو فعّل حساب الأدمن يدوياً"
+          : msg.includes("Anonymous")
+            ? "فعّل «Allow anonymous sign-ins» في القاعدة"
+            : msg || "حدث خطأ، تأكد من تهيئة قاعدة البيانات",
       );
       setBusy(false);
     }

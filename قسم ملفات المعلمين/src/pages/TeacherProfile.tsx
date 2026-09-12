@@ -15,7 +15,9 @@ import {
   MapPin,
   BookOpen,
   Users,
+  Share2,
 } from "lucide-react";
+import { toast } from "sonner";
 import { SiteHeader } from "@/components/site-header";
 import { getPublicTeacher } from "@/lib/teacher-files";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -63,6 +65,21 @@ function TeacherProfile() {
   const [data, setData] = useState<Awaited<ReturnType<typeof getPublicTeacher>> | null | undefined>(
     undefined,
   );
+  const [websiteOpen, setWebsiteOpen] = useState(false);
+
+  async function share() {
+    const url = `${window.location.origin}/teacher-files/t/${slug}`;
+    if (typeof navigator.share === "function") {
+      try {
+        await navigator.share({ title: "صفحة معلم", url });
+        return;
+      } catch {
+        /* المستخدم ألغى المشاركة */
+      }
+    }
+    await navigator.clipboard.writeText(url);
+    toast.success("تم نسخ رابط الصفحة");
+  }
 
   useEffect(() => {
     let active = true;
@@ -136,6 +153,13 @@ function TeacherProfile() {
                 </div>
               </div>
               <div className="flex flex-wrap gap-1.5">
+                <button
+                  onClick={share}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs text-muted-foreground transition hover:bg-accent hover:text-foreground"
+                >
+                  <Share2 className="h-3.5 w-3.5" />
+                  مشاركة
+                </button>
                 {teacher.website_url && (
                   <a
                     href={teacher.website_url}
@@ -180,6 +204,31 @@ function TeacherProfile() {
         </div>
 
         <div className="mt-8 space-y-5">
+          {teacher.website_url && (
+            <section className="overflow-hidden rounded-2xl border border-border bg-card">
+              <div className="flex items-center justify-between gap-2 border-b border-border px-4 py-3">
+                <div className="flex min-w-0 items-center gap-2">
+                  <Globe className="h-4 w-4 shrink-0 text-primary" />
+                  <h2 className="text-base font-bold">الموقع المخصص للأستاذ</h2>
+                </div>
+                <button
+                  onClick={() => setWebsiteOpen((o) => !o)}
+                  className="shrink-0 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary transition hover:bg-primary/20"
+                >
+                  {websiteOpen ? "إغلاق" : "افتح الموقع"}
+                </button>
+              </div>
+              {websiteOpen && (
+                <iframe
+                  src={teacher.website_url}
+                  title="موقع المدرس"
+                  className="h-[480px] w-full"
+                  sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                />
+              )}
+            </section>
+          )}
+
           {sections.map((section) => (
             <section key={section.id} className="rounded-2xl border border-border bg-card">
               <div className="flex items-center gap-2 border-b border-border px-4 py-3">
