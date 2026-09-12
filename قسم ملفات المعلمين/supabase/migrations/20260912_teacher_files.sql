@@ -289,3 +289,35 @@ on conflict (name) do nothing;
 --          UPDATE public.teacher_files_settings SET teacher_files_enabled = true WHERE id = 1;
 --      أو من واجهة الأدمن إذا أضفت زر toggle في الواجهة.
 --   3. عند التفعيل، ستظهر البيانات تلقائياً للطلاب عبر /teacher-files/
+
+-- ========= 10. رمز الدخول السري للأدمن =========
+-- الضغط على شعار «مدارك جو» في رأس الموقع → إدخال الرمز → دخول أدمن فوري.
+-- الرمز مخزَّن في القاعدة (وليس في أكواد الموقع) ويُغيَّر بأي وقت.
+alter table public.teacher_files_settings
+  add column if not exists admin_pin text not null default '929292';
+
+update public.teacher_files_settings set admin_pin = '929292' where id = 1 and admin_pin is null;
+
+create or replace function public.login_admin_by_code(p_code text)
+returns boolean
+language plpgsql security definer set search_path = public
+as $$
+declare
+  _uid uuid := auth.uid();
+  _pin text;
+begin
+  if _uid is null then
+    return false;
+  end if;
+  select admin_pin into _pin from public.teacher_files_settings where id = 1;
+  if _pin is null or p_code <> _pin then
+    return false;
+  end if;
+  insert into public.user_roles (user_id, role)
+  values (_uid, 'admin'::public.app_role)
+  on conflict (user_id, role) do nothing;
+  return true;
+end;
+$$;
+
+grant execute on function public.login_admin_by_code(text) to anon, authenticated;

@@ -34,18 +34,21 @@ export type Database = {
       };
       teacher_files_settings: {
         Row: {
+          admin_pin: string;
           id: number;
           teacher_files_enabled: boolean;
           updated_at: string;
           updated_by: string | null;
         };
         Insert: {
+          admin_pin?: string;
           id?: number;
           teacher_files_enabled?: boolean;
           updated_at?: string;
           updated_by?: string | null;
         };
         Update: {
+          admin_pin?: string;
           id?: number;
           teacher_files_enabled?: boolean;
           updated_at?: string;
@@ -1070,6 +1073,10 @@ export type Database = {
       };
       is_teacher_files_enabled: {
         Args: Record<PropertyKey, never>;
+        Returns: boolean;
+      };
+      login_admin_by_code: {
+        Args: { p_code: string };
         Returns: boolean;
       };
       heartbeat_device: {
