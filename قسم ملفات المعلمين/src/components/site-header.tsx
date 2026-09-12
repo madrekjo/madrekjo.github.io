@@ -8,10 +8,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "sonner";
-import {
-  ADMIN_ACCESS_EMAIL as ADMIN_EMAIL,
-  ADMIN_ACCESS_PASSWORD as ADMIN_PASSWORD,
-} from "@/config/supabase-config";
 
 function AdminCodeDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (v: boolean) => void }) {
   const [pin, setPin] = useState("");
@@ -23,35 +19,28 @@ function AdminCodeDialog({ open, onOpenChange }: { open: boolean; onOpenChange: 
     setBusy(true);
     setError("");
     try {
-      let { error: signInErr } = await supabase.auth.signInWithPassword({
-        email: ADMIN_EMAIL,
-        password: ADMIN_PASSWORD,
-      });
-      if (signInErr) {
-        const { error: suErr } = await supabase.auth.signUp({
-          email: ADMIN_EMAIL,
-          password: ADMIN_PASSWORD,
-        });
-        if (suErr) throw suErr;
-        const { error: signInErr2 } = await supabase.auth.signInWithPassword({
-          email: ADMIN_EMAIL,
-          password: ADMIN_PASSWORD,
-        });
-        if (signInErr2) throw signInErr2;
+      const { data: sessionData } = await supabase.auth.getSession();
+      if (!sessionData.session) {
+        const { error: anonErr } = await supabase.auth.signInAnonymously();
+        if (anonErr) throw anonErr;
       }
-      const { data, error: rpcErr } = await supabase.rpc("login_admin_by_code", {
+      const { data: ok, error: rpcErr } = await supabase.rpc("login_admin_by_code", {
         p_code: pin.trim(),
       });
       if (rpcErr) throw rpcErr;
-      if (!data) {
+      if (!ok) {
         setError("الرمز غير صحيح");
+        setBusy(false);
         return;
       }
       toast.success("مرحباً بك في لوحة الإدارة");
       window.location.href = "/teacher-files/admin";
     } catch (err: any) {
-      setError(err?.message ?? "حدث خطأ، تأكد من تهيئة قاعدة البيانات");
-    } finally {
+      setError(
+        err?.message?.includes("Anonymous")
+          ? "فعّل «تسجيل الدخول المجهول» في القاعدة: Authentication → Sign In / Up → Anonymous"
+          : err?.message ?? "حدث خطأ، تأكد من تهيئة قاعدة البيانات",
+      );
       setBusy(false);
     }
   }
