@@ -97,7 +97,14 @@ export function SiteHeader({ showAdminLink = false }: { showAdminLink?: boolean 
           </span>
           <span className="text-lg font-bold">ملفات المعلمين</span>
         </Link>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5">
+          {!loading && isAdmin && (
+            <Link to="/">
+              <Button variant="ghost" size="sm">
+                الموقع
+              </Button>
+            </Link>
+          )}
           {!loading && isAdmin && showAdminLink && (
             <Link to="/admin">
               <Button variant="secondary" size="sm">

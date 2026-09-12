@@ -9,6 +9,7 @@ import {
   ClipboardList,
   Users,
   Heart,
+  Search,
 } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { listPublishedTeachers } from "@/lib/teacher-files";
@@ -86,6 +87,7 @@ const FEATURES = [
 
 function PublicHome() {
   const [teachers, setTeachers] = useState<TeacherCard[] | null>(null);
+  const [q, setQ] = useState("");
 
   useEffect(() => {
     let active = true;
@@ -100,6 +102,18 @@ function PublicHome() {
       active = false;
     };
   }, []);
+
+  const query = q.trim().toLowerCase();
+  const filtered =
+    teachers === null
+      ? null
+      : query
+        ? teachers.filter((t) =>
+            [t.name, t.bio, ...t.subjects, ...t.fields, ...t.grades]
+              .filter(Boolean)
+              .some((s) => String(s).toLowerCase().includes(query)),
+          )
+        : teachers;
 
   return (
     <div className="min-h-screen bg-background">
@@ -150,25 +164,30 @@ function PublicHome() {
         </section>
 
         <section className="mt-8">
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-lg font-bold">معلمو المدارس</h2>
-            <span className="text-xs text-muted-foreground">اختر معلمك لتصفح ملفاته</span>
+          <div className="relative mb-4">
+            <Search className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <input
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              placeholder="ابحث عن معلم أو مادة أو حقل أو صف..."
+              className="w-full rounded-xl border border-border bg-card py-2.5 pl-4 pr-9 text-sm shadow-sm outline-none transition placeholder:text-muted-foreground focus:border-primary/50 focus:ring-2 focus:ring-primary/20"
+            />
           </div>
 
-          {teachers === null ? (
+          {filtered === null ? (
             <div className="flex justify-center py-16 text-muted-foreground">
               <Loader2 className="h-6 w-6 animate-spin" />
             </div>
-          ) : teachers.length === 0 ? (
+          ) : filtered.length === 0 ? (
             <div className="rounded-2xl border border-dashed border-primary/25 bg-card py-14 text-center">
-              <GraduationCap className="mx-auto h-8 w-8 text-primary/60" />
+              <Search className="mx-auto h-8 w-8 text-primary/50" />
               <p className="mt-3 text-sm text-muted-foreground">
-                لا يوجد معلمون حاليًا. تابعنا قريباً!
+                {teachers?.length === 0 ? "لا يوجد معلمون حاليًا. تابعنا قريباً!" : "لا توجد نتائج مطابقة"}
               </p>
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {teachers.map((t) => (
+              {filtered.map((t) => (
                 <TeacherCardView key={t.id} t={t} />
               ))}
             </div>

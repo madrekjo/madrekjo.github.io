@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "sonner";
-import { Plus, Pencil, Trash2, FolderOpen, ArrowRight, Star } from "lucide-react";
+import { Plus, Pencil, Trash2, FolderOpen, ArrowRight, Star, ExternalLink } from "lucide-react";
 import { listTeachers, deleteTeacher, updateTeacher, type TeacherAgg } from "@/lib/teacher-files";
 import { TeacherForm } from "./TeacherForm";
 import { SectionsTab } from "./SectionsTab";
@@ -131,6 +131,16 @@ export function TeachersTab() {
               </div>
             </div>
             <div className="flex shrink-0 items-center gap-1">
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() =>
+                  window.open(`${window.location.origin}/teacher-files/t/${t.slug}`, "_blank")
+                }
+                title="عرض صفحة المعلم"
+              >
+                <ExternalLink className="h-3.5 w-3.5" /> عرض الصفحة
+              </Button>
               <Button size="sm" variant="outline" onClick={() => setSelected(t)}>
                 <FolderOpen className="h-3.5 w-3.5" /> الأقسام
               </Button>
