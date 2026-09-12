@@ -117,13 +117,7 @@ export function SiteHeader({ showAdminLink = false }: { showAdminLink?: boolean 
               >
                 خروج
               </Button>
-            ) : (
-              <Link to="/login">
-                <Button size="sm" variant="ghost">
-                  دخول
-                </Button>
-              </Link>
-            ))}
+            ) : null)}
         </div>
       </div>
       <AdminCodeDialog open={codeOpen} onOpenChange={setCodeOpen} />
