@@ -125,19 +125,14 @@
 </a>
 <script>
 function handleYearClick(year) {
-  var s = window.MadarekSession ? MadarekSession.load() : null;
-  if (s && s.generation === year) {
-    // نفس الجيل مع صفحات حقل محفوظة -> ننتقل مباشرة لصفحة الحقل المخزنة
-    if (s.page && s.field) {
-      var q = new URLSearchParams({ elective: s.elective || '', major: s.major || '', name: 'زائر' });
-      window.location.href = year + '/' + s.page + '?' + q.toString();
-      return;
-    }
-    // نفس الجيل لكن بدون حقل محفوظ -> نعود لشاشة اختيار الحقل
-    window.location.href = year + '/index.html';
+  var s = window.MadarekSession ? MadarekSession.load(year) : null;
+  if (s && s.page && s.field) {
+    // هذا الجيل محفوظ بحقل -> ننتقل مباشرة لصفحة الحقل المخزنة (بدون إعادة اختيار)
+    var q = new URLSearchParams({ elective: s.elective || '', major: s.major || '', name: 'زائر' });
+    window.location.href = year + '/' + s.page + '?' + q.toString();
     return;
   }
-  // جيل مختلف أو لا توجد جلسة -> نحفظ الجيل الجديد ونعيد اختيار الحقل/المواد
+  // لا اختيارات محفوظة لهذا الجيل -> شاشة اختيار الحقل (ونسجل الجيل فوراً)
   if (window.MadarekSession) MadarekSession.save({ generation: year });
   window.location.href = year + '/index.html';
 }
@@ -146,15 +141,18 @@ function handleYearClick(year) {
 
 
 
-<script src="js/session.js"></script>
+<script src="js/session.js?v=2"></script>
 <script>
-// عند فتح الموقع، إذا كان هناك جلسة محفوظة كاملة (جيل + حقل + تخصص)
-// نأخذ المستخدم مباشرةً لصفحة حقلته المحفوظة بدل شاشة الاختيار.
+// عند فتح الموقع: نعود مباشرة لأول جيل زاره المستخدم مع حقل محفوظ
+// (بدون شاشة اختيار الحقل من جديد).
 (function() {
-  var s = window.MadarekSession && MadarekSession.load();
-  if (s && s.generation && s.page && s.field) {
-    var q = new URLSearchParams({ elective: s.elective || '', major: s.major || '', name: 'زائر' });
-    window.location.replace(s.generation + '/' + s.page + '?' + q.toString());
+  var s = window.MadarekSession && MadarekSession.lastActive();
+  if (s && window.MadarekSession) {
+    var rec = MadarekSession.load(s);
+    if (rec && rec.page && rec.field) {
+      var q = new URLSearchParams({ elective: rec.elective || '', major: rec.major || '', name: 'زائر' });
+      window.location.replace(rec.generation + '/' + rec.page + '?' + q.toString());
+    }
   }
 })();
 </script>

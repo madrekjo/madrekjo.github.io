@@ -194,13 +194,13 @@ document.getElementById('entryModal').addEventListener('click', function(e) {
   if (e.target === this) closeEntryModal();
 });
 </script>
-<script src="../js/session.js"></script>
+<script src="../js/session.js?v=2"></script>
 <script>
-// إذا كانت هناك جلسة محفوظة بنفس الجيل وصفحة حقل -> ننتقل مباشرة لها
+// إذا كانت هناك جلسة محفوظة لهذا الجيل بصفحة حقل -> ننتقل لها مباشرة
 (function() {
   var year = document.body.dataset.year;
-  var s = window.MadarekSession && MadarekSession.load();
-  if (s && s.generation === year && s.page && s.field) {
+  var s = window.MadarekSession && MadarekSession.load(year);
+  if (s && s.page && s.field) {
     var params = new URLSearchParams({
       elective: s.elective || '',
       major: s.major || '',

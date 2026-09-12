@@ -65,7 +65,6 @@ function TeacherProfile() {
   const [data, setData] = useState<Awaited<ReturnType<typeof getPublicTeacher>> | null | undefined>(
     undefined,
   );
-  const [websiteOpen, setWebsiteOpen] = useState(false);
 
   async function share() {
     const url = `${window.location.origin}/teacher-files/t/${slug}`;
@@ -205,27 +204,19 @@ function TeacherProfile() {
 
         <div className="mt-8 space-y-5">
           {teacher.website_url && (
-            <section className="overflow-hidden rounded-2xl border border-border bg-card">
+            <section className="rounded-2xl border border-border bg-card">
               <div className="flex items-center justify-between gap-2 border-b border-border px-4 py-3">
                 <div className="flex min-w-0 items-center gap-2">
                   <Globe className="h-4 w-4 shrink-0 text-primary" />
                   <h2 className="text-base font-bold">الموقع المخصص للأستاذ</h2>
                 </div>
-                <button
-                  onClick={() => setWebsiteOpen((o) => !o)}
+                <Link
+                  to={`/t/${slug}/website`}
                   className="shrink-0 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary transition hover:bg-primary/20"
                 >
-                  {websiteOpen ? "إغلاق" : "افتح الموقع"}
-                </button>
+                  افتح الموقع
+                </Link>
               </div>
-              {websiteOpen && (
-                <iframe
-                  src={teacher.website_url}
-                  title="موقع المدرس"
-                  className="h-[480px] w-full"
-                  sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-                />
-              )}
             </section>
           )}
 

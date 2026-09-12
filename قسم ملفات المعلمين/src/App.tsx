@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { useTeacherFilesFlag } from "@/hooks/use-teacher-files-flag";
 import PublicHome from "@/pages/PublicHome.tsx";
 import TeacherProfile from "@/pages/TeacherProfile.tsx";
+import TeacherWebsite from "@/pages/TeacherWebsite.tsx";
 import Login from "@/pages/Login.tsx";
 import Admin from "@/pages/Admin.tsx";
 import { NotFound } from "@/pages/NotFound.tsx";
@@ -40,6 +41,14 @@ const App = () => (
           element={
             <PublicGate>
               <TeacherProfile />
+            </PublicGate>
+          }
+        />
+        <Route
+          path="/t/:slug/website"
+          element={
+            <PublicGate>
+              <TeacherWebsite />
             </PublicGate>
           }
         />
