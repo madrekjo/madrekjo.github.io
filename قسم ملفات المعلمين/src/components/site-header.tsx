@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { GraduationCap, Loader2, Lock } from "lucide-react";
-import { useAuth } from "@/hooks/use-auth";
+import { useAuth, markAdminSeen, clearAdminSeen } from "@/hooks/use-auth";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -43,6 +43,7 @@ function AdminCodeDialog({ open, onOpenChange }: { open: boolean; onOpenChange: 
         setBusy(false);
         return;
       }
+      markAdminSeen();
       toast.success("مرحباً بك في لوحة الإدارة");
       window.location.href = "/teacher-files/admin";
     } catch (err: any) {
@@ -131,6 +132,7 @@ export function SiteHeader({ showAdminLink = false }: { showAdminLink?: boolean 
                 size="sm"
                 variant="ghost"
                 onClick={() => {
+                  clearAdminSeen();
                   supabase.auth.signOut();
                   navigate("/");
                 }}

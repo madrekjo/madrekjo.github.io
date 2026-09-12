@@ -5,19 +5,13 @@ import {
   Loader2,
   ArrowRight,
   Globe,
-  Instagram,
-  Facebook,
-  Youtube,
-  Linkedin,
-  Twitter,
-  Send,
-  Link2,
   MapPin,
   BookOpen,
   Users,
   Share2,
 } from "lucide-react";
 import { toast } from "sonner";
+import { PlatformBrandIcon, socialDisplayName } from "@/components/social-icons";
 import { SiteHeader } from "@/components/site-header";
 import { getPublicTeacher } from "@/lib/teacher-files";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -33,29 +27,16 @@ function Chip({ label, className }: { label: string; className?: string }) {
   );
 }
 
-function socialMeta(platform: string) {
-  const p = platform.toLowerCase();
-  if (p.includes("instagram")) return { icon: Instagram, label: "إنستغرام" };
-  if (p.includes("facebook")) return { icon: Facebook, label: "فيسبوك" };
-  if (p.includes("youtube") || p.includes("يوتيوب")) return { icon: Youtube, label: "يوتيوب" };
-  if (p.includes("linkedin")) return { icon: Linkedin, label: "لينكد إن" };
-  if (p.includes("twitter") || p.includes("x")) return { icon: Twitter, label: "إكس" };
-  if (p.includes("telegram") || p.includes("تليغرام")) return { icon: Send, label: "تليغرام" };
-  if (p.includes("tiktok")) return { icon: Link2, label: "تيك توك" };
-  return { icon: Globe, label: platform };
-}
-
 function SocialRow({ platform, url }: { platform: string; url: string }) {
-  const { icon: Icon, label } = socialMeta(platform);
   return (
     <a
       href={url}
       target="_blank"
       rel="noreferrer"
-      className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs hover:bg-accent"
+      className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs transition hover:bg-accent"
     >
-      <Icon className="h-3.5 w-3.5" />
-      {label}
+      <PlatformBrandIcon name={platform} className="h-3.5 w-3.5" />
+      {socialDisplayName(platform)}
     </a>
   );
 }

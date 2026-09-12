@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks/use-auth";
 import { SiteHeader } from "@/components/site-header";
@@ -10,6 +10,13 @@ import { SettingsTab } from "./admin/SettingsTab";
 
 function Admin() {
   const { isAdmin, adminChecked, loading } = useAuth();
+  const [activeTab, setActiveTab] = useState<string>(() => {
+    try {
+      return sessionStorage.getItem("madrekjo_tf_admin_tab") || "teachers";
+    } catch {
+      return "teachers";
+    }
+  });
 
   if (loading || !adminChecked) {
     return (
@@ -47,7 +54,16 @@ function Admin() {
       <SiteHeader />
       <main className="mx-auto max-w-5xl px-4 py-6">
         <h1 className="mb-4 text-2xl font-bold">لوحة إدارة ملفات المعلمين</h1>
-        <Tabs defaultValue="teachers" className="space-y-4">
+        <Tabs
+          value={activeTab}
+          onValueChange={(v) => {
+            setActiveTab(v);
+            try {
+              sessionStorage.setItem("madrekjo_tf_admin_tab", v);
+            } catch {}
+          }}
+          className="space-y-4"
+        >
           <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="teachers">
               <Users className="ml-1.5 h-4 w-4" /> المعلمون
