@@ -35,8 +35,8 @@ function SocialRow({ platform, url }: { platform: string; url: string }) {
       rel="noreferrer"
       className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs transition hover:bg-accent"
     >
-      <PlatformBrandIcon name={platform} className="h-3.5 w-3.5" />
-      {socialDisplayName(platform)}
+      <PlatformBrandIcon name={platform} url={url} className="h-3.5 w-3.5" />
+      {socialDisplayName(platform, url)}
     </a>
   );
 }
