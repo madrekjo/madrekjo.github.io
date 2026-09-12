@@ -129,7 +129,6 @@ function TeacherProfile() {
                 </Avatar>
                 <div>
                   <h1 className="text-2xl font-bold">{teacher.name}</h1>
-                  <p className="mt-0.5 text-sm text-muted-foreground">معلم في مدارك جو</p>
                 </div>
               </div>
               <div className="flex flex-wrap gap-1.5">
