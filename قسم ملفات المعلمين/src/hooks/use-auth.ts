@@ -4,8 +4,7 @@ import type { Session } from "@supabase/supabase-js";
 
 const ADMIN_SEEN_KEY = "madrekjo_tf_admin_seen";
 
-/* علّم أن هذا المتصفح دخل أدمن من قبل — يستخدم لاستعادة الدخول الصامت
- * (بتسجيل مؤقت) عند انقطاع الجلسة دون طلب الرمز مرة أخرى. */
+/* علّم أن هذا المتصفح دخل أدمن من قبل (يُستخدم لتذكير المستخدم فقط). */
 export function markAdminSeen() {
   try {
     localStorage.setItem(ADMIN_SEEN_KEY, "1");
@@ -15,18 +14,6 @@ export function clearAdminSeen() {
   try {
     localStorage.removeItem(ADMIN_SEEN_KEY);
   } catch {}
-}
-function wasAdminSeen() {
-  try {
-    return localStorage.getItem(ADMIN_SEEN_KEY) === "1";
-  } catch {
-    return false;
-  }
-}
-
-async function silentAdminRelogin() {
-  const { error } = await supabase.auth.signInAnonymously();
-  return !error;
 }
 
 export function useAuth() {
@@ -47,13 +34,11 @@ export function useAuth() {
     setAdminChecked(true);
   }
 
+  /* نتحقق من الجلسة المحفوظة فقط (لا نُنشئ حساباً مجهولاً هنا حتى لا نُسبب 429).
+     الدخول بالرمز يتم من AdminCodeDialog فقط عند الحاجة. */
   async function refresh() {
     const { data } = await supabase.auth.getSession();
-    let sess = data.session;
-    if (!sess && wasAdminSeen() && (await silentAdminRelogin())) {
-      const again = await supabase.auth.getSession();
-      sess = again.data.session;
-    }
+    const sess = data.session;
     setSession(sess);
     if (sess?.user) {
       setAdminChecked(false);
@@ -67,8 +52,6 @@ export function useAuth() {
 
   useEffect(() => {
     const { data: sub } = supabase.auth.onAuthStateChange((event, s) => {
-      /* إشارات الإنهاء الحقيقية فقط هي من تطفئ اللوحة؛
-         أي حدث آخر (كالتجديد) لا يمسح صلاحية الأدمن. */
       if (event === "SIGNED_OUT") {
         setSession(null);
         setIsAdmin(false);

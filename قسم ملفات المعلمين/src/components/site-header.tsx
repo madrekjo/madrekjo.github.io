@@ -38,10 +38,13 @@ function AdminCodeDialog({ open, onOpenChange }: { open: boolean; onOpenChange: 
       window.location.href = "/teacher-files/admin";
     } catch (err: any) {
       const msg = err?.message ?? "";
+      const status = err?.status ?? err?.statusCode ?? 0;
       setError(
-        msg.includes("Anonymous")
-          ? "فعّل «Allow anonymous sign-ins» في القاعدة: Authentication → Sign In / Up → Anonymous"
-          : msg || "حدث خطأ، تأكد من تهيئة قاعدة البيانات",
+        status === 429 || /rate\s*limit|too\s*many|429/i.test(msg)
+          ? "طلبات كثيرة — انتظر دقيقة ثم أعد المحاولة"
+          : msg.includes("Anonymous")
+            ? "فعّل «Allow anonymous sign-ins» في القاعدة: Authentication → Sign In / Up → Anonymous"
+            : msg || "حدث خطأ، تأكد من تهيئة قاعدة البيانات",
       );
       setBusy(false);
     }
