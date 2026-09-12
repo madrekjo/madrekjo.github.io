@@ -16,6 +16,82 @@ export type SocialLink = { platform: string; url: string };
 export type TeacherRelations = { subject_ids: string[]; field_ids: string[]; grade_ids: string[] };
 export type TeacherAgg = Teacher & TeacherRelations;
 
+// ============================================================
+// قائمة الإدارة (من يدخل الرمز يحدد اسمه على جهازه)
+// ============================================================
+export type AdminProfile = {
+  id: string;
+  device_id: string;
+  name: string;
+  created_at: string;
+  last_seen_at: string | null;
+};
+
+const DEVICE_KEY = "madrekjo_tf_device_id";
+
+export function getOrCreateDeviceId(): string {
+  try {
+    let id = localStorage.getItem(DEVICE_KEY);
+    if (!id) {
+      id = (crypto?.randomUUID?.() ?? Math.random().toString(36).slice(2)) as string;
+      localStorage.setItem(DEVICE_KEY, id);
+    }
+    return id;
+  } catch {
+    return Math.random().toString(36).slice(2);
+  }
+}
+
+export async function getAdminProfile(deviceId: string): Promise<AdminProfile | null> {
+  const { data, error } = await supabase
+    .from("teacher_files_admin_profiles")
+    .select("*")
+    .eq("device_id", deviceId)
+    .maybeSingle();
+  if (error) throw error;
+  return (data as AdminProfile | null) ?? null;
+}
+
+export async function touchAdminProfile(deviceId: string) {
+  const { error } = await supabase
+    .from("teacher_files_admin_profiles")
+    .update({ last_seen_at: new Date().toISOString() })
+    .eq("device_id", deviceId);
+  if (error) throw error;
+}
+
+export async function saveAdminProfile(name: string): Promise<AdminProfile> {
+  const deviceId = getOrCreateDeviceId();
+  const existing = await getAdminProfile(deviceId);
+  const now = new Date().toISOString();
+  if (existing) {
+    const { data, error } = await supabase
+      .from("teacher_files_admin_profiles")
+      .update({ name: name.trim(), last_seen_at: now })
+      .eq("device_id", deviceId)
+      .select("*")
+      .maybeSingle();
+    if (error) throw error;
+    return data as AdminProfile;
+  }
+  const { data, error } = await supabase
+    .from("teacher_files_admin_profiles")
+    .insert({ device_id: deviceId, name: name.trim(), last_seen_at: now })
+    .select("*")
+    .single();
+  if (error) throw error;
+  return data as AdminProfile;
+}
+
+export async function listAdminProfiles(): Promise<AdminProfile[]> {
+  const { data, error } = await supabase
+    .from("teacher_files_admin_profiles")
+    .select("*")
+    .order("created_at", { ascending: false });
+  if (error) throw error;
+  return (data ?? []) as AdminProfile[];
+}
+
 export const CONTENT_TYPES = ["file", "image", "link", "video"] as const;
 export type ContentType = (typeof CONTENT_TYPES)[number];
 

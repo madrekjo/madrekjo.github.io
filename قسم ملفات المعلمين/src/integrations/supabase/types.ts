@@ -32,6 +32,30 @@ export type Database = {
         };
         Relationships: [];
       };
+      teacher_files_admin_profiles: {
+        Row: {
+          created_at: string;
+          device_id: string;
+          id: string;
+          last_seen_at: string | null;
+          name: string;
+        };
+        Insert: {
+          created_at?: string;
+          device_id: string;
+          id?: string;
+          last_seen_at?: string | null;
+          name: string;
+        };
+        Update: {
+          created_at?: string;
+          device_id?: string;
+          id?: string;
+          last_seen_at?: string | null;
+          name?: string;
+        };
+        Relationships: [];
+      };
       teacher_files_settings: {
         Row: {
           admin_pin: string;

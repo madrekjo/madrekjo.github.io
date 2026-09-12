@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import type { Session } from "@supabase/supabase-js";
-import {
-  ADMIN_ACCESS_EMAIL as ADMIN_EMAIL,
-  ADMIN_ACCESS_PASSWORD as ADMIN_PASSWORD,
-} from "@/config/supabase-config";
 
 const ADMIN_SEEN_KEY = "madrekjo_tf_admin_seen";
 
-/* علّم أن هذا المتصفح دخل أدمن من قبل — يستخدم لتسجيل الدخول الصامت
- * عند انقطاع الجلسة (إنتهاء الصلاحية / عودة التبويب) دون طلب الرمز. */
+/* علّم أن هذا المتصفح دخل أدمن من قبل — يستخدم لاستعادة الدخول الصامت
+ * (بتسجيل مؤقت) عند انقطاع الجلسة دون طلب الرمز مرة أخرى. */
 export function markAdminSeen() {
   try {
     localStorage.setItem(ADMIN_SEEN_KEY, "1");
@@ -29,13 +25,8 @@ function wasAdminSeen() {
 }
 
 async function silentAdminRelogin() {
-  const creds = { email: ADMIN_EMAIL, password: ADMIN_PASSWORD };
-  const a = await supabase.auth.signInWithPassword(creds);
-  if (!a.error) return true;
-  const b = await supabase.auth.signUp(creds);
-  if (b.error && !b.data?.user) return false;
-  const c = await supabase.auth.signInWithPassword(creds);
-  return !c.error;
+  const { error } = await supabase.auth.signInAnonymously();
+  return !error;
 }
 
 export function useAuth() {

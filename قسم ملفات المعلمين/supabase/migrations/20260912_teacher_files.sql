@@ -321,3 +321,37 @@ end;
 $$;
 
 grant execute on function public.login_admin_by_code(text) to anon, authenticated;
+
+-- ========= 11. قائمة الإدارة (أسماء من يدخلون بالرمز) =========
+-- من يدخل الرمز 929292 يصير أدمن فوراً مهما كان، وعليه تعريف نفسه باسمه
+-- ليُعرف في «قائمة الإدارة». التعريف مقيد بجهاز/متصفح (device_id).
+create table if not exists public.teacher_files_admin_profiles (
+  id uuid primary key default gen_random_uuid(),
+  device_id text not null unique,
+  name text not null,
+  created_at timestamptz not null default now(),
+  last_seen_at timestamptz
+);
+
+alter table public.teacher_files_admin_profiles enable row level security;
+
+drop policy if exists "tf_admin_profiles_read" on public.teacher_files_admin_profiles;
+create policy "tf_admin_profiles_read"
+  on public.teacher_files_admin_profiles for select
+  to authenticated
+  using (public.has_role(auth.uid(), 'admin'));
+
+drop policy if exists "tf_admin_profiles_insert" on public.teacher_files_admin_profiles;
+create policy "tf_admin_profiles_insert"
+  on public.teacher_files_admin_profiles for insert
+  to authenticated
+  with check (public.has_role(auth.uid(), 'admin'));
+
+drop policy if exists "tf_admin_profiles_update" on public.teacher_files_admin_profiles;
+create policy "tf_admin_profiles_update"
+  on public.teacher_files_admin_profiles for update
+  to authenticated
+  using (public.has_role(auth.uid(), 'admin'))
+  with check (public.has_role(auth.uid(), 'admin'));
+
+grant select, insert, update on public.teacher_files_admin_profiles to authenticated;
