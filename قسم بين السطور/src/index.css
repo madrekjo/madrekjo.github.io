@@ -110,6 +110,7 @@ body {
   aspect-ratio: 10 / 14.5;
   margin: 0 auto;
   perspective: 2400px;
+  touch-action: pan-y;
 }
 
 .book3d .sheet {

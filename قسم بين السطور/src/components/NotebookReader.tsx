@@ -82,7 +82,7 @@ export default function NotebookReader({
       window.setTimeout(res, 720);
     });
 
-  const next = async () => {
+const next = async () => {
     if (busyRef.current || editingId != null) return;
     if (turned.size >= maxLeaf) {
       setTurned(new Set());
@@ -94,6 +94,12 @@ export default function NotebookReader({
     setLeaf((l) => l + 1);
     await wait();
     busyRef.current = false;
+  };
+
+  const restart = () => {
+    if (busyRef.current || editingId != null) return;
+    setTurned(new Set());
+    setLeaf(0);
   };
 
   const prev = async () => {
@@ -391,17 +397,6 @@ export default function NotebookReader({
               {isEditing && (
                 <div className="pointer-events-none absolute inset-0 z-[3200] rounded-lg ring-4 ring-gold/40 ring-offset-2 ring-offset-[#e9e0cb]" />
               )}
-              {!isEditing &&
-                (isEndCheck(turned, maxLeaf) && (
-                  <div
-                    className="absolute inset-0 z-[3200] grid place-items-center"
-                    onClick={() => void next()}
-                  >
-                    <p className="font-serif text-2xl font-bold text-ink/70">
-                      النهاية — اضغط لبدء الدفتر
-                    </p>
-                  </div>
-                ))}
             </div>
 
             <div className="mt-3 flex items-center justify-center gap-3">
@@ -414,9 +409,16 @@ export default function NotebookReader({
                 <ChevronLeft size={20} />
               </button>
               <span className="text-sm text-ink-soft">
-                {isEndCheck(turned, maxLeaf) && !isEditing
-                  ? "النهاية"
-                  : `صفحة ${leaf} من ${maxLeaf}`}
+                {isEndCheck(turned, maxLeaf) && !isEditing ? (
+                  <button
+                    onClick={restart}
+                    className="rounded-full border border-gold/40 bg-card px-3 py-1 text-xs font-bold text-gold-deep transition hover:bg-gold hover:text-white"
+                  >
+                    النهاية — اضغط لبدء الدفتر
+                  </button>
+                ) : (
+                  `صفحة ${leaf} من ${maxLeaf}`
+                )}
               </span>
               <button
                 onClick={() => void next()}
