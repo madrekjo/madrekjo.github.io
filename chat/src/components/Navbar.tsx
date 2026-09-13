@@ -13,7 +13,6 @@ import {
 import { MessageCircle, Sun, Moon, LogOut, User, Shield, Lightbulb, MessageSquare, Users, CalendarDays, Lock, EyeOff, Eye } from "lucide-react";
 import NotificationBell from "@/components/NotificationBell";
 import PointsBadge from "@/components/PointsBadge";
-import InviteDialog from "@/components/InviteDialog";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -189,7 +188,6 @@ const Navbar = () => {
             {themeIcon}
           </Button>
           {user && <PointsBadge />}
-          {user && <InviteDialog />}
           {user && <span data-tour="notifications"><NotificationBell /></span>}
 
           {user ? (
