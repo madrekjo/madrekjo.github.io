@@ -339,8 +339,29 @@ const Rounds = () => {
 
   const handleJoin = async (roundId: string) => {
     if (!user) return;
+    // لو كان عضواً بالفعل لا نكرر الإدراج (الجدول فيه قيد UNIQUE يرفض التكرار)
+    const { data: existing } = await (supabase as any)
+      .from("round_participants")
+      .select("user_id")
+      .eq("round_id", roundId)
+      .eq("user_id", user.id)
+      .maybeSingle();
+    if (existing) {
+      toast.success("أنت في الجولة بالفعل");
+      await fetchRoundsDetail(); fetchRounds(); void invalidateTable("round_participants");
+      return;
+    }
     const { error } = await (supabase as any).from("round_participants").insert({ round_id: roundId, user_id: user.id });
-    if (error) toast.error("فشل الانضمام"); else { toast.success("انضممت للجولة"); await fetchRoundsDetail(); fetchRounds(); void invalidateTable("round_participants"); }
+    if (error) {
+      const msg = String((error as any)?.message || error);
+      // مزامنة سباق نادرة: الصقها بين الفحص والإدراج — عالجها كنجاح
+      const isDuplicate = /duplicate key value violates unique constraint/i.test(msg);
+      if (isDuplicate) toast.success("انضممت للجولة");
+      else toast.error(`فشل الانضمام: ${msg}`);
+    } else {
+      toast.success("انضممت للجولة");
+    }
+    await fetchRoundsDetail(); fetchRounds(); void invalidateTable("round_participants");
   };
   const handleLeave = async (roundId: string) => {
     if (!user) return;

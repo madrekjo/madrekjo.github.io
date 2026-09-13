@@ -1,16 +1,10 @@
 -- ============================================================================
--- ★ إصلاح فشل "حذف نهائي" في إدارة المستخدمين ★
+-- ★ إصلاح خطأ: relation "public.round_chat" does not exist عند "حذف نهائي" ★
 -- شغّلها من: Supabase → SQL Editor → New Query → Paste → Run
 --
--- المشكلة: كانت admin_delete_user تحذف كل بيانات المستخدم ثم auth.users،
--- لكنها لا تحذف جدولي النقاط:
---   - user_points          (رصيد النقاط)
---   - point_transactions   (سجل حركات النقاط: خصم/مكافأة/استرجاع...)
--- فإذا كان للمستخدم أي حركة نقاط يرفض Postgres الحذف (FK violation)
--- وتظهر رسالة "فشل" من لوحة الإدارة.
---
--- الإصلاح: تُعاد كتابة الدالة لتشمل حذف هذين الجدولين (+ post_mentions
--- لأمان إضافي) قبل حذف auth.users.
+-- المشكلة: جدول round_chat حُذف نهائياً (migration 20260907000000)،
+-- لكن admin_delete_user ما زالت تحذف منه، فتتعطل عند حذف أي مستخدم.
+-- الإصلاح: إعادة تعريف الدالة بدون السطر الذي يشير لـ round_chat.
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION public.admin_delete_user(_user_id uuid)
@@ -46,7 +40,7 @@ BEGIN
     OR post_id IN (SELECT id FROM public.posts WHERE user_id = _user_id);
   DELETE FROM public.posts WHERE user_id = _user_id;
 
-  -- ملاحظة: round_chat حُذف نهائياً من القاعدة — لا داعي لحذفه هنا.
+  -- ملاحظة: سطر round_chat حذِف لأن الجدول لم يعد موجوداً.
   DELETE FROM public.round_completions WHERE user_id = _user_id;
   DELETE FROM public.round_participants WHERE user_id = _user_id;
   DELETE FROM public.round_meeting_messages WHERE user_id = _user_id;
