@@ -59,7 +59,8 @@ function renderSidebar() {
         if (type === 'iframe') attrs += ` data-url="${item.url}" data-title="${item.title || item.text}"`;
         else if (type === 'external') attrs += ` data-url="${item.url}"`;
         else if (type === 'action') attrs += ` data-action="${item.action}"`;
-        html += `<div class="sidebar-link" ${attrs}><span class="sidebar-link-icon">${item.icon}</span> ${item.text}</div>`;
+        const badge = item.badge ? ` <span class="sidebar-badge">${item.badge}</span>` : '';
+        html += `<div class="sidebar-link" ${attrs}><span class="sidebar-link-icon">${item.icon}</span><span class="sidebar-link-text">${item.text}</span>${badge}</div>`;
       }
     } else {
       html += `<div class="sidebar-empty">📌 سيتم إضافة المحتوى قريباً</div>`;
@@ -80,6 +81,7 @@ function setupSidebar() {
     else if (type === 'action') {
       const act = link.getAttribute('data-action');
       if (act === 'showChatDisabled') showChatDisabledModal();
+      else if (act === 'showTeacherFilesIntro') showTeacherFilesIntro();
       else if (act === 'copyEmail') copyEmail();
       else if (act === 'scrollToElectives') {
         const el = document.querySelector('.electives-grid');

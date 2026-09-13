@@ -10,10 +10,71 @@ import {
   Users,
   Heart,
   Search,
+  Play,
 } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { listPublishedTeachers } from "@/lib/teacher-files";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+const STORY_KEY = "madrekjo-tf-intro";
+
+function IntroGate({ onEnter }: { onEnter: () => void }) {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
+      <div className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-3xl border border-border bg-background p-6 shadow-2xl sm:p-8">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+          <GraduationCap className="h-7 w-7" />
+        </div>
+        <h2 className="mt-4 text-center text-2xl font-extrabold">
+          قصة «ملفات المعلمين»
+        </h2>
+        <p className="mt-1 text-center text-xs text-muted-foreground">
+          اقرأ قليلاً قبل الدخول — قصة هذا القسم في سطور
+        </p>
+
+        <div className="mt-5 space-y-4 text-sm leading-relaxed">
+          <div className="rounded-2xl border border-primary/15 bg-primary/5 p-4">
+            <h3 className="flex items-center gap-2 font-bold text-primary">
+              <BookOpenCheck className="h-4 w-4" /> ما هو هذا القسم؟
+            </h3>
+            <p className="mt-1.5 text-muted-foreground">
+              صفحة جمعنا فيها ملفات معلمي مدارك جو كلها في مكان واحد —
+              ملخصات، أوراق عمل، امتحانات، ومراجعات — وكل معلم له صفحته
+              الخاصة بكل ما يقدّمه لطلابه.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-border bg-card p-4">
+            <h3 className="flex items-center gap-2 font-bold">
+              <Heart className="h-4 w-4" /> لماذا أنشأناه؟
+            </h3>
+            <p className="mt-1.5 text-muted-foreground">
+              كانت الملفات تُرسل على الجروبات وتموت بين آلاف الرسائل، فيتعب
+              الطالب وينسى أين وجد ملزمة معلمه. هدفنا أن يجد كل طالب ملفات
+              معلمه هنا منظمة وقابلة للبحث والتحميل — مجاناً وبلا تسجيل.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-border bg-card p-4">
+            <h3 className="flex items-center gap-2 font-bold">
+              <Users className="h-4 w-4" /> الحكاية
+            </h3>
+            <p className="mt-1.5 text-muted-foreground">
+              انطلق القسم لطلاب مدارك جو أولاً، ثم كبرت الفكرة حتى صارت
+              بيتاً رقمياً لكل ملف يقدّمه المعلم — يكبر معك أسبوعاً بأسبوع،
+              وكل ما ينشره معلمك يظهر هنا مباشرة.
+            </p>
+          </div>
+        </div>
+
+        <button
+          onClick={onEnter}
+          className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3 text-sm font-bold text-primary-foreground shadow-lg transition hover:brightness-110"
+        >
+          <Play className="h-4 w-4" /> فهمت، ادخل القسم
+        </button>
+      </div>
+    </div>
+  );
+}
 
 type TeacherCard = Awaited<ReturnType<typeof listPublishedTeachers>>[number];
 
@@ -88,6 +149,16 @@ const FEATURES = [
 function PublicHome() {
   const [teachers, setTeachers] = useState<TeacherCard[] | null>(null);
   const [q, setQ] = useState("");
+  const [introOpen, setIntroOpen] = useState(
+    typeof sessionStorage !== "undefined" && !sessionStorage.getItem(STORY_KEY),
+  );
+
+  const closeIntro = () => {
+    try {
+      sessionStorage.setItem(STORY_KEY, "1");
+    } catch {}
+    setIntroOpen(false);
+  };
 
   useEffect(() => {
     let active = true;
@@ -118,6 +189,7 @@ function PublicHome() {
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader showAdminLink />
+      {introOpen && <IntroGate onEnter={closeIntro} />}
       <main className="mx-auto max-w-4xl px-4 py-8">
         <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[oklch(0.42_0.07_225)] via-[oklch(0.47_0.05_220)] to-[oklch(0.55_0.04_200)] p-8 text-white shadow-lg">
           <div className="pointer-events-none absolute -left-10 -top-16 h-48 w-48 rounded-full bg-white/10 blur-2xl" />
