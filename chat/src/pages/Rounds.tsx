@@ -47,6 +47,34 @@ const fmt = (s: number) => {
   return `${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
 };
 
+const computeTimer = (r: Round, now: number) => {
+  let remainingSec = 0;
+  let inBreak = false;
+  let breakRemaining = 0;
+  let timerLabel = "الوقت المتبقي";
+  if (r.status === "active" && r.started_at) {
+    const elapsed = Math.floor((now - new Date(r.started_at).getTime()) / 1000);
+    const total = r.duration_minutes * 60;
+    const totalRemaining = Math.max(0, total - elapsed);
+    if (r.break_enabled && r.break_interval_minutes && r.break_duration_minutes) {
+      const interval = r.break_interval_minutes * 60;
+      const breakDur = r.break_duration_minutes * 60;
+      const sinceBreak = elapsed % interval;
+      if (elapsed >= interval && sinceBreak < breakDur) {
+        inBreak = true;
+        breakRemaining = breakDur - sinceBreak;
+      } else {
+        const toNextBreak = interval - sinceBreak;
+        remainingSec = Math.min(toNextBreak, totalRemaining);
+        timerLabel = "الوقت حتى البريك التالي";
+      }
+    } else {
+      remainingSec = totalRemaining;
+    }
+  }
+  return { remainingSec, inBreak, breakRemaining, timerLabel };
+};
+
 const Rounds = () => {
   const { user, isAdmin, isModerator, isRoundsManager } = useAuth();
   const { rewardRound, lastRewardedRoundAt, refreshPoints } = usePoints();
@@ -58,6 +86,7 @@ const Rounds = () => {
   const [helpOpen, setHelpOpen] = useState(false);
   const [viewingRound, setViewingRound] = useState<Round | null>(null);
   const [editingRound, setEditingRound] = useState<Round | null>(null);
+  const [sessionRound, setSessionRound] = useState<Round | null>(null);
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -337,31 +366,37 @@ const Rounds = () => {
     if (error) toast.error("فشل البدء"); else { toast.success("بدأت الجولة"); fetchRounds(); void invalidateTable("study_rounds"); }
   };
 
-  const handleJoin = async (roundId: string) => {
+  const joinAndEnter = async (r: Round) => {
     if (!user) return;
-    // لو كان عضواً بالفعل لا نكرر الإدراج (الجدول فيه قيد UNIQUE يرفض التكرار)
-    const { data: existing } = await (supabase as any)
-      .from("round_participants")
-      .select("user_id")
-      .eq("round_id", roundId)
-      .eq("user_id", user.id)
-      .maybeSingle();
-    if (existing) {
-      toast.success("أنت في الجولة بالفعل");
+    let joined = !!r.participants.find(p => p.user_id === user.id);
+    if (!joined) {
+      const { data: existing } = await (supabase as any)
+        .from("round_participants")
+        .select("user_id")
+        .eq("round_id", r.id)
+        .eq("user_id", user.id)
+        .maybeSingle();
+      if (!existing) {
+        const { error } = await (supabase as any).from("round_participants").insert({ round_id: r.id, user_id: user.id });
+        if (error) {
+          const msg = String((error as any)?.message || error);
+          if (!/duplicate key value violates unique constraint/i.test(msg)) {
+            toast.error(`فشل الانضمام: ${msg}`);
+            return;
+          }
+          joined = true;
+        } else {
+          joined = true;
+          toast.success("انضممت للجولة");
+        }
+      } else {
+        joined = true;
+      }
       await fetchRoundsDetail(); fetchRounds(); void invalidateTable("round_participants");
-      return;
-    }
-    const { error } = await (supabase as any).from("round_participants").insert({ round_id: roundId, user_id: user.id });
-    if (error) {
-      const msg = String((error as any)?.message || error);
-      // مزامنة سباق نادرة: الصقها بين الفحص والإدراج — عالجها كنجاح
-      const isDuplicate = /duplicate key value violates unique constraint/i.test(msg);
-      if (isDuplicate) toast.success("انضممت للجولة");
-      else toast.error(`فشل الانضمام: ${msg}`);
     } else {
-      toast.success("انضممت للجولة");
+      await fetchRoundsDetail(); fetchRounds(); void invalidateTable("round_participants");
     }
-    await fetchRoundsDetail(); fetchRounds(); void invalidateTable("round_participants");
+    if (joined) setSessionRound(r);
   };
   const handleLeave = async (roundId: string) => {
     if (!user) return;
@@ -406,39 +441,13 @@ const Rounds = () => {
   const myMeetings = meetings;
 
   const renderCard = (r: Round) => {
-    const joined = !!r.participants.find(p => p.user_id === user?.id);
     const isOwner = r.user_id === user?.id;
     const canDelete = isOwner || isStaff;
     const canStart = isOwner && r.status === "pending";
     const canEdit = isOwner;
     const canKick = isStaff;
 
-    let remainingSec = 0;
-    let inBreak = false;
-    let breakRemaining = 0;
-    let timerLabel = "الوقت المتبقي";
-    if (r.status === "active" && r.started_at) {
-      const elapsed = Math.floor((now - new Date(r.started_at).getTime()) / 1000);
-      const total = r.duration_minutes * 60;
-      const totalRemaining = Math.max(0, total - elapsed);
-
-      if (r.break_enabled && r.break_interval_minutes && r.break_duration_minutes) {
-        const interval = r.break_interval_minutes * 60;
-        const breakDur = r.break_duration_minutes * 60;
-        const sinceBreak = elapsed % interval;
-        if (elapsed >= interval && sinceBreak < breakDur) {
-          inBreak = true;
-          breakRemaining = breakDur - sinceBreak;
-        } else {
-          // countdown to next break, capped by total remaining
-          const toNextBreak = interval - sinceBreak;
-          remainingSec = Math.min(toNextBreak, totalRemaining);
-          timerLabel = "الوقت حتى البريك التالي";
-        }
-      } else {
-        remainingSec = totalRemaining;
-      }
-    }
+    const { remainingSec, inBreak, breakRemaining, timerLabel } = computeTimer(r, now);
     const isRinging = ringingFor.current.has(r.id);
 
     return (
@@ -524,15 +533,11 @@ const Rounds = () => {
                   <Play className="w-3 h-3" /> بدء
                 </Button>
               )}
-              {r.status !== "completed" && (joined ? (
-                <Button size="sm" variant="outline" onClick={() => handleLeave(r.id)} className="gap-1">
-                  <LogOutIcon className="w-3 h-3" /> خروج
-                </Button>
-              ) : (
-                <Button size="sm" onClick={() => handleJoin(r.id)} className="gap-1">
+              {r.status !== "completed" && (
+                <Button size="sm" onClick={() => joinAndEnter(r)} className="gap-1">
                   <LogIn className="w-3 h-3" /> دخول
                 </Button>
-              ))}
+              )}
             </div>
           </div>
         </CardContent>
@@ -638,6 +643,86 @@ const Rounds = () => {
           ) : <div className="space-y-3">{completed.map(renderCard)}</div>}
         </TabsContent>
       </Tabs>
+
+      {/* دخول الجولة: شاشة تركيز داخل الجولة */}
+      <Dialog open={!!sessionRound} onOpenChange={o => !o && setSessionRound(null)}>
+        <DialogContent className="max-h-[92vh] overflow-y-auto">
+          {sessionRound && (() => {
+            const t = computeTimer(sessionRound, now);
+            const isOwnerHere = sessionRound.user_id === user?.id;
+            const isMemberHere = sessionRound.participants.find(p => p.user_id === user?.id);
+            return (
+              <>
+                <DialogHeader className="text-center">
+                  <DialogTitle className="text-xl">🎯 داخل الجولة</DialogTitle>
+                  <p className="text-base font-bold text-primary">{sessionRound.title}</p>
+                  {sessionRound.description && <p className="text-sm text-muted-foreground">{sessionRound.description}</p>}
+                </DialogHeader>
+
+                {sessionRound.status === "pending" ? (
+                  <div className="rounded-xl border p-6 text-center bg-muted/40">
+                    <p className="text-sm text-muted-foreground mb-2">بانتظار بدء الجولة</p>
+                    <p className="text-3xl font-bold">🎬</p>
+                    {isOwnerHere && (
+                      <Button className="mt-3 gap-1" onClick={() => { handleStart(sessionRound); }}>
+                        <Play className="w-4 h-4" /> بدء الجولة الآن
+                      </Button>
+                    )}
+                  </div>
+                ) : (
+                  <div className={`rounded-xl p-6 text-center ${t.inBreak ? "bg-amber-500/10 border border-amber-500/30" : "bg-primary/10 border border-primary/30"}`}>
+                    <p className="text-xs text-primary font-medium mb-2">{t.inBreak ? "☕ استراحة" : t.timerLabel}</p>
+                    <p className={`text-6xl font-bold tabular-nums ${t.inBreak ? "text-amber-600 dark:text-amber-400" : "text-primary"}`}>
+                      {fmt(t.inBreak ? t.breakRemaining : t.remainingSec)}
+                    </p>
+                    {sessionRound.break_enabled && (
+                      <p className="text-xs text-muted-foreground mt-2">
+                        بريك كل {sessionRound.break_interval_minutes} دقيقة لمدة {sessionRound.break_duration_minutes} دقائق
+                      </p>
+                    )}
+                  </div>
+                )}
+
+                <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground justify-center">
+                  <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {sessionRound.duration_minutes} دقيقة</span>
+                  <span className="flex items-center gap-1"><Users className="w-3 h-3" /> {sessionRound.participants.length} مشارك</span>
+                </div>
+
+                <div className="space-y-1.5 max-h-[28vh] overflow-y-auto">
+                  <p className="text-xs font-medium text-muted-foreground">المشاركون:</p>
+                  {sessionRound.participants.length === 0 ? (
+                    <p className="text-sm text-muted-foreground text-center py-2">لا يوجد مشاركون بعد</p>
+                  ) : (
+                    <div className="flex flex-wrap gap-2">
+                      {sessionRound.participants.map(p => (
+                        <span key={p.user_id} className="inline-flex items-center gap-1.5 bg-muted rounded-full px-3 py-1 text-xs">
+                          <Avatar className="w-5 h-5">
+                            <AvatarImage src={p.profile?.avatar_url || ""} />
+                            <AvatarFallback>{p.profile?.full_name?.charAt(0) || "م"}</AvatarFallback>
+                          </Avatar>
+                          {p.profile?.full_name || "مستخدم"}
+                          {p.user_id === sessionRound.user_id && <span className="text-[10px] text-primary">(المالك)</span>}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <DialogFooter className="gap-2 sm:justify-center">
+                  <Button variant="outline" onClick={() => setSessionRound(null)} className="gap-1">
+                    <LogOutIcon className="w-3 h-3" /> العودة للجولات
+                  </Button>
+                  {(isOwnerHere || isMemberHere) && (
+                    <Button variant="destructive" onClick={async () => { await handleLeave(sessionRound.id); setSessionRound(null); }} className="gap-1">
+                      <LogOutIcon className="w-3 h-3" /> الخروج من الجولة
+                    </Button>
+                  )}
+                </DialogFooter>
+              </>
+            );
+          })()}
+        </DialogContent>
+      </Dialog>
 
       {/* Participants viewer */}
       <Dialog open={!!viewingRound} onOpenChange={o => !o && setViewingRound(null)}>
