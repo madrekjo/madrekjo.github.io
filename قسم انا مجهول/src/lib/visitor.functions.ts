@@ -1,5 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
-import { deviceFingerprint } from "@/lib/fingerprint";
+import { deviceFingerprintParts } from "@/lib/fingerprint";
 
 async function sha256Hex(input: string): Promise<string> {
   try {
@@ -43,15 +43,11 @@ async function networkIpHash(): Promise<string | null> {
   }
 }
 
-async function visitorIpHash(): Promise<string> {
-  const net = await networkIpHash();
-  if (net) return net;
-  return deviceFingerprint();
-}
-
 /**
- * Records the visitor's device fingerprint (device_id + hashed UA) and returns
- * whether the device is banned. Runs fully client-side against Supabase RPC.
+ * Records the visitor's full device fingerprint (IP + UA + بصمات الجهاز
+ * المستقلة مثل canvas/webgl/audio/fonts) and returns whether this device is
+ * banned — حتى لو غيّر المحظور معرف جهازه أو مسح التخزين أو استخدم
+ * وضع التصفح المتخفي، تبقى بصمات الجهاز نفسها فتُحظر تلقائياً.
  */
 export async function checkVisitor({ data }: { data: { device_id: string } }) {
   if (
@@ -62,11 +58,18 @@ export async function checkVisitor({ data }: { data: { device_id: string } }) {
   ) {
     throw new Error("invalid device");
   }
-  const [uaHash, ipHash] = await Promise.all([userAgentHash(), visitorIpHash()]);
+  const [uaHash, ipHash, parts] = await Promise.all([userAgentHash(), networkIpHash(), deviceFingerprintParts()]);
+  const sig = (type: string) => parts.find((p) => p.type === type)?.value ?? null;
   const { data: result, error } = await (supabase.rpc as any)("record_visitor_fingerprint", {
     p_device_id: data.device_id,
     p_ip_hash: ipHash,
     p_ua_hash: uaHash,
+    p_canvas_hash: sig("canvas"),
+    p_webgl_hash: sig("webgl"),
+    p_audio_hash: sig("audio"),
+    p_fonts_hash: sig("fonts"),
+    p_screen_hash: sig("screen"),
+    p_fp_hash: sig("fp"),
   });
   if (error) {
     return {

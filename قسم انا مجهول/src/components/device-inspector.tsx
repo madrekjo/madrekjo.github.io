@@ -22,6 +22,7 @@ type Dossier = {
   chat_comment_count: number;
   recent_posts: { id: string; content: string; created_at: string; status: string }[];
   recent_comments: { id: string; post_id: string; content: string; created_at: string }[];
+  sigs: { type: string; value: string; last_seen: string }[] | null;
 };
 
 function fmtDuration(sec: number) {
@@ -136,6 +137,23 @@ export function DeviceInspector({ deviceId, open, onOpenChange }: { deviceId: st
               <div>شات-منشور: <b>{data.chat_post_count}</b></div>
               <div>شات-تعليق: <b>{data.chat_comment_count}</b></div>
             </div>
+
+            {(data.sigs?.length ?? 0) > 0 && (
+              <div>
+                <div className="mb-1 text-xs font-semibold">بصمات الجهاز</div>
+                <div className="space-y-1">
+                  {data.sigs!.map((s) => (
+                    <div key={`${s.type}-${s.value}`} className="flex items-center justify-between gap-2 rounded border border-border bg-card p-2 text-[11px]">
+                      <div className="flex-1">
+                        <div dir="ltr" className="font-mono break-all">{s.value}</div>
+                        <div className="mt-0.5 text-[10px] text-muted-foreground">آخر ظهور: {timeAgo(s.last_seen)}</div>
+                      </div>
+                      <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] text-muted-foreground" dir="ltr">{s.type}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {data.recent_posts.length > 0 && (
               <div>
