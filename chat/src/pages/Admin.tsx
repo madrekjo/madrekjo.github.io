@@ -203,11 +203,20 @@ const Admin = () => {
     if (deleteConfirm !== "حذف") { toast.error("اكتب كلمة 'حذف' بالضبط للتأكيد"); return; }
     const ids = Array.from(selectedIds);
     let ok = 0, fail = 0;
+    let firstErr: string | null = null;
     for (const uid of ids) {
       const { error } = await (supabase as any).rpc("admin_delete_user", { _user_id: uid });
-      if (error) fail++; else { ok++; logAction("delete_user", uid, ""); }
+      if (error) {
+        fail++;
+        if (!firstErr) firstErr = error.message || error.details || String(error);
+        console.error("[Admin] delete_user failed", uid, error);
+      } else { ok++; logAction("delete_user", uid, ""); }
     }
-    toast.success(`حُذف ${ok} مستخدم${fail ? ` — فشل ${fail}` : ""}`);
+    if (fail > 0 && firstErr) {
+      toast.error(`فشل حذف ${fail} مستخدم: ${firstErr}`);
+    } else {
+      toast.success(`حُذف ${ok} مستخدم${fail ? ` — فشل ${fail}` : ""}`);
+    }
     setSelectedIds(new Set()); setDeleteStep(0); setDeleteConfirm("");
     fetchUsers();
     void invalidateTable("profiles");
