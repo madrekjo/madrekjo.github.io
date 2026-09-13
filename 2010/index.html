@@ -86,13 +86,13 @@
 function enc(s) { return encodeURIComponent(s); }
 const YEAR = document.body.dataset.year || '2010';
 const SHARED = [
+  { icon: '📂', text: 'ملفات المعلمين', url: '/teacher-files/', type: 'iframe', title: 'ملفات المعلمين', badge: 'جديد' },
   { icon: '💬', text: 'الدردشة الدراسية', url: '/chat/', type: 'iframe', title: 'الدردشة الدراسية' },
   { icon: '🏆', text: 'الإنجاز', url: '/achievement/', type: 'iframe', title: 'الإنجاز' },
   { icon: '🕵️', text: 'أنا مجهول', url: '../anon/', type: 'iframe', title: 'أنا مجهول' },
   { icon: '📖', text: 'تلاوات', url: '/talaawat#recitations', type: 'iframe', title: 'تلاوات' },
   { icon: '🌙', text: 'أجر وثواب', url: '../ajr.html', type: 'iframe', title: 'أجر وثواب' },
 { icon: '🃏', text: 'بين السطور', url: '/sutur/?v=21', type: 'iframe', title: 'بين السطور' },
-  { icon: '📂', text: 'ملفات المعلمين', url: '/teacher-files/', type: 'iframe', title: 'ملفات المعلمين', badge: 'جديد' },
   { icon: '✍️', text: 'اكتب سؤالك', url: '/ask/?v=1', type: 'iframe', title: 'اكتب سؤالك', badge: 'جديد' },
 ];
 window.SIDEBAR_LINKS = [
