@@ -326,7 +326,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
     return (
       <button
         onClick={() => handleCommentLike(commentId)}
-        className={`flex items-center gap-1 text-xs transition-colors ${cl.liked ? "text-destructive" : "text-muted-foreground hover:text-destructive"}`}
+        className={`flex items-center gap-1 text-xs transition-colors touch-manipulation select-none ${cl.liked ? "text-destructive" : "text-muted-foreground hover:text-destructive"}`}
       >
         <Heart className={`w-3.5 h-3.5 ${cl.liked ? "fill-current" : ""}`} />
         {cl.count > 0 && <span>{cl.count}</span>}
@@ -444,7 +444,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
           <div className="flex items-center gap-2">
             <button
               onClick={() => setReactionsOpen(o => !o)}
-              className={`flex items-center gap-1 text-sm transition-colors ${myReaction ? "text-primary" : "text-muted-foreground hover:text-primary"}`}
+              className={`flex items-center gap-1 text-sm transition-colors touch-manipulation select-none ${myReaction ? "text-primary" : "text-muted-foreground hover:text-primary"}`}
               title="تفاعل مع المنشور"
             >
               {myReaction ? (
@@ -486,7 +486,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
                   <button
                     key={r.key}
                     onClick={() => { void handleReact(r.key); setReactionsOpen(false); }}
-                    className={`text-2xl leading-none transition-transform hover:scale-125 ${myReaction === r.key ? "ring-2 ring-primary/50 rounded-full" : ""}`}
+                    className={`text-2xl leading-none transition-transform active:scale-125 touch-manipulation select-none ${myReaction === r.key ? "ring-2 ring-primary/50 rounded-full" : ""}`}
                     title={r.label}
                   >
                     {r.emoji}
