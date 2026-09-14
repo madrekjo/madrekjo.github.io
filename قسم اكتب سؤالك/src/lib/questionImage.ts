@@ -9,7 +9,6 @@ const INNER_W = INNER_R - INNER_L;
 const GOLD = "#c9a227";
 const GOLD_DEEP = "#a67c00";
 const INK = "#33291d";
-const SOFT = "#7a6a51";
 const LINE = "#e7dcc0";
 
 async function waitFont(name: string): Promise<void> {
@@ -160,7 +159,7 @@ export async function renderQuestionImage(q: Question): Promise<Blob> {
     imgH = image.height * ratio;
   }
 
-  const HEADER_H = 378;
+  const HEADER_H = 320;
   const OPTIONS_H = optRowH + optGap * 2 + optRowH2;
   const BOTTOM_H = 300;
   const TAIL_GAP = 16;
@@ -207,37 +206,13 @@ export async function renderQuestionImage(q: Question): Promise<Blob> {
     ctx.stroke();
   }
 
-  // شعار المنصة في الزاوية العلوية
-  const logo = "🎓 مدارك جو";
-  ctx.font = "700 30px Tajawal, sans-serif";
-  const lw = ctx.measureText(logo).width + 56;
-  const lh = 58;
-  const lx = M + 18;
-  const ly = M + 18;
-  ctx.fillStyle = "#f5e9c8";
-  roundedRect(ctx, lx, ly, lw, lh, lh / 2);
-  ctx.fill();
-  ctx.strokeStyle = GOLD;
-  ctx.lineWidth = 2.5;
-  roundedRect(ctx, lx, ly, lw, lh, lh / 2);
-  ctx.stroke();
-  ctx.fillStyle = GOLD_DEEP;
-  ctx.textAlign = "left";
-  ctx.textBaseline = "middle";
-  ctx.fillText(logo, lx + 28, ly + lh / 2 + 2);
-  ctx.textBaseline = "alphabetic";
-
   ctx.textAlign = "center";
   let y = 118;
 
-  // الهيدر
+  // الهيدر — مدارك جو فقط في رأس الصفحة
   ctx.fillStyle = GOLD_DEEP;
-  ctx.font = "700 30px Tajawal, sans-serif";
+  ctx.font = "700 72px Amiri, serif";
   ctx.fillText("🎓 مدارك جو", W / 2, y);
-
-  ctx.fillStyle = INK;
-  ctx.font = "700 66px Amiri, serif";
-  ctx.fillText("اكتب سؤالك", W / 2, y + 92);
 
   // شارة الحقل والمادة
   const badge = `${q.field} · ${q.subject}`;
@@ -245,7 +220,7 @@ export async function renderQuestionImage(q: Question): Promise<Blob> {
   const bw = ctx.measureText(badge).width + 64;
   const bh = 50;
   const bx = W / 2 - bw / 2;
-  const by = y + 148;
+  const by = y + 108;
   ctx.fillStyle = "#f5e9c8";
   roundedRect(ctx, bx, by, bw, bh, bh / 2);
   ctx.fill();
@@ -380,23 +355,17 @@ export async function renderQuestionImage(q: Question): Promise<Blob> {
   ctx.moveTo(W / 2 - 180, y);
   ctx.lineTo(W / 2 + 180, y);
   ctx.stroke();
-  y += 54;
+  y += 46;
 
+  // اسم الكاتب — سطر صغير فوق اسم القسم
   ctx.fillStyle = GOLD_DEEP;
-  ctx.font = "700 40px Tajawal, sans-serif";
-  ctx.fillText(`سؤال من: ${q.author}`, W / 2, y);
-  ctx.fillStyle = SOFT;
-  ctx.font = "500 30px Tajawal, sans-serif";
-  ctx.fillText(`❤️ ${q.likes} لايك · 💬 ${q.reactions} تفاعل`, W / 2, y + 52);
+  ctx.font = "700 30px Tajawal, sans-serif";
+  ctx.fillText(`✍️ ${q.author}`, W / 2, y);
 
-  // الفوتر
-  y = H - 150;
-  ctx.fillStyle = GOLD_DEEP;
-  ctx.font = "800 46px Tajawal, sans-serif";
-  ctx.fillText("🎓 مدارك جو · اكتب سؤالك", W / 2, y);
-  ctx.fillStyle = SOFT;
-  ctx.font = "400 28px Tajawal, sans-serif";
-  ctx.fillText("madrekjo.com — بطاقة سؤال تستاهل تشاركها", W / 2, y + 46);
+  // اسم القسم — في مؤخرة الصفحة
+  ctx.fillStyle = INK;
+  ctx.font = "700 66px Amiri, serif";
+  ctx.fillText("اكتب سؤالك", W / 2, y + 96);
 
   return await new Promise<Blob>((resolve, reject) => {
     canvas.toBlob(
