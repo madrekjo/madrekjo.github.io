@@ -137,7 +137,7 @@ body::before {
     <div>بعض المواقع تمنع عرضها داخل صفحات أخرى لأسباب أمنية.<br>يمكنك فتحه في تبويب جديد بدلاً من ذلك.</div>
     <button onclick="openInNewTabFromError()">↗ فتح في تبويب جديد</button>
   </div>
-  <iframe id="mainIframe" sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-modals" allow="fullscreen"></iframe>
+  <iframe id="mainIframe" sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-modals allow-downloads" allow="fullscreen; downloads"></iframe>
 </div>
 <a href="https://www.instagram.com/madrekjo/" target="_blank" class="ig-floating" aria-label="Instagram">
   <img src="../assets/icons/instagram.png" class="ig-icon" width="38" height="38" alt="Instagram">
@@ -164,7 +164,7 @@ const SHARED = [
   { icon: '🕵️', text: 'أنا مجهول', url: '../anon/', type: 'iframe', title: 'أنا مجهول' },
   { icon: '📖', text: 'تلاوات', url: '/talaawat#recitations', type: 'iframe', title: 'تلاوات' },
   { icon: '🌙', text: 'أجر وثواب', url: '../ajr.html', type: 'iframe', title: 'أجر وثواب' },
-{ icon: '🃏', text: 'بين السطور', url: '/sutur/?v=23', type: 'iframe', title: 'بين السطور' },
+{ icon: '🃏', text: 'بين السطور', url: '/sutur/?v=24', type: 'iframe', title: 'بين السطور' },
   { icon: '✍️', text: 'اكتب سؤالك', url: '/ask/?v=2', type: 'iframe', title: 'اكتب سؤالك', badge: 'جديد' },
 ];
 

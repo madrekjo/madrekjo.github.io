@@ -164,7 +164,13 @@ const next = async () => {
     if (savingRef.current || editingId === null) return;
     const content = draft.trim();
     if (!content) {
-      if (editingId !== NEW_LOCAL_ID) setEditingId(null);
+      if (editingId === NEW_LOCAL_ID) return;
+      const page = displayed.find((d) => d.id === editingId);
+      if (page) {
+        askDelete(page);
+        return;
+      }
+      setEditingId(null);
       return;
     }
     savingRef.current = true;
