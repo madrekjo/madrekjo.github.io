@@ -49,6 +49,7 @@ interface AuthContextType {
   isModerator: boolean;
   isSupervisor: boolean;
   isRoundsManager: boolean;
+  isOwner: boolean;
   isStaff: boolean;
   hasPermission: (perm: Permission) => boolean;
   loading: boolean;
@@ -711,8 +712,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const isModerator = roles.includes("moderator");
   const isSupervisor = roles.includes("supervisor");
   const isRoundsManager = roles.includes("rounds_manager");
+  const isOwner = roles.includes("owner");
 
   const isStaff =
+    isOwner ||
     isAdmin ||
     isModerator ||
     isSupervisor;
@@ -720,7 +723,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const hasPermission = (
     perm: Permission
   ): boolean => {
-    if (isAdmin) return true;
+    if (isAdmin || isOwner) return true;
 
     return roles.some(
       (role) => permMatrix[role]?.[perm] === true
@@ -738,6 +741,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         isModerator,
         isSupervisor,
         isRoundsManager,
+        isOwner,
         isStaff,
         hasPermission,
         loading,

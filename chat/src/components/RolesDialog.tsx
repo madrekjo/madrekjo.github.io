@@ -7,13 +7,14 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
-import { Shield, ShieldCheck, UserCog, Users } from "lucide-react";
+import { Shield, ShieldCheck, UserCog, Users, Crown } from "lucide-react";
 
-const ROLE_DEFS: { key: string; label: string; description: string; icon: any; adminOnly?: boolean }[] = [
+const ROLE_DEFS: { key: string; label: string; description: string; icon: any; adminOnly?: boolean; ownerOnly?: boolean }[] = [
   { key: "moderator", label: "مشرف", description: "صلاحيات إشرافية قابلة للتحكم من صفحة الصلاحيات", icon: ShieldCheck },
   { key: "supervisor", label: "مسؤول", description: "رتبة إدارية أخف من المشرف — صلاحياتها من صفحة الصلاحيات", icon: UserCog },
   { key: "rounds_manager", label: "مسؤول جولات", description: "يقدر ينشئ جولات دراسية جديدة", icon: Users },
   { key: "admin", label: "أدمن", description: "صلاحية كاملة — استخدمها بحذر", icon: Shield, adminOnly: true },
+  { key: "owner", label: "المالك", description: "أعلى رتبة — مطلق الصلاحيات وتحصين من الحظر", icon: Crown, ownerOnly: true },
 ];
 
 interface Props {
@@ -25,7 +26,7 @@ interface Props {
 }
 
 const RolesDialog = ({ userId, userName, open, onOpenChange, onChanged }: Props) => {
-  const { isAdmin } = useAuth();
+  const { isAdmin, isOwner } = useAuth();
   const [current, setCurrent] = useState<string[]>([]);
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [saving, setSaving] = useState(false);
@@ -77,7 +78,7 @@ const RolesDialog = ({ userId, userName, open, onOpenChange, onChanged }: Props)
       <DialogContent className="max-w-sm">
         <DialogHeader><DialogTitle>الرتب — {userName || ""}</DialogTitle></DialogHeader>
         <div className="space-y-2">
-          {ROLE_DEFS.filter(r => !r.adminOnly || isAdmin).map(r => {
+          {ROLE_DEFS.filter(r => (!r.adminOnly || isOwner) && (!r.ownerOnly || isOwner)).map(r => {
             const Icon = r.icon;
             return (
               <label key={r.key} className="flex items-start gap-3 p-3 rounded-lg border hover:bg-muted/50 cursor-pointer">

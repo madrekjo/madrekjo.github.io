@@ -42,7 +42,7 @@ interface UserRole {
 type Tab = "stats" | "users" | "staff" | "banned" | "reports" | "words" | "deleted" | "sections" | "permissions" | "audit" | "pending" | "codes";
 
 const Admin = () => {
-  const { isAdmin, isModerator, isSupervisor, hasPermission, user } = useAuth();
+  const { isAdmin, isModerator, isSupervisor, isOwner, hasPermission, user } = useAuth();
   const [users, setUsers] = useState<UserProfile[]>([]);
   const [userRoles, setUserRoles] = useState<UserRole[]>([]);
   const [bannedWords, setBannedWords] = useState<{ id: string; word: string }[]>([]);
@@ -303,7 +303,7 @@ const Admin = () => {
   };
 
   const userRolesFor = (uid: string) => userRoles.filter(r => r.user_id === uid).map(r => r.role);
-  const hasAnyStaffRole = (uid: string) => userRolesFor(uid).some(r => ["admin", "moderator", "supervisor"].includes(r));
+  const hasAnyStaffRole = (uid: string) => userRolesFor(uid).some(r => ["admin", "moderator", "supervisor", "owner"].includes(r));
 
   const handleRenameUser = async () => {
     if (!renameUserId || !newName.trim()) return;
@@ -371,7 +371,7 @@ const Admin = () => {
   const totalUsers = users.length;
   const bannedUsers = users.filter(u => u.is_banned).length;
   const activeUsers = totalUsers - bannedUsers;
-  const staffCount = userRoles.filter(r => ["admin", "moderator", "supervisor"].includes(r.role)).length;
+  const staffCount = userRoles.filter(r => ["admin", "moderator", "supervisor", "owner"].includes(r.role)).length;
 
   const displayedUsers = users.filter(u => {
     if (hasAnyStaffRole(u.user_id)) return false;
@@ -386,7 +386,7 @@ const Admin = () => {
     <div className="container mx-auto px-4 py-6 max-w-6xl">
       <div className="flex items-center gap-2 mb-6">
         <Shield className="w-6 h-6 text-primary" />
-        <h1 className="text-2xl font-bold">{isAdmin ? "لوحة الإدارة" : isModerator ? "لوحة المشرف" : "لوحة المسؤول"}</h1>
+        <h1 className="text-2xl font-bold">{isOwner ? "لوحة المالك 👑" : isAdmin ? "لوحة الإدارة" : isModerator ? "لوحة المشرف" : "لوحة المسؤول"}</h1>
       </div>
 
       <Link to="/staff-meeting" className="block mb-4">
@@ -410,7 +410,7 @@ const Admin = () => {
             )}
           </Button>
         )}
-        {isAdmin && <Button variant={tab === "permissions" ? "default" : "outline"} onClick={() => setTab("permissions")} className="gap-1"><Key className="w-4 h-4" /> الصلاحيات</Button>}
+        {isOwner && <Button variant={tab === "permissions" ? "default" : "outline"} onClick={() => setTab("permissions")} className="gap-1"><Key className="w-4 h-4" /> الصلاحيات</Button>}
         {isAdmin && <Button variant={tab === "codes" ? "default" : "outline"} onClick={() => setTab("codes")} className="gap-1"><KeyRound className="w-4 h-4" /> أكواد الدخول</Button>}
         {(canManageWords || isAdmin) && <Button variant={tab === "words" ? "default" : "outline"} onClick={() => setTab("words")} className="gap-1"><MessageCircle className="w-4 h-4" /> الكلمات المحظورة</Button>}
         {isAdmin && <Button variant={tab === "deleted" ? "default" : "outline"} onClick={() => setTab("deleted")} className="gap-1"><Archive className="w-4 h-4" /> المحذوفات</Button>}
@@ -450,7 +450,7 @@ const Admin = () => {
               ))}
             </div>
           </div>
-          {isAdmin && selectedIds.size > 0 && (
+          {isOwner && selectedIds.size > 0 && (
             <Card className="border-destructive">
               <CardContent className="py-3 flex items-center justify-between">
                 <span className="text-sm font-medium">محدد: <b>{selectedIds.size}</b> مستخدم</span>
@@ -494,7 +494,7 @@ const Admin = () => {
               <Card key={u.id} className={selected ? "ring-2 ring-destructive" : ""}>
                 <CardContent className="flex items-center justify-between py-3 gap-2 flex-wrap">
                   <div className="flex items-center gap-3">
-                    {isAdmin && (
+                    {isOwner && (
                       <input type="checkbox" checked={selected} onChange={() => toggleSelect(u.user_id)} className="w-4 h-4 shrink-0" />
                     )}
                     <span className="text-sm font-bold text-muted-foreground bg-muted rounded-full w-7 h-7 flex items-center justify-center shrink-0">{number}</span>
@@ -548,7 +548,7 @@ const Admin = () => {
                         <Layers className="w-4 h-4" />
                       </Button>
                     )}
-                    {isAdmin && (
+                    {isOwner && (
                       <Button variant="outline" size="sm" onClick={() => setRolesDialogUser({ id: u.user_id, name: u.full_name })} className="gap-1">
                         <ShieldCheck className="w-4 h-4" /> الرتب
                       </Button>
@@ -576,7 +576,7 @@ const Admin = () => {
 
       {tab === "staff" && (
         <div className="space-y-3">
-          <p className="text-sm text-muted-foreground">قائمة أعضاء فريق الإدارة (أدمن / مشرف / مسؤول / مسؤول جولات).</p>
+          <p className="text-sm text-muted-foreground">قائمة أعضاء فريق الإدارة (مالك / أدمن / مشرف / مسؤول / مسؤول جولات).</p>
           {staffUsers.length === 0 ? (
             <p className="text-center text-muted-foreground py-8">لا يوجد أعضاء في فريق الإدارة بعد.</p>
           ) : staffUsers.map(u => {
@@ -587,6 +587,7 @@ const Admin = () => {
                   <div>
                     <p className="font-medium">{formatDisplayName(u)}</p>
                     <div className="flex gap-1 flex-wrap mt-1">
+                      {rs.includes("owner") && <span className="text-xs bg-amber-500 text-white rounded px-2 py-0.5">👑 المالك</span>}
                       {rs.includes("admin") && <span className="text-xs bg-primary text-primary-foreground rounded px-2 py-0.5">👑 أدمن</span>}
                       {rs.includes("moderator") && <span className="text-xs bg-blue-500/20 text-blue-600 dark:text-blue-400 rounded px-2 py-0.5">🛡️ مشرف</span>}
                       {rs.includes("supervisor") && <span className="text-xs bg-purple-500/20 text-purple-600 dark:text-purple-400 rounded px-2 py-0.5">🧑‍💼 مسؤول</span>}
@@ -596,13 +597,16 @@ const Admin = () => {
                       <p className="text-xs text-muted-foreground mt-1" dir="ltr">📧 {(u as any).email}</p>
                     )}
                   </div>
-                  {isAdmin && (
+                  {isOwner && (
                     <div className="flex gap-1 flex-wrap justify-end">
                       <Button variant="ghost" size="sm" onClick={() => { setRenameUserId(u.user_id); setNewName(u.full_name); }} className="gap-1" title="تغيير الاسم">
                         <Edit2 className="w-4 h-4" /> الاسم
                       </Button>
                       <Button variant="outline" size="sm" onClick={() => setRolesDialogUser({ id: u.user_id, name: u.full_name })} className="gap-1">
                         <ShieldCheck className="w-4 h-4" /> تعديل الرتب
+                      </Button>
+                      <Button variant="destructive" size="sm" onClick={() => setBanDialogUser(u.user_id)} className="gap-1" title="الحظر (مالك فقط)">
+                        <Ban className="w-4 h-4" /> الحظر
                       </Button>
                     </div>
                   )}
@@ -646,7 +650,7 @@ const Admin = () => {
       )}
 
       {tab === "reports" && (canManageReports || isAdmin) && <AdminReportsPanel />}
-      {tab === "permissions" && isAdmin && <PermissionsPanel />}
+      {tab === "permissions" && isOwner && <PermissionsPanel />}
 
       {tab === "words" && (canManageWords || isAdmin) && (
         <div className="space-y-4">
