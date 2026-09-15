@@ -89,11 +89,11 @@ export default function NotebookReader({
     return () => window.clearTimeout(t);
   }, [open, editingId]);
 
-  if (!open) return null;
-
   useEffect(() => {
     void waitFont("Amiri");
   }, []);
+
+  if (!open) return null;
 
   const fitted = (text: string) => {
     const sheetW = Math.min(window.innerWidth * 0.92, 580);
