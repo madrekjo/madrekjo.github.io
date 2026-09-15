@@ -21,10 +21,28 @@ function wrapText(
   text: string,
   maxWidth: number
 ): string[] {
-  const words = text.split(" ");
+  const words = text.split(/\s+/).filter(Boolean);
   const lines: string[] = [];
   let line = "";
   for (const word of words) {
+    if (ctx.measureText(word).width > maxWidth) {
+      if (line) {
+        lines.push(line);
+        line = "";
+      }
+      let cur = "";
+      for (const ch of word) {
+        const test = cur + ch;
+        if (ctx.measureText(test).width > maxWidth && cur) {
+          lines.push(cur);
+          cur = ch;
+        } else {
+          cur = test;
+        }
+      }
+      if (cur) lines.push(cur);
+      continue;
+    }
     const test = line ? `${line} ${word}` : word;
     if (ctx.measureText(test).width > maxWidth && line) {
       lines.push(line);
@@ -241,10 +259,24 @@ export async function renderNotebookImage(
   await waitFont("Tajawal");
 
   const W = 1080;
-  const H = 1350;
+  const step = 96;
+  const firstBaseline = 380;
+  const maxW = W - 330;
   const canvas = document.createElement("canvas");
   canvas.width = W;
+  canvas.height = 1350;
+  const measure = canvas.getContext("2d")!;
+  measure.font = "700 56px Amiri, serif";
+  let lines = wrapText(measure, content, maxW);
+  if (lines.length > 40) {
+    lines = lines.slice(0, 40);
+    const last = lines[39] ?? "";
+    lines[39] = last.length > 2 ? last.slice(0, -2) + "…" : last;
+  }
+  const bodyH = firstBaseline + lines.length * step + 230;
+  const H = Math.max(1350, bodyH);
   canvas.height = H;
+
   const ctx = canvas.getContext("2d")!;
 
   const paper = ctx.createLinearGradient(0, 0, 0, H);
@@ -338,10 +370,10 @@ export async function renderNotebookImage(
 
   ctx.strokeStyle = "rgba(150,110,40,0.26)";
   ctx.lineWidth = 3;
-  const firstBaseline = 380;
-  const step = 96;
-  for (let k = 0; k < 9; k++) {
+  const ruleCount = Math.max(9, lines.length + 1);
+  for (let k = 0; k < ruleCount; k++) {
     const y = firstBaseline + k * step;
+    if (y - 12 > H - 168) break;
     ctx.beginPath();
     ctx.moveTo(W - 170, y - 12);
     ctx.lineTo(170, y - 12);
@@ -350,11 +382,8 @@ export async function renderNotebookImage(
 
   ctx.fillStyle = "#3c3122";
   ctx.font = "700 56px Amiri, serif";
-  const maxW = W - 330;
-  const lines = wrapText(ctx, content, maxW);
   let y = firstBaseline;
   for (const l of lines) {
-    if (y > H - 300) break;
     ctx.fillText(l, W - 172, y);
     y += step;
   }
