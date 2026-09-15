@@ -44,6 +44,7 @@ export default function NotebookReader({
   const [saving, setSaving] = useState(false);
   const [saveErr, setSaveErr] = useState("");
   const [sharing, setSharing] = useState(false);
+  const draftRef = useRef<HTMLTextAreaElement | null>(null);
   const busyRef = useRef(false);
   const savingRef = useRef(false);
   const touchX = useRef<number | null>(null);
@@ -78,6 +79,14 @@ export default function NotebookReader({
       body.style.overflow = "";
     };
   }, [open]);
+
+  useEffect(() => {
+    if (!open || editingId === null) return;
+    const t = window.setTimeout(() => {
+      draftRef.current?.focus();
+    }, 120);
+    return () => window.clearTimeout(t);
+  }, [open, editingId]);
 
   if (!open) return null;
 
@@ -155,8 +164,7 @@ const next = async () => {
     if (savingRef.current || editingId === null) return;
     const content = draft.trim();
     if (!content) {
-      setEditingId(null);
-      if (creatingNew) setCreatingNew(false);
+      if (editingId !== NEW_LOCAL_ID) setEditingId(null);
       return;
     }
     savingRef.current = true;
@@ -263,6 +271,7 @@ const next = async () => {
             🎓 مدارك جو · بين السطور
           </div>
           <textarea
+            ref={draftRef}
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
             onBlur={() => void commitSave()}
@@ -333,7 +342,10 @@ const next = async () => {
           "notebook-lined flex h-full flex-col p-5 pt-7 " +
           (isMine ? "cursor-text" : "")
         }
-        onClick={() => (editingId === null ? startEdit(i) : void commitSave())}
+        onClick={() => {
+          if (editingId === null) startEdit(i);
+          else if (editingId !== NEW_LOCAL_ID) void commitSave();
+        }}
       >
         <span className="pointer-events-none absolute top-3 left-4 rounded-full bg-gold/10 px-2 py-0.5 text-[10px] font-bold text-gold-deep">
           {i}
@@ -363,6 +375,15 @@ const next = async () => {
             دُفتر {ownerName}
           </h2>
           <div className="flex items-center gap-2">
+            {isMine && !isEditing && (
+              <button
+                onClick={addNew}
+                className="inline-flex items-center gap-1.5 rounded-full border border-gold/50 bg-card px-3 py-2 text-xs font-bold text-gold-deep transition hover:bg-gold hover:text-white"
+              >
+                <Plus size={14} />
+                ورقة جديدة
+              </button>
+            )}
             <button
               onClick={() => void shareHere()}
               disabled={leaf === 0 || isEditing || sharing || !displayed[leaf - 1]?.content?.trim()}
@@ -407,7 +428,11 @@ const next = async () => {
               className="book3d select-none"
               onTouchStart={onTouchStart}
               onTouchEnd={onTouchEnd}
-              onClick={() => (isEditing ? void commitSave() : undefined)}
+              onClick={() =>
+                editingId !== null && editingId !== NEW_LOCAL_ID
+                  ? void commitSave()
+                  : undefined
+              }
             >
               <div className="book-spine" />
               {leaves.map((i) => {
