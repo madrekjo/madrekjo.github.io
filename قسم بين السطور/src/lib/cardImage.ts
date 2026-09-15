@@ -235,7 +235,7 @@ export async function renderNotebookImage(
   owner: string,
   content: string,
   pageNum: number,
-  total: number
+  _total: number
 ): Promise<Blob> {
   await waitFont("Amiri");
   await waitFont("Tajawal");
@@ -287,7 +287,7 @@ export async function renderNotebookImage(
 
   ctx.fillStyle = "#6d5110";
   ctx.font = "800 48px Tajawal, sans-serif";
-  ctx.fillText("دُفتر " + owner, W - 150, 150);
+  ctx.fillText("دَفتر " + owner, W - 150, 150);
 
   ctx.fillStyle = "#9a7b34";
   ctx.font = "500 28px Tajawal, sans-serif";
@@ -368,13 +368,11 @@ export async function renderNotebookImage(
   ctx.stroke();
   ctx.setLineDash([]);
 
-  ctx.fillStyle = "#8a7450";
-  ctx.font = "500 30px Tajawal, sans-serif";
-  ctx.fillText(`صفحة ${pageNum} من ${total}`, 170, H - 92);
-
   ctx.fillStyle = "#8a6413";
   ctx.font = "800 38px Tajawal, sans-serif";
-  ctx.fillText("🎓 مدارك جو · بين السطور", W - 170, H - 92);
+  ctx.textAlign = "center";
+  ctx.fillText("🎓 مدارك جو · بين السطور", W / 2, H - 92);
+  ctx.textAlign = "right";
 
   return await new Promise<Blob>((resolve, reject) => {
     canvas.toBlob(

@@ -295,7 +295,7 @@ export default function Profile({
         <div className="rounded-2xl border border-line bg-card p-6 text-center">
           <BookOpen size={40} className="mx-auto text-gold-deep" />
           <h3 className="mt-3 font-serif text-2xl font-bold text-ink">
-            دُفتر {isMine ? "" : name}
+            دَفتر {isMine ? "" : name}
           </h3>
           <p className="mt-1.5 text-sm leading-6 text-ink-soft">
             صفحات كاملة من أفكارك — قلب صفحات بالأنيميشن، وكل زائر يقدر يقرأه

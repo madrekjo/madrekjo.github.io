@@ -243,7 +243,7 @@ const next = async () => {
       return (
         <div className="flex h-full flex-col items-center justify-center bg-gradient-to-b from-[#33291d] to-[#1c150c] p-6 text-center text-paper">
           <BookOpen size={34} className="text-gold" />
-          <p className="mt-3 font-serif text-3xl font-bold">دُفتر</p>
+          <p className="mt-3 font-serif text-3xl font-bold">دَفتر</p>
           <p className="mt-1 max-w-[16rem] truncate text-lg text-gold">
             {ownerName}
           </p>
@@ -369,7 +369,7 @@ const next = async () => {
         <div className="mb-3 flex items-center justify-between px-1">
           <h2 className="flex items-center gap-2 font-serif text-2xl font-bold text-ink">
             <BookOpen size={20} className="text-gold-deep" />
-            دُفتر {ownerName}
+            دَفتر {ownerName}
           </h2>
           <div className="flex items-center gap-2">
             {isMine && !isEditing && (
