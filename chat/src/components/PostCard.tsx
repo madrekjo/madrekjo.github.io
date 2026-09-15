@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { containsBannedWord } from "@/lib/bannedWords";
 import { invalidateTable } from "@/lib/invalidation";
 import { loadPostComments, type PostComment } from "@/lib/postComments";
-import { loadAdminUserIds } from "@/lib/appCache";
+import { loadAdminUserIds, loadOwnerUserIds } from "@/lib/appCache";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -20,10 +20,13 @@ import ReportDialog from "@/components/ReportDialog";
 import { formatDisplayName } from "@/lib/displayName";
 import MentionInput from "@/components/MentionInput";
 import { renderMentions, submitMentions } from "@/lib/mentions";
-import { ShieldCheck } from "lucide-react";
+import { ShieldCheck, Crown } from "lucide-react";
 import { REACTIONS, reactionEmoji } from "@/lib/reactions";
 
-const VerificationBadge = ({ gender, isAuthorAdmin }: { gender?: string | null; isAuthorAdmin: boolean }) => {
+const VerificationBadge = ({ gender, isAuthorAdmin, isAuthorOwner }: { gender?: string | null; isAuthorAdmin: boolean; isAuthorOwner?: boolean }) => {
+  if (isAuthorOwner) {
+    return <span title="المالك" className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-600 border border-yellow-200/60 shrink-0 shadow-[0_0_6px_rgba(251,191,36,0.8)]"><Crown className="w-2.5 h-2.5 text-white" /></span>;
+  }
   if (isAuthorAdmin) {
     return <span title="مدير" className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-green-500 shrink-0"><ShieldCheck className="w-3 h-3 text-white" /></span>;
   }
@@ -58,9 +61,10 @@ interface PostProps {
   onLikeChanged?: (postId: string, reaction: string | null) => void;
   highlight?: boolean;
   authorIsAdmin?: boolean;
+  authorIsOwner?: boolean;
 }
 
-const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLikeChanged, highlight, authorIsAdmin: authorIsAdminProp }, ref) => {
+const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLikeChanged, highlight, authorIsAdmin: authorIsAdminProp, authorIsOwner: authorIsOwnerProp }, ref) => {
   const { user, isAdmin, isModerator, profile, isStaff } = useAuth();
   const { spend, getCost, balance } = usePoints();
   const [showComments, setShowComments] = useState(false);
@@ -81,6 +85,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
   const [lightbox, setLightbox] = useState<{ src: string; images?: string[]; index?: number; type: "image" | "video" } | null>(null);
   const [reportOpen, setReportOpen] = useState(false);
   const [authorIsAdmin, setAuthorIsAdmin] = useState(authorIsAdminProp ?? false);
+  const [authorIsOwner, setAuthorIsOwner] = useState(authorIsOwnerProp ?? false);
   const [showLikers, setShowLikers] = useState(false);
   const [likersData, setLikersData] = useState<{ user_id: string; full_name: string | null; avatar_url: string | null; gender?: string | null; type?: string }[] | null>(null);
   const [likersLoading, setLikersLoading] = useState(false);
@@ -104,15 +109,17 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
   useEffect(() => {
     if (authorIsAdminProp !== undefined) {
       setAuthorIsAdmin(authorIsAdminProp);
+      setAuthorIsOwner(authorIsOwnerProp ?? false);
       return;
     }
     const fetchAuthorRole = async () => {
-      // مجموعة الأدمن تُقرأ من كاش مشترك (بدل استعلام user_roles لكل منشور)
-      const adminSet = await loadAdminUserIds();
+      // مجموعتا الأدمن والمالك تُقرآن من كاش مشترك (بدل استعلام user_roles لكل منشور)
+      const [adminSet, ownerSet] = await Promise.all([loadAdminUserIds(), loadOwnerUserIds()]);
       setAuthorIsAdmin(adminSet.has(post.user_id));
+      setAuthorIsOwner(ownerSet.has(post.user_id));
     };
     fetchAuthorRole();
-  }, [post.user_id, authorIsAdminProp]);
+  }, [post.user_id, authorIsAdminProp, authorIsOwnerProp]);
 
   const reloadComments = useCallback(async () => {
     if (!user) { setCommentsLoaded(true); return; }
@@ -351,20 +358,31 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
       )}
       {/* Header */}
       <div className="flex items-center gap-3 mb-3">
-        <button onClick={() => setProfileUserId(post.user_id)} className="shrink-0">
-          <Avatar className="w-10 h-10 cursor-pointer hover:ring-2 hover:ring-primary/40 transition-all">
-            <AvatarImage src={post.profiles?.avatar_url || ""} />
-            <AvatarFallback className="bg-primary/10 text-primary text-sm">
-              {post.profiles?.full_name?.charAt(0) || "م"}
-            </AvatarFallback>
-          </Avatar>
+        <button onClick={() => setProfileUserId(post.user_id)} className="shrink-0 group">
+          {authorIsOwner ? (
+            <span className="block rounded-full p-[2px] bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-600 shadow-[0_0_14px_rgba(251,191,36,0.65)] ring-1 ring-yellow-200/70 transition-all group-hover:shadow-[0_0_20px_rgba(251,191,36,0.9)]">
+              <Avatar className="w-10 h-10 cursor-pointer transition-all">
+                <AvatarImage src={post.profiles?.avatar_url || ""} />
+                <AvatarFallback className="bg-primary/10 text-primary text-sm">
+                  {post.profiles?.full_name?.charAt(0) || "م"}
+                </AvatarFallback>
+              </Avatar>
+            </span>
+          ) : (
+            <Avatar className="w-10 h-10 cursor-pointer hover:ring-2 hover:ring-primary/40 transition-all">
+              <AvatarImage src={post.profiles?.avatar_url || ""} />
+              <AvatarFallback className="bg-primary/10 text-primary text-sm">
+                {post.profiles?.full_name?.charAt(0) || "م"}
+              </AvatarFallback>
+            </Avatar>
+          )}
         </button>
         <div className="flex-1">
           <div className="flex items-center gap-1">
             <button onClick={() => setProfileUserId(post.user_id)} className="font-semibold text-sm hover:underline text-right">
               {formatDisplayName(post.profiles)}
             </button>
-            <VerificationBadge gender={post.profiles?.gender} isAuthorAdmin={authorIsAdmin} />
+            <VerificationBadge gender={post.profiles?.gender} isAuthorAdmin={authorIsAdmin} isAuthorOwner={authorIsOwner} />
             <RoundsBadge userId={post.user_id} />
           </div>
           <p className="text-xs text-muted-foreground">

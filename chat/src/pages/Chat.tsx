@@ -3,7 +3,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { containsBannedWord, loadBannedWords } from "@/lib/bannedWords";
 import { invalidateTable } from "@/lib/invalidation";
-import { loadChannelSettings, loadSectionLocks, isSectionEffectivelyLocked, loadAdminUserIds } from "@/lib/appCache";
+import { loadChannelSettings, loadSectionLocks, isSectionEffectivelyLocked, loadAdminUserIds, loadOwnerUserIds } from "@/lib/appCache";
 import { isReadGatewayConfigured, readGateway } from "@/lib/readGateway";
 import PostCard from "@/components/PostCard";
 import MentionInput from "@/components/MentionInput";
@@ -125,6 +125,7 @@ const Chat = () => {
   const [channelSettings, setChannelSettings] = useState<Record<string, boolean>>({ all: true, male: true, female: true, "09": true, "10": true });
   const [sectionLocks, setSectionLocks] = useState<Record<string, boolean>>({});
   const [adminUserIds, setAdminUserIds] = useState<Set<string>>(new Set());
+  const [ownerUserIds, setOwnerUserIds] = useState<Set<string>>(new Set());
 
   // إشعار ترحيبي في شات الجميع/شباب/بنات — يظهر مرة واحدة لكل قناة ويمكن إغلاقه
   const [channelBannerDismissed, setChannelBannerDismissed] = useState<Record<string, boolean>>(() => {
@@ -236,8 +237,9 @@ const Chat = () => {
 
         // مجموعة الأدمن من كاش مشترك (لا طلب user_roles مع كل فيد).
         if (postIds.length > 0) {
-          const [adminSet] = await Promise.all([loadAdminUserIds()]);
+          const [adminSet, ownerSet] = await Promise.all([loadAdminUserIds(), loadOwnerUserIds()]);
           setAdminUserIds(adminSet);
+          setOwnerUserIds(ownerSet);
         }
       };
 
@@ -269,8 +271,9 @@ const Chat = () => {
           setHasMore(feed.posts.length === PAGE_SIZE);
 
           // مجموعة الأدمن من كاش مشترك (لا طلب user_roles مع كل فيد).
-          const [adminSet] = await Promise.all([loadAdminUserIds()]);
+          const [adminSet, ownerSet] = await Promise.all([loadAdminUserIds(), loadOwnerUserIds()]);
           setAdminUserIds(adminSet);
+          setOwnerUserIds(ownerSet);
           viaGateway = true;
         }
       }
@@ -774,6 +777,7 @@ const Chat = () => {
                 onLikeChanged={handleLikeChanged}
                 highlight={post.id === highlightPostId}
                 authorIsAdmin={adminUserIds.has(post.user_id)}
+                authorIsOwner={ownerUserIds.has(post.user_id)}
               />
             ))}
           {hasMore && (

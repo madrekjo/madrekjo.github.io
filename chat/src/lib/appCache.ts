@@ -17,6 +17,7 @@ export const CHANNEL_SETTINGS_KEY = "config:channel_settings";
 export const SECTION_LOCKS_KEY = "config:section_locks";
 export const BANNED_WORDS_KEY = "config:banned_words";
 export const ADMIN_IDS_KEY = "config:admin_ids";
+export const OWNER_IDS_KEY = "config:owner_ids";
 
 export interface SectionLockData {
   locked: boolean;
@@ -149,6 +150,27 @@ export async function loadAdminUserIds(): Promise<Set<string>> {
   return new Set(ids);
 }
 
+/**
+ * مجموعة معرّفات المالك (owner) — قراءة مشتركة مع مجموعة الأدمن.
+ * تُستخدم لإظهار الهالة الذهبية حول صورة المالك في منشوراته.
+ * كاش ساعة كاملة؛ يُبطل عند أي add/remove_role عبر invalidateAppConfig.
+ */
+export async function loadOwnerUserIds(): Promise<Set<string>> {
+  const ids = await cachedRead<string[]>({
+    key: OWNER_IDS_KEY,
+    ttlMs: 60 * 60 * 1000,
+    persist: true,
+    fetcher: async () => {
+      const { data } = await supabase
+        .from("user_roles")
+        .select("user_id")
+        .eq("role", "owner");
+      return (data || []).map((r) => r.user_id);
+    },
+  });
+  return new Set(ids);
+}
+
 /** يفحص هل القفل ما زال سارياً حسب locked_until. */
 export function isSectionEffectivelyLocked(lock: SectionLockData | null | undefined): boolean {
   if (!lock || !lock.locked) return false;
@@ -163,4 +185,5 @@ export function invalidateAppConfig() {
   invalidateCache(SECTION_LOCKS_KEY);
   invalidateCache(BANNED_WORDS_KEY);
   invalidateCache(ADMIN_IDS_KEY);
+  invalidateCache(OWNER_IDS_KEY);
 }

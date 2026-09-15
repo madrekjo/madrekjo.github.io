@@ -30,7 +30,7 @@ const GATEWAY_TABLES = new Set([
  */
 const LOCAL_PREFIXES: Record<string, string[]> = {
   profiles: ["auth:profile:"],
-  user_roles: ["auth:roles:", "config:admin_ids"],
+  user_roles: ["auth:roles:", "config:admin_ids", "config:owner_ids"],
   channel_settings: ["config:channel_settings"],
   section_locks: ["config:section_locks"],
   banned_words: ["config:banned_words"],
