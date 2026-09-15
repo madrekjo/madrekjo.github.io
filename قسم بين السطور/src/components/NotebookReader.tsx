@@ -11,6 +11,7 @@ import {
   X,
 } from "lucide-react";
 import type { NotebookPage } from "@/lib/api";
+import { computeNotebookFit, waitFont } from "@/lib/cardImage";
 
 const NEW_LOCAL_ID = "new-local";
 
@@ -89,6 +90,21 @@ export default function NotebookReader({
   }, [open, editingId]);
 
   if (!open) return null;
+
+  useEffect(() => {
+    void waitFont("Amiri");
+  }, []);
+
+  const fitted = (text: string) => {
+    const sheetW = Math.min(window.innerWidth * 0.92, 580);
+    const scale = Math.max((sheetW - 40) / 750, 0.35);
+    const fit = computeNotebookFit(text);
+    return {
+      fontSize: Math.max(Math.round(fit.fontSize * scale), 11),
+      lineHeight: Math.max(Math.round(fit.step * scale), 14),
+      grows: fit.grows,
+    };
+  };
 
   const wait = () =>
     new Promise<void>((res) => {
@@ -277,7 +293,8 @@ const next = async () => {
             onClick={stopPropagation}
             autoFocus
             placeholder="اكتب على ورقتك مباشرة — بتحفظ تلقائياً..."
-            className="min-h-0 flex-1 resize-none bg-transparent font-serif text-xl leading-[35px] text-[#3c3122] outline-none placeholder:text-[#3c3122]/35"
+            style={fitted(draft)}
+            className="min-h-0 flex-1 resize-none bg-transparent font-serif text-[#3c3122] outline-none placeholder:text-[#3c3122]/35"
           />
           <div className="mt-2 flex items-center justify-between gap-1">
             <label className="flex items-center gap-1.5 text-[11px] font-medium text-ink-soft">
@@ -350,7 +367,10 @@ const next = async () => {
             <Pencil size={10} className="mr-1 inline text-gold-deep/70" />
           )}
         </span>
-        <div className="overflow-y-auto no-scrollbar whitespace-pre-wrap font-serif text-xl leading-[35px] text-[#3c3122]">
+        <div
+          className="min-h-0 flex-1 overflow-y-auto no-scrollbar whitespace-pre-wrap font-serif text-[#3c3122]"
+          style={fitted(page.content)}
+        >
           {page.content}
         </div>
         <div className="pointer-events-none absolute bottom-2 right-3 rounded-full bg-gold/10 px-2 py-0.5 text-[9px] font-bold text-gold-deep/70">

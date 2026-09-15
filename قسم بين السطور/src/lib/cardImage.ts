@@ -4,7 +4,7 @@ const W = 1080;
 const BASE_H = 1350;
 const TEXT_LINE_H = 96;
 
-async function waitFont(name: string): Promise<void> {
+export async function waitFont(name: string): Promise<void> {
   const load = async () => {
     await document.fonts.load(`700 48px "${name}"`);
     await document.fonts.load(`400 40px "${name}"`);
@@ -51,6 +51,40 @@ function wrapParagraphs(
     for (const w of wrapText(ctx, para, maxWidth)) rows.push(w);
   }
   return rows;
+}
+
+export interface NotebookFit {
+  fontSize: number;
+  step: number;
+  lines: string[];
+  grows: boolean;
+}
+
+const FIT_CANDIDATES: Array<[number, number]> = [
+  [56, 96],
+  [50, 86],
+  [44, 78],
+  [38, 68],
+  [33, 60],
+  [29, 52],
+];
+
+export function computeNotebookFit(content: string): NotebookFit {
+  const canvas = document.createElement("canvas");
+  canvas.width = W;
+  canvas.height = 10;
+  const ctx = canvas.getContext("2d")!;
+  let last: NotebookFit = { fontSize: 29, step: 52, lines: [], grows: true };
+  for (const [f, st] of FIT_CANDIDATES) {
+    ctx.font = `700 ${f}px Amiri, serif`;
+    const lines = wrapParagraphs(ctx, content, W - 330);
+    const estH = 380 + lines.length * st + 230;
+    if (estH <= 1350) {
+      return { fontSize: f, step: st, lines, grows: false };
+    }
+    last = { fontSize: f, step: st, lines, grows: true };
+  }
+  return last;
 }
 
 function roundedRect(
@@ -258,40 +292,12 @@ export async function renderNotebookImage(
 
   const W = 1080;
   const firstBaseline = 380;
-  const maxW = W - 330;
   const canvas = document.createElement("canvas");
   canvas.width = W;
   canvas.height = 1350;
-  const measure = canvas.getContext("2d")!;
 
-  const candidates: Array<[number, number]> = [
-    [56, 96],
-    [50, 86],
-    [44, 78],
-    [38, 68],
-    [33, 60],
-    [29, 52],
-  ];
-  let fontSize = 56;
-  let step = 96;
-  let lines: string[] = [];
-  for (const [f, st] of candidates) {
-    measure.font = `700 ${f}px Amiri, serif`;
-    const rows = wrapParagraphs(measure, content, maxW);
-    const estH = firstBaseline + rows.length * st + 230;
-    if (rows.length <= 16 || estH <= 2300) {
-      fontSize = f;
-      step = st;
-      lines = rows;
-      break;
-    }
-  }
-  if (!lines.length) {
-    fontSize = 29;
-    step = 52;
-    measure.font = "700 29px Amiri, serif";
-    lines = wrapParagraphs(measure, content, maxW);
-  }
+  const fit = computeNotebookFit(content);
+  const { fontSize, step, lines } = fit;
 
   const bodyH = firstBaseline + lines.length * step + 230;
   const H = Math.max(1350, bodyH);
