@@ -29,7 +29,7 @@ import {
   type ReelRow,
   type UserProfile,
 } from "./lib/api";
-import { downloadBlob, renderCardImage } from "./lib/cardImage";
+import { downloadBlob, renderCardImage, renderNotebookImage } from "./lib/cardImage";
 import { lines as sampleLines } from "./data";
 import { wait } from "./lib/helpers";
 import AddLineModal from "./components/AddLineModal";
@@ -479,6 +479,38 @@ const [readerOpen, setReaderOpen] = useState(false);
     await reloadMyPages();
   };
 
+  const handleShareNotebookPage = async (
+    page: NotebookPage,
+    pageNum: number,
+    total: number
+  ) => {
+    const owner = readerMine
+      ? (me?.username ?? "دفترك")
+      : (pubProfile?.username ?? "القارئ");
+    try {
+      const blob = await renderNotebookImage(owner, page.content, pageNum, total);
+      const name = `دفتر-${owner}-ورقة-${pageNum}.jpg`;
+      downloadBlob(blob, name);
+      const file = new File([blob], name, { type: "image/jpeg" });
+      if (navigator.canShare?.({ files: [file] }) && navigator.share) {
+        try {
+          await navigator.share({
+            files: [file],
+            title: "بين السطور · مدارك جو",
+          });
+        } catch (e) {
+          const err = e as { name?: string };
+          if (err?.name !== "AbortError") throw e;
+        }
+      }
+      flash("نُزّلت صورة الورقة .. جاهزة لمشاركتها ✓");
+    } catch (err) {
+      flash(
+        err instanceof Error ? err.message : "تعذّر تجهيز صورة الورقة"
+      );
+    }
+  };
+
   const ensureUserCanWrite = () => {
     if (me) return true;
     flash("سجّل اسمك أولاً من البروفايل");
@@ -646,6 +678,7 @@ const [readerOpen, setReaderOpen] = useState(false);
         onCreate={createPage}
         onUpdate={updatePage}
         onDelete={removePage}
+        onSharePage={handleShareNotebookPage}
       />
 
       <AddLineModal

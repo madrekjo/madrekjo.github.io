@@ -200,6 +200,92 @@ export async function renderCardImage(
   });
 }
 
+export async function renderNotebookImage(
+  owner: string,
+  content: string,
+  pageNum: number,
+  total: number
+): Promise<Blob> {
+  await waitFont("Amiri");
+  await waitFont("Tajawal");
+
+  const W = 1080;
+  const H = 1350;
+  const canvas = document.createElement("canvas");
+  canvas.width = W;
+  canvas.height = H;
+  const ctx = canvas.getContext("2d")!;
+
+  ctx.fillStyle = "#fffdf2";
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.strokeStyle = "rgba(166, 124, 0, 0.20)";
+  ctx.lineWidth = 3;
+  for (let y = 230; y < H - 150; y += 60) {
+    ctx.beginPath();
+    ctx.moveTo(120, y);
+    ctx.lineTo(W - 130, y);
+    ctx.stroke();
+  }
+
+  ctx.strokeStyle = "rgba(217, 139, 139, 0.75)";
+  ctx.lineWidth = 6;
+  ctx.beginPath();
+  ctx.moveTo(W - 105, 200);
+  ctx.lineTo(W - 105, H - 140);
+  ctx.stroke();
+
+  ctx.textAlign = "right";
+  ctx.textBaseline = "alphabetic";
+
+  ctx.fillStyle = "#a67c00";
+  ctx.font = "700 40px Tajawal, sans-serif";
+  ctx.fillText("دُفتر " + owner, W - 190, 140);
+
+  ctx.fillStyle = "#7a6a51";
+  ctx.font = "700 34px Tajawal, sans-serif";
+  ctx.fillText(`ورقة ${pageNum}`, 190, 140);
+
+  ctx.fillStyle = "#3c3122";
+  ctx.font = "700 54px Amiri, serif";
+  const maxW = W - 320;
+  const lines = wrapText(ctx, content, maxW);
+  let y = 300;
+  for (const l of lines) {
+    if (y > H - 260) break;
+    ctx.fillText(l, W - 160, y);
+    y += 96;
+  }
+
+  ctx.fillStyle = "#7a6a51";
+  ctx.font = "700 34px Tajawal, sans-serif";
+  ctx.fillText(`صفحة ${pageNum} من ${total}`, 190, H - 90);
+
+  ctx.fillStyle = "#a67c00";
+  ctx.font = "800 44px Tajawal, sans-serif";
+  ctx.fillText("🎓 مدارك جو · بين السطور", W - 160, H - 90);
+
+  return await new Promise<Blob>((resolve, reject) => {
+    canvas.toBlob(
+      (b) => {
+        if (b) return resolve(b);
+        try {
+          const dataUrl = canvas.toDataURL("image/jpeg", 0.92);
+          const base64 = dataUrl.slice(dataUrl.indexOf(",") + 1);
+          const bin = atob(base64);
+          const arr = new Uint8Array(bin.length);
+          for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+          resolve(new Blob([arr], { type: "image/jpeg" }));
+        } catch {
+          reject(new Error("فشل إنشاء الصورة"));
+        }
+      },
+      "image/jpeg",
+      0.92
+    );
+  });
+}
+
 export function downloadBlob(blob: Blob, filename: string): void {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");

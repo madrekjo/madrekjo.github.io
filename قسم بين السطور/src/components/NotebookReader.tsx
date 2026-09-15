@@ -6,6 +6,7 @@ import {
   Pencil,
   Plus,
   Save,
+  Share2,
   Trash2,
   X,
 } from "lucide-react";
@@ -22,6 +23,7 @@ export default function NotebookReader({
   onCreate,
   onUpdate,
   onDelete,
+  onSharePage,
 }: {
   open: boolean;
   isMine: boolean;
@@ -31,6 +33,7 @@ export default function NotebookReader({
   onCreate: (content: string, isPublic: boolean) => Promise<void>;
   onUpdate: (pageId: number, content: string, isPublic: boolean) => Promise<void>;
   onDelete: (page: NotebookPage) => Promise<void>;
+  onSharePage: (page: NotebookPage, pageNum: number, total: number) => Promise<void>;
 }) {
   const [leaf, setLeaf] = useState(0); // 0 = الغلاف
   const [turned, setTurned] = useState<Set<number>>(new Set());
@@ -40,6 +43,7 @@ export default function NotebookReader({
   const [draftPublic, setDraftPublic] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saveErr, setSaveErr] = useState("");
+  const [sharing, setSharing] = useState(false);
   const busyRef = useRef(false);
   const savingRef = useRef(false);
   const touchX = useRef<number | null>(null);
@@ -100,6 +104,21 @@ const next = async () => {
     if (busyRef.current || editingId != null) return;
     setTurned(new Set());
     setLeaf(0);
+  };
+
+  const shareHere = async () => {
+    if (busyRef.current || editingId != null || sharing) return;
+    if (leaf === 0) return;
+    const p = displayed[leaf - 1];
+    if (!p || !p.content || !p.content.trim()) return;
+    setSharing(true);
+    try {
+      await onSharePage(p, leaf, maxLeaf);
+    } catch {
+      /* الأخطاء تظهر من الأعلى */
+    } finally {
+      setSharing(false);
+    }
   };
 
   const prev = async () => {
@@ -240,6 +259,9 @@ const next = async () => {
           <span className="pointer-events-none absolute top-3 left-4 rounded-full bg-gold/10 px-2 py-0.5 text-[10px] font-bold text-gold-deep">
             {i}
           </span>
+          <div className="pointer-events-none absolute top-3 right-3 rounded-full bg-gold/10 px-2 py-0.5 text-[9px] font-bold text-gold-deep/70">
+            🎓 مدارك جو · بين السطور
+          </div>
           <textarea
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
@@ -322,6 +344,9 @@ const next = async () => {
         <div className="overflow-y-auto no-scrollbar whitespace-pre-wrap font-serif text-xl leading-[35px] text-[#3c3122]">
           {page.content}
         </div>
+        <div className="pointer-events-none absolute bottom-2 right-3 rounded-full bg-gold/10 px-2 py-0.5 text-[9px] font-bold text-gold-deep/70">
+          🎓 مدارك جو · بين السطور
+        </div>
       </div>
     );
   };
@@ -337,13 +362,23 @@ const next = async () => {
             <BookOpen size={20} className="text-gold-deep" />
             دُفتر {ownerName}
           </h2>
-          <button
-            onClick={onClose}
-            aria-label="إغلاق"
-            className="grid size-9 place-items-center rounded-full border border-line bg-card text-ink-soft transition hover:text-ink"
-          >
-            <X size={18} />
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => void shareHere()}
+              disabled={leaf === 0 || isEditing || sharing || !displayed[leaf - 1]?.content?.trim()}
+              className="inline-flex items-center gap-1.5 rounded-full bg-gold px-3 py-2 text-xs font-bold text-white transition hover:bg-gold-deep disabled:opacity-40"
+            >
+              <Share2 size={14} />
+              {sharing ? "تحضير..." : "مشاركة الورقة"}
+            </button>
+            <button
+              onClick={onClose}
+              aria-label="إغلاق"
+              className="grid size-9 place-items-center rounded-full border border-line bg-card text-ink-soft transition hover:text-ink"
+            >
+              <X size={18} />
+            </button>
+          </div>
         </div>
 
         {!showBook && (
