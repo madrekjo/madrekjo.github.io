@@ -1,10 +1,10 @@
-import { useState, useEffect, useCallback, useMemo, forwardRef } from "react";
+import { useState, useEffect, useCallback, useMemo, forwardRef, type ReactNode } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { containsBannedWord } from "@/lib/bannedWords";
 import { invalidateTable } from "@/lib/invalidation";
 import { loadPostComments, type PostComment } from "@/lib/postComments";
-import { loadAdminUserIds, loadOwnerUserIds } from "@/lib/appCache";
+import { loadAdminUserIds, loadOwnerUserIds, loadGoldenUserIds } from "@/lib/appCache";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -37,6 +37,16 @@ const VerificationBadge = ({ gender, isAuthorAdmin, isAuthorOwner }: { gender?: 
     return <span title="طالبة" className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-pink-500 shrink-0" />;
   }
   return null;
+};
+
+/** حلقة ذهبية حول الصورة للرتب المميزة (المالك + المستخدمون الذهبيون). */
+const GoldenHalo = ({ active, children }: { active: boolean; children: ReactNode }) => {
+  if (!active) return <>{children}</>;
+  return (
+    <span className="block rounded-full p-[2px] bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-600 shadow-[0_0_14px_rgba(251,191,36,0.65)] ring-1 ring-yellow-200/70 transition-all group-hover:shadow-[0_0_20px_rgba(251,191,36,0.9)]">
+      {children}
+    </span>
+  );
 };
 
 interface PostProps {
@@ -87,6 +97,10 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
   const [authorIsAdmin, setAuthorIsAdmin] = useState(authorIsAdminProp ?? false);
   const [ownerIds, setOwnerIds] = useState<Set<string>>(new Set());
   const authorIsOwner = ownerIds.has(post.user_id);
+  const [goldenIds, setGoldenIds] = useState<Set<string>>(new Set());
+  // هالة ذهبية: للمالك + للمستخدمين المميزين (golden) المحددين بالبريد.
+  const isHaloUser = useCallback((uid: string) => ownerIds.has(uid) || goldenIds.has(uid), [ownerIds, goldenIds]);
+  const postHalo = isHaloUser(post.user_id);
   const [showLikers, setShowLikers] = useState(false);
   const [likersData, setLikersData] = useState<{ user_id: string; full_name: string | null; avatar_url: string | null; gender?: string | null; type?: string }[] | null>(null);
   const [likersLoading, setLikersLoading] = useState(false);
@@ -108,18 +122,20 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
   const breakdownTop = reactionCounts.slice(0, 3);
 
   useEffect(() => {
-    if (authorIsAdminProp !== undefined) {
-      setAuthorIsAdmin(authorIsAdminProp);
-      setOwnerIds(authorIsOwnerProp ? new Set([post.user_id]) : new Set());
-      return;
-    }
-    const fetchAuthorRole = async () => {
+    const loadSets = async () => {
+      // المستخدمون الذهبيون يُقرأون دائماً من الكاش (يظهرون في المنشورات والتعليقات).
+      setGoldenIds(await loadGoldenUserIds());
+      if (authorIsAdminProp !== undefined) {
+        setAuthorIsAdmin(authorIsAdminProp);
+        setOwnerIds(authorIsOwnerProp ? new Set([post.user_id]) : new Set());
+        return;
+      }
       // مجموعتا الأدمن والمالك تُقرآن من كاش مشترك (بدل استعلام user_roles لكل منشور)
       const [adminSet, ownerSet] = await Promise.all([loadAdminUserIds(), loadOwnerUserIds()]);
       setAuthorIsAdmin(adminSet.has(post.user_id));
       setOwnerIds(ownerSet);
     };
-    fetchAuthorRole();
+    loadSets();
   }, [post.user_id, authorIsAdminProp, authorIsOwnerProp]);
 
   // اسم المالك يظهر الاسم فقط (بدون حقل/جيل) — ميزة حصرية للمالك.
@@ -364,15 +380,15 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
       {/* Header */}
       <div className="flex items-center gap-3 mb-3">
         <button onClick={() => setProfileUserId(post.user_id)} className="shrink-0 group">
-          {authorIsOwner ? (
-            <span className="block rounded-full p-[2px] bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-600 shadow-[0_0_14px_rgba(251,191,36,0.65)] ring-1 ring-yellow-200/70 transition-all group-hover:shadow-[0_0_20px_rgba(251,191,36,0.9)]">
+          {postHalo ? (
+            <GoldenHalo active>
               <Avatar className="w-10 h-10 cursor-pointer transition-all">
                 <AvatarImage src={post.profiles?.avatar_url || ""} />
                 <AvatarFallback className="bg-primary/10 text-primary text-sm">
                   {post.profiles?.full_name?.charAt(0) || "م"}
                 </AvatarFallback>
               </Avatar>
-            </span>
+            </GoldenHalo>
           ) : (
             <Avatar className="w-10 h-10 cursor-pointer hover:ring-2 hover:ring-primary/40 transition-all">
               <AvatarImage src={post.profiles?.avatar_url || ""} />
@@ -588,13 +604,15 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
           {topComments.map(comment => (
             <div key={comment.id} className="space-y-2">
               <div className="flex gap-2">
-                <button onClick={() => setProfileUserId(comment.user_id)} className="shrink-0">
-                  <Avatar className="w-7 h-7 cursor-pointer hover:ring-2 hover:ring-primary/40 transition-all">
-                    <AvatarImage src={comment.profiles?.avatar_url || ""} />
-                    <AvatarFallback className="bg-primary/10 text-primary text-xs">
-                      {comment.profiles?.full_name?.charAt(0) || "م"}
-                    </AvatarFallback>
-                  </Avatar>
+                <button onClick={() => setProfileUserId(comment.user_id)} className="shrink-0 group">
+                  <GoldenHalo active={isHaloUser(comment.user_id)}>
+                    <Avatar className="w-7 h-7 cursor-pointer hover:ring-2 hover:ring-primary/40 transition-all">
+                      <AvatarImage src={comment.profiles?.avatar_url || ""} />
+                      <AvatarFallback className="bg-primary/10 text-primary text-xs">
+                        {comment.profiles?.full_name?.charAt(0) || "م"}
+                      </AvatarFallback>
+                    </Avatar>
+                  </GoldenHalo>
                 </button>
                 <div className={`flex-1 rounded-lg p-2 ${comment.is_pinned ? "bg-primary/10 border border-primary/20" : "bg-muted"}`}>
                   <div className="flex items-center justify-between">
@@ -659,14 +677,16 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
               {getReplies(comment.id).map(reply => (
                 <div key={reply.id} className="flex gap-2 mr-8">
                   <CornerDownLeft className="w-4 h-4 text-muted-foreground mt-2 shrink-0" />
-                  <button onClick={() => setProfileUserId(reply.user_id)} className="shrink-0">
+                  <button onClick={() => setProfileUserId(reply.user_id)} className="shrink-0 group">
+                  <GoldenHalo active={isHaloUser(reply.user_id)}>
                     <Avatar className="w-6 h-6 cursor-pointer hover:ring-2 hover:ring-primary/40 transition-all">
                       <AvatarImage src={reply.profiles?.avatar_url || ""} />
                       <AvatarFallback className="bg-primary/10 text-primary text-xs">
                         {reply.profiles?.full_name?.charAt(0) || "م"}
                       </AvatarFallback>
                     </Avatar>
-                  </button>
+                  </GoldenHalo>
+                </button>
                   <div className="flex-1 bg-muted/50 rounded-lg p-2">
                     <div className="flex items-center justify-between">
                       <button onClick={() => setProfileUserId(reply.user_id)} className="text-xs font-semibold hover:underline flex items-center gap-1">

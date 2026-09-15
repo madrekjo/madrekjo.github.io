@@ -18,6 +18,14 @@ export const SECTION_LOCKS_KEY = "config:section_locks";
 export const BANNED_WORDS_KEY = "config:banned_words";
 export const ADMIN_IDS_KEY = "config:admin_ids";
 export const OWNER_IDS_KEY = "config:owner_ids";
+export const GOLDEN_IDS_KEY = "config:golden_ids";
+
+/** المستخدمون المميزون (هالة ذهبية حول بروفايلهم) —限定 بالبريد، بدون صلاحيات مالك.
+ * تحديثهم = تغيير المصفوفة هنا ثم تفريغ كاش config:golden_ids. */
+export const GOLDEN_EMAILS: string[] = [
+  "alshrhs292@gmail.com",
+  "wardhashem09@gmail.com",
+];
 
 export interface SectionLockData {
   locked: boolean;
@@ -171,6 +179,28 @@ export async function loadOwnerUserIds(): Promise<Set<string>> {
   return new Set(ids);
 }
 
+/**
+ * مجموعة معرّفات المستخدمين المميزين (golden) — هالة ذهبية حول بروفايلهم فقط.
+ * تُقرأ من جدول profiles بالبريد (محددة في GOLDEN_EMAILS)، بدون أي صلاحيات.
+ */
+export async function loadGoldenUserIds(): Promise<Set<string>> {
+  const ids = await cachedRead<string[]>({
+    key: GOLDEN_IDS_KEY,
+    ttlMs: 60 * 60 * 1000,
+    persist: true,
+    fetcher: async () => {
+      const { data } = await supabase
+        .from("profiles")
+        .select("user_id, email");
+      const emails = new Set(GOLDEN_EMAILS);
+      return (data || [])
+        .filter((r) => r.email && emails.has(r.email.trim().toLowerCase()))
+        .map((r) => r.user_id);
+    },
+  });
+  return new Set(ids);
+}
+
 /** يفحص هل القفل ما زال سارياً حسب locked_until. */
 export function isSectionEffectivelyLocked(lock: SectionLockData | null | undefined): boolean {
   if (!lock || !lock.locked) return false;
@@ -186,4 +216,5 @@ export function invalidateAppConfig() {
   invalidateCache(BANNED_WORDS_KEY);
   invalidateCache(ADMIN_IDS_KEY);
   invalidateCache(OWNER_IDS_KEY);
+  invalidateCache(GOLDEN_IDS_KEY);
 }
