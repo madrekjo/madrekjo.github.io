@@ -163,16 +163,7 @@ const next = async () => {
   const commitSave = async () => {
     if (savingRef.current || editingId === null) return;
     const content = draft.trim();
-    if (!content) {
-      if (editingId === NEW_LOCAL_ID) return;
-      const page = displayed.find((d) => d.id === editingId);
-      if (page) {
-        askDelete(page);
-        return;
-      }
-      setEditingId(null);
-      return;
-    }
+    if (editingId === NEW_LOCAL_ID && !content) return;
     savingRef.current = true;
     setSaving(true);
     setSaveErr("");

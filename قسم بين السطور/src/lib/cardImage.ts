@@ -200,6 +200,37 @@ export async function renderCardImage(
   });
 }
 
+const roundRect = (
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+  r: number
+): void => {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+};
+
+const diamond = (
+  ctx: CanvasRenderingContext2D,
+  cx: number,
+  cy: number,
+  r: number
+): void => {
+  ctx.beginPath();
+  ctx.moveTo(cx, cy - r);
+  ctx.lineTo(cx + r, cy);
+  ctx.lineTo(cx, cy + r);
+  ctx.lineTo(cx - r, cy);
+  ctx.closePath();
+};
+
 export async function renderNotebookImage(
   owner: string,
   content: string,
@@ -216,54 +247,134 @@ export async function renderNotebookImage(
   canvas.height = H;
   const ctx = canvas.getContext("2d")!;
 
-  ctx.fillStyle = "#fffdf2";
+  const paper = ctx.createLinearGradient(0, 0, 0, H);
+  paper.addColorStop(0, "#fffdf1");
+  paper.addColorStop(0.55, "#fdf6e2");
+  paper.addColorStop(1, "#f7ecd0");
+  ctx.fillStyle = paper;
   ctx.fillRect(0, 0, W, H);
 
-  ctx.strokeStyle = "rgba(166, 124, 0, 0.20)";
-  ctx.lineWidth = 3;
-  for (let y = 230; y < H - 150; y += 60) {
-    ctx.beginPath();
-    ctx.moveTo(120, y);
-    ctx.lineTo(W - 130, y);
-    ctx.stroke();
-  }
+  const vignette = ctx.createRadialGradient(W / 2, H / 2, 200, W / 2, H / 2, 900);
+  vignette.addColorStop(0, "rgba(140,100,30,0)");
+  vignette.addColorStop(1, "rgba(140,100,30,0.09)");
+  ctx.fillStyle = vignette;
+  ctx.fillRect(0, 0, W, H);
 
-  ctx.strokeStyle = "rgba(217, 139, 139, 0.75)";
-  ctx.lineWidth = 6;
-  ctx.beginPath();
-  ctx.moveTo(W - 105, 200);
-  ctx.lineTo(W - 105, H - 140);
+  roundRect(ctx, 36, 36, W - 72, H - 72, 26);
+  ctx.strokeStyle = "rgba(150,110,40,0.55)";
+  ctx.lineWidth = 4;
   ctx.stroke();
+
+  roundRect(ctx, 54, 54, W - 108, H - 108, 18);
+  ctx.strokeStyle = "rgba(150,110,40,0.30)";
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  ctx.fillStyle = "rgba(176,133,44,0.6)";
+  for (const [cx, cy] of [
+    [66, 66],
+    [W - 66, 66],
+    [66, H - 66],
+    [W - 66, H - 66],
+  ]) {
+    ctx.beginPath();
+    ctx.arc(cx, cy, 6, 0, Math.PI * 2);
+    ctx.fill();
+  }
 
   ctx.textAlign = "right";
   ctx.textBaseline = "alphabetic";
 
-  ctx.fillStyle = "#a67c00";
-  ctx.font = "700 40px Tajawal, sans-serif";
-  ctx.fillText("دُفتر " + owner, W - 190, 140);
+  ctx.fillStyle = "#6d5110";
+  ctx.font = "800 48px Tajawal, sans-serif";
+  ctx.fillText("دُفتر " + owner, W - 150, 150);
 
-  ctx.fillStyle = "#7a6a51";
-  ctx.font = "700 34px Tajawal, sans-serif";
-  ctx.fillText(`ورقة ${pageNum}`, 190, 140);
+  ctx.fillStyle = "#9a7b34";
+  ctx.font = "500 28px Tajawal, sans-serif";
+  ctx.fillText("بين السطور · من مدارك جو", W - 152, 196);
 
-  ctx.fillStyle = "#3c3122";
-  ctx.font = "700 54px Amiri, serif";
-  const maxW = W - 320;
-  const lines = wrapText(ctx, content, maxW);
-  let y = 300;
-  for (const l of lines) {
-    if (y > H - 260) break;
-    ctx.fillText(l, W - 160, y);
-    y += 96;
+  ctx.font = "800 34px Tajawal, sans-serif";
+  const stampText = "ورقة " + pageNum;
+  const stampW = ctx.measureText(stampText).width + 64;
+  const stampX = 150;
+  const stampY = 106;
+  const stampH = 60;
+  roundRect(ctx, stampX, stampY, stampW, stampH, 16);
+  ctx.fillStyle = "rgba(176,133,44,0.08)";
+  ctx.fill();
+  ctx.strokeStyle = "rgba(176,133,44,0.75)";
+  ctx.lineWidth = 3;
+  ctx.stroke();
+  ctx.fillStyle = "#b0852c";
+  ctx.textAlign = "center";
+  ctx.fillText(stampText, stampX + stampW / 2, stampY + stampH / 2 + 12);
+  ctx.textAlign = "right";
+
+  ctx.strokeStyle = "rgba(176,133,44,0.40)";
+  ctx.lineWidth = 3;
+  ctx.setLineDash([2, 16]);
+  ctx.beginPath();
+  ctx.moveTo(150, 244);
+  ctx.lineTo(W - 150, 244);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = "rgba(176,133,44,0.75)";
+  diamond(ctx, W / 2, 244, 7);
+  ctx.fill();
+
+  ctx.strokeStyle = "rgba(196,84,84,0.55)";
+  ctx.lineWidth = 5;
+  ctx.beginPath();
+  ctx.moveTo(W - 116, 288);
+  ctx.lineTo(W - 116, H - 168);
+  ctx.stroke();
+  ctx.lineWidth = 9;
+  ctx.beginPath();
+  ctx.moveTo(W - 116, 288);
+  ctx.lineTo(W - 116, 316);
+  ctx.moveTo(W - 116, H - 196);
+  ctx.lineTo(W - 116, H - 168);
+  ctx.stroke();
+
+  ctx.strokeStyle = "rgba(150,110,40,0.26)";
+  ctx.lineWidth = 3;
+  const firstBaseline = 380;
+  const step = 96;
+  for (let k = 0; k < 9; k++) {
+    const y = firstBaseline + k * step;
+    ctx.beginPath();
+    ctx.moveTo(W - 170, y - 12);
+    ctx.lineTo(170, y - 12);
+    ctx.stroke();
   }
 
-  ctx.fillStyle = "#7a6a51";
-  ctx.font = "700 34px Tajawal, sans-serif";
-  ctx.fillText(`صفحة ${pageNum} من ${total}`, 190, H - 90);
+  ctx.fillStyle = "#3c3122";
+  ctx.font = "700 56px Amiri, serif";
+  const maxW = W - 330;
+  const lines = wrapText(ctx, content, maxW);
+  let y = firstBaseline;
+  for (const l of lines) {
+    if (y > H - 300) break;
+    ctx.fillText(l, W - 172, y);
+    y += step;
+  }
 
-  ctx.fillStyle = "#a67c00";
-  ctx.font = "800 44px Tajawal, sans-serif";
-  ctx.fillText("🎓 مدارك جو · بين السطور", W - 160, H - 90);
+  ctx.strokeStyle = "rgba(176,133,44,0.40)";
+  ctx.lineWidth = 3;
+  ctx.setLineDash([2, 16]);
+  ctx.beginPath();
+  ctx.moveTo(150, H - 148);
+  ctx.lineTo(W - 150, H - 148);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  ctx.fillStyle = "#8a7450";
+  ctx.font = "500 30px Tajawal, sans-serif";
+  ctx.fillText(`صفحة ${pageNum} من ${total}`, 170, H - 92);
+
+  ctx.fillStyle = "#8a6413";
+  ctx.font = "800 38px Tajawal, sans-serif";
+  ctx.fillText("🎓 مدارك جو · بين السطور", W - 170, H - 92);
 
   return await new Promise<Blob>((resolve, reject) => {
     canvas.toBlob(
