@@ -257,20 +257,42 @@ export async function renderNotebookImage(
   await waitFont("Tajawal");
 
   const W = 1080;
-  const step = 96;
   const firstBaseline = 380;
   const maxW = W - 330;
   const canvas = document.createElement("canvas");
   canvas.width = W;
   canvas.height = 1350;
   const measure = canvas.getContext("2d")!;
-  measure.font = "700 56px Amiri, serif";
-  let lines = wrapParagraphs(measure, content, maxW);
-  if (lines.length > 40) {
-    lines = lines.slice(0, 40);
-    const last = lines[39] ?? "";
-    lines[39] = last.length > 2 ? last.slice(0, -2) + "…" : last;
+
+  const candidates: Array<[number, number]> = [
+    [56, 96],
+    [50, 86],
+    [44, 78],
+    [38, 68],
+    [33, 60],
+    [29, 52],
+  ];
+  let fontSize = 56;
+  let step = 96;
+  let lines: string[] = [];
+  for (const [f, st] of candidates) {
+    measure.font = `700 ${f}px Amiri, serif`;
+    const rows = wrapParagraphs(measure, content, maxW);
+    const estH = firstBaseline + rows.length * st + 230;
+    if (rows.length <= 16 || estH <= 2300) {
+      fontSize = f;
+      step = st;
+      lines = rows;
+      break;
+    }
   }
+  if (!lines.length) {
+    fontSize = 29;
+    step = 52;
+    measure.font = "700 29px Amiri, serif";
+    lines = wrapParagraphs(measure, content, maxW);
+  }
+
   const bodyH = firstBaseline + lines.length * step + 230;
   const H = Math.max(1350, bodyH);
   canvas.height = H;
@@ -379,7 +401,7 @@ export async function renderNotebookImage(
   }
 
   ctx.fillStyle = "#3c3122";
-  ctx.font = "700 56px Amiri, serif";
+  ctx.font = `700 ${fontSize}px Amiri, serif`;
   let y = firstBaseline;
   for (const l of lines) {
     ctx.fillText(l, W - 172, y);
