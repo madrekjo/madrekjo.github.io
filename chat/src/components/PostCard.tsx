@@ -85,7 +85,8 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
   const [lightbox, setLightbox] = useState<{ src: string; images?: string[]; index?: number; type: "image" | "video" } | null>(null);
   const [reportOpen, setReportOpen] = useState(false);
   const [authorIsAdmin, setAuthorIsAdmin] = useState(authorIsAdminProp ?? false);
-  const [authorIsOwner, setAuthorIsOwner] = useState(authorIsOwnerProp ?? false);
+  const [ownerIds, setOwnerIds] = useState<Set<string>>(new Set());
+  const authorIsOwner = ownerIds.has(post.user_id);
   const [showLikers, setShowLikers] = useState(false);
   const [likersData, setLikersData] = useState<{ user_id: string; full_name: string | null; avatar_url: string | null; gender?: string | null; type?: string }[] | null>(null);
   const [likersLoading, setLikersLoading] = useState(false);
@@ -109,17 +110,21 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
   useEffect(() => {
     if (authorIsAdminProp !== undefined) {
       setAuthorIsAdmin(authorIsAdminProp);
-      setAuthorIsOwner(authorIsOwnerProp ?? false);
+      setOwnerIds(authorIsOwnerProp ? new Set([post.user_id]) : new Set());
       return;
     }
     const fetchAuthorRole = async () => {
       // مجموعتا الأدمن والمالك تُقرآن من كاش مشترك (بدل استعلام user_roles لكل منشور)
       const [adminSet, ownerSet] = await Promise.all([loadAdminUserIds(), loadOwnerUserIds()]);
       setAuthorIsAdmin(adminSet.has(post.user_id));
-      setAuthorIsOwner(ownerSet.has(post.user_id));
+      setOwnerIds(ownerSet);
     };
     fetchAuthorRole();
   }, [post.user_id, authorIsAdminProp, authorIsOwnerProp]);
+
+  // اسم المالك يظهر الاسم فقط (بدون حقل/جيل) — ميزة حصرية للمالك.
+  const ownerName = useCallback((profile: { full_name?: string | null; generation?: string | null; field?: string | null } | null | undefined, uid?: string | null) =>
+    formatDisplayName(profile, undefined, !!uid && ownerIds.has(uid)), [ownerIds]);
 
   const reloadComments = useCallback(async () => {
     if (!user) { setCommentsLoaded(true); return; }
@@ -380,7 +385,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
         <div className="flex-1">
           <div className="flex items-center gap-1">
             <button onClick={() => setProfileUserId(post.user_id)} className="font-semibold text-sm hover:underline text-right">
-              {formatDisplayName(post.profiles)}
+              {ownerName(post.profiles, post.user_id)}
             </button>
             <VerificationBadge gender={post.profiles?.gender} isAuthorAdmin={authorIsAdmin} isAuthorOwner={authorIsOwner} />
             <RoundsBadge userId={post.user_id} />
@@ -560,7 +565,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
                       </AvatarFallback>
                     </Avatar>
                     <span className="text-sm">
-                      {formatDisplayName(l as any)}
+                      {ownerName(l, l.user_id)}
                     </span>
                     {l.gender === "male" && <span className="inline-flex items-center justify-center w-2.5 h-2.5 rounded-full bg-blue-500 shrink-0" />}
                     {l.gender === "female" && <span className="inline-flex items-center justify-center w-2.5 h-2.5 rounded-full bg-pink-500 shrink-0" />}
@@ -595,7 +600,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-1">
                       <button onClick={() => setProfileUserId(comment.user_id)} className="text-xs font-semibold hover:underline">
-                        {formatDisplayName(comment.profiles)}
+                        {ownerName(comment.profiles, comment.user_id)}
                       </button>
                       {comment.profiles?.gender === "male" && <span className="inline-flex items-center justify-center w-3 h-3 rounded-full bg-blue-500 shrink-0" />}
                       {comment.profiles?.gender === "female" && <span className="inline-flex items-center justify-center w-3 h-3 rounded-full bg-pink-500 shrink-0" />}
@@ -665,7 +670,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
                   <div className="flex-1 bg-muted/50 rounded-lg p-2">
                     <div className="flex items-center justify-between">
                       <button onClick={() => setProfileUserId(reply.user_id)} className="text-xs font-semibold hover:underline flex items-center gap-1">
-                        {formatDisplayName(reply.profiles)}
+                        {ownerName(reply.profiles, reply.user_id)}
                         {reply.profiles?.gender === "male" && <span className="inline-flex items-center justify-center w-2.5 h-2.5 rounded-full bg-blue-500 shrink-0" />}
                         {reply.profiles?.gender === "female" && <span className="inline-flex items-center justify-center w-2.5 h-2.5 rounded-full bg-pink-500 shrink-0" />}
                         <RoundsBadge userId={reply.user_id} />

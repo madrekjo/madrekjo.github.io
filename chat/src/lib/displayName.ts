@@ -26,10 +26,13 @@ interface DisplayProfile {
 /**
  * Formats a user display name with field prefix (Dr./Eng./Lang./Bus.)
  * and generation suffix (09/10). Falls back gracefully if data missing.
+ *
+ * bare = true → الاسم فقط بدون بادئة الجيل/الحقل (ميزة حصرية للمالك).
  */
-export function formatDisplayName(profile: DisplayProfile | null | undefined, fallback = "مستخدم"): string {
+export function formatDisplayName(profile: DisplayProfile | null | undefined, fallback = "مستخدم", bare = false): string {
   if (!profile) return fallback;
   const name = profile.full_name?.trim() || fallback;
+  if (bare) return name;
   const prefix = profile.field && FIELD_PREFIX[profile.field] ? `${FIELD_PREFIX[profile.field]} ` : "";
   const suffix = profile.generation ? ` ${profile.generation}` : "";
   return `${prefix}${name}${suffix}`;
