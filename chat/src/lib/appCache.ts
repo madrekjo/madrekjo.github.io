@@ -18,11 +18,11 @@ export const SECTION_LOCKS_KEY = "config:section_locks";
 export const BANNED_WORDS_KEY = "config:banned_words";
 export const ADMIN_IDS_KEY = "config:admin_ids";
 export const OWNER_IDS_KEY = "config:owner_ids";
-export const GOLDEN_IDS_KEY = "config:golden_ids";
+export const ROSE_IDS_KEY = "config:rose_ids";
 
-/** المستخدمون المميزون (هالة ذهبية حول بروفايلهم) —限定 بالبريد، بدون صلاحيات مالك.
- * تحديثهم = تغيير المصفوفة هنا ثم تفريغ كاش config:golden_ids. */
-export const GOLDEN_EMAILS: string[] = [
+/** المستخدمون المميزون (هالة وردية حول بروفايلهم) — محددون بالبريد، بدون صلاحيات.
+ * تحديثهم = تغيير المصفوفة هنا ثم تفريغ كاش config:rose_ids. */
+export const ROSE_EMAILS: string[] = [
   "alshrhs292@gmail.com",
   "wardhashem09@gmail.com",
 ];
@@ -180,19 +180,19 @@ export async function loadOwnerUserIds(): Promise<Set<string>> {
 }
 
 /**
- * مجموعة معرّفات المستخدمين المميزين (golden) — هالة ذهبية حول بروفايلهم فقط.
- * تُقرأ من جدول profiles بالبريد (محددة في GOLDEN_EMAILS)، بدون أي صلاحيات.
+ * مجموعة معرّفات المستخدمين المميزين (rose) — هالة وردية حول بروفايلهم فقط.
+ * تُقرأ من جدول profiles بالبريد (محددة في ROSE_EMAILS)، بدون أي صلاحيات.
  */
-export async function loadGoldenUserIds(): Promise<Set<string>> {
+export async function loadRoseUserIds(): Promise<Set<string>> {
   const ids = await cachedRead<string[]>({
-    key: GOLDEN_IDS_KEY,
+    key: ROSE_IDS_KEY,
     ttlMs: 60 * 60 * 1000,
     persist: true,
     fetcher: async () => {
       const { data } = await supabase
         .from("profiles")
         .select("user_id, email");
-      const emails = new Set(GOLDEN_EMAILS);
+      const emails = new Set(ROSE_EMAILS);
       return (data || [])
         .filter((r) => r.email && emails.has(r.email.trim().toLowerCase()))
         .map((r) => r.user_id);
@@ -216,5 +216,5 @@ export function invalidateAppConfig() {
   invalidateCache(BANNED_WORDS_KEY);
   invalidateCache(ADMIN_IDS_KEY);
   invalidateCache(OWNER_IDS_KEY);
-  invalidateCache(GOLDEN_IDS_KEY);
+  invalidateCache(ROSE_IDS_KEY);
 }

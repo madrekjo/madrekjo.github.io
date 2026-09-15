@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { containsBannedWord } from "@/lib/bannedWords";
 import { invalidateTable } from "@/lib/invalidation";
 import { loadPostComments, type PostComment } from "@/lib/postComments";
-import { loadAdminUserIds, loadOwnerUserIds, loadGoldenUserIds } from "@/lib/appCache";
+import { loadAdminUserIds, loadOwnerUserIds, loadRoseUserIds } from "@/lib/appCache";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -39,11 +39,15 @@ const VerificationBadge = ({ gender, isAuthorAdmin, isAuthorOwner }: { gender?: 
   return null;
 };
 
-/** حلقة ذهبية حول الصورة للرتب المميزة (المالك + المستخدمون الذهبيون). */
-const GoldenHalo = ({ active, children }: { active: boolean; children: ReactNode }) => {
-  if (!active) return <>{children}</>;
+/** حلقة ملونة حول الصورة للرتب المميزة: المالك (ذهبي gold) + المستخدمون المميزون (وردي rose). */
+const Halo = ({ tone, children }: { tone: "gold" | "rose" | null; children: ReactNode }) => {
+  if (!tone) return <>{children}</>;
+  const cls =
+    tone === "rose"
+      ? "bg-gradient-to-br from-pink-300 via-rose-400 to-pink-600 shadow-[0_0_14px_rgba(244,114,182,0.65)] ring-1 ring-pink-200/70 group-hover:shadow-[0_0_20px_rgba(244,114,182,0.9)]"
+      : "bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-600 shadow-[0_0_14px_rgba(251,191,36,0.65)] ring-1 ring-yellow-200/70 group-hover:shadow-[0_0_20px_rgba(251,191,36,0.9)]";
   return (
-    <span className="block rounded-full p-[2px] bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-600 shadow-[0_0_14px_rgba(251,191,36,0.65)] ring-1 ring-yellow-200/70 transition-all group-hover:shadow-[0_0_20px_rgba(251,191,36,0.9)]">
+    <span className={`block rounded-full p-[2px] ${cls} transition-all`}>
       {children}
     </span>
   );
@@ -97,10 +101,14 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
   const [authorIsAdmin, setAuthorIsAdmin] = useState(authorIsAdminProp ?? false);
   const [ownerIds, setOwnerIds] = useState<Set<string>>(new Set());
   const authorIsOwner = ownerIds.has(post.user_id);
-  const [goldenIds, setGoldenIds] = useState<Set<string>>(new Set());
-  // هالة ذهبية: للمالك + للمستخدمين المميزين (golden) المحددين بالبريد.
-  const isHaloUser = useCallback((uid: string) => ownerIds.has(uid) || goldenIds.has(uid), [ownerIds, goldenIds]);
-  const postHalo = isHaloUser(post.user_id);
+  const [roseIds, setRoseIds] = useState<Set<string>>(new Set());
+  // لون الهالة: ذهبي للمالك، وردي للمستخدمين المميزين (rose) المحددين بالبريد.
+  const haloOf = useCallback(
+    (uid: string): "gold" | "rose" | null =>
+      ownerIds.has(uid) ? "gold" : roseIds.has(uid) ? "rose" : null,
+    [ownerIds, roseIds]
+  );
+  const postHalo = haloOf(post.user_id);
   const [showLikers, setShowLikers] = useState(false);
   const [likersData, setLikersData] = useState<{ user_id: string; full_name: string | null; avatar_url: string | null; gender?: string | null; type?: string }[] | null>(null);
   const [likersLoading, setLikersLoading] = useState(false);
@@ -123,8 +131,8 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
 
   useEffect(() => {
     const loadSets = async () => {
-      // المستخدمون الذهبيون يُقرأون دائماً من الكاش (يظهرون في المنشورات والتعليقات).
-      setGoldenIds(await loadGoldenUserIds());
+      // المستخدمون المميزون (rose) يُقرأون دائماً من الكاش (يظهرون في المنشورات والتعليقات).
+      setRoseIds(await loadRoseUserIds());
       if (authorIsAdminProp !== undefined) {
         setAuthorIsAdmin(authorIsAdminProp);
         setOwnerIds(authorIsOwnerProp ? new Set([post.user_id]) : new Set());
@@ -381,14 +389,14 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
       <div className="flex items-center gap-3 mb-3">
         <button onClick={() => setProfileUserId(post.user_id)} className="shrink-0 group">
           {postHalo ? (
-            <GoldenHalo active>
+            <Halo tone={postHalo}>
               <Avatar className="w-10 h-10 cursor-pointer transition-all">
                 <AvatarImage src={post.profiles?.avatar_url || ""} />
                 <AvatarFallback className="bg-primary/10 text-primary text-sm">
                   {post.profiles?.full_name?.charAt(0) || "م"}
                 </AvatarFallback>
               </Avatar>
-            </GoldenHalo>
+            </Halo>
           ) : (
             <Avatar className="w-10 h-10 cursor-pointer hover:ring-2 hover:ring-primary/40 transition-all">
               <AvatarImage src={post.profiles?.avatar_url || ""} />
@@ -605,14 +613,14 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
             <div key={comment.id} className="space-y-2">
               <div className="flex gap-2">
                 <button onClick={() => setProfileUserId(comment.user_id)} className="shrink-0 group">
-                  <GoldenHalo active={isHaloUser(comment.user_id)}>
+                  <Halo tone={haloOf(comment.user_id)}>
                     <Avatar className="w-7 h-7 cursor-pointer hover:ring-2 hover:ring-primary/40 transition-all">
                       <AvatarImage src={comment.profiles?.avatar_url || ""} />
                       <AvatarFallback className="bg-primary/10 text-primary text-xs">
                         {comment.profiles?.full_name?.charAt(0) || "م"}
                       </AvatarFallback>
                     </Avatar>
-                  </GoldenHalo>
+                  </Halo>
                 </button>
                 <div className={`flex-1 rounded-lg p-2 ${comment.is_pinned ? "bg-primary/10 border border-primary/20" : "bg-muted"}`}>
                   <div className="flex items-center justify-between">
@@ -678,14 +686,14 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
                 <div key={reply.id} className="flex gap-2 mr-8">
                   <CornerDownLeft className="w-4 h-4 text-muted-foreground mt-2 shrink-0" />
                   <button onClick={() => setProfileUserId(reply.user_id)} className="shrink-0 group">
-                  <GoldenHalo active={isHaloUser(reply.user_id)}>
+                  <Halo tone={haloOf(reply.user_id)}>
                     <Avatar className="w-6 h-6 cursor-pointer hover:ring-2 hover:ring-primary/40 transition-all">
                       <AvatarImage src={reply.profiles?.avatar_url || ""} />
                       <AvatarFallback className="bg-primary/10 text-primary text-xs">
                         {reply.profiles?.full_name?.charAt(0) || "م"}
                       </AvatarFallback>
                     </Avatar>
-                  </GoldenHalo>
+                  </Halo>
                 </button>
                   <div className="flex-1 bg-muted/50 rounded-lg p-2">
                     <div className="flex items-center justify-between">
