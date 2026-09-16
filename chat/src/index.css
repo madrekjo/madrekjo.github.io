@@ -178,6 +178,35 @@
   }
 }
 
+@layer utilities {
+  /* وميض ذهبي متحرك (للرتب المميزة الذهبية اللامعة) */
+  .halo-shine {
+    background: linear-gradient(120deg, #fcd34d, #f59e0b, #fde68a, #f59e0b, #fcd34d);
+    background-size: 300% 300%;
+    animation: halo-shine 2.2s linear infinite;
+  }
+  .halo-shine-glow {
+    animation: halo-pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes halo-shine {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 300% 50%;
+    }
+  }
+  @keyframes halo-pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 8px rgba(251, 191, 36, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 22px rgba(251, 191, 36, 0.9);
+    }
+  }
+}
+
 @layer base {
   * {
     @apply border-border;

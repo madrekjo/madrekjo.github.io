@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { containsBannedWord } from "@/lib/bannedWords";
 import { invalidateTable } from "@/lib/invalidation";
 import { loadPostComments, type PostComment } from "@/lib/postComments";
-import { loadAdminUserIds, loadOwnerUserIds, loadRoseUserIds } from "@/lib/appCache";
+import { loadAdminUserIds, loadOwnerUserIds, loadRoseUserIds, loadShineUserIds } from "@/lib/appCache";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -39,11 +39,14 @@ const VerificationBadge = ({ gender, isAuthorAdmin, isAuthorOwner }: { gender?: 
   return null;
 };
 
-/** حلقة ملونة حول الصورة للرتب المميزة: المالك (ذهبي gold) + المستخدمون المميزون (وردي rose). */
-const Halo = ({ tone, children }: { tone: "gold" | "rose" | null; children: ReactNode }) => {
+/** حلقة ملونة حول الصورة للرتب المميزة:
+ * المالك (ذهبي gold) + المستخدمون الورديون (rose) + ذوو الوميض الذهبي (shine). */
+const Halo = ({ tone, children }: { tone: "gold" | "rose" | "shine" | null; children: ReactNode }) => {
   if (!tone) return <>{children}</>;
   const cls =
-    tone === "rose"
+    tone === "shine"
+      ? "halo-shine halo-shine-glow ring-1 ring-yellow-200/80"
+      : tone === "rose"
       ? "bg-gradient-to-br from-pink-300 via-rose-400 to-pink-600 shadow-[0_0_14px_rgba(244,114,182,0.65)] ring-1 ring-pink-200/70 group-hover:shadow-[0_0_20px_rgba(244,114,182,0.9)]"
       : "bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-600 shadow-[0_0_14px_rgba(251,191,36,0.65)] ring-1 ring-yellow-200/70 group-hover:shadow-[0_0_20px_rgba(251,191,36,0.9)]";
   return (
@@ -102,11 +105,12 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
   const [ownerIds, setOwnerIds] = useState<Set<string>>(new Set());
   const authorIsOwner = ownerIds.has(post.user_id);
   const [roseIds, setRoseIds] = useState<Set<string>>(new Set());
-  // لون الهالة: ذهبي للمالك، وردي للمستخدمين المميزين (rose) المحددين بالبريد.
+  const [shineIds, setShineIds] = useState<Set<string>>(new Set());
+  // لون الهالة: ذهبي للمالك، وميض ذهبي (shine) لذوي الوميض، وردي للورديين.
   const haloOf = useCallback(
-    (uid: string): "gold" | "rose" | null =>
-      ownerIds.has(uid) ? "gold" : roseIds.has(uid) ? "rose" : null,
-    [ownerIds, roseIds]
+    (uid: string): "gold" | "rose" | "shine" | null =>
+      ownerIds.has(uid) ? "gold" : shineIds.has(uid) ? "shine" : roseIds.has(uid) ? "rose" : null,
+    [ownerIds, roseIds, shineIds]
   );
   const postHalo = haloOf(post.user_id);
   const [showLikers, setShowLikers] = useState(false);
@@ -131,8 +135,10 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
 
   useEffect(() => {
     const loadSets = async () => {
-      // المستخدمون المميزون (rose) يُقرأون دائماً من الكاش (يظهرون في المنشورات والتعليقات).
-      setRoseIds(await loadRoseUserIds());
+      // المستخدمون المميزون (rose + shine) يُقرأون دائماً من الكاش (يظهرون في المنشورات والتعليقات).
+      const [roseSet, shineSet] = await Promise.all([loadRoseUserIds(), loadShineUserIds()]);
+      setRoseIds(roseSet);
+      setShineIds(shineSet);
       if (authorIsAdminProp !== undefined) {
         setAuthorIsAdmin(authorIsAdminProp);
         setOwnerIds(authorIsOwnerProp ? new Set([post.user_id]) : new Set());

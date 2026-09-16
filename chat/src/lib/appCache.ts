@@ -19,12 +19,19 @@ export const BANNED_WORDS_KEY = "config:banned_words";
 export const ADMIN_IDS_KEY = "config:admin_ids";
 export const OWNER_IDS_KEY = "config:owner_ids";
 export const ROSE_IDS_KEY = "config:rose_ids";
+export const SHINE_IDS_KEY = "config:shine_ids";
 
 /** المستخدمون المميزون (هالة وردية حول بروفايلهم) — محددون بالبريد، بدون صلاحيات.
  * تحديثهم = تغيير المصفوفة هنا ثم تفريغ كاش config:rose_ids. */
 export const ROSE_EMAILS: string[] = [
   "alshrhs292@gmail.com",
   "wardhashem09@gmail.com",
+];
+
+/** المستخدمون ذوو الوميض الذهبي (هالة ذهبية متلألئة) — محددون بالبريد، بدون صلاحيات.
+ * تحديثهم = تغيير المصفوفة هنا ثم تفريغ كاش config:shine_ids. */
+export const SHINE_EMAILS: string[] = [
+  "aaboodym16@gmail.com",
 ];
 
 export interface SectionLockData {
@@ -201,6 +208,28 @@ export async function loadRoseUserIds(): Promise<Set<string>> {
   return new Set(ids);
 }
 
+/**
+ * مجموعة معرّفات المستخدمين ذوي الوميض الذهبي (shine) — هالة ذهبية متلألئة حول بروفايلهم فقط.
+ * تُقرأ من جدول profiles بالبريد (محددة في SHINE_EMAILS)، بدون أي صلاحيات.
+ */
+export async function loadShineUserIds(): Promise<Set<string>> {
+  const ids = await cachedRead<string[]>({
+    key: SHINE_IDS_KEY,
+    ttlMs: 60 * 60 * 1000,
+    persist: true,
+    fetcher: async () => {
+      const { data } = await supabase
+        .from("profiles")
+        .select("user_id, email");
+      const emails = new Set(SHINE_EMAILS);
+      return (data || [])
+        .filter((r) => r.email && emails.has(r.email.trim().toLowerCase()))
+        .map((r) => r.user_id);
+    },
+  });
+  return new Set(ids);
+}
+
 /** يفحص هل القفل ما زال سارياً حسب locked_until. */
 export function isSectionEffectivelyLocked(lock: SectionLockData | null | undefined): boolean {
   if (!lock || !lock.locked) return false;
@@ -217,4 +246,5 @@ export function invalidateAppConfig() {
   invalidateCache(ADMIN_IDS_KEY);
   invalidateCache(OWNER_IDS_KEY);
   invalidateCache(ROSE_IDS_KEY);
+  invalidateCache(SHINE_IDS_KEY);
 }
