@@ -135,19 +135,18 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
 
   useEffect(() => {
     const loadSets = async () => {
-      // المستخدمون المميزون (rose + shine) يُقرأون دائماً من الكاش (يظهرون في المنشورات والتعليقات).
-      const [roseSet, shineSet] = await Promise.all([loadRoseUserIds(), loadShineUserIds()]);
+      // المجموعات الثلاث تُحمَّل دائماً من الكاش حتى تظهر الهالة في التعليقات والردود
+      // للمالكين والورديين واللآمعين — لا نكتفي بالـ prop الخاص بالمنشور فقط.
+      const [adminSet, ownerSet, roseSet, shineSet] = await Promise.all([
+        loadAdminUserIds(),
+        loadOwnerUserIds(),
+        loadRoseUserIds(),
+        loadShineUserIds(),
+      ]);
+      setAuthorIsAdmin(authorIsAdminProp !== undefined ? authorIsAdminProp : adminSet.has(post.user_id));
+      setOwnerIds(ownerSet);
       setRoseIds(roseSet);
       setShineIds(shineSet);
-      if (authorIsAdminProp !== undefined) {
-        setAuthorIsAdmin(authorIsAdminProp);
-        setOwnerIds(authorIsOwnerProp ? new Set([post.user_id]) : new Set());
-        return;
-      }
-      // مجموعتا الأدمن والمالك تُقرآن من كاش مشترك (بدل استعلام user_roles لكل منشور)
-      const [adminSet, ownerSet] = await Promise.all([loadAdminUserIds(), loadOwnerUserIds()]);
-      setAuthorIsAdmin(adminSet.has(post.user_id));
-      setOwnerIds(ownerSet);
     };
     loadSets();
   }, [post.user_id, authorIsAdminProp, authorIsOwnerProp]);
