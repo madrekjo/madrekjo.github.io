@@ -3,7 +3,7 @@
 -- Supabase → SQL Editor → New Query → Paste → Run
 -- (شغّل قبله ملف 20260915000002_add_owner_enum.sql أولاً)
 --
--- المالكون: عبدالرحمن معايطه + عبدالرحمن جراح فقط.
+-- المالكون: عبدالرحمن معايطه + عبدالرحمن جراح + عبودي.
 -- ما يقدر أحد (حتى مالك آخر) يحظرهم / يعلّقهم / يعدّل فيهم أي شيء / يحذفهم.
 --
 -- صلاحيات حصرية للمالك (لا يملكها الأدمن):
@@ -28,7 +28,7 @@ ON CONFLICT (role) DO UPDATE SET
 INSERT INTO public.user_roles (user_id, role)
 SELECT id, 'owner'
 FROM auth.users
-WHERE email IN ('abdalrhmanmaaith24@gmail.com', 'abdalrahmanjarrah94@gmail.com')
+WHERE email IN ('abdalrhmanmaaith24@gmail.com', 'abdalrahmanjarrah94@gmail.com', 'aaboodym16@gmail.com')
 ON CONFLICT (user_id, role) DO NOTHING;
 
 -- [3] has_permission: المالك مطلق الصلاحيات (كالإدمن تماماً في التنفيذ)
@@ -139,7 +139,7 @@ BEGIN
   END IF;
 
   -- حماية الأدمن/المشرف على حسابات المؤسسين بالبريد
-  IF v_email IN ('abdalrhmanmaaith24@gmail.com', 'abdalrahmanjarrah94@gmail.com', 'madrekjo@gmail.com')
+  IF v_email IN ('abdalrhmanmaaith24@gmail.com', 'abdalrahmanjarrah94@gmail.com', 'madrekjo@gmail.com', 'aaboodym16@gmail.com')
      AND OLD.role IN ('admin'::app_role, 'moderator'::app_role) THEN
     RAISE EXCEPTION 'لا يمكن سحب صلاحيات المؤسسين';
   END IF;
@@ -218,7 +218,7 @@ BEGIN
 
   SELECT email INTO target_email FROM auth.users WHERE id = _user_id;
   IF public.has_role(_user_id, 'owner'::app_role)
-     OR target_email IN ('abdalrhmanmaaith24@gmail.com', 'abdalrahmanjarrah94@gmail.com') THEN
+     OR target_email IN ('abdalrhmanmaaith24@gmail.com', 'abdalrahmanjarrah94@gmail.com', 'aaboodym16@gmail.com') THEN
     RAISE EXCEPTION 'لا يمكن حذف حساب مالك';
   END IF;
 

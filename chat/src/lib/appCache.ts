@@ -30,9 +30,7 @@ export const ROSE_EMAILS: string[] = [
 
 /** المستخدمون ذوو الوميض الذهبي (هالة ذهبية متلألئة) — محددون بالبريد، بدون صلاحيات.
  * تحديثهم = تغيير المصفوفة هنا ثم تفريغ كاش config:shine_ids. */
-export const SHINE_EMAILS: string[] = [
-  "aaboodym16@gmail.com",
-];
+export const SHINE_EMAILS: string[] = [];
 
 export interface SectionLockData {
   locked: boolean;
