@@ -385,9 +385,7 @@ export default function Reels({
         <span className="rounded-full bg-ink/40 px-4 py-1.5 text-sm font-bold text-white backdrop-blur-sm">
           عبارات
         </span>
-        <span className="rounded-full bg-ink/40 px-3 py-1.5 text-xs font-bold text-white/90 backdrop-blur-sm">
-          {idx + 1}/{rows.length}
-        </span>
+        <span className="w-10" />
       </div>
 
       <div className="pointer-events-none absolute bottom-5 right-4 z-10 flex flex-col gap-2">
