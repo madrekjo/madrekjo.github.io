@@ -1,9 +1,20 @@
 import { useState, type FormEvent } from "react";
 import { X } from "lucide-react";
 import { submitLine, type Category } from "@/lib/api";
-import { GRADS } from "@/lib/colors";
+import { CAT_META, GRADS } from "@/lib/colors";
 
 const categories: Array<Category> = ["رواية", "ديني", "تنمية", "شعر", "تاريخ"];
+
+function SectionTitle({ label }: { label: string }) {
+  return (
+    <div className="flex items-center gap-2 pt-1">
+      <span className="rounded-full bg-gold/10 px-2.5 py-0.5 text-[11px] font-bold text-gold-deep">
+        {label}
+      </span>
+      <span className="h-px flex-1 bg-line" />
+    </div>
+  );
+}
 
 export default function AddLineModal({
   open,
@@ -106,7 +117,7 @@ export default function AddLineModal({
           <form onSubmit={onSubmit} className="space-y-3">
             {defaultName ? (
               <p className="rounded-xl bg-paper px-4 py-2.5 text-sm text-ink-soft">
-                بتكتب باسم: <span className="font-bold text-ink">{defaultName}</span>
+                بتنشر باسم: <span className="font-bold text-ink">{defaultName}</span>
               </p>
             ) : (
               <div>
@@ -122,9 +133,11 @@ export default function AddLineModal({
                 />
               </div>
             )}
+
+            <SectionTitle label="المحتوى" />
             <div>
               <label className="mb-1 block text-sm font-medium text-ink">
-                أجمل سطر قرأته *
+                النص *
               </label>
               <textarea
                 value={text}
@@ -150,7 +163,7 @@ export default function AddLineModal({
               </div>
               <div>
                 <label className="mb-1 block text-sm font-medium text-ink">
-                  المؤلف (اختياري)
+                  اسم المؤلف (اختياري)
                 </label>
                 <input
                   value={author}
@@ -166,31 +179,32 @@ export default function AddLineModal({
                 التصنيف *
               </label>
               <div className="flex flex-wrap gap-2">
-                {categories.map((c) => (
-                  <button
-                    key={c}
-                    type="button"
-                    onClick={() => setCategory(c)}
-                    className={
-                      "rounded-full border px-4 py-1.5 text-sm transition " +
-                      (category === c
-                        ? "border-gold bg-gold font-bold text-white"
-                        : "border-line bg-paper text-ink-soft hover:border-gold-deep")
-                    }
-                  >
-                    {c}
-                  </button>
-                ))}
+                {categories.map((c) => {
+                  const chip = CAT_META[c] ?? { icon: "📖", chip: "" };
+                  return (
+                    <button
+                      key={c}
+                      type="button"
+                      onClick={() => setCategory(c)}
+                      className={
+                        "rounded-full border px-4 py-1.5 text-sm transition " +
+                        (category === c
+                          ? "border-gold bg-gold font-bold text-white"
+                          : "border-line bg-paper text-ink-soft hover:border-gold-deep")
+                      }
+                    >
+                      {chip.icon} {c}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
+            <SectionTitle label="المظهر" />
             <div>
-              <label className="mb-1 block text-sm font-medium text-ink">
-                لون البطاقة
-              </label>
               <div
                 className={
-                  "flex h-14 items-center justify-center rounded-xl border px-3 text-center font-serif text-base font-bold " +
+                  "flex h-16 items-center justify-center rounded-xl border px-3 text-center font-serif text-base font-bold " +
                   (color === ""
                     ? "border-line bg-card text-ink"
                     : "border-transparent text-white " + color)

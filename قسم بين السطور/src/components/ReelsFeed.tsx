@@ -11,6 +11,7 @@ import {
   X,
 } from "lucide-react";
 import type { Line } from "@/lib/api";
+import { CAT_META } from "@/lib/colors";
 
 const shareBtn =
   "flex items-center gap-1.5 rounded-full border border-line bg-paper px-3.5 py-2 text-xs font-medium text-ink-soft transition hover:border-gold-deep hover:text-gold-deep disabled:opacity-50";
@@ -39,8 +40,13 @@ function ReelCard({
     >
       <div className="flex items-center justify-between gap-2">
         <span className="flex items-center gap-2">
-          <span className="rounded-full border border-gold/40 bg-gold/10 px-2.5 py-0.5 text-xs font-medium text-gold-deep">
-            {line.category}
+          <span
+            className={
+              "rounded-full border px-2.5 py-0.5 text-xs font-bold " +
+              (CAT_META[line.category]?.chip ?? "border-line bg-card text-ink-soft")
+            }
+          >
+            {CAT_META[line.category]?.icon ?? "📖"} {line.category}
           </span>
           {liked && (
             <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-bold text-emerald-600">

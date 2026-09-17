@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Bookmark, ChevronDown, ChevronUp, Heart, Palette, Share2, Star, X } from "lucide-react";
 import type { ReelRow } from "@/lib/api";
 import Avatar from "./Avatar";
-import { GRADS } from "@/lib/colors";
+import { CAT_META, GRADS } from "@/lib/colors";
 
 const GRAD_KEY = "sutur_reel_grad";
 
@@ -175,13 +175,13 @@ export default function Reels({
                     <div className="flex items-start justify-between">
                       <span
                         className={
-                          "rounded-full px-3 py-1 text-xs font-bold " +
+                          "rounded-full border px-3 py-1 text-xs font-bold " +
                           (beige
-                            ? "bg-gold/15 text-gold-deep"
-                            : "bg-white/25 text-white")
+                            ? "border-line bg-card text-ink-soft"
+                            : "border-white/30 bg-white/15 text-white")
                         }
                       >
-                        {r.category}
+                        {CAT_META[r.category]?.icon ?? "📖"} {r.category}
                       </span>
                       <span
                         className={

@@ -11,14 +11,7 @@ import {
 } from "lucide-react";
 import type { Line, NotebookPage, UserProfile } from "@/lib/api";
 import Avatar from "./Avatar";
-
-const GRADS: Record<string, string> = {
-  "رواية": "from-amber-100 to-orange-200",
-  "ديني": "from-emerald-100 to-teal-200",
-  "تنمية": "from-sky-100 to-indigo-200",
-  "شعر": "from-violet-100 to-fuchsia-200",
-  "تاريخ": "from-rose-100 to-red-200",
-};
+import { CAT_META, THUMB_SOFT } from "@/lib/colors";
 
 function CardThumb({
   line,
@@ -31,29 +24,34 @@ function CardThumb({
   starred: boolean;
   onClick: () => void;
 }) {
-  const grad = GRADS[line.category] ?? GRADS["رواية"];
+  const soft = THUMB_SOFT[line.color ?? ""] ?? THUMB_SOFT[""];
+  const cat = CAT_META[line.category] ?? { icon: "📖", chip: "border-line bg-card text-ink-soft" };
   return (
     <button
       onClick={onClick}
-      className="group flex w-full flex-col justify-between overflow-hidden rounded-2xl border border-line bg-gradient-to-br p-3 text-right shadow-sm transition hover:border-gold-deep hover:shadow-md"
-      style={{ aspectRatio: "3/4" }}
+      className={
+        "group flex w-full flex-col justify-between overflow-hidden rounded-2xl border bg-gradient-to-br p-3 text-right shadow-sm transition hover:border-gold-deep hover:shadow-md " +
+        soft
+      }
+      style={{ aspectRatio: "4/3" }}
     >
-      <span
-        className={
-          "w-fit rounded-full px-2 py-0.5 text-[10px] font-bold " +
-          (grad.includes("amber") || grad.includes("orange")
-            ? "bg-white/70 text-orange-700"
-            : "bg-white/70 text-ink-soft")
-        }
-      >
-        {line.category}
-      </span>
-      <p className="line-clamp-4 font-serif text-base leading-snug font-bold text-ink">
+      <div className="flex items-start justify-between gap-2">
+        <span
+          className={
+            "rounded-full border px-2 py-0.5 text-[10px] font-bold whitespace-nowrap " +
+            cat.chip
+          }
+        >
+          {cat.icon} {line.category}
+        </span>
+        <span className="font-serif text-lg leading-none text-ink/20">❝</span>
+      </div>
+      <p className="line-clamp-3 font-serif text-[17px] leading-snug font-bold text-ink">
         {line.text}
       </p>
-      <div>
+      <div className="min-w-0">
         <p className="truncate text-xs text-ink-soft">{line.book}</p>
-        <div className="mt-1.5 flex items-center gap-3 text-[11px] font-medium text-ink-soft">
+        <div className="mt-1 flex items-center gap-3 text-[11px] font-medium text-ink-soft">
           <span className={liked ? "flex items-center gap-1 text-rose-500" : "flex items-center gap-1"}>
             <Heart size={13} className={liked ? "fill-rose-500" : ""} />
             {line.likes}

@@ -4,6 +4,7 @@ import {
   Copy,
   Download,
   Ghost,
+  GraduationCap,
   Heart,
   Instagram,
   MessageCircle,
@@ -12,7 +13,7 @@ import {
   X,
 } from "lucide-react";
 import type { Line } from "@/lib/api";
-import { GRADS } from "@/lib/colors";
+import { CAT_META, GRADS } from "@/lib/colors";
 
 const btn =
   "flex flex-col items-center gap-1.5 rounded-2xl border border-line bg-card px-4 py-3 text-[11px] font-medium text-ink-soft transition hover:border-gold-deep hover:text-gold-deep disabled:opacity-50";
@@ -68,10 +69,11 @@ export default function ShareSheet({
   };
 
   const grad = GRADS[(line.id.split("").reduce((a, c) => a + c.charCodeAt(0), 0) || 0) % GRADS.length];
+  const cat = CAT_META[line.category] ?? { icon: "📖", chip: "bg-white/20 text-white" };
 
   return (
     <div className="fixed inset-0 z-[60] flex items-end justify-center bg-ink/40 backdrop-blur-sm sm:items-center sm:p-4">
-      <div className="max-h-[94vh] w-full max-w-lg overflow-y-auto rounded-t-3xl border border-line bg-paper p-5 shadow-2xl sm:rounded-3xl">
+      <div className="max-h-[94vh] w-full max-w-2xl overflow-y-auto rounded-t-3xl border border-line bg-paper p-5 shadow-2xl sm:rounded-3xl">
         <div className="mb-4 flex items-center justify-between">
           <h3 className="font-serif text-xl font-bold text-ink">بطاقة البطاقة 🃏</h3>
           <button
@@ -85,22 +87,40 @@ export default function ShareSheet({
 
         <div
           className={
-            "relative flex aspect-[4/3] w-full flex-col justify-between overflow-hidden rounded-2xl p-5 text-white shadow-lg " +
+            "relative flex aspect-[4/3] w-full flex-col justify-between overflow-hidden rounded-2xl p-5 text-white shadow-lg sm:p-6 " +
             grad
           }
         >
           <div className="flex items-center justify-between text-xs">
-            <span className="rounded-full bg-white/20 px-2.5 py-0.5 font-bold">
-              {line.category}
+            <span
+              className={
+                "rounded-full border px-2.5 py-0.5 font-bold " + cat.chip
+              }
+            >
+              {cat.icon} {line.category}
             </span>
             <span className="font-serif text-2xl opacity-80">❝</span>
           </div>
-          <p className="font-serif text-xl leading-relaxed font-bold drop-shadow-sm">
+          <p
+            className={
+              "line-clamp-6 font-serif leading-relaxed font-bold drop-shadow-sm " +
+              (line.category === "شعر"
+                ? "text-3xl sm:text-[2rem]"
+                : "text-2xl sm:text-[1.7rem]")
+            }
+          >
             {line.text}
           </p>
-          <div className="flex items-center justify-between text-xs opacity-90">
-            <span>{line.book}</span>
-            <span className="font-bold">{line.author}</span>
+          <div>
+            <div className="flex items-center justify-between text-xs opacity-90">
+              <span>{line.book}</span>
+              <span className="font-bold">{line.author}</span>
+            </div>
+            <div className="mt-3 flex items-center justify-center gap-1.5 rounded-xl bg-white/10 px-3 py-2 text-[11px] backdrop-blur-sm">
+              <GraduationCap size={13} />
+              <span className="font-bold">{line.submitter}</span>
+              <span className="opacity-75">· من بطاقات بين السطور</span>
+            </div>
           </div>
         </div>
 

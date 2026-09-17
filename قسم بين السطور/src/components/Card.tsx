@@ -1,5 +1,6 @@
 import { GraduationCap, Heart, Share2 } from "lucide-react";
 import type { Line } from "@/lib/api";
+import { CAT_META } from "@/lib/colors";
 
 export default function Card({
   line,
@@ -22,11 +23,11 @@ export default function Card({
         <span className="flex items-center gap-2">
           <span
             className={
-              "rounded-full border px-2.5 py-0.5 text-xs font-medium text-gold-deep " +
-              "border-gold/40 bg-gold/10"
+              "rounded-full border px-2.5 py-0.5 text-xs font-bold " +
+              (CAT_META[line.category]?.chip ?? "border-line bg-card text-ink-soft")
             }
           >
-            {line.category}
+            {CAT_META[line.category]?.icon ?? "📖"} {line.category}
           </span>
           {isToday && (
             <span className="rounded-full bg-gold px-2.5 py-0.5 text-xs font-bold text-white shadow-sm">
