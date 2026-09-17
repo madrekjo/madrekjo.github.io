@@ -267,7 +267,7 @@ export default function Reels({
                       تفاعل
                     </span>
                     {isMore && (
-                      <div className="absolute bottom-full right-0 z-20 mb-3 w-52 rounded-2xl border border-white/15 bg-[#241b12]/95 p-2 text-white shadow-xl backdrop-blur-sm">
+                      <div className="absolute bottom-full left-0 z-20 mb-3 w-52 rounded-2xl border border-white/15 bg-[#241b12]/95 p-2 text-white shadow-xl backdrop-blur-sm">
                         <button
                           onClick={() => onToggleLike(r.line_id)}
                           className="flex w-full items-center justify-between rounded-xl px-3 py-2 text-sm font-medium transition hover:bg-white/10"
