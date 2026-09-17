@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import {
   BookOpen,
-  Calendar,
   Pencil,
   Plus,
   Save,
@@ -56,6 +55,35 @@ function fmtRel(iso: string | null): string {
   if (months < 12) return `قبل ${months} أشهر`;
   const years = Math.round(days / 365);
   return years === 1 ? "قبل سنة" : `قبل ${years} سنة`;
+}
+
+function fmtTime(iso: string | null): string {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "";
+  let h = d.getHours();
+  const m = String(d.getMinutes()).padStart(2, "0");
+  const half = h < 12 ? "صباحاً" : "مساءً";
+  h = h % 12 || 12;
+  return `${h}:${m} ${half}`;
+}
+
+function pageLabel(num: number): string {
+  return num === 1 ? "أول صفحة" : `صفحة رقم ${num}`;
+}
+
+function NotebookMiniBook() {
+  return (
+    <div className="grid size-14 shrink-0 place-items-center rounded-xl bg-[#efe0c2] ring-1 ring-[#d8bb8a]">
+      <div className="relative h-11 w-9 overflow-hidden rounded-r-[4px] rounded-l-[2px] bg-gradient-to-bl from-[#8a5a2f] via-[#6f4524] to-[#4a2c14] shadow-[0_2px_5px_rgba(60,40,15,0.35)] ring-1 ring-[#3a2410]">
+        <span className="absolute inset-y-0 right-0 w-[3px] bg-gradient-to-b from-[#e6c46a] to-[#a67c00]" />
+        <span className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-l from-transparent to-black/25" />
+        <span className="absolute inset-x-0 top-2 h-[2px] bg-[#e6c46a]/40" />
+        <span className="absolute inset-x-0 top-2 h-[2px] translate-y-[13px] bg-[#e6c46a]/40" />
+        <span className="absolute inset-x-0 top-2 h-[2px] translate-y-[26px] bg-[#e6c46a]/40" />
+      </div>
+    </div>
+  );
 }
 
 export default function NotebookReader({
@@ -211,24 +239,26 @@ export default function NotebookReader({
 
     if (editingHere) {
       return (
-        <div className="notebook-paper notebook-text flex min-h-[300px] flex-col p-5 pt-6">
-          <span className="pointer-events-none absolute top-3 left-4 rounded-full bg-gold/10 px-2 py-0.5 text-[10px] font-bold text-gold-deep">
-            {editingNew ? pages.length + 1 : num}
-          </span>
-          <span className="absolute top-3 right-4 flex items-center gap-1 text-[10px] font-medium text-ink-soft/70">
-            <Calendar size={11} />
-            اليوم
-          </span>
+        <div className="notebook-paper notebook-text flex flex-col px-5 pt-4 pb-4">
+          <div className="flex items-center justify-between gap-2 text-[11px]">
+            <span className="rounded-full bg-gold/10 px-2.5 py-0.5 text-[10px] font-bold text-gold-deep">
+              {editingNew ? "ورقة جديدة" : pageLabel(num)}
+            </span>
+            <span className="flex items-center gap-1 font-medium text-ink-soft/70">
+              اليوم
+            </span>
+          </div>
           <textarea
             ref={draftRef}
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
             onBlur={() => void commitSave()}
             autoFocus
+            rows={Math.max(4, draft.split("\n").length)}
             placeholder="اكتب على ورقتك مباشرة — بتحفظ تلقائياً..."
-            className="notebook-text min-h-0 flex-1 resize-none bg-transparent leading-[45px] text-[#3c3122] outline-none placeholder:text-[#3c3122]/30"
+            className="notebook-text mt-3 min-h-[260px] resize-none bg-transparent leading-[45px] text-[#3c3122] outline-none placeholder:text-[#3c3122]/30"
           />
-          <div className="mt-2 flex items-center justify-between gap-1">
+          <div className="mt-3 flex items-center justify-between gap-1 border-t border-[#c9a227]/15 pt-3">
             <label className="flex items-center gap-1.5 text-[11px] font-medium text-ink-soft">
               <input
                 type="checkbox"
@@ -274,7 +304,7 @@ export default function NotebookReader({
             </div>
           </div>
           {saveErr && (
-            <p className="mt-1 rounded-md bg-rose-50 px-2 py-1 text-[10px] text-rose-500">
+            <p className="mt-2 rounded-md bg-rose-50 px-2 py-1 text-[10px] text-rose-500">
               {saveErr}
             </p>
           )}
@@ -285,7 +315,7 @@ export default function NotebookReader({
     return (
       <div
         className={
-          "notebook-paper notebook-text flex min-h-[220px] flex-col p-5 pt-6 " +
+          "notebook-paper notebook-text flex flex-col px-5 pt-4 pb-4 " +
           (isMine ? "cursor-text" : "")
         }
         onClick={() => {
@@ -294,35 +324,50 @@ export default function NotebookReader({
           else if (editingId !== NEW_LOCAL_ID) void commitSave();
         }}
       >
-        <span className="pointer-events-none absolute top-3 left-4 rounded-full bg-gold/10 px-2 py-0.5 text-[10px] font-bold text-gold-deep">
-          ورقة {num}
-        </span>
-        <span className="absolute top-3 right-4 flex items-center gap-1 text-[10px] font-medium text-ink-soft/70">
-          <Calendar size={11} />
-          {fmtRel(page.updated_at ?? page.created_at)} ·
-          {fmtDate(page.updated_at ?? page.created_at)}
-        </span>
+        <div className="flex items-center justify-between gap-2 text-[11px]">
+          <span className="rounded-full bg-gold/10 px-2.5 py-0.5 text-[10px] font-bold text-gold-deep">
+            {pageLabel(num)}
+          </span>
+          <span className="font-medium text-ink-soft/70">
+            {fmtRel(page.updated_at ?? page.created_at)}
+          </span>
+        </div>
+        <div className="mx-1 my-3 flex items-center gap-3">
+          <span className="h-px flex-1 bg-[#c9a227]/25" />
+          <span className="flex items-center gap-2 font-serif text-sm font-bold whitespace-nowrap text-gold-deep">
+            {fmtDate(page.updated_at ?? page.created_at)}
+            <span className="size-1 rounded-full bg-gold/50" />
+            {fmtTime(page.updated_at ?? page.created_at)}
+          </span>
+          <span className="h-px flex-1 bg-[#c9a227]/25" />
+        </div>
         <div className="whitespace-pre-wrap leading-[45px] text-[#3c3122]">
           {page.content}
         </div>
-        {isMine && editingId === null && (
-          <span className="absolute bottom-3 left-4 flex items-center gap-1 text-[10px] font-medium text-gold-deep/50">
-            <Pencil size={10} />
-            اضغط للكتابة
-          </span>
-        )}
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            void shareHere(page);
-          }}
-          disabled={sharing || !page.content?.trim()}
-          aria-label="مشاركة الورقة"
-          className="absolute bottom-3 right-4 inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-card/80 px-3 py-1.5 text-[10px] font-bold text-gold-deep transition hover:bg-gold hover:text-white disabled:opacity-40"
-        >
-          <Share2 size={12} />
-          {sharing ? "تحضير..." : "مشاركة"}
-        </button>
+        <div className="mt-4 flex items-center justify-between gap-2 border-t border-[#c9a227]/15 pt-3">
+          {isMine && editingId === null ? (
+            <span className="flex items-center gap-1 text-[10px] font-medium text-gold-deep/50">
+              <Pencil size={10} />
+              اضغط للكتابة
+            </span>
+          ) : (
+            <span className="text-[10px] font-medium text-ink-soft/60">
+              من دفتر {ownerName}
+            </span>
+          )}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              void shareHere(page);
+            }}
+            disabled={sharing || !page.content?.trim()}
+            aria-label="مشاركة الورقة"
+            className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-card/80 px-3 py-1.5 text-[10px] font-bold text-gold-deep transition hover:bg-gold hover:text-white disabled:opacity-40"
+          >
+            <Share2 size={12} />
+            {sharing ? "تحضير..." : "مشاركة"}
+          </button>
+        </div>
       </div>
     );
   };
@@ -341,7 +386,7 @@ export default function NotebookReader({
               className="inline-flex items-center gap-1.5 rounded-full border border-gold/50 bg-card px-3 py-2 text-xs font-bold text-gold-deep transition hover:bg-gold hover:text-white"
             >
               <Plus size={14} />
-              ورقة جديدة
+              أضف ورقة
             </button>
           )}
           <button
@@ -355,24 +400,35 @@ export default function NotebookReader({
       </div>
 
       <div className="mx-auto w-full max-w-2xl px-3 pb-24 pt-3 sm:px-5">
-        <div className="notebook-paper flex flex-wrap items-center justify-between gap-3 px-5 py-4">
-          <div className="flex items-center gap-3">
-            <div className="grid size-12 place-items-center rounded-2xl bg-gold/15 text-2xl">
-              📓
-            </div>
-            <div>
-              <h3 className="font-serif text-lg font-bold text-ink">
-                دَفتر {ownerName}
-              </h3>
-              <p className="text-xs text-ink-soft">
-                {pages.length} {pages.length === 1 ? "صفحة" : "صفحات"}
-              </p>
+        <div className="notebook-paper overflow-hidden">
+          <div className="p-5">
+            <div className="flex items-center gap-4">
+              <NotebookMiniBook />
+              <div className="min-w-0 flex-1">
+                <h3 className="truncate font-serif text-xl font-bold text-ink">
+                  دَفتر {ownerName}
+                </h3>
+                <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                  <span className="rounded-full bg-gold/10 px-2.5 py-0.5 text-[11px] font-bold text-gold-deep">
+                    {pages.length} {pages.length === 1 ? "صفحة" : "صفحات"}
+                  </span>
+                  {lastAt && (
+                    <span className="rounded-full bg-paper px-2.5 py-0.5 text-[11px] font-medium text-ink-soft">
+                      آخر كتابة {fmtRel(lastAt)}
+                    </span>
+                  )}
+                </div>
+              </div>
+              {startedAt && (
+                <span className="hidden text-left text-[10px] leading-4 text-ink-soft/70 sm:block">
+                  بدأ منذ {fmtRel(startedAt)}
+                </span>
+              )}
             </div>
           </div>
-          <div className="text-left text-[11px] leading-5 text-ink-soft">
-            {lastAt && <p>آخر كتابة: {fmtRel(lastAt)}</p>}
-            {startedAt && <p>بدأ هذا الدفتر: {fmtRel(startedAt)}</p>}
-          </div>
+          <p className="border-t border-[#c9a227]/15 bg-[#f6eacb]/70 px-4 py-3 text-center font-serif text-sm italic leading-6 text-[#7a5a1d]">
+            «{isMine ? "اكتب ما تريد أن يقرأه الناس عنك" : `صفحات من أفكار ${ownerName}`}»
+          </p>
         </div>
 
         {pages.length === 0 && !editingNew ? (
@@ -380,7 +436,7 @@ export default function NotebookReader({
             <p className="text-3xl">📖</p>
             <p className="mt-2 text-sm leading-6 text-ink-soft">
               {isMine
-                ? "دفترك فاضي — اضغط «ورقة جديدة» وابدأ أول صفحة"
+                ? "دفترك فاضي — اضغط «أضف ورقة» وابدأ أول صفحة"
                 : "ما في صفحات منشورة بهذا الدفتر بعد"}
             </p>
             {isMine && (
@@ -396,22 +452,21 @@ export default function NotebookReader({
         ) : (
           <div className="mt-4 space-y-5">
             {pages.map((p, i) => (
-              <div key={p.id}>
-                {renderPage(p, i + 1)}
-              </div>
+              <div key={p.id}>{renderPage(p, i + 1)}</div>
             ))}
-            {editingNew && creatingNew && renderPage((
-              { id: -1, user_id: "", content: "", is_public: true, position: 0, created_at: null, updated_at: null } as unknown as NotebookPage
-            ), pages.length + 1)}
-            {isMine && !isEditing && (
-              <button
-                onClick={addNew}
-                className="mt-4 flex w-full items-center justify-center gap-2 rounded-full border border-dashed border-gold/50 bg-card px-4 py-3 text-sm font-bold text-gold-deep transition hover:bg-gold hover:text-white"
-              >
-                <Plus size={16} />
-                أضف ورقة جديدة
-              </button>
-            )}
+            {editingNew && creatingNew &&
+              renderPage(
+                {
+                  id: -1,
+                  user_id: "",
+                  content: "",
+                  is_public: true,
+                  position: 0,
+                  created_at: null,
+                  updated_at: null,
+                } as unknown as NotebookPage,
+                pages.length + 1
+              )}
           </div>
         )}
       </div>

@@ -340,7 +340,7 @@ export default function Profile({
                 >
                   <div className="flex items-center justify-between gap-2 text-[10px] font-medium text-ink-soft/70">
                     <span className="rounded-full bg-gold/10 px-2 py-0.5 font-bold text-gold-deep">
-                      ورقة {i + 1}
+                      {i + 1 === 1 ? "أول صفحة" : `صفحة رقم ${i + 1}`}
                     </span>
                     <span>
                       {new Date(p.updated_at ?? p.created_at ?? 0).getDate()}{" "}
