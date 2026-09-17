@@ -9,7 +9,7 @@ import {
   Star,
   UserPlus,
 } from "lucide-react";
-import type { Line, UserProfile } from "@/lib/api";
+import type { Line, NotebookPage, UserProfile } from "@/lib/api";
 import Avatar from "./Avatar";
 
 const GRADS: Record<string, string> = {
@@ -94,6 +94,7 @@ export default function Profile({
   onBack,
   tab,
   onTabChange,
+  notebookPages = [],
 }: {
   isMine: boolean;
   profile: UserProfile | null;
@@ -111,6 +112,7 @@ export default function Profile({
   onBack: () => void;
   tab: "cards" | "notebook" | "saved";
   onTabChange: (t: "cards" | "notebook" | "saved") => void;
+  notebookPages?: NotebookPage[];
 }) {
   const [editingBio, setEditingBio] = useState(false);
   const [bioDraft, setBioDraft] = useState("");
@@ -233,8 +235,8 @@ export default function Profile({
       >
         {(
           [
-            { id: "cards", label: "البطاقات" },
             { id: "notebook", label: "الدفتر" },
+            { id: "cards", label: "البطاقات" },
             { id: "saved", label: "المحفوظة", mineOnly: true },
           ] as const
         )
@@ -292,21 +294,77 @@ export default function Profile({
       )}
 
       {tab === "notebook" && (
-        <div className="rounded-2xl border border-line bg-card p-6 text-center">
-          <BookOpen size={40} className="mx-auto text-gold-deep" />
-          <h3 className="mt-3 font-serif text-2xl font-bold text-ink">
-            دَفتر {isMine ? "" : name}
-          </h3>
-          <p className="mt-1.5 text-sm leading-6 text-ink-soft">
-            صفحات كاملة من أفكارك — قلب صفحات بالأنيميشن، وكل زائر يقدر يقرأه
-          </p>
-          <button
-            onClick={onOpenNotebook}
-            className="mt-5 inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 font-bold text-white shadow-sm transition hover:bg-gold-deep"
-          >
-            <BookOpen size={17} />
-            افتح الدفتر
-          </button>
+        <div className="space-y-4">
+          <div className="rounded-2xl border border-line bg-card p-5">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <div className="grid size-12 place-items-center rounded-2xl bg-gold/15 text-2xl">
+                  📓
+                </div>
+                <div>
+                  <h3 className="font-serif text-xl font-bold text-ink">
+                    دَفتر {isMine ? "" : name}
+                  </h3>
+                  <p className="mt-0.5 text-sm leading-6 text-ink-soft">
+                    {isMine
+                      ? "اكتب ما تريد أن يقرأه الناس عنك عند زيارتهم لملفك"
+                      : "صفحات كاملة من أفكار " + name}
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={onOpenNotebook}
+                className="inline-flex items-center gap-2 rounded-full bg-gold px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-gold-deep"
+              >
+                <BookOpen size={15} />
+                افتح الدفتر
+              </button>
+            </div>
+          </div>
+
+          {notebookPages.length === 0 ? (
+            <div className="rounded-2xl border border-dashed border-line bg-card p-6 text-center">
+              <p className="text-3xl">🗒</p>
+              <p className="mt-2 text-sm leading-6 text-ink-soft">
+                {isMine
+                  ? "أول صفحات دفترك بتظهر هنا لزوار ملفك"
+                  : "ما في صفحات منشورة بعد"}
+              </p>
+            </div>
+          ) : (
+            <>
+              {notebookPages.slice(0, 3).map((p, i) => (
+                <div
+                  key={p.id}
+                  className="notebook-paper notebook-text rounded-2xl p-4"
+                >
+                  <div className="flex items-center justify-between gap-2 text-[10px] font-medium text-ink-soft/70">
+                    <span className="rounded-full bg-gold/10 px-2 py-0.5 font-bold text-gold-deep">
+                      ورقة {i + 1}
+                    </span>
+                    <span>
+                      {new Date(p.updated_at ?? p.created_at ?? 0).getDate()}{" "}
+                      {new Date(p.updated_at ?? p.created_at ?? 0).toLocaleDateString(
+                        "ar",
+                        { month: "long" }
+                      )}
+                    </span>
+                  </div>
+                  <p className="mt-2 line-clamp-4 whitespace-pre-wrap text-sm leading-7 text-[#3c3122]">
+                    {p.content}
+                  </p>
+                </div>
+              ))}
+              {notebookPages.length > 3 && (
+                <button
+                  onClick={onOpenNotebook}
+                  className="w-full rounded-full border border-gold/40 bg-card py-2.5 text-center text-xs font-bold text-gold-deep transition hover:bg-gold hover:text-white"
+                >
+                  + {notebookPages.length - 3} صفحات أخرى — اقرأ الدفتر كاملاً
+                </button>
+              )}
+            </>
+          )}
         </div>
       )}
 

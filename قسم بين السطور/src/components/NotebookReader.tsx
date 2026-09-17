@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
   BookOpen,
-  ChevronLeft,
-  ChevronRight,
+  Calendar,
   Pencil,
   Plus,
   Save,
@@ -11,8 +10,53 @@ import {
   X,
 } from "lucide-react";
 import type { NotebookPage } from "@/lib/api";
+import { waitFont } from "@/lib/cardImage";
 
 const NEW_LOCAL_ID = "new-local";
+
+const MONTHS = [
+  "يناير",
+  "فبراير",
+  "مارس",
+  "أبريل",
+  "مايو",
+  "يونيو",
+  "يوليو",
+  "أغسطس",
+  "سبتمبر",
+  "أكتوبر",
+  "نوفمبر",
+  "ديسمبر",
+];
+
+function fmtDate(iso: string | null): string {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "";
+  return `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+}
+
+function fmtRel(iso: string | null): string {
+  if (!iso) return "";
+  const past = new Date(iso).getTime();
+  if (Number.isNaN(past)) return "";
+  const mins = Math.max(0, Math.round((Date.now() - past) / 60000));
+  if (mins < 1) return "الآن";
+  if (mins < 60) return `قبل ${mins} دقيقة`;
+  const hrs = Math.round(mins / 60);
+  if (hrs < 24) return `قبل ${hrs} ساعة`;
+  const days = Math.round(hrs / 24);
+  if (days === 1) return "قبل يوم";
+  if (days === 2) return "قبل يومين";
+  if (days < 11) return `قبل ${days} أيام`;
+  if (days < 30) return `قبل ${days} يوماً`;
+  const months = Math.round(days / 30);
+  if (months === 1) return "قبل شهر";
+  if (months === 2) return "قبل شهرين";
+  if (months < 12) return `قبل ${months} أشهر`;
+  const years = Math.round(days / 365);
+  return years === 1 ? "قبل سنة" : `قبل ${years} سنة`;
+}
 
 export default function NotebookReader({
   open,
@@ -35,8 +79,6 @@ export default function NotebookReader({
   onDelete: (page: NotebookPage) => Promise<void>;
   onSharePage: (page: NotebookPage, pageNum: number, total: number) => Promise<void>;
 }) {
-  const [leaf, setLeaf] = useState(0); // 0 = الغلاف
-  const [turned, setTurned] = useState<Set<number>>(new Set());
   const [editingId, setEditingId] = useState<number | string | null>(null);
   const [creatingNew, setCreatingNew] = useState(false);
   const [draft, setDraft] = useState("");
@@ -45,28 +87,10 @@ export default function NotebookReader({
   const [saveErr, setSaveErr] = useState("");
   const [sharing, setSharing] = useState(false);
   const draftRef = useRef<HTMLTextAreaElement | null>(null);
-  const busyRef = useRef(false);
   const savingRef = useRef(false);
-  const touchX = useRef<number | null>(null);
-  const touchY = useRef<number | null>(null);
-
-  const newBlankPage: NotebookPage = {
-    id: -1,
-    user_id: "",
-    content: "",
-    is_public: true,
-    position: 0,
-    created_at: "",
-    updated_at: "",
-  };
-
-  const displayed = creatingNew ? [...pages, newBlankPage] : pages;
-  const maxLeaf = displayed.length; // 0..length
 
   useEffect(() => {
     if (open) {
-      setLeaf(0);
-      setTurned(new Set());
       setEditingId(null);
       setCreatingNew(false);
       setDraft("");
@@ -81,6 +105,10 @@ export default function NotebookReader({
   }, [open]);
 
   useEffect(() => {
+    void waitFont("Amiri");
+  }, []);
+
+  useEffect(() => {
     if (!open || editingId === null) return;
     const t = window.setTimeout(() => {
       draftRef.current?.focus();
@@ -90,75 +118,14 @@ export default function NotebookReader({
 
   if (!open) return null;
 
-  const wait = () =>
-    new Promise<void>((res) => {
-      window.setTimeout(res, 720);
-    });
-
-const next = async () => {
-    if (busyRef.current || editingId != null) return;
-    if (turned.size >= maxLeaf) {
-      setTurned(new Set());
-      setLeaf(0);
-      return;
-    }
-    busyRef.current = true;
-    setTurned((t) => new Set(t).add(leaf));
-    setLeaf((l) => l + 1);
-    await wait();
-    busyRef.current = false;
-  };
-
-  const restart = () => {
-    if (busyRef.current || editingId != null) return;
-    setTurned(new Set());
-    setLeaf(0);
-  };
-
-  const shareHere = async () => {
-    if (busyRef.current || editingId != null || sharing) return;
-    if (leaf === 0) return;
-    const p = displayed[leaf - 1];
-    if (!p || !p.content || !p.content.trim()) return;
-    setSharing(true);
-    try {
-      await onSharePage(p, leaf, maxLeaf);
-    } catch {
-      /* الأخطاء تظهر من الأعلى */
-    } finally {
-      setSharing(false);
-    }
-  };
-
-  const prev = async () => {
-    if (busyRef.current || editingId != null) return;
-    if (leaf === 0) return;
-    busyRef.current = true;
-    setTurned((t) => {
-      const n = new Set(t);
-      n.delete(leaf - 1);
-      return n;
-    });
-    setLeaf((l) => l - 1);
-    await wait();
-    busyRef.current = false;
-  };
-
-  const isEditing = editingId != null;
-  const isEditingHere = (i: number) =>
-    editingId !== null && displayed[i - 1] !== undefined &&
-    (creatingNew ? editingId === NEW_LOCAL_ID : editingId === displayed[i - 1].id);
-
-  const startEdit = (i: number) => {
-    if (!isMine || i === 0) return;
-    const p = displayed[i - 1];
-    if (!p) return;
-    if (editingId === NEW_LOCAL_ID && !creatingNew) return;
-    setEditingId(creatingNew ? NEW_LOCAL_ID : p.id);
-    setDraft(p.content);
-    setDraftPublic(creatingNew ? true : p.is_public);
-    setSaveErr("");
-  };
+  const startedAt = pages.length
+    ? pages.reduce((a, b) => (a.created_at < b.created_at ? a : b)).created_at
+    : null;
+  const lastAt = pages.length
+    ? pages.reduce((a, b) =>
+        ((a.updated_at ?? a.created_at) > (b.updated_at ?? b.created_at) ? a : b)
+      ).updated_at ?? null
+    : null;
 
   const commitSave = async () => {
     if (savingRef.current || editingId === null) return;
@@ -171,7 +138,6 @@ const next = async () => {
       if (editingId === NEW_LOCAL_ID) {
         await onCreate(content, draftPublic);
         setCreatingNew(false);
-        setLeaf((l) => Math.max(l, 1));
       } else if (typeof editingId === "number") {
         await onUpdate(editingId, content, draftPublic);
       }
@@ -211,73 +177,56 @@ const next = async () => {
     setDraft("");
     setDraftPublic(true);
     setSaveErr("");
-    setTurned((t) => {
-      const n = new Set(t);
-      for (let k = 0; k <= pages.length; k++) n.add(k);
-      return n;
-    });
-    setLeaf(pages.length + 1);
   };
 
-  const onTouchStart = (e: React.TouchEvent) => {
-    touchX.current = e.touches[0]?.clientX ?? null;
-    touchY.current = e.touches[0]?.clientY ?? null;
-  };
-  const onTouchEnd = (e: React.TouchEvent) => {
-    if (touchX.current == null || touchY.current == null) return;
-    const dx = (e.changedTouches[0]?.clientX ?? 0) - touchX.current;
-    const dy = (e.changedTouches[0]?.clientY ?? 0) - touchY.current;
-    touchX.current = null;
-    touchY.current = null;
-    if (Math.abs(dx) < 24 && Math.abs(dy) < 24) return; // نقرة → النقر يعالج بالـ onClick
-    if (dx < -45) void next();
-    else if (dx > 45) void prev();
-  };
-
-  const stopPropagation = (e: React.SyntheticEvent) => {
-    e.stopPropagation();
-  };
-
-  const leafContent = (i: number) => {
-    if (i === 0) {
-      return (
-        <div className="flex h-full flex-col items-center justify-center bg-gradient-to-b from-[#33291d] to-[#1c150c] p-6 text-center text-paper">
-          <BookOpen size={34} className="text-gold" />
-          <p className="mt-3 font-serif text-3xl font-bold">دَفتر</p>
-          <p className="mt-1 max-w-[16rem] truncate text-lg text-gold">
-            {ownerName}
-          </p>
-          <p className="mt-6 text-[11px] opacity-70">
-            {displayed.length} {displayed.length === 1 ? "صفحة" : "صفحات"} · بين السطور
-          </p>
-        </div>
-      );
+  const shareHere = async (p: NotebookPage) => {
+    if (sharing || editingId !== null) return;
+    if (!p.content || !p.content.trim()) return;
+    setSharing(true);
+    try {
+      await onSharePage(p, pages.indexOf(p) + 1, pages.length);
+    } catch {
+      /* الأخطاء تظهر من الأعلى */
+    } finally {
+      setSharing(false);
     }
-    const page = displayed[i - 1];
-    if (!page) return null;
+  };
 
-    const editingHere = isEditingHere(i);
+  const startEdit = (p: NotebookPage) => {
+    if (!isMine) return;
+    if (editingId === NEW_LOCAL_ID && !creatingNew) return;
+    setEditingId(creatingNew ? NEW_LOCAL_ID : p.id);
+    setDraft(p.content);
+    setDraftPublic(creatingNew ? true : p.is_public);
+    setSaveErr("");
+  };
+
+  const editingNew = editingId === NEW_LOCAL_ID;
+  const isEditing = editingId != null;
+
+  const renderPage = (page: NotebookPage, num: number) => {
+    const editingHere =
+      editingId === page.id ||
+      (editingNew && creatingNew && num === pages.length + 1);
 
     if (editingHere) {
       return (
-        <div className="notebook-lined flex h-full flex-col p-4 pt-7">
+        <div className="notebook-paper notebook-text flex min-h-[300px] flex-col p-5 pt-6">
           <span className="pointer-events-none absolute top-3 left-4 rounded-full bg-gold/10 px-2 py-0.5 text-[10px] font-bold text-gold-deep">
-            {i}
+            {editingNew ? pages.length + 1 : num}
           </span>
-          <div className="pointer-events-none absolute top-3 right-3 rounded-full bg-gold/10 px-2 py-0.5 text-[9px] font-bold text-gold-deep/70">
-            🎓 مدارك جو · بين السطور
-          </div>
+          <span className="absolute top-3 right-4 flex items-center gap-1 text-[10px] font-medium text-ink-soft/70">
+            <Calendar size={11} />
+            اليوم
+          </span>
           <textarea
             ref={draftRef}
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
             onBlur={() => void commitSave()}
-            onTouchStart={stopPropagation}
-            onTouchEnd={stopPropagation}
-            onClick={stopPropagation}
             autoFocus
             placeholder="اكتب على ورقتك مباشرة — بتحفظ تلقائياً..."
-            className="min-h-0 flex-1 resize-none bg-transparent font-serif text-base leading-relaxed text-[#3c3122] outline-none placeholder:text-[#3c3122]/35"
+            className="notebook-text min-h-0 flex-1 resize-none bg-transparent leading-[45px] text-[#3c3122] outline-none placeholder:text-[#3c3122]/30"
           />
           <div className="mt-2 flex items-center justify-between gap-1">
             <label className="flex items-center gap-1.5 text-[11px] font-medium text-ink-soft">
@@ -287,10 +236,10 @@ const next = async () => {
                 onChange={(e) => setDraftPublic(e.target.checked)}
                 className="size-3.5 accent-[#c9a227]"
               />
-              عامة
+              عامة — أي زائر يقرأها
             </label>
             <div className="flex items-center gap-1.5">
-              {editingId !== NEW_LOCAL_ID && (
+              {!editingNew && (
                 <button
                   onMouseDown={(e) => e.preventDefault()}
                   onClick={(e) => {
@@ -336,76 +285,103 @@ const next = async () => {
     return (
       <div
         className={
-          "notebook-lined flex h-full flex-col p-5 pt-7 " +
+          "notebook-paper notebook-text flex min-h-[220px] flex-col p-5 pt-6 " +
           (isMine ? "cursor-text" : "")
         }
         onClick={() => {
-          if (editingId === null) startEdit(i);
+          if (!isMine) return;
+          if (editingId === null) startEdit(page);
           else if (editingId !== NEW_LOCAL_ID) void commitSave();
         }}
       >
         <span className="pointer-events-none absolute top-3 left-4 rounded-full bg-gold/10 px-2 py-0.5 text-[10px] font-bold text-gold-deep">
-          {i}
-          {isMine && editingId === null && (
-            <Pencil size={10} className="mr-1 inline text-gold-deep/70" />
-          )}
+          ورقة {num}
         </span>
-        <div className="overflow-y-auto no-scrollbar whitespace-pre-wrap font-serif text-base leading-relaxed text-[#3c3122]">
+        <span className="absolute top-3 right-4 flex items-center gap-1 text-[10px] font-medium text-ink-soft/70">
+          <Calendar size={11} />
+          {fmtRel(page.updated_at ?? page.created_at)} ·
+          {fmtDate(page.updated_at ?? page.created_at)}
+        </span>
+        <div className="whitespace-pre-wrap leading-[45px] text-[#3c3122]">
           {page.content}
         </div>
-        <div className="pointer-events-none absolute bottom-2 right-3 rounded-full bg-gold/10 px-2 py-0.5 text-[9px] font-bold text-gold-deep/70">
-          🎓 مدارك جو · بين السطور
-        </div>
+        {isMine && editingId === null && (
+          <span className="absolute bottom-3 left-4 flex items-center gap-1 text-[10px] font-medium text-gold-deep/50">
+            <Pencil size={10} />
+            اضغط للكتابة
+          </span>
+        )}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            void shareHere(page);
+          }}
+          disabled={sharing || !page.content?.trim()}
+          aria-label="مشاركة الورقة"
+          className="absolute bottom-3 right-4 inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-card/80 px-3 py-1.5 text-[10px] font-bold text-gold-deep transition hover:bg-gold hover:text-white disabled:opacity-40"
+        >
+          <Share2 size={12} />
+          {sharing ? "تحضير..." : "مشاركة"}
+        </button>
       </div>
     );
   };
 
-  const leaves = Array.from({ length: maxLeaf + 1 }, (_, i) => i);
-  const showBook = leaves.length > 1;
-
   return (
-    <div className="fixed inset-0 z-[60] overflow-y-auto bg-[#e9e0cb] p-2 pt-3 sm:p-4">
-      <div className="mx-auto w-full max-w-5xl">
-        <div className="mb-3 flex items-center justify-between px-1">
-          <h2 className="flex items-center gap-2 font-serif text-2xl font-bold text-ink">
-            <BookOpen size={20} className="text-gold-deep" />
-            دَفتر {ownerName}
-          </h2>
-          <div className="flex items-center gap-2">
-            {isMine && !isEditing && (
-              <button
-                onClick={addNew}
-                className="inline-flex items-center gap-1.5 rounded-full border border-gold/50 bg-card px-3 py-2 text-xs font-bold text-gold-deep transition hover:bg-gold hover:text-white"
-              >
-                <Plus size={14} />
-                ورقة جديدة
-              </button>
-            )}
+    <div className="fixed inset-0 z-[60] overflow-y-auto bg-[#e9e0cb]">
+      <div className="sticky top-0 z-10 flex items-center justify-between gap-2 bg-[#e9e0cb]/95 px-3 py-2.5 backdrop-blur sm:px-5">
+        <h2 className="flex items-center gap-2 font-serif text-xl font-bold text-ink">
+          <BookOpen size={19} className="text-gold-deep" />
+          دَفتر {ownerName}
+        </h2>
+        <div className="flex items-center gap-2">
+          {isMine && !isEditing && (
             <button
-              onClick={() => void shareHere()}
-              disabled={leaf === 0 || isEditing || sharing || !displayed[leaf - 1]?.content?.trim()}
-              className="inline-flex items-center gap-1.5 rounded-full bg-gold px-3 py-2 text-xs font-bold text-white transition hover:bg-gold-deep disabled:opacity-40"
+              onClick={addNew}
+              className="inline-flex items-center gap-1.5 rounded-full border border-gold/50 bg-card px-3 py-2 text-xs font-bold text-gold-deep transition hover:bg-gold hover:text-white"
             >
-              <Share2 size={14} />
-              {sharing ? "تحضير..." : "مشاركة الورقة"}
+              <Plus size={14} />
+              ورقة جديدة
             </button>
-            <button
-              onClick={onClose}
-              aria-label="إغلاق"
-              className="grid size-9 place-items-center rounded-full border border-line bg-card text-ink-soft transition hover:text-ink"
-            >
-              <X size={18} />
-            </button>
+          )}
+          <button
+            onClick={onClose}
+            aria-label="إغلاق"
+            className="grid size-9 place-items-center rounded-full border border-line bg-card text-ink-soft transition hover:text-ink"
+          >
+            <X size={18} />
+          </button>
+        </div>
+      </div>
+
+      <div className="mx-auto w-full max-w-2xl px-3 pb-24 pt-3 sm:px-5">
+        <div className="notebook-paper flex flex-wrap items-center justify-between gap-3 px-5 py-4">
+          <div className="flex items-center gap-3">
+            <div className="grid size-12 place-items-center rounded-2xl bg-gold/15 text-2xl">
+              📓
+            </div>
+            <div>
+              <h3 className="font-serif text-lg font-bold text-ink">
+                دَفتر {ownerName}
+              </h3>
+              <p className="text-xs text-ink-soft">
+                {pages.length} {pages.length === 1 ? "صفحة" : "صفحات"}
+              </p>
+            </div>
+          </div>
+          <div className="text-left text-[11px] leading-5 text-ink-soft">
+            {lastAt && <p>آخر كتابة: {fmtRel(lastAt)}</p>}
+            {startedAt && <p>بدأ هذا الدفتر: {fmtRel(startedAt)}</p>}
           </div>
         </div>
 
-        {!showBook && (
-          <div className="rounded-2xl border border-dashed border-gold/50 bg-card p-8 text-center">
-            <p className="text-3xl">📓</p>
-            <p className="mt-2 text-sm text-ink-soft">
+        {pages.length === 0 && !editingNew ? (
+          <div className="notebook-paper mt-4 p-8 text-center">
+            <p className="text-3xl">📖</p>
+            <p className="mt-2 text-sm leading-6 text-ink-soft">
               {isMine
-                ? "دفترك فاضي — اضغط «اكتب ورقة» وابدأ مباشرة على الورقة"
-                : "ما في ورقات منشورة بهالدفتر"}
+                ? "دفترك فاضي — اضغط «ورقة جديدة» وابدأ أول صفحة"
+                : "ما في صفحات منشورة بهذا الدفتر بعد"}
             </p>
             {isMine && (
               <button
@@ -413,99 +389,32 @@ const next = async () => {
                 className="mt-4 inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2.5 text-sm font-bold text-white transition hover:bg-gold-deep"
               >
                 <Plus size={16} />
-                اكتب ورقة
+                اكتب أول ورقة
               </button>
             )}
           </div>
-        )}
-
-        {showBook && (
-          <>
-            <div
-              className="book3d select-none"
-              onTouchStart={onTouchStart}
-              onTouchEnd={onTouchEnd}
-              onClick={() =>
-                editingId !== null && editingId !== NEW_LOCAL_ID
-                  ? void commitSave()
-                  : undefined
-              }
-            >
-              <div className="book-spine" />
-              {leaves.map((i) => {
-                const isCurrent = i === leaf;
-                const isTurned = turned.has(i);
-                const z = isCurrent
-                  ? 3000
-                  : isTurned
-                    ? 100 + i
-                    : 2000 - i;
-                return (
-                  <div
-                    key={i}
-                    className={"sheet " + (isTurned ? "turned" : "")}
-                    style={{ zIndex: z }}
-                  >
-                    <div className="face front">{leafContent(i)}</div>
-                    <div className="face back paper-sheet" />
-                  </div>
-                );
-              })}
-              {isEditing && (
-                <div className="pointer-events-none absolute inset-0 z-[3200] rounded-lg ring-4 ring-gold/40 ring-offset-2 ring-offset-[#e9e0cb]" />
-              )}
-            </div>
-
-            <div className="mt-3 flex items-center justify-center gap-3">
-              <button
-                onClick={() => void prev()}
-                disabled={leaf === 0 || isEditing}
-                aria-label="الورقة السابقة"
-                className="grid size-11 place-items-center rounded-full border border-line bg-card text-ink-soft shadow-sm transition hover:border-gold-deep hover:text-gold-deep disabled:opacity-40"
-              >
-                <ChevronLeft size={20} />
-              </button>
-              <span className="text-sm text-ink-soft">
-                {isEndCheck(turned, maxLeaf) && !isEditing ? (
-                  <button
-                    onClick={restart}
-                    className="rounded-full border border-gold/40 bg-card px-3 py-1 text-xs font-bold text-gold-deep transition hover:bg-gold hover:text-white"
-                  >
-                    النهاية — اضغط لبدء الدفتر
-                  </button>
-                ) : (
-                  `صفحة ${leaf} من ${maxLeaf}`
-                )}
-              </span>
-              <button
-                onClick={() => void next()}
-                disabled={
-                  isEditing || isEndCheck(turned, maxLeaf) ||
-                  (leaf === maxLeaf && turned.size === maxLeaf)
-                }
-                aria-label="الورقة التالية"
-                className="grid size-11 place-items-center rounded-full border border-line bg-card text-ink-soft shadow-sm transition hover:border-gold-deep hover:text-gold-deep disabled:opacity-40"
-              >
-                <ChevronRight size={20} />
-              </button>
-            </div>
-
+        ) : (
+          <div className="mt-4 space-y-5">
+            {pages.map((p, i) => (
+              <div key={p.id}>
+                {renderPage(p, i + 1)}
+              </div>
+            ))}
+            {editingNew && creatingNew && renderPage((
+              { id: -1, user_id: "", content: "", is_public: true, position: 0, created_at: null, updated_at: null } as unknown as NotebookPage
+            ), pages.length + 1)}
             {isMine && !isEditing && (
               <button
                 onClick={addNew}
-                className="mt-3 flex w-full items-center justify-center gap-2 rounded-full bg-gold px-4 py-3 text-sm font-bold text-white transition hover:bg-gold-deep"
+                className="mt-4 flex w-full items-center justify-center gap-2 rounded-full border border-dashed border-gold/50 bg-card px-4 py-3 text-sm font-bold text-gold-deep transition hover:bg-gold hover:text-white"
               >
                 <Plus size={16} />
                 أضف ورقة جديدة
               </button>
             )}
-          </>
+          </div>
         )}
       </div>
     </div>
   );
-}
-
-function isEndCheck(turned: Set<number>, maxLeaf: number): boolean {
-  return maxLeaf > 0 && turned.size >= maxLeaf;
 }

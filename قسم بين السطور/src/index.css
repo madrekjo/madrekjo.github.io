@@ -169,10 +169,30 @@ body {
 .notebook-lined {
   background-image: repeating-linear-gradient(
     transparent,
-    transparent 34px,
-    rgba(166, 124, 0, 0.16) 34px,
-    rgba(166, 124, 0, 0.16) 35px
+    transparent 43px,
+    rgba(166, 124, 0, 0.10) 43px,
+    rgba(166, 124, 0, 0.10) 45px
   );
+}
+
+.notebook-paper {
+  position: relative;
+  border-radius: 14px;
+  border: 1px solid rgba(150, 110, 40, 0.14);
+  background: linear-gradient(180deg, #fffdf4 0%, #fbf3dd 100%);
+  box-shadow:
+    0 1px 2px rgba(60, 48, 20, 0.08),
+    0 8px 20px -10px rgba(60, 48, 20, 0.22);
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 43px,
+    rgba(130, 96, 35, 0.07) 43px,
+    rgba(130, 96, 35, 0.07) 44px
+  );
+}
+
+.notebook-text {
+  font-family: "Amiri", "Scheherazade New", "Geeza Pro", serif;
 }
 
 .paper-sheet {

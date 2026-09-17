@@ -104,7 +104,7 @@ export default function App() {
   const [ownIds, setOwnIds] = useState<string[]>([]);
 
   const [view, setView] = useState<NavTab>("me");
-  const [profTab, setProfTab] = useState<"cards" | "notebook" | "saved">("cards");
+  const [profTab, setProfTab] = useState<"cards" | "notebook" | "saved">("notebook");
   const [focusReel, setFocusReel] = useState("");
 
   const [openedUser, setOpenedUser] = useState<string | null>(null);
@@ -225,10 +225,22 @@ const [readerOpen, setReaderOpen] = useState(false);
   // ---------- الوصول لبروفايل مستخدم ----------
   const openUser = useCallback(async (id: string) => {
     setOpenedUser(id);
-    const [p, l] = await Promise.all([publicProfile(id), linesByUser(id)]);
+    const [p, l, nb] = await Promise.all([
+      publicProfile(id),
+      linesByUser(id),
+      publicNotebook(id),
+    ]);
     setPubProfile(p);
     setPubLines(l);
+    setPubPages(nb);
   }, []);
+
+  useEffect(() => {
+    if (!identityReady || !me) return;
+    void myNotebook()
+      .then(setMyPages)
+      .catch(() => setMyPages([]));
+  }, [identityReady, me]);
 
   const closeUser = () => {
     setOpenedUser(null);
@@ -583,6 +595,7 @@ const [readerOpen, setReaderOpen] = useState(false);
           onBack={closeUser}
           tab={profTab}
           onTabChange={setProfTab}
+          notebookPages={pubPages}
         />
       ) : (
         <Profile
@@ -608,6 +621,7 @@ const [readerOpen, setReaderOpen] = useState(false);
           onBack={() => setView("me")}
           tab={profTab}
           onTabChange={setProfTab}
+          notebookPages={myPages}
         />
       )}
 
@@ -619,7 +633,7 @@ const [readerOpen, setReaderOpen] = useState(false);
         active={navActive}
         onChange={(t) => {
           if (openedUser) closeUser();
-          if (t === "me") setProfTab("cards");
+          if (t === "me") setProfTab("notebook");
           if (t === "daf") setProfTab("notebook");
           setView(t);
         }}
