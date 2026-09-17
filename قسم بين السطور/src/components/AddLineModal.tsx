@@ -32,6 +32,7 @@ export default function AddLineModal({
   const [book, setBook] = useState("");
   const [author, setAuthor] = useState("");
   const [category, setCategory] = useState<Category>("رواية");
+  const [sourceMode, setSourceMode] = useState<"book" | "own">("book");
   const [color, setColor] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -45,6 +46,7 @@ export default function AddLineModal({
     setBook("");
     setAuthor("");
     setCategory("رواية");
+    setSourceMode("book");
     setColor("");
     setError("");
     setDone(false);
@@ -53,16 +55,20 @@ export default function AddLineModal({
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError("");
-    if (text.trim().length < 3 || book.trim().length < 1) {
-      setError("اكتب السطر واسم الكتاب أولاً");
+    if (text.trim().length < 3) {
+      setError("اكتب النص أولاً");
+      return;
+    }
+    if (sourceMode === "book" && book.trim().length < 1) {
+      setError("اكتب اسم الكتاب — أو اختر «من تأليفي»");
       return;
     }
     setBusy(true);
     try {
       await submitLine({
         text: text.trim(),
-        book: book.trim(),
-        author: author.trim(),
+        book: sourceMode === "book" ? book.trim() : "عبارة شخصية",
+        author: sourceMode === "book" ? author.trim() : (defaultName || submitter).trim(),
         category,
         submitter: (defaultName || submitter).trim() || "طالب مدارك جو",
         color: color as "" | (typeof GRADS)[number],
@@ -148,32 +154,70 @@ export default function AddLineModal({
                 className="w-full rounded-xl border border-line bg-paper px-4 py-2.5 text-ink outline-none focus:border-gold"
               />
             </div>
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="mb-1 block text-sm font-medium text-ink">
-                  اسم الكتاب *
-                </label>
-                <input
-                  value={book}
-                  onChange={(e) => setBook(e.target.value)}
-                  maxLength={120}
-                  placeholder="مثال: العقلية الرقمية"
-                  className="w-full rounded-xl border border-line bg-paper px-4 py-2.5 text-ink outline-none focus:border-gold"
-                />
-              </div>
-              <div>
-                <label className="mb-1 block text-sm font-medium text-ink">
-                  اسم المؤلف (اختياري)
-                </label>
-                <input
-                  value={author}
-                  onChange={(e) => setAuthor(e.target.value)}
-                  maxLength={60}
-                  placeholder="مثال: جون ماكسويل"
-                  className="w-full rounded-xl border border-line bg-paper px-4 py-2.5 text-ink outline-none focus:border-gold"
-                />
+            <div>
+              <label className="mb-1 block text-sm font-medium text-ink">
+                المصدر
+              </label>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={() => setSourceMode("book")}
+                  className={
+                    "rounded-full border px-4 py-1.5 text-sm transition " +
+                    (sourceMode === "book"
+                      ? "border-gold bg-gold font-bold text-white"
+                      : "border-line bg-paper text-ink-soft hover:border-gold-deep")
+                  }
+                >
+                  📖 من كتاب
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSourceMode("own")}
+                  className={
+                    "rounded-full border px-4 py-1.5 text-sm transition " +
+                    (sourceMode === "own"
+                      ? "border-gold bg-gold font-bold text-white"
+                      : "border-line bg-paper text-ink-soft hover:border-gold-deep")
+                  }
+                >
+                  ✍️ من تأليفي
+                </button>
               </div>
             </div>
+            {sourceMode === "book" ? (
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="mb-1 block text-sm font-medium text-ink">
+                    اسم الكتاب
+                  </label>
+                  <input
+                    value={book}
+                    onChange={(e) => setBook(e.target.value)}
+                    maxLength={120}
+                    placeholder="مثال: العقلية الرقمية"
+                    className="w-full rounded-xl border border-line bg-paper px-4 py-2.5 text-ink outline-none focus:border-gold"
+                  />
+                </div>
+                <div>
+                  <label className="mb-1 block text-sm font-medium text-ink">
+                    اسم المؤلف (اختياري)
+                  </label>
+                  <input
+                    value={author}
+                    onChange={(e) => setAuthor(e.target.value)}
+                    maxLength={60}
+                    placeholder="مثال: جون ماكسويل"
+                    className="w-full rounded-xl border border-line bg-paper px-4 py-2.5 text-ink outline-none focus:border-gold"
+                  />
+                </div>
+              </div>
+            ) : (
+              <p className="rounded-xl bg-paper px-4 py-3 text-sm leading-6 text-ink-soft">
+                رح تظهر البطاقة كـ <span className="font-bold text-ink">«عبارة شخصية»</span> وتُنسب
+                إليك — ما تحتاج كتاب أو مؤلف 😊
+              </p>
+            )}
             <div>
               <label className="mb-1 block text-sm font-medium text-ink">
                 التصنيف *

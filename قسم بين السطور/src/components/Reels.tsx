@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Bookmark, ChevronDown, ChevronUp, Heart, Palette, Share2, Star, X } from "lucide-react";
+import { Bookmark, ChevronDown, ChevronUp, Heart, MoreVertical, Palette, Share2, Star, X } from "lucide-react";
 import type { ReelRow } from "@/lib/api";
 import Avatar from "./Avatar";
 import { CAT_META, GRADS } from "@/lib/colors";
@@ -61,7 +61,7 @@ export default function Reels({
   const [manualGrads, setManualGrads] = useState<Record<string, string>>(
     readGrads
   );
-  const [pickerFor, setPickerFor] = useState<string | null>(null);
+  const [moreFor, setMoreFor] = useState<string | null>(null);
   const touchY = useRef<number | null>(null);
 
   const go = (d: number) => {
@@ -149,7 +149,7 @@ export default function Reels({
           const off = i - idx;
           const grad = manualGrads[r.line_id] ?? r.color ?? "";
           const beige = grad === "";
-          const isPicker = pickerFor === r.line_id;
+          const isMore = moreFor === r.line_id;
           const style: React.CSSProperties = {
             transform: `translateY(${off * 100}%)`,
             opacity: Math.abs(off) > 1 ? 0 : 1,
@@ -230,119 +230,6 @@ export default function Reels({
 
                 <div className="absolute bottom-6 left-4 flex flex-col items-center gap-4">
                   <div className="flex flex-col items-center gap-1">
-                    <button
-                      onClick={() => onToggleLike(r.line_id)}
-                      aria-pressed={likedIds.includes(r.line_id)}
-                      className="grid size-11 place-items-center rounded-full bg-ink/35 text-white backdrop-blur-sm transition hover:bg-ink/60"
-                    >
-                      <Heart
-                        size={20}
-                        className={
-                          likedIds.includes(r.line_id) ? "fill-rose-500 text-rose-500" : ""
-                        }
-                      />
-                    </button>
-                    <span className="text-xs font-bold text-white">
-                      {r.likes}
-                    </span>
-                  </div>
-                  <div className="flex flex-col items-center gap-1">
-                    <button
-                      onClick={() => onToggleStar(r.line_id)}
-                      aria-pressed={starredIds.includes(r.line_id)}
-                      className="grid size-11 place-items-center rounded-full bg-white/25 text-white backdrop-blur-sm transition hover:bg-white/45"
-                    >
-                      <Star
-                        size={20}
-                        className={
-                          starredIds.includes(r.line_id)
-                            ? "fill-amber-300 text-amber-300"
-                            : "text-amber-200"
-                        }
-                      />
-                    </button>
-                    <span className="text-xs font-bold text-white">
-                      {r.stars}
-                    </span>
-                  </div>
-                  <div className="flex flex-col items-center gap-1">
-                    <button
-                      onClick={() => onToggleSave(r.line_id)}
-                      aria-pressed={savedIds.includes(r.line_id)}
-                      className="grid size-11 place-items-center rounded-full bg-ink/35 text-white backdrop-blur-sm transition hover:bg-ink/60"
-                    >
-                      <Bookmark
-                        size={19}
-                        className={
-                          savedIds.includes(r.line_id) ? "fill-white" : ""
-                        }
-                      />
-                    </button>
-                    <span className="text-[11px] font-bold text-white/90">
-                      حفظ
-                    </span>
-                  </div>
-                  <button
-                    onClick={() => onShare(r)}
-                    disabled={busyAction !== ""}
-                    className="grid size-11 place-items-center rounded-full bg-ink/35 text-white backdrop-blur-sm transition hover:bg-ink/60 disabled:opacity-50"
-                  >
-                    <Share2 size={19} />
-                  </button>
-                  <div className="relative flex flex-col items-center gap-1">
-                    <button
-                      onClick={() => setPickerFor(isPicker ? null : r.line_id)}
-                      aria-label="تغيير لون البطاقة"
-                      aria-pressed={isPicker}
-                      className="grid size-11 place-items-center rounded-full bg-ink/35 text-white backdrop-blur-sm transition hover:bg-ink/60"
-                    >
-                      <Palette size={18} />
-                    </button>
-                    {isPicker && (
-                      <div className="absolute bottom-full z-20 mb-2 flex flex-col gap-1.5 rounded-2xl border border-white/15 bg-ink/90 p-2 shadow-xl backdrop-blur-sm">
-                        <button
-                          onClick={() => {
-                            setManualGrads((p) => ({
-                              ...p,
-                              [r.line_id]: "",
-                            }));
-                            saveGrad(r.line_id, "");
-                            setPickerFor(null);
-                          }}
-                          aria-label="بيج (افتراضي)"
-                          title="بيج (افتراضي)"
-                          className={
-                            "size-8 rounded-full border border-white/30 transition hover:scale-110 " +
-                            (beige ? " ring-2 ring-white" : "")
-                          }
-                          style={{ backgroundColor: "#fffdf6" }}
-                        />
-                        {GRADS.map((g) => (
-                          <button
-                            key={g}
-                            onClick={() => {
-                              setManualGrads((p) => ({
-                                ...p,
-                                [r.line_id]: g,
-                              }));
-                              saveGrad(r.line_id, g);
-                              setPickerFor(null);
-                            }}
-                            aria-label={g}
-                            className={
-                              "size-8 rounded-full transition hover:scale-110 " +
-                              g +
-                              (grad === g ? " ring-2 ring-white" : "")
-                            }
-                          />
-                        ))}
-                      </div>
-                    )}
-                    <span className="text-[11px] font-bold text-white/90">
-                      لون
-                    </span>
-                  </div>
-                  <div className="flex flex-col items-center gap-1">
                     {r.user_id ? (
                       <button
                         onClick={() => onOpenOwner(r)}
@@ -366,6 +253,154 @@ export default function Reels({
                     <span className="w-20 truncate text-center text-[11px] font-bold text-white/90">
                       {r.username ?? r.submitter}
                     </span>
+                  </div>
+                  <div className="relative flex flex-col items-center gap-1">
+                    <button
+                      onClick={() => setMoreFor(isMore ? null : r.line_id)}
+                      aria-label="خيارات أكثر"
+                      aria-pressed={isMore}
+                      className="grid size-11 place-items-center rounded-full bg-ink/35 text-white backdrop-blur-sm transition hover:bg-ink/60"
+                    >
+                      <MoreVertical size={21} />
+                    </button>
+                    <span className="text-[11px] font-bold text-white/90">
+                      تفاعل
+                    </span>
+                    {isMore && (
+                      <div className="absolute bottom-full right-0 z-20 mb-3 w-52 rounded-2xl border border-white/15 bg-[#241b12]/95 p-2 text-white shadow-xl backdrop-blur-sm">
+                        <button
+                          onClick={() => onToggleLike(r.line_id)}
+                          className="flex w-full items-center justify-between rounded-xl px-3 py-2 text-sm font-medium transition hover:bg-white/10"
+                        >
+                          <span className="flex items-center gap-2.5">
+                            <Heart
+                              size={17}
+                              className={
+                                likedIds.includes(r.line_id)
+                                  ? "fill-rose-500 text-rose-500"
+                                  : "text-white/80"
+                              }
+                            />
+                            إعجاب
+                          </span>
+                          <span
+                            className={
+                              "rounded-full px-2 py-0.5 text-xs font-bold " +
+                              (likedIds.includes(r.line_id)
+                                ? "bg-rose-500/20 text-rose-300"
+                                : "bg-white/10 text-white/70")
+                            }
+                          >
+                            {r.likes}
+                          </span>
+                        </button>
+                        <button
+                          onClick={() => onToggleStar(r.line_id)}
+                          className="flex w-full items-center justify-between rounded-xl px-3 py-2 text-sm font-medium transition hover:bg-white/10"
+                        >
+                          <span className="flex items-center gap-2.5">
+                            <Star
+                              size={17}
+                              className={
+                                starredIds.includes(r.line_id)
+                                  ? "fill-amber-300 text-amber-300"
+                                  : "text-amber-200/80"
+                              }
+                            />
+                            نجمة
+                          </span>
+                          <span
+                            className={
+                              "rounded-full px-2 py-0.5 text-xs font-bold " +
+                              (starredIds.includes(r.line_id)
+                                ? "bg-amber-400/20 text-amber-200"
+                                : "bg-white/10 text-white/70")
+                            }
+                          >
+                            {r.stars}
+                          </span>
+                        </button>
+                        <button
+                          onClick={() => onToggleSave(r.line_id)}
+                          className="flex w-full items-center justify-between rounded-xl px-3 py-2 text-sm font-medium transition hover:bg-white/10"
+                        >
+                          <span className="flex items-center gap-2.5">
+                            <Bookmark
+                              size={17}
+                              className={
+                                savedIds.includes(r.line_id)
+                                  ? "fill-white text-white"
+                                  : "text-white/80"
+                              }
+                            />
+                            حفظ
+                          </span>
+                          <span
+                            className={
+                              "rounded-full px-2 py-0.5 text-[11px] font-bold " +
+                              (savedIds.includes(r.line_id)
+                                ? "bg-white/20 text-white"
+                                : "bg-white/10 text-white/60")
+                            }
+                          >
+                            {savedIds.includes(r.line_id) ? "محفوظة" : ""}
+                          </span>
+                        </button>
+                        <button
+                          onClick={() => onShare(r)}
+                          disabled={busyAction !== ""}
+                          className="flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-medium transition hover:bg-white/10 disabled:opacity-50"
+                        >
+                          <Share2 size={17} className="text-white/80" />
+                          مشاركة
+                        </button>
+                        <div className="my-1 h-px bg-white/15" />
+                        <div className="px-3 py-2">
+                          <p className="mb-2 flex items-center gap-1.5 text-[11px] text-white/70">
+                            <Palette size={13} />
+                            لون البطاقة
+                          </p>
+                          <div className="flex flex-wrap items-center gap-1.5">
+                            <button
+                              onClick={() => {
+                                setManualGrads((p) => ({
+                                  ...p,
+                                  [r.line_id]: "",
+                                }));
+                                saveGrad(r.line_id, "");
+                                setMoreFor(null);
+                              }}
+                              aria-label="بيج (افتراضي)"
+                              title="بيج (افتراضي)"
+                              className={
+                                "size-7 rounded-full border border-white/30 transition hover:scale-110 " +
+                                (beige ? " ring-2 ring-white" : "")
+                              }
+                              style={{ backgroundColor: "#fffdf6" }}
+                            />
+                            {GRADS.map((g) => (
+                              <button
+                                key={g}
+                                onClick={() => {
+                                  setManualGrads((p) => ({
+                                    ...p,
+                                    [r.line_id]: g,
+                                  }));
+                                  saveGrad(r.line_id, g);
+                                  setMoreFor(null);
+                                }}
+                                aria-label={g}
+                                className={
+                                  "size-7 rounded-full transition hover:scale-110 " +
+                                  g +
+                                  (grad === g ? " ring-2 ring-white" : "")
+                                }
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
