@@ -21,9 +21,10 @@ BEGIN
 EXCEPTION WHEN undefined_object THEN NULL;
 END $$;
 
--- 2) حذف trigger الحماية القديم الخاص بالمالك الأصلي (معايطه)
+-- 2) حذف trigger الحماية القديم الخاص بالمالك الأصلي (معايطه) بكل أسمائه المحتملة
 DROP TRIGGER IF EXISTS protect_original_admin_trigger ON public.user_roles;
-DROP FUNCTION IF EXISTS public.protect_original_admin();
+DROP TRIGGER IF EXISTS trg_protect_original_admin ON public.user_roles;
+DROP FUNCTION IF EXISTS public.protect_original_admin() CASCADE;
 
 -- 3) إزالة رتب الأدمن/المشرف عنه
 DELETE FROM public.user_roles
