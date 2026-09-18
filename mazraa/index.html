@@ -359,8 +359,8 @@ function init3D(){
     scene.background=new THREE.Color(0x7ec8e3);
     scene.fog=new THREE.Fog(0x7ec8e3,30,90);
 
-    camera=new THREE.PerspectiveCamera(50,window.innerWidth/window.innerHeight,0.1,200);
-    camera.position.set(7.5,7,9.5);
+    camera=new THREE.PerspectiveCamera(55,window.innerWidth/window.innerHeight,0.1,200);
+    camera.position.set(0,5,14);
 
     var hemi=new THREE.HemisphereLight(0xd8f2ff,0x3a6b4a,0.85);
     scene.add(hemi);
@@ -383,10 +383,10 @@ function init3D(){
     controls.dampingFactor=0.08;
     controls.enablePan=false;
     controls.minDistance=4.5;
-    controls.maxDistance=26;
-    controls.minPolarAngle=0.25;
-    controls.maxPolarAngle=Math.PI/2+0.06;
-    controls.target.set(0,0.3,0);
+    controls.maxDistance=42;
+    controls.minPolarAngle=0.35;
+    controls.maxPolarAngle=Math.PI/2+0.04;
+    controls.target.set(0,0,0);
     controls.update();
 
     raycaster=new THREE.Raycaster();
@@ -402,23 +402,32 @@ function init3D(){
 }
 
 function buildGround(){
-  var ground=new THREE.Mesh(
-    new THREE.PlaneGeometry(80,80),
-    new THREE.MeshLambertMaterial({color:0x55a552}));
-  ground.rotation.x=-Math.PI/2;
-  ground.receiveShadow=true;
-  scene.add(ground);
+  var far=new THREE.Mesh(
+    new THREE.PlaneGeometry(220,220),
+    new THREE.MeshLambertMaterial({color:0x3a6b3a}));
+  far.rotation.x=-Math.PI/2;
+  far.position.y=-0.6;
+  far.receiveShadow=true;
+  scene.add(far);
+
+  var grass=new THREE.Mesh(
+    new THREE.CircleGeometry(13.5,48),
+    new THREE.MeshLambertMaterial({color:0x4e9a4e}));
+  grass.rotation.x=-Math.PI/2;
+  grass.position.y=-0.05;
+  grass.receiveShadow=true;
+  scene.add(grass);
 
   var m=new THREE.Mesh(
-    new THREE.CylinderGeometry(19,20,0.25,48),
-    new THREE.MeshLambertMaterial({color:0x7ab866}));
+    new THREE.CylinderGeometry(13,13.5,0.3,48),
+    new THREE.MeshLambertMaterial({color:0x63a852}));
   m.position.y=-0.12;
   m.receiveShadow=true;
   scene.add(m);
 }
 
 function addTrees(){
-  var spots=[[-11.5,-8.5],[11.5,-8.5],[-11.5,8.5],[11.5,8.5],[-8,-10.2],[8,-10.2]];
+  var spots=[[-10.5,-7.5],[10.5,-7.5],[-10.5,7.5],[10.5,7.5],[-7,10],[7,10]];
   spots.forEach(function(s){
     var g=new THREE.Group();
     var trunk=new THREE.Mesh(new THREE.CylinderGeometry(0.5,0.7,3.4,6),
@@ -431,7 +440,7 @@ function addTrees(){
     scene.add(g);
   });
 
-  var fence=makeFence(9.2,6.4);
+  var fence=makeFence(12.8,8);
   fence.position.set(0,0,0);
   scene.add(fence);
 }
