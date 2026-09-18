@@ -9,7 +9,7 @@ CREATE TABLE public.user_warnings (
 );
 ALTER TABLE public.user_warnings ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "User can view own warnings" ON public.user_warnings FOR SELECT TO authenticated USING (auth.uid() = user_id OR has_role(auth.uid(),'admin'::app_role) OR has_role(auth.uid(),'moderator'::app_role));
-CREATE POLICY "Admin can insert warnings" ON public.user_warnings FOR INSERT TO authenticated WITH CHECK (has_role(auth.uid(),'admin'::app_role));
+CREATE POLICY "Admin can insert warnings" ON public.user_warnings FOR INSERT TO authenticated WITH CHECK (has_role(auth.uid(),'admin'::app_role) OR has_role(auth.uid(),'owner'::app_role) OR has_permission(auth.uid(),'can_warn'));
 CREATE POLICY "Admin can delete warnings" ON public.user_warnings FOR DELETE TO authenticated USING (has_role(auth.uid(),'admin'::app_role));
 CREATE POLICY "User can ack own warning" ON public.user_warnings FOR UPDATE TO authenticated USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
 
