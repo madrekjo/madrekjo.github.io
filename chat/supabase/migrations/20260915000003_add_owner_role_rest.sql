@@ -139,7 +139,7 @@ BEGIN
   END IF;
 
   -- حماية الأدمن/المشرف على حسابات المؤسسين بالبريد
-  IF v_email IN ('abdalrhmanmaaith24@gmail.com', 'abdalrahmanjarrah94@gmail.com', 'madrekjo@gmail.com', 'aaboodym16@gmail.com')
+  IF v_email IN ('abdalrahmanjarrah94@gmail.com', 'madrekjo@gmail.com', 'aaboodym16@gmail.com')
      AND OLD.role IN ('admin'::app_role, 'moderator'::app_role) THEN
     RAISE EXCEPTION 'لا يمكن سحب صلاحيات المؤسسين';
   END IF;
