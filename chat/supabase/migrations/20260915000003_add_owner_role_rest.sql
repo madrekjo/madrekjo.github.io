@@ -3,7 +3,7 @@
 -- Supabase → SQL Editor → New Query → Paste → Run
 -- (شغّل قبله ملف 20260915000002_add_owner_enum.sql أولاً)
 --
--- المالكون: عبدالرحمن معايطه + عبدالرحمن جراح + عبودي.
+-- المالكون: عبدالرحمن جراح + عبودي.
 -- ما يقدر أحد (حتى مالك آخر) يحظرهم / يعلّقهم / يعدّل فيهم أي شيء / يحذفهم.
 --
 -- صلاحيات حصرية للمالك (لا يملكها الأدمن):
@@ -28,7 +28,7 @@ ON CONFLICT (role) DO UPDATE SET
 INSERT INTO public.user_roles (user_id, role)
 SELECT id, 'owner'
 FROM auth.users
-WHERE email IN ('abdalrhmanmaaith24@gmail.com', 'abdalrahmanjarrah94@gmail.com', 'aaboodym16@gmail.com')
+WHERE email IN ('abdalrahmanjarrah94@gmail.com', 'aaboodym16@gmail.com')
 ON CONFLICT (user_id, role) DO NOTHING;
 
 -- [3] has_permission: المالك مطلق الصلاحيات (كالإدمن تماماً في التنفيذ)
