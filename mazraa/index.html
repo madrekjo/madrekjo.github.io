@@ -248,8 +248,8 @@ nav{position:fixed;bottom:0;left:0;right:0;z-index:55;background:rgba(5,14,11,.8
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="vendor/three.min.js"></script>
+<script src="vendor/OrbitControls.js"></script>
 <script>
 'use strict';
 var FAKE_3D=false;
@@ -354,45 +354,51 @@ function init3D(){
     wrap.appendChild(renderer.domElement);
   }catch(e){FAKE_3D=true;return;}
 
-  scene=new THREE.Scene();
-  scene.background=new THREE.Color(0x7ec8e3);
-  scene.fog=new THREE.Fog(0x7ec8e3,30,90);
+  try{
+    scene=new THREE.Scene();
+    scene.background=new THREE.Color(0x7ec8e3);
+    scene.fog=new THREE.Fog(0x7ec8e3,30,90);
 
-  camera=new THREE.PerspectiveCamera(50,window.innerWidth/window.innerHeight,0.1,200);
-  camera.position.set(7.5,7,9.5);
+    camera=new THREE.PerspectiveCamera(50,window.innerWidth/window.innerHeight,0.1,200);
+    camera.position.set(7.5,7,9.5);
 
-  var hemi=new THREE.HemisphereLight(0xd8f2ff,0x3a6b4a,0.85);
-  scene.add(hemi);
-  var sun=new THREE.DirectionalLight(0xfff3d6,1.15);
-  sun.position.set(9,14,6);
-  sun.castShadow=true;
-  sun.shadow.mapSize.width=1024;sun.shadow.mapSize.height=1024;
-  sun.shadow.camera.left=-14;sun.shadow.camera.right=14;
-  sun.shadow.camera.top=12;sun.shadow.camera.bottom=-14;
-  scene.add(sun);
-  scene.add(sun.target);
+    var hemi=new THREE.HemisphereLight(0xd8f2ff,0x3a6b4a,0.85);
+    scene.add(hemi);
+    var sun=new THREE.DirectionalLight(0xfff3d6,1.15);
+    sun.position.set(9,14,6);
+    sun.castShadow=true;
+    sun.shadow.mapSize.width=1024;sun.shadow.mapSize.height=1024;
+    sun.shadow.camera.left=-14;sun.shadow.camera.right=14;
+    sun.shadow.camera.top=12;sun.shadow.camera.bottom=-14;
+    scene.add(sun);
+    scene.add(sun.target);
 
-  buildGround();
-  addTrees();
-  buildPlots();
-  makeLabels();
+    buildGround();
+    addTrees();
+    buildPlots();
+    makeLabels();
 
-  controls=new THREE.OrbitControls(camera,renderer.domElement);
-  controls.enableDamping=true;
-  controls.dampingFactor=0.08;
-  controls.enablePan=false;
-  controls.minDistance=4.5;
-  controls.maxDistance=26;
-  controls.minPolarAngle=0.25;
-  controls.maxPolarAngle=Math.PI/2+0.06;
-  controls.target.set(0,0.3,0);
-  controls.update();
+    controls=new THREE.OrbitControls(camera,renderer.domElement);
+    controls.enableDamping=true;
+    controls.dampingFactor=0.08;
+    controls.enablePan=false;
+    controls.minDistance=4.5;
+    controls.maxDistance=26;
+    controls.minPolarAngle=0.25;
+    controls.maxPolarAngle=Math.PI/2+0.06;
+    controls.target.set(0,0.3,0);
+    controls.update();
 
-  raycaster=new THREE.Raycaster();
+    raycaster=new THREE.Raycaster();
 
-  window.addEventListener('resize',onResize);
-  bind3DInputs();
-  animate();
+    window.addEventListener('resize',onResize);
+    bind3DInputs();
+    animate();
+  }catch(e){
+    FAKE_3D=true;
+    try{renderer.dispose();}catch(e2){}
+    try{wrap.removeChild(renderer.domElement);}catch(e2){}
+  }
 }
 
 function buildGround(){
