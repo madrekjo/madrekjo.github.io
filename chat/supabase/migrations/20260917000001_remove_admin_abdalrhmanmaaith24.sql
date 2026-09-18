@@ -4,14 +4,15 @@
 -- الرابط: https://supabase.com/dashboard/project/biabdoatwfteqwgjdxzc/sql-editor
 -- ============================================================================
 -- الغرض: إزالة عبدالرحمن معايطه (abdalrhmanmaaith24@gmail.com) من رتب الأدمن
--- والمشرف، وإزالة بريده من قائمة "المؤسسين المحميين" حتى لا يُحجب مجدداً.
+-- والمشرف، وإزالة كل قواعد الحماية التي كانت تخصّه.
 --
--- ملاحظة: trigger الحماية (protect_staff_roles) يمنع سحب صلاحيات المؤسسين،
--- لذلك نعطله مؤقتاً أثناء الحذف، ثم نحدّث قائمة الحماية (نزيل بريده)،
--- وأخيراً نعيد تفعيل الحماية.
+-- ملاحظة: في triggerان يمنعان السحب:
+--   1) trg_protect_staff_roles      (قائمة المؤسسين بالبريد)
+--   2) protect_original_admin_trigger (يحمي معايطه بالتحديد)
+-- نعطّل الأول مؤقتاً، ونحذف الثاني نهائياً لأنه خاص به فقط.
 -- ============================================================================
 
--- 1) إزالة رتب الأدمن/المشرف (مع تعطيل الحماية مؤقتاً)
+-- 1) تعطيل trigger قائمة المؤسسين مؤقتاً
 DO $$
 BEGIN
   IF EXISTS (SELECT 1 FROM pg_trigger WHERE tgname = 'trg_protect_staff_roles') THEN
@@ -20,11 +21,16 @@ BEGIN
 EXCEPTION WHEN undefined_object THEN NULL;
 END $$;
 
+-- 2) حذف trigger الحماية القديم الخاص بالمالك الأصلي (معايطه)
+DROP TRIGGER IF EXISTS protect_original_admin_trigger ON public.user_roles;
+DROP FUNCTION IF EXISTS public.protect_original_admin();
+
+-- 3) إزالة رتب الأدمن/المشرف عنه
 DELETE FROM public.user_roles
 WHERE user_id IN (SELECT id FROM auth.users WHERE email = 'abdalrhmanmaaith24@gmail.com')
   AND role IN ('admin'::public.app_role, 'moderator'::public.app_role);
 
--- 2) تحديث دالة حماية المؤسسين: إزالة بريده من القائمة (ليُسمح مستقبلاً بسحب صلاحياته)
+-- 4) تحديث دالة حماية المؤسسين: إزالة بريده من القائمة
 CREATE OR REPLACE FUNCTION public.protect_staff_roles()
 RETURNS trigger
 LANGUAGE plpgsql
@@ -50,7 +56,7 @@ BEGIN
   RETURN OLD;
 END $$;
 
--- 3) إعادة تفعيل الحماية
+-- 5) إعادة تفعيل الحماية
 DO $$
 BEGIN
   IF EXISTS (SELECT 1 FROM pg_trigger WHERE tgname = 'trg_protect_staff_roles') THEN
@@ -58,9 +64,15 @@ BEGIN
   END IF;
 END $$;
 
--- 4) تأكيد: رتب المستخدم المتبقية (إن وجدت)
+-- 6) تأكيد: الرتب المتبقية لمعايطه + المالكون الحاليون
 SELECT u.email, ur.role
 FROM public.user_roles ur
 LEFT JOIN auth.users u ON u.id = ur.user_id
 WHERE ur.user_id IN (SELECT id FROM auth.users WHERE email = 'abdalrhmanmaaith24@gmail.com')
 ORDER BY ur.role;
+
+SELECT u.email, ur.role
+FROM public.user_roles ur
+JOIN auth.users u ON u.id = ur.user_id
+WHERE ur.role = 'owner'::public.app_role
+ORDER BY u.email;
