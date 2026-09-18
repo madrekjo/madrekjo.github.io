@@ -605,6 +605,9 @@ const Admin = () => {
                       <Button variant="outline" size="sm" onClick={() => setRolesDialogUser({ id: u.user_id, name: u.full_name })} className="gap-1">
                         <ShieldCheck className="w-4 h-4" /> تعديل الرتب
                       </Button>
+                      <Button variant="outline" size="sm" onClick={() => setWarnUser(u.user_id)} className="gap-1" title="تحذير">
+                        <AlertTriangle className="w-4 h-4" /> تحذير
+                      </Button>
                       <Button variant="destructive" size="sm" onClick={() => setBanDialogUser(u.user_id)} className="gap-1" title="الحظر (مالك فقط)">
                         <Ban className="w-4 h-4" /> الحظر
                       </Button>
