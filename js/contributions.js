@@ -113,8 +113,7 @@
           '<button type="button" class="ajr-admin-btn" id="ajrAdminToggle">🔑 دخول الأدمن</button>' +
         '</div>' +
         '<div class="ajr-admin-login" id="ajrAdminLogin">' +
-          '<input type="email" id="ajrAdminEmail" placeholder="البريد الإلكتروني" dir="ltr">' +
-          '<input type="password" id="ajrAdminPass" placeholder="كلمة السر" dir="ltr">' +
+          '<input type="password" id="ajrAdminPin" placeholder="الرقم السري" dir="ltr" inputmode="numeric" maxlength="6" autocomplete="new-password">' +
           '<div style="display:flex;gap:6px">' +
             '<button type="button" class="ajr-admin-submit" id="ajrAdminSubmit">دخول</button>' +
             '<button type="button" class="ajr-admin-btn" id="ajrAdminCancel">إلغاء</button>' +
@@ -150,8 +149,7 @@
     el.context = container.querySelector('.ajr-context');
     el.adminToggle = container.querySelector('#ajrAdminToggle');
     el.adminLogin = container.querySelector('#ajrAdminLogin');
-    el.adminEmail = container.querySelector('#ajrAdminEmail');
-    el.adminPass = container.querySelector('#ajrAdminPass');
+    el.adminPin = container.querySelector('#ajrAdminPin');
     el.adminSubmitBtn = container.querySelector('#ajrAdminSubmit');
     el.adminCancelBtn = container.querySelector('#ajrAdminCancel');
     el.adminStatus = container.querySelector('#ajrAdminStatus');
@@ -186,7 +184,7 @@
     el.adminCancelBtn.addEventListener('click', function () { el.adminLogin.classList.remove('show'); });
     el.adminSubmitBtn.addEventListener('click', adminLogin);
     el.adminLogoutBtn.addEventListener('click', adminLogout);
-    el.adminPass.addEventListener('keydown', function (e) { if (e.key === 'Enter') adminLogin(); });
+    el.adminPin.addEventListener('keydown', function (e) { if (e.key === 'Enter') adminLogin(); });
 
     checkExistingSession();
     loadFeed();
@@ -195,7 +193,7 @@
   function toggleAdminLogin() {
     el.adminLogin.classList.toggle('show');
     if (el.adminLogin.classList.contains('show')) {
-      el.adminEmail.focus();
+      el.adminPin.focus();
     }
   }
 
@@ -274,9 +272,8 @@
   }
 
   function adminLogin() {
-    var email = el.adminEmail.value.trim();
-    var pass = el.adminPass.value;
-    if (!email || !pass) return;
+    var pin = el.adminPin.value.trim();
+    if (!pin || pin.length < 4) return;
     el.adminSubmitBtn.disabled = true;
     setAdminStatus('⏳ جاري تسجيل الدخول...');
 
@@ -286,7 +283,7 @@
         'apikey': ANON_KEY,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ email: email, password: pass })
+      body: JSON.stringify({ email: 'admin@madrekjo.com', password: pin })
     })
       .then(function (r) { return r.json(); })
       .then(function (data) {
@@ -299,7 +296,7 @@
           } catch (e) {}
           return verifyAdmin();
         } else {
-          setAdminStatus(data.error_description || 'بيانات الدخول غير صحيحة', true);
+          setAdminStatus('الرقم السري غير صحيح', true);
         }
       })
       .catch(function () {
