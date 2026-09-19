@@ -411,11 +411,14 @@ const ContributionsSection = () => {
             <Input
               type="password"
               value={adminPin}
-              onChange={(e) => setAdminPin(e.target.value)}
+              onChange={(e) => setAdminPin(e.target.value.replace(/\D/g, ""))}
               placeholder="الرقم السري (4 أرقام)"
               dir="ltr"
               maxLength={6}
               inputMode="numeric"
+              autoComplete="new-password"
+              name="ajr-pin"
+              aria-label="رمز الأدمن"
               onKeyDown={(e) => {
                 if (e.key === "Enter") void handlePinLogin();
               }}
