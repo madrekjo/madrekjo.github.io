@@ -53,11 +53,10 @@ const ContributionsSection = () => {
   const [loading, setLoading] = useState(true);
   const [posting, setPosting] = useState(false);
 
-  // إدارة الأدمن
+  // إدارة الأدمن (رقم سري)
   const [isAdmin, setIsAdmin] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
-  const [adminEmail, setAdminEmail] = useState("");
-  const [adminPass, setAdminPass] = useState("");
+  const [adminPin, setAdminPin] = useState("");
   const [loggingIn, setLoggingIn] = useState(false);
   const [adminBusy, setAdminBusy] = useState(false);
 
@@ -87,6 +86,8 @@ const ContributionsSection = () => {
       if (session) {
         const { data } = await supabase.rpc("is_ajr_admin");
         setIsAdmin(data === true);
+      } else {
+        setIsAdmin(false);
       }
     } catch {
       setIsAdmin(false);
@@ -96,10 +97,7 @@ const ContributionsSection = () => {
   useEffect(() => {
     void fetchItems();
     void checkAdmin();
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange(() => void checkAdmin());
-    return () => subscription.unsubscribe();
+    return () => {};
   }, []);
 
   const handleSubmit = async () => {
@@ -140,28 +138,30 @@ const ContributionsSection = () => {
     }
   };
 
-  const handleLogin = async () => {
-    if (!adminEmail.trim() || !adminPass) return;
+  const handlePinLogin = async () => {
+    if (!adminPin.trim() || adminPin.trim().length < 4) return;
     setLoggingIn(true);
     try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email: adminEmail.trim(),
-        password: adminPass,
+      const { data: rpcData, error: rpcError } = await supabase.rpc("admin_login_with_pin", {
+        p_pin: adminPin.trim(),
       });
-      if (error) throw error;
-      const { data } = await supabase.rpc("is_ajr_admin");
-      if (data === true) {
-        setIsAdmin(true);
-        setShowLogin(false);
-        setAdminEmail("");
-        setAdminPass("");
-        toast.success("أهلاً بك أيها الأدمن 👑");
-      } else {
-        await supabase.auth.signOut();
-        toast.error("هذا الحساب ليس أدمن");
+      if (rpcError) throw rpcError;
+      const row = (rpcData as RpcRow[])?.[0];
+      if (!row?.success) {
+        toast.error(row?.message || "فشل تسجيل الدخول");
+        return;
       }
+      const { error: authError } = await supabase.auth.signInWithPassword({
+        email: "admin@madrekjo.com",
+        password: adminPin.trim(),
+      });
+      if (authError) throw authError;
+      setIsAdmin(true);
+      setShowLogin(false);
+      setAdminPin("");
+      toast.success("أهلاً بك أيها الأدمن 👑");
     } catch {
-      toast.error("بيانات الدخول غير صحيحة");
+      toast.error("تعذر الاتصال بالخادم");
     } finally {
       setLoggingIn(false);
     }
@@ -243,7 +243,7 @@ const ContributionsSection = () => {
             </Button>
           ) : (
             <Button variant="ghost" size="sm" onClick={() => setShowLogin(true)} className="gap-1 text-muted-foreground">
-              <KeyRound className="h-3.5 w-3.5" /> دخول الأدمن
+              <KeyRound className="h-3.5 w-3.5" /> رمز الأدمن
             </Button>
           )}
         </div>
@@ -402,32 +402,28 @@ const ContributionsSection = () => {
       <Dialog open={showLogin} onOpenChange={setShowLogin}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle className="flex items-center gap-2">🔐 دخول الأدمن</DialogTitle>
+            <DialogTitle className="flex items-center gap-2">🔑 رمز الأدمن</DialogTitle>
             <DialogDescription>
-              أدخل بريد وكلمة سر حساب الإدارة للموقع.
+              أدخل الرقم السري للدخول إلى لوحة الإدارة.
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-3">
             <Input
-              type="email"
-              value={adminEmail}
-              onChange={(e) => setAdminEmail(e.target.value)}
-              placeholder="البريد الإلكتروني"
-              dir="ltr"
-            />
-            <Input
               type="password"
-              value={adminPass}
-              onChange={(e) => setAdminPass(e.target.value)}
-              placeholder="كلمة السر"
+              value={adminPin}
+              onChange={(e) => setAdminPin(e.target.value)}
+              placeholder="الرقم السري (4 أرقام)"
               dir="ltr"
+              maxLength={6}
+              inputMode="numeric"
               onKeyDown={(e) => {
-                if (e.key === "Enter") void handleLogin();
+                if (e.key === "Enter") void handlePinLogin();
               }}
+              autoFocus
             />
             <Button
-              onClick={() => void handleLogin()}
-              disabled={loggingIn || !adminEmail.trim() || !adminPass}
+              onClick={() => void handlePinLogin()}
+              disabled={loggingIn || !adminPin.trim() || adminPin.trim().length < 4}
               className="w-full gap-1"
             >
               {loggingIn ? <Loader2 className="h-4 w-4 animate-spin" /> : <KeyRound className="h-4 w-4" />}
