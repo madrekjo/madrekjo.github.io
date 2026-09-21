@@ -306,7 +306,7 @@ DROP POLICY IF EXISTS "Authenticated users can create posts" ON public.posts;
 REVOKE SELECT ON public.profiles FROM authenticated;
 GRANT SELECT (id, user_id, full_name, avatar_url, name_changed_at, is_banned,
               chat_banned, timeout_until, generation, field, gender, theme,
-              last_seen_at, via_invite, created_at, account_status, verified)
+              last_seen_at, via_invite, created_at)
   ON public.profiles TO authenticated;
 
 -- دالة آمنة لحل معرّفات مميزة بالبريد (الوردة/اللمعان) دون تسريب البرايد نفسها
