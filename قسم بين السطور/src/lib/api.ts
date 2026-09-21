@@ -619,6 +619,18 @@ export interface BannedRow {
   banned_at: string;
 }
 
+export interface DeviceStatRow {
+  device_id: string;
+  name: string;
+  lines_count: number;
+  chat_count: number;
+  likes_total: number;
+  stars_total: number;
+  first_seen: string | null;
+  last_seen: string | null;
+  is_banned: boolean;
+}
+
 // مفتاح الأدمن في الذاكرة فقط أبداً (لا يُحفظ في المتصفح).
 let adminKey = "";
 
@@ -715,4 +727,13 @@ export async function adminListBanned(): Promise<BannedRow[]> {
   });
   if (error) throw new Error(errorMessage(error, "تعذّر تحميل المحظورين"));
   return (data ?? []) as BannedRow[];
+}
+
+/** ملخص كل جهاز (عدد البطاقات/الرسائل + أول/آخر نشاط) مرتباً بآخر نشاط. */
+export async function adminListDevices(): Promise<DeviceStatRow[]> {
+  const { data, error } = await supabase.rpc("admin_list_devices", {
+    p_admin_key: requireAdminKey(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر تحميل الأجهزة"));
+  return (data ?? []) as DeviceStatRow[];
 }

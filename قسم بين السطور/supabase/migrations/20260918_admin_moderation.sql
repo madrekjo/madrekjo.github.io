@@ -273,6 +273,77 @@ begin
 end;
 $$;
 
+-- ملخص كل جهاز: عدد البطاقات/الرسائل والإعجابات وأول وآخر نشاط
+-- مرتباً بآخر نشاط (الأكثر فاعلية أولاً) لمعرفة المُخرب سريعاً
+create or replace function public.admin_list_devices(p_admin_key text)
+returns table (
+  device_id text,
+  name text,
+  lines_count bigint,
+  chat_count bigint,
+  likes_total bigint,
+  stars_total bigint,
+  first_seen timestamptz,
+  last_seen timestamptz,
+  is_banned boolean
+)
+language plpgsql security definer set search_path = public
+as $$
+begin
+  if not public.verify_admin_password(p_admin_key) then
+    raise exception 'كلمة سر الأدمن غير صحيحة';
+  end if;
+  return query
+    with act as (
+      select device_id, created_at, 'l'::text as kind
+      from public.lines
+      where device_id is not null and char_length(device_id) >= 4
+      union all
+      select device_id, created_at, 'c'::text as kind
+      from public.reader_chat
+      where device_id is not null and char_length(device_id) >= 4
+    ),
+    agg as (
+      select a.device_id,
+             min(a.created_at) as first_seen,
+             max(a.created_at) as last_seen,
+             count(*) filter (where a.kind = 'l')::bigint as lines_count,
+             count(*) filter (where a.kind = 'c')::bigint as chat_count
+      from act a
+      group by a.device_id
+    ),
+    pl as (
+      select device_id,
+             coalesce(sum(likes), 0)::bigint as likes_total,
+             coalesce(sum(stars), 0)::bigint as stars_total,
+             (array_agg(submitter order by created_at desc))[1] as last_submitter
+      from public.lines
+      where device_id is not null and char_length(device_id) >= 4
+      group by device_id
+    ),
+    pc as (
+      select device_id,
+             (array_agg(nickname order by created_at desc))[1] as last_nickname
+      from public.reader_chat
+      where device_id is not null and char_length(device_id) >= 4
+      group by device_id
+    )
+    select agg.device_id,
+           coalesce(left(pl.last_submitter, 40), left(pc.last_nickname, 40), '') as name,
+           agg.lines_count,
+           agg.chat_count,
+           coalesce(pl.likes_total, 0)::bigint,
+           coalesce(pl.stars_total, 0)::bigint,
+           agg.first_seen,
+           agg.last_seen,
+           exists (select 1 from public.banned_devices b where b.device_id = agg.device_id) as is_banned
+    from agg
+    left join pl on pl.device_id = agg.device_id
+    left join pc on pc.device_id = agg.device_id
+    order by agg.last_seen desc;
+end;
+$$;
+
 -- ---------- الصلاحيات ----------
 revoke all on function public.set_admin_password(text) from public;
 -- المتعمد: لم نمنح set_admin_password لأي دور — تُشغَّل من SQL Editor فقط.
@@ -285,6 +356,7 @@ revoke all on function public.admin_delete_chat_message(uuid, text) from public;
 revoke all on function public.admin_ban_device(text, text, text) from public;
 revoke all on function public.admin_unban_device(text, text) from public;
 revoke all on function public.admin_list_banned(text) from public;
+revoke all on function public.admin_list_devices(text) from public;
 
 grant execute on function public.verify_admin_password(text) to anon;
 grant execute on function public.admin_list_lines(text, integer) to anon;
@@ -294,3 +366,4 @@ grant execute on function public.admin_delete_chat_message(uuid, text) to anon;
 grant execute on function public.admin_ban_device(text, text, text) to anon;
 grant execute on function public.admin_unban_device(text, text) to anon;
 grant execute on function public.admin_list_banned(text) to anon;
+grant execute on function public.admin_list_devices(text) to anon;

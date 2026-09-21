@@ -5,6 +5,7 @@ import {
   adminDeleteLine,
   adminListBanned,
   adminListChat,
+  adminListDevices,
   adminListLines,
   adminLogin,
   adminLogout,
@@ -12,12 +13,52 @@ import {
   type AdminChatRow,
   type AdminLineRow,
   type BannedRow,
+  type DeviceStatRow,
 } from "../lib/api";
 
-type Tab = "lines" | "chat" | "banned";
+type Tab = "devices" | "lines" | "chat" | "banned";
 
 const timeTxt = (s: string) =>
   s ? new Date(s).toLocaleString("ar", { dateStyle: "short", timeStyle: "short" }) : "";
+
+/** تجميع احتياطي من قوائم آخر 200 صف إذا لم تُنفَّذ دالة admin_list_devices بعد. */
+function aggregateDevices(lines: AdminLineRow[], chat: AdminChatRow[]): DeviceStatRow[] {
+  const map = new Map<string, DeviceStatRow>();
+  const touch = (deviceId: string, at: string | null) => {
+    let d = map.get(deviceId);
+    if (!d) {
+      d = {
+        device_id: deviceId,
+        name: "",
+        lines_count: 0,
+        chat_count: 0,
+        likes_total: 0,
+        stars_total: 0,
+        first_seen: at,
+        last_seen: at,
+        is_banned: false,
+      };
+      map.set(deviceId, d);
+    }
+    if (at) {
+      if (!d.first_seen || at < d.first_seen) d.first_seen = at;
+      if (!d.last_seen || at > d.last_seen) d.last_seen = at;
+    }
+    return d;
+  };
+  for (const l of lines) {
+    const d = touch(l.device_id, l.created_at);
+    d.lines_count += 1;
+    d.likes_total += l.likes || 0;
+    if (l.submitter) d.name = l.submitter;
+  }
+  for (const c of chat) {
+    const d = touch(c.device_id, c.created_at);
+    d.chat_count += 1;
+    if (c.nickname) d.name = c.nickname;
+  }
+  return [...map.values()].sort((a, b) => (b.last_seen ?? "").localeCompare(a.last_seen ?? ""));
+}
 
 export default function AdminPanel({
   open,
@@ -32,10 +73,12 @@ export default function AdminPanel({
   const [authed, setAuthed] = useState(false);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState("");
-  const [tab, setTab] = useState<Tab>("lines");
+  const [tab, setTab] = useState<Tab>("devices");
   const [lines, setLines] = useState<AdminLineRow[]>([]);
   const [chat, setChat] = useState<AdminChatRow[]>([]);
   const [banned, setBanned] = useState<BannedRow[]>([]);
+  const [devices, setDevices] = useState<DeviceStatRow[]>([]);
+  const [devicesFallback, setDevicesFallback] = useState(false);
   const [search, setSearch] = useState("");
   const [confirmBan, setConfirmBan] = useState<string | null>(null);
   const [banReason, setBanReason] = useState("");
@@ -50,6 +93,14 @@ export default function AdminPanel({
       setLines(l);
       setChat(c);
       setBanned(b);
+      setDevicesFallback(false);
+      try {
+        const d = await adminListDevices();
+        setDevices(d);
+      } catch {
+        setDevices(aggregateDevices(l, c));
+        setDevicesFallback(true);
+      }
     } catch (e) {
       setErr(e instanceof Error ? e.message : "تعذّر التحميل");
     }
@@ -97,6 +148,14 @@ export default function AdminPanel({
           (c.message || "").includes(search.trim())
       )
     : chat;
+
+  const filterDevices = search.trim()
+    ? devices.filter(
+        (d) =>
+          (d.name || "").includes(search.trim()) ||
+          d.device_id.includes(search.trim())
+      )
+    : devices;
 
   const confirmBanFor = (deviceId: string, reason: string) => {
     setConfirmBan(deviceId);
@@ -200,6 +259,7 @@ export default function AdminPanel({
             <div className="flex gap-1 rounded-xl bg-ink/5 p-1">
               {(
                 [
+                  ["devices", `الأجهزة`],
                   ["lines", `البطاقات`],
                   ["chat", `رسائل القرّاء`],
                   ["banned", `المحظورون`],
@@ -220,11 +280,66 @@ export default function AdminPanel({
             <input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="بحث بالاسم أو النص (يظهر للبطاقات ورسائل القرّاء)"
+              placeholder="بحث بالاسم أو النص (البطاقات ورسائل القرّاء والأجهزة)"
               className="mt-3 w-full rounded-xl border border-line bg-white/60 px-4 py-2 text-sm text-ink outline-none focus:border-gold-deep"
             />
 
             {err && <p className="mt-2 text-sm font-bold text-red-600">{err}</p>}
+
+            {tab === "devices" && (
+              <div className="mt-3 space-y-2">
+                {devicesFallback && (
+                  <p className="rounded-xl bg-amber-50 px-3 py-2 text-[11px] text-amber-800">
+                    احتياطي: لم تُنفَّذ دالة admin_list_devices في القاعدة بعد — تُعرض من آخر 200 بطاقة/رسالة.
+                    نفّذ ملف الإدارة من SQL Editor لملخص كامل.
+                  </p>
+                )}
+                {filterDevices.length === 0 && (
+                  <p className="py-6 text-center text-sm text-ink-soft">لا يوجد نشاط بعد</p>
+                )}
+                {filterDevices.map((d) => (
+                  <div key={d.device_id} className="rounded-2xl border border-line bg-white/50 p-3">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="text-sm font-bold text-ink">
+                        {d.name || "بدون اسم"}
+                        {d.is_banned && (
+                          <span className="mr-2 rounded-full bg-red-100 px-2 py-0.5 text-[10px] font-bold text-red-700">
+                            محظور
+                          </span>
+                        )}
+                      </span>
+                      <span dir="ltr" className="font-mono text-[10px] text-ink-soft">{d.device_id}</span>
+                    </div>
+                    <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-ink-soft">
+                      <span>🃏 بطاقات: <b className="text-ink">{d.lines_count}</b></span>
+                      <span>💬 رسائل: <b className="text-ink">{d.chat_count}</b></span>
+                      <span>❤ إعجابات: <b className="text-ink">{d.likes_total}</b></span>
+                      <span>⭐ نجوم: <b className="text-ink">{d.stars_total}</b></span>
+                    </div>
+                    <div className="mt-1 text-[11px] text-ink-soft">
+                      أول نشاط: {timeTxt(d.first_seen ?? "")} · آخر نشاط: <b>{timeTxt(d.last_seen ?? "")}</b>
+                    </div>
+                    <div className="mt-2 flex gap-2">
+                      {d.is_banned ? (
+                        <button
+                          onClick={() => void runUnban(d.device_id)}
+                          className="rounded-lg bg-emerald-600 px-3 py-1 text-xs font-bold text-white hover:opacity-90"
+                        >
+                          رفع الحظر
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => confirmBanFor(d.device_id, `جهاز: ${d.name || d.device_id.slice(0, 20)}`)}
+                          className="rounded-lg bg-ink px-3 py-1 text-xs font-bold text-white hover:opacity-90"
+                        >
+                          حظر + حذف كل محتواه
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
 
             {tab === "lines" && (
               <div className="mt-3 space-y-2">
