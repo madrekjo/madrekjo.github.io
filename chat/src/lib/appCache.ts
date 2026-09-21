@@ -194,13 +194,11 @@ export async function loadRoseUserIds(): Promise<Set<string>> {
     ttlMs: 60 * 60 * 1000,
     persist: true,
     fetcher: async () => {
-      const { data } = await supabase
-        .from("profiles")
-        .select("user_id, email");
-      const emails = new Set(ROSE_EMAILS);
-      return (data || [])
-        .filter((r) => r.email && emails.has(r.email.trim().toLowerCase()))
-        .map((r) => r.user_id);
+      // تُحَل أسماء البريد داخل الخادم (security definer) — لا يُقرأ البريد من العميل
+      const { data: ids } = await supabase.rpc("resolve_user_ids_by_email", {
+        p_emails: ROSE_EMAILS,
+      });
+      return new Set((ids || []).map((r: { user_id: string }) => r.user_id));
     },
   });
   return new Set(ids);
@@ -216,13 +214,11 @@ export async function loadShineUserIds(): Promise<Set<string>> {
     ttlMs: 60 * 60 * 1000,
     persist: true,
     fetcher: async () => {
-      const { data } = await supabase
-        .from("profiles")
-        .select("user_id, email");
-      const emails = new Set(SHINE_EMAILS);
-      return (data || [])
-        .filter((r) => r.email && emails.has(r.email.trim().toLowerCase()))
-        .map((r) => r.user_id);
+      // تُحَل أسماء البريد داخل الخادم (security definer) — لا يُقرأ البريد من العميل
+      const { data: ids } = await supabase.rpc("resolve_user_ids_by_email", {
+        p_emails: SHINE_EMAILS,
+      });
+      return new Set((ids || []).map((r: { user_id: string }) => r.user_id));
     },
   });
   return new Set(ids);

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, Shield } from "lucide-react";
 import {
   fetchLines,
   linesByUser,
@@ -12,6 +12,8 @@ import {
   publicProfile,
   reelsFeed,
   setBio,
+  setUsername,
+  uploadAvatar,
   toggleFollow,
   toggleLike,
   toggleLineStar,
@@ -39,6 +41,7 @@ import Reels from "./components/Reels";
 import ShareSheet from "./components/ShareSheet";
 import NotebookReader from "./components/NotebookReader";
 import BottomNav, { type NavTab } from "./components/BottomNav";
+import AdminPanel from "./components/AdminPanel";
 
 function openWhatsAppText(text: string): boolean {
   const win = window.open(
@@ -117,6 +120,7 @@ const [readerOpen, setReaderOpen] = useState(false);
   const [myPages, setMyPages] = useState<NotebookPage[]>([]);
   const [pubPages, setPubPages] = useState<NotebookPage[]>([]);
   const [addOpen, setAddOpen] = useState(false);
+  const [adminOpen, setAdminOpen] = useState(false);
   const [busyAction, setBusyAction] = useState("");
   const [notice, setNotice] = useState("");
 
@@ -555,8 +559,16 @@ const [readerOpen, setReaderOpen] = useState(false);
   const navActive: NavTab = openedUser ? "me" : view;
 
   return (
-    <div className="app-shell mx-auto flex min-h-screen w-full max-w-2xl flex-col px-4 pb-6">
+    <div className="app-shell relative mx-auto flex min-h-screen w-full max-w-2xl flex-col px-4 pb-6">
       <header className="pt-6 pb-4 text-center">
+        <button
+          onClick={() => setAdminOpen(true)}
+          title="إدارة القسم (الأدمن)"
+          aria-label="لوحة الإدارة"
+          className="absolute right-4 top-5 grid size-10 place-items-center rounded-full bg-white/70 text-ink-soft shadow-sm transition hover:bg-gold/15 hover:text-gold-deep"
+        >
+          <Shield size={18} />
+        </button>
         <h1 className="font-serif text-3xl font-bold text-ink">بين السطور</h1>
         <p className="mt-1 flex items-center justify-center gap-1 text-xs text-ink-soft">
           <GraduationCap size={13} className="text-gold-deep" />
@@ -592,6 +604,8 @@ const [readerOpen, setReaderOpen] = useState(false);
           onAddCard={() => void 0}
           onToggleFollow={() => void handleToggleFollow(openedUser)}
           onEditBio={async () => void 0}
+          onEditName={async () => void 0}
+          onUploadAvatar={async () => void 0}
           onBack={closeUser}
           tab={profTab}
           onTabChange={setProfTab}
@@ -615,6 +629,16 @@ const [readerOpen, setReaderOpen] = useState(false);
           onToggleFollow={() => void 0}
           onEditBio={async (bio) => {
             await setBio(bio);
+            const prof = await myProfile();
+            setMe(prof);
+          }}
+          onEditName={async (username) => {
+            await setUsername(username);
+            const prof = await myProfile();
+            setMe(prof);
+          }}
+          onUploadAvatar={async (file) => {
+            await uploadAvatar(file);
             const prof = await myProfile();
             setMe(prof);
           }}
@@ -693,6 +717,27 @@ const [readerOpen, setReaderOpen] = useState(false);
         onUpdate={updatePage}
         onDelete={removePage}
         onSharePage={handleShareNotebookPage}
+      />
+
+      <AdminPanel
+        open={adminOpen}
+        onClose={() => setAdminOpen(false)}
+        onChanged={() => {
+          flash("تم التعديل — جارٍ تحديث القائمة ✨");
+          void (async () => {
+            try {
+              const rows = await fetchLines();
+              setDbLines(rows);
+              try {
+                setReels(await reelsFeed(80));
+              } catch {
+                /* preview */
+              }
+            } catch {
+              /* keep */
+            }
+          })();
+        }}
       />
 
       <AddLineModal

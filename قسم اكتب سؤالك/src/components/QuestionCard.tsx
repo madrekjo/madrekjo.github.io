@@ -133,7 +133,7 @@ export default function QuestionCard({
                 <span>
                   {answer.correct
                     ? "✓ إجابتك صحيحة"
-                    : `✕ إجابتك خاطئة — الصحيح: ${q.correct}`}
+                    : `✕ إجابتك خاطئة — الصحيح: ${answer.correctKey ?? "-"}`}
                 </span>
                 <button
                   onClick={onResetAnswer}
@@ -151,7 +151,7 @@ export default function QuestionCard({
               }
             >
               {q.options.map((opt) => {
-                const isCorrectKey = opt.key === q.correct;
+                const isCorrectKey = (answer?.correctKey ?? q.correct) === opt.key;
                 const cls = !answered
                   ? "border-line bg-white/60 text-ink hover:border-gold-deep hover:bg-gold/10 active:scale-[0.98]"
                   : answer.correct
@@ -249,7 +249,7 @@ export default function QuestionCard({
       <div className="absolute bottom-10 left-3 flex flex-col items-center gap-1.5">
         {OPTION_KEYS.map((k) => {
           const chosen = answer?.chosen === k;
-          const isRight = k === q.correct;
+          const isRight = k === (answer?.correctKey ?? q.correct);
           const btnCls = !answered
             ? "bg-white/10 text-white hover:bg-gold/80 hover:text-ink active:scale-95"
             : chosen && answer!.correct

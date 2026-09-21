@@ -1,6 +1,7 @@
 import { invalidateCache } from "@/lib/dataLayer";
 import { READ_GATEWAY_URL } from "@/config/worker-config";
 import { isReadGatewayConfigured } from "@/lib/readGateway";
+import { supabase } from "@/integrations/supabase/client";
 
 /**
  * إبطال خاص بجدول واحد (Table-Specific Invalidation).
@@ -61,11 +62,16 @@ export async function invalidateTable(table: string): Promise<void> {
   if (!configured() || !GATEWAY_TABLES.has(t) || !url) return;
 
   try {
+    // البوابة تقبل الإبطال من الجلسة السليمة فقط (JWT) — بلا جلسة لا حاجة للإبطال.
+    const session = await supabase.auth.getSession();
+    const token = session.data.session?.access_token;
+    if (!token) return;
+
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), GATEWAY_TIMEOUT_MS);
     await fetch(`${url}/invalidate`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
       body: JSON.stringify({ table: t }),
       signal: controller.signal,
     });

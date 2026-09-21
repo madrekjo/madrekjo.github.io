@@ -57,24 +57,18 @@ const Notifications = () => {
     if (append) setLoadingMore(false); else setLoading(false);
   }, [user]);
 
-  // عند كل فتح: نحذف الإشعارات الأقدم من آخر 10 تلقائياً ليُبقى فقط 10 إشعارات لكل مستخدم
+  // عند الفتح: نُقلم فقط الإشعارات المقروءة الأقدم من 3 أيام — لا نحذف إشعارات
+  // لم يطلع عليها مستخدم آخر على جهاز آخر (كان يُبقي 10 فقط ويُحذف الباقي).
   useEffect(() => {
     if (!user) return;
     (async () => {
-      const { data: keep } = await supabase
+      const cutoff = new Date(Date.now() - 3 * 24 * 3600 * 1000).toISOString();
+      await supabase
         .from("notifications")
-        .select("id")
+        .delete()
         .eq("user_id", user.id)
-        .order("created_at", { ascending: false })
-        .limit(BATCH);
-      const keepIds: string[] = (keep || []).map(n => n.id);
-      if (keepIds.length) {
-        await supabase
-          .from("notifications")
-          .delete()
-          .eq("user_id", user.id)
-          .not("id", "in", `(${keepIds.join(",")})`);
-      }
+        .eq("is_read", true)
+        .lt("created_at", cutoff);
       await fetchBatch(0, false);
       await supabase.from("notifications").update({ is_read: true }).eq("user_id", user.id).eq("is_read", false);
     })();

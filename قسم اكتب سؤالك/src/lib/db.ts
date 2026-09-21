@@ -37,7 +37,7 @@ function toQuestion(r: any): Question {
     question: r.question,
     image: r.image_url ?? undefined,
     options,
-    correct: (r.correct as OptionKey) ?? "أ",
+    correct: (r.correct as OptionKey) ?? undefined,
     field: r.field,
     subject: r.subject,
     grade: r.grade ?? undefined,
@@ -49,8 +49,9 @@ function toQuestion(r: any): Question {
   };
 }
 
+// الإجابة الصحيحة لا تُرسل أبداً استعلامات عامة (S5) — يفحصها الخادم عبر RPC
 const QUESTION_SELECT = `
-  id, author_id, question, image_url, options, correct, field, subject,
+  id, author_id, question, image_url, options, field, subject,
   grade, ayah, reactions, answers_count, created_at,
   author:profiles!questions_author_id_fkey(username)
 `;
@@ -247,6 +248,30 @@ export async function clearAttempt(userId: string, questionId: string): Promise<
     .delete()
     .eq("user_id", userId)
     .eq("question_id", questionId);
+}
+
+/**
+ * يقدّم المستخدم إجابته: يُفحص صحتها داخل الخادم (لا يعرفها العميل قبل
+ * الإجابة)، ويسجّل المحاولة في answer_attempts، ثم يُعيد النتيجة للإجابة فقط.
+ */
+export async function submitAnswer(
+  questionId: string,
+  chosen: string,
+  userId?: string
+): Promise<{ correct: boolean; correctKey: OptionKey | null } | null> {
+  if (!supabase) return null;
+  const { data, error } = await supabase.rpc("submit_answer", {
+    p_question_id: questionId,
+    p_chosen: chosen,
+    p_user_id: userId ?? null,
+  });
+  if (error) throw error;
+  const row = Array.isArray(data) ? data[0] : data;
+  if (!row) return null;
+  return {
+    correct: Boolean(row.correct),
+    correctKey: (row.correct_key as OptionKey) ?? null,
+  };
 }
 
 // ---- البروفايل ----

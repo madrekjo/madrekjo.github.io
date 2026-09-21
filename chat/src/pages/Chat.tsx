@@ -104,7 +104,7 @@ interface GatewayFeed {
 
 const Chat = () => {
   const { user, profile, isAdmin, isStaff, refreshProfile, session } = useAuth();
-  const { spend, getCost, balance } = usePoints();
+  const { getCost, balance } = usePoints();
   const [posts, setPosts] = useState<Post[]>([]);
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(true);
@@ -120,6 +120,7 @@ const Chat = () => {
   const postRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const hasScrolled = useRef(false);
   const loaderRef = useRef<HTMLDivElement | null>(null);
+  const lastCreatedCursor = useRef<string | null>(null);
   const [channelFilter, setChannelFilter] = useState<string>("all");
   const [showSalawat, setShowSalawat] = useState(false);
   const [channelSettings, setChannelSettings] = useState<Record<string, boolean>>({ all: true, male: true, female: true, "09": true, "10": true });
@@ -178,6 +179,7 @@ const Chat = () => {
 
   const fetchPosts = useCallback(async (offset = 0, append = false) => {
     if (append) setLoadingMore(true);
+    if (!append) lastCreatedCursor.current = null;
     try {
       // المسار المباشر (Fallback): السلوك الأصلي الحالي تماماً — يُستخدم عند
       // غياب البوابة أو فشلها أو غياب رمز المستخدم.
@@ -194,15 +196,23 @@ const Chat = () => {
           query = query.eq("channel", channelFilter);
         }
 
-        let { data: rows, error } = await query.range(offset, offset + PAGE_SIZE - 1);
+        // ترقيم ثابت (keyset) بدل offset: أي منشور جديد يصل بين صفحتين لا يُضيّع
+        // أو يُكرّر صفوفاً في الصفحة التالية (كانت مشكلة P1 في المسار المباشر).
+        if (append && lastCreatedCursor.current) {
+          query = query.lt("created_at", lastCreatedCursor.current);
+        }
+
+        let { data: rows, error } = await query.range(0, PAGE_SIZE - 1);
 
         if (error) {
-          const { data: rows2, error: err2 } = await supabase
+          const retry = supabase
             .from("posts")
             .select("*, profiles!posts_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
             .is("deleted_at", null)
             .order("created_at", { ascending: false })
-            .range(offset, offset + PAGE_SIZE - 1);
+            .range(0, PAGE_SIZE - 1);
+          if (append && lastCreatedCursor.current) retry.lt("created_at", lastCreatedCursor.current);
+          const { data: rows2, error: err2 } = await retry;
           rows = rows2;
           error = err2;
         }
@@ -234,6 +244,9 @@ const Chat = () => {
         const sorted = cleaned.sort(sortPosts);
         setPosts(prev => append ? [...prev, ...sorted] : sorted);
         setHasMore(baseRows.length === PAGE_SIZE);
+        lastCreatedCursor.current = baseRows.length
+          ? baseRows[baseRows.length - 1].created_at || null
+          : null;
 
         // مجموعة الأدمن من كاش مشترك (لا طلب user_roles مع كل فيد).
         if (postIds.length > 0) {
@@ -269,6 +282,9 @@ const Chat = () => {
 
           setPosts(prev => append ? [...prev, ...postsForPage] : postsForPage);
           setHasMore(feed.posts.length === PAGE_SIZE);
+          lastCreatedCursor.current = feed.posts.length
+            ? feed.posts[feed.posts.length - 1].created_at || null
+            : null;
 
           // مجموعة الأدمن من كاش مشترك (لا طلب user_roles مع كل فيد).
           const [adminSet, ownerSet] = await Promise.all([loadAdminUserIds(), loadOwnerUserIds()]);
@@ -415,9 +431,11 @@ const Chat = () => {
       return;
     }
     if (containsBannedWord(content, isAdmin)) { toast.error("المحتوى يحتوي على كلمات محظورة"); return; }
-    // فحص النقاط: تكلفة المنشور = 5 (أو 10 مع @everyone)
+    // فحص النقاط: تكلفة المنشور = 5 (أو 10 مع @everyone أو @الشباب/@البنات)
     const hasMentionAll = /@everyone|@الجميع/.test(content);
-    const postCost = hasMentionAll ? getCost("everyone") : getCost("post");
+    const hasMentionGroup = /@الشباب|@البنات/.test(content);
+    const expensiveMention = hasMentionAll || hasMentionGroup;
+    const postCost = expensiveMention ? getCost("everyone") : getCost("post");
     if (!isStaff && balance < postCost) {
       toast.error(`تحتاج ${postCost} نقطة لإنشاء منشور. رصيدك الحالي: ${balance}`);
       return;
@@ -429,7 +447,6 @@ const Chat = () => {
       return;
     }
     setPosting(true);
-    const needsReview = !isStaff && (channelFilter === "all");
     let imageUrls: string[] | null = null;
     const imageUrl: string | null = null;
     let videoUrl: string | null = null;
@@ -449,63 +466,56 @@ const Chat = () => {
       else videoUrl = urls[0];
     }
 
-    const insertData: any = {
-      user_id: user.id,
-      content: content.trim(),
-      image_url: imageUrl || (imageUrls && imageUrls.length ? imageUrls[0] : null),
-      image_urls: imageUrls,
-      video_url: videoUrl,
-      channel: channelFilter,
-    };
-    if (!imageUrls) delete insertData.image_urls;
-
-    const { data: inserted, error } = await supabase.from("posts").insert(insertData).select("id");
-    if (error) {
-      if ((error as any).message?.includes("section_locked")) toast.error("هذه القناة مقفلة حالياً من قبل الإدارة");
-      else toast.error("فشل نشر المنشور");
+    const { data: pub, error: pubError } = await supabase.rpc("publish_post", {
+      p_content: content.trim(),
+      p_channel: channelFilter,
+      p_image_url: imageUrl || (imageUrls && imageUrls.length ? imageUrls[0] : null),
+      p_image_urls: imageUrls || null,
+      p_video_url: videoUrl,
+    });
+    const pubRow = Array.isArray(pub) ? pub[0] : null;
+    if (pubError || !pubRow?.id) {
+      const msg = pubRow?.error_message || pubError?.message || "فشل نشر المنشور";
+      if (String(msg).includes("section_locked") || String(msg).includes("مقفلة"))
+        toast.error("هذه القناة مقفلة حالياً من قبل الإدارة");
+      else toast.error(msg);
+      setPosting(false);
+      return;
     }
-    else {
-      // خصم النقاط بعد النشر الناجح
-      if (!isStaff) {
-        const costType = hasMentionAll ? "everyone" : "post";
-        const spendResult = await spend(postCost, costType, "chat", { postId: inserted?.[0]?.id });
-        if (!spendResult.success) {
-          console.warn("[Chat] Points spend failed:", spendResult.errorMessage);
-        }
-      }
-      setContent(""); setMediaFiles([]); setMediaType(null);
-      toast.success(needsReview ? "تم إرسال المنشور للمراجعة، سيظهر بعد موافقة الإدارة" : "تم النشر");
-      void invalidateTable("posts");
-      const postId = inserted?.[0]?.id;
-      if (postId) {
-        await submitMentions(supabase, { postId, actorId: user.id, text: content, channel: channelFilter });
-        const now = new Date().toISOString();
-        const optimisticPost = {
-          id: postId,
-          user_id: user.id,
-          content: content.trim(),
-          image_url: imageUrls && imageUrls.length ? imageUrls[0] : null,
-          image_urls: imageUrls,
-          video_url: videoUrl,
-          channel: channelFilter,
-          status: needsReview ? "pending" : "approved",
-          created_at: now,
-          updated_at: now,
-          generation: null,
-          is_pinned: false,
-          profiles: {
-            full_name: profile?.full_name || "",
-            avatar_url: profile?.avatar_url || null,
-            generation: profile?.generation || null,
-            field: profile?.field || null,
-            gender: profile?.gender || null,
-          },
-          likes: [],
-          comments: [],
-          commentCount: 0,
-        } as unknown as Post;
-        setPosts(prev => [optimisticPost, ...prev].sort(sortPosts));
-      }
+    // النقاط خُصمت داخل الدالة نفسها (عملية ذرية) — لا خصم منفصل بعد الآن.
+    setContent(""); setMediaFiles([]); setMediaType(null);
+    const postStatus = pubRow.status || "approved";
+    toast.success(postStatus === "pending" ? "تم إرسال المنشور للمراجعة، سيظهر بعد موافقة الإدارة" : "تم النشر");
+    void invalidateTable("posts");
+    const postId = pubRow.id as string;
+    if (postId) {
+      await submitMentions(supabase, { postId, actorId: user.id, text: content.trim(), channel: channelFilter });
+      const now = new Date().toISOString();
+      const optimisticPost = {
+        id: postId,
+        user_id: user.id,
+        content: content.trim(),
+        image_url: imageUrls && imageUrls.length ? imageUrls[0] : null,
+        image_urls: imageUrls,
+        video_url: videoUrl,
+        channel: channelFilter,
+        status: postStatus,
+        created_at: now,
+        updated_at: now,
+        generation: null,
+        is_pinned: false,
+        profiles: {
+          full_name: profile?.full_name || "",
+          avatar_url: profile?.avatar_url || null,
+          generation: profile?.generation || null,
+          field: profile?.field || null,
+          gender: profile?.gender || null,
+        },
+        likes: [],
+        comments: [],
+        commentCount: 0,
+      } as unknown as Post;
+      setPosts(prev => [optimisticPost, ...prev].sort(sortPosts));
     }
     setPosting(false);
   };

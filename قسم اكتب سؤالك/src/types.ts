@@ -24,7 +24,7 @@ export interface Question {
   image?: string;
   imageName?: string;
   options: [Option, Option, Option, Option];
-  correct: OptionKey;
+  correct?: OptionKey;
   field: string;
   subject: string;
   grade?: string;
@@ -39,6 +39,7 @@ export interface Question {
 export type AnswerState = {
   chosen: OptionKey;
   correct: boolean;
+  correctKey?: OptionKey;
 };
 
 export type Scope = "mine-field" | "all";

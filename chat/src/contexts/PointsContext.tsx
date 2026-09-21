@@ -35,7 +35,7 @@ export function PointsProvider({ children }: { children: ReactNode }) {
   const refreshPoints = useCallback(async () => {
     if (!user) return;
     try {
-      const info = await fetchUserPoints(user.id);
+      const info = await fetchUserPoints();
       setPoints(info);
     } catch (err) {
       console.error("[PointsContext] Failed to fetch points:", err);
@@ -66,7 +66,7 @@ export function PointsProvider({ children }: { children: ReactNode }) {
         return { success: true, newBalance: points.balance };
       }
 
-      const result = await spendPoints(user.id, amount, type, source, metadata);
+      const result = await spendPoints(amount, type, source, metadata);
       if (result.success) {
         setPoints(prev => ({ ...prev, balance: result.newBalance }));
       }
@@ -83,7 +83,7 @@ export function PointsProvider({ children }: { children: ReactNode }) {
     ): Promise<SpendResult & { pointsEarned: number }> => {
       if (!user) return { success: false, newBalance: 0, errorMessage: "غير مسجل الدخول", pointsEarned: 0 };
 
-      const result = await rewardRoundTime(user.id, roundId, startedAt, endedAt);
+      const result = await rewardRoundTime(roundId, startedAt, endedAt);
       if (result.success) {
         setPoints(prev => ({ ...prev, balance: result.newBalance }));
       }

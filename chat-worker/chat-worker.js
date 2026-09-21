@@ -190,7 +190,17 @@ async function dispatch(url, request, origin, env) {
   }
 
   if (path === "/invalidate") {
-    return invalidate(kv, url, request, origin);
+    // الإبطال يتطلب مستخدماً مُخوَّلاً (JWT سليم) — يمنع أي زائر من تجويع
+    // الكاش بحرق stamps بلا حدود.
+    const token = bearerToken(request.headers);
+    if (!token) {
+      return json({ error: "unauthorized", message: "/invalidate يتطلب Authorization: Bearer <JWT>" }, origin, 401, "invalidate");
+    }
+    const principal = await verifyJwt(token);
+    if (!principal) {
+      return json({ error: "invalid_token", message: "التوكن غير سليم أو منتهي الصلاحية" }, origin, 401, "invalidate");
+    }
+    return invalidate(kv, url, request, origin, principal?.sub);
   }
 
   if (path === "/config") {
@@ -280,7 +290,7 @@ async function bumpStamp(kv, group) {
   return { stamp: now, coalesced: false };
 }
 
-async function invalidate(kv, url, request, origin) {
+async function invalidate(kv, url, request, origin, subject) {
   let table = (url.searchParams.get("table") || "").trim().toLowerCase();
   if (!table && request.method === "POST") {
     try {
@@ -346,6 +356,98 @@ function bearerToken(headers) {
   const auth = headers.get("Authorization") || "";
   const m = /^Bearer\s+(\S+)$/i.exec(auth);
   return m ? m[1] : null;
+}
+
+/* ------------------- تحقق JWT (explicit) ------------------- */
+
+// يُجلب مفتاح التوقيع العام من Supabase مرة واحدة لكل إيزيليت (صلاحيته ساعة).
+let jwksCache = { map: null, at: 0 };
+
+async function fetchJwks() {
+  const now = Date.now();
+  if (jwksCache.map && now - jwksCache.at < 3600 * 1000) return jwksCache.map;
+  try {
+    const res = await fetch(`${CHAT_URL}/auth/v1/.well-known/jwks.json`);
+    if (res.ok) {
+      const body = await res.json();
+      const map = {};
+      for (const k of body?.keys || []) map[k.kid] = k;
+      jwksCache = { map, at: now };
+      return map;
+    }
+  } catch {
+    /* نتجاهل ونعود للكاش القديم إن وُجد */
+  }
+  return jwksCache.map || {};
+}
+
+function b64urlToUint8(b64) {
+  const pad = b64.length % 4 === 0 ? "" : "=".repeat(4 - (b64.length % 4));
+  const bin = atob(b64.replace(/-/g, "+").replace(/_/g, "/") + pad);
+  const arr = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+  return arr;
+}
+
+/**
+ * يتحقق من صحة توقيع JWT الصادر عن Supabase (RS256/ES256 عبر JWKS) ويعيد
+ * الحمولة إن كانت سليمة وغير منتهية، أو null عند الرفض.
+ */
+async function verifyJwt(token) {
+  const parts = String(token || "").split(".");
+  if (parts.length !== 3) return null;
+  const [h64, p64, s64] = parts;
+  let header, payload;
+  try {
+    header = JSON.parse(atob(h64.replace(/-/g, "+").replace(/_/g, "/")));
+    payload = JSON.parse(atob(p64.replace(/-/g, "+").replace(/_/g, "/")));
+  } catch {
+    return null;
+  }
+  if (!header.kid || !header.alg) return null;
+
+  const keys = await fetchJwks();
+  const key = keys[header.kid];
+  if (!key) return null;
+
+  let cryptoKey;
+  try {
+    if (key.kty === "RSA") {
+      cryptoKey = await crypto.subtle.importKey(
+        "jwk",
+        { kty: "RSA", n: key.n, e: key.e, ext: true },
+        { name: "RSASSA-PKCS1-v1_5" },
+        false,
+        ["verify"]
+      );
+    } else if (key.kty === "EC") {
+      cryptoKey = await crypto.subtle.importKey(
+        "jwk",
+        { kty: "EC", crv: key.crv, x: key.x, y: key.y, ext: true },
+        { name: "ECDSA", namedCurve: key.crv === "P-384" ? "P-384" : "P-256" },
+        false,
+        ["verify"]
+      );
+    } else {
+      return null;
+    }
+  } catch {
+    return null;
+  }
+
+  const algName = header.alg === "RS256" ? "RSASSA-PKCS1-v1_5" : header.alg === "ES256" ? "ECDSA" : header.alg === "ES384" ? "ECDSA" : null;
+  if (!algName) return null;
+
+  const ok = await crypto.subtle.verify(
+    { name: algName, hash: "SHA-256" },
+    cryptoKey,
+    b64urlToUint8(s64),
+    new TextEncoder().encode(`${h64}.${p64}`)
+  );
+  if (!ok) return null;
+
+  if (payload.exp && Date.now() / 1000 > Number(payload.exp) + 30) return null;
+  return payload;
 }
 
 async function buildFeed(svc, page, limit, channel, token) {

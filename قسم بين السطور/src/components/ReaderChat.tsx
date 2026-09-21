@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { BookOpen, Check, Pencil, Send, Trash2, X } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import {
   deleteChatMessage,
   getChatMessages,
@@ -41,7 +40,7 @@ export default function ReaderChat() {
   const ownDevice = getDeviceId();
 
   const load = () => {
-    getChatMessages(50)
+    getChatMessages(ownDevice, 50)
       .then(setMessages)
       .catch((e) => setError(String(e.message ?? e)));
   };
@@ -52,46 +51,13 @@ export default function ReaderChat() {
     load();
   }, [open]);
 
+  // بلا بث حيّ (Realtime): كان يمرر device_id لكل المشتركين.
+  // نجلِبُ القائمة المصفّاة آمنةً دورياً أثناء فتح الركن فقط.
   useEffect(() => {
-    const channel = supabase
-      .channel("reader-chat-live")
-      .on(
-        "postgres_changes",
-        { event: "INSERT", schema: "public", table: "reader_chat" },
-        (payload) => {
-          const row = payload.new as ChatMessage;
-          setMessages((prev) =>
-            prev.some((m) => m.id === row.id)
-              ? prev
-              : [row, ...prev].slice(0, 80)
-          );
-        }
-      )
-      .on(
-        "postgres_changes",
-        { event: "UPDATE", schema: "public", table: "reader_chat" },
-        (payload) => {
-          const row = payload.new as ChatMessage;
-          if (!row?.id) return;
-          setMessages((prev) =>
-            prev.map((m) => (m.id === row.id ? { ...m, message: row.message } : m))
-          );
-        }
-      )
-      .on(
-        "postgres_changes",
-        { event: "DELETE", schema: "public", table: "reader_chat" },
-        (payload) => {
-          const old = payload.old as { id?: string } | null;
-          if (!old?.id) return;
-          setMessages((prev) => prev.filter((m) => m.id !== old.id));
-        }
-      )
-      .subscribe();
-    return () => {
-      void supabase.removeChannel(channel);
-    };
-  }, []);
+    if (!open) return;
+    const timer = window.setInterval(load, 8000);
+    return () => window.clearInterval(timer);
+  }, [open]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -122,11 +88,11 @@ export default function ReaderChat() {
     if (!msg || sending) return;
     setSending(true);
     setError("");
-    try {
+try {
       const id = await postChatMessage(nickname, msg);
       setMessages((prev) => [
         ...prev,
-        { id, nickname, message: msg, device_id: ownDevice, created_at: new Date().toISOString() },
+        { id, nickname, message: msg, is_mine: true, created_at: new Date().toISOString() },
       ]);
       setDraft("");
     } catch (e) {
@@ -140,8 +106,7 @@ export default function ReaderChat() {
     if (e.key === "Enter") void send();
   };
 
-  const isMine = (m: ChatMessage) =>
-    Boolean(m.device_id) && m.device_id === ownDevice;
+  const isMine = (m: ChatMessage) => m.is_mine === true;
 
   const startEdit = (m: ChatMessage) => {
     setEditingId(m.id);

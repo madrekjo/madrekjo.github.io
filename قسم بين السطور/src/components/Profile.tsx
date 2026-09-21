@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   ArrowRight,
   BookOpen,
+  Camera,
   Heart,
   Pencil,
   Plus,
@@ -89,6 +90,8 @@ export default function Profile({
   onAddCard,
   onToggleFollow,
   onEditBio,
+  onEditName,
+  onUploadAvatar,
   onBack,
   tab,
   onTabChange,
@@ -107,6 +110,8 @@ export default function Profile({
   onAddCard: () => void;
   onToggleFollow: () => void;
   onEditBio: (bio: string) => Promise<void>;
+  onEditName: (username: string) => Promise<void>;
+  onUploadAvatar: (file: File) => Promise<void>;
   onBack: () => void;
   tab: "cards" | "notebook" | "saved";
   onTabChange: (t: "cards" | "notebook" | "saved") => void;
@@ -115,6 +120,11 @@ export default function Profile({
   const [editingBio, setEditingBio] = useState(false);
   const [bioDraft, setBioDraft] = useState("");
   const [bioBusy, setBioBusy] = useState(false);
+  const [editingName, setEditingName] = useState(false);
+  const [nameDraft, setNameDraft] = useState("");
+  const [nameBusy, setNameBusy] = useState(false);
+  const [avatarBusy, setAvatarBusy] = useState(false);
+  const avatarRef = useRef<HTMLInputElement>(null);
 
   const name = profile?.username ?? "...";
   const saveBio = async () => {
@@ -126,6 +136,31 @@ export default function Profile({
       /* تبقى النافذة مفتوحة */
     } finally {
       setBioBusy(false);
+    }
+  };
+  const saveName = async () => {
+    if (nameDraft.trim().length < 2) return;
+    setNameBusy(true);
+    try {
+      await onEditName(nameDraft.trim());
+      setEditingName(false);
+    } catch {
+      /* يبقى حقل التعديل مفتوحاً لعرض الخطأ */
+    } finally {
+      setNameBusy(false);
+    }
+  };
+  const handleAvatarFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+    setAvatarBusy(true);
+    try {
+      await onUploadAvatar(file);
+    } catch {
+      /* يبقى الوضع كما هو */
+    } finally {
+      setAvatarBusy(false);
     }
   };
 
@@ -143,11 +178,58 @@ export default function Profile({
 
       <section className="rounded-2xl border border-line bg-card p-5">
         <div className="flex items-start gap-4">
-          <Avatar name={name} url={profile?.avatar_url} className="size-16 text-3xl" />
+          <div className="relative shrink-0">
+            <Avatar
+              name={name}
+              url={profile?.avatar_url}
+              className="size-16 text-3xl"
+            />
+            {isMine && (
+              <button
+                onClick={() => avatarRef.current?.click()}
+                disabled={avatarBusy}
+                title="غيّر الصورة"
+                className={
+                  "absolute -bottom-1 -left-1 grid size-7 place-items-center rounded-full border border-line bg-card text-gold-deep shadow-sm transition hover:border-gold-deep disabled:opacity-50 " +
+                  (avatarBusy ? "animate-pulse" : "")
+                }
+              >
+                <Camera size={13} />
+              </button>
+            )}
+            <input
+              ref={avatarRef}
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+              className="hidden"
+              onChange={handleAvatarFile}
+            />
+          </div>
           <div className="min-w-0 flex-1">
-            <h1 className="truncate font-serif text-2xl font-bold text-ink">
-              {name}
-            </h1>
+            {editingName ? (
+              <div className="mt-1 space-y-2">
+                <input
+                  value={nameDraft}
+                  onChange={(e) => setNameDraft(e.target.value)}
+                  maxLength={25}
+                  autoFocus
+                  placeholder="اسمك الجديد..."
+                  className="w-full rounded-xl border border-line bg-paper px-3 py-2 text-sm text-ink outline-none focus:border-gold"
+                />
+                <button
+                  onClick={() => void saveName()}
+                  disabled={nameBusy || nameDraft.trim().length < 2}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-gold px-4 py-1.5 text-sm font-bold text-white transition hover:bg-gold-deep disabled:opacity-50"
+                >
+                  <Save size={14} />
+                  {nameBusy ? "جارٍ..." : "احفظ الاسم"}
+                </button>
+              </div>
+            ) : (
+              <h1 className="truncate font-serif text-2xl font-bold text-ink">
+                {name}
+              </h1>
+            )}
             {editingBio ? (
               <div className="mt-2 space-y-2">
                 <textarea
@@ -187,6 +269,18 @@ export default function Profile({
                     >
                       <Pencil size={12} />
                       عدّل النبذة
+                    </button>
+                  )}
+                  {!editingName && (
+                    <button
+                      onClick={() => {
+                        setNameDraft(profile?.username ?? "");
+                        setEditingName(true);
+                      }}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-xs font-medium text-ink-soft transition hover:border-gold-deep hover:text-gold-deep"
+                    >
+                      <Pencil size={12} />
+                      غيّر اسمك
                     </button>
                   )}
                   <button

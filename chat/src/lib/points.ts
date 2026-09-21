@@ -17,10 +17,8 @@ export interface SpendResult {
 /**
  * جلب رصيد المستخدم الحالي
  */
-export async function fetchUserPoints(userId: string): Promise<PointsInfo> {
-  const { data, error } = await supabase.rpc("get_user_points" as any, {
-    p_user_id: userId,
-  }).single();
+export async function fetchUserPoints(): Promise<PointsInfo> {
+  const { data, error } = await supabase.rpc("get_user_points" as any).single();
 
   if (error || !data) {
     return { balance: 50, dailyResetAt: null, lastRewardedRoundAt: null };
@@ -38,14 +36,12 @@ export async function fetchUserPoints(userId: string): Promise<PointsInfo> {
  * RPC: spend_points (Atomic — server-side only)
  */
 export async function spendPoints(
-  userId: string,
   amount: number,
   type: string,
   source?: string,
   metadata?: Record<string, unknown>
 ): Promise<SpendResult> {
   const { data, error } = await supabase.rpc("spend_points" as any, {
-    p_user_id: userId,
     p_amount: amount,
     p_type: type,
     p_source: source ?? null,
@@ -70,13 +66,11 @@ export async function spendPoints(
  * RPC: reward_round_time (Atomic — server-side only)
  */
 export async function rewardRoundTime(
-  userId: string,
   roundId: string,
   startedAt: string,
   endedAt: string
 ): Promise<SpendResult & { pointsEarned: number }> {
   const { data, error } = await supabase.rpc("reward_round_time" as any, {
-    p_user_id: userId,
     p_round_id: roundId,
     p_started_at: startedAt,
     p_ended_at: endedAt,
@@ -101,13 +95,11 @@ export async function rewardRoundTime(
  * RPC: grant_points (Atomic — server-side only)
  */
 export async function grantPoints(
-  adminId: string,
   targetUserId: string,
   amount: number,
   reason?: string
 ): Promise<SpendResult> {
   const { data, error } = await supabase.rpc("grant_points" as any, {
-    p_admin_id: adminId,
     p_target_user_id: targetUserId,
     p_amount: amount,
     p_reason: reason ?? null,

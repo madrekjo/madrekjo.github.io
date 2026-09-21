@@ -44,6 +44,7 @@ type Tab = "stats" | "users" | "staff" | "banned" | "reports" | "words" | "delet
 const Admin = () => {
   const { isAdmin, isModerator, isSupervisor, isOwner, hasPermission, user } = useAuth();
   const [users, setUsers] = useState<UserProfile[]>([]);
+  const [emailMap, setEmailMap] = useState<Record<string, string>>({});
   const [userRoles, setUserRoles] = useState<UserRole[]>([]);
   const [bannedWords, setBannedWords] = useState<{ id: string; word: string }[]>([]);
   const [newWord, setNewWord] = useState("");
@@ -236,8 +237,20 @@ const Admin = () => {
   };
 
   const fetchUsers = async () => {
-    const { data } = await supabase.from("profiles").select("id, user_id, full_name, avatar_url, is_banned, chat_banned, timeout_until, generation, field, gender, theme, created_at, via_invite, email").order("created_at", { ascending: true });
-    if (data) setUsers(data);
+    // البريد لا يُقرأ مباشرةً بعد اليوم — يُجلب للأدمن عبر RPC محمي (get_user_email)
+    const { data } = await supabase.from("profiles").select("id, user_id, full_name, avatar_url, is_banned, chat_banned, timeout_until, generation, field, gender, theme, created_at, via_invite").order("created_at", { ascending: true });
+    if (data) { setUsers(data); void hydrateEmails(data as UserProfile[]); }
+  };
+  const hydrateEmails = async (list: UserProfile[]) => {
+    const ids = (list || []).map((u) => u.user_id).filter(Boolean);
+    const map: Record<string, string> = {};
+    await Promise.all(ids.map(async (id) => {
+      try {
+        const { data: em } = await (supabase.rpc("get_user_email" as any, { _user_id: id }) as any);
+        if (em) map[id] = em as string;
+      } catch { /* تجاهل */ }
+    }));
+    setEmailMap((prev) => ({ ...prev, ...map }));
   };
   const fetchDeleted = async () => {
     const { data: posts } = await (supabase.from("posts") as any)
@@ -514,9 +527,9 @@ const Admin = () => {
                         {u.is_banned ? "🚫 محظور" : u.chat_banned ? "🔇 محظور شات" : "✅ نشط"}
                         {inTimeout && <span className="text-amber-500">⏱ حتى {new Date(u.timeout_until!).toLocaleTimeString("ar")}</span>}
                       </div>
-                      {u.email && (
+                      {emailMap[u.user_id] && (
                         <p className="text-xs text-muted-foreground mt-0.5" dir="ltr">
-                          📧 {u.email}
+                          📧 {emailMap[u.user_id]}
                         </p>
                       )}
                     </div>
@@ -593,8 +606,8 @@ const Admin = () => {
                       {rs.includes("supervisor") && <span className="text-xs bg-purple-500/20 text-purple-600 dark:text-purple-400 rounded px-2 py-0.5">🧑‍💼 مسؤول</span>}
                       {rs.includes("rounds_manager") && <span className="text-xs bg-green-500/20 text-green-600 dark:text-green-400 rounded px-2 py-0.5">📚 مسؤول جولات</span>}
                     </div>
-                    {(u as any).email && (
-                      <p className="text-xs text-muted-foreground mt-1" dir="ltr">📧 {(u as any).email}</p>
+                    {emailMap[u.user_id] && (
+                      <p className="text-xs text-muted-foreground mt-1" dir="ltr">📧 {emailMap[u.user_id]}</p>
                     )}
                   </div>
                   {isOwner && (
@@ -634,8 +647,8 @@ const Admin = () => {
                     {u.chat_banned && "🔇 محظور شات "}
                     {u.timeout_until && new Date(u.timeout_until) > new Date() && `⏱ حتى ${new Date(u.timeout_until).toLocaleString("ar")}`}
                   </p>
-                  {(u as any).email && (
-                    <p className="text-xs text-muted-foreground mt-0.5" dir="ltr">📧 {(u as any).email}</p>
+                  {emailMap[u.user_id] && (
+                    <p className="text-xs text-muted-foreground mt-0.5" dir="ltr">📧 {emailMap[u.user_id]}</p>
                   )}
                 </div>
                 {(isAdmin || canBanUsers || canTimeout) && (

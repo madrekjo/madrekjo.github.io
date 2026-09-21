@@ -1,4 +1,4 @@
-import { supabase } from "@/integrations/supabase/client";
+import { supabase, publicFileUrl } from "@/integrations/supabase/client";
 import { getDeviceId } from "./device";
 import type { CardColor } from "./colors";
 
@@ -70,12 +70,12 @@ export interface MyProof {
   created_at: string;
 }
 
-export interface ChatMessage {
+export type ChatMessage = {
   id: string;
   nickname: string;
   message: string;
-  device_id: string;
   created_at: string;
+  is_mine: boolean;
 }
 
 export interface UserProfile {
@@ -294,8 +294,9 @@ export async function uploadProof(
   return path;
 }
 
-export async function getChatMessages(limit = 50): Promise<ChatMessage[]> {
+export async function getChatMessages(device: string, limit = 50): Promise<ChatMessage[]> {
   const { data, error } = await supabase.rpc("get_chat_messages", {
+    p_device: device,
     p_limit: limit,
   });
   if (error) {
@@ -423,6 +424,39 @@ export async function setBio(bio: string): Promise<void> {
     p_device: getDeviceId(),
   });
   if (error) throw new Error(errorMessage(error, "تعذّر حفظ نبذتك"));
+}
+
+export async function setUsername(username: string): Promise<void> {
+  const { error } = await supabase.rpc("set_username", {
+    p_username: username,
+    p_device: getDeviceId(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر تغيير اسمك"));
+}
+
+const AVATAR_MIME = new Set(["image/jpeg", "image/png", "image/webp"]);
+
+export async function uploadAvatar(file: File): Promise<string> {
+  if (!AVATAR_MIME.has(file.type)) {
+    throw new Error("الصورة يجب أن تكون jpg أو png أو webp");
+  }
+  if (file.size > 2 * 1024 * 1024) {
+    throw new Error("حجم الصورة يجب ألا يتجاوز 2 ميجابايت");
+  }
+  const ext = file.name.split(".").pop()?.toLowerCase() || "png";
+  const path = `avatars/${getDeviceId()}-${Date.now()}.${ext}`;
+  const { data, error } = await supabase.storage
+    .from("avatars")
+    .upload(path, file, { upsert: true, contentType: file.type });
+  if (error) throw new Error(errorMessage(error, "تعذّر رفع الصورة — هل نفّذت migration الصور؟"));
+  if (!data?.path) throw new Error("تعذّر رفع الصورة");
+  const url = publicFileUrl(data.path);
+  const { error: setErr } = await supabase.rpc("set_avatar", {
+    p_url: url,
+    p_device: getDeviceId(),
+  });
+  if (setErr) throw new Error(errorMessage(setErr, "تعذّر حفظ الصورة"));
+  return url;
 }
 
 // ---------- الدفتر ----------
@@ -555,4 +589,130 @@ export async function reelsFeed(limit = 50): Promise<ReelRow[]> {
   });
   if (error) throw new Error(errorMessage(error, "تعذّر تحميل عبارات الريلز"));
   return (data ?? []) as ReelRow[];
+}
+
+// ---------- ركن الإدارة (أدمن بكلمة سر) ----------
+
+export interface AdminLineRow {
+  id: string;
+  text: string;
+  book: string;
+  author: string;
+  category: string;
+  submitter: string;
+  device_id: string;
+  likes: number;
+  created_at: string;
+}
+
+export interface AdminChatRow {
+  id: string;
+  nickname: string;
+  message: string;
+  device_id: string;
+  created_at: string;
+}
+
+export interface BannedRow {
+  device_id: string;
+  reason: string;
+  banned_at: string;
+}
+
+// مفتاح الأدمن في الذاكرة فقط أبداً (لا يُحفظ في المتصفح).
+let adminKey = "";
+
+async function sha256Hex(s: string): Promise<string> {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
+  return Array.from(new Uint8Array(buf))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+/** يتحقق من كلمة سر الأدمن ويُبقي الجلسة في الذاكرة (تُسحب عند الإغلاق). */
+export async function adminLogin(password: string): Promise<boolean> {
+  const key = await sha256Hex(password.trim());
+  const { data } = await supabase.rpc("verify_admin_password", {
+    p_admin_key: key,
+  });
+  if (data === true) {
+    adminKey = key;
+    return true;
+  }
+  return false;
+}
+
+export function adminLoggedIn(): boolean {
+  return adminKey !== "";
+}
+
+export function adminLogout(): void {
+  adminKey = "";
+}
+
+function requireAdminKey(): string {
+  if (!adminKey) throw new Error("سجّل دخول الأدمن أولاً");
+  return adminKey;
+}
+
+export async function adminListLines(): Promise<AdminLineRow[]> {
+  const { data, error } = await supabase.rpc("admin_list_lines", {
+    p_admin_key: requireAdminKey(),
+    p_limit: 200,
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر تحميل البطاقات"));
+  return (data ?? []) as AdminLineRow[];
+}
+
+export async function adminListChat(): Promise<AdminChatRow[]> {
+  const { data, error } = await supabase.rpc("admin_list_chat", {
+    p_admin_key: requireAdminKey(),
+    p_limit: 200,
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر تحميل رسائل القرّاء"));
+  return (data ?? []) as AdminChatRow[];
+}
+
+export async function adminDeleteLine(lineId: string): Promise<void> {
+  const { error } = await supabase.rpc("admin_delete_line", {
+    p_line: lineId,
+    p_admin_key: requireAdminKey(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر حذف البطاقة"));
+}
+
+export async function adminDeleteChatMessage(id: string): Promise<void> {
+  const { error } = await supabase.rpc("admin_delete_chat_message", {
+    p_id: id,
+    p_admin_key: requireAdminKey(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر حذف الرسالة"));
+}
+
+export async function adminBanDevice(
+  deviceId: string,
+  reason = ""
+): Promise<void> {
+  const { error } = await supabase.rpc("admin_ban_device", {
+    p_device: deviceId,
+    p_admin_key: requireAdminKey(),
+    p_reason: reason,
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر حظر الجهاز"));
+}
+
+export async function adminUnbanDevice(deviceId: string): Promise<void> {
+  const { error } = await supabase.rpc("admin_unban_device", {
+    p_device: deviceId,
+    p_admin_key: requireAdminKey(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر رفع الحظر"));
+}
+
+export async function adminListBanned(): Promise<BannedRow[]> {
+  const { data, error } = await supabase.rpc("admin_list_banned", {
+    p_admin_key: requireAdminKey(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر تحميل المحظورين"));
+  return (data ?? []) as BannedRow[];
 }

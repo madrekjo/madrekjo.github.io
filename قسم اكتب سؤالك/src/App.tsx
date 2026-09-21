@@ -16,6 +16,7 @@ import {
   listSavedIds,
   myProfile as dbMyProfile,
   recordAttempt,
+  submitAnswer,
   supabase,
   toggleLike as dbToggleLike,
   toggleSave as dbToggleSave,
@@ -275,12 +276,23 @@ export default function App() {
     setScreen("reels");
   };
 
-  const handleAnswer = (q: Question, key: OptionKey) => {
+  const handleAnswer = async (q: Question, key: OptionKey) => {
     if (answers[q.id]) return;
-    const correct = key === q.correct;
-    setAnswers((p) => ({ ...p, [q.id]: { chosen: key, correct } }));
-    if (correct) setCorrectIds((p) => ({ ...p, [q.id]: true }));
-    if (dbReady && uid) {
+    let correct = key === q.correct;
+    let correctKey = q.correct;
+
+    if (!correctKey && dbReady && uid) {
+      // وضع السحابة: الإجابة الصحيحة يفحصها الخادم (RPC) — لا تصل للعميل قبل الإجابة
+      try {
+        const res = await submitAnswer(q.id, key, uid);
+        if (!res) return;
+        correct = res.correct;
+        correctKey = res.correctKey ?? undefined;
+      } catch (e) {
+        console.error("[Answer] فشل فحص الإجابة", e);
+        return;
+      }
+    } else if (dbReady && uid) {
       recordAttempt({
         userId: uid,
         questionId: q.id,
@@ -288,6 +300,9 @@ export default function App() {
         correct,
       }).catch(() => {});
     }
+
+    setAnswers((p) => ({ ...p, [q.id]: { chosen: key, correct, correctKey } }));
+    if (correct) setCorrectIds((p) => ({ ...p, [q.id]: true }));
   };
 
   const handleSaveImage = async (q: Question) => {
@@ -382,7 +397,7 @@ export default function App() {
           question: q.question,
           image_url: q.image,
           options: q.options,
-          correct: q.correct,
+          correct: q.correct ?? "أ",
           field: q.field,
           subject: q.subject,
           grade: q.grade ?? null,

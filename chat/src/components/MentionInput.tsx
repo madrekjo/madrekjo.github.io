@@ -33,6 +33,11 @@ interface MentionInputProps {
 
 const MENTION_RE = /@([^@\s]{1,40})$/;
 
+const GROUP_OPTION: Record<"boys" | "girls", { label: string; hint: string; icon: string }> = {
+  boys: { label: "الشباب", hint: "منشن لجميع الشباب", icon: "👦" },
+  girls: { label: "البنات", hint: "منشن لجميع البنات", icon: "👧" },
+};
+
 function lookupName(tokens: string[]): string {
   const parts: string[] = [];
   for (const t of tokens) {
@@ -177,7 +182,15 @@ const MentionInput = ({
     onKeyDown?.(e);
   };
 
-  const activeSuggestion = mentionActive && (isAdmin || suggestions.length > 0);
+  // منشن الجنس: يظهر لكل مستخدم لكن لجنسه فقط (الشباب → @الشباب، البنات → @البنات).
+  const myGroup: Suggestion | null =
+    currentGender === "male"
+      ? { user_id: "boys", full_name: GROUP_OPTION.boys.label, avatar_url: null, gender: "male", generation: null }
+      : currentGender === "female"
+        ? { user_id: "girls", full_name: GROUP_OPTION.girls.label, avatar_url: null, gender: "female", generation: null }
+        : null;
+
+  const activeSuggestion = mentionActive && (isAdmin || !!myGroup || suggestions.length > 0);
 
   const allSuggestion: Suggestion = {
     user_id: "everyone",
@@ -186,45 +199,71 @@ const MentionInput = ({
     gender: null,
     generation: null,
   };
-  const shownItems = isAdmin ? [allSuggestion, ...suggestions] : suggestions;
+  const shownItems = [
+    ...(myGroup ? [myGroup] : []),
+    ...(isAdmin ? [allSuggestion] : []),
+    ...suggestions,
+  ];
+
+  const renderSuggestionIcon = (s: Suggestion) => {
+    if (s.user_id === "everyone") {
+      return (
+        <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/15 text-primary font-bold text-xs shrink-0">✦</span>
+      );
+    }
+    if (s.user_id === "boys" || s.user_id === "girls") {
+      return (
+        <span className="flex items-center justify-center w-6 h-6 rounded-full bg-muted text-sm shrink-0">
+          {GROUP_OPTION[s.user_id].icon}
+        </span>
+      );
+    }
+    return (
+      <Avatar className="w-6 h-6 shrink-0">
+        {s.avatar_url ? <AvatarImage src={s.avatar_url} /> : null}
+        <AvatarFallback className="text-[10px]">{(s.full_name || "؟").charAt(0)}</AvatarFallback>
+      </Avatar>
+    );
+  };
 
   return (
     <div className="relative w-full">
       {activeSuggestion && (
         <div className="absolute top-full left-0 right-0 z-30 mt-1 rounded-lg border bg-background shadow-lg max-h-60 overflow-y-auto">
-          {shownItems.map((s, i) => (
-            <button
-              key={s.user_id}
-              type="button"
-              onMouseDown={e => e.preventDefault()}
-              onClick={() => insertSuggestion(s)}
-              onMouseEnter={() => setSuggestionIndex(i)}
-              className={cn(
-                "w-full flex items-center gap-2 px-3 py-2 text-sm text-right hover:bg-muted transition-colors",
-                i === suggestionIndex && "bg-muted"
-              )}
-            >
-              {s.user_id === "everyone" ? (
-                <>
-                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/15 text-primary font-bold text-xs shrink-0">✦</span>
-                  <span className="font-bold text-primary">{s.full_name}</span>
-                  <span className="text-[10px] text-primary mr-auto">منشن لجميع الطلاب هنا</span>
-                </>
-              ) : (
-                <>
-                  <Avatar className="w-6 h-6 shrink-0">
-                    {s.avatar_url ? <AvatarImage src={s.avatar_url} /> : null}
-                    <AvatarFallback className="text-[10px]">{(s.full_name || "؟").charAt(0)}</AvatarFallback>
-                  </Avatar>
-                  <span className="font-medium">{s.full_name}</span>
-                  <span className="text-[10px] text-muted-foreground mr-auto">
-                    {s.gender === "male" ? "شباب" : s.gender === "female" ? "بنات" : ""}
-                    {s.generation ? ` · ${s.generation}` : ""}
-                  </span>
-                </>
-              )}
-            </button>
-          ))}
+{shownItems.map((s, i) => (
+  <button
+    key={s.user_id}
+    type="button"
+    onMouseDown={e => e.preventDefault()}
+    onClick={() => insertSuggestion(s)}
+    onMouseEnter={() => setSuggestionIndex(i)}
+    className={cn(
+      "w-full flex items-center gap-2 px-3 py-2 text-sm text-right hover:bg-muted transition-colors",
+      i === suggestionIndex && "bg-muted"
+    )}
+  >
+    {renderSuggestionIcon(s)}
+    {s.user_id === "everyone" ? (
+      <>
+        <span className="font-bold text-primary">{s.full_name}</span>
+        <span className="text-[10px] text-primary mr-auto">منشن لجميع الطلاب هنا</span>
+      </>
+    ) : s.user_id === "boys" || s.user_id === "girls" ? (
+      <>
+        <span className="font-bold">{s.full_name}</span>
+        <span className="text-[10px] text-muted-foreground mr-auto">{GROUP_OPTION[s.user_id].hint}</span>
+      </>
+    ) : (
+      <>
+        <span className="font-medium">{s.full_name}</span>
+        <span className="text-[10px] text-muted-foreground mr-auto">
+          {s.gender === "male" ? "شباب" : s.gender === "female" ? "بنات" : ""}
+          {s.generation ? ` · ${s.generation}` : ""}
+        </span>
+      </>
+    )}
+  </button>
+))}
           {shownItems.length === 0 && (
             <div className="px-3 py-2 text-xs text-muted-foreground">لا توجد نتائج</div>
           )}
