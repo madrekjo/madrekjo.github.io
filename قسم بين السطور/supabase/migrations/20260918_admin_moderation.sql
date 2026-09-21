@@ -43,6 +43,9 @@ create table if not exists public.device_info (
 alter table public.device_info enable row level security;
 -- لا سياسات: تُقرأ عبر admin_list_devices فقط (security definer).
 
+alter table public.device_info add column if not exists ip text not null default '';
+alter table public.device_info add column if not exists region text not null default '';
+
 -- ---------- تسجيل بيانات الجهاز ----------
 create or replace function public.upsert_device_info(p_device text, p_meta jsonb)
 returns void
@@ -53,7 +56,7 @@ begin
     p_meta := '{}'::jsonb;
   end if;
   insert into public.device_info
-    (device_id, user_agent, platform, language, timezone, screen, first_seen, last_seen)
+    (device_id, user_agent, platform, language, timezone, screen, ip, region, first_seen, last_seen)
   values (
     p_device,
     left(coalesce(p_meta->>'user_agent', ''), 200),
@@ -61,6 +64,8 @@ begin
     left(coalesce(p_meta->>'language', ''), 40),
     left(coalesce(p_meta->>'timezone', ''), 60),
     left(coalesce(p_meta->>'screen', ''), 40),
+    left(coalesce(p_meta->>'ip', ''), 45),
+    left(coalesce(p_meta->>'region', ''), 200),
     now(), now()
   )
   on conflict (device_id) do update set
@@ -69,6 +74,8 @@ begin
     language   = coalesce(nullif(excluded.language, ''), device_info.language),
     timezone   = coalesce(nullif(excluded.timezone, ''), device_info.timezone),
     screen     = coalesce(nullif(excluded.screen, ''), device_info.screen),
+    ip         = coalesce(nullif(excluded.ip, ''), device_info.ip),
+    region     = coalesce(nullif(excluded.region, ''), device_info.region),
     last_seen  = now();
 end;
 $$;
@@ -350,6 +357,8 @@ returns table (
   language text,
   timezone text,
   screen text,
+  ip text,
+  region text,
   lines_count bigint,
   chat_count bigint,
   likes_total bigint,
@@ -410,6 +419,8 @@ begin
            coalesce(di.language, ''),
            coalesce(di.timezone, ''),
            coalesce(di.screen, ''),
+           coalesce(di.ip, ''),
+           coalesce(di.region, ''),
            agg.lines_count,
            agg.chat_count,
            coalesce(pl.likes_total, 0)::bigint,

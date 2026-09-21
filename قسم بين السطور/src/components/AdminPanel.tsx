@@ -44,6 +44,8 @@ function aggregateDevices(
         language: "",
         timezone: "",
         screen: "",
+        ip: "",
+        region: "",
         lines_count: 0,
         chat_count: 0,
         likes_total: 0,
@@ -371,6 +373,28 @@ export default function AdminPanel({
                         {d.screen && <span className="mx-1">·</span>}{d.screen}
                         {d.language && <span className="mx-1">·</span>}{d.language}
                         {d.timezone && <span className="mx-1">·</span>}{d.timezone}
+                      </div>
+                    )}
+                    {d.region && (
+                      <div className="mt-1 flex items-center gap-2 text-[11px] text-ink-soft">
+                        <span>📍 المنطقة التقريبية: <b className="text-ink">{d.region}</b></span>
+                        <a
+                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(d.region)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="rounded-md bg-ink/5 px-2 py-0.5 font-bold text-gold-deep hover:bg-ink/10"
+                        >
+                          عرض على الخريطة
+                        </a>
+                        {d.ip && (
+                          <button
+                            onClick={() => void navigator.clipboard.writeText(d.ip)}
+                            title={`IP: ${d.ip}`}
+                            className="rounded-md bg-ink/5 px-2 py-0.5 font-mono text-[10px] font-bold text-ink hover:bg-ink/10"
+                          >
+                            {d.ip}
+                          </button>
+                        )}
                       </div>
                     )}
                     <div className="mt-1 text-[11px] text-ink-soft">

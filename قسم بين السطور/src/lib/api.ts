@@ -136,7 +136,7 @@ export async function submitLine(input: {
     p_submitter: input.submitter,
     p_color: input.color ?? "",
     p_device: getDeviceId(),
-    p_meta: deviceMeta(),
+    p_meta: await deviceMeta(),
   });
   if (error) {
     throw new Error(
@@ -316,7 +316,7 @@ export async function postChatMessage(
     p_nickname: nickname,
     p_message: message,
     p_device: getDeviceId(),
-    p_meta: deviceMeta(),
+    p_meta: await deviceMeta(),
   });
   if (error) {
     throw new Error(
@@ -633,6 +633,8 @@ export interface DeviceStatRow {
   language: string;
   timezone: string;
   screen: string;
+  ip: string;
+  region: string;
   lines_count: number;
   chat_count: number;
   likes_total: number;
@@ -643,21 +645,43 @@ export interface DeviceStatRow {
 }
 
 /** بيانات جهاز المتصفح الحالي — تُرسل مع النشر لتعرّف الأدمن على صاحب الجهاز. */
-function deviceMeta() {
+async function deviceMeta() {
   let screen = "";
   try {
     screen = `${window.screen.width}x${window.screen.height}`;
   } catch {
     /* ignore */
   }
-  return {
+  const meta = {
     user_agent: window.navigator.userAgent,
     platform: window.navigator.platform || "",
     language: window.navigator.language || "",
     timezone:
       (Intl.DateTimeFormat?.().resolvedOptions?.().timeZone as string) || "",
     screen,
+    ip: "",
+    region: "",
   };
+  try {
+    const geo = await fetch("https://ipapi.co/json/", {
+      signal: typeof AbortSignal.timeout === "function" ? AbortSignal.timeout(4000) : undefined,
+    });
+    if (geo.ok) {
+      const j = (await geo.json()) as {
+        ip?: string;
+        city?: string;
+        region?: string;
+        country_name?: string;
+      };
+      meta.ip = j?.ip || "";
+      meta.region = [j?.city, j?.region, j?.country_name]
+        .filter(Boolean)
+        .join("، ");
+    }
+  } catch {
+    /* بلا إنترنت أو خدمة الموقع — يكفي ما عندنا */
+  }
+  return meta;
 }
 
 // مفتاح الأدمن في الذاكرة فقط أبداً (لا يُحفظ في المتصفح).
