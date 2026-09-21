@@ -28,6 +28,54 @@ create table if not exists public.banned_devices (
 alter table public.banned_devices enable row level security;
 -- لا سياسات: لا يقرؤه/يكتبه أحد عبر REST — الوظائف الأمنية (security definer) وحدها.
 
+-- ---------- بيانات الجهاز (تُجمع عند أي نشر لمساعدة الأدمن على معرفة الشخص) ----------
+create table if not exists public.device_info (
+  device_id text primary key,
+  user_agent text not null default '',
+  platform text not null default '',
+  language text not null default '',
+  timezone text not null default '',
+  screen text not null default '',
+  first_seen timestamptz not null default now(),
+  last_seen timestamptz not null default now()
+);
+
+alter table public.device_info enable row level security;
+-- لا سياسات: تُقرأ عبر admin_list_devices فقط (security definer).
+
+-- ---------- تسجيل بيانات الجهاز ----------
+create or replace function public.upsert_device_info(p_device text, p_meta jsonb)
+returns void
+language plpgsql security definer set search_path = public
+as $$
+begin
+  if p_meta is null or jsonb_typeof(p_meta) <> 'object' then
+    p_meta := '{}'::jsonb;
+  end if;
+  insert into public.device_info
+    (device_id, user_agent, platform, language, timezone, screen, first_seen, last_seen)
+  values (
+    p_device,
+    left(coalesce(p_meta->>'user_agent', ''), 200),
+    left(coalesce(p_meta->>'platform', ''), 60),
+    left(coalesce(p_meta->>'language', ''), 40),
+    left(coalesce(p_meta->>'timezone', ''), 60),
+    left(coalesce(p_meta->>'screen', ''), 40),
+    now(), now()
+  )
+  on conflict (device_id) do update set
+    user_agent = coalesce(nullif(excluded.user_agent, ''), device_info.user_agent),
+    platform   = coalesce(nullif(excluded.platform, ''), device_info.platform),
+    language   = coalesce(nullif(excluded.language, ''), device_info.language),
+    timezone   = coalesce(nullif(excluded.timezone, ''), device_info.timezone),
+    screen     = coalesce(nullif(excluded.screen, ''), device_info.screen),
+    last_seen  = now();
+end;
+$$;
+
+revoke all on function public.upsert_device_info(text, jsonb) from public;
+-- تُستدعى فقط من دوال النشر الداخلية (صاحب القاعدة).
+
 -- ---------- تعيين كلمة السر (مالك القاعدة فقط) ----------
 create or replace function public.set_admin_password(p_password text)
 returns text
@@ -97,7 +145,8 @@ create or replace function public.submit_line(
   p_author text default '',
   p_category text default 'رواية',
   p_submitter text default '',
-  p_device text default ''
+  p_device text default '',
+  p_meta jsonb default null
 )
 returns uuid
 language plpgsql security definer set search_path = public
@@ -108,6 +157,7 @@ declare
   v_reason text;
 begin
   if char_length(btrim(p_device)) < 4 then raise exception 'جهاز غير معروف'; end if;
+  perform public.upsert_device_info(p_device, p_meta);
   select reason into v_reason from public.banned_devices where device_id = p_device;
   if v_reason is not null then
     if char_length(coalesce(v_reason, '')) > 0 then
@@ -135,7 +185,8 @@ $$;
 create or replace function public.post_chat_message(
   p_nickname text,
   p_message text,
-  p_device text default ''
+  p_device text default '',
+  p_meta jsonb default null
 )
 returns uuid
 language plpgsql security definer set search_path = public
@@ -148,6 +199,7 @@ begin
   if char_length(btrim(p_device)) < 4 then
     raise exception 'جهاز غير معروف';
   end if;
+  perform public.upsert_device_info(p_device, p_meta);
   select reason into v_reason from public.banned_devices where device_id = p_device;
   if v_reason is not null then
     if char_length(coalesce(v_reason, '')) > 0 then
@@ -289,6 +341,15 @@ create or replace function public.admin_list_devices(p_admin_key text)
 returns table (
   device_id text,
   name text,
+  username text,
+  bio text,
+  avatar_url text,
+  user_id uuid,
+  user_agent text,
+  platform text,
+  language text,
+  timezone text,
+  screen text,
   lines_count bigint,
   chat_count bigint,
   likes_total bigint,
@@ -339,7 +400,16 @@ begin
       group by device_id
     )
     select agg.device_id,
-           coalesce(left(pl.last_submitter, 40), left(pc.last_nickname, 40), '') as name,
+           coalesce(left(pl.last_submitter, 40), left(pc.last_nickname, 40), u.username, '') as name,
+           coalesce(u.username, ''),
+           coalesce(u.bio, ''),
+           coalesce(u.avatar_url, ''),
+           u.id,
+           coalesce(di.user_agent, ''),
+           coalesce(di.platform, ''),
+           coalesce(di.language, ''),
+           coalesce(di.timezone, ''),
+           coalesce(di.screen, ''),
            agg.lines_count,
            agg.chat_count,
            coalesce(pl.likes_total, 0)::bigint,
@@ -350,6 +420,8 @@ begin
     from agg
     left join pl on pl.device_id = agg.device_id
     left join pc on pc.device_id = agg.device_id
+    left join public.users u on u.device_id = agg.device_id
+    left join public.device_info di on di.device_id = agg.device_id
     order by agg.last_seen desc;
 end;
 $$;

@@ -35,6 +35,15 @@ function aggregateDevices(
       d = {
         device_id: deviceId,
         name: "",
+        username: "",
+        bio: "",
+        avatar_url: "",
+        user_id: null,
+        user_agent: "",
+        platform: "",
+        language: "",
+        timezone: "",
+        screen: "",
         lines_count: 0,
         chat_count: 0,
         likes_total: 0,
@@ -313,16 +322,41 @@ export default function AdminPanel({
                 )}
                 {filterDevices.map((d) => (
                   <div key={d.device_id} className="rounded-2xl border border-line bg-white/50 p-3">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="text-sm font-bold text-ink">
-                        {d.name || "بدون اسم"}
-                        {d.is_banned && (
-                          <span className="mr-2 rounded-full bg-red-100 px-2 py-0.5 text-[10px] font-bold text-red-700">
-                            محظور
+                    <div className="flex items-center gap-2">
+                      {d.avatar_url ? (
+                        <img
+                          src={d.avatar_url}
+                          alt=""
+                          className="size-9 shrink-0 rounded-full object-cover"
+                          referrerPolicy="no-referrer"
+                        />
+                      ) : (
+                        <div className="grid size-9 shrink-0 place-items-center rounded-full bg-gold/15 text-sm text-gold-deep">
+                          {(d.username || d.name || "؟").slice(0, 1)}
+                        </div>
+                      )}
+                      <div className="min-w-0 flex-1">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="text-sm font-bold text-ink">
+                            {d.username || d.name || "بدون اسم"}
                           </span>
-                        )}
-                      </span>
+                          {d.is_banned && (
+                            <span className="rounded-full bg-red-100 px-2 py-0.5 text-[10px] font-bold text-red-700">
+                              محظور
+                            </span>
+                          )}
+                        </div>
+                        {d.bio && <p className="truncate text-[11px] text-ink-soft">{d.bio}</p>}
+                      </div>
+                    </div>
+                    <div className="mt-2 flex items-center justify-between gap-2">
                       <span dir="ltr" className="font-mono text-[10px] text-ink-soft">{d.device_id}</span>
+                      <button
+                        onClick={() => void navigator.clipboard.writeText(d.device_id)}
+                        className="rounded-md bg-ink/5 px-2 py-0.5 text-[10px] font-bold text-ink hover:bg-ink/10"
+                      >
+                        نسخ المعرّف
+                      </button>
                     </div>
                     <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-ink-soft">
                       <span>🃏 بطاقات: <b className="text-ink">{d.lines_count}</b></span>
@@ -330,6 +364,15 @@ export default function AdminPanel({
                       <span>❤ إعجابات: <b className="text-ink">{d.likes_total}</b></span>
                       <span>⭐ نجوم: <b className="text-ink">{d.stars_total}</b></span>
                     </div>
+                    {(d.user_agent || d.screen || d.platform) && (
+                      <div className="mt-1 rounded-lg bg-ink/5 px-2 py-1 text-[10px] leading-4 text-ink-soft" dir="ltr">
+                        <span className="ml-1">📱</span>{d.user_agent || "—"}
+                        {d.platform && <span className="mx-1">·</span>}{d.platform}
+                        {d.screen && <span className="mx-1">·</span>}{d.screen}
+                        {d.language && <span className="mx-1">·</span>}{d.language}
+                        {d.timezone && <span className="mx-1">·</span>}{d.timezone}
+                      </div>
+                    )}
                     <div className="mt-1 text-[11px] text-ink-soft">
                       أول نشاط: {timeTxt(d.first_seen ?? "")} · آخر نشاط: <b>{timeTxt(d.last_seen ?? "")}</b>
                     </div>

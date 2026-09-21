@@ -136,6 +136,7 @@ export async function submitLine(input: {
     p_submitter: input.submitter,
     p_color: input.color ?? "",
     p_device: getDeviceId(),
+    p_meta: deviceMeta(),
   });
   if (error) {
     throw new Error(
@@ -315,6 +316,7 @@ export async function postChatMessage(
     p_nickname: nickname,
     p_message: message,
     p_device: getDeviceId(),
+    p_meta: deviceMeta(),
   });
   if (error) {
     throw new Error(
@@ -622,6 +624,15 @@ export interface BannedRow {
 export interface DeviceStatRow {
   device_id: string;
   name: string;
+  username: string;
+  bio: string;
+  avatar_url: string;
+  user_id: string | null;
+  user_agent: string;
+  platform: string;
+  language: string;
+  timezone: string;
+  screen: string;
   lines_count: number;
   chat_count: number;
   likes_total: number;
@@ -629,6 +640,24 @@ export interface DeviceStatRow {
   first_seen: string | null;
   last_seen: string | null;
   is_banned: boolean;
+}
+
+/** بيانات جهاز المتصفح الحالي — تُرسل مع النشر لتعرّف الأدمن على صاحب الجهاز. */
+function deviceMeta() {
+  let screen = "";
+  try {
+    screen = `${window.screen.width}x${window.screen.height}`;
+  } catch {
+    /* ignore */
+  }
+  return {
+    user_agent: window.navigator.userAgent,
+    platform: window.navigator.platform || "",
+    language: window.navigator.language || "",
+    timezone:
+      (Intl.DateTimeFormat?.().resolvedOptions?.().timeZone as string) || "",
+    screen,
+  };
 }
 
 // مفتاح الأدمن في الذاكرة فقط أبداً (لا يُحفظ في المتصفح).
