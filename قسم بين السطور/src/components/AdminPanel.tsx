@@ -22,7 +22,12 @@ const timeTxt = (s: string) =>
   s ? new Date(s).toLocaleString("ar", { dateStyle: "short", timeStyle: "short" }) : "";
 
 /** تجميع احتياطي من قوائم آخر 200 صف إذا لم تُنفَّذ دالة admin_list_devices بعد. */
-function aggregateDevices(lines: AdminLineRow[], chat: AdminChatRow[]): DeviceStatRow[] {
+function aggregateDevices(
+  lines: AdminLineRow[],
+  chat: AdminChatRow[],
+  banned: BannedRow[]
+): DeviceStatRow[] {
+  const bannedSet = new Set(banned.map((b) => b.device_id));
   const map = new Map<string, DeviceStatRow>();
   const touch = (deviceId: string, at: string | null) => {
     let d = map.get(deviceId);
@@ -36,7 +41,7 @@ function aggregateDevices(lines: AdminLineRow[], chat: AdminChatRow[]): DeviceSt
         stars_total: 0,
         first_seen: at,
         last_seen: at,
-        is_banned: false,
+        is_banned: bannedSet.has(deviceId),
       };
       map.set(deviceId, d);
     }
@@ -98,7 +103,7 @@ export default function AdminPanel({
         const d = await adminListDevices();
         setDevices(d);
       } catch {
-        setDevices(aggregateDevices(l, c));
+        setDevices(aggregateDevices(l, c, b));
         setDevicesFallback(true);
       }
     } catch (e) {
@@ -289,9 +294,18 @@ export default function AdminPanel({
             {tab === "devices" && (
               <div className="mt-3 space-y-2">
                 {devicesFallback && (
-                  <p className="rounded-xl bg-amber-50 px-3 py-2 text-[11px] text-amber-800">
-                    احتياطي: لم تُنفَّذ دالة admin_list_devices في القاعدة بعد — تُعرض من آخر 200 بطاقة/رسالة.
-                    نفّذ ملف الإدارة من SQL Editor لملخص كامل.
+                  <p className="rounded-xl bg-amber-50 px-3 py-2 text-[11px] font-bold text-amber-800">
+                    ⚠️ دالة «الأجهزة» لم تُثبَّت في القاعدة بعد — هذا ملخص من آخر 200 بطاقة/رسالة فقط.
+                    <button
+                      onClick={() => {
+                        if (window.confirm("افتح مستند الميغريشن (20260918_admin_moderation.sql) والصقه كاملاً في Supabase → SQL Editor ثم نفّذه. سيظهر ملخص الأجهزة الكامل.")) {
+                          window.open("https://github.com/madrekjo/madrekjo.github.io/blob/main/%D9%82%D8%B3%D9%85%20%D8%A8%D9%8A%D9%86%20%D8%A7%D9%84%D8%B3%D8%B7%D9%88%D8%B1/supabase/migrations/20260918_admin_moderation.sql", "_blank", "noopener,noreferrer");
+                        }
+                      }}
+                      className="mr-2 underline underline-offset-2"
+                    >
+                      كيف أنفّذها؟
+                    </button>
                   </p>
                 )}
                 {filterDevices.length === 0 && (
@@ -415,7 +429,7 @@ export default function AdminPanel({
                       <span dir="ltr" className="font-mono text-xs">{b.device_id}</span>
                       <span className="text-[11px] text-ink-soft">منذ {timeTxt(b.banned_at)}</span>
                     </div>
-                    {b.reason && <p className="mt-1 text-xs text-ink-soft">السبب: {b.reason}</p>}
+                    {b.reason && <p className="mt-1 text-xs text-ink-soft">رسالة الإدارة: {b.reason}</p>}
                     <button
                       onClick={() => void runUnban(b.device_id)}
                       className="mt-2 rounded-lg bg-emerald-600 px-3 py-1 text-xs font-bold text-white hover:opacity-90"
@@ -440,7 +454,7 @@ export default function AdminPanel({
               <input
                 value={banReason}
                 onChange={(e) => setBanReason(e.target.value)}
-                placeholder="سبب الحظر (اختياري)"
+                placeholder="رسالة تظهر للجهاز المحظور عند فتح المنصة (اختياري)"
                 className="mt-3 w-full rounded-xl border border-line bg-white/60 px-4 py-2 text-sm text-ink outline-none focus:border-gold-deep"
               />
               <div className="mt-4 flex gap-2">

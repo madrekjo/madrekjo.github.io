@@ -26,6 +26,7 @@ import {
   mySavedIds,
   recordShare,
   recordVisit,
+  myBanInfo,
   type Line,
   type NotebookPage,
   type ReelRow,
@@ -123,6 +124,7 @@ const [readerOpen, setReaderOpen] = useState(false);
   const [adminOpen, setAdminOpen] = useState(false);
   const [busyAction, setBusyAction] = useState("");
   const [notice, setNotice] = useState("");
+  const [banBanner, setBanBanner] = useState("");
 
   const visitedRef = useRef<string | null>(null);
 
@@ -174,6 +176,23 @@ const [readerOpen, setReaderOpen] = useState(false);
       setMe(prof);
       if (!prof) setOnboardingOpen(true);
       setIdentityReady(true);
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const ban = await myBanInfo();
+        if (ban?.is_banned) {
+          setBanBanner(
+            ban.reason
+              ? `🚫 جهازك محظور من المشاركة — رسالة الإدارة: ${ban.reason}`
+              : "🚫 جهازك محظور من المشاركة في «بين السطور»"
+          );
+        }
+      } catch {
+        /* تظهر رسالة الحظر أيضاً عند محاولة النشر */
+      }
     })();
   }, []);
 
@@ -580,6 +599,12 @@ const [readerOpen, setReaderOpen] = useState(false);
         <div className="mb-4 rounded-xl border border-amber-300 bg-amber-50 px-4 py-2 text-center text-xs font-medium text-amber-800">
           ⚠️ وضع المعاينة — اربط قاعدة Supabase (نفّذ الـ migrations) ليعمل
           التسجيل والبث
+        </div>
+      )}
+
+      {banBanner && (
+        <div className="mb-4 rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-center text-sm font-bold text-red-700">
+          {banBanner}
         </div>
       )}
 

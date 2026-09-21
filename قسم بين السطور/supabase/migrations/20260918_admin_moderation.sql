@@ -105,9 +105,14 @@ as $$
 declare
   v_rate int;
   v_id uuid;
+  v_reason text;
 begin
   if char_length(btrim(p_device)) < 4 then raise exception 'جهاز غير معروف'; end if;
-  if exists (select 1 from public.banned_devices where device_id = p_device) then
+  select reason into v_reason from public.banned_devices where device_id = p_device;
+  if v_reason is not null then
+    if char_length(coalesce(v_reason, '')) > 0 then
+      raise exception 'جهازك محظور من المشاركة في بين السطور. رسالة الإدارة: %', v_reason;
+    end if;
     raise exception 'جهازك محظور من المشاركة في بين السطور';
   end if;
   select count(*) into v_rate
@@ -138,11 +143,16 @@ as $$
 declare
   v_id uuid;
   v_rate integer;
+  v_reason text;
 begin
   if char_length(btrim(p_device)) < 4 then
     raise exception 'جهاز غير معروف';
   end if;
-  if exists (select 1 from public.banned_devices where device_id = p_device) then
+  select reason into v_reason from public.banned_devices where device_id = p_device;
+  if v_reason is not null then
+    if char_length(coalesce(v_reason, '')) > 0 then
+      raise exception 'جهازك محظور من المشاركة في ركن القرّاء. رسالة الإدارة: %', v_reason;
+    end if;
     raise exception 'جهازك محظور من المشاركة في ركن القرّاء';
   end if;
   if char_length(btrim(p_message)) < 1 then
@@ -344,6 +354,18 @@ begin
 end;
 $$;
 
+-- حالة الجهاز نفسه: هل محظور + رسالة الإدارة إن وُجدت
+create or replace function public.my_ban_info(p_device text)
+returns table (is_banned boolean, reason text)
+language plpgsql security definer set search_path = public
+as $$
+begin
+  return query
+    select exists (select 1 from public.banned_devices b where b.device_id = p_device) as is_banned,
+           coalesce((select b.reason from public.banned_devices b where b.device_id = p_device), '');
+end;
+$$;
+
 -- ---------- الصلاحيات ----------
 revoke all on function public.set_admin_password(text) from public;
 -- المتعمد: لم نمنح set_admin_password لأي دور — تُشغَّل من SQL Editor فقط.
@@ -357,6 +379,7 @@ revoke all on function public.admin_ban_device(text, text, text) from public;
 revoke all on function public.admin_unban_device(text, text) from public;
 revoke all on function public.admin_list_banned(text) from public;
 revoke all on function public.admin_list_devices(text) from public;
+revoke all on function public.my_ban_info(text) from public;
 
 grant execute on function public.verify_admin_password(text) to anon;
 grant execute on function public.admin_list_lines(text, integer) to anon;
@@ -367,3 +390,4 @@ grant execute on function public.admin_ban_device(text, text, text) to anon;
 grant execute on function public.admin_unban_device(text, text) to anon;
 grant execute on function public.admin_list_banned(text) to anon;
 grant execute on function public.admin_list_devices(text) to anon;
+grant execute on function public.my_ban_info(text) to anon;

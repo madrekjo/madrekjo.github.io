@@ -737,3 +737,18 @@ export async function adminListDevices(): Promise<DeviceStatRow[]> {
   if (error) throw new Error(errorMessage(error, "تعذّر تحميل الأجهزة"));
   return (data ?? []) as DeviceStatRow[];
 }
+
+export interface MyBanInfo {
+  is_banned: boolean;
+  reason: string;
+}
+
+/** هل جهازي محظور؟ مع رسالة الإدارة إن وُجدت. */
+export async function myBanInfo(): Promise<MyBanInfo | null> {
+  const { data, error } = await supabase.rpc("my_ban_info", {
+    p_device: getDeviceId(),
+  });
+  if (error) return null;
+  const row = Array.isArray(data) ? data[0] : data;
+  return row ? (row as MyBanInfo) : null;
+}
