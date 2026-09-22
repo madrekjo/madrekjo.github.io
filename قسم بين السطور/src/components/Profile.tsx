@@ -442,7 +442,7 @@ export default function Profile({
                       )}
                     </span>
                   </div>
-                  <p className="mt-2 line-clamp-4 whitespace-pre-wrap text-sm leading-7 text-[#3c3122]">
+                  <p className="mt-2 line-clamp-4 whitespace-pre-wrap text-sm leading-7 text-ink">
                     {p.content}
                   </p>
                 </div>

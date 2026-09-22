@@ -270,7 +270,7 @@ cancelEdit();
             </div>
           ))}
           {error && (
-            <p className="rounded-xl border border-rose-300 bg-rose-50 px-3 py-2 text-xs text-rose-700">
+            <p className="rounded-xl border border-rose-300 bg-rose-50 px-3 py-2 text-xs text-rose-700 dark:border-rose-500/40 dark:bg-rose-950/30 dark:text-rose-300">
               {error}
             </p>
           )}

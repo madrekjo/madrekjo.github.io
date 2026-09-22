@@ -259,7 +259,7 @@ export default function AdminPanel({
               onChange={(e) => setPassword(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && !locked && void doLogin()}
               placeholder="••••••••"
-              className="w-full rounded-xl border border-line bg-white/60 px-4 py-2.5 text-ink outline-none focus:border-gold-deep"
+              className="w-full rounded-xl border border-line bg-card px-4 py-2.5 text-ink outline-none focus:border-gold-deep"
             />
             {err && <p className="mt-2 text-sm font-bold text-red-600">{err}</p>}
             <button
@@ -285,7 +285,7 @@ export default function AdminPanel({
                   key={t}
                   onClick={() => setTab(t)}
                   className={`flex-1 rounded-lg px-2 py-1.5 text-sm font-bold transition ${
-                    tab === t ? "bg-white text-ink shadow" : "text-ink-soft"
+                    tab === t ? "bg-card text-ink shadow" : "text-ink-soft"
                   }`}
                 >
                   {label}
@@ -297,7 +297,7 @@ export default function AdminPanel({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="بحث بالاسم أو النص (البطاقات ورسائل القرّاء والأجهزة)"
-              className="mt-3 w-full rounded-xl border border-line bg-white/60 px-4 py-2 text-sm text-ink outline-none focus:border-gold-deep"
+              className="mt-3 w-full rounded-xl border border-line bg-card px-4 py-2 text-sm text-ink outline-none focus:border-gold-deep"
             />
 
             {err && <p className="mt-2 text-sm font-bold text-red-600">{err}</p>}
@@ -305,7 +305,7 @@ export default function AdminPanel({
             {tab === "devices" && (
               <div className="mt-3 space-y-2">
                 {devicesFallback && (
-                  <p className="rounded-xl bg-amber-50 px-3 py-2 text-[11px] font-bold text-amber-800">
+                  <p className="rounded-xl bg-amber-50 px-3 py-2 text-[11px] font-bold text-amber-800 dark:bg-amber-950/30 dark:text-amber-200">
                     ⚠️ دالة «الأجهزة» لم تُثبَّت في القاعدة بعد — هذا ملخص من آخر 200 بطاقة/رسالة فقط.
                     <button
                       onClick={() => {
@@ -323,7 +323,7 @@ export default function AdminPanel({
                   <p className="py-6 text-center text-sm text-ink-soft">لا يوجد نشاط بعد</p>
                 )}
                 {filterDevices.map((d) => (
-                  <div key={d.device_id} className="rounded-2xl border border-line bg-white/50 p-3">
+                  <div key={d.device_id} className="rounded-2xl border border-line bg-card p-3">
                     <div className="flex items-center gap-2">
                       {d.avatar_url ? (
                         <img
@@ -343,7 +343,7 @@ export default function AdminPanel({
                             {d.username || d.name || "بدون اسم"}
                           </span>
                           {d.is_banned && (
-                            <span className="rounded-full bg-red-100 px-2 py-0.5 text-[10px] font-bold text-red-700">
+                            <span className="rounded-full bg-red-100 px-2 py-0.5 text-[10px] font-bold text-red-700 dark:bg-red-950/40 dark:text-red-300">
                               محظور
                             </span>
                           )}
@@ -428,7 +428,7 @@ export default function AdminPanel({
                   <p className="py-6 text-center text-sm text-ink-soft">لا يوجد بطاقات</p>
                 )}
                 {filterLines.map((l) => (
-                  <div key={l.id} className="rounded-2xl border border-line bg-white/50 p-3">
+                  <div key={l.id} className="rounded-2xl border border-line bg-card p-3">
                     <p className="text-sm font-bold text-ink">{l.text}</p>
                     <p className="mt-0.5 text-xs text-ink-soft">{l.book} — {l.author || l.category}</p>
                     <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-[11px] text-ink-soft">
@@ -460,7 +460,7 @@ export default function AdminPanel({
                   <p className="py-6 text-center text-sm text-ink-soft">لا توجد رسائل</p>
                 )}
                 {filterChat.map((c) => (
-                  <div key={c.id} className="rounded-2xl border border-line bg-white/50 p-3">
+                  <div key={c.id} className="rounded-2xl border border-line bg-card p-3">
                     <p className="text-sm font-bold text-ink">{c.nickname}: <span className="font-normal">{c.message}</span></p>
                     <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-[11px] text-ink-soft">
                       <span>🕐 {timeTxt(c.created_at)}</span>
@@ -491,7 +491,7 @@ export default function AdminPanel({
                   <p className="py-6 text-center text-sm text-ink-soft">لا يوجد جهة محظورة</p>
                 )}
                 {banned.map((b) => (
-                  <div key={b.device_id} className="rounded-2xl border border-line bg-white/50 p-3">
+                  <div key={b.device_id} className="rounded-2xl border border-line bg-card p-3">
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <span dir="ltr" className="font-mono text-xs">{b.device_id}</span>
                       <span className="text-[11px] text-ink-soft">منذ {timeTxt(b.banned_at)}</span>
@@ -522,7 +522,7 @@ export default function AdminPanel({
                 value={banReason}
                 onChange={(e) => setBanReason(e.target.value)}
                 placeholder="رسالة تظهر للجهاز المحظور عند فتح المنصة (اختياري)"
-                className="mt-3 w-full rounded-xl border border-line bg-white/60 px-4 py-2 text-sm text-ink outline-none focus:border-gold-deep"
+                className="mt-3 w-full rounded-xl border border-line bg-card px-4 py-2 text-sm text-ink outline-none focus:border-gold-deep"
               />
               <div className="mt-4 flex gap-2">
                 <button

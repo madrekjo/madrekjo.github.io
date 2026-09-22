@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { GraduationCap, Shield } from "lucide-react";
+import { GraduationCap, Moon, Shield, Sun } from "lucide-react";
 import {
   fetchLines,
   linesByUser,
@@ -127,6 +127,18 @@ const [readerOpen, setReaderOpen] = useState(false);
   const [banBanner, setBanBanner] = useState("");
 
   const visitedRef = useRef<string | null>(null);
+
+  // ---------- الوضع الليلي ----------
+  const [dark, setDark] = useState<boolean>(() => {
+    const saved = localStorage.getItem("bst-theme");
+    if (saved) return saved === "dark";
+    return window.matchMedia?.("(prefers-color-scheme: dark)").matches ?? false;
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", dark);
+    localStorage.setItem("bst-theme", dark ? "dark" : "light");
+  }, [dark]);
 
   const flash = useCallback((m: string) => {
     setNotice(m);
@@ -581,10 +593,18 @@ const [readerOpen, setReaderOpen] = useState(false);
     <div className="app-shell relative mx-auto flex min-h-screen w-full max-w-2xl flex-col px-4 pb-6">
       <header className="pt-6 pb-4 text-center">
         <button
+          onClick={() => setDark((d) => !d)}
+          title={dark ? "الوضع النهاري" : "الوضع الليلي"}
+          aria-label="تبديل الوضع الليلي"
+          className="absolute left-4 top-5 grid size-10 place-items-center rounded-full bg-card/80 text-ink-soft shadow-sm transition hover:bg-gold/15 hover:text-gold-deep"
+        >
+          {dark ? <Sun size={18} /> : <Moon size={18} />}
+        </button>
+        <button
           onClick={() => setAdminOpen(true)}
           title="إدارة القسم (الأدمن)"
           aria-label="لوحة الإدارة"
-          className="absolute right-4 top-5 grid size-10 place-items-center rounded-full bg-white/70 text-ink-soft shadow-sm transition hover:bg-gold/15 hover:text-gold-deep"
+          className="absolute right-4 top-5 grid size-10 place-items-center rounded-full bg-card/80 text-ink-soft shadow-sm transition hover:bg-gold/15 hover:text-gold-deep"
         >
           <Shield size={18} />
         </button>
@@ -596,14 +616,14 @@ const [readerOpen, setReaderOpen] = useState(false);
       </header>
 
       {demo && (
-        <div className="mb-4 rounded-xl border border-amber-300 bg-amber-50 px-4 py-2 text-center text-xs font-medium text-amber-800">
+        <div className="mb-4 rounded-xl border border-amber-300 bg-amber-50 px-4 py-2 text-center text-xs font-medium text-amber-800 dark:border-amber-500/40 dark:bg-amber-950/30 dark:text-amber-200">
           ⚠️ وضع المعاينة — اربط قاعدة Supabase (نفّذ الـ migrations) ليعمل
           التسجيل والبث
         </div>
       )}
 
       {banBanner && (
-        <div className="mb-4 rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-center text-sm font-bold text-red-700">
+        <div className="mb-4 rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-center text-sm font-bold text-red-700 dark:border-red-500/40 dark:bg-red-950/30 dark:text-red-200">
           {banBanner}
         </div>
       )}

@@ -74,7 +74,7 @@ function pageLabel(num: number): string {
 
 function NotebookMiniBook() {
   return (
-    <div className="grid size-14 shrink-0 place-items-center rounded-xl bg-[#efe0c2] ring-1 ring-[#d8bb8a]">
+    <div className="grid size-14 shrink-0 place-items-center rounded-xl bg-card ring-1 ring-gold/40">
       <div className="relative h-11 w-9 overflow-hidden rounded-r-[4px] rounded-l-[2px] bg-gradient-to-bl from-[#8a5a2f] via-[#6f4524] to-[#4a2c14] shadow-[0_2px_5px_rgba(60,40,15,0.35)] ring-1 ring-[#3a2410]">
         <span className="absolute inset-y-0 right-0 w-[3px] bg-gradient-to-b from-[#e6c46a] to-[#a67c00]" />
         <span className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-l from-transparent to-black/25" />
@@ -256,9 +256,9 @@ export default function NotebookReader({
             autoFocus
             rows={Math.max(4, draft.split("\n").length)}
             placeholder="اكتب على ورقتك مباشرة — بتحفظ تلقائياً..."
-            className="notebook-text mt-3 min-h-[260px] resize-none bg-transparent leading-[45px] text-[#3c3122] outline-none placeholder:text-[#3c3122]/30"
+            className="notebook-text mt-3 min-h-[260px] resize-none bg-transparent leading-[45px] text-ink outline-none placeholder:text-ink/30"
           />
-          <div className="mt-3 flex items-center justify-between gap-1 border-t border-[#c9a227]/15 pt-3">
+          <div className="mt-3 flex items-center justify-between gap-1 border-t border-gold/15 pt-3">
             <label className="flex items-center gap-1.5 text-[11px] font-medium text-ink-soft">
               <input
                 type="checkbox"
@@ -333,18 +333,18 @@ export default function NotebookReader({
           </span>
         </div>
         <div className="mx-1 my-3 flex items-center gap-3">
-          <span className="h-px flex-1 bg-[#c9a227]/25" />
+          <span className="h-px flex-1 bg-gold/25" />
           <span className="flex items-center gap-2 font-serif text-sm font-bold whitespace-nowrap text-gold-deep">
             {fmtDate(page.updated_at ?? page.created_at)}
             <span className="size-1 rounded-full bg-gold/50" />
             {fmtTime(page.updated_at ?? page.created_at)}
           </span>
-          <span className="h-px flex-1 bg-[#c9a227]/25" />
+          <span className="h-px flex-1 bg-gold/25" />
         </div>
-        <div className="whitespace-pre-wrap leading-[45px] text-[#3c3122]">
+        <div className="whitespace-pre-wrap leading-[45px] text-ink">
           {page.content}
         </div>
-        <div className="mt-4 flex items-center justify-between gap-2 border-t border-[#c9a227]/15 pt-3">
+        <div className="mt-4 flex items-center justify-between gap-2 border-t border-gold/15 pt-3">
           {isMine && editingId === null ? (
             <span className="flex items-center gap-1 text-[10px] font-medium text-gold-deep/50">
               <Pencil size={10} />
@@ -373,8 +373,8 @@ export default function NotebookReader({
   };
 
   return (
-    <div className="fixed inset-0 z-[60] overflow-y-auto bg-[#e9e0cb]">
-      <div className="sticky top-0 z-10 flex items-center justify-between gap-2 bg-[#e9e0cb]/95 px-3 py-2.5 backdrop-blur sm:px-5">
+    <div className="fixed inset-0 z-[60] overflow-y-auto bg-paper">
+      <div className="sticky top-0 z-10 flex items-center justify-between gap-2 bg-paper/95 px-3 py-2.5 backdrop-blur sm:px-5">
         <h2 className="flex items-center gap-2 font-serif text-xl font-bold text-ink">
           <BookOpen size={19} className="text-gold-deep" />
           دَفتر {ownerName}
@@ -426,7 +426,7 @@ export default function NotebookReader({
               )}
             </div>
           </div>
-          <p className="border-t border-[#c9a227]/15 bg-[#f6eacb]/70 px-4 py-3 text-center font-serif text-sm italic leading-6 text-[#7a5a1d]">
+          <p className="border-t border-gold/15 bg-card/70 px-4 py-3 text-center font-serif text-sm italic leading-6 text-gold-deep">
             «{isMine ? "اكتب ما تريد أن يقرأه الناس عنك" : `صفحات من أفكار ${ownerName}`}»
           </p>
         </div>

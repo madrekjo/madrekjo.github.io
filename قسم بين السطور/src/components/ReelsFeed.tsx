@@ -49,7 +49,7 @@ function ReelCard({
             {CAT_META[line.category]?.icon ?? "📖"} {line.category}
           </span>
           {liked && (
-            <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-bold text-emerald-600">
+            <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-bold text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-300">
               أعجبتك ✓
             </span>
           )}

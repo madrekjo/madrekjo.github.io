@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Tajawal", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Amiri", ui-serif, Georgia, serif;
@@ -22,6 +24,67 @@ body {
   background-color: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
+}
+
+/* ============ الوضع الليلي ============ */
+:root.dark {
+  color-scheme: dark;
+  --color-paper: #16120b;
+  --color-card: #221b10;
+  --color-ink: #ece2c8;
+  --color-ink-soft: #a69a7d;
+  --color-gold: #d4a92e;
+  --color-gold-deep: #e2b64c;
+  --color-line: #37301c;
+}
+
+.dark .book3d .sheet .face {
+  background: radial-gradient(120% 90% at 30% 8%, #251e11 0%, #1d1710 68%, #140f09 100%);
+}
+
+.dark .paper-sheet {
+  background: radial-gradient(120% 90% at 30% 8%, #251e11 0%, #1d1710 68%, #140f09 100%);
+}
+
+.dark .notebook-paper {
+  border-color: rgba(200, 160, 60, 0.15);
+  background: linear-gradient(180deg, #241d11 0%, #1a140c 100%);
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 43px,
+    rgba(200, 160, 60, 0.08) 43px,
+    rgba(200, 160, 60, 0.08) 44px
+  );
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 8px 20px -10px rgba(0, 0, 0, 0.6);
+}
+
+.dark .notebook-lined {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 43px,
+    rgba(200, 160, 60, 0.12) 43px,
+    rgba(200, 160, 60, 0.12) 45px
+  );
+}
+
+.dark .book3d .sheet .face,
+.dark .book3d .sheet.turned .face {
+  box-shadow: 4px 6px 18px -8px rgba(0, 0, 0, 0.65);
+}
+
+.dark .flip-shadow {
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.5));
+}
+
+.dark .bottom-nav > div {
+  box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.75);
+}
+
+.dark .ornament::before,
+.dark .ornament::after {
+  border-color: var(--color-gold);
 }
 
 @keyframes enter-forward {

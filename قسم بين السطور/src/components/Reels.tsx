@@ -376,7 +376,7 @@ export default function Reels({
                                 "size-7 rounded-full border border-white/30 transition hover:scale-110 " +
                                 (beige ? " ring-2 ring-white" : "")
                               }
-                              style={{ backgroundColor: "#fffdf6" }}
+                              style={{ backgroundColor: "var(--color-card)" }}
                             />
                             {GRADS.map((g) => (
                               <button
