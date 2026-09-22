@@ -715,6 +715,36 @@ export function adminLogout(): void {
   adminKey = "";
 }
 
+/** هل هذا الجهاز مسجّل جهاز إدارة؟ (الزر لا يظهر إلا له) */
+export async function isAdminDevice(): Promise<boolean> {
+  try {
+    const { data, error } = await supabase.rpc("is_admin_device", {
+      p_device: getDeviceId(),
+    });
+    return !error && data === true;
+  } catch {
+    return false;
+  }
+}
+
+/** تسجيل الجهاز الحالي كجهاز إدارة (يتطلب جلسة أدمن مصادَق عليها) */
+export async function adminAddDevice(p_device: string): Promise<void> {
+  const { error } = await supabase.rpc("add_admin_device", {
+    p_device,
+    p_admin_key: requireAdminKey(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر تسجيل الجهاز"));
+}
+
+/** إزالة الجهاز المحدد من أجهزة الإدارة */
+export async function adminRemoveDevice(p_device: string): Promise<void> {
+  const { error } = await supabase.rpc("remove_admin_device", {
+    p_device,
+    p_admin_key: requireAdminKey(),
+  });
+  if (error) throw new Error(errorMessage(error, "تعذّر إزالة الجهاز"));
+}
+
 function requireAdminKey(): string {
   if (!adminKey) throw new Error("سجّل دخول الأدمن أولاً");
   return adminKey;

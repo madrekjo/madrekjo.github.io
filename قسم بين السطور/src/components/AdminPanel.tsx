@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import {
+  adminAddDevice,
   adminBanDevice,
   adminDeleteChatMessage,
   adminDeleteLine,
@@ -9,12 +10,14 @@ import {
   adminListLines,
   adminLogin,
   adminLogout,
+  adminRemoveDevice,
   adminUnbanDevice,
   type AdminChatRow,
   type AdminLineRow,
   type BannedRow,
   type DeviceStatRow,
 } from "../lib/api";
+import { getDeviceId } from "../lib/device";
 
 type Tab = "devices" | "lines" | "chat" | "banned";
 
@@ -78,10 +81,14 @@ function aggregateDevices(
 
 export default function AdminPanel({
   open,
+  isAdminDevice,
+  onDeviceChanged,
   onClose,
   onChanged,
 }: {
   open: boolean;
+  isAdminDevice?: boolean;
+  onDeviceChanged?: () => void;
   onClose: () => void;
   onChanged?: () => void;
 }) {
@@ -98,6 +105,29 @@ export default function AdminPanel({
   const [search, setSearch] = useState("");
   const [confirmBan, setConfirmBan] = useState<string | null>(null);
   const [banReason, setBanReason] = useState("");
+  const [devBusy, setDevBusy] = useState(false);
+  const [devMsg, setDevMsg] = useState("");
+
+  const myDeviceId = getDeviceId();
+
+  const handleToggleAdminDevice = async () => {
+    setDevBusy(true);
+    setDevMsg("");
+    try {
+      if (isAdminDevice) {
+        await adminRemoveDevice(myDeviceId);
+        setDevMsg("أُزيل هذا الجهاز من أجهزة الإدارة");
+      } else {
+        await adminAddDevice(myDeviceId);
+        setDevMsg("✓ صار هذا الجهاز جهاز إدارة — الزر سيظهر له فقط");
+      }
+      onDeviceChanged?.();
+    } catch (e) {
+      setDevMsg(e instanceof Error ? e.message : "تعذّرت العملية");
+    } finally {
+      setDevBusy(false);
+    }
+  };
 
   const fresh = async () => {
     try {
@@ -304,6 +334,34 @@ export default function AdminPanel({
 
             {tab === "devices" && (
               <div className="mt-3 space-y-2">
+                <div className="rounded-2xl border border-gold/30 bg-card p-3">
+                  <div className="text-sm font-bold text-ink">🔐 أجهزة الإدارة</div>
+                  <p dir="ltr" className="mt-1 truncate font-mono text-[10px] text-ink-soft">
+                    {myDeviceId}
+                  </p>
+                  <p className="mt-1 text-[11px] text-ink-soft">
+                    زر «لوحة الإدارة» في التطبيق يظهر لهذا الجهاز فقط بعد تثبيته.
+                  </p>
+                  {devMsg && (
+                    <div className="mt-2 rounded-lg bg-ink/5 px-3 py-1.5 text-[11px] font-bold text-gold-deep">
+                      {devMsg}
+                    </div>
+                  )}
+                  <button
+                    onClick={() => void handleToggleAdminDevice()}
+                    disabled={devBusy}
+                    className={
+                      "mt-2 rounded-full px-4 py-1.5 text-xs font-bold text-white transition hover:opacity-90 disabled:opacity-40 " +
+                      (isAdminDevice ? "bg-red-600" : "bg-gold-deep")
+                    }
+                  >
+                    {devBusy
+                      ? "جارٍ الحفظ..."
+                      : isAdminDevice
+                        ? "إزالة هذا الجهاز من الإدارة"
+                        : "تثبيت هذا الجهاز كجهاز إدارة"}
+                  </button>
+                </div>
                 {devicesFallback && (
                   <p className="rounded-xl bg-amber-50 px-3 py-2 text-[11px] font-bold text-amber-800 dark:bg-amber-950/30 dark:text-amber-200">
                     ⚠️ دالة «الأجهزة» لم تُثبَّت في القاعدة بعد — هذا ملخص من آخر 200 بطاقة/رسالة فقط.

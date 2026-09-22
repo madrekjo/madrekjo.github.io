@@ -140,6 +140,24 @@ const [readerOpen, setReaderOpen] = useState(false);
     localStorage.setItem("bst-theme", dark ? "dark" : "light");
   }, [dark]);
 
+  // ---------- جهاز الإدارة (زر المؤسسة يظهر لجهازي فقط) ----------
+  const [adminDevice, setAdminDevice] = useState<boolean>(false);
+
+  const refreshAdminDevice = useCallback(async () => {
+    try {
+      setAdminDevice(await isAdminDevice());
+    } catch {
+      setAdminDevice(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    void refreshAdminDevice();
+  }, [refreshAdminDevice]);
+
+  const adminVisible =
+    adminDevice || new URLSearchParams(window.location.search).has("admin");
+
   const flash = useCallback((m: string) => {
     setNotice(m);
     wait(2200).then(() => setNotice(""));
@@ -600,14 +618,16 @@ const [readerOpen, setReaderOpen] = useState(false);
         >
           {dark ? <Sun size={18} /> : <Moon size={18} />}
         </button>
-        <button
-          onClick={() => setAdminOpen(true)}
-          title="إدارة القسم (الأدمن)"
-          aria-label="لوحة الإدارة"
-          className="absolute right-4 top-5 grid size-10 place-items-center rounded-full bg-card/80 text-ink-soft shadow-sm transition hover:bg-gold/15 hover:text-gold-deep"
-        >
-          <Shield size={18} />
-        </button>
+        {adminVisible && (
+          <button
+            onClick={() => setAdminOpen(true)}
+            title="إدارة القسم (الأدمن)"
+            aria-label="لوحة الإدارة"
+            className="absolute right-4 top-5 grid size-10 place-items-center rounded-full bg-card/80 text-ink-soft shadow-sm transition hover:bg-gold/15 hover:text-gold-deep"
+          >
+            <Shield size={18} />
+          </button>
+        )}
         <h1 className="font-serif text-3xl font-bold text-ink">بين السطور</h1>
         <p className="mt-1 flex items-center justify-center gap-1 text-xs text-ink-soft">
           <GraduationCap size={13} className="text-gold-deep" />
@@ -766,6 +786,8 @@ const [readerOpen, setReaderOpen] = useState(false);
 
       <AdminPanel
         open={adminOpen}
+        isAdminDevice={adminDevice}
+        onDeviceChanged={() => void refreshAdminDevice()}
         onClose={() => setAdminOpen(false)}
         onChanged={() => {
           flash("تم التعديل — جارٍ تحديث القائمة ✨");
