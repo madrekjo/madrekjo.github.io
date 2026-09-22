@@ -27,6 +27,7 @@ import {
   recordShare,
   recordVisit,
   myBanInfo,
+  isAdminDevice,
   type Line,
   type NotebookPage,
   type ReelRow,
