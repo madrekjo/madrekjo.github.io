@@ -33,7 +33,7 @@ export default function Onboarding({
   };
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/50 p-4 backdrop-blur-sm">
+    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-night/50 p-4 backdrop-blur-sm">
       <div className="w-full max-w-md overflow-hidden rounded-3xl border border-gold/40 bg-card p-6 text-center shadow-2xl">
         <div className="mx-auto grid size-16 place-items-center rounded-2xl bg-gold text-3xl">
           🧡

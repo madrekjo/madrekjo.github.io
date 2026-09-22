@@ -139,7 +139,7 @@ export default function Reels({
 
   return (
     <div
-      className="fixed inset-0 z-40 flex flex-col bg-ink"
+      className="fixed inset-0 z-40 flex flex-col bg-night"
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
       onWheel={onWheel}
@@ -235,7 +235,7 @@ export default function Reels({
                         onClick={() => onOpenOwner(r)}
                         aria-label={`زيارة صاحب البطاقة: ${r.username ?? r.submitter}`}
                         title="زيارة صاحب البطاقة"
-                        className="grid size-11 place-items-center rounded-full bg-ink/35 text-white backdrop-blur-sm transition hover:bg-ink/60"
+                        className="grid size-11 place-items-center rounded-full bg-night/35 text-white backdrop-blur-sm transition hover:bg-night/60"
                       >
                         <Avatar
                           name={r.username ?? r.submitter}
@@ -243,7 +243,7 @@ export default function Reels({
                         />
                       </button>
                     ) : (
-                      <span className="grid size-11 place-items-center rounded-full bg-ink/35 text-white">
+                      <span className="grid size-11 place-items-center rounded-full bg-night/35 text-white">
                         <Avatar
                           name={r.username ?? r.submitter}
                           className="size-9 text-xs"
@@ -259,7 +259,7 @@ export default function Reels({
                       onClick={() => setMoreFor(isMore ? null : r.line_id)}
                       aria-label="خيارات أكثر"
                       aria-pressed={isMore}
-                      className="grid size-11 place-items-center rounded-full bg-ink/35 text-white backdrop-blur-sm transition hover:bg-ink/60"
+                      className="grid size-11 place-items-center rounded-full bg-night/35 text-white backdrop-blur-sm transition hover:bg-night/60"
                     >
                       <MoreVertical size={21} />
                     </button>
@@ -413,11 +413,11 @@ export default function Reels({
         <button
           onClick={onClose}
           aria-label="رجوع للبروفايل"
-          className="pointer-events-auto grid size-10 place-items-center rounded-full bg-ink/40 text-white backdrop-blur-sm transition hover:bg-ink/60"
+          className="pointer-events-auto grid size-10 place-items-center rounded-full bg-night/40 text-white backdrop-blur-sm transition hover:bg-night/60"
         >
           <X size={20} />
         </button>
-        <span className="rounded-full bg-ink/40 px-4 py-1.5 text-sm font-bold text-white backdrop-blur-sm">
+        <span className="rounded-full bg-night/40 px-4 py-1.5 text-sm font-bold text-white backdrop-blur-sm">
           عبارات
         </span>
         <span className="w-10" />
@@ -428,7 +428,7 @@ export default function Reels({
           onClick={() => go(-1)}
           disabled={idx === 0}
           aria-label="السابق"
-          className="pointer-events-auto grid size-10 place-items-center rounded-full bg-ink/40 text-white backdrop-blur-sm transition hover:bg-ink/60 disabled:opacity-40"
+          className="pointer-events-auto grid size-10 place-items-center rounded-full bg-night/40 text-white backdrop-blur-sm transition hover:bg-night/60 disabled:opacity-40"
         >
           <ChevronUp size={18} />
         </button>
@@ -436,7 +436,7 @@ export default function Reels({
           onClick={() => go(1)}
           disabled={idx >= rows.length - 1}
           aria-label="التالي"
-          className="pointer-events-auto grid size-10 place-items-center rounded-full bg-ink/40 text-white backdrop-blur-sm transition hover:bg-ink/60 disabled:opacity-40"
+          className="pointer-events-auto grid size-10 place-items-center rounded-full bg-night/40 text-white backdrop-blur-sm transition hover:bg-night/60 disabled:opacity-40"
         >
           <ChevronDown size={18} />
         </button>

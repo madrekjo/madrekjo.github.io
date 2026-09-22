@@ -169,7 +169,7 @@ cancelEdit();
         }
         aria-hidden={!open}
       >
-        <div className="flex items-center justify-between bg-ink px-4 py-4 text-paper">
+        <div className="flex items-center justify-between bg-night px-4 py-4 text-paper">
           <div>
             <h2 className="flex items-center gap-2 font-serif text-lg font-bold">
               <BookOpen size={18} className="text-gold" />

@@ -411,7 +411,7 @@ export default function AdminPanel({
                       ) : (
                         <button
                           onClick={() => confirmBanFor(d.device_id, `جهاز: ${d.name || d.device_id.slice(0, 20)}`)}
-                          className="rounded-lg bg-ink px-3 py-1 text-xs font-bold text-white hover:opacity-90"
+                          className="rounded-lg bg-night px-3 py-1 text-xs font-bold text-white hover:opacity-90"
                         >
                           حظر + حذف كل محتواه
                         </button>
@@ -444,7 +444,7 @@ export default function AdminPanel({
                       </button>
                       <button
                         onClick={() => confirmBanFor(l.device_id, `بطاقة: ${l.text.slice(0, 60)}`)}
-                        className="rounded-lg bg-ink px-3 py-1 text-xs font-bold text-white hover:opacity-90"
+                        className="rounded-lg bg-night px-3 py-1 text-xs font-bold text-white hover:opacity-90"
                       >
                         حظر + حذف كل محتواه
                       </button>
@@ -475,7 +475,7 @@ export default function AdminPanel({
                       </button>
                       <button
                         onClick={() => confirmBanFor(c.device_id, `رسالة: ${c.message.slice(0, 60)}`)}
-                        className="rounded-lg bg-ink px-3 py-1 text-xs font-bold text-white hover:opacity-90"
+                        className="rounded-lg bg-night px-3 py-1 text-xs font-bold text-white hover:opacity-90"
                       >
                         حظر + حذف كل محتواه
                       </button>

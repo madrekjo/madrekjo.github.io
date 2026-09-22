@@ -49,7 +49,7 @@ export default function NotebookEditor({
   };
 
   return (
-    <div className="fixed inset-0 z-[70] flex items-center justify-center bg-ink/45 p-4 backdrop-blur-sm">
+    <div className="fixed inset-0 z-[70] flex items-center justify-center bg-night/45 p-4 backdrop-blur-sm">
       <div className="paper-sheet max-h-[90vh] w-full max-w-md overflow-y-auto rounded-3xl border border-gold/40 p-5 shadow-2xl">
         <div className="mb-3 flex items-center justify-between">
           <h3 className="font-serif text-2xl font-bold text-ink">

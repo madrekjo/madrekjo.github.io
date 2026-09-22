@@ -72,7 +72,7 @@ export default function ShareSheet({
   const cat = CAT_META[line.category] ?? { icon: "📖", chip: "bg-white/20 text-white" };
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-end justify-center bg-ink/40 backdrop-blur-sm sm:items-center sm:p-4">
+    <div className="fixed inset-0 z-[60] flex items-end justify-center bg-night/40 backdrop-blur-sm sm:items-center sm:p-4">
       <div className="max-h-[94vh] w-full max-w-2xl overflow-y-auto rounded-t-3xl border border-line bg-paper p-5 shadow-2xl sm:rounded-3xl">
         <div className="mb-4 flex items-center justify-between">
           <h3 className="font-serif text-xl font-bold text-ink">بطاقة البطاقة 🃏</h3>

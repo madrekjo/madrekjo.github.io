@@ -187,7 +187,7 @@ export default function ReelsFeed({
       ))}
 
       {expanded && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4 backdrop-blur-sm">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-night/40 p-4 backdrop-blur-sm">
           <div className="max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-3xl border border-line bg-paper p-5 shadow-2xl">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="font-serif text-xl font-bold text-ink">
