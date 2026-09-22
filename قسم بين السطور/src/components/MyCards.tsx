@@ -361,7 +361,7 @@ export default function MyCards({ defaultOpen = false }: { defaultOpen?: boolean
                       .map((p) => (
                         <img
                           key={p.proof_id}
-                          src={publicFileUrl(p.storage_path)}
+                          src={publicFileUrl("proofs", p.storage_path)}
                           alt="دليل النشر"
                           className="h-24 w-20 rounded-lg border border-line object-cover"
                         />

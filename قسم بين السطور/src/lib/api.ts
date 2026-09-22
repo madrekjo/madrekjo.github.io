@@ -452,7 +452,7 @@ export async function uploadAvatar(file: File): Promise<string> {
     .upload(path, file, { upsert: true, contentType: file.type });
   if (error) throw new Error(errorMessage(error, "تعذّر رفع الصورة — هل نفّذت migration الصور؟"));
   if (!data?.path) throw new Error("تعذّر رفع الصورة");
-  const url = publicFileUrl(data.path);
+  const url = publicFileUrl("avatars", data.path);
   const { error: setErr } = await supabase.rpc("set_avatar", {
     p_url: url,
     p_device: getDeviceId(),

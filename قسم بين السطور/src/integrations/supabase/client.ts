@@ -10,6 +10,6 @@ export const supabase: SupabaseClient = createClient(
   { auth: { persistSession: false } }
 );
 
-export function publicFileUrl(path: string): string {
-  return `${SUPABASE_URL}/storage/v1/object/public/${path}`;
+export function publicFileUrl(bucket: string, path: string): string {
+  return `${SUPABASE_URL}/storage/v1/object/public/${bucket}/${path}`;
 }
