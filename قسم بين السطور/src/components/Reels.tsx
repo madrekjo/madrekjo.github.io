@@ -5,6 +5,17 @@ import Avatar from "./Avatar";
 import { CAT_META, GRADS } from "@/lib/colors";
 
 const GRAD_KEY = "sutur_reel_grad";
+const POS_KEY = "sutur_reel_pos";
+const SEEN_KEY = "sutur_reel_seen";
+
+function readSeen(): string[] {
+  try {
+    const v = JSON.parse(localStorage.getItem(SEEN_KEY) || "[]");
+    return Array.isArray(v) ? v.filter((x) => typeof x === "string") : [];
+  } catch {
+    return [];
+  }
+}
 
 function readGrads(): Record<string, string> {
   try {
@@ -53,11 +64,25 @@ export default function Reels({
   onClose: () => void;
   onView: (row: ReelRow) => void;
 }) {
-  const initial = Math.max(
-    0,
-    rows.findIndex((r) => r.line_id === focusId)
-  );
-  const [idx, setIdx] = useState(initial);
+  const savedPos = (() => {
+    try {
+      return localStorage.getItem(POS_KEY) || "";
+    } catch {
+      return "";
+    }
+  })();
+  const seen = readSeen();
+  let startIdx = rows.findIndex((r) => r.line_id === focusId);
+  if (startIdx < 0) {
+    const firstUnseen = rows.findIndex((r) => !seen.includes(r.line_id));
+    if (firstUnseen >= 0) startIdx = firstUnseen;
+    else if (savedPos) startIdx = rows.findIndex((r) => r.line_id === savedPos);
+  }
+  if (startIdx < 0) startIdx = 0;
+  const [idx, setIdx] = useState(Math.max(0, startIdx));
+  const [seenIds, setSeenIds] = useState<string[]>(readSeen);
+  const [allowAll, setAllowAll] = useState(false);
+  const seenAll = !allowAll && rows.length > 0 && rows.every((r) => seenIds.includes(r.line_id));
   const [manualGrads, setManualGrads] = useState<Record<string, string>>(
     readGrads
   );
@@ -111,9 +136,25 @@ export default function Reels({
 
   useEffect(() => {
     const row = rows[idx];
-    if (row) onView(row);
+    if (row) {
+      onView(row);
+      try {
+        localStorage.setItem(POS_KEY, row.line_id);
+      } catch {
+        /* ignore */
+      }
+      setSeenIds((prev) => {
+        const next = [row.line_id, ...prev.filter((id) => id !== row.line_id)].slice(0, 600);
+        try {
+          localStorage.setItem(SEEN_KEY, JSON.stringify(next));
+        } catch {
+          /* ignore */
+        }
+        return next;
+      });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [idx]);
+  }, [idx, rows]);
 
   const onTouchStart = (e: React.TouchEvent) => {
     touchY.current = e.touches[0]?.clientY ?? null;
@@ -133,6 +174,31 @@ export default function Reels({
         <p className="mt-3 text-sm leading-6 text-ink-soft">
           ما في عبارات منشورة بعد — كل بطاقة على الجدار بتحول ريلز
         </p>
+      </div>
+    );
+  }
+
+  if (seenAll) {
+    try {
+      localStorage.removeItem(POS_KEY);
+    } catch {
+      /* ignore */
+    }
+    return (
+      <div className="flex h-full flex-col items-center justify-center px-6 text-center">
+        <p className="text-4xl">🎉</p>
+        <p className="mt-3 text-sm leading-6 text-ink-soft">
+          قرأت كل العبارات هنا — شفنا بعض بعدين، تعال بكرة للمزيد
+        </p>
+        <button
+          onClick={() => {
+            setAllowAll(true);
+            setIdx(0);
+          }}
+          className="mt-4 rounded-full bg-gold px-5 py-2.5 text-sm font-bold text-white transition hover:bg-gold-deep"
+        >
+          اعرض كل العبارات من جديد
+        </button>
       </div>
     );
   }
