@@ -460,7 +460,7 @@ revoke all on function public.admin_list_lines(text, integer) from public;
 revoke all on function public.admin_list_chat(text, integer) from public;
 revoke all on function public.admin_delete_line(uuid, text) from public;
 revoke all on function public.admin_delete_chat_message(uuid, text) from public;
-revoke all on function public.admin_ban_device(text, text, text) from public;
+revoke all on function public.admin_ban_device(text, text, text, boolean) from public;
 revoke all on function public.admin_unban_device(text, text) from public;
 revoke all on function public.admin_list_banned(text) from public;
 revoke all on function public.admin_list_devices(text) from public;
