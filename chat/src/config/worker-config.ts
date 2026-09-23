@@ -5,4 +5,4 @@
 // `wrangler deploy` هنا، مثل:
 //
 //   export const READ_GATEWAY_URL = "https://madarik-chat-cache.xxxxx.workers.dev";
-export const READ_GATEWAY_URL = "https://madarik-chat-cache.abdalrhmanmaaith1.workers.dev";
+export const READ_GATEWAY_URL = "https://madarik-chat-cache.madrekjo.workers.dev";
