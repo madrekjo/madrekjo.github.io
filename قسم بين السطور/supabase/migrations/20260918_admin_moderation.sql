@@ -297,7 +297,7 @@ end;
 $$;
 
 -- حظر جهاز: يمنع نشره، ويحذف كل بطاقاته ورسائله فوراً
-create or replace function public.admin_ban_device(p_device text, p_admin_key text, p_reason text default '')
+create or replace function public.admin_ban_device(p_device text, p_admin_key text, p_reason text default '', p_delete_content boolean default false)
 returns boolean
 language plpgsql security definer set search_path = public
 as $$
@@ -311,8 +311,10 @@ begin
   insert into public.banned_devices (device_id, reason, banned_by)
   values (p_device, left(coalesce(nullif(p_reason, ''), ''), 200), 'admin')
   on conflict (device_id) do update set reason = excluded.reason, banned_at = now(), banned_by = 'admin';
-  delete from public.lines where device_id = p_device;
-  delete from public.reader_chat where device_id = p_device;
+  if p_delete_content then
+    delete from public.lines where device_id = p_device;
+    delete from public.reader_chat where device_id = p_device;
+  end if;
   return true;
 end;
 $$;
@@ -469,7 +471,7 @@ grant execute on function public.admin_list_lines(text, integer) to anon;
 grant execute on function public.admin_list_chat(text, integer) to anon;
 grant execute on function public.admin_delete_line(uuid, text) to anon;
 grant execute on function public.admin_delete_chat_message(uuid, text) to anon;
-grant execute on function public.admin_ban_device(text, text, text) to anon;
+grant execute on function public.admin_ban_device(text, text, text, boolean) to anon;
 grant execute on function public.admin_unban_device(text, text) to anon;
 grant execute on function public.admin_list_banned(text) to anon;
 grant execute on function public.admin_list_devices(text) to anon;

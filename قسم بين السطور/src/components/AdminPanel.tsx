@@ -105,6 +105,7 @@ export default function AdminPanel({
   const [search, setSearch] = useState("");
   const [confirmBan, setConfirmBan] = useState<string | null>(null);
   const [banReason, setBanReason] = useState("");
+  const [banDeleteContent, setBanDeleteContent] = useState(false);
   const [devBusy, setDevBusy] = useState(false);
   const [devMsg, setDevMsg] = useState("");
 
@@ -206,6 +207,7 @@ export default function AdminPanel({
   const confirmBanFor = (deviceId: string, reason: string) => {
     setConfirmBan(deviceId);
     setBanReason(reason);
+    setBanDeleteContent(false);
     setErr("");
   };
 
@@ -214,9 +216,10 @@ export default function AdminPanel({
     setBusy(true);
     setErr("");
     try {
-      await adminBanDevice(confirmBan, banReason);
+      await adminBanDevice(confirmBan, banReason, banDeleteContent);
       setConfirmBan(null);
       setBanReason("");
+      setBanDeleteContent(false);
       void fresh();
       onChanged?.();
     } catch (e) {
@@ -471,7 +474,7 @@ export default function AdminPanel({
                           onClick={() => confirmBanFor(d.device_id, `جهاز: ${d.name || d.device_id.slice(0, 20)}`)}
                           className="rounded-lg bg-night px-3 py-1 text-xs font-bold text-white hover:opacity-90"
                         >
-                          حظر + حذف كل محتواه
+                          حظر الجهاز (مع خيار الحذف)
                         </button>
                       )}
                     </div>
@@ -504,7 +507,7 @@ export default function AdminPanel({
                         onClick={() => confirmBanFor(l.device_id, `بطاقة: ${l.text.slice(0, 60)}`)}
                         className="rounded-lg bg-night px-3 py-1 text-xs font-bold text-white hover:opacity-90"
                       >
-                        حظر + حذف كل محتواه
+                        حظر الجهاز (مع خيار الحذف)
                       </button>
                     </div>
                   </div>
@@ -535,7 +538,7 @@ export default function AdminPanel({
                         onClick={() => confirmBanFor(c.device_id, `رسالة: ${c.message.slice(0, 60)}`)}
                         className="rounded-lg bg-night px-3 py-1 text-xs font-bold text-white hover:opacity-90"
                       >
-                        حظر + حذف كل محتواه
+                        حظر الجهاز (مع خيار الحذف)
                       </button>
                     </div>
                   </div>
@@ -574,14 +577,25 @@ export default function AdminPanel({
               <h3 className="font-serif text-lg font-bold text-ink">حظر جهاز نهائي</h3>
               <p dir="ltr" className="mt-2 text-center font-mono text-xs">{confirmBan}</p>
               <p className="mt-2 text-sm text-ink-soft">
-                سيمنع الجهاز من النشر ويُحذف كل بطاقاته ورسائله فوراً. يمكن التراجع من تبويب «المحظورون».
+                سيُمنع هذا الجهاز من الوصول إلى القسم وسيرى شاشة حمراء تحمل رسالتك. يمكنك التراجع من تبويب «المحظورون».
               </p>
               <input
                 value={banReason}
                 onChange={(e) => setBanReason(e.target.value)}
-                placeholder="رسالة تظهر للجهاز المحظور عند فتح المنصة (اختياري)"
+                placeholder="رسالة تظهر للجهاز المحظور على الشاشة الحمراء (اختياري)"
                 className="mt-3 w-full rounded-xl border border-line bg-card px-4 py-2 text-sm text-ink outline-none focus:border-gold-deep"
               />
+              <label className="mt-3 flex items-start gap-2.5 rounded-xl border border-line bg-card p-3 text-sm text-ink-soft">
+                <input
+                  type="checkbox"
+                  checked={banDeleteContent}
+                  onChange={(e) => setBanDeleteContent(e.target.checked)}
+                  className="mt-0.5 size-4 accent-red-600"
+                />
+                <span>
+                  حذف كامل محتواه (بطاقاته ورسائله — لا يمكن التراجع)
+                </span>
+              </label>
               <div className="mt-4 flex gap-2">
                 <button
                   onClick={() => void runBan()}

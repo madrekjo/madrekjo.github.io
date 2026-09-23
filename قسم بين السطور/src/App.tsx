@@ -217,15 +217,43 @@ const [readerOpen, setReaderOpen] = useState(false);
         if (ban?.is_banned) {
           setBanBanner(
             ban.reason
-              ? `🚫 جهازك محظور من المشاركة — رسالة الإدارة: ${ban.reason}`
-              : "🚫 جهازك محظور من المشاركة في «بين السطور»"
+              ? `🍁 رسالة الإدارة: ${ban.reason}`
+              : "🍁 لا يمكنك الوصول إلى قسم «بين السطور»."
           );
+          playAlarm();
         }
       } catch {
         /* تظهر رسالة الحظر أيضاً عند محاولة النشر */
       }
     })();
   }, []);
+
+  const playAlarm = () => {
+    try {
+      const Ctx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      const ctx = new Ctx();
+      const beep = (n: OscillatorNode, g: GainNode) => {
+        n.type = "sawtooth";
+        n.frequency.setValueAtTime(880, ctx.currentTime);
+        n.frequency.setValueAtTime(660, ctx.currentTime + 0.18);
+        n.frequency.setValueAtTime(880, ctx.currentTime + 0.36);
+        g.gain.setValueAtTime(0.0001, ctx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.9, ctx.currentTime + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.5);
+        n.start();
+        n.stop(ctx.currentTime + 0.55);
+      };
+      for (let i = 0; i < 3; i++) {
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.connect(g).connect(ctx.destination);
+        beep(o, g);
+        void o;
+      }
+    } catch {
+      /* المتصفحات تمنع الصوت بدون تفاعل — الإنذار المرئي يكفي */
+    }
+  };
 
   useEffect(() => {
     (async () => {
@@ -644,8 +672,17 @@ const [readerOpen, setReaderOpen] = useState(false);
       )}
 
       {banBanner && (
-        <div className="mb-4 rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-center text-sm font-bold text-red-700 dark:border-red-500/40 dark:bg-red-950/30 dark:text-red-200">
-          {banBanner}
+        <div className="fixed inset-0 z-[999] flex flex-col items-center justify-center gap-5 bg-red-700 px-6 text-center">
+          <div className="animate-pulse text-7xl">🚫</div>
+          <h1 className="font-serif text-3xl font-bold text-white">
+            جهازك محظور
+          </h1>
+          <p className="max-w-md text-sm leading-7 text-red-100">
+            {banBanner}
+          </p>
+          <p className="text-xs text-red-200">
+            لا يمكنك الوصول إلى أي جزء من قسم «بين السطور» على هذا الجهاز.
+          </p>
         </div>
       )}
 

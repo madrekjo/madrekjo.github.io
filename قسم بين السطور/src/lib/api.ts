@@ -787,12 +787,14 @@ export async function adminDeleteChatMessage(id: string): Promise<void> {
 
 export async function adminBanDevice(
   deviceId: string,
-  reason = ""
+  reason = "",
+  deleteContent = false
 ): Promise<void> {
   const { error } = await supabase.rpc("admin_ban_device", {
     p_device: deviceId,
     p_admin_key: requireAdminKey(),
     p_reason: reason,
+    p_delete_content: deleteContent,
   });
   if (error) throw new Error(errorMessage(error, "تعذّر حظر الجهاز"));
 }
