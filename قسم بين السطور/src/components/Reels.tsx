@@ -305,6 +305,7 @@ export default function Reels({
                       >
                         <Avatar
                           name={r.username ?? r.submitter}
+                          url={r.avatar_url ?? undefined}
                           className="size-9 text-xs"
                         />
                       </button>
@@ -312,6 +313,7 @@ export default function Reels({
                       <span className="grid size-11 place-items-center rounded-full bg-night/35 text-white">
                         <Avatar
                           name={r.username ?? r.submitter}
+                          url={r.avatar_url ?? undefined}
                           className="size-9 text-xs"
                         />
                       </span>

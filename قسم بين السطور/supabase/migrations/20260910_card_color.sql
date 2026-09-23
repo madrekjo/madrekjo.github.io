@@ -65,13 +65,14 @@ create or replace function public.reels_feed(p_exclude uuid default null, p_limi
 returns table (
   line_id uuid, text text, book text, author text, category text,
   submitter text, likes integer, stars integer, shares integer, visits integer,
-  created_at timestamptz, user_id uuid, username text, bio text, color text
+  created_at timestamptz, user_id uuid, username text, bio text, color text,
+  avatar_url text
 )
 language sql security definer set search_path = public
 as $$
   select l.id, l.text, l.book, l.author, l.category, l.submitter,
          l.likes, l.stars, l.shares, l.visits, l.created_at,
-         u.id, u.username, u.bio, l.color
+         u.id, u.username, u.bio, l.color, u.avatar_url
   from public.lines l
   left join public.users u on u.id = l.user_id
   where (p_exclude is null or l.user_id is distinct from p_exclude)

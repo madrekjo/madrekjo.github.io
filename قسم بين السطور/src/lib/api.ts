@@ -37,6 +37,7 @@ export interface ReelRow {
   user_id: string | null;
   username: string | null;
   bio: string | null;
+  avatar_url: string | null;
 }
 
 export interface WeeklyTopRow {

@@ -719,15 +719,17 @@ const [readerOpen, setReaderOpen] = useState(false);
         <p>بطاقات، دفتر وأفكار — شارك سطرك وخلي غيرك يعيشه</p>
       </footer>
 
-      <BottomNav
-        active={navActive}
-        onChange={(t) => {
-          if (openedUser) closeUser();
-          if (t === "me") setProfTab("notebook");
-          if (t === "daf") setProfTab("notebook");
-          setView(t);
-        }}
-      />
+      {view !== "reels" && (
+        <BottomNav
+          active={navActive}
+          onChange={(t) => {
+            if (openedUser) closeUser();
+            if (t === "me") setProfTab("notebook");
+            if (t === "daf") setProfTab("notebook");
+            setView(t);
+          }}
+        />
+      )}
 
       {view === "reels" && !openedUser && (
         <Reels
