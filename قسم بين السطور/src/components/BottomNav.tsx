@@ -1,6 +1,6 @@
-import { BookOpen, Quote, User } from "lucide-react";
+import { BookOpen, Quote, Search, User } from "lucide-react";
 
-export type NavTab = "me" | "daf" | "reels";
+export type NavTab = "me" | "daf" | "reels" | "search";
 
 export default function BottomNav({
   active,
@@ -13,11 +13,12 @@ export default function BottomNav({
     { id: "me", label: "البروفايل", Icon: User },
     { id: "daf", label: "الدفتر", Icon: BookOpen },
     { id: "reels", label: "عبارات", Icon: Quote },
+    { id: "search", label: "بحث", Icon: Search },
   ];
 
   return (
     <nav className="bottom-nav">
-      <div className="grid grid-cols-3 rounded-2xl border border-line bg-card/95 p-1.5 shadow-[0_12px_30px_-12px_rgba(51,41,29,0.5)] backdrop-blur">
+      <div className="grid grid-cols-4 rounded-2xl border border-line bg-card/95 p-1.5 shadow-[0_12px_30px_-12px_rgba(51,41,29,0.5)] backdrop-blur">
         {tabs.map((t) => {
           const on = active === t.id;
           return (

@@ -44,6 +44,7 @@ import ShareSheet from "./components/ShareSheet";
 import NotebookReader from "./components/NotebookReader";
 import BottomNav, { type NavTab } from "./components/BottomNav";
 import AdminPanel from "./components/AdminPanel";
+import Search from "./components/Search";
 
 function openWhatsAppText(text: string): boolean {
   const win = window.open(
@@ -87,9 +88,10 @@ function demoReels(lines: Line[]): ReelRow[] {
     visits: l.visits,
     color: l.color,
     created_at: l.created_at,
-    user_id: null,
-    username: l.submitter,
+    user_id: l.user_id,
+    username: l.user_id ? l.submitter : null,
     bio: null,
+    avatar_url: null,
   }));
 }
 
@@ -792,6 +794,14 @@ const [readerOpen, setReaderOpen] = useState(false);
             visitedRef.current = id;
             void recordVisit(id);
           }}
+        />
+      )}
+
+      {view === "search" && !openedUser && (
+        <Search
+          lines={dbLines}
+          onOpenUser={(id) => void openUser(id)}
+          onClose={() => setView("me")}
         />
       )}
 
