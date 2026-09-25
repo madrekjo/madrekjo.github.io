@@ -12,6 +12,11 @@ export async function setDeviceName(name: string) {
   return { ok: !!r.ok, name: r.name ?? null, error: r.error } as const;
 }
 
+export async function probeNameFeature(): Promise<boolean> {
+  const { error } = await (supabase.rpc as any)("get_device_name", { p_device_id: getDeviceId() });
+  return !error;
+}
+
 let nameMap: Map<string, string> | null = null;
 const listeners = new Set<() => void>();
 let pending = false;

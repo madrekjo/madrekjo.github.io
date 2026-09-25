@@ -9,8 +9,9 @@ import { useAuth } from "@/hooks/use-auth";
 import { toast } from "sonner";
 import { Wrench, Eye, EyeOff, CheckSquare, Square } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { NameCard } from "@/components/name-card";
+import { NameCard, NameGate } from "@/components/name-card";
 import { useVisitorGate, refreshVisitorStatus } from "@/hooks/use-visitor-gate";
+import { probeNameFeature } from "@/lib/device-names";
 
 function useCountdown(target: string | null) {
   const [now, setNow] = useState(() => Date.now());
@@ -72,6 +73,10 @@ function Index() {
   const { settings, loading: settingsLoading } = useSiteSettings();
   const { isAdmin } = useAuth();
   const gate = useVisitorGate();
+  const [nameGateReady, setNameGateReady] = useState(false);
+  useEffect(() => {
+    void probeNameFeature().then(setNameGateReady);
+  }, []);
   const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectMode, setSelectMode] = useState(false);
@@ -145,6 +150,10 @@ function Index() {
 
   if (!settings.site_enabled && !isAdmin) {
     return <Maintenance msg={settings.maintenance_message} reopenAt={settings.site_reopen_at} />;
+  }
+
+  if (!isAdmin && nameGateReady && !gate.loading && !gate.device_name) {
+    return <NameGate onSaved={refreshVisitorStatus} />;
   }
 
   if (settings.chat_mode_enabled) {
