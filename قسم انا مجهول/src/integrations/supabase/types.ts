@@ -539,6 +539,7 @@ export type Database = {
       }
       posts: {
         Row: {
+          allow_comments: boolean
           anon_number: number | null
           attachments: Json
           author_avatar_url: string | null
@@ -558,6 +559,7 @@ export type Database = {
           user_id: string | null
         }
         Insert: {
+          allow_comments?: boolean
           anon_number?: number | null
           attachments?: Json
           author_avatar_url?: string | null
@@ -577,6 +579,7 @@ export type Database = {
           user_id?: string | null
         }
         Update: {
+          allow_comments?: boolean
           anon_number?: number | null
           attachments?: Json
           author_avatar_url?: string | null

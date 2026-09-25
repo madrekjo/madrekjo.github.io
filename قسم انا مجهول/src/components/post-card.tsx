@@ -8,7 +8,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Ghost, MessageCircle, Trash2, Ban, Loader2, Reply, Pin, PinOff, ShieldCheck, Heart, Pencil, Settings2, History } from "lucide-react";
+import { Ghost, MessageCircle, Trash2, Ban, Loader2, Reply, Pin, PinOff, ShieldCheck, Heart, Pencil, Settings2, History, MessageCircleOff } from "lucide-react";
 import { toast } from "sonner";
 import { DeviceInspector } from "@/components/device-inspector";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -71,6 +71,7 @@ type Post = {
   bg_color?: string | null;
   text_color?: string | null;
   post_mode?: string | null;
+  allow_comments?: boolean;
 };
 type Comment = {
   id: string;
@@ -118,7 +119,7 @@ function anonLabel(n?: number | null) {
   return n ? `مجهول ${n}` : "مجهول";
 }
 
-function CommentNode({ c, all, postId, postAuthorDeviceId, onChanged }: { c: Comment; all: Comment[]; postId: string; postAuthorDeviceId: string; onChanged: () => void }) {
+function CommentNode({ c, all, postId, postAuthorDeviceId, allowComments, onChanged }: { c: Comment; all: Comment[]; postId: string; postAuthorDeviceId: string; allowComments: boolean; onChanged: () => void }) {
   const { isAdmin } = useAuth();
   const [replying, setReplying] = useState(false);
   const [editing, setEditing] = useState(false);
@@ -134,7 +135,7 @@ function CommentNode({ c, all, postId, postAuthorDeviceId, onChanged }: { c: Com
   const isPostAuthor = !isAdminComment && c.device_id === postAuthorDeviceId;
 
   async function submit() {
-    if (!text.trim()) return;
+    if (!text.trim() || !allowComments) return;
     setBusy(true);
     if (isAdmin) {
       const prof = getProfile();
@@ -210,9 +211,11 @@ function CommentNode({ c, all, postId, postAuthorDeviceId, onChanged }: { c: Com
           <p className="mt-1 whitespace-pre-wrap text-sm">{c.content}</p>
         )}
         <div className="mt-2 flex items-center gap-2 text-xs">
-          <button onClick={() => setReplying((v) => !v)} className="flex items-center gap-1 text-muted-foreground hover:text-foreground">
-            <Reply className="h-3 w-3" /> رد
-          </button>
+          {allowComments && (
+            <button onClick={() => setReplying((v) => !v)} className="flex items-center gap-1 text-muted-foreground hover:text-foreground">
+              <Reply className="h-3 w-3" /> رد
+            </button>
+          )}
           {isMine && !editing && (
             <button onClick={() => setEditing(true)} className="flex items-center gap-1 text-muted-foreground hover:text-foreground">
               <Pencil className="h-3 w-3" /> تعديل
@@ -230,7 +233,7 @@ function CommentNode({ c, all, postId, postAuthorDeviceId, onChanged }: { c: Com
           )}
           {!isMine && <ReportButton contentType="comment" contentId={c.id} compact />}
         </div>
-        {replying && (
+        {replying && allowComments && (
           <div className="mt-2 space-y-2">
             <Textarea value={text} onChange={(e) => setText(e.target.value)} placeholder="اكتب ردك..." className="min-h-[60px] text-sm" />
             <Button size="sm" onClick={submit} disabled={busy || !text.trim()}>
@@ -243,7 +246,7 @@ function CommentNode({ c, all, postId, postAuthorDeviceId, onChanged }: { c: Com
       {isAdmin && <EditHistoryDialog kind="comment" id={c.id} open={showHistory} onOpenChange={setShowHistory} />}
       {children.length > 0 && (
         <div className="mt-2 space-y-2">
-          {children.map((ch) => <CommentNode key={ch.id} c={ch} all={all} postId={postId} postAuthorDeviceId={postAuthorDeviceId} onChanged={onChanged} />)}
+          {children.map((ch) => <CommentNode key={ch.id} c={ch} all={all} postId={postId} postAuthorDeviceId={postAuthorDeviceId} allowComments={allowComments} onChanged={onChanged} />)}
         </div>
       )}
     </div>
@@ -266,6 +269,7 @@ export function PostCard({ post, onDeleted, onChanged }: { post: Post; onDeleted
   const label = useDeviceLabel(post.device_id, isAdmin);
 
   const isAdminPost = !!post.is_admin;
+  const allowComments = post.allow_comments !== false;
   const isMine = typeof window !== "undefined" && post.device_id === getDeviceId();
   const hasCustomStyle = !!(post.bg_color || post.text_color);
   const articleStyle = hasCustomStyle ? { backgroundColor: post.bg_color ?? undefined, color: post.text_color ?? undefined } : undefined;
@@ -310,7 +314,7 @@ export function PostCard({ post, onDeleted, onChanged }: { post: Post; onDeleted
   }
 
   async function comment() {
-    if (!text.trim()) return;
+    if (!text.trim() || !allowComments) return;
     setBusy(true);
     if (isAdmin) {
       const prof = getProfile();
@@ -344,6 +348,13 @@ export function PostCard({ post, onDeleted, onChanged }: { post: Post; onDeleted
   async function togglePin() {
     const { error } = await supabase.from("posts").update({ pinned: !post.pinned }).eq("id", post.id);
     if (error) toast.error("فشل: " + error.message); else { toast.success(post.pinned ? "أُلغي التثبيت" : "تم التثبيت"); onChanged?.(); }
+  }
+
+  async function toggleComments() {
+    const next = !allowComments;
+    const { error } = await supabase.from("posts").update({ allow_comments: next }).eq("id", post.id);
+    if (error) toast.error("فشل: " + error.message);
+    else { toast.success(next ? "تم فتح التعليقات" : "تم منع التعليقات"); onChanged?.(); }
   }
 
   async function saveEdit() {
@@ -439,6 +450,13 @@ export function PostCard({ post, onDeleted, onChanged }: { post: Post; onDeleted
               {post.pinned ? <PinOff className="h-4 w-4" /> : <Pin className="h-4 w-4" />}
               {post.pinned ? "إلغاء التثبيت" : "تثبيت"}
             </button>
+            <button
+              onClick={toggleComments}
+              className={`flex items-center gap-1 hover:opacity-80 ${allowComments ? "text-muted-foreground" : "text-amber-600"}`}
+            >
+              {allowComments ? <MessageCircleOff className="h-4 w-4" /> : <MessageCircle className="h-4 w-4" />}
+              {allowComments ? "منع التعليقات" : "فتح التعليقات"}
+            </button>
             <button onClick={del} className="flex items-center gap-1 text-destructive hover:opacity-80">
               <Trash2 className="h-4 w-4" /> حذف
             </button>
@@ -462,14 +480,18 @@ export function PostCard({ post, onDeleted, onChanged }: { post: Post; onDeleted
 
       {open && (
         <div className="mt-4 space-y-3 border-t border-border pt-3">
-          <div className="flex gap-2">
-            <Textarea value={text} onChange={(e) => setText(e.target.value)} placeholder="علّق مجهولاً..." className="min-h-[60px]" />
-            <Button onClick={comment} disabled={busy || !text.trim()}>
-              {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : "تعليق"}
-            </Button>
-          </div>
+          {allowComments ? (
+            <div className="flex gap-2">
+              <Textarea value={text} onChange={(e) => setText(e.target.value)} placeholder="علّق مجهولاً..." className="min-h-[60px]" />
+              <Button onClick={comment} disabled={busy || !text.trim()}>
+                {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : "تعليق"}
+              </Button>
+            </div>
+          ) : (
+            <p className="rounded-lg bg-muted/50 px-3 py-2 text-center text-xs text-muted-foreground">التعليقات مغلقة على هذا المنشور</p>
+          )}
           <div className="space-y-2">
-            {roots.map((c) => <CommentNode key={c.id} c={c} all={comments} postId={post.id} postAuthorDeviceId={post.device_id} onChanged={loadComments} />)}
+            {roots.map((c) => <CommentNode key={c.id} c={c} all={comments} postId={post.id} postAuthorDeviceId={post.device_id} allowComments={allowComments} onChanged={loadComments} />)}
           </div>
         </div>
       )}

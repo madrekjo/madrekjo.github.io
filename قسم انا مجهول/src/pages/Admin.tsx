@@ -82,8 +82,9 @@ function timeAgo(d: string) {
   try { return formatDistanceToNow(new Date(d), { addSuffix: true, locale: ar }); } catch { return ""; }
 }
 
-function PendingCard({ p, onApprove, onReject }: { p: any; onApprove: (id: string) => void; onReject: (id: string) => void }) {
+function PendingCard({ p, onApprove, onReject }: { p: any; onApprove: (id: string, allowComments: boolean) => void; onReject: (id: string) => void }) {
   const [inspect, setInspect] = useState(false);
+  const [allowComments, setAllowComments] = useState(true);
   const label = useDeviceLabel(p.device_id, true);
   return (
     <div className="rounded-2xl border border-border bg-card p-4">
@@ -111,10 +112,16 @@ function PendingCard({ p, onApprove, onReject }: { p: any; onApprove: (id: strin
           )}
         </div>
       )}
-      <div className="mt-3 flex items-center justify-between">
-        <span className="font-mono text-[10px] text-muted-foreground" title={p.device_id}>ID: {p.device_id.slice(0, 12)}…</span>
+      <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="font-mono text-[10px] text-muted-foreground" title={p.device_id}>ID: {p.device_id.slice(0, 12)}…</span>
+          <label className="flex cursor-pointer items-center gap-1.5 rounded-md border border-border bg-muted px-2 py-1 text-xs">
+            <Switch checked={allowComments} onCheckedChange={setAllowComments} className="h-4 w-7" />
+            {allowComments ? "التعليقات مسموحة" : "التعليقات ممنوعة"}
+          </label>
+        </div>
         <div className="flex gap-2">
-          <Button size="sm" onClick={() => onApprove(p.id)} className="gap-1"><Check className="h-4 w-4" /> قبول</Button>
+          <Button size="sm" onClick={() => onApprove(p.id, allowComments)} className="gap-1"><Check className="h-4 w-4" /> قبول</Button>
           <Button size="sm" variant="destructive" onClick={() => onReject(p.id)} className="gap-1"><X className="h-4 w-4" /> رفض</Button>
         </div>
       </div>
@@ -282,8 +289,8 @@ function Admin() {
     );
   }
 
-  async function approve(id: string) {
-    const { error } = await supabase.from("posts").update({ status: "approved" }).eq("id", id);
+  async function approve(id: string, allowComments: boolean) {
+    const { error } = await supabase.from("posts").update({ status: "approved", allow_comments: allowComments }).eq("id", id);
     if (error) toast.error("فشل: " + error.message); else { toast.success("تم النشر"); loadAll(); }
   }
 
