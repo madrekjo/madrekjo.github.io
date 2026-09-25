@@ -235,6 +235,7 @@ function Admin() {
   const [usersLoading, setUsersLoading] = useState(false);
   const USER_PAGE = 50;
   const [tab, setTab] = useState("settings");
+  const [inspectId, setInspectId] = useState<string | null>(null);
   const [commentBg, setCommentBg] = useState("#fef3c7");
   const [commentText, setCommentText] = useState("#78350f");
 
@@ -597,9 +598,10 @@ function Admin() {
                 </div>
                 <p className="mt-1 whitespace-pre-wrap text-sm">{m.content}</p>
                 <div className="mt-2 flex items-center justify-between">
-                  <DeviceNameTag name={names.get(m.device_id)} deviceId={m.device_id} showId />
+                  <DeviceNameTag name={names.get(m.device_id)} deviceId={m.device_id} showId onClick={() => setInspectId(m.device_id)} />
                   <div className="flex gap-2">
                     <Button size="sm" variant="ghost" onClick={() => delChatMsg(m.id)}><Trash2 className="h-3 w-3" /></Button>
+                    <Button size="sm" variant="ghost" onClick={() => setInspectId(m.device_id)} title="ملف الجهاز"><Settings2 className="h-3 w-3" /></Button>
                     <Button size="sm" variant="destructive" onClick={() => blockFromChat(m.device_id)}><Ban className="h-3 w-3 ml-1" />حظر</Button>
                   </div>
                 </div>
@@ -655,7 +657,11 @@ function Admin() {
             <div className="space-y-2">
               {users.length === 0 && !usersLoading && <p className="text-sm text-muted-foreground">لا يوجد مستخدمون.</p>}
               {users.map((u) => (
-                <div key={u.device_id} className="space-y-1 rounded-xl border border-border bg-card p-3 text-sm">
+                <div
+                  key={u.device_id}
+                  onClick={() => setInspectId(u.device_id)}
+                  className="cursor-pointer space-y-1 rounded-xl border border-border bg-card p-3 text-sm transition hover:border-primary/60 hover:bg-accent/40"
+                >
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <DeviceNameTag name={u.name || null} deviceId={u.device_id} showId />
                     <div className="flex flex-wrap items-center gap-1">
@@ -674,6 +680,20 @@ function Admin() {
                     <span>آخر ظهور: {u.last_seen ? formatDistanceToNow(new Date(u.last_seen), { addSuffix: true, locale: ar }) : "—"}</span>
                   </div>
                   {u.warning && <div className="rounded-md bg-amber-500/10 px-2 py-1 text-[11px] text-amber-800">تحذير مُرسَل: {u.warning}</div>}
+                  <div className="flex flex-wrap gap-1.5 pt-1" onClick={(e) => e.stopPropagation()}>
+                    <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => setInspectId(u.device_id)}>
+                      <Settings2 className="h-3 w-3" /> كل المعلومات والأدوات
+                    </Button>
+                    {u.is_blocked ? (
+                      <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => unblock(u.device_id)}>
+                        <Trash2 className="h-3 w-3" /> رفع الحظر
+                      </Button>
+                    ) : (
+                      <Button size="sm" variant="destructive" className="h-7 text-xs" onClick={() => setBanTarget(u.device_id)}>
+                        <Ban className="h-3 w-3" /> حظر
+                      </Button>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
@@ -758,12 +778,14 @@ function Admin() {
           </div>
           </div>
         </Tabs>
+        <DeviceInspector deviceId={inspectId} open={!!inspectId} onOpenChange={(o) => { if (!o) setInspectId(null); }} />
+
         {banTarget && (
           <BanDialog
             deviceId={banTarget}
             open={!!banTarget}
             onOpenChange={(o) => { if (!o) setBanTarget(null); }}
-            onBanned={() => { setNewBlockId(""); loadAll(); }}
+            onBanned={() => { setNewBlockId(""); loadAll(); void loadUsers(userSearch, userPage); }}
           />
         )}
       </main>
