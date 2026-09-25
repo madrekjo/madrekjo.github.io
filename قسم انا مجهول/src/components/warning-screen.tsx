@@ -92,35 +92,78 @@ function getCtx(): AudioContext | null {
   }
 }
 
+const ALARM_SRC = `${import.meta.env.BASE_URL}warning-alarm.mp3`;
+
+let audioRef: HTMLAudioElement | null = null;
+function fileAlarm(): HTMLAudioElement | null {
+  try {
+    if (!audioRef) {
+      const el = new Audio(ALARM_SRC);
+      el.preload = "auto";
+      el.loop = true;
+      el.volume = 1;
+      audioRef = el;
+    }
+    return audioRef;
+  } catch {
+    return null;
+  }
+}
+
+function stopAudio() {
+  try {
+    audioRef?.pause();
+  } catch {
+    /* ignore */
+  }
+}
+
 export function WarningScreen({ warning }: { warning: Warning }) {
   const [hidden, setHidden] = useState(false);
   const fired = useRef(false);
 
   const play = useCallback((withBuzz: boolean) => {
-    const ctx = getCtx();
-    if (!ctx) return;
-    if (ctx.state === "suspended") return;
-    playAlarm(ctx);
+    const el = fileAlarm();
+    if (el) {
+      el.currentTime = 0;
+      const p = el.play();
+      if (p && typeof p.catch === "function") {
+        p.catch(() => {
+          const ctx = getCtx();
+          if (ctx) {
+            void ctx.resume().then(() => playAlarm(ctx));
+          }
+        });
+      }
+    } else {
+      const ctx = getCtx();
+      if (ctx) {
+        void ctx.resume().then(() => playAlarm(ctx));
+      }
+    }
     if (withBuzz) buzz();
   }, []);
 
   useEffect(() => {
     if (fired.current) return;
     fired.current = true;
-    const ctx = getCtx();
-    if (ctx && ctx.state !== "suspended") {
-      playAlarm(ctx);
-      buzz();
-      return;
+    const el = fileAlarm();
+    if (el) {
+      el.currentTime = 0;
+      const p = el.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    } else {
+      const ctx = getCtx();
+      if (ctx) {
+        void ctx.resume().then(() => playAlarm(ctx));
+      }
     }
-    // المتصفح منع الصوت — أي لمسة أو ضغطة مفتاح تفتحه (خصوصاً iOS)
+    buzz();
     const onGesture = () => {
-      window.removeEventListener("pointerdown", onGesture);
-      window.removeEventListener("keydown", onGesture);
-      const c = getCtx();
-      if (!c) return;
-      void c.resume().then(() => playAlarm(c));
-      buzz();
+      const c = el ?? fileAlarm();
+      if (c) {
+        void c.play().catch(() => {});
+      }
     };
     window.addEventListener("pointerdown", onGesture);
     window.addEventListener("keydown", onGesture);
@@ -130,14 +173,13 @@ export function WarningScreen({ warning }: { warning: Warning }) {
     };
   }, []);
 
-  // يعاد الإنذار كل ١٠ ثواني ما دامت الشاشة ظاهرة
   useEffect(() => {
     if (hidden) return;
-    const t = window.setInterval(() => play(false), 10_000);
-    return () => window.clearInterval(t);
-  }, [hidden, play]);
+    return () => stopAudio();
+  }, [hidden]);
 
   async function dismiss() {
+    stopAudio();
     setHidden(true);
     clearShownWarning();
     await ackWarning();
