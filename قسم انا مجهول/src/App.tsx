@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { useHeartbeat } from "@/hooks/use-heartbeat";
 import { useVisitorGate } from "@/hooks/use-visitor-gate";
 import { BanScreen } from "@/components/ban-screen";
+import { WarningScreen } from "@/components/warning-screen";
 import Index from "@/pages/Index.tsx";
 import Login from "@/pages/Login.tsx";
 import Admin from "@/pages/Admin.tsx";
@@ -71,10 +72,15 @@ function HeartbeatRunner() {
 }
 
 function VisitorGate({ children }: { children: ReactNode }) {
-  const { loading, banned, reason, expires_at, evidence_url } = useVisitorGate();
+  const { loading, banned, reason, expires_at, evidence_url, warning } = useVisitorGate();
   if (loading) return <>{children}</>;
   if (banned) return <BanScreen reason={reason} expiresAt={expires_at} evidenceUrl={evidence_url} />;
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+      {warning && <WarningScreen warning={warning} />}
+    </>
+  );
 }
 
 const App = () => (

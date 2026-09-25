@@ -1,4 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
+import { getDeviceId } from "@/lib/device";
 import { deviceFingerprintParts } from "@/lib/fingerprint";
 
 async function sha256Hex(input: string): Promise<string> {
@@ -77,6 +78,7 @@ export async function checkVisitor({ data }: { data: { device_id: string } }) {
       reason: null as string | null,
       expires_at: null as string | null,
       evidence_url: null as string | null,
+      warning: null as { message: string; at: string | null } | null,
     };
   }
   const parsed = (result ?? { banned: false }) as {
@@ -84,13 +86,28 @@ export async function checkVisitor({ data }: { data: { device_id: string } }) {
     reason?: string;
     expires_at?: string;
     evidence_url?: string;
+    warning?: string;
+    warning_at?: string;
   };
   return {
     banned: !!parsed.banned,
     reason: parsed.reason ?? null,
     expires_at: parsed.expires_at ?? null,
     evidence_url: parsed.evidence_url ?? null,
+    warning: parsed.warning ? { message: parsed.warning, at: parsed.warning_at ?? null } : null,
   };
+}
+
+/**
+ * Marks the device's own admin warning as read so the red screen stops
+ * showing — device-scoped, does nothing for any other device.
+ */
+export async function ackWarning() {
+  try {
+    await (supabase.rpc as any)("ack_device_warning", { p_device_id: getDeviceId() });
+  } catch {
+    /* ignore */
+  }
 }
 
 /**

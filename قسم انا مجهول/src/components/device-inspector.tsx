@@ -4,17 +4,21 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
-import { Loader2, Ban, ShieldPlus, Trash2, Copy } from "lucide-react";
+import { Loader2, Ban, ShieldPlus, Trash2, Copy, TriangleAlert } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { invalidateDeviceLabel } from "@/lib/device-labels";
 import { BanDialog } from "@/components/ban-dialog";
+import { WarnDialog } from "@/components/warn-dialog";
 
 type Dossier = {
   device_id: string;
   label: string | null;
   is_admin: boolean;
   is_blocked: boolean;
+  warning: string | null;
+  warning_at: string | null;
+  warning_seen: string | null;
   presence: { first_seen: string; last_seen: string; total_seconds: number; visits: number } | null;
   post_count: number;
   comment_count: number;
@@ -41,6 +45,7 @@ export function DeviceInspector({ deviceId, open, onOpenChange }: { deviceId: st
   const [loading, setLoading] = useState(false);
   const [label, setLabel] = useState("");
   const [banOpen, setBanOpen] = useState(false);
+  const [warnOpen, setWarnOpen] = useState(false);
 
 
   async function load() {
@@ -122,10 +127,27 @@ export function DeviceInspector({ deviceId, open, onOpenChange }: { deviceId: st
               <Button variant={data.is_blocked ? "secondary" : "destructive"} size="sm" onClick={toggleBlock}>
                 <Ban className="h-3 w-3 ml-1" /> {data.is_blocked ? "رفع الحظر" : "حظر"}
               </Button>
+              <Button
+                variant={data.warning ? "destructive" : "default"}
+                size="sm"
+                className={data.warning ? "" : "bg-red-600 text-white hover:bg-red-700"}
+                onClick={() => setWarnOpen(true)}
+              >
+                <TriangleAlert className="h-3 w-3 ml-1" /> {data.warning ? "تحذير نشط" : "تحذير"}
+              </Button>
               <Button variant={data.is_admin ? "secondary" : "default"} size="sm" onClick={toggleAdmin}>
                 <ShieldPlus className="h-3 w-3 ml-1" /> {data.is_admin ? "إزالة أدمن" : "تعيين أدمن"}
               </Button>
             </div>
+
+            {data.warning && (
+              <div className="rounded-lg border border-red-500/40 bg-red-500/10 p-2 text-xs">
+                <div className="font-bold text-red-600 dark:text-red-500">
+                  تحذير {data.warning_seen ? "(مقروء)" : "(لم يُقرأ بعد)"}
+                </div>
+                <p className="mt-1 whitespace-pre-wrap">{data.warning}</p>
+              </div>
+            )}
 
             <div className="grid grid-cols-2 gap-2 rounded-lg bg-muted/40 p-3 text-xs">
               <div>الوقت الكلي: <b>{fmtDuration(data.presence?.total_seconds ?? 0)}</b></div>
@@ -192,6 +214,14 @@ export function DeviceInspector({ deviceId, open, onOpenChange }: { deviceId: st
         )}
       </DialogContent>
       <BanDialog deviceId={deviceId!} open={banOpen} onOpenChange={setBanOpen} onBanned={load} />
+      <WarnDialog
+        deviceId={deviceId!}
+        open={warnOpen}
+        onOpenChange={setWarnOpen}
+        onSent={load}
+        currentWarning={data?.warning ?? null}
+        currentSeenAt={data?.warning_seen ?? null}
+      />
     </Dialog>
   );
 }

@@ -473,6 +473,30 @@ export type Database = {
         }
         Relationships: []
       }
+      device_warnings: {
+        Row: {
+          device_id: string
+          message: string
+          created_at: string
+          created_by: string | null
+          seen_at: string | null
+        }
+        Insert: {
+          device_id: string
+          message: string
+          created_at?: string
+          created_by?: string | null
+          seen_at?: string | null
+        }
+        Update: {
+          device_id?: string
+          message?: string
+          created_at?: string
+          created_by?: string | null
+          seen_at?: string | null
+        }
+        Relationships: []
+      }
       post_edits: {
         Row: {
           device_id: string
@@ -728,6 +752,9 @@ export type Database = {
         Returns: Json
       }
       admin_unban_device: { Args: { p_device_id: string }; Returns: undefined }
+      admin_clear_warning: { Args: { p_device_id: string }; Returns: undefined }
+      admin_warn_device: { Args: { p_device_id: string; p_message: string }; Returns: undefined }
+      ack_device_warning: { Args: { p_device_id: string }; Returns: undefined }
       assign_anon_number: { Args: { _device_id: string }; Returns: number }
       bypass_ban_with_code: {
         Args: { p_code: string; p_device_id: string }
