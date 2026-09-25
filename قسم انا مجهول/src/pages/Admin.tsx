@@ -236,6 +236,7 @@ function Admin() {
   const USER_PAGE = 50;
   const [tab, setTab] = useState("settings");
   const [inspectId, setInspectId] = useState<string | null>(null);
+  const [userSort, setUserSort] = useState<"new" | "old" | "num">("old");
   const [commentBg, setCommentBg] = useState("#fef3c7");
   const [commentText, setCommentText] = useState("#78350f");
 
@@ -282,7 +283,7 @@ function Admin() {
   async function loadUsers(search = userSearch, page = userPage) {
     setUsersLoading(true);
     const { data, error } = await (supabase.rpc as any)("admin_list_devices", {
-      p_search: search || null, p_limit: USER_PAGE, p_offset: page * USER_PAGE,
+      p_search: search || null, p_limit: USER_PAGE, p_offset: page * USER_PAGE, p_sort: userSort,
     });
     setUsersLoading(false);
     if (error) { toast.error("تعذر تحميل المستخدمين: " + error.message); return; }
@@ -293,6 +294,7 @@ function Admin() {
   useEffect(() => {
     if (!isAdmin) return;
     void loadUsers("", 0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAdmin]);
 
   useEffect(() => {
@@ -647,6 +649,15 @@ function Admin() {
               <Button size="sm" variant="outline" onClick={() => loadUsers(userSearch, 0)} disabled={usersLoading}>
                 {usersLoading ? <Loader2 className="h-3 w-3 animate-spin" /> : <UserCircle2 className="h-3 w-3" />} بحث
               </Button>
+              <div className="flex items-center gap-1 rounded-lg bg-muted p-0.5 text-xs">
+                {([["old", "الأقدم أولاً"], ["num", "حسب الرقم"], ["new", "الأحدث"]] as const).map(([v, lbl]) => (
+                  <button
+                    key={v}
+                    onClick={() => { setUserSort(v); setUserPage(0); setTimeout(() => loadUsers(userSearch, 0), 0); }}
+                    className={cn("rounded-md px-2 py-1 font-semibold transition", userSort === v ? "bg-background shadow-sm" : "text-muted-foreground")}
+                  >{lbl}</button>
+                ))}
+              </div>
               <span className="text-xs text-muted-foreground">المجموع: {usersTotal}</span>
               <div className="ms-auto flex items-center gap-1">
                 <Button size="sm" variant="ghost" disabled={userPage === 0 || usersLoading} onClick={() => { const p = userPage - 1; setUserPage(p); void loadUsers(userSearch, p); }}>السابق</Button>
@@ -663,7 +674,10 @@ function Admin() {
                   className="cursor-pointer space-y-1 rounded-xl border border-border bg-card p-3 text-sm transition hover:border-primary/60 hover:bg-accent/40"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <DeviceNameTag name={u.name || null} deviceId={u.device_id} showId />
+                    <span className="flex items-center gap-2">
+                      <span className="rounded-lg bg-primary px-2 py-0.5 font-mono text-xs font-black text-primary-foreground">#{u.anon_number || "—"}</span>
+                      <DeviceNameTag name={u.name || null} deviceId={u.device_id} showId />
+                    </span>
                     <div className="flex flex-wrap items-center gap-1">
                       {u.label && <span className="rounded-md bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold text-primary">{u.label}</span>}
                       {u.is_blocked && <span className="rounded-md bg-destructive/15 px-1.5 py-0.5 text-[10px] font-bold text-destructive">محظور</span>}
@@ -672,7 +686,8 @@ function Admin() {
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-[11px] text-muted-foreground">
-                    <span>رقم مجهول: {u.anon_number || "—"}</span>
+                    <span className="font-bold text-foreground">مستخدم #{u.anon_number || "—"}</span>
+                    <span>أول ظهور: {u.first_seen ? timeAgo(u.first_seen) : "—"}</span>
                     <span>منشورات: {u.post_count}</span>
                     <span>تعليقات: {u.comment_count}</span>
                     <span>شات: {u.chat_count}</span>
