@@ -5,19 +5,20 @@ import { useAuth } from "@/hooks/use-auth";
 import { Header } from "@/components/header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent } from "@/components/ui/tabs";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "sonner";
-import { Trash2, Check, X, Ghost, ShieldPlus, Settings, MessageSquare, Ban, UserCircle2, ImagePlus, Loader2, Settings2, Flag, ExternalLink } from "lucide-react";
+import { Trash2, Check, X, Ghost, ShieldPlus, Settings, MessageSquare, Ban, UserCircle2, ImagePlus, Loader2, Settings2, Flag, ExternalLink, Users, EyeOff, AlertTriangle } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { useSiteSettings } from "@/hooks/use-site-settings";
 import { getProfile, setProfile, type ChatProfile } from "@/lib/profile";
 import { uploadFile } from "@/lib/upload";
 import { getDeviceId } from "@/lib/device";
+import { cn } from "@/lib/utils";
 import { DeviceInspector } from "@/components/device-inspector";
 import { useDeviceLabel } from "@/lib/device-labels";
 import { useDeviceNames } from "@/lib/device-names";
@@ -233,6 +234,7 @@ function Admin() {
   const [userPage, setUserPage] = useState(0);
   const [usersLoading, setUsersLoading] = useState(false);
   const USER_PAGE = 50;
+  const [tab, setTab] = useState("settings");
   const [commentBg, setCommentBg] = useState("#fef3c7");
   const [commentText, setCommentText] = useState("#78350f");
 
@@ -408,23 +410,93 @@ function Admin() {
 
   const visibleReports = reportFilter === "open" ? reports.filter((r) => r.status === "open") : reports;
 
+  const openReports = reports.filter((r) => r.status === "open").length;
+  const NAV: { group: string; items: { v: string; label: string; icon: any; count: number }[] }[] = [
+    { group: "المحتوى", items: [
+      { v: "pending", label: "بانتظار المراجعة", icon: Flag, count: pending.length },
+      { v: "reports", label: "البلاغات", icon: AlertTriangle, count: openReports },
+      { v: "hidden", label: "المحتوى المخفي", icon: EyeOff, count: hiddenPosts.length },
+      { v: "chat", label: "الشات", icon: MessageSquare, count: 0 },
+    ]},
+    { group: "المستخدمون", items: [
+      { v: "users", label: "كل المستخدمين", icon: Users, count: usersTotal },
+      { v: "blocks", label: "المحظورون", icon: Ban, count: blocks.length },
+      { v: "admins", label: "الأدمن", icon: ShieldPlus, count: admins.length },
+    ]},
+    { group: "النظام", items: [
+      { v: "settings", label: "الإعدادات", icon: Settings, count: 0 },
+    ]},
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="mx-auto max-w-2xl px-4 py-6 space-y-6">
-        <h1 className="text-2xl font-bold">لوحة الإدارة</h1>
+      <main className="mx-auto max-w-6xl px-4 py-6">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+          <h1 className="text-2xl font-bold">لوحة الإدارة</h1>
+          <div className="flex flex-wrap gap-1.5 text-[11px]">
+            <span className="rounded-full bg-muted px-2 py-0.5">مراجعة: {pending.length}</span>
+            <span className="rounded-full bg-muted px-2 py-0.5">بلاغات: {openReports}</span>
+            <span className="rounded-full bg-muted px-2 py-0.5">مستخدم: {usersTotal}</span>
+            <span className="rounded-full bg-muted px-2 py-0.5">محظور: {blocks.length}</span>
+          </div>
+        </div>
 
-        <Tabs defaultValue="settings" className="w-full">
-          <TabsList className="grid w-full grid-cols-7">
-            <TabsTrigger value="settings"><Settings className="h-3 w-3 ml-1" />الإعدادات</TabsTrigger>
-            <TabsTrigger value="pending">للمراجعة ({pending.length})</TabsTrigger>
-            <TabsTrigger value="reports"><Flag className="h-3 w-3 ml-1" />البلاغات ({reports.filter((r) => r.status === "open").length})</TabsTrigger>
-            <TabsTrigger value="hidden">مخفي ({hiddenPosts.length})</TabsTrigger>
-            <TabsTrigger value="chat"><MessageSquare className="h-3 w-3 ml-1" />الشات</TabsTrigger>
-            <TabsTrigger value="users">المستخدمون ({usersTotal})</TabsTrigger>
-            <TabsTrigger value="blocks">المحظورين ({blocks.length})</TabsTrigger>
-            <TabsTrigger value="admins">الأدمن ({admins.length})</TabsTrigger>
-          </TabsList>
+        <Tabs value={tab} onValueChange={setTab} className="w-full">
+          {/* موبايل: شرائح أفقية قابلة للتمرير */}
+          <div className="sticky top-0 z-30 -mx-4 mb-4 border-b border-border bg-background/95 px-4 py-2 backdrop-blur md:hidden">
+            <div className="flex gap-2 overflow-x-auto pb-1">
+              {NAV.flatMap((g) => g.items).map((it) => (
+                <button
+                  key={it.v}
+                  onClick={() => setTab(it.v)}
+                  className={cn(
+                    "flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition",
+                    tab === it.v ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card text-muted-foreground",
+                  )}
+                >
+                  <it.icon className="h-3.5 w-3.5" />
+                  {it.label}
+                  {it.count > 0 && <span className="rounded-full bg-black/15 px-1.5 text-[10px] dark:bg-white/25">{it.count}</span>}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="md:grid md:grid-cols-[230px_1fr] md:gap-6">
+          {/* ديسكتوب: قائمة جانبية ثابتة */}
+          <nav className="hidden md:block">
+            <div className="sticky top-4 space-y-5">
+              {NAV.map((g) => (
+                <div key={g.group}>
+                  <p className="mb-1.5 px-2 text-[11px] font-bold text-muted-foreground">{g.group}</p>
+                  <div className="space-y-1">
+                    {g.items.map((it) => (
+                      <button
+                        key={it.v}
+                        onClick={() => setTab(it.v)}
+                        className={cn(
+                          "flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-sm font-medium transition",
+                          tab === it.v ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:bg-muted hover:text-foreground",
+                        )}
+                      >
+                        <it.icon className="h-4 w-4 shrink-0" />
+                        <span className="flex-1 text-right">{it.label}</span>
+                        {it.count > 0 && (
+                          <span className={cn(
+                            "rounded-full px-1.5 py-px text-[10px] font-bold",
+                            tab === it.v ? "bg-black/15 dark:bg-white/25" : "bg-muted text-muted-foreground",
+                          )}>{it.count}</span>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </nav>
+
+          <div className="min-w-0">
 
           <TabsContent value="settings" className="mt-4 space-y-4">
             <AdminProfileEditor />
@@ -683,6 +755,8 @@ function Admin() {
               </p>
             </section>
           </TabsContent>
+          </div>
+          </div>
         </Tabs>
         {banTarget && (
           <BanDialog
