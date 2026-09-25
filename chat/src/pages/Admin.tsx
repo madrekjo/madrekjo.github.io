@@ -187,6 +187,27 @@ const Admin = () => {
     return () => document.removeEventListener("visibilitychange", onVis);
   }, [isAdmin, isModerator]);
 
+  const [intro, setIntro] = useState(false);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const hadDark = root.classList.contains("dark");
+    root.classList.add("dark");
+    root.classList.add("admin-vault");
+    return () => {
+      root.classList.remove("admin-vault");
+      if (!hadDark) root.classList.remove("dark");
+    };
+  }, []);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("admin-intro-seen")) return;
+    sessionStorage.setItem("admin-intro-seen", "1");
+    setIntro(true);
+    const t = setTimeout(() => setIntro(false), 1500);
+    return () => clearTimeout(t);
+  }, []);
+
   const approvePost = async (postId: string) => {
     const { error } = await (supabase as any).rpc("approve_post", { p_post_id: postId });
     if (error) { toast.error("فشل الموافقة"); return; }
@@ -429,43 +450,74 @@ const Admin = () => {
   const staffUsers = users.filter(u => hasAnyStaffRole(u.user_id));
 
   return (
-    <div className="container mx-auto px-4 py-6 max-w-6xl">
-      <div className="flex items-center justify-between gap-3 flex-wrap mb-6">
-        <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
-            <Shield className="w-6 h-6" />
+    <div className="min-h-screen admin-shell relative text-foreground">
+      <div className="absolute inset-0 admin-grid pointer-events-none" />
+      {intro && (
+        <div className="admin-vault-overlay fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center gap-4">
+          <div className="w-16 h-16 rounded-2xl border border-amber-400/50 flex items-center justify-center shadow-[0_0_40px_rgba(245,158,11,0.25)] bg-amber-400/5">
+            <Shield className="w-8 h-8 text-amber-400" />
           </div>
-          <div>
-            <h1 className="text-2xl font-bold leading-tight">{isOwner ? "لوحة المالك 👑" : isAdmin ? "لوحة الإدارة" : isModerator ? "لوحة المشرف" : "لوحة المسؤول"}</h1>
-            <p className="text-xs text-muted-foreground mt-0.5">إدارة المستخدمين والمحتوى والضبط العام للمنصة</p>
+          <p className="text-lg font-extrabold tracking-widest text-amber-300">المنطقة الإدارية</p>
+          <p className="text-xs text-muted-foreground flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" /> تحقّق الهوية…
+          </p>
+          <div className="w-44 h-0.5 bg-white/10 rounded overflow-hidden">
+            <div className="h-full bg-amber-400 admin-intro-bar" />
           </div>
         </div>
-        <Link to="/staff-meeting" className="shrink-0">
-          <Button variant="secondary" className="gap-2">
-            <Lock className="w-4 h-4" /> اجتماع الإدارة
-          </Button>
-        </Link>
-      </div>
+      )}
 
-      <nav className="flex gap-1 overflow-x-auto rounded-xl border bg-card p-1.5 mb-6">
-        {TABS.filter(t => t.show).map(t => (
-          <Button
-            key={t.key}
-            variant={tab === t.key ? "default" : "ghost"}
-            size="sm"
-            className="gap-1.5 shrink-0"
-            onClick={() => { if (t.key === "audit") void fetchAuditLog(); setTab(t.key); }}
-          >
-            {t.icon}
-            {t.label}
-            {!!t.badge && t.badge > 0 && (
-              <span className={t.key === "pending" ? "bg-amber-500 text-white rounded-full px-1.5 h-4 min-w-[16px] text-[10px] font-bold flex items-center justify-center" : "bg-destructive text-destructive-foreground rounded-full px-1.5 h-4 min-w-[16px] text-[10px] font-bold flex items-center justify-center"}>
-                {t.badge > 99 ? "99+" : t.badge}
-              </span>
-            )}
-          </Button>
-        ))}
-      </nav>
+      <div className="relative max-w-[1400px] mx-auto p-4 lg:p-6 flex flex-col lg:flex-row gap-4">
+        <aside className="lg:w-64 shrink-0">
+          <div className="lg:sticky lg:top-6 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl overflow-hidden">
+            <div className="px-4 py-4 border-b border-white/10 flex items-center gap-2.5">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-400/20 to-red-500/10 border border-amber-400/30 flex items-center justify-center shrink-0">
+                <Shield className="w-5 h-5 text-amber-400" />
+              </div>
+              <div className="min-w-0">
+                <p className="font-extrabold leading-tight truncate">{isOwner ? "منطقة المالك" : "المنطقة الإدارية"}</p>
+                <p className="text-[10px] text-muted-foreground flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shrink-0" /> وصول مصرّح فقط
+                </p>
+              </div>
+            </div>
+            <nav className="p-2 flex lg:flex-col gap-1 overflow-x-auto">
+              {TABS.filter(t => t.show).map(t => (
+                <button
+                  key={t.key}
+                  onClick={() => { if (t.key === "audit") void fetchAuditLog(); setTab(t.key); }}
+                  className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm whitespace-nowrap shrink-0 transition-all border ${
+                    tab === t.key
+                      ? "bg-amber-400/10 border-amber-400/40 text-amber-300 shadow-[0_0_20px_rgba(251,191,36,0.12)]"
+                      : "border-transparent text-muted-foreground hover:text-foreground hover:bg-white/5"
+                  }`}
+                >
+                  {t.icon}
+                  <span className="flex-1 text-right lg:text-right">{t.label}</span>
+                  {!!t.badge && t.badge > 0 && (
+                    <span className={`rounded-full px-1.5 h-4 min-w-[16px] text-[10px] font-bold flex items-center justify-center ${
+                      t.key === "pending" ? "bg-amber-500 text-black" : "bg-destructive text-destructive-foreground"
+                    }`}>
+                      {t.badge > 99 ? "99+" : t.badge}
+                    </span>
+                  )}
+                </button>
+              ))}
+            </nav>
+            <div className="p-3 border-t border-white/10 hidden lg:block">
+              <Link to="/staff-meeting">
+                <Button variant="outline" size="sm" className="w-full gap-2 border-red-500/30 hover:border-red-500/60 hover:bg-red-500/10 text-red-300">
+                  <Lock className="w-4 h-4" /> اجتماع الإدارة
+                </Button>
+              </Link>
+              <p className="text-[10px] text-center text-muted-foreground/70 mt-2 flex items-center justify-center gap-1">
+                <Lock className="w-3 h-3" /> سرّي — للفريق المصرّح فقط
+              </p>
+            </div>
+          </div>
+        </aside>
+
+        <main className="flex-1 min-w-0 space-y-4 admin-enter">
 
       {tab === "stats" && (
         <div className="space-y-4">
@@ -1081,6 +1133,9 @@ const Admin = () => {
           )}
         </div>
       )}
+
+      </main>
+      </div>
 
       <Dialog open={!!renameUserId} onOpenChange={(o) => { if (!o) setRenameUserId(null); }}>
         <DialogContent>
