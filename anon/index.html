@@ -9,8 +9,17 @@
     <meta property="og:title" content="أنا مجهول" />
     <meta property="og:description" content="انشر ما تريد بشكل مجهول تماماً" />
     <meta name="twitter:card" content="summary_large_image" />
-    <script type="module" crossorigin src="/anon/assets/index-DEMThvj5.js"></script>
-    <link rel="stylesheet" crossorigin href="/anon/assets/index-CiqmyTcO.css">
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("anon-theme") === "dark") {
+            document.documentElement.classList.add("dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script type="module" crossorigin src="/anon/assets/index-BiOp46mO.js"></script>
+    <link rel="stylesheet" crossorigin href="/anon/assets/index-D1FTIFcz.css">
   </head>
   <body>
     <div id="root"></div>

@@ -9,6 +9,15 @@
     <meta property="og:title" content="أنا مجهول" />
     <meta property="og:description" content="انشر ما تريد بشكل مجهول تماماً" />
     <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("anon-theme") === "dark") {
+            document.documentElement.classList.add("dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

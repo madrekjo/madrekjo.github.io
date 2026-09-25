@@ -1,8 +1,32 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Shield, Ghost } from "lucide-react";
+import { Shield, Ghost, Sun, Moon } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
+
+function ThemeToggle() {
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    setDark(document.documentElement.classList.contains("dark"));
+  }, []);
+
+  function toggle() {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle("dark", next);
+    try {
+      localStorage.setItem("anon-theme", next ? "dark" : "light");
+    } catch {}
+  }
+
+  return (
+    <Button size="sm" variant="ghost" onClick={toggle} title={dark ? "الوضع الفاتح" : "الوضع الداكن"}>
+      {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+    </Button>
+  );
+}
 
 export function Header() {
   const { session, isAdmin } = useAuth();
@@ -31,6 +55,7 @@ export function Header() {
               <Button size="sm" variant="ghost">دخول</Button>
             </Link>
           )}
+          <ThemeToggle />
         </div>
       </div>
     </header>
