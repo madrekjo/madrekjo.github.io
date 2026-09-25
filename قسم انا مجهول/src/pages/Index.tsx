@@ -9,6 +9,8 @@ import { useAuth } from "@/hooks/use-auth";
 import { toast } from "sonner";
 import { Wrench, Eye, EyeOff, CheckSquare, Square } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { NameCard } from "@/components/name-card";
+import { useVisitorGate, refreshVisitorStatus } from "@/hooks/use-visitor-gate";
 
 function useCountdown(target: string | null) {
   const [now, setNow] = useState(() => Date.now());
@@ -69,6 +71,7 @@ function Maintenance({ msg, reopenAt }: { msg: string | null; reopenAt: string |
 function Index() {
   const { settings, loading: settingsLoading } = useSiteSettings();
   const { isAdmin } = useAuth();
+  const gate = useVisitorGate();
   const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectMode, setSelectMode] = useState(false);
@@ -181,6 +184,7 @@ function Index() {
           )}
         </div>
         <PostComposer onPosted={load} />
+        <NameCard name={gate.device_name} onSaved={refreshVisitorStatus} />
 
         {isAdmin && visiblePosts.length > 0 && (
           <div className="flex flex-wrap items-center gap-2 rounded-xl border border-border bg-card p-2 text-xs">

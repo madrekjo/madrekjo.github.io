@@ -11,6 +11,7 @@ type Status = {
   expires_at: string | null;
   evidence_url: string | null;
   warning: Warning;
+  device_name: string | null;
 };
 
 const EMPTY: Status = {
@@ -20,6 +21,7 @@ const EMPTY: Status = {
   expires_at: null,
   evidence_url: null,
   warning: null,
+  device_name: null,
 };
 
 let cached: Status = { ...EMPTY, loading: true };
@@ -44,6 +46,7 @@ async function runCheck() {
       expires_at: res.expires_at ?? null,
       evidence_url: res.evidence_url ?? null,
       warning: res.warning ?? null,
+      device_name: res.device_name ?? null,
     });
   } catch {
     set({ ...EMPTY });
@@ -83,4 +86,8 @@ export function refreshVisitorStatus() {
 /** Clears the shown warning locally right after the user acknowledges it. */
 export function clearShownWarning() {
   if (cached.warning) set({ ...cached, warning: null });
+}
+
+export function setLocalDeviceName(name: string | null) {
+  set({ ...cached, device_name: name });
 }

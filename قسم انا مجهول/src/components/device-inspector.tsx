@@ -13,6 +13,7 @@ import { WarnDialog } from "@/components/warn-dialog";
 
 type Dossier = {
   device_id: string;
+  device_name: string | null;
   label: string | null;
   is_admin: boolean;
   is_blocked: boolean;
@@ -108,9 +109,14 @@ export function DeviceInspector({ deviceId, open, onOpenChange }: { deviceId: st
         {loading && <div className="flex justify-center p-6"><Loader2 className="h-5 w-5 animate-spin" /></div>}
         {data && (
           <div className="space-y-4 text-sm">
-            <div className="rounded-lg border border-border bg-muted/40 p-3">
+            <div className="rounded-lg border border-primary/30 bg-primary/5 p-3">
               <div className="flex items-center justify-between gap-2">
-                <span className="font-mono text-[10px] break-all">{data.device_id}</span>
+                <div className="min-w-0">
+                  <div className="truncate text-base font-black text-primary">
+                    {data.device_name || "بدون اسم"}
+                  </div>
+                  <span className="font-mono text-[10px] break-all text-muted-foreground">{data.device_id}</span>
+                </div>
                 <Button size="sm" variant="ghost" onClick={copyId}><Copy className="h-3 w-3" /></Button>
               </div>
             </div>

@@ -20,6 +20,8 @@ import { uploadFile } from "@/lib/upload";
 import { getDeviceId } from "@/lib/device";
 import { DeviceInspector } from "@/components/device-inspector";
 import { useDeviceLabel } from "@/lib/device-labels";
+import { useDeviceNames } from "@/lib/device-names";
+import { DeviceNameTag } from "@/components/device-name-tag";
 import { BanDialog } from "@/components/ban-dialog";
 
 function AdminProfileEditor() {
@@ -86,6 +88,7 @@ function PendingCard({ p, onApprove, onReject }: { p: any; onApprove: (id: strin
   const [inspect, setInspect] = useState(false);
   const [allowComments, setAllowComments] = useState(true);
   const label = useDeviceLabel(p.device_id, true);
+  const { names } = useDeviceNames(true);
   return (
     <div className="rounded-2xl border border-border bg-card p-4">
       <div className="flex items-center justify-between text-xs text-muted-foreground">
@@ -114,7 +117,7 @@ function PendingCard({ p, onApprove, onReject }: { p: any; onApprove: (id: strin
       )}
       <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="font-mono text-[10px] text-muted-foreground" title={p.device_id}>ID: {p.device_id.slice(0, 12)}…</span>
+          <DeviceNameTag name={names.get(p.device_id)} deviceId={p.device_id} showId />
           <label className="flex cursor-pointer items-center gap-1.5 rounded-md border border-border bg-muted px-2 py-1 text-xs">
             <Switch checked={allowComments} onCheckedChange={setAllowComments} className="h-4 w-7" />
             {allowComments ? "التعليقات مسموحة" : "التعليقات ممنوعة"}
@@ -141,6 +144,7 @@ const REASON_LABELS: Record<string, string> = {
 };
 
 function ReportCard({ r, onResolve }: { r: any; onResolve: (id: string, action: "dismissed" | "resolved" | "content_deleted" | "ban_owner", note?: string) => void }) {
+  const { names } = useDeviceNames(true);
   const [inspect, setInspect] = useState(false);
   const statusColor =
     r.status === "open" ? "bg-yellow-500/15 text-yellow-700 dark:text-yellow-400"
@@ -174,10 +178,10 @@ function ReportCard({ r, onResolve }: { r: any; onResolve: (id: string, action: 
         <div className="mt-1 whitespace-pre-wrap">{r.content_snapshot || <span className="text-muted-foreground italic">فارغ</span>}</div>
       </div>
       <div className="grid grid-cols-1 gap-1 text-[11px] text-muted-foreground sm:grid-cols-2">
-        <div><span className="font-semibold">المبلّغ:</span> <span className="font-mono">{r.reporter_device_id?.slice(0, 14)}…</span></div>
+        <div><span className="font-semibold">المبلّغ:</span> <DeviceNameTag name={names.get(r.reporter_device_id)} deviceId={r.reporter_device_id} showId /></div>
         <div className="flex items-center gap-1">
           <span className="font-semibold">صاحب المحتوى:</span>
-          <span className="font-mono">{r.content_owner_device_id?.slice(0, 14) ?? "—"}…</span>
+          <DeviceNameTag name={names.get(r.content_owner_device_id)} deviceId={r.content_owner_device_id} showId />
           {r.content_owner_device_id && (
             <button onClick={() => setInspect(true)} className="rounded p-0.5 hover:bg-accent" title="ملف الجهاز"><Settings2 className="h-3 w-3" /></button>
           )}
@@ -204,6 +208,7 @@ function ReportCard({ r, onResolve }: { r: any; onResolve: (id: string, action: 
 }
 
 function Admin() {
+  const { names } = useDeviceNames(true);
   const { isAdmin, adminChecked, loading, session } = useAuth();
   const navigate = useNavigate();
   const { settings, reload: reloadSettings } = useSiteSettings();
@@ -497,7 +502,7 @@ function Admin() {
                 </div>
                 <p className="mt-1 whitespace-pre-wrap text-sm">{m.content}</p>
                 <div className="mt-2 flex items-center justify-between">
-                  <span className="font-mono text-[10px] text-muted-foreground" title={m.device_id}>ID: {m.device_id.slice(0, 14)}…</span>
+                  <DeviceNameTag name={names.get(m.device_id)} deviceId={m.device_id} showId />
                   <div className="flex gap-2">
                     <Button size="sm" variant="ghost" onClick={() => delChatMsg(m.id)}><Trash2 className="h-3 w-3" /></Button>
                     <Button size="sm" variant="destructive" onClick={() => blockFromChat(m.device_id)}><Ban className="h-3 w-3 ml-1" />حظر</Button>
@@ -550,7 +555,7 @@ function Admin() {
                   return (
                     <div key={b.device_id} className="space-y-1 rounded-lg bg-muted/40 p-2 text-sm">
                       <div className="flex items-center justify-between gap-2">
-                        <span className="truncate font-mono text-xs">{b.device_id}</span>
+                        <DeviceNameTag name={names.get(b.device_id)} deviceId={b.device_id} showId />
                         <Button size="sm" variant="ghost" onClick={() => unblock(b.device_id)} title="رفع الحظر">
                           <Trash2 className="h-4 w-4" />
                         </Button>
@@ -595,7 +600,7 @@ function Admin() {
                 {admins.map((a) => (
                   <div key={a.device_id} className="flex items-center justify-between rounded-lg bg-muted/40 p-2 text-sm">
                     <div className="min-w-0">
-                      <div className="truncate font-mono text-xs">{a.device_id}</div>
+                      <DeviceNameTag name={names.get(a.device_id)} deviceId={a.device_id} showId />
                       {a.note && <div className="text-xs text-muted-foreground">{a.note}</div>}
                     </div>
                     <Button size="sm" variant="ghost" onClick={() => removeAdmin(a.device_id)}>

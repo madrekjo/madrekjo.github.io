@@ -473,6 +473,27 @@ export type Database = {
         }
         Relationships: []
       }
+      device_names: {
+        Row: {
+          device_id: string
+          name: string
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          device_id: string
+          name: string
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          device_id?: string
+          name?: string
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       device_warnings: {
         Row: {
           device_id: string
@@ -755,6 +776,9 @@ export type Database = {
       admin_clear_warning: { Args: { p_device_id: string }; Returns: undefined }
       admin_warn_device: { Args: { p_device_id: string; p_message: string }; Returns: undefined }
       ack_device_warning: { Args: { p_device_id: string }; Returns: undefined }
+      set_device_name: { Args: { p_device_id: string; p_name: string }; Returns: Json }
+      get_device_name: { Args: { p_device_id: string }; Returns: string | null }
+      admin_list_device_names: { Args: { p_search?: string }; Returns: Json }
       assign_anon_number: { Args: { _device_id: string }; Returns: number }
       bypass_ban_with_code: {
         Args: { p_code: string; p_device_id: string }

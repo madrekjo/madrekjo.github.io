@@ -79,6 +79,7 @@ export async function checkVisitor({ data }: { data: { device_id: string } }) {
       expires_at: null as string | null,
       evidence_url: null as string | null,
       warning: null as { message: string; at: string | null } | null,
+      device_name: null as string | null,
     };
   }
   const parsed = (result ?? { banned: false }) as {
@@ -88,6 +89,7 @@ export async function checkVisitor({ data }: { data: { device_id: string } }) {
     evidence_url?: string;
     warning?: string;
     warning_at?: string;
+    device_name?: string | null;
   };
   return {
     banned: !!parsed.banned,
@@ -95,6 +97,7 @@ export async function checkVisitor({ data }: { data: { device_id: string } }) {
     expires_at: parsed.expires_at ?? null,
     evidence_url: parsed.evidence_url ?? null,
     warning: parsed.warning ? { message: parsed.warning, at: parsed.warning_at ?? null } : null,
+    device_name: parsed.device_name ?? null,
   };
 }
 
