@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { invalidateAppConfig } from "@/lib/appCache";
@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { toast } from "sonner";
-import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, Lock, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key, Clock, KeyRound, Copy, Loader2, RefreshCw } from "lucide-react";
+import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, Lock, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key, Clock, KeyRound, Copy, Loader2, RefreshCw, ScrollText, UserCheck } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { Navigate, Link } from "react-router-dom";
@@ -40,6 +40,24 @@ interface UserRole {
 }
 
 type Tab = "stats" | "users" | "staff" | "banned" | "reports" | "words" | "deleted" | "sections" | "permissions" | "audit" | "pending" | "codes";
+
+const TabHeader = ({ icon, title, count, desc, action }: { icon: ReactNode; title: string; count?: number; desc?: string; action?: ReactNode }) => (
+  <div className="flex items-start justify-between gap-3 flex-wrap mb-4">
+    <div className="flex items-center gap-2.5">
+      <div className="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">{icon}</div>
+      <div>
+        <h2 className="font-bold leading-tight flex items-center gap-2">
+          {title}
+          {typeof count === "number" && (
+            <span className="text-[11px] font-medium bg-muted text-muted-foreground rounded-full px-2 py-0.5">{count}</span>
+          )}
+        </h2>
+        {desc && <p className="text-xs text-muted-foreground mt-0.5">{desc}</p>}
+      </div>
+    </div>
+    {action}
+  </div>
+);
 
 const Admin = () => {
   const { isAdmin, isModerator, isSupervisor, isOwner, hasPermission, user } = useAuth();
@@ -82,6 +100,21 @@ const Admin = () => {
   const canWarn = hasPermission("can_warn");
   const canBanUsers = hasPermission("can_ban_users");
   const canTimeout = hasPermission("can_timeout");
+
+  const TABS: { key: Tab; label: string; icon: ReactNode; show: boolean; badge?: number }[] = [
+    { key: "stats", label: "الإحصائيات", icon: <BarChart3 className="w-4 h-4" />, show: true },
+    { key: "users", label: "المستخدمين", icon: <Users className="w-4 h-4" />, show: true },
+    { key: "staff", label: "الإدارة والمشرفين", icon: <ShieldCheck className="w-4 h-4" />, show: true },
+    { key: "banned", label: "المحظورين", icon: <Ban className="w-4 h-4" />, show: true },
+    { key: "reports", label: "البلاغات", icon: <Flag className="w-4 h-4" />, show: canManageReports || isAdmin, badge: pendingReports },
+    { key: "pending", label: "للمراجعة", icon: <Clock className="w-4 h-4" />, show: isAdmin || isModerator, badge: pendingCount },
+    { key: "permissions", label: "الصلاحيات", icon: <Key className="w-4 h-4" />, show: isOwner },
+    { key: "codes", label: "أكواد الدخول", icon: <KeyRound className="w-4 h-4" />, show: isAdmin },
+    { key: "words", label: "الكلمات المحظورة", icon: <MessageCircle className="w-4 h-4" />, show: canManageWords || isAdmin },
+    { key: "sections", label: "الأقسام والقنوات", icon: <Layers className="w-4 h-4" />, show: canLockSections || isAdmin },
+    { key: "deleted", label: "المحذوفات", icon: <Archive className="w-4 h-4" />, show: isAdmin },
+    { key: "audit", label: "سجل الإدارة", icon: <ScrollText className="w-4 h-4" />, show: true },
+  ];
 
   const logAction = async (action_type: string, target_user_id: string | null, details: string) => {
     const { data: u } = await supabase.auth.getUser();
@@ -397,75 +430,111 @@ const Admin = () => {
 
   return (
     <div className="container mx-auto px-4 py-6 max-w-6xl">
-      <div className="flex items-center gap-2 mb-6">
-        <Shield className="w-6 h-6 text-primary" />
-        <h1 className="text-2xl font-bold">{isOwner ? "لوحة المالك 👑" : isAdmin ? "لوحة الإدارة" : isModerator ? "لوحة المشرف" : "لوحة المسؤول"}</h1>
+      <div className="flex items-center justify-between gap-3 flex-wrap mb-6">
+        <div className="flex items-center gap-3">
+          <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+            <Shield className="w-6 h-6" />
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold leading-tight">{isOwner ? "لوحة المالك 👑" : isAdmin ? "لوحة الإدارة" : isModerator ? "لوحة المشرف" : "لوحة المسؤول"}</h1>
+            <p className="text-xs text-muted-foreground mt-0.5">إدارة المستخدمين والمحتوى والضبط العام للمنصة</p>
+          </div>
+        </div>
+        <Link to="/staff-meeting" className="shrink-0">
+          <Button variant="secondary" className="gap-2">
+            <Lock className="w-4 h-4" /> اجتماع الإدارة
+          </Button>
+        </Link>
       </div>
 
-      <Link to="/staff-meeting" className="block mb-4">
-        <Button variant="secondary" className="w-full gap-2">
-          <Lock className="w-4 h-4" /> فتح اجتماع الإدارة
-        </Button>
-      </Link>
-
-      <div className="flex gap-2 mb-6 flex-wrap">
-        <Button variant={tab === "stats" ? "default" : "outline"} onClick={() => setTab("stats")} className="gap-1"><BarChart3 className="w-4 h-4" /> الإحصائيات</Button>
-        <Button variant={tab === "users" ? "default" : "outline"} onClick={() => setTab("users")} className="gap-1"><Users className="w-4 h-4" /> المستخدمين</Button>
-        <Button variant={tab === "staff" ? "default" : "outline"} onClick={() => setTab("staff")} className="gap-1"><ShieldCheck className="w-4 h-4" /> الإدارة والمشرفين</Button>
-        <Button variant={tab === "banned" ? "default" : "outline"} onClick={() => setTab("banned")} className="gap-1"><Ban className="w-4 h-4" /> المحظورين</Button>
-        {(canManageReports || isAdmin) && (
-          <Button variant={tab === "reports" ? "default" : "outline"} onClick={() => setTab("reports")} className="gap-1 relative">
-            <Flag className="w-4 h-4" /> البلاغات
-            {pendingReports > 0 && (
-              <span className="absolute -top-1 -right-1 bg-destructive text-destructive-foreground text-[10px] font-bold rounded-full min-w-[16px] h-4 flex items-center justify-center px-1">
-                {pendingReports > 99 ? "99+" : pendingReports}
+      <nav className="flex gap-1 overflow-x-auto rounded-xl border bg-card p-1.5 mb-6">
+        {TABS.filter(t => t.show).map(t => (
+          <Button
+            key={t.key}
+            variant={tab === t.key ? "default" : "ghost"}
+            size="sm"
+            className="gap-1.5 shrink-0"
+            onClick={() => { if (t.key === "audit") void fetchAuditLog(); setTab(t.key); }}
+          >
+            {t.icon}
+            {t.label}
+            {!!t.badge && t.badge > 0 && (
+              <span className={t.key === "pending" ? "bg-amber-500 text-white rounded-full px-1.5 h-4 min-w-[16px] text-[10px] font-bold flex items-center justify-center" : "bg-destructive text-destructive-foreground rounded-full px-1.5 h-4 min-w-[16px] text-[10px] font-bold flex items-center justify-center"}>
+                {t.badge > 99 ? "99+" : t.badge}
               </span>
             )}
           </Button>
-        )}
-        {isOwner && <Button variant={tab === "permissions" ? "default" : "outline"} onClick={() => setTab("permissions")} className="gap-1"><Key className="w-4 h-4" /> الصلاحيات</Button>}
-        {isAdmin && <Button variant={tab === "codes" ? "default" : "outline"} onClick={() => setTab("codes")} className="gap-1"><KeyRound className="w-4 h-4" /> أكواد الدخول</Button>}
-        {(canManageWords || isAdmin) && <Button variant={tab === "words" ? "default" : "outline"} onClick={() => setTab("words")} className="gap-1"><MessageCircle className="w-4 h-4" /> الكلمات المحظورة</Button>}
-        {isAdmin && <Button variant={tab === "deleted" ? "default" : "outline"} onClick={() => setTab("deleted")} className="gap-1"><Archive className="w-4 h-4" /> المحذوفات</Button>}
-        {(canLockSections || isAdmin) && <Button variant={tab === "sections" ? "default" : "outline"} onClick={() => setTab("sections")} className="gap-1"><Layers className="w-4 h-4" /> الأقسام</Button>}
-        <Button variant={tab === "audit" ? "default" : "outline"} onClick={() => { setTab("audit"); fetchAuditLog(); }} className="gap-1"><Archive className="w-4 h-4" /> سجل الإدارة</Button>
-        {(isAdmin || isModerator) && (
-          <Button variant={tab === "pending" ? "default" : "outline"} onClick={() => setTab("pending")} className="gap-1 relative">
-            <Clock className="w-4 h-4" /> للمراجعة
-            {pendingCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-amber-500 text-white text-[10px] font-bold rounded-full min-w-[16px] h-4 flex items-center justify-center px-1">
-                {pendingCount > 99 ? "99+" : pendingCount}
-              </span>
-            )}
-          </Button>
-        )}
-      </div>
+        ))}
+      </nav>
 
       {tab === "stats" && (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Card><CardContent className="pt-6 text-center"><p className="text-3xl font-bold text-primary">{totalUsers}</p><p className="text-sm text-muted-foreground mt-1">إجمالي المستخدمين</p></CardContent></Card>
-          <Card><CardContent className="pt-6 text-center"><p className="text-3xl font-bold text-green-500">{activeUsers}</p><p className="text-sm text-muted-foreground mt-1">نشط</p></CardContent></Card>
-          <Card><CardContent className="pt-6 text-center"><p className="text-3xl font-bold text-destructive">{bannedUsers}</p><p className="text-sm text-muted-foreground mt-1">محظور</p></CardContent></Card>
-          <Card><CardContent className="pt-6 text-center"><p className="text-3xl font-bold text-amber-500">{staffCount}</p><p className="text-sm text-muted-foreground mt-1">فريق الإدارة</p></CardContent></Card>
+        <div className="space-y-4">
+          <TabHeader icon={<BarChart3 className="w-5 h-5" />} title="الإحصائيات العامة" desc="نظرة سريعة على أعداد حسابات المنصة." />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {[
+              { label: "إجمالي المستخدمين", value: totalUsers, icon: <Users className="w-5 h-5" />, tone: "text-primary bg-primary/10" },
+              { label: "حسابات نشطة", value: activeUsers, icon: <UserCheck className="w-5 h-5" />, tone: "text-green-600 bg-green-500/10 dark:text-green-400" },
+              { label: "محظورة", value: bannedUsers, icon: <Ban className="w-5 h-5" />, tone: "text-destructive bg-destructive/10" },
+              { label: "فريق الإدارة", value: staffCount, icon: <ShieldCheck className="w-5 h-5" />, tone: "text-amber-500 bg-amber-500/10" },
+            ].map(s => (
+              <Card key={s.label}>
+                <CardContent className="pt-4 pb-4">
+                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${s.tone} mb-2.5`}>{s.icon}</div>
+                  <p className="text-2xl font-bold leading-none">{s.value}</p>
+                  <p className="text-xs text-muted-foreground mt-1.5">{s.label}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       )}
 
       {tab === "users" && (
-        <div className="space-y-3">
-          <div className="flex gap-2 flex-wrap">
-            <div className="relative flex-1 min-w-[200px]">
-              <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              <Input value={userSearch} onChange={e => setUserSearch(e.target.value)} placeholder="بحث..." className="pr-9" />
-            </div>
-            <div className="flex gap-1 bg-muted rounded-lg p-1">
-              {[{k:"all",l:"الكل"},{k:"09",l:"09"},{k:"10",l:"10"}].map(o => (
-                <button key={o.k} onClick={() => setGenFilter(o.k as any)} className={`text-xs px-3 py-1 rounded-md ${genFilter===o.k ? "bg-primary text-primary-foreground" : ""}`}>{o.l}</button>
-              ))}
-            </div>
-          </div>
+        <div className="space-y-4">
+          <TabHeader
+            icon={<Users className="w-5 h-5" />}
+            title="المستخدمين"
+            count={displayedUsers.length}
+            desc="جميع حسابات المنصة. فريق الإدارة معروض في تبويب «الإدارة والمشرفين»."
+          />
+          <Card>
+            <CardContent className="py-3.5 space-y-3">
+              <div className="flex gap-2 flex-wrap">
+                <div className="relative flex-1 min-w-[200px]">
+                  <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                  <Input value={userSearch} onChange={e => setUserSearch(e.target.value)} placeholder="بحث بالاسم..." className="pr-9" />
+                </div>
+                <div className="flex gap-1 bg-muted rounded-lg p-1 shrink-0">
+                  {[{k:"all",l:"الكل"},{k:"09",l:"09"},{k:"10",l:"10"}].map(o => (
+                    <button key={o.k} onClick={() => setGenFilter(o.k as any)} className={`text-xs px-3 py-1 rounded-md ${genFilter===o.k ? "bg-primary text-primary-foreground" : ""}`}>{o.l}</button>
+                  ))}
+                </div>
+              </div>
+              {(() => {
+                const now = Date.now();
+                const DAY = 86400000;
+                const startOfToday = new Date(); startOfToday.setHours(0,0,0,0);
+                const startOfWeek = new Date(startOfToday); startOfWeek.setDate(startOfWeek.getDate() - startOfWeek.getDay());
+                const startOfMonth = new Date(); startOfMonth.setDate(1); startOfMonth.setHours(0,0,0,0);
+                const times = users.map(u => new Date((u as any).created_at).getTime()).filter(t => !isNaN(t));
+                const today = times.filter(t => t >= startOfToday.getTime()).length;
+                const last24h = times.filter(t => now - t <= DAY).length;
+                const week = times.filter(t => t >= startOfWeek.getTime()).length;
+                const month = times.filter(t => t >= startOfMonth.getTime()).length;
+                return (
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                    <div className="bg-muted/50 rounded-lg py-2.5 text-center"><p className="text-xl font-bold text-primary leading-none">{today}</p><p className="text-[11px] text-muted-foreground mt-1">مستخدمون اليوم</p></div>
+                    <div className="bg-muted/50 rounded-lg py-2.5 text-center"><p className="text-xl font-bold text-primary leading-none">{last24h}</p><p className="text-[11px] text-muted-foreground mt-1">آخر 24 ساعة</p></div>
+                    <div className="bg-muted/50 rounded-lg py-2.5 text-center"><p className="text-xl font-bold text-primary leading-none">{week}</p><p className="text-[11px] text-muted-foreground mt-1">هذا الأسبوع</p></div>
+                    <div className="bg-muted/50 rounded-lg py-2.5 text-center"><p className="text-xl font-bold text-primary leading-none">{month}</p><p className="text-[11px] text-muted-foreground mt-1">هذا الشهر</p></div>
+                  </div>
+                );
+              })()}
+            </CardContent>
+          </Card>
           {isOwner && selectedIds.size > 0 && (
             <Card className="border-destructive">
-              <CardContent className="py-3 flex items-center justify-between">
+              <CardContent className="py-3 flex items-center justify-between gap-2 flex-wrap">
                 <span className="text-sm font-medium">محدد: <b>{selectedIds.size}</b> مستخدم</span>
                 <div className="flex gap-2">
                   <Button size="sm" variant="ghost" onClick={() => setSelectedIds(new Set())}>إلغاء التحديد</Button>
@@ -476,106 +545,93 @@ const Admin = () => {
               </CardContent>
             </Card>
           )}
-          {(() => {
-            const now = Date.now();
-            const DAY = 86400000;
-            const startOfToday = new Date(); startOfToday.setHours(0,0,0,0);
-            const startOfWeek = new Date(startOfToday); startOfWeek.setDate(startOfWeek.getDate() - startOfWeek.getDay());
-            const startOfMonth = new Date(); startOfMonth.setDate(1); startOfMonth.setHours(0,0,0,0);
-            const times = users.map(u => new Date((u as any).created_at).getTime()).filter(t => !isNaN(t));
-            const today = times.filter(t => t >= startOfToday.getTime()).length;
-            const last24h = times.filter(t => now - t <= DAY).length;
-            const week = times.filter(t => t >= startOfWeek.getTime()).length;
-            const month = times.filter(t => t >= startOfMonth.getTime()).length;
-            return (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                <Card><CardContent className="py-3 text-center"><p className="text-2xl font-bold text-primary">{today}</p><p className="text-[11px] text-muted-foreground mt-0.5">مستخدمون اليوم</p></CardContent></Card>
-                <Card><CardContent className="py-3 text-center"><p className="text-2xl font-bold text-primary">{last24h}</p><p className="text-[11px] text-muted-foreground mt-0.5">آخر 24 ساعة</p></CardContent></Card>
-                <Card><CardContent className="py-3 text-center"><p className="text-2xl font-bold text-primary">{week}</p><p className="text-[11px] text-muted-foreground mt-0.5">هذا الأسبوع</p></CardContent></Card>
-                <Card><CardContent className="py-3 text-center"><p className="text-2xl font-bold text-primary">{month}</p><p className="text-[11px] text-muted-foreground mt-0.5">هذا الشهر</p></CardContent></Card>
-              </div>
-            );
-          })()}
-          <p className="text-xs text-muted-foreground">
-            📌 المستخدمين فقط. لعرض المشرفين/المسؤولين استخدم تبويب "الإدارة والمشرفين".
-          </p>
           {[...displayedUsers].reverse().map((u, idx) => {
             const number = displayedUsers.length - idx;
             const selected = selectedIds.has(u.user_id);
             const inTimeout = u.timeout_until && new Date(u.timeout_until) > new Date();
             return (
-              <Card key={u.id} className={selected ? "ring-2 ring-destructive" : ""}>
-                <CardContent className="flex items-center justify-between py-3 gap-2 flex-wrap">
+              <Card key={u.id} className={selected ? "ring-2 ring-primary border-primary/40" : ""}>
+                <CardContent className="py-3.5 space-y-2.5">
                   <div className="flex items-center gap-3">
                     {isOwner && (
-                      <input type="checkbox" checked={selected} onChange={() => toggleSelect(u.user_id)} className="w-4 h-4 shrink-0" />
+                      <input type="checkbox" checked={selected} onChange={() => toggleSelect(u.user_id)} className="w-4 h-4 shrink-0 accent-primary" />
                     )}
-                    <span className="text-sm font-bold text-muted-foreground bg-muted rounded-full w-7 h-7 flex items-center justify-center shrink-0">{number}</span>
-                    <div>
-                      <p className="font-medium flex items-center gap-1">
+                    <span className="text-xs font-bold text-muted-foreground bg-muted rounded-full min-w-[22px] h-[22px] px-1.5 flex items-center justify-center shrink-0">{number}</span>
+                    <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 text-sm font-bold overflow-hidden">
+                      {u.avatar_url ? (
+                        <img src={u.avatar_url} alt="" className="w-full h-full object-cover" />
+                      ) : (
+                        u.full_name?.charAt(0)
+                      )}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-semibold leading-tight">
                         {formatDisplayName(u)}
                         <RoundsBadge userId={u.user_id} />
                       </p>
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground flex-wrap">
-                        {(u as any).via_invite && (
-                          <span className="bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300 rounded px-1.5 py-0.5" title="سجّل عبر رمز دعوة">
-                            🔑 عبر رمز الدعوة
-                          </span>
-                        )}
-                        {u.generation && <span className="bg-primary/10 text-primary rounded px-1.5 py-0.5 font-mono">{u.generation}</span>}
-                        {u.field && <span className="bg-muted rounded px-1.5 py-0.5">{FIELD_LABEL_AR[u.field]}</span>}
-                        {u.is_banned ? "🚫 محظور" : u.chat_banned ? "🔇 محظور شات" : "✅ نشط"}
-                        {inTimeout && <span className="text-amber-500">⏱ حتى {new Date(u.timeout_until!).toLocaleTimeString("ar")}</span>}
-                      </div>
-                      {emailMap[u.user_id] && (
-                        <p className="text-xs text-muted-foreground mt-0.5" dir="ltr">
-                          📧 {emailMap[u.user_id]}
-                        </p>
-                      )}
+                      <p className="text-xs text-muted-foreground mt-0.5 truncate">
+                        {u.generation && <span className="ml-1">{u.generation}</span>}
+                        {u.field && <span className="ml-1">· {FIELD_LABEL_AR[u.field]}</span>}
+                        {(u as any).via_invite && <span className="ml-1">· 🔑 رمز الدعوة</span>}
+                        {emailMap[u.user_id] && <span dir="ltr"> · {emailMap[u.user_id]}</span>}
+                      </p>
                     </div>
                   </div>
-                  <div className="flex gap-1 flex-wrap justify-end">
-                    {isAdmin && (
-                      <Button variant="ghost" size="sm" onClick={() => toggleUserGender(u.user_id, (u as any).gender)} className="gap-1" title="تغيير الجنس">
-                        {(u as any).gender === "male" ? "♂ ذكر" : (u as any).gender === "female" ? "♀ أنثى" : "؟"}
-                      </Button>
-                    )}
-                    {isAdmin && (
-                      <div className="flex gap-0.5">
-                        {(["light", "dark", "blue", "pink"] as const).map(t => (
-                          <Button key={t} variant="ghost" size="sm" onClick={() => setUserTheme(u.user_id, t)}
-                            className={`px-1.5 py-0.5 h-auto text-[10px] ${(u as any).theme === t ? "bg-primary/20 text-primary font-bold" : "text-muted-foreground"}`}
-                            title={`ثيم ${t}`}>
-                            {t === "light" ? "☀️" : t === "dark" ? "🌙" : t === "blue" ? "💙" : "🩷"}
-                          </Button>
-                        ))}
-                      </div>
-                    )}
-                    {isAdmin && (
-                      <Button variant="ghost" size="sm" onClick={() => { setRenameUserId(u.user_id); setNewName(u.full_name); }} className="gap-1" title="تغيير الاسم">
-                        <Edit2 className="w-4 h-4" />
-                      </Button>
-                    )}
-                    {isAdmin && (
-                      <Button variant="ghost" size="sm" onClick={() => { setFieldUserId(u.user_id); setNewField(u.field ?? null); }} className="gap-1" title="تغيير التخصص">
-                        <Layers className="w-4 h-4" />
-                      </Button>
-                    )}
-                    {isOwner && (
-                      <Button variant="outline" size="sm" onClick={() => setRolesDialogUser({ id: u.user_id, name: u.full_name })} className="gap-1">
-                        <ShieldCheck className="w-4 h-4" /> الرتب
-                      </Button>
-                    )}
-                    {canWarn && (
-                      <Button variant="outline" size="sm" onClick={() => setWarnUser(u.user_id)} className="gap-1" title="تحذير">
-                        <AlertTriangle className="w-4 h-4" /> تحذير
-                      </Button>
-                    )}
-                    {(canBanUsers || canTimeout || isAdmin) && (
-                      <Button variant="destructive" size="sm" onClick={() => setBanDialogUser(u.user_id)} className="gap-1">
-                        <Ban className="w-4 h-4" /> الحظر
-                      </Button>
-                    )}
+                  <div className="flex items-center justify-between gap-2 flex-wrap border-t pt-2.5">
+                    <span className={`text-xs font-medium rounded-full px-2 py-0.5 ${
+                      u.is_banned
+                        ? "bg-destructive/10 text-destructive"
+                        : u.chat_banned
+                        ? "bg-orange-500/10 text-orange-600 dark:text-orange-400"
+                        : inTimeout
+                        ? "bg-amber-500/10 text-amber-600 dark:text-amber-400"
+                        : "bg-green-500/10 text-green-700 dark:text-green-400"
+                    }`}>
+                      {u.is_banned ? "🚫 محظور" : u.chat_banned ? "🔇 محظور شات" : inTimeout ? "⏱ تايم أوت" : "✅ نشط"}
+                    </span>
+                    <div className="flex gap-1 flex-wrap justify-end">
+                      {isAdmin && (
+                        <Button variant="ghost" size="sm" onClick={() => toggleUserGender(u.user_id, (u as any).gender)} className="gap-1" title="تغيير الجنس">
+                          {(u as any).gender === "male" ? "♂ ذكر" : (u as any).gender === "female" ? "♀ أنثى" : "؟"}
+                        </Button>
+                      )}
+                      {isAdmin && (
+                        <div className="flex gap-0.5">
+                          {(["light", "dark", "blue", "pink"] as const).map(t => (
+                            <Button key={t} variant="ghost" size="sm" onClick={() => setUserTheme(u.user_id, t)}
+                              className={`px-1.5 py-0.5 h-auto text-[10px] ${(u as any).theme === t ? "bg-primary/20 text-primary font-bold" : "text-muted-foreground"}`}
+                              title={`ثيم ${t}`}>
+                              {t === "light" ? "☀️" : t === "dark" ? "🌙" : t === "blue" ? "💙" : "🩷"}
+                            </Button>
+                          ))}
+                        </div>
+                      )}
+                      {isAdmin && (
+                        <Button variant="ghost" size="sm" onClick={() => { setRenameUserId(u.user_id); setNewName(u.full_name); }} className="gap-1" title="تغيير الاسم">
+                          <Edit2 className="w-4 h-4" />
+                        </Button>
+                      )}
+                      {isAdmin && (
+                        <Button variant="ghost" size="sm" onClick={() => { setFieldUserId(u.user_id); setNewField(u.field ?? null); }} className="gap-1" title="تغيير التخصص">
+                          <Layers className="w-4 h-4" />
+                        </Button>
+                      )}
+                      {isOwner && (
+                        <Button variant="outline" size="sm" onClick={() => setRolesDialogUser({ id: u.user_id, name: u.full_name })} className="gap-1">
+                          <ShieldCheck className="w-4 h-4" /> الرتب
+                        </Button>
+                      )}
+                      {canWarn && (
+                        <Button variant="outline" size="sm" onClick={() => setWarnUser(u.user_id)} className="gap-1" title="تحذير">
+                          <AlertTriangle className="w-4 h-4" /> تحذير
+                        </Button>
+                      )}
+                      {(canBanUsers || canTimeout || isAdmin) && (
+                        <Button variant="destructive" size="sm" onClick={() => setBanDialogUser(u.user_id)} className="gap-1">
+                          <Ban className="w-4 h-4" /> الحظر
+                        </Button>
+                      )}
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -589,43 +645,57 @@ const Admin = () => {
 
       {tab === "staff" && (
         <div className="space-y-3">
-          <p className="text-sm text-muted-foreground">قائمة أعضاء فريق الإدارة (مالك / أدمن / مشرف / مسؤول / مسؤول جولات).</p>
+          <TabHeader
+            icon={<ShieldCheck className="w-5 h-5" />}
+            title="الإدارة والمشرفين"
+            count={staffUsers.length}
+            desc="أعضاء فريق الإدارة: مالك، أدمن، مشرف، مسؤول، مسؤول جولات."
+          />
           {staffUsers.length === 0 ? (
             <p className="text-center text-muted-foreground py-8">لا يوجد أعضاء في فريق الإدارة بعد.</p>
           ) : staffUsers.map(u => {
             const rs = userRolesFor(u.user_id);
             return (
               <Card key={u.id}>
-                <CardContent className="py-3 flex items-center justify-between gap-2 flex-wrap">
-                  <div>
-                    <p className="font-medium">{formatDisplayName(u)}</p>
-                    <div className="flex gap-1 flex-wrap mt-1">
-                      {rs.includes("owner") && <span className="text-xs bg-amber-500 text-white rounded px-2 py-0.5">👑 المالك</span>}
-                      {rs.includes("admin") && <span className="text-xs bg-primary text-primary-foreground rounded px-2 py-0.5">👑 أدمن</span>}
-                      {rs.includes("moderator") && <span className="text-xs bg-blue-500/20 text-blue-600 dark:text-blue-400 rounded px-2 py-0.5">🛡️ مشرف</span>}
-                      {rs.includes("supervisor") && <span className="text-xs bg-purple-500/20 text-purple-600 dark:text-purple-400 rounded px-2 py-0.5">🧑‍💼 مسؤول</span>}
-                      {rs.includes("rounds_manager") && <span className="text-xs bg-green-500/20 text-green-600 dark:text-green-400 rounded px-2 py-0.5">📚 مسؤول جولات</span>}
+                <CardContent className="py-3.5">
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 text-sm font-bold overflow-hidden">
+                      {u.avatar_url ? (
+                        <img src={u.avatar_url} alt="" className="w-full h-full object-cover" />
+                      ) : (
+                        u.full_name?.charAt(0)
+                      )}
                     </div>
-                    {emailMap[u.user_id] && (
-                      <p className="text-xs text-muted-foreground mt-1" dir="ltr">📧 {emailMap[u.user_id]}</p>
+                    <div className="flex-1 min-w-[160px]">
+                      <p className="font-semibold">{formatDisplayName(u)}</p>
+                      <div className="flex gap-1 flex-wrap mt-1">
+                        {rs.includes("owner") && <span className="text-xs bg-amber-500 text-white rounded px-2 py-0.5">👑 المالك</span>}
+                        {rs.includes("admin") && <span className="text-xs bg-primary text-primary-foreground rounded px-2 py-0.5">👑 أدمن</span>}
+                        {rs.includes("moderator") && <span className="text-xs bg-blue-500/20 text-blue-600 dark:text-blue-400 rounded px-2 py-0.5">🛡️ مشرف</span>}
+                        {rs.includes("supervisor") && <span className="text-xs bg-purple-500/20 text-purple-600 dark:text-purple-400 rounded px-2 py-0.5">🧑‍💼 مسؤول</span>}
+                        {rs.includes("rounds_manager") && <span className="text-xs bg-green-500/20 text-green-600 dark:text-green-400 rounded px-2 py-0.5">📚 مسؤول جولات</span>}
+                        {emailMap[u.user_id] && (
+                          <span className="text-xs text-muted-foreground" dir="ltr">📧 {emailMap[u.user_id]}</span>
+                        )}
+                      </div>
+                    </div>
+                    {isOwner && (
+                      <div className="flex gap-1 flex-wrap justify-end shrink-0">
+                        <Button variant="ghost" size="sm" onClick={() => { setRenameUserId(u.user_id); setNewName(u.full_name); }} className="gap-1" title="تغيير الاسم">
+                          <Edit2 className="w-4 h-4" /> الاسم
+                        </Button>
+                        <Button variant="outline" size="sm" onClick={() => setRolesDialogUser({ id: u.user_id, name: u.full_name })} className="gap-1">
+                          <ShieldCheck className="w-4 h-4" /> تعديل الرتب
+                        </Button>
+                        <Button variant="outline" size="sm" onClick={() => setWarnUser(u.user_id)} className="gap-1" title="تحذير">
+                          <AlertTriangle className="w-4 h-4" /> تحذير
+                        </Button>
+                        <Button variant="destructive" size="sm" onClick={() => setBanDialogUser(u.user_id)} className="gap-1" title="الحظر (مالك فقط)">
+                          <Ban className="w-4 h-4" /> الحظر
+                        </Button>
+                      </div>
                     )}
                   </div>
-                  {isOwner && (
-                    <div className="flex gap-1 flex-wrap justify-end">
-                      <Button variant="ghost" size="sm" onClick={() => { setRenameUserId(u.user_id); setNewName(u.full_name); }} className="gap-1" title="تغيير الاسم">
-                        <Edit2 className="w-4 h-4" /> الاسم
-                      </Button>
-                      <Button variant="outline" size="sm" onClick={() => setRolesDialogUser({ id: u.user_id, name: u.full_name })} className="gap-1">
-                        <ShieldCheck className="w-4 h-4" /> تعديل الرتب
-                      </Button>
-                      <Button variant="outline" size="sm" onClick={() => setWarnUser(u.user_id)} className="gap-1" title="تحذير">
-                        <AlertTriangle className="w-4 h-4" /> تحذير
-                      </Button>
-                      <Button variant="destructive" size="sm" onClick={() => setBanDialogUser(u.user_id)} className="gap-1" title="الحظر (مالك فقط)">
-                        <Ban className="w-4 h-4" /> الحظر
-                      </Button>
-                    </div>
-                  )}
                 </CardContent>
               </Card>
             );
@@ -634,31 +704,48 @@ const Admin = () => {
       )}
 
       {tab === "banned" && (
-        <div className="space-y-2">
+        <div className="space-y-3">
+          <TabHeader
+            icon={<Ban className="w-5 h-5" />}
+            title="المحظورين"
+            count={users.filter(u => u.is_banned || u.chat_banned || (u.timeout_until && new Date(u.timeout_until) > new Date())).length}
+            desc="الحسابات المحظورة أو الموقوفة مؤقتاً، وإدارتها."
+          />
           {users.filter(u => u.is_banned || u.chat_banned || (u.timeout_until && new Date(u.timeout_until) > new Date())).length === 0 ? (
             <p className="text-center text-muted-foreground py-8">لا يوجد مستخدمين محظورين حالياً</p>
           ) : users.filter(u => u.is_banned || u.chat_banned || (u.timeout_until && new Date(u.timeout_until) > new Date())).map(u => (
             <Card key={u.id}>
-              <CardContent className="py-3 flex items-center justify-between gap-2 flex-wrap">
-                <div>
-                  <p className="font-medium">{formatDisplayName(u)}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {u.is_banned && "🚫 محظور كامل "}
-                    {u.chat_banned && "🔇 محظور شات "}
-                    {u.timeout_until && new Date(u.timeout_until) > new Date() && `⏱ حتى ${new Date(u.timeout_until).toLocaleString("ar")}`}
-                  </p>
-                  {emailMap[u.user_id] && (
-                    <p className="text-xs text-muted-foreground mt-0.5" dir="ltr">📧 {emailMap[u.user_id]}</p>
+              <CardContent className="py-3.5">
+                <div className="flex items-center gap-3 flex-wrap">
+                  <div className="w-10 h-10 rounded-full bg-muted text-muted-foreground flex items-center justify-center shrink-0 text-sm font-bold overflow-hidden">
+                    {u.avatar_url ? (
+                      <img src={u.avatar_url} alt="" className="w-full h-full object-cover" />
+                    ) : (
+                      u.full_name?.charAt(0)
+                    )}
+                  </div>
+                  <div className="flex-1 min-w-[160px]">
+                    <p className="font-semibold">{formatDisplayName(u)}</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      {u.is_banned && <span className="text-destructive">🚫 محظور كامل</span>}
+                      {u.is_banned && u.chat_banned && <span className="mx-1">·</span>}
+                      {u.chat_banned && <span className="text-orange-600 dark:text-orange-400">🔇 محظور شات</span>}
+                      {(u.is_banned || u.chat_banned) && u.timeout_until && new Date(u.timeout_until) > new Date() && <span className="mx-1">·</span>}
+                      {u.timeout_until && new Date(u.timeout_until) > new Date() && <span className="text-amber-600 dark:text-amber-400">⏱ حتى {new Date(u.timeout_until).toLocaleString("ar")}</span>}
+                    </p>
+                    {emailMap[u.user_id] && (
+                      <p className="text-xs text-muted-foreground mt-0.5" dir="ltr">📧 {emailMap[u.user_id]}</p>
+                    )}
+                  </div>
+                  {(isAdmin || canBanUsers || canTimeout) && (
+                    <div className="flex gap-1 flex-wrap shrink-0">
+                      {u.is_banned && canBanUsers && <Button size="sm" variant="outline" onClick={() => toggleBan(u.user_id, true)}>رفع الحظر</Button>}
+                      {u.chat_banned && canBanUsers && <Button size="sm" variant="outline" onClick={() => toggleChatBan(u.user_id, true)}>رفع حظر الشات</Button>}
+                      {u.timeout_until && new Date(u.timeout_until) > new Date() && canTimeout && <Button size="sm" variant="outline" onClick={() => clearTimeout_(u.user_id)}>رفع التايم اوت</Button>}
+                      <Button size="sm" variant="destructive" onClick={() => setBanDialogUser(u.user_id)}>خيارات الحظر</Button>
+                    </div>
                   )}
                 </div>
-                {(isAdmin || canBanUsers || canTimeout) && (
-                  <div className="flex gap-1 flex-wrap">
-                    {u.is_banned && canBanUsers && <Button size="sm" variant="outline" onClick={() => toggleBan(u.user_id, true)}>رفع الحظر</Button>}
-                    {u.chat_banned && canBanUsers && <Button size="sm" variant="outline" onClick={() => toggleChatBan(u.user_id, true)}>رفع حظر الشات</Button>}
-                    {u.timeout_until && new Date(u.timeout_until) > new Date() && canTimeout && <Button size="sm" variant="outline" onClick={() => clearTimeout_(u.user_id)}>رفع التايم اوت</Button>}
-                    <Button size="sm" variant="destructive" onClick={() => setBanDialogUser(u.user_id)}>خيارات الحظر</Button>
-                  </div>
-                )}
               </CardContent>
             </Card>
           ))}
@@ -670,6 +757,12 @@ const Admin = () => {
 
       {tab === "words" && (canManageWords || isAdmin) && (
         <div className="space-y-4">
+          <TabHeader
+            icon={<MessageCircle className="w-5 h-5" />}
+            title="الكلمات المحظورة"
+            count={bannedWords.length}
+            desc="كلمات تُمنع تلقائياً في المنشورات والتعليقات والرسائل."
+          />
           <div className="flex gap-2">
             <Input value={newWord} onChange={e => setNewWord(e.target.value)} placeholder="أضف كلمة محظورة..." onKeyDown={e => e.key === "Enter" && addBannedWord()} />
             <Button onClick={addBannedWord} className="gap-1"><Plus className="w-4 h-4" /> إضافة</Button>
@@ -687,6 +780,11 @@ const Admin = () => {
 
       {tab === "deleted" && isAdmin && (
         <div className="space-y-6">
+          <TabHeader
+            icon={<Archive className="w-5 h-5" />}
+            title="المحذوفات"
+            desc="محتوى محذوف من المنصة؛ يمكن حذفه نهائياً (لا رجعة فيه)."
+          />
           <div>
             <h3 className="font-semibold mb-3 flex items-center gap-2"><Archive className="w-4 h-4" /> منشورات محذوفة ({deletedPosts.length})</h3>
             {deletedPosts.length === 0 ? (
@@ -754,7 +852,11 @@ const Admin = () => {
 
       {tab === "sections" && (canLockSections || isAdmin) && (
         <div className="space-y-3">
-          <p className="text-sm text-muted-foreground">يمكنك إغلاق أي قسم مؤقتاً وإضافة رسالة وعدّاد تنازلي يظهر للمستخدمين.</p>
+          <TabHeader
+            icon={<Layers className="w-5 h-5" />}
+            title="الأقسام والقنوات"
+            desc="إغلاق أي قسم مؤقتاً مع رسالة وعدّاد، وضبط قناة الدردشة النشطة."
+          />
           {[
             { key: "chat", label: "الدردشة (كامل القسم)" },
             { key: "chat_all", label: "دردشة الجميع (المشتركة)" },
@@ -810,7 +912,11 @@ const Admin = () => {
 
       {tab === "audit" && (
         <div className="space-y-2">
-          <p className="text-sm text-muted-foreground">آخر 200 إجراء قام به فريق الإدارة.</p>
+          <TabHeader
+            icon={<ScrollText className="w-5 h-5" />}
+            title="سجل الإدارة"
+            desc="آخر 200 إجراء قام به فريق الإدارة."
+          />
           {auditLog.length === 0 ? (
             <p className="text-center text-muted-foreground py-6">لا يوجد سجل بعد.</p>
           ) : auditLog.map(a => (
@@ -921,12 +1027,17 @@ const Admin = () => {
 
       {tab === "pending" && (isAdmin || isModerator) && (
         <div className="space-y-4">
-          <h3 className="font-semibold flex items-center gap-2">
-            <Clock className="w-4 h-4 text-amber-500" /> منشورات بانتظار المراجعة ({pendingCount})
-            <Button size="sm" variant="ghost" className="mr-auto gap-1" onClick={() => void fetchPendingPosts()}>
-              <RefreshCw className="w-3 h-3" /> تحديث
-            </Button>
-          </h3>
+          <TabHeader
+            icon={<Clock className="w-5 h-5" />}
+            title="منشورات بانتظار المراجعة"
+            count={pendingCount}
+            desc="مراجعة المنشورات التي تنتظر موافقة فريق الإدارة قبل النشر."
+            action={
+              <Button size="sm" variant="outline" className="gap-1" onClick={() => void fetchPendingPosts()}>
+                <RefreshCw className="w-3 h-3" /> تحديث
+              </Button>
+            }
+          />
           {pendingPosts.length === 0 ? (
             <p className="text-sm text-muted-foreground text-center py-8">لا توجد منشورات بانتظار المراجعة</p>
           ) : (
