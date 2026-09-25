@@ -227,6 +227,12 @@ function Admin() {
   const [reopenLocal, setReopenLocal] = useState("");
   const [postBg, setPostBg] = useState("#fef3c7");
   const [postText, setPostText] = useState("#78350f");
+  const [users, setUsers] = useState<any[]>([]);
+  const [usersTotal, setUsersTotal] = useState(0);
+  const [userSearch, setUserSearch] = useState("");
+  const [userPage, setUserPage] = useState(0);
+  const [usersLoading, setUsersLoading] = useState(false);
+  const USER_PAGE = 50;
   const [commentBg, setCommentBg] = useState("#fef3c7");
   const [commentText, setCommentText] = useState("#78350f");
 
@@ -269,6 +275,22 @@ function Admin() {
     setHiddenPosts(hp ?? []);
     setReports(rp ?? []);
   }
+
+  async function loadUsers(search = userSearch, page = userPage) {
+    setUsersLoading(true);
+    const { data, error } = await (supabase.rpc as any)("admin_list_devices", {
+      p_search: search || null, p_limit: USER_PAGE, p_offset: page * USER_PAGE,
+    });
+    setUsersLoading(false);
+    if (error) { toast.error("تعذر تحميل المستخدمين: " + error.message); return; }
+    setUsers(data?.rows ?? []);
+    setUsersTotal(data?.total ?? 0);
+  }
+
+  useEffect(() => {
+    if (!isAdmin) return;
+    void loadUsers("", 0);
+  }, [isAdmin]);
 
   useEffect(() => {
     if (!isAdmin) return;
@@ -399,7 +421,8 @@ function Admin() {
             <TabsTrigger value="reports"><Flag className="h-3 w-3 ml-1" />البلاغات ({reports.filter((r) => r.status === "open").length})</TabsTrigger>
             <TabsTrigger value="hidden">مخفي ({hiddenPosts.length})</TabsTrigger>
             <TabsTrigger value="chat"><MessageSquare className="h-3 w-3 ml-1" />الشات</TabsTrigger>
-            <TabsTrigger value="blocks">المحظورون ({blocks.length})</TabsTrigger>
+            <TabsTrigger value="users">المستخدمون ({usersTotal})</TabsTrigger>
+            <TabsTrigger value="blocks">المحظورين ({blocks.length})</TabsTrigger>
             <TabsTrigger value="admins">الأدمن ({admins.length})</TabsTrigger>
           </TabsList>
 
@@ -537,6 +560,52 @@ function Admin() {
 
 
 
+
+          <TabsContent value="users" className="mt-4 space-y-3">
+            <div className="flex flex-wrap items-center gap-2">
+              <Input
+                value={userSearch}
+                onChange={(e) => { setUserSearch(e.target.value); setUserPage(0); }}
+                onKeyDown={(e) => { if (e.key === "Enter") loadUsers(userSearch, 0); }}
+                placeholder="ابحث بالاسم أو المعرّف…"
+                className="h-9 max-w-xs"
+              />
+              <Button size="sm" variant="outline" onClick={() => loadUsers(userSearch, 0)} disabled={usersLoading}>
+                {usersLoading ? <Loader2 className="h-3 w-3 animate-spin" /> : <UserCircle2 className="h-3 w-3" />} بحث
+              </Button>
+              <span className="text-xs text-muted-foreground">المجموع: {usersTotal}</span>
+              <div className="ms-auto flex items-center gap-1">
+                <Button size="sm" variant="ghost" disabled={userPage === 0 || usersLoading} onClick={() => { const p = userPage - 1; setUserPage(p); void loadUsers(userSearch, p); }}>السابق</Button>
+                <span className="text-xs">{userPage + 1} / {Math.max(1, Math.ceil(usersTotal / USER_PAGE))}</span>
+                <Button size="sm" variant="ghost" disabled={(userPage + 1) * USER_PAGE >= usersTotal || usersLoading} onClick={() => { const p = userPage + 1; setUserPage(p); void loadUsers(userSearch, p); }}>التالي</Button>
+              </div>
+            </div>
+            <div className="space-y-2">
+              {users.length === 0 && !usersLoading && <p className="text-sm text-muted-foreground">لا يوجد مستخدمون.</p>}
+              {users.map((u) => (
+                <div key={u.device_id} className="space-y-1 rounded-xl border border-border bg-card p-3 text-sm">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <DeviceNameTag name={u.name || null} deviceId={u.device_id} showId />
+                    <div className="flex flex-wrap items-center gap-1">
+                      {u.label && <span className="rounded-md bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold text-primary">{u.label}</span>}
+                      {u.is_blocked && <span className="rounded-md bg-destructive/15 px-1.5 py-0.5 text-[10px] font-bold text-destructive">محظور</span>}
+                      {u.warning && <span className="rounded-md bg-amber-500/20 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">مُحذَّر</span>}
+                      {u.is_admin && <span className="rounded-md bg-emerald-500/15 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700">أدمن</span>}
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-[11px] text-muted-foreground">
+                    <span>رقم مجهول: {u.anon_number || "—"}</span>
+                    <span>منشورات: {u.post_count}</span>
+                    <span>تعليقات: {u.comment_count}</span>
+                    <span>شات: {u.chat_count}</span>
+                    <span>زيارات: {u.visits}</span>
+                    <span>آخر ظهور: {u.last_seen ? formatDistanceToNow(new Date(u.last_seen), { addSuffix: true, locale: ar }) : "—"}</span>
+                  </div>
+                  {u.warning && <div className="rounded-md bg-amber-500/10 px-2 py-1 text-[11px] text-amber-800">تحذير مُرسَل: {u.warning}</div>}
+                </div>
+              ))}
+            </div>
+          </TabsContent>
 
           <TabsContent value="blocks" className="mt-4 space-y-4">
             <section className="rounded-2xl border border-border bg-card p-4">
