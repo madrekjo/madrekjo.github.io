@@ -72,6 +72,7 @@ const PRAYERS = [
 ] as const;
 
 const PREFS_KEY = "prayer-prefs";
+const ADHAN_NOTES = [392, 440, 392, 440, 494, 440, 392, 330, 392, 330, 294, 262];
 
 interface TimesFields {
   fajr: Date;
@@ -103,30 +104,38 @@ function fmt(d: Date): string {
   return `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
 }
 
-function playAdhan() {
+function acFactory(): typeof AudioContext | null {
+  const AC =
+    window.AudioContext ||
+    (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+  return AC ?? null;
+}
+
+function toneAt(ctx: AudioContext, at: number) {
+  let t = at + 0.05;
+  ADHAN_NOTES.forEach((freq, i) => {
+    const osc = ctx.createOscillator();
+    const g = ctx.createGain();
+    osc.type = "sine";
+    osc.frequency.value = freq;
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(0.35, t + 0.03);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 1.1);
+    osc.connect(g);
+    g.connect(ctx.destination);
+    osc.start(t);
+    osc.stop(t + 1.2);
+    t += i % 2 === 0 ? 0.95 : 0.55;
+  });
+}
+
+function playAdhan(ctx?: AudioContext | null) {
   try {
-    const AC = (window.AudioContext ||
-      (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext);
+    const AC = acFactory();
     if (!AC) return;
-    const ctx = new AC();
-    const now = ctx.currentTime;
-    const notes = [392, 440, 392, 440, 494, 440, 392, 330, 392, 330, 294, 262];
-    let t = now + 0.05;
-    notes.forEach((freq, i) => {
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = "sine";
-      osc.frequency.value = freq;
-      gain.gain.setValueAtTime(0.0001, t);
-      gain.gain.exponentialRampToValueAtTime(0.35, t + 0.03);
-      gain.gain.exponentialRampToValueAtTime(0.0001, t + 1.1);
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start(t);
-      osc.stop(t + 1.2);
-      t += i % 2 === 0 ? 0.95 : 0.55;
-    });
-    setTimeout(() => ctx.close(), 12000);
+    const c = ctx ?? new AC();
+    if (c.state === "suspended") void c.resume();
+    toneAt(c, c.currentTime);
   } catch {
     /* ignore */
   }
@@ -165,6 +174,11 @@ export default function PrayerTimes({ compact }: { compact?: boolean }) {
   const [tick, setTick] = useState(() => Date.now());
   const timersRef = useRef<number[]>([]);
   const dayTimerRef = useRef<number | null>(null);
+  const workerRef = useRef<Worker | null>(null);
+  const ctxRef = useRef<AudioContext | null>(null);
+  const firedRef = useRef<Set<string>>(new Set());
+  const armedRef = useRef<Set<string>>(new Set());
+  const idNameRef = useRef<Map<string, string>>(new Map());
 
   const lat = prefs.lat ?? CITIES[prefs.city][0];
   const lng = prefs.lng ?? CITIES[prefs.city][1];
@@ -173,11 +187,46 @@ export default function PrayerTimes({ compact }: { compact?: boolean }) {
     localStorage.setItem(PREFS_KEY, JSON.stringify(prefs));
   }, [prefs]);
 
-  const clearTimers = () => {
+  const fireAlarm = useCallback((id: string, name: string) => {
+    if (firedRef.current.has(id)) return;
+    firedRef.current.add(id);
+    const wasArmed = armedRef.current.delete(id);
+    if (!wasArmed) playAdhan(ctxRef.current);
+    if ("Notification" in window && Notification.permission === "granted") {
+      try {
+        new Notification(`حانت صلاة ${name}`, {
+          body: "اللهم إنك عفوٌّ تحب العفو",
+        });
+      } catch {
+        /* ignore */
+      }
+    }
+  }, []);
+
+  const ensureWorker = useCallback((): Worker | null => {
+    if (workerRef.current) return workerRef.current;
+    try {
+      const w = new Worker(new URL("../lib/alarmWorker.ts", import.meta.url));
+      w.onmessage = (e: MessageEvent<{ id?: string }>) => {
+        const id = e.data?.id;
+        if (!id) return;
+        fireAlarm(id, idNameRef.current.get(id) ?? "");
+      };
+      workerRef.current = w;
+      return w;
+    } catch {
+      return null;
+    }
+  }, [fireAlarm]);
+
+  const clearTimers = useCallback(() => {
     timersRef.current.forEach((t) => window.clearTimeout(t));
     timersRef.current = [];
     if (dayTimerRef.current) window.clearTimeout(dayTimerRef.current);
-  };
+    dayTimerRef.current = null;
+    firedRef.current.clear();
+    workerRef.current?.postMessage({ cmd: "clearAll" });
+  }, []);
 
   const times = useMemo(() => {
     const params = (METHODS.find((m) => m.key === prefs.method) ?? METHODS[0]).make();
@@ -201,8 +250,7 @@ export default function PrayerTimes({ compact }: { compact?: boolean }) {
   const now = new Date();
   const nextIdx = rows.findIndex((r) => r.time.getTime() > now.getTime() + 15 * 1000);
   const nextName = nextIdx >= 0 ? rows[nextIdx].name : "الفجر (غداً)";
-  const nextMs =
-    nextIdx >= 0 ? rows[nextIdx].time.getTime() - now.getTime() : null;
+  const nextMs = nextIdx >= 0 ? rows[nextIdx].time.getTime() - now.getTime() : null;
   const countdown =
     nextMs != null
       ? nextMs > 60000
@@ -227,26 +275,22 @@ export default function PrayerTimes({ compact }: { compact?: boolean }) {
       maghrib: pt.maghrib,
       isha: pt.isha,
     } as Record<string, Date | null>;
+    const ctx = ctxRef.current;
+    const worker = workerRef.current;
+    const dayId = base.toDateString().replace(/ /g, "-");
     PRAYERS.forEach((p) => {
       if (p.key === "sunrise") return;
       const ptime = pf[p.key];
       if (!ptime) return;
       const delay = ptime.getTime() - Date.now();
-      if (delay > 0) {
-        timersRef.current.push(
-          window.setTimeout(() => {
-            playAdhan();
-            if (Notification.permission === "granted") {
-              try {
-                new Notification("حانت صلاة " + p.name, {
-                  body: "اللهم إنك عفوٌّ تحب العفو",
-                });
-              } catch {
-                /* ignore */
-              }
-            }
-          }, delay)
-        );
+      if (delay <= 0) return;
+      const id = `${dayId}-${p.key}`;
+      idNameRef.current.set(id, p.name);
+      timersRef.current.push(window.setTimeout(() => fireAlarm(id, p.name), delay));
+      worker?.postMessage({ cmd: "set", id, ts: ptime.getTime() });
+      if (ctx) {
+        armedRef.current.add(id);
+        toneAt(ctx, ctx.currentTime + delay / 1000);
       }
     });
     const tillMidnight =
@@ -254,7 +298,7 @@ export default function PrayerTimes({ compact }: { compact?: boolean }) {
     dayTimerRef.current = window.setTimeout(() => {
       setDayKey(new Date().toDateString());
     }, tillMidnight + 2000);
-  }, [lat, lng, prefs.method, alarmOn]);
+  }, [lat, lng, prefs.method, dayKey, clearTimers, fireAlarm]);
 
   useEffect(() => {
     if (!alarmOn) {
@@ -263,7 +307,7 @@ export default function PrayerTimes({ compact }: { compact?: boolean }) {
     }
     schedule();
     return clearTimers;
-  }, [alarmOn, schedule]);
+  }, [alarmOn, schedule, clearTimers]);
 
   useEffect(() => {
     const iv = window.setInterval(() => setTick(Date.now()), 30000);
@@ -271,19 +315,22 @@ export default function PrayerTimes({ compact }: { compact?: boolean }) {
   }, []);
 
   const toggleAlarm = () => {
-    if (!alarmOn) {
-      if (!("Notification" in window) || Notification.permission === "denied") {
-        playAdhan();
-        setAlarmOn(true);
-        return;
-      }
-      Notification.requestPermission().then((p) => {
-        setNotifState(p);
-        setAlarmOn(true);
-      });
-    } else {
+    if (alarmOn) {
       setAlarmOn(false);
+      return;
     }
+    const ctx = ensureAudio(ctxRef);
+    ctxRef.current = ctx;
+    ensureWorker();
+    playAdhan(ctx);
+    if (!("Notification" in window) || Notification.permission === "denied") {
+      setAlarmOn(true);
+      return;
+    }
+    Notification.requestPermission().then((p) => {
+      setNotifState(p);
+      setAlarmOn(true);
+    });
   };
 
   const useMyLocation = () => {
@@ -356,7 +403,7 @@ export default function PrayerTimes({ compact }: { compact?: boolean }) {
               cursor: "pointer",
               fontWeight: 700,
             }}
-            title="منبه آذان بسيط + إشعار"
+            title="منبه يؤذن في وقت الصلاة حتى لو طلعت من التبويب"
           >
             {alarmOn ? "⏰ المنبه مفعّل" : "🔔 فعّل المنبه"}
           </button>
@@ -374,9 +421,8 @@ export default function PrayerTimes({ compact }: { compact?: boolean }) {
             fontSize: 12,
           }}
         >
-          سيُنبهك عند كل صلاة اليوم
-          {notifState !== "granted" && " (صوت فقط — أعد السماح بالإشعارات للتنبيه بظهر الشاشة)"}
-          . اترك الصفحة مفتوحة لو أردت المنبه.
+          سيُؤذَّن عند كل صلاة حتى لو علّقت التبويب
+          {notifState !== "granted" && " (صوت فقط — أعد السماح بالإشعارات ليتنبّه الظل بالشاشة)"}
         </div>
       )}
 
@@ -462,6 +508,41 @@ export default function PrayerTimes({ compact }: { compact?: boolean }) {
       )}
     </div>
   );
+}
+
+function ensureAudio(ctxRef: { current: AudioContext | null }): AudioContext | null {
+  if (ctxRef.current) {
+    if (ctxRef.current.state === "suspended") void ctxRef.current.resume();
+    return ctxRef.current;
+  }
+  const AC = acFactory();
+  if (!AC) return null;
+  const ctx = new AC();
+  ctxRef.current = ctx;
+  try {
+    const buf = ctx.createBuffer(1, 1, 22050);
+    const src = ctx.createBufferSource();
+    src.buffer = buf;
+    src.loop = true;
+    const g = ctx.createGain();
+    g.gain.value = 0.0001;
+    src.connect(g);
+    g.connect(ctx.destination);
+    src.start();
+  } catch {
+    /* ignore */
+  }
+  try {
+    if ("mediaSession" in navigator) {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: "مدارك — أوقات الصلاة",
+        artist: "مدارك جو",
+      });
+    }
+  } catch {
+    /* ignore */
+  }
+  return ctx;
 }
 
 const selectStyle: CSSProperties = {
