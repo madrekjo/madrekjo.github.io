@@ -23,6 +23,11 @@ import { renderMentions, submitMentions } from "@/lib/mentions";
 import { ShieldCheck, Crown, Instagram } from "lucide-react";
 import { REACTIONS, reactionEmoji } from "@/lib/reactions";
 
+const SocialBadge = ({ social }: { social: boolean }) => {
+  if (!social) return null;
+  return <span title="مسؤول السوشيال ميديا" className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-orange-500 border border-orange-300/70 shrink-0 shadow-[0_0_6px_rgba(249,115,22,0.8)]"><Instagram className="w-2 h-2 text-white" /></span>;
+};
+
 const VerificationBadge = ({ gender, isAuthorAdmin, isAuthorOwner, isAuthorSocial }: { gender?: string | null; isAuthorAdmin: boolean; isAuthorOwner?: boolean; isAuthorSocial?: boolean }) => {
   if (isAuthorOwner) {
     return <span title="المالك" className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-600 border border-yellow-200/60 shrink-0 shadow-[0_0_6px_rgba(251,191,36,0.8)]"><Crown className="w-2.5 h-2.5 text-white" /></span>;
@@ -642,6 +647,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
                       <button onClick={() => setProfileUserId(comment.user_id)} className="text-xs font-semibold hover:underline">
                         {ownerName(comment.profiles, comment.user_id)}
                       </button>
+                      <SocialBadge social={socialIds.has(comment.user_id)} />
                       {comment.profiles?.gender === "male" && <span className="inline-flex items-center justify-center w-3 h-3 rounded-full bg-blue-500 shrink-0" />}
                       {comment.profiles?.gender === "female" && <span className="inline-flex items-center justify-center w-3 h-3 rounded-full bg-pink-500 shrink-0" />}
                       <RoundsBadge userId={comment.user_id} />
@@ -713,6 +719,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
                     <div className="flex items-center justify-between">
                       <button onClick={() => setProfileUserId(reply.user_id)} className="text-xs font-semibold hover:underline flex items-center gap-1">
                         {ownerName(reply.profiles, reply.user_id)}
+                        <SocialBadge social={socialIds.has(reply.user_id)} />
                         {reply.profiles?.gender === "male" && <span className="inline-flex items-center justify-center w-2.5 h-2.5 rounded-full bg-blue-500 shrink-0" />}
                         {reply.profiles?.gender === "female" && <span className="inline-flex items-center justify-center w-2.5 h-2.5 rounded-full bg-pink-500 shrink-0" />}
                         <RoundsBadge userId={reply.user_id} />
