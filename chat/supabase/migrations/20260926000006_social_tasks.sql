@@ -16,6 +16,17 @@
 --   حذف المهمة         → owner / admin / moderator
 -- ============================================================================
 
+-- [0] صف الصلاحيات: كل الحقول false (اجتماعية بدون أي صلاحيات إدارية)
+INSERT INTO public.role_permissions
+  (role, can_delete_posts, can_delete_comments, can_ban_users, can_timeout,
+   can_warn, can_manage_reports, can_lock_sections, can_manage_words)
+VALUES
+  ('social_admin', false, false, false, false, false, false, false, false)
+ON CONFLICT (role) DO UPDATE SET
+  can_delete_posts = false, can_delete_comments = false, can_ban_users = false,
+  can_timeout = false, can_warn = false, can_manage_reports = false,
+  can_lock_sections = false, can_manage_words = false, updated_at = now();
+
 CREATE TABLE IF NOT EXISTS public.social_tasks (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   title text NOT NULL CHECK (char_length(title) BETWEEN 2 AND 200),
