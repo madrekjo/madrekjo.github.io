@@ -1,19 +1,20 @@
 import { createContext, useContext, useEffect, useRef, useState, ReactNode } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 export type Theme = "light" | "dark" | "blue" | "pink" | "sleep";
 
 export const THEMES: Theme[] = ["light", "dark", "blue", "pink", "sleep"];
 
-/** وضع النوم يُجبر يومياً من الساعة 10 مساءً حتى 7 صباحاً. */
+/** وضع النوم يُجبر من الساعة 10 مساءً حتى 7 صباحاً. */
 export const SLEEP_START_HOUR = 22;
 export const SLEEP_END_HOUR = 7;
 
 interface ThemeContextType {
   theme: Theme;
   setTheme: (theme: Theme) => void;
-  /** 1 = وضع النوم مفروض الآن (قبل أن يتدخل المستخدم يدوياً). */
+  /** 1 = وضع النوم مفروض الآن (بعد الساعة 10 — لا تبديل). */
   sleepForced: boolean;
 }
 
@@ -43,21 +44,20 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     return "light";
   });
 
-  // «إجبار النوم» یُفرض تلقائياً عند الدخول ليلاً، ويتلاشى فور اختيار المستخدم يدوياً.
   const [sleepForced, setSleepForced] = useState<boolean>(() => isSleepWindow());
-  // اختيار يدوي خلال الليل يبطل الإجبار لنفس الجلسة (حتى نهاية نافذة النوم).
-  const overrideRef = useRef(false);
+  const prevForcedRef = useRef<boolean>(isSleepWindow());
 
   // تنسيق الساعة الخارجية — يُفحص كل دقيقة + عند عودة التبويب / التركيز.
+  // عند التحول ليلاً (قبل 10م → بعده) يُشعِر المستخدم فوراً.
   useEffect(() => {
     const tick = () => {
       const inWindow = isSleepWindow();
-      if (inWindow && overrideRef.current) {
-        setSleepForced(false); // المستخدم اختار يدوياً — نتركه حتى الصباح
-      } else {
-        setSleepForced(inWindow);
-        if (!inWindow) overrideRef.current = false; // يوم جديد — يعود الإجبار الليلي
+      const prev = prevForcedRef.current;
+      if (!prev && inWindow) {
+        toast("🌙 حان وقت النوم… انتبه على النوم 📿 عشان صلاة الفجر");
       }
+      prevForcedRef.current = inWindow;
+      setSleepForced(inWindow);
     };
     tick();
     const id = setInterval(tick, 60_000);
@@ -70,7 +70,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  // الثيم الفعلي: وضع النوم يُفضل تلقائياً لكن أي ضغطة يدوية تترك اختيار المستخدم.
+  // بعد الساعة 10 وضع النوم مفروض مهما كان الثيم المختار.
   const theme: Theme = sleepForced ? "sleep" : preferred;
 
   useEffect(() => {
@@ -78,9 +78,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     if (!sleepForced) localStorage.setItem("theme", preferred);
   }, [theme, sleepForced, preferred]);
 
-  // مزامنة الثيم المحفوظ في البروفايل (فقط خارج نافذة النوم حتى لا يتعارض).
-  // لا نعتمد على preferred هنا — تحديث وظيفي حتى لا يرتدّ الثيم فوراً عند أي
-  // تبديل يدوي (كان الـ dep سبب وميض: الثيم الجديد ظهر لحظة ثم رجع للقديم).
+  // مزامنة الثيم المحفوظ في البروفايل (خارج نافذة النوم فقط حتى لا يتعارض).
+  // تحديث وظيفي — دون الاعتماد على preferred — حتى لا يرتدّ الثيم فور الضغط.
   useEffect(() => {
     if (sleepForced) return;
     const t = profile?.theme as Theme | null | undefined;
@@ -89,10 +88,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, [profile?.theme, sleepForced]);
 
   const setTheme = (newTheme: Theme) => {
-    // اختيار يدوي (غير النوم) يبطل الإجبار الليلي لهذه الجلسة ويعمل فوراً.
+    // بعد الساعة 10: ممنوع تبديل الثيم إطلاقاً.
     if (sleepForced && newTheme !== "sleep") {
-      overrideRef.current = true;
-      setSleepForced(false);
+      toast("وضع النوم مفروض حتى السابعة صباحاً 🌙");
+      return;
     }
     setPreferred(newTheme);
     localStorage.setItem("theme", newTheme);
