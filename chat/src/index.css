@@ -181,46 +181,46 @@
      يُجبر على الجميع من الساعة 10 مساءً حتى 7 صباحاً،
      ويمكن اختياره يدوياً في أي وقت (الثيم الاختياري لوضع النوم). */
   .sleep {
-    /* لوحة نوم دافئة (كهرماني معتم) — خالية من الأزرق، مريحة للعين قبل النوم */
-    --background: 30 25% 8%;
-    --foreground: 41 45% 82%;
+    /* عتمة كاملة مريحة للعين — أسود دافئ، نصوص باهتة، لا سطوع */
+    --background: 30 20% 4%;
+    --foreground: 38 22% 64%;
 
-    --card: 31 25% 12%;
-    --card-foreground: 41 45% 82%;
+    --card: 28 18% 7%;
+    --card-foreground: 38 22% 64%;
 
-    --popover: 31 25% 12%;
-    --popover-foreground: 41 45% 82%;
+    --popover: 28 18% 7%;
+    --popover-foreground: 38 22% 64%;
 
-    --primary: 38 92% 50%;
-    --primary-foreground: 25 60% 9%;
+    --primary: 38 75% 45%;
+    --primary-foreground: 40 30% 88%;
 
-    --secondary: 31 25% 14%;
-    --secondary-foreground: 41 40% 80%;
+    --secondary: 28 18% 9%;
+    --secondary-foreground: 38 18% 60%;
 
-    --muted: 31 25% 14%;
-    --muted-foreground: 36 14% 62%;
+    --muted: 28 18% 9%;
+    --muted-foreground: 36 12% 48%;
 
-    --accent: 35 90% 55%;
-    --accent-foreground: 25 60% 9%;
+    --accent: 35 65% 42%;
+    --accent-foreground: 40 30% 88%;
 
-    --destructive: 8 45% 32%;
-    --destructive-foreground: 40 30% 88%;
+    --destructive: 8 40% 26%;
+    --destructive-foreground: 40 25% 80%;
 
-    --border: 31 22% 19%;
-    --input: 31 22% 19%;
-    --ring: 38 92% 50%;
+    --border: 30 14% 13%;
+    --input: 30 14% 13%;
+    --ring: 38 70% 42%;
 
-    --sidebar-background: 31 25% 12%;
-    --sidebar-foreground: 41 40% 80%;
-    --sidebar-primary: 38 92% 50%;
-    --sidebar-primary-foreground: 25 60% 9%;
-    --sidebar-accent: 31 25% 14%;
-    --sidebar-accent-foreground: 41 40% 80%;
-    --sidebar-border: 31 22% 19%;
-    --sidebar-ring: 38 92% 50%;
+    --sidebar-background: 28 18% 7%;
+    --sidebar-foreground: 38 18% 60%;
+    --sidebar-primary: 38 75% 45%;
+    --sidebar-primary-foreground: 40 30% 88%;
+    --sidebar-accent: 28 18% 9%;
+    --sidebar-accent-foreground: 38 18% 60%;
+    --sidebar-border: 30 14% 13%;
+    --sidebar-ring: 38 70% 42%;
 
-    --success: 38 75% 40%;
-    --success-foreground: 0 0% 100%;
+    --success: 38 60% 38%;
+    --success-foreground: 40 30% 88%;
   }
 }
 
