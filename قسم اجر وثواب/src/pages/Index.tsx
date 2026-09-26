@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import QuranSection from "@/components/QuranSection";
 import HadithSection from "@/components/HadithSection";
 import ContributionsSection from "@/components/ContributionsSection";
+import PrayerTimes from "@/components/PrayerTimes";
 import { Calendar } from "lucide-react";
 
 const START_DATE = new Date(2026, 3, 6); // April 6, 2026
@@ -32,6 +33,8 @@ const Index = () => {
           <Calendar className="h-4 w-4" />
           <span>{today} — اليوم رقم {dayIndex + 1}</span>
         </div>
+
+        <PrayerTimes />
 
         <ContributionsSection />
         <QuranSection dayIndex={dayIndex} />
