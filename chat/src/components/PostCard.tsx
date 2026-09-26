@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { containsBannedWord } from "@/lib/bannedWords";
 import { invalidateTable } from "@/lib/invalidation";
 import { loadPostComments, type PostComment } from "@/lib/postComments";
-import { loadAdminUserIds, loadOwnerUserIds, loadRoseUserIds, loadShineUserIds } from "@/lib/appCache";
+import { loadAdminUserIds, loadOwnerUserIds, loadRoseUserIds, loadShineUserIds, loadSocialAdminIds } from "@/lib/appCache";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -40,14 +40,17 @@ const VerificationBadge = ({ gender, isAuthorAdmin, isAuthorOwner }: { gender?: 
 };
 
 /** حلقة ملونة حول الصورة للرتب المميزة:
- * المالك (ذهبي gold) + المستخدمون الورديون (rose) + ذوو الوميض الذهبي (shine). */
-const Halo = ({ tone, children }: { tone: "gold" | "rose" | "shine" | null; children: ReactNode }) => {
+ * المالك (ذهبي gold) + المستخدمون الورديون (rose) + ذوو الوميض الذهبي (shine)
+ * + مسؤولو السوشيال ميديا (ألوان انستغرام insta). */
+const Halo = ({ tone, children }: { tone: "gold" | "rose" | "shine" | "insta" | null; children: ReactNode }) => {
   if (!tone) return <>{children}</>;
   const cls =
     tone === "shine"
       ? "halo-shine halo-shine-glow ring-1 ring-yellow-200/80"
       : tone === "rose"
       ? "bg-gradient-to-br from-pink-300 via-rose-400 to-pink-600 shadow-[0_0_14px_rgba(244,114,182,0.65)] ring-1 ring-pink-200/70 group-hover:shadow-[0_0_20px_rgba(244,114,182,0.9)]"
+      : tone === "insta"
+      ? "bg-gradient-to-br from-amber-300 via-pink-500 to-purple-700 shadow-[0_0_14px_rgba(236,72,153,0.65)] ring-1 ring-purple-300/70 group-hover:shadow-[0_0_20px_rgba(236,72,153,0.9)]"
       : "bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-600 shadow-[0_0_14px_rgba(251,191,36,0.65)] ring-1 ring-yellow-200/70 group-hover:shadow-[0_0_20px_rgba(251,191,36,0.9)]";
   return (
     <span className={`block rounded-full p-[2px] ${cls} transition-all`}>
@@ -106,11 +109,12 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
   const authorIsOwner = ownerIds.has(post.user_id);
   const [roseIds, setRoseIds] = useState<Set<string>>(new Set());
   const [shineIds, setShineIds] = useState<Set<string>>(new Set());
-  // لون الهالة: ذهبي للمالك، وميض ذهبي (shine) لذوي الوميض، وردي للورديين.
+  const [socialIds, setSocialIds] = useState<Set<string>>(new Set());
+  // لون الهالة: ذهبي للمالك، ألوان انستغرام لمسؤول السوشيال، وميض ذهبي (shine)، وردي للورديين.
   const haloOf = useCallback(
-    (uid: string): "gold" | "rose" | "shine" | null =>
-      ownerIds.has(uid) ? "gold" : shineIds.has(uid) ? "shine" : roseIds.has(uid) ? "rose" : null,
-    [ownerIds, roseIds, shineIds]
+    (uid: string): "gold" | "rose" | "shine" | "insta" | null =>
+      ownerIds.has(uid) ? "gold" : socialIds.has(uid) ? "insta" : shineIds.has(uid) ? "shine" : roseIds.has(uid) ? "rose" : null,
+    [ownerIds, roseIds, shineIds, socialIds]
   );
   const postHalo = haloOf(post.user_id);
   const [showLikers, setShowLikers] = useState(false);
@@ -137,16 +141,18 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
     const loadSets = async () => {
       // المجموعات الثلاث تُحمَّل دائماً من الكاش حتى تظهر الهالة في التعليقات والردود
       // للمالكين والورديين واللآمعين — لا نكتفي بالـ prop الخاص بالمنشور فقط.
-      const [adminSet, ownerSet, roseSet, shineSet] = await Promise.all([
+      const [adminSet, ownerSet, roseSet, shineSet, socialSet] = await Promise.all([
         loadAdminUserIds(),
         loadOwnerUserIds(),
         loadRoseUserIds(),
         loadShineUserIds(),
+        loadSocialAdminIds(),
       ]);
       setAuthorIsAdmin(authorIsAdminProp !== undefined ? authorIsAdminProp : adminSet.has(post.user_id));
       setOwnerIds(ownerSet);
       setRoseIds(roseSet);
       setShineIds(shineSet);
+      setSocialIds(socialSet);
     };
     loadSets();
   }, [post.user_id, authorIsAdminProp, authorIsOwnerProp]);

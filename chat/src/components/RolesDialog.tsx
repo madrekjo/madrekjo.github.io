@@ -7,12 +7,13 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
-import { Shield, ShieldCheck, UserCog, Users, Crown } from "lucide-react";
+import { Shield, ShieldCheck, UserCog, Users, Crown, Instagram } from "lucide-react";
 
 const ROLE_DEFS: { key: string; label: string; description: string; icon: any; adminOnly?: boolean; ownerOnly?: boolean }[] = [
   { key: "moderator", label: "مشرف", description: "صلاحيات إشرافية قابلة للتحكم من صفحة الصلاحيات", icon: ShieldCheck },
   { key: "supervisor", label: "مسؤول", description: "رتبة إدارية أخف من المشرف — صلاحياتها من صفحة الصلاحيات", icon: UserCog },
   { key: "rounds_manager", label: "مسؤول جولات", description: "يقدر ينشئ جولات دراسية جديدة", icon: Users },
+  { key: "social_admin", label: "مسؤول السوشيال ميديا", description: "ينفّذ مهام الانستغرام يكتبها المالك — بدون أي صلاحيات إدارية", icon: Instagram, adminOnly: true },
   { key: "admin", label: "أدمن", description: "صلاحية كاملة — استخدمها بحذر", icon: Shield, adminOnly: true },
   { key: "owner", label: "المالك", description: "أعلى رتبة — مطلق الصلاحيات وتحصين من الحظر", icon: Crown, ownerOnly: true },
 ];

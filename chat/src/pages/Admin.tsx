@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { toast } from "sonner";
-import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, Lock, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key, Clock, KeyRound, Copy, Loader2, RefreshCw, ScrollText, UserCheck } from "lucide-react";
+import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, Lock, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key, Clock, KeyRound, Copy, Loader2, RefreshCw, ScrollText, UserCheck, ClipboardList } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { Navigate, Link } from "react-router-dom";
@@ -20,6 +20,7 @@ import BanDialog from "@/components/BanDialog";
 import RolesDialog from "@/components/RolesDialog";
 import PermissionsPanel from "@/components/PermissionsPanel";
 import AdminReportsPanel from "@/components/AdminReportsPanel";
+import SocialTasksPanel from "@/components/SocialTasksPanel";
 
 interface UserProfile {
   id: string;
@@ -39,7 +40,7 @@ interface UserRole {
   role: string;
 }
 
-type Tab = "stats" | "users" | "staff" | "banned" | "reports" | "words" | "deleted" | "sections" | "permissions" | "audit" | "pending" | "codes";
+type Tab = "stats" | "users" | "staff" | "banned" | "reports" | "words" | "deleted" | "sections" | "permissions" | "audit" | "pending" | "codes" | "social";
 
 const TabHeader = ({ icon, title, count, desc, action }: { icon: ReactNode; title: string; count?: number; desc?: string; action?: ReactNode }) => (
   <div className="flex items-start justify-between gap-3 flex-wrap mb-4">
@@ -60,7 +61,7 @@ const TabHeader = ({ icon, title, count, desc, action }: { icon: ReactNode; titl
 );
 
 const Admin = () => {
-  const { isAdmin, isModerator, isSupervisor, isOwner, hasPermission, user } = useAuth();
+  const { isAdmin, isModerator, isSupervisor, isOwner, isSocialAdmin, hasPermission, user } = useAuth();
   const [users, setUsers] = useState<UserProfile[]>([]);
   const [emailMap, setEmailMap] = useState<Record<string, string>>({});
   const [userRoles, setUserRoles] = useState<UserRole[]>([]);
@@ -114,6 +115,7 @@ const Admin = () => {
     { key: "sections", label: "الأقسام والقنوات", icon: <Layers className="w-4 h-4" />, show: canLockSections || isAdmin },
     { key: "deleted", label: "المحذوفات", icon: <Archive className="w-4 h-4" />, show: isAdmin },
     { key: "audit", label: "سجل الإدارة", icon: <ScrollText className="w-4 h-4" />, show: true },
+    { key: "social", label: "مهام السوشيال", icon: <ClipboardList className="w-4 h-4" />, show: isAdmin || isModerator || isSupervisor || isOwner || isSocialAdmin },
   ];
 
   const logAction = async (action_type: string, target_user_id: string | null, details: string) => {
@@ -370,7 +372,7 @@ const Admin = () => {
   };
 
   const userRolesFor = (uid: string) => userRoles.filter(r => r.user_id === uid).map(r => r.role);
-  const hasAnyStaffRole = (uid: string) => userRolesFor(uid).some(r => ["admin", "moderator", "supervisor", "owner"].includes(r));
+  const hasAnyStaffRole = (uid: string) => userRolesFor(uid).some(r => ["admin", "moderator", "supervisor", "owner", "social_admin"].includes(r));
 
   const handleRenameUser = async () => {
     if (!renameUserId || !newName.trim()) return;
@@ -433,12 +435,16 @@ const Admin = () => {
     if (error) toast.error("فشل"); else { toast.success(current ? "تم الرفع" : "تم الحظر"); logAction(current ? "unban" : "ban", uid, ""); fetchUsers(); }
   };
 
-  if (!isAdmin && !isModerator && !isSupervisor) return <Navigate to="/" replace />;
+  if (!isAdmin && !isModerator && !isSupervisor && !isOwner && !isSocialAdmin) return <Navigate to="/" replace />;
+
+  // مسؤول السوشيال ميديا: لوحة مهام فقط — لا يرى أي أقسام الأدمن/المالك
+  const isPureSocialAdmin = isSocialAdmin && !isAdmin && !isModerator && !isSupervisor && !isOwner;
+  if (isPureSocialAdmin) return <SocialTasksPanel />;
 
   const totalUsers = users.length;
   const bannedUsers = users.filter(u => u.is_banned).length;
   const activeUsers = totalUsers - bannedUsers;
-  const staffCount = userRoles.filter(r => ["admin", "moderator", "supervisor", "owner"].includes(r.role)).length;
+  const staffCount = userRoles.filter(r => ["admin", "moderator", "supervisor", "owner", "social_admin"].includes(r.role)).length;
 
   const displayedUsers = users.filter(u => {
     if (hasAnyStaffRole(u.user_id)) return false;
@@ -1132,6 +1138,10 @@ const Admin = () => {
             ))
           )}
         </div>
+      )}
+
+      {tab === "social" && (isAdmin || isModerator || isSupervisor || isOwner || isSocialAdmin) && (
+        <SocialTasksPanel />
       )}
 
       </main>

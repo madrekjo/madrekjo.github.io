@@ -50,6 +50,7 @@ interface AuthContextType {
   isSupervisor: boolean;
   isRoundsManager: boolean;
   isOwner: boolean;
+  isSocialAdmin: boolean;
   isStaff: boolean;
   hasPermission: (perm: Permission) => boolean;
   loading: boolean;
@@ -713,6 +714,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const isSupervisor = roles.includes("supervisor");
   const isRoundsManager = roles.includes("rounds_manager");
   const isOwner = roles.includes("owner");
+  const isSocialAdmin = roles.includes("social_admin");
 
   const isStaff =
     isOwner ||
@@ -742,6 +744,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         isSupervisor,
         isRoundsManager,
         isOwner,
+        isSocialAdmin,
         isStaff,
         hasPermission,
         loading,

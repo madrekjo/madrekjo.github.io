@@ -20,6 +20,7 @@ export const ADMIN_IDS_KEY = "config:admin_ids";
 export const OWNER_IDS_KEY = "config:owner_ids";
 export const ROSE_IDS_KEY = "config:rose_ids";
 export const SHINE_IDS_KEY = "config:shine_ids";
+export const SOCIAL_IDS_KEY = "config:social_ids";
 
 /** المستخدمون المميزون (هالة وردية حول بروفايلهم) — محددون بالبريد، بدون صلاحيات.
  * تحديثهم = تغيير المصفوفة هنا ثم تفريغ كاش config:rose_ids. */
@@ -224,6 +225,26 @@ export async function loadShineUserIds(): Promise<Set<string>> {
   return new Set(Array.isArray(ids) ? ids : []);
 }
 
+/**
+ * مجموعة معرّفات مسؤولي السوشيال ميديا (social_admin) — هالة بألوان انستغرام
+ * حول بروفايلهم. تُقرأ من جدول user_roles بربط الرتبة نفسها، فيظهر فور منح الرتبة.
+ */
+export async function loadSocialAdminIds(): Promise<Set<string>> {
+  const ids = await cachedRead<string[]>({
+    key: SOCIAL_IDS_KEY,
+    ttlMs: 60 * 60 * 1000,
+    persist: true,
+    fetcher: async () => {
+      const { data } = await supabase
+        .from("user_roles")
+        .select("user_id")
+        .eq("role", "social_admin");
+      return (data || []).map((r) => r.user_id);
+    },
+  });
+  return new Set(Array.isArray(ids) ? ids : []);
+}
+
 /** يفحص هل القفل ما زال سارياً حسب locked_until. */
 export function isSectionEffectivelyLocked(lock: SectionLockData | null | undefined): boolean {
   if (!lock || !lock.locked) return false;
@@ -241,4 +262,5 @@ export function invalidateAppConfig() {
   invalidateCache(OWNER_IDS_KEY);
   invalidateCache(ROSE_IDS_KEY);
   invalidateCache(SHINE_IDS_KEY);
+  invalidateCache(SOCIAL_IDS_KEY);
 }

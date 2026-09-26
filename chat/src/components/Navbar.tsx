@@ -10,14 +10,14 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { MessageCircle, Sun, Moon, LogOut, User, Shield, Lightbulb, MessageSquare, Users, CalendarDays, Lock, EyeOff, Eye } from "lucide-react";
+import { MessageCircle, Sun, Moon, LogOut, User, Shield, Lightbulb, MessageSquare, Users, CalendarDays, Lock, EyeOff, Eye, ClipboardList } from "lucide-react";
 import NotificationBell from "@/components/NotificationBell";
 import PointsBadge from "@/components/PointsBadge";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
 const Navbar = () => {
-  const { user, profile, isAdmin, isModerator, signOut } = useAuth();
+  const { user, profile, isAdmin, isModerator, isSocialAdmin, signOut } = useAuth();
   const { theme, setTheme } = useTheme();
   const location = useLocation();
   const isStaff = isAdmin || isModerator;
@@ -171,11 +171,11 @@ const Navbar = () => {
                   {isStaff ? <Badge count={unreadSupport} /> : <Badge count={userUnreadSupport} />}
                 </Button>
               </Link>
-              {(isAdmin || isModerator) && (
+              {(isAdmin || isModerator || isSocialAdmin) && (
                 <Link to="/admin">
                   <Button variant={isActive("/admin") ? "secondary" : "ghost"} size="sm" className="gap-1">
-                    <Shield className="w-4 h-4" />
-                    <span className="hidden sm:inline">{isAdmin ? "الإدارة" : "لوحة المشرف"}</span>
+                    {isSocialAdmin && !isAdmin && !isModerator ? <ClipboardList className="w-4 h-4" /> : <Shield className="w-4 h-4" />}
+                    <span className="hidden sm:inline">{isAdmin ? "الإدارة" : isModerator ? "لوحة المشرف" : "مهامي"}</span>
                   </Button>
                 </Link>
               )}
