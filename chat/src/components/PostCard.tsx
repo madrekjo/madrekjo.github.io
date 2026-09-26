@@ -20,12 +20,15 @@ import ReportDialog from "@/components/ReportDialog";
 import { formatDisplayName } from "@/lib/displayName";
 import MentionInput from "@/components/MentionInput";
 import { renderMentions, submitMentions } from "@/lib/mentions";
-import { ShieldCheck, Crown } from "lucide-react";
+import { ShieldCheck, Crown, Instagram } from "lucide-react";
 import { REACTIONS, reactionEmoji } from "@/lib/reactions";
 
-const VerificationBadge = ({ gender, isAuthorAdmin, isAuthorOwner }: { gender?: string | null; isAuthorAdmin: boolean; isAuthorOwner?: boolean }) => {
+const VerificationBadge = ({ gender, isAuthorAdmin, isAuthorOwner, isAuthorSocial }: { gender?: string | null; isAuthorAdmin: boolean; isAuthorOwner?: boolean; isAuthorSocial?: boolean }) => {
   if (isAuthorOwner) {
     return <span title="المالك" className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-600 border border-yellow-200/60 shrink-0 shadow-[0_0_6px_rgba(251,191,36,0.8)]"><Crown className="w-2.5 h-2.5 text-white" /></span>;
+  }
+  if (isAuthorSocial) {
+    return <span title="مسؤول السوشيال ميديا" className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-orange-500 border border-orange-300/70 shrink-0 shadow-[0_0_6px_rgba(249,115,22,0.8)]"><Instagram className="w-2.5 h-2.5 text-white" /></span>;
   }
   if (isAuthorAdmin) {
     return <span title="مدير" className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-green-500 shrink-0"><ShieldCheck className="w-3 h-3 text-white" /></span>;
@@ -422,7 +425,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
             <button onClick={() => setProfileUserId(post.user_id)} className="font-semibold text-sm hover:underline text-right">
               {ownerName(post.profiles, post.user_id)}
             </button>
-            <VerificationBadge gender={post.profiles?.gender} isAuthorAdmin={authorIsAdmin} isAuthorOwner={authorIsOwner} />
+            <VerificationBadge gender={post.profiles?.gender} isAuthorAdmin={authorIsAdmin} isAuthorOwner={authorIsOwner} isAuthorSocial={socialIds.has(post.user_id)} />
             <RoundsBadge userId={post.user_id} />
           </div>
           <p className="text-xs text-muted-foreground">
