@@ -111,6 +111,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   return (
     <ThemeContext.Provider value={{ theme, setTheme, sleepForced }}>
       {children}
+      {/* خفض سطوع الشاشة عند تفعيل وضع النوم (تلقائي ليلياً أو يدوياً) */}
+      <div className={`sleep-dim${theme === "sleep" ? " active" : ""}`} aria-hidden="true" />
     </ThemeContext.Provider>
   );
 }

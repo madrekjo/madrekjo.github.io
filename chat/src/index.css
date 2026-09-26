@@ -252,6 +252,20 @@
   }
 }
 
+/* ===== خفض سطوع الشاشة في وضع النوم (طبقة تعتيم فوق كل المحتوى) ===== */
+.sleep-dim {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.32);
+  opacity: 0;
+  transition: opacity 700ms ease;
+}
+.sleep-dim.active {
+  opacity: 1;
+}
+
 /* ===== الوضع السري للوحة الإدارة (Black Vault) ===== */
 html.admin-vault {
   --background: 240 8% 4%;
