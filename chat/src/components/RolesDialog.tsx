@@ -26,7 +26,7 @@ interface Props {
 }
 
 const RolesDialog = ({ userId, userName, open, onOpenChange, onChanged }: Props) => {
-  const { isAdmin, isOwner } = useAuth();
+  const { user, isAdmin, isOwner } = useAuth();
   const [current, setCurrent] = useState<string[]>([]);
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [saving, setSaving] = useState(false);
@@ -80,9 +80,10 @@ const RolesDialog = ({ userId, userName, open, onOpenChange, onChanged }: Props)
         <div className="space-y-2">
           {ROLE_DEFS.filter(r => (!r.adminOnly || isOwner) && (!r.ownerOnly || isOwner)).map(r => {
             const Icon = r.icon;
+            const selfLocked = r.key === "owner" && user?.id === userId;
             return (
-              <label key={r.key} className="flex items-start gap-3 p-3 rounded-lg border hover:bg-muted/50 cursor-pointer">
-                <Checkbox checked={selected.has(r.key)} onCheckedChange={() => toggle(r.key)} className="mt-0.5" />
+              <label key={r.key} className={"flex items-start gap-3 p-3 rounded-lg border hover:bg-muted/50 cursor-pointer" + (selfLocked ? " opacity-60 cursor-not-allowed" : "")}>
+                <Checkbox checked={selected.has(r.key)} disabled={selfLocked} onCheckedChange={() => toggle(r.key)} className="mt-0.5" />
                 <div className="flex-1">
                   <p className="text-sm font-medium flex items-center gap-1"><Icon className="w-4 h-4" /> {r.label}</p>
                   <p className="text-xs text-muted-foreground">{r.description}</p>
