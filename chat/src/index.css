@@ -181,41 +181,42 @@
      يُجبر على الجميع من الساعة 10 مساءً حتى 7 صباحاً،
      ويمكن اختياره يدوياً في أي وقت (الثيم الاختياري لوضع النوم). */
   .sleep {
-    --background: 20 35% 5%;
-    --foreground: 30 35% 88%;
+    /* الخلفية #0F172A — السطح #1E293B — النص #E2E8F0 (Slate) */
+    --background: 222 47% 11%;
+    --foreground: 214 32% 91%;
 
-    --card: 20 30% 8%;
-    --card-foreground: 30 35% 88%;
+    --card: 215 28% 17%;
+    --card-foreground: 214 32% 91%;
 
-    --popover: 20 30% 8%;
-    --popover-foreground: 30 35% 88%;
+    --popover: 215 28% 17%;
+    --popover-foreground: 214 32% 91%;
 
     --primary: 24 85% 42%;
-    --primary-foreground: 30 40% 96%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 22 22% 13%;
-    --secondary-foreground: 30 30% 88%;
+    --secondary: 215 25% 21%;
+    --secondary-foreground: 214 32% 91%;
 
-    --muted: 22 20% 12%;
-    --muted-foreground: 25 15% 55%;
+    --muted: 215 25% 21%;
+    --muted-foreground: 215 18% 68%;
 
     --accent: 28 90% 48%;
-    --accent-foreground: 20 60% 6%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 55% 38%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 22 18% 15%;
-    --input: 22 18% 15%;
+    --border: 215 25% 22%;
+    --input: 215 25% 22%;
     --ring: 24 85% 42%;
 
-    --sidebar-background: 20 35% 5%;
-    --sidebar-foreground: 30 30% 85%;
+    --sidebar-background: 215 28% 17%;
+    --sidebar-foreground: 214 32% 91%;
     --sidebar-primary: 24 85% 42%;
-    --sidebar-primary-foreground: 30 40% 96%;
-    --sidebar-accent: 22 22% 13%;
-    --sidebar-accent-foreground: 30 30% 88%;
-    --sidebar-border: 22 18% 15%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 25% 21%;
+    --sidebar-accent-foreground: 214 32% 91%;
+    --sidebar-border: 215 25% 22%;
     --sidebar-ring: 24 85% 42%;
 
     --success: 45 70% 42%;
