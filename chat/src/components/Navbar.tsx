@@ -18,14 +18,14 @@ import { supabase } from "@/integrations/supabase/client";
 
 const Navbar = () => {
   const { user, profile, isAdmin, isModerator, isSocialAdmin, signOut } = useAuth();
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, sleepForced } = useTheme();
   const location = useLocation();
   const isStaff = isAdmin || isModerator;
 
   const cycleTheme = () => {
     const order: Theme[] = profile?.gender === "female"
-      ? ["light", "dark", "pink"]
-      : ["light", "dark", "blue"];
+      ? ["light", "dark", "pink", "sleep"]
+      : ["light", "dark", "blue", "sleep"];
     const idx = order.indexOf(theme);
     const next = order[(idx + 1) % order.length];
     setTheme(next);
@@ -34,6 +34,7 @@ const Navbar = () => {
   const themeIcon = theme === "dark" ? <Sun className="w-5 h-5" />
     : theme === "blue" ? <Moon className="w-5 h-5 text-blue-400" />
     : theme === "pink" ? <Moon className="w-5 h-5 text-pink-400" />
+    : theme === "sleep" ? <Moon className="w-5 h-5 text-amber-400" />
     : <Moon className="w-5 h-5" />;
 
   const [unreadSuggestions, setUnreadSuggestions] = useState(0);
@@ -184,6 +185,11 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-2">
+          {sleepForced && (
+            <span title="وضع النوم إجباري على الجميع من الساعة 10 مساءً حتى 7 صباحاً" className="hidden md:inline-flex items-center text-[11px] font-medium rounded-full px-2 py-0.5 bg-amber-500/15 text-amber-600 border border-amber-400/40">
+              <Moon className="w-3 h-3 ml-1" /> وضع النوم
+            </span>
+          )}
           <Button variant="ghost" size="icon" onClick={cycleTheme} title="تغيير الثيم">
             {themeIcon}
           </Button>

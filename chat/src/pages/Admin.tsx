@@ -647,11 +647,11 @@ const Admin = () => {
                       )}
                       {isAdmin && (
                         <div className="flex gap-0.5">
-                          {(["light", "dark", "blue", "pink"] as const).map(t => (
+                          {(["light", "dark", "sleep", "blue", "pink"] as const).map(t => (
                             <Button key={t} variant="ghost" size="sm" onClick={() => setUserTheme(u.user_id, t)}
                               className={`px-1.5 py-0.5 h-auto text-[10px] ${(u as any).theme === t ? "bg-primary/20 text-primary font-bold" : "text-muted-foreground"}`}
                               title={`ثيم ${t}`}>
-                              {t === "light" ? "☀️" : t === "dark" ? "🌙" : t === "blue" ? "💙" : "🩷"}
+                              {t === "light" ? "☀️" : t === "dark" ? "🌙" : t === "sleep" ? "🌚" : t === "blue" ? "💙" : "🩷"}
                             </Button>
                           ))}
                         </div>

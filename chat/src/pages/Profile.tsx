@@ -245,6 +245,7 @@ const Profile = () => {
               {([
                 { key: "light" as Theme, label: "☀️ صباحي", bg: "bg-amber-50", border: "border-amber-200" },
                 { key: "dark" as Theme, label: "🌙 ليلي", bg: "bg-slate-800", border: "border-slate-600", text: "text-white" },
+                { key: "sleep" as Theme, label: "🌚 وضع النوم", bg: "bg-black", border: "border-amber-700", text: "text-amber-300" },
                 ...(profile.gender !== "female" ? [{ key: "blue" as Theme, label: "💙 أزرق", bg: "bg-blue-900", border: "border-blue-600", text: "text-white" }] : []),
                 ...(profile.gender !== "male" ? [{ key: "pink" as Theme, label: "🩷 زهري", bg: "bg-pink-50", border: "border-pink-200" }] : []),
               ]).map(opt => (
@@ -261,7 +262,7 @@ const Profile = () => {
                 </button>
               ))}
             </div>
-            <p className="text-xs text-muted-foreground">اختر المظهر الذي يعجبك</p>
+            <p className="text-xs text-muted-foreground">اختر المظهر الذي يعجبك — و«وضع النوم» يُفرض تلقائياً على الجميع من الساعة 10 مساءً.</p>
           </div>
 
 

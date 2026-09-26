@@ -176,6 +176,51 @@
     --success: 142 60% 40%;
     --success-foreground: 0 0% 100%;
   }
+
+  /* ===== وضع النوم (SLEEP) — أسود داكن + برتقالي غامق لراحة العين =====
+     يُجبر على الجميع من الساعة 10 مساءً حتى 7 صباحاً،
+     ويمكن اختياره يدوياً في أي وقت (الثيم الاختياري لوضع النوم). */
+  .sleep {
+    --background: 20 35% 5%;
+    --foreground: 30 35% 88%;
+
+    --card: 20 30% 8%;
+    --card-foreground: 30 35% 88%;
+
+    --popover: 20 30% 8%;
+    --popover-foreground: 30 35% 88%;
+
+    --primary: 24 85% 42%;
+    --primary-foreground: 30 40% 96%;
+
+    --secondary: 22 22% 13%;
+    --secondary-foreground: 30 30% 88%;
+
+    --muted: 22 20% 12%;
+    --muted-foreground: 25 15% 55%;
+
+    --accent: 28 90% 48%;
+    --accent-foreground: 20 60% 6%;
+
+    --destructive: 0 55% 38%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 22 18% 15%;
+    --input: 22 18% 15%;
+    --ring: 24 85% 42%;
+
+    --sidebar-background: 20 35% 5%;
+    --sidebar-foreground: 30 30% 85%;
+    --sidebar-primary: 24 85% 42%;
+    --sidebar-primary-foreground: 30 40% 96%;
+    --sidebar-accent: 22 22% 13%;
+    --sidebar-accent-foreground: 30 30% 88%;
+    --sidebar-border: 22 18% 15%;
+    --sidebar-ring: 24 85% 42%;
+
+    --success: 45 70% 42%;
+    --success-foreground: 0 0% 100%;
+  }
 }
 
 @layer utilities {
