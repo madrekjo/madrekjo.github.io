@@ -84,13 +84,14 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, [theme, sleepForced, preferred]);
 
   // مزامنة الثيم المحفوظ في البروفايل (فقط خارج نافذة النوم حتى لا يتعارض).
+  // لا نعتمد على preferred هنا — تحديث وظيفي حتى لا يرتدّ الثيم فوراً عند أي
+  // تبديل يدوي (كان الـ dep سبب وميض: الثيم الجديد ظهر لحظة ثم رجع للقديم).
   useEffect(() => {
     if (sleepForced) return;
     const t = profile?.theme as Theme | null | undefined;
-    if (isValidTheme(t) && t !== preferred) {
-      setPreferred(t);
-    }
-  }, [profile?.theme, sleepForced, preferred]);
+    if (!isValidTheme(t)) return;
+    setPreferred((cur) => (cur === t ? cur : t));
+  }, [profile?.theme, sleepForced]);
 
   const setTheme = (newTheme: Theme) => {
     // أثناء الوضع الإجباري الليلي: ممنوع تبديل أي ثيم آخر.
