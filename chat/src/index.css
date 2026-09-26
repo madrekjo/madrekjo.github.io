@@ -181,45 +181,45 @@
      يُجبر على الجميع من الساعة 10 مساءً حتى 7 صباحاً،
      ويمكن اختياره يدوياً في أي وقت (الثيم الاختياري لوضع النوم). */
   .sleep {
-    /* الخلفية #0F172A — السطح #1E293B — النص #E2E8F0 (Slate) */
-    --background: 222 47% 11%;
-    --foreground: 214 32% 91%;
+    /* لوحة نوم دافئة (كهرماني معتم) — خالية من الأزرق، مريحة للعين قبل النوم */
+    --background: 34 31% 10%;
+    --foreground: 41 45% 82%;
 
-    --card: 215 28% 17%;
-    --card-foreground: 214 32% 91%;
+    --card: 33 31% 14%;
+    --card-foreground: 41 45% 82%;
 
-    --popover: 215 28% 17%;
-    --popover-foreground: 214 32% 91%;
+    --popover: 33 31% 14%;
+    --popover-foreground: 41 45% 82%;
 
-    --primary: 24 85% 42%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 38 92% 50%;
+    --primary-foreground: 25 60% 9%;
 
-    --secondary: 215 25% 21%;
-    --secondary-foreground: 214 32% 91%;
+    --secondary: 34 27% 17%;
+    --secondary-foreground: 41 40% 80%;
 
-    --muted: 215 25% 21%;
-    --muted-foreground: 215 18% 68%;
+    --muted: 34 27% 17%;
+    --muted-foreground: 36 14% 62%;
 
-    --accent: 28 90% 48%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 35 90% 55%;
+    --accent-foreground: 25 60% 9%;
 
-    --destructive: 0 55% 38%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 8 45% 32%;
+    --destructive-foreground: 40 30% 88%;
 
-    --border: 215 25% 22%;
-    --input: 215 25% 22%;
-    --ring: 24 85% 42%;
+    --border: 34 22% 22%;
+    --input: 34 22% 22%;
+    --ring: 38 92% 50%;
 
-    --sidebar-background: 215 28% 17%;
-    --sidebar-foreground: 214 32% 91%;
-    --sidebar-primary: 24 85% 42%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 215 25% 21%;
-    --sidebar-accent-foreground: 214 32% 91%;
-    --sidebar-border: 215 25% 22%;
-    --sidebar-ring: 24 85% 42%;
+    --sidebar-background: 33 31% 14%;
+    --sidebar-foreground: 41 40% 80%;
+    --sidebar-primary: 38 92% 50%;
+    --sidebar-primary-foreground: 25 60% 9%;
+    --sidebar-accent: 34 27% 17%;
+    --sidebar-accent-foreground: 41 40% 80%;
+    --sidebar-border: 34 22% 22%;
+    --sidebar-ring: 38 92% 50%;
 
-    --success: 45 70% 42%;
+    --success: 38 75% 40%;
     --success-foreground: 0 0% 100%;
   }
 }
@@ -253,13 +253,13 @@
   }
 }
 
-/* ===== خفض سطوع الشاشة في وضع النوم (طبقة تعتيم فوق كل المحتوى) ===== */
+/* ===== خفض سطوع الشاشة في وضع النوم (طبقة تعتيم دافئة فوق كل المحتوى) ===== */
 .sleep-dim {
   position: fixed;
   inset: 0;
   z-index: 80;
   pointer-events: none;
-  background: rgba(0, 0, 0, 0.32);
+  background: rgba(46, 36, 20, 0.4);
   opacity: 0;
   transition: opacity 700ms ease;
 }
