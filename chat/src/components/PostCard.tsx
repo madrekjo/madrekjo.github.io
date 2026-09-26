@@ -50,7 +50,7 @@ const Halo = ({ tone, children }: { tone: "gold" | "rose" | "shine" | "insta" | 
       : tone === "rose"
       ? "bg-gradient-to-br from-pink-300 via-rose-400 to-pink-600 shadow-[0_0_14px_rgba(244,114,182,0.65)] ring-1 ring-pink-200/70 group-hover:shadow-[0_0_20px_rgba(244,114,182,0.9)]"
       : tone === "insta"
-      ? "bg-gradient-to-br from-amber-300 via-pink-500 to-purple-700 shadow-[0_0_14px_rgba(236,72,153,0.65)] ring-1 ring-purple-300/70 group-hover:shadow-[0_0_20px_rgba(236,72,153,0.9)]"
+      ? "bg-orange-500 shadow-[0_0_14px_rgba(249,115,22,0.65)] ring-1 ring-orange-300/70 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.9)]"
       : "bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-600 shadow-[0_0_14px_rgba(251,191,36,0.65)] ring-1 ring-yellow-200/70 group-hover:shadow-[0_0_20px_rgba(251,191,36,0.9)]";
   return (
     <span className={`block rounded-full p-[2px] ${cls} transition-all`}>
