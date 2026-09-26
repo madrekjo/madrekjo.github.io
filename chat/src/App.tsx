@@ -16,6 +16,7 @@ import SectionGate from "@/components/SectionGate";
 import WarningNotice from "@/components/WarningNotice";
 import SsoSyncDialog from "@/components/SsoSyncDialog";
 import UpdateNotice from "@/components/UpdateNotice";
+import PrizeWheel from "@/components/PrizeWheel";
 
 const Landing = lazy(() => import("@/pages/Landing"));
 const Auth = lazy(() => import("@/pages/Auth"));
@@ -78,6 +79,7 @@ function AppRoutes() {
       {user && <GenderOnboardingDialog />}
       {user && <Onboarding />}
       {user && <WarningNotice />}
+      {user && !profile?.is_banned && <PrizeWheel />}
       <SsoSyncDialog />
       <Suspense fallback={<PageFallback />}>
         <Routes>
