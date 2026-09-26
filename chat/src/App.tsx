@@ -30,7 +30,6 @@ const Notifications = lazy(() => import("@/pages/Notifications"));
 const Rounds = lazy(() => import("@/pages/Rounds"));
 const Schedules = lazy(() => import("@/pages/Schedules"));
 const AuthCallback = lazy(() => import("@/pages/AuthCallback"));
-const StaffMeeting = lazy(() => import("@/pages/StaffMeeting"));
 const Changes = lazy(() => import("@/pages/Changes"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
 
@@ -106,7 +105,6 @@ function AppRoutes() {
           <Route path="/notifications" element={<ProtectedRoute><Notifications /></ProtectedRoute>} />
           <Route path="/rounds" element={<RestrictedRoute><SectionGate section="rounds" title="الجولات"><Rounds /></SectionGate></RestrictedRoute>} />
           <Route path="/schedules" element={<RestrictedRoute><SectionGate section="schedules" title="الجداول"><Schedules /></SectionGate></RestrictedRoute>} />
-          <Route path="/staff-meeting" element={<ProtectedRoute><StaffMeeting /></ProtectedRoute>} />
           <Route path="/changes" element={<RestrictedRoute><SectionGate section="changes" title="التغيير"><Changes /></SectionGate></RestrictedRoute>} />
           <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
           <Route path="/admin/reports" element={<ProtectedRoute><AdminReports /></ProtectedRoute>} />

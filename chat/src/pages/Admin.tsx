@@ -10,10 +10,10 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { toast } from "sonner";
-import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, Lock, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key, Clock, KeyRound, Copy, Loader2, RefreshCw, ScrollText, UserCheck, ClipboardList } from "lucide-react";
+import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key, Clock, KeyRound, Copy, Loader2, RefreshCw, ScrollText, UserCheck, ClipboardList, MessageSquareText } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import RoundsBadge from "@/components/RoundsBadge";
 import { formatDisplayName, FIELD_LABEL_AR, FIELD_PREFIX, FIELD_ADMIN_ONLY } from "@/lib/displayName";
 import BanDialog from "@/components/BanDialog";
@@ -21,6 +21,7 @@ import RolesDialog from "@/components/RolesDialog";
 import PermissionsPanel from "@/components/PermissionsPanel";
 import AdminReportsPanel from "@/components/AdminReportsPanel";
 import SocialTasksPanel from "@/components/SocialTasksPanel";
+import StaffCommsPanel from "@/components/StaffCommsPanel";
 
 interface UserProfile {
   id: string;
@@ -40,7 +41,7 @@ interface UserRole {
   role: string;
 }
 
-type Tab = "stats" | "users" | "staff" | "banned" | "reports" | "words" | "deleted" | "sections" | "permissions" | "audit" | "pending" | "codes" | "social";
+type Tab = "stats" | "users" | "staff" | "banned" | "reports" | "words" | "deleted" | "sections" | "permissions" | "audit" | "pending" | "codes" | "social" | "comms";
 
 const TabHeader = ({ icon, title, count, desc, action }: { icon: ReactNode; title: string; count?: number; desc?: string; action?: ReactNode }) => (
   <div className="flex items-start justify-between gap-3 flex-wrap mb-4">
@@ -103,19 +104,20 @@ const Admin = () => {
   const canTimeout = hasPermission("can_timeout");
 
   const TABS: { key: Tab; label: string; icon: ReactNode; show: boolean; badge?: number }[] = [
-    { key: "stats", label: "الإحصائيات", icon: <BarChart3 className="w-4 h-4" />, show: true },
+    { key: "stats", label: "الإحصائيات", icon: <BarChart3 className="w-4 h-4" />, show: isOwner },
     { key: "users", label: "المستخدمين", icon: <Users className="w-4 h-4" />, show: true },
-    { key: "staff", label: "الإدارة والمشرفين", icon: <ShieldCheck className="w-4 h-4" />, show: true },
-    { key: "banned", label: "المحظورين", icon: <Ban className="w-4 h-4" />, show: true },
-    { key: "reports", label: "البلاغات", icon: <Flag className="w-4 h-4" />, show: canManageReports || isAdmin, badge: pendingReports },
-    { key: "pending", label: "للمراجعة", icon: <Clock className="w-4 h-4" />, show: isAdmin || isModerator, badge: pendingCount },
+    { key: "staff", label: "الإدارة والمشرفين", icon: <ShieldCheck className="w-4 h-4" />, show: isOwner },
+    { key: "banned", label: "المحظورين", icon: <Ban className="w-4 h-4" />, show: isAdmin || isOwner },
+    { key: "reports", label: "البلاغات", icon: <Flag className="w-4 h-4" />, show: isAdmin || isOwner, badge: pendingReports },
+    { key: "pending", label: "للمراجعة", icon: <Clock className="w-4 h-4" />, show: isAdmin || isOwner, badge: pendingCount },
     { key: "permissions", label: "الصلاحيات", icon: <Key className="w-4 h-4" />, show: isOwner },
-    { key: "codes", label: "أكواد الدخول", icon: <KeyRound className="w-4 h-4" />, show: isAdmin },
-    { key: "words", label: "الكلمات المحظورة", icon: <MessageCircle className="w-4 h-4" />, show: canManageWords || isAdmin },
-    { key: "sections", label: "الأقسام والقنوات", icon: <Layers className="w-4 h-4" />, show: canLockSections || isAdmin },
-    { key: "deleted", label: "المحذوفات", icon: <Archive className="w-4 h-4" />, show: isAdmin },
-    { key: "audit", label: "سجل الإدارة", icon: <ScrollText className="w-4 h-4" />, show: true },
+    { key: "codes", label: "أكواد الدخول", icon: <KeyRound className="w-4 h-4" />, show: isOwner },
+    { key: "words", label: "الكلمات المحظورة", icon: <MessageCircle className="w-4 h-4" />, show: isOwner },
+    { key: "sections", label: "الأقسام والقنوات", icon: <Layers className="w-4 h-4" />, show: isAdmin || isOwner },
+    { key: "deleted", label: "المحذوفات", icon: <Archive className="w-4 h-4" />, show: isOwner },
+    { key: "audit", label: "سجل الإدارة", icon: <ScrollText className="w-4 h-4" />, show: isOwner },
     { key: "social", label: "مهام السوشيال", icon: <ClipboardList className="w-4 h-4" />, show: isAdmin || isModerator || isSupervisor || isOwner || isSocialAdmin },
+    { key: "comms", label: "تواصل الفريق", icon: <MessageSquareText className="w-4 h-4" />, show: isOwner || isAdmin || isModerator || isSupervisor },
   ];
 
   const logAction = async (action_type: string, target_user_id: string | null, details: string) => {
@@ -171,14 +173,14 @@ const Admin = () => {
   };
 
   useEffect(() => {
-    if (isAdmin || isModerator || isSupervisor) {
+    if (isAdmin || isModerator || isSupervisor || isOwner) {
       fetchUsers();
       fetchUserRoles();
-      if (isAdmin) { fetchBannedWords(); fetchDeleted(); fetchSectionLocks(); fetchChannelSettings(); fetchAccessCodes(); }
+      if (isAdmin || isOwner) { fetchBannedWords(); fetchDeleted(); fetchSectionLocks(); fetchChannelSettings(); fetchAccessCodes(); }
       (supabase as any).from("post_reports").select("*", { count: "exact", head: true }).eq("status", "pending").then((r: any) => setPendingReports(r.count || 0));
     }
-    if (isAdmin || isModerator) fetchPendingPosts();
-  }, [isAdmin, isModerator, isSupervisor]);
+    if (isAdmin || isModerator || isOwner) fetchPendingPosts();
+  }, [isAdmin, isModerator, isSupervisor, isOwner]);
 
   // بدون Realtime (كان يفتح قناة socket لكامل جلسة الإدارة).
   // الجلب عند الدخول + عند عودة التبويب + زر تحديث في تبويب المراجعة.
@@ -510,22 +512,12 @@ const Admin = () => {
                 </button>
               ))}
             </nav>
-            <div className="p-3 border-t border-white/10 hidden lg:block">
-              <Link to="/staff-meeting">
-                <Button variant="outline" size="sm" className="w-full gap-2 border-red-500/30 hover:border-red-500/60 hover:bg-red-500/10 text-red-300">
-                  <Lock className="w-4 h-4" /> اجتماع الإدارة
-                </Button>
-              </Link>
-              <p className="text-[10px] text-center text-muted-foreground/70 mt-2 flex items-center justify-center gap-1">
-                <Lock className="w-3 h-3" /> سرّي — للفريق المصرّح فقط
-              </p>
-            </div>
           </div>
         </aside>
 
         <main className="flex-1 min-w-0 space-y-4 admin-enter">
 
-      {tab === "stats" && (
+      {tab === "stats" && isOwner && (
         <div className="space-y-4">
           <TabHeader icon={<BarChart3 className="w-5 h-5" />} title="الإحصائيات العامة" desc="نظرة سريعة على أعداد حسابات المنصة." />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -810,10 +802,10 @@ const Admin = () => {
         </div>
       )}
 
-      {tab === "reports" && (canManageReports || isAdmin) && <AdminReportsPanel />}
+      {tab === "reports" && (isAdmin || isOwner) && <AdminReportsPanel />}
       {tab === "permissions" && isOwner && <PermissionsPanel />}
 
-      {tab === "words" && (canManageWords || isAdmin) && (
+      {tab === "words" && isOwner && (
         <div className="space-y-4">
           <TabHeader
             icon={<MessageCircle className="w-5 h-5" />}
@@ -836,7 +828,7 @@ const Admin = () => {
         </div>
       )}
 
-      {tab === "deleted" && isAdmin && (
+      {tab === "deleted" && isOwner && (
         <div className="space-y-6">
           <TabHeader
             icon={<Archive className="w-5 h-5" />}
@@ -908,7 +900,7 @@ const Admin = () => {
         </div>
       )}
 
-      {tab === "sections" && (canLockSections || isAdmin) && (
+      {tab === "sections" && (isAdmin || isOwner) && (
         <div className="space-y-3">
           <TabHeader
             icon={<Layers className="w-5 h-5" />}
@@ -968,7 +960,7 @@ const Admin = () => {
         </div>
       )}
 
-      {tab === "audit" && (
+      {tab === "audit" && isOwner && (
         <div className="space-y-2">
           <TabHeader
             icon={<ScrollText className="w-5 h-5" />}
@@ -994,7 +986,7 @@ const Admin = () => {
         </div>
       )}
 
-      {tab === "codes" && isAdmin && (
+      {tab === "codes" && isOwner && (
         <div className="space-y-6">
           <div>
             <h3 className="font-semibold flex items-center gap-2 mb-1">
@@ -1142,6 +1134,10 @@ const Admin = () => {
 
       {tab === "social" && (isAdmin || isModerator || isSupervisor || isOwner || isSocialAdmin) && (
         <SocialTasksPanel />
+      )}
+
+      {tab === "comms" && (isOwner || isAdmin || isModerator || isSupervisor) && (
+        <StaffCommsPanel />
       )}
 
       </main>
