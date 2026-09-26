@@ -160,7 +160,7 @@ export async function loadAdminUserIds(): Promise<Set<string>> {
       return (data || []).map((r) => r.user_id);
     },
   });
-  return new Set(ids);
+  return new Set(Array.isArray(ids) ? ids : []);
 }
 
 /**
@@ -181,7 +181,7 @@ export async function loadOwnerUserIds(): Promise<Set<string>> {
       return (data || []).map((r) => r.user_id);
     },
   });
-  return new Set(ids);
+  return new Set(Array.isArray(ids) ? ids : []);
 }
 
 /**
@@ -195,13 +195,13 @@ export async function loadRoseUserIds(): Promise<Set<string>> {
     persist: true,
     fetcher: async () => {
       // تُحَل أسماء البريد داخل الخادم (security definer) — لا يُقرأ البريد من العميل
-      const { data: ids } = await supabase.rpc("resolve_user_ids_by_email", {
+      const { data } = await supabase.rpc("resolve_user_ids_by_email", {
         p_emails: ROSE_EMAILS,
       });
-      return new Set((ids || []).map((r: { user_id: string }) => r.user_id));
+      return (data || []).map((r: { user_id: string }) => r.user_id);
     },
   });
-  return new Set(ids);
+  return new Set(Array.isArray(ids) ? ids : []);
 }
 
 /**
@@ -215,13 +215,13 @@ export async function loadShineUserIds(): Promise<Set<string>> {
     persist: true,
     fetcher: async () => {
       // تُحَل أسماء البريد داخل الخادم (security definer) — لا يُقرأ البريد من العميل
-      const { data: ids } = await supabase.rpc("resolve_user_ids_by_email", {
+      const { data } = await supabase.rpc("resolve_user_ids_by_email", {
         p_emails: SHINE_EMAILS,
       });
-      return new Set((ids || []).map((r: { user_id: string }) => r.user_id));
+      return (data || []).map((r: { user_id: string }) => r.user_id);
     },
   });
-  return new Set(ids);
+  return new Set(Array.isArray(ids) ? ids : []);
 }
 
 /** يفحص هل القفل ما زال سارياً حسب locked_until. */
