@@ -54,7 +54,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       const inWindow = isSleepWindow();
       const prev = prevForcedRef.current;
       if (!prev && inWindow) {
-        toast("🌙 حان وقت النوم… انتبه على النوم 📿 عشان صلاة الفجر");
+        toast("🌙 وضع النوم نشّط… خفّض سطوع شاشتك لأقل من 30% 🕯️ يلا على النوم عشان صلاة الفجر", { duration: 9000 });
       }
       prevForcedRef.current = inWindow;
       setSleepForced(inWindow);
@@ -92,6 +92,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     if (sleepForced && newTheme !== "sleep") {
       toast("وضع النوم مفروض حتى السابعة صباحاً 🌙");
       return;
+    }
+    // عند اختيار وضع النوم يدوياً — تذكير بخفض السطوع لراحة العين.
+    if (newTheme === "sleep" && theme !== "sleep") {
+      toast("💡 وضع النوم مفعّل — خفّض سطوع الشاشة لأدنى مستوى 🕯️", { duration: 8000 });
     }
     setPreferred(newTheme);
     localStorage.setItem("theme", newTheme);
