@@ -46,13 +46,24 @@ export default function MorningGreeting() {
         }
         setBcast(data as unknown as Broadcast);
         if (localStorage.getItem(SEEN_PREFIX + data.id) === "1") setDone(true);
+        clearInterval(id);
       } catch {
         // الجدول غير موجود أو خطأ شبكة — بلا إزعاج.
       }
     };
 
     void check();
-    const id = setInterval(check, 60_000);
+    const id = setInterval(check, 600_000);
+
+    const chan = supabase
+      .channel("broadcasts-morning")
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "broadcasts", filter: "kind=eq.morning" },
+        () => void check()
+      )
+      .subscribe();
+
     const onVisible = () => {
       if (document.visibilityState === "visible") void check();
     };
@@ -61,6 +72,7 @@ export default function MorningGreeting() {
     return () => {
       alive = false;
       clearInterval(id);
+      supabase.removeChannel(chan);
       document.removeEventListener("visibilitychange", onVisible);
       window.removeEventListener("focus", onVisible);
     };

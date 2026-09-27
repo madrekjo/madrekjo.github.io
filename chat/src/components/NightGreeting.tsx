@@ -115,6 +115,7 @@ export default function NightGreeting() {
         if (!data) return;
         if (data.expires_at && new Date(data.expires_at).getTime() <= Date.now()) return;
         setBcast(data as unknown as Broadcast);
+        clearInterval(id);
         if (localStorage.getItem(SEEN_PREFIX + (data as { id: string }).id) === "1") {
           setDismissed((data as { id: string }).id);
         }
@@ -137,7 +138,17 @@ export default function NightGreeting() {
     }
 
     void check();
-    const id = setInterval(check, 45_000);
+    const id = setInterval(check, 600_000);
+
+    const chan = supabase
+      .channel("broadcasts-night")
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "broadcasts", filter: "kind=eq.night" },
+        () => void check()
+      )
+      .subscribe();
+
     const onVisible = () => {
       if (document.visibilityState === "visible") void check();
     };
@@ -146,6 +157,7 @@ export default function NightGreeting() {
     return () => {
       alive = false;
       clearInterval(id);
+      supabase.removeChannel(chan);
       document.removeEventListener("visibilitychange", onVisible);
       window.removeEventListener("focus", onVisible);
     };
