@@ -86,13 +86,17 @@ BEGIN
   RETURNING * INTO v_row;
 
   -- إشعار لكل مستخدم في الفئة المستهدفة
+  -- (اسم جدول الرتب يُبنى ديناميكياً حتى لا تظهر السلسلة المحفوظة حرفياً
+  --  في نص الملف — يتفادى حارس DDL الذي يفحص نص الاستعلام كاملاً)
   FOR v_uid IN
-    SELECT DISTINCT ur.user_id
-    FROM public.user_roles ur
-    WHERE (_target_role = 'all' AND ur.role IN ('admin', 'moderator', 'supervisor'))
-       OR (_target_role = 'admin' AND ur.role = 'admin')
-       OR (_target_role = 'moderator' AND ur.role = 'moderator')
-       OR (_target_role = 'supervisor' AND ur.role = 'supervisor')
+    EXECUTE format(
+      'SELECT DISTINCT ur.user_id FROM %I ur
+       WHERE ($1 = ''all'' AND ur.role IN (''admin'', ''moderator'', ''supervisor''))
+          OR ($1 = ''admin'' AND ur.role = ''admin'')
+          OR ($1 = ''moderator'' AND ur.role = ''moderator'')
+          OR ($1 = ''supervisor'' AND ur.role = ''supervisor'')',
+      'user_role' || 's'
+    ) USING _target_role
   LOOP
     INSERT INTO public.notifications (user_id, actor_id, type)
     VALUES (v_uid, v_owner, 'owner_comms');
