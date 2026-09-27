@@ -1,17 +1,119 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { X, Sparkles } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
-/** تنبيه يُسلَّم لكل المستخدمين مرة وحدة فقط (بث نهائي — لا يعود أبداً). */
-const LD_KEY = "mdk_morning_sent";
+/**
+ * بث تنبيهات من قاعدة Supabase (جدول broadcasts).
+ * يفحص كل دقيقة + عند عودة التبويب — فيصل التنبيه للتطبيق المفتوح
+ * حتى لو لم يحدث المستخدم الصفحة، ويُعرض مرة واحدة فقط للبث الواحد.
+ */
+
+type Block =
+  | { t: "salam" | "hadith" | "p" | "tipsHeader" | "closing"; text: string }
+  | { t: "li"; text: string };
+
+interface Broadcast {
+  id: string;
+  title: string;
+  content: Block[];
+}
+
+const SEEN_PREFIX = "mdk_bcast_seen_";
 
 export default function MorningGreeting() {
-  const [dismissed, setDismissed] = useState<boolean>(() => localStorage.getItem(LD_KEY) === "1");
+  const [bcast, setBcast] = useState<Broadcast | null>(null);
+  const [done, setDone] = useState(false);
 
-  if (dismissed) return null;
+  useEffect(() => {
+    let alive = true;
 
-  const dismiss = (persist = true) => {
-    if (persist) localStorage.setItem(LD_KEY, "1");
-    setDismissed(true);
+    const check = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("broadcasts")
+          .select("id, title, content")
+          .eq("visible", true)
+          .order("created_at", { ascending: false })
+          .limit(1)
+          .maybeSingle();
+
+        if (error) throw error;
+        if (!alive) return;
+        if (!data) {
+          setBcast(null);
+          return;
+        }
+        setBcast(data as unknown as Broadcast);
+        if (localStorage.getItem(SEEN_PREFIX + data.id) === "1") setDone(true);
+      } catch {
+        // الجدول غير موجود أو خطأ شبكة — بلا إزعاج.
+      }
+    };
+
+    void check();
+    const id = setInterval(check, 60_000);
+    const onVisible = () => {
+      if (document.visibilityState === "visible") void check();
+    };
+    document.addEventListener("visibilitychange", onVisible);
+    window.addEventListener("focus", onVisible);
+    return () => {
+      alive = false;
+      clearInterval(id);
+      document.removeEventListener("visibilitychange", onVisible);
+      window.removeEventListener("focus", onVisible);
+    };
+  }, []);
+
+  if (!bcast || done) return null;
+
+  const dismiss = () => {
+    localStorage.setItem(SEEN_PREFIX + bcast.id, "1");
+    setDone(true);
+  };
+
+  const renderBlock = (block: Block, i: number) => {
+    switch (block.t) {
+      case "salam":
+        return (
+          <p key={i} className="font-semibold text-base text-center">
+            {block.text}
+          </p>
+        );
+      case "hadith": {
+        const [label, ...rest] = block.text.split("\n");
+        return (
+          <div key={i} className="rounded-xl bg-muted p-3 space-y-1">
+            {label && <p className="text-xs text-muted-foreground">{label}</p>}
+            <p className="font-medium whitespace-pre-wrap">{rest.join("\n")}</p>
+          </div>
+        );
+      }
+      case "tipsHeader":
+        return (
+          <p key={i} className="font-semibold flex items-center gap-1.5 text-primary">
+            <Sparkles className="w-3.5 h-3.5 shrink-0" /> {block.text}
+          </p>
+        );
+      case "li":
+        return (
+          <li key={i} className="text-foreground/90">
+            {block.text}
+          </li>
+        );
+      case "closing":
+        return (
+          <p key={i} className="text-center font-medium text-primary">
+            {block.text}
+          </p>
+        );
+      default:
+        return (
+          <p key={i} className="leading-relaxed whitespace-pre-wrap">
+            {block.text}
+          </p>
+        );
+    }
   };
 
   return (
@@ -28,44 +130,35 @@ export default function MorningGreeting() {
           </button>
           <div className="p-4 text-sm space-y-3 text-foreground">
             <div className="text-center">
-              <p className="font-semibold text-base">السلام عليكم ورحمة الله وبركاته 🌿</p>
-              <p className="mt-1">صباح الخير يا أبطال 🌤️</p>
+              <p className="font-bold text-lg">{bcast.title}</p>
             </div>
 
-            <div className="rounded-xl bg-muted p-3 space-y-1">
-              <p className="text-xs text-muted-foreground">قال رسول الله ﷺ:</p>
-              <p className="font-medium">
-                "اللهم بك أصبحنا وبك أمسينا وبك نحيا وبك نموت وإليك النشور."
-              </p>
+            <div className="space-y-3">
+              {(() => {
+                const els: React.ReactNode[] = [];
+                const liBlocks = bcast.content.filter((b) => b.t === "li");
+                let liRendered = false;
+                bcast.content.forEach((block, i) => {
+                  if (block.t === "li") {
+                    if (!liRendered) {
+                      liRendered = true;
+                      els.push(
+                        <ul key={i} className="list-disc pr-5 space-y-1.5">
+                          {liBlocks.map((li, j) => (
+                            <li key={j} className="text-foreground/90">
+                              {li.text}
+                            </li>
+                          ))}
+                        </ul>
+                      );
+                    }
+                    return;
+                  }
+                  els.push(renderBlock(block, i));
+                });
+                return els;
+              })()}
             </div>
-
-            <p className="leading-relaxed">
-              اللهم إنا نسألك في هذا الصباح توفيقًا يفتح لنا الأبواب، وبركةً في الوقت، وقوةً على الطاعة،
-              ونورًا في القلب، ونجاحًا في الدراسة، وأن تجعل هذا اليوم شاهدًا لنا لا علينا.
-            </p>
-
-            <div className="rounded-xl border bg-muted/50 p-3 space-y-1.5">
-              <p className="font-semibold flex items-center gap-1.5 text-primary">
-                <Sparkles className="w-3.5 h-3.5" /> نصائح بسيطة لبداية يوم قوية:
-              </p>
-              <ul className="list-disc pr-4 space-y-1 text-foreground/90">
-                <li>صلِّ الفجر في وقته وابدأ يومك بذكر الله.</li>
-                <li>اشرب كوبًا أو كوبين من الماء بعد الاستيقاظ.</li>
-                <li>رتب سريرك وغرفتك خلال دقائق قليلة.</li>
-                <li>حدد أهم 3 مهام تريد إنجازها اليوم.</li>
-                <li>ابدأ بأصعب مادة أو أكثر مادة تؤجلها دائمًا.</li>
-                <li>ابتعد عن التمرير العشوائي في أول ساعة من يومك.</li>
-                <li>خصص جلسة دراسة مركزة قبل أن تزدحم عليك المهام.</li>
-              </ul>
-            </div>
-
-            <p className="leading-relaxed text-foreground/90">
-              تذكروا أن الإنجازات الكبيرة تُبنى من خطوات صغيرة تتكرر كل يوم.
-            </p>
-
-            <p className="text-center font-medium text-primary">
-              نسأل الله أن يبارك في أوقاتكم، ويشرح صدوركم، ويوفقكم لما يحب ويرضى. 🤍
-            </p>
 
             <button
               onClick={dismiss}
