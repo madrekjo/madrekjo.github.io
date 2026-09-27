@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Moon, Volume2, VolumeX } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -60,7 +60,7 @@ const SAMPLE: Block[] = [
 ];
 
 /* ---------- صوت الليل: تسجيل حقيقي لصرير الحشرات (مرفق في المشروع) ---------- */
-const AUDIO_URL = import.meta.env.BASE_URL + "audio/night-crickets.mp3";
+const AUDIO_URL = import.meta.env.BASE_URL + "audio/night-crickets-v1.mp3";
 
 /* ---------- نجوم ثابتة تتولد مرة واحدة ---------- */
 const STARS = Array.from({ length: 46 }, (_, i) => ({
@@ -105,8 +105,16 @@ export default function NightGreeting() {
     };
 
     if (isPreview) {
+      if (sessionStorage.getItem("mdk_night_preview_done") === "1") {
+        setGone(true);
+        return () => {
+          alive = false;
+        };
+      }
       setBcast({ id: "preview", title: "🌙 وقت النوم — معاينة", content: SAMPLE });
-      return () => { alive = false; };
+      return () => {
+        alive = false;
+      };
     }
 
     void check();
@@ -138,8 +146,11 @@ export default function NightGreeting() {
     };
   }, []);
 
+  const dismissRef = useRef(false);
+
   useEffect(() => {
     if (!bcast || gone || !snd) return;
+    dismissRef.current = false;
     const p = snd.play();
     if (p) {
       p.then(() => setSndOn(true)).catch(() => setSndOn(false));
@@ -148,14 +159,19 @@ export default function NightGreeting() {
 
   if (!bcast || gone) return null;
 
-  const dismiss = () => {
+  const dismiss = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    dismissRef.current = true;
     if (!isPreview) localStorage.setItem(SEEN_PREFIX + bcast.id, "1");
+    else sessionStorage.setItem("mdk_night_preview_done", "1");
     snd?.pause();
     setSndOn(false);
     setGone(true);
   };
 
-  const startOnTap = () => {
+  const startOnTap = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (dismissRef.current) return;
+    if ((e.target as HTMLElement).closest("button")) return;
     if (snd && !sndOn) {
       const p = snd.play();
       if (p) p.then(() => setSndOn(true)).catch(() => setSndOn(false));
@@ -272,7 +288,7 @@ export default function NightGreeting() {
 
             <div className="pt-2 flex flex-col gap-2">
               <button
-                onClick={dismiss}
+                onClick={(e) => dismiss(e)}
                 className="w-full rounded-xl py-3 font-bold text-white bg-gradient-to-l from-indigo-500 to-teal-500 hover:opacity-90 transition-opacity shadow-lg"
               >
                 تصبحون على خير 🌙
