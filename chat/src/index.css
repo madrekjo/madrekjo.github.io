@@ -362,3 +362,92 @@ html.admin-vault {
     @apply bg-background text-foreground font-cairo;
   }
 }
+
+/* ===== تنبيه وقت النوم — شاشة كاملة ===== */
+.night-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  overflow-y: auto;
+  color: #fff;
+  background:
+    radial-gradient(1100px 560px at 78% -12%, rgba(88, 120, 255, 0.22), transparent 55%),
+    radial-gradient(900px 520px at 8% 112%, rgba(122, 70, 220, 0.16), transparent 50%),
+    linear-gradient(180deg, #050a18 0%, #0b1630 48%, #142a52 100%);
+}
+.night-sky {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.night-star {
+  position: absolute;
+  border-radius: 9999px;
+  background: #fff;
+  animation: nightTwinkle 3s ease-in-out infinite;
+}
+.night-moon {
+  position: absolute;
+  top: 34px;
+  inset-inline-end: 44px;
+  width: 74px;
+  height: 74px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 38% 34%, #fff6d8, #ffe9a3 60%, rgba(255, 225, 140, 0.55));
+  box-shadow: 0 0 44px 14px rgba(255, 230, 150, 0.35), inset -14px -14px 30px rgba(214, 176, 84, 0.5);
+  animation: nightFloat 5s ease-in-out infinite;
+}
+.night-bed-scene {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+.night-sleeper {
+  font-size: 74px;
+  line-height: 1;
+  margin-top: 14px;
+  animation: nightBreathe 3.4s ease-in-out infinite;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.45));
+}
+.night-bed {
+  font-size: 40px;
+  line-height: 1;
+  margin-top: -14px;
+}
+.night-zzz {
+  position: absolute;
+  top: -48px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 900;
+}
+.night-zzz span {
+  position: absolute;
+  color: #bfd7ff;
+  text-shadow: 0 0 12px rgba(120, 170, 255, 0.9);
+  animation: nightZzz 3s ease-in-out infinite;
+}
+.night-zzz span:nth-child(1) { font-size: 17px; animation-delay: 0s; }
+.night-zzz span:nth-child(2) { font-size: 24px; margin-left: 58px; animation-delay: 1s; }
+.night-zzz span:nth-child(3) { font-size: 31px; margin-left: -66px; animation-delay: 2s; }
+.night-float { animation: nightFloat 5.5s ease-in-out infinite; }
+
+@keyframes nightTwinkle {
+  0%, 100% { opacity: 0.18; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1); }
+}
+@keyframes nightBreathe {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.07) translateY(-3px); }
+}
+@keyframes nightFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes nightZzz {
+  0% { transform: translateY(0) scale(0.6); opacity: 0; }
+  25% { opacity: 1; }
+  100% { transform: translateY(-40px) scale(1.2); opacity: 0; }
+}

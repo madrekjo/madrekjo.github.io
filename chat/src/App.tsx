@@ -14,6 +14,7 @@ import GenerationOnboardingDialog from "@/components/GenerationOnboardingDialog"
 import GenderOnboardingDialog from "@/components/GenderOnboardingDialog";
 import SectionGate from "@/components/SectionGate";
 import WarningNotice from "@/components/WarningNotice";
+import NightGreeting from "@/components/NightGreeting";
 import MorningGreeting from "@/components/MorningGreeting";
 import UpdateNotice from "@/components/UpdateNotice";
 import PrizeWheel from "@/components/PrizeWheel";
@@ -75,6 +76,7 @@ function AppRoutes() {
     <>
       <Navbar />
       {user && <MorningGreeting />}
+      {user && <NightGreeting />}
       {user && <GenerationOnboardingDialog />}
       {user && <GenderOnboardingDialog />}
       {user && <Onboarding />}

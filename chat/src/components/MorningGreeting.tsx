@@ -32,6 +32,7 @@ export default function MorningGreeting() {
         const { data, error } = await supabase
           .from("broadcasts")
           .select("id, title, content")
+          .eq("kind", "morning")
           .eq("visible", true)
           .order("created_at", { ascending: false })
           .limit(1)
