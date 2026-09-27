@@ -1,32 +1,22 @@
 import { useState } from "react";
 import { X, Sparkles } from "lucide-react";
 
-/** تنبيه صباحي يُعرض لكل المستخدمين — مرة واحدة يومياً (نافذة 4 ص → 12 ظهراً). */
-const LD_KEY = "mdk_morning_seen_";
-
-function isMorningWindow(): boolean {
-  const h = new Date().getHours();
-  return h >= 4 && h < 12;
-}
+/** تنبيه يُسلَّم لكل المستخدمين مرة وحدة فقط (بث نهائي — لا يعود أبداً). */
+const LD_KEY = "mdk_morning_sent";
 
 export default function MorningGreeting() {
-  const today = new Date().toISOString().slice(0, 10);
-  const [dismissed, setDismissed] = useState<boolean>(() => localStorage.getItem(LD_KEY + today) === "1");
-
-  // وضع معاينة للمالك: يحفظنا نتايج حتى ولو مش وقت صباح.
-  const debug = typeof window !== "undefined" && localStorage.getItem("mdk_morning_debug") === "1";
+  const [dismissed, setDismissed] = useState<boolean>(() => localStorage.getItem(LD_KEY) === "1");
 
   if (dismissed) return null;
-  if (!isMorningWindow() && !debug) return null;
 
-  const dismiss = () => {
-    localStorage.setItem(LD_KEY + today, "1");
+  const dismiss = (persist = true) => {
+    if (persist) localStorage.setItem(LD_KEY, "1");
     setDismissed(true);
   };
 
   return (
     <div className="fixed top-16 inset-x-0 z-40 px-3 pointer-events-none">
-      <div className={`mx-auto max-w-lg pointer-events-auto ${localStorage.getItem("mdk_morning_debug") === "1" ? "border-2 border-dashed border-destructive" : ""}`}>
+      <div className="mx-auto max-w-lg pointer-events-auto">
         <div className="rounded-2xl relative border bg-card shadow-xl overflow-hidden animate-in slide-in-from-top fade-in duration-500">
           <div className="h-1.5 bg-gradient-to-l from-emerald-500 via-teal-500 to-emerald-500" />
           <button
