@@ -72,6 +72,36 @@ const Admin = () => {
     const t = new URLSearchParams(window.location.search).get("tab");
     return (t && typeof t === "string" && (["comms", "stats", "users", "staff", "banned", "reports", "words", "deleted", "sections", "permissions", "audit", "pending", "codes", "social"] as Tab[]).includes(t as Tab)) ? (t as Tab) : "stats";
   });
+  const [commsUnread, setCommsUnread] = useState(0);
+
+  const fetchCommsUnread = async () => {
+    if (!user || isOwner) { setCommsUnread(0); return; }
+    const { count } = await supabase
+      .from("notifications")
+      .select("id", { count: "exact", head: true })
+      .eq("user_id", user.id)
+      .eq("type", "owner_comms")
+      .eq("is_read", false);
+    setCommsUnread(count ?? 0);
+  };
+
+  useEffect(() => {
+    void fetchCommsUnread();
+    const t = setInterval(() => void fetchCommsUnread(), 30000);
+    return () => clearInterval(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user, isOwner]);
+
+  const markCommsRead = async () => {
+    if (!user || isOwner) return;
+    await supabase
+      .from("notifications")
+      .update({ is_read: true })
+      .eq("user_id", user.id)
+      .eq("type", "owner_comms")
+      .eq("is_read", false);
+    setCommsUnread(0);
+  };
   const [renameUserId, setRenameUserId] = useState<string | null>(null);
   const [newName, setNewName] = useState("");
   const [fieldUserId, setFieldUserId] = useState<string | null>(null);
@@ -496,7 +526,7 @@ const Admin = () => {
               {TABS.filter(t => t.show).map(t => (
                 <button
                   key={t.key}
-                  onClick={() => { if (t.key === "audit") void fetchAuditLog(); setTab(t.key); }}
+                  onClick={() => { if (t.key === "audit") void fetchAuditLog(); if (t.key === "comms") void markCommsRead(); setTab(t.key); }}
                   className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm whitespace-nowrap shrink-0 transition-all border ${
                     tab === t.key
                       ? "bg-amber-400/10 border-amber-400/40 text-amber-300 shadow-[0_0_20px_rgba(251,191,36,0.12)]"
@@ -505,13 +535,16 @@ const Admin = () => {
                 >
                   {t.icon}
                   <span className="flex-1 text-right lg:text-right">{t.label}</span>
-                  {!!t.badge && t.badge > 0 && (
-                    <span className={`rounded-full px-1.5 h-4 min-w-[16px] text-[10px] font-bold flex items-center justify-center ${
-                      t.key === "pending" ? "bg-amber-500 text-black" : "bg-destructive text-destructive-foreground"
-                    }`}>
-                      {t.badge > 99 ? "99+" : t.badge}
-                    </span>
-                  )}
+                  {(() => {
+                    const b = t.key === "comms" ? commsUnread : t.badge;
+                    return !!b && b > 0 ? (
+                      <span className={`rounded-full px-1.5 h-4 min-w-[16px] text-[10px] font-bold flex items-center justify-center ${
+                        t.key === "pending" ? "bg-amber-500 text-black" : "bg-destructive text-destructive-foreground"
+                      }`}>
+                        {b > 99 ? "99+" : b}
+                      </span>
+                    ) : null;
+                  })()}
                 </button>
               ))}
             </nav>
