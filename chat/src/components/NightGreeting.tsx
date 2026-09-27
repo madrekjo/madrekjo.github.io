@@ -59,79 +59,8 @@ const SAMPLE: Block[] = [
   { t: "closing", text: "تصبحون على خير يا أهل مدارك.\nنشوفكم بكرا. 🌙🤍" },
 ];
 
-/* ---------- صوت الليل: صرير الحشرات — تشغيل ذاتي بلا ملف خارجي ---------- */
-class NightAudio {
-  private ctx: AudioContext | null = null;
-  private master: GainNode | null = null;
-  private noise: AudioBuffer | null = null;
-  private loop: number | null = null;
-  started = false;
-
-  private ensure(): boolean {
-    if (this.ctx) return true;
-    const Ctor =
-      window.AudioContext ||
-      (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
-    if (!Ctor) return false;
-    this.ctx = new Ctor();
-    this.master = this.ctx.createGain();
-    this.master.gain.value = 0.13;
-    this.master.connect(this.ctx.destination);
-
-    const len = this.ctx.sampleRate;
-    this.noise = this.ctx.createBuffer(1, len, this.ctx.sampleRate);
-    const d = this.noise.getChannelData(0);
-    for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
-    return true;
-  }
-
-  private chirp() {
-    if (!this.ctx || !this.master || !this.noise) return;
-    const t = this.ctx.currentTime;
-    const src = this.ctx.createBufferSource();
-    src.buffer = this.noise;
-    const bp = this.ctx.createBiquadFilter();
-    bp.type = "bandpass";
-    bp.frequency.value = 4100 + Math.random() * 500;
-    bp.Q.value = 18;
-    const g = this.ctx.createGain();
-    g.gain.setValueAtTime(0.0001, t);
-    for (let i = 0; i < 4; i++) {
-      const s = t + i * 0.045;
-      g.gain.setValueAtTime(0.45, s);
-      g.gain.exponentialRampToValueAtTime(0.0001, s + 0.06);
-    }
-    src.connect(bp);
-    bp.connect(g);
-    g.connect(this.master);
-    src.start(t);
-    src.stop(t + 0.3);
-  }
-
-  private schedule = () => {
-    if (!this.ctx) return;
-    this.chirp();
-    this.loop = window.setTimeout(this.schedule, 480 + Math.random() * 920);
-  };
-
-  start() {
-    if (!this.ensure()) return;
-    void this.ctx!.resume();
-    if (this.loop !== null) return;
-    this.started = true;
-    this.schedule();
-  }
-
-  stop() {
-    if (this.loop !== null) {
-      clearTimeout(this.loop);
-      this.loop = null;
-    }
-    this.started = false;
-  }
-}
-
-const audio = new NightAudio();
+/* ---------- صوت الليل: تسجيل حقيقي لصرير الحشرات (مرفق في المشروع) ---------- */
+const AUDIO_URL = import.meta.env.BASE_URL + "audio/night-crickets.mp3";
 
 /* ---------- نجوم ثابتة تتولد مرة واحدة ---------- */
 const STARS = Array.from({ length: 46 }, (_, i) => ({
@@ -195,35 +124,52 @@ export default function NightGreeting() {
     };
   }, [isPreview]);
 
-  useEffect(() => {
-    if (!bcast || gone) return;
-    audio.start();
-    const t = window.setTimeout(() => {
-      if (!audio.started) setSndOn(false);
-    }, 900);
-    setSndOn(audio.started);
-    return () => clearTimeout(t);
-  }, [bcast, gone]);
+  const [snd, setSnd] = useState<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    return () => audio.stop();
+    const el = new Audio(AUDIO_URL);
+    el.loop = true;
+    el.volume = 0.55;
+    el.preload = "auto";
+    setSnd(el);
+    return () => {
+      el.pause();
+      el.src = "";
+    };
   }, []);
+
+  useEffect(() => {
+    if (!bcast || gone || !snd) return;
+    const p = snd.play();
+    if (p) {
+      p.then(() => setSndOn(true)).catch(() => setSndOn(false));
+    }
+  }, [bcast, gone, snd]);
 
   if (!bcast || gone) return null;
 
   const dismiss = () => {
     if (!isPreview) localStorage.setItem(SEEN_PREFIX + bcast.id, "1");
-    audio.stop();
+    snd?.pause();
+    setSndOn(false);
     setGone(true);
   };
 
+  const startOnTap = () => {
+    if (snd && !sndOn) {
+      const p = snd.play();
+      if (p) p.then(() => setSndOn(true)).catch(() => setSndOn(false));
+    }
+  };
+
   const toggleSound = () => {
-    if (audio.started) {
-      audio.stop();
+    if (!snd) return;
+    if (sndOn) {
+      snd.pause();
       setSndOn(false);
     } else {
-      audio.start();
-      setSndOn(true);
+      const p = snd.play();
+      if (p) p.then(() => setSndOn(true)).catch(() => setSndOn(false));
     }
   };
 
@@ -289,7 +235,7 @@ export default function NightGreeting() {
   })();
 
   return (
-    <div className="night-overlay" onClick={() => audio.start()}>
+    <div className="night-overlay" onClick={startOnTap}>
       <div className="night-sky">
         <div className="night-moon" />
         {stars.map((s) => (
