@@ -21,7 +21,7 @@ import { useEffect, useRef } from "react";
  * صالحاً عبر إعادة تحميل الصفحة (يقلّل الطلبات عند كل فتح تبويب/صفحة).
  */
 
-const CACHE_VERSION = "v15";
+const CACHE_VERSION = "v16";
 const LOCAL_PREFIX = `mdk_cache_${CACHE_VERSION}_`;
 
 interface Entry<T> {

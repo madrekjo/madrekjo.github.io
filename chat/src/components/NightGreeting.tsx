@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Moon, Volume2, VolumeX } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/contexts/AuthContext";
 
 type Block =
-  | { t: "salam" | "tipsHeader" | "closing" | "now"; text: string }
-  | { t: "p" | "hadith"; text: string }
+  | { t: "salam" | "tipsHeader" | "closing"; text: string }
+  | { t: "p"; text: string }
   | { t: "li"; text: string };
 
 interface Broadcast {
@@ -73,14 +74,25 @@ const STARS = Array.from({ length: 46 }, (_, i) => ({
 }));
 
 export default function NightGreeting() {
+  const { isOwner } = useAuth();
   const [bcast, setBcast] = useState<Broadcast | null>(null);
-  const [gone, setGone] = useState(false);
+  const [forced, setForced] = useState(false);
+  const [dismissed, setDismissed] = useState<string | null>(null);
   const [sndOn, setSndOn] = useState(false);
+  const [snd, setSnd] = useState<HTMLAudioElement | null>(null);
   const stars = useMemo(() => STARS, []);
+  const dismissRef = useRef(false);
 
   const isPreview =
     typeof window !== "undefined" &&
     new URLSearchParams(window.location.search).get("night") === "1";
+
+  const active =
+    forced || !bcast
+      ? { id: "forced", title: "🌙 وقت النوم — معاينة", content: SAMPLE }
+      : bcast;
+
+  const showOverlay = forced || (!!bcast && bcast.id !== dismissed);
 
   useEffect(() => {
     let alive = true;
@@ -98,7 +110,9 @@ export default function NightGreeting() {
         if (error || !alive) return;
         if (!data) return;
         setBcast(data as unknown as Broadcast);
-        if (localStorage.getItem(SEEN_PREFIX + (data as { id: string }).id) === "1") setGone(true);
+        if (localStorage.getItem(SEEN_PREFIX + (data as { id: string }).id) === "1") {
+          setDismissed((data as { id: string }).id);
+        }
       } catch {
         /* الجدول غير موجود — بلا إزعاج */
       }
@@ -106,7 +120,7 @@ export default function NightGreeting() {
 
     if (isPreview) {
       if (sessionStorage.getItem("mdk_night_preview_done") === "1") {
-        setGone(true);
+        setDismissed("preview");
         return () => {
           alive = false;
         };
@@ -132,9 +146,9 @@ export default function NightGreeting() {
     };
   }, [isPreview]);
 
-  const [snd, setSnd] = useState<HTMLAudioElement | null>(null);
-
+  /* عنصر صوتي دائم يُنشأ عند التركيب (يحاول التشغيل التلقائي حيث يسمح المتصفح) */
   useEffect(() => {
+    if (typeof document === "undefined") return;
     const el = new Audio(AUDIO_URL);
     el.loop = true;
     el.volume = 0.55;
@@ -146,46 +160,78 @@ export default function NightGreeting() {
     };
   }, []);
 
-  const dismissRef = useRef(false);
-
-  useEffect(() => {
-    if (!bcast || gone || !snd) return;
-    dismissRef.current = false;
-    const p = snd.play();
+  const playSound = () => {
+    let el = snd;
+    if (!el) {
+      el = new Audio(AUDIO_URL);
+      el.loop = true;
+      el.volume = 0.55;
+      setSnd(el);
+    }
+    const p = el.play();
     if (p) {
       p.then(() => setSndOn(true)).catch(() => setSndOn(false));
     }
-  }, [bcast, gone, snd]);
+  };
 
-  if (!bcast || gone) return null;
+  /* محاولة تشغيل تلقائية عند ظهور الشاشة */
+  useEffect(() => {
+    if (!showOverlay) return;
+    dismissRef.current = false;
+    playSound();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showOverlay]);
+
+  /* اختصار معاينة للمالك: Ctrl/⌘ + Shift + N */
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (isOwner && (e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === "n") {
+        e.preventDefault();
+        setForced((v) => !v);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isOwner]);
+
+  if (!showOverlay) {
+    return isOwner ? (
+      <button
+        onClick={() => setForced(true)}
+        className="fixed bottom-16 left-3 z-40 rounded-full border border-white/15 bg-black/60 text-sky-200 h-12 w-12 text-xl font-bold shadow-lg backdrop-blur flex items-center justify-center"
+        aria-label="تجربة ما قبل النوم"
+        title="تجربة ما قبل النوم (Ctrl+Shift+N)"
+      >
+        🌙
+      </button>
+    ) : null;
+  }
 
   const dismiss = (e?: React.MouseEvent) => {
     e?.stopPropagation();
     dismissRef.current = true;
-    if (!isPreview) localStorage.setItem(SEEN_PREFIX + bcast.id, "1");
-    else sessionStorage.setItem("mdk_night_preview_done", "1");
+    if (!forced) {
+      if (isPreview) sessionStorage.setItem("mdk_night_preview_done", "1");
+      else localStorage.setItem(SEEN_PREFIX + active.id, "1");
+    }
     snd?.pause();
     setSndOn(false);
-    setGone(true);
+    setForced(false);
+    setDismissed(active.id);
   };
 
   const startOnTap = (e: React.MouseEvent<HTMLDivElement>) => {
     if (dismissRef.current) return;
-    if ((e.target as HTMLElement).closest("button")) return;
-    if (snd && !sndOn) {
-      const p = snd.play();
-      if (p) p.then(() => setSndOn(true)).catch(() => setSndOn(false));
-    }
+    if ((e.target as HTMLElement).closest("[data-silent]")) return;
+    if (!sndOn) playSound();
   };
 
   const toggleSound = () => {
-    if (!snd) return;
     if (sndOn) {
-      snd.pause();
+      snd?.pause();
       setSndOn(false);
     } else {
-      const p = snd.play();
-      if (p) p.then(() => setSndOn(true)).catch(() => setSndOn(false));
+      playSound();
     }
   };
 
@@ -221,7 +267,7 @@ export default function NightGreeting() {
   const body: React.ReactNode[] = [];
   (() => {
     let ul: { t: "li"; text: string }[] | null = null;
-    bcast.content.forEach((block, i) => {
+    active.content.forEach((block, i) => {
       if (block.t === "li") {
         if (!ul) ul = [];
         ul.push(block);
@@ -272,13 +318,12 @@ export default function NightGreeting() {
               </div>
               <div className="night-sleeper">😴</div>
               <div className="night-bed">🛏️</div>
-              <div className="night-pillow" aria-hidden />
             </div>
           </div>
 
           <div className="rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl shadow-[0_0_60px_rgba(56,102,255,0.18)] p-5 sm:p-7 space-y-4 text-sm sm:text-[15px]">
             <div className="text-center space-y-1">
-              <p className="font-extrabold text-xl sm:text-2xl text-white">{bcast.title}</p>
+              <p className="font-extrabold text-xl sm:text-2xl text-white">{active.title}</p>
               <p className="text-[11px] text-sky-300/80 flex items-center justify-center gap-1">
                 <Volume2 className="w-3.5 h-3.5" /> صوت الليل معك…
               </p>
@@ -288,7 +333,8 @@ export default function NightGreeting() {
 
             <div className="pt-2 flex flex-col gap-2">
               <button
-                onClick={(e) => dismiss(e)}
+                data-silent
+                onClick={dismiss}
                 className="w-full rounded-xl py-3 font-bold text-white bg-gradient-to-l from-indigo-500 to-teal-500 hover:opacity-90 transition-opacity shadow-lg"
               >
                 تصبحون على خير 🌙
@@ -300,8 +346,10 @@ export default function NightGreeting() {
                 {sndOn ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
                 {sndOn ? "كتم صوت الليل" : "تشغيل صوت الليل"}
               </button>
-              {isPreview && (
-                <p className="text-center text-[10px] text-amber-300/80">وضع المعاينة — لا يظهر لغيرك</p>
+              {(forced || isPreview) && (
+                <p className="text-center text-[10px] text-amber-300/80">
+                  وضع المعاينة — لا يظهر لغيرك
+                </p>
               )}
             </div>
           </div>

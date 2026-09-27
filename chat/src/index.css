@@ -367,8 +367,11 @@ html.admin-vault {
 .night-overlay {
   position: fixed;
   inset: 0;
-  z-index: 90;
+  z-index: 999;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
   color: #fff;
   background:
     radial-gradient(1100px 560px at 78% -12%, rgba(88, 120, 255, 0.22), transparent 55%),
