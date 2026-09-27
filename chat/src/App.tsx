@@ -15,7 +15,6 @@ import GenderOnboardingDialog from "@/components/GenderOnboardingDialog";
 import SectionGate from "@/components/SectionGate";
 import WarningNotice from "@/components/WarningNotice";
 import MorningGreeting from "@/components/MorningGreeting";
-import SsoSyncDialog from "@/components/SsoSyncDialog";
 import UpdateNotice from "@/components/UpdateNotice";
 import PrizeWheel from "@/components/PrizeWheel";
 
@@ -81,7 +80,6 @@ function AppRoutes() {
       {user && <Onboarding />}
       {user && <WarningNotice />}
       {user && !profile?.is_banned && <PrizeWheel />}
-      <SsoSyncDialog />
       <Suspense fallback={<PageFallback />}>
         <Routes>
           <Route path="/" element={
