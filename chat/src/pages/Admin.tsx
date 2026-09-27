@@ -86,9 +86,22 @@ const Admin = () => {
   };
 
   useEffect(() => {
+    if (!user) { setCommsUnread(0); return; }
     void fetchCommsUnread();
-    const t = setInterval(() => void fetchCommsUnread(), 30000);
-    return () => clearInterval(t);
+    const chan = supabase
+      .channel(`admin-comms-${user.id}`)
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "notifications", filter: `user_id=eq.${user.id}` },
+        () => void fetchCommsUnread()
+      )
+      .subscribe();
+    const onFocus = () => void fetchCommsUnread();
+    window.addEventListener("focus", onFocus);
+    return () => {
+      void supabase.removeChannel(chan);
+      window.removeEventListener("focus", onFocus);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, isOwner]);
 

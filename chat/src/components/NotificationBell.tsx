@@ -46,11 +46,18 @@ const NotificationBell = () => {
   useEffect(() => {
     if (!user) return;
     void fetchUnread();
-    const t = setInterval(() => void fetchUnread(), 30000);
+    const chan = supabase
+      .channel(`notif-${user.id}`)
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "notifications", filter: `user_id=eq.${user.id}` },
+        () => void fetchUnread()
+      )
+      .subscribe();
     const onFocus = () => void fetchUnread();
     window.addEventListener("focus", onFocus);
     return () => {
-      clearInterval(t);
+      void supabase.removeChannel(chan);
       window.removeEventListener("focus", onFocus);
     };
   }, [user]);
