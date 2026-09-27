@@ -31,6 +31,29 @@ const NotificationBell = () => {
   const navigate = useNavigate();
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [open, setOpen] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(0);
+
+  const fetchUnread = async () => {
+    if (!user) return;
+    const { count } = await supabase
+      .from("notifications")
+      .select("id", { count: "exact", head: true })
+      .eq("user_id", user.id)
+      .eq("is_read", false);
+    setUnreadCount(count ?? 0);
+  };
+
+  useEffect(() => {
+    if (!user) return;
+    void fetchUnread();
+    const t = setInterval(() => void fetchUnread(), 30000);
+    const onFocus = () => void fetchUnread();
+    window.addEventListener("focus", onFocus);
+    return () => {
+      clearInterval(t);
+      window.removeEventListener("focus", onFocus);
+    };
+  }, [user]);
 
   const fetchNotifications = async () => {
     if (!user) return;
@@ -63,14 +86,6 @@ const NotificationBell = () => {
     // لا Realtime هنا — الإشعارات تُجلب فقط عند فتح الجرس
   }, [user]);
 
-  const handleTooltipOpen = async (o: boolean) => {
-    setOpen(o);
-    if (o) {
-      await fetchNotifications();
-      markAllRead();
-    }
-  };
-
   const markAllRead = async () => {
     if (!user) return;
     await supabase
@@ -79,9 +94,18 @@ const NotificationBell = () => {
       .eq("user_id", user.id)
       .eq("is_read", false);
     setNotifications(prev => prev.map(n => ({ ...n, is_read: true })));
+    setUnreadCount(0);
   };
 
-  const unreadCount = notifications.filter(n => !n.is_read).length;
+  const handleTooltipOpen = async (o: boolean) => {
+    setOpen(o);
+    if (o) {
+      await fetchNotifications();
+      await markAllRead();
+    }
+  };
+
+  const unreadBadge = unreadCount;
 
   const handleNotificationClick = (n: Notification) => {
     if (n.type === "support_reply") {
@@ -131,9 +155,9 @@ const NotificationBell = () => {
       <PopoverTrigger asChild>
         <Button variant="ghost" size="icon" className="relative">
           <Bell className="w-5 h-5" />
-          {unreadCount > 0 && (
+          {unreadBadge > 0 && (
             <span className="absolute -top-0.5 -right-0.5 bg-destructive text-destructive-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
-              {unreadCount > 9 ? "9+" : unreadCount}
+              {unreadBadge > 9 ? "9+" : unreadBadge}
             </span>
           )}
         </Button>
@@ -141,7 +165,7 @@ const NotificationBell = () => {
       <PopoverContent align="end" className="w-80 p-0">
         <div className="p-3 border-b flex items-center justify-between">
           <h3 className="font-semibold text-sm">الإشعارات</h3>
-          {unreadCount > 0 && (
+          {unreadBadge > 0 && (
             <button onClick={markAllRead} className="text-xs text-primary hover:underline">
               تحديد الكل كمقروء
             </button>
