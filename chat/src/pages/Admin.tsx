@@ -68,7 +68,10 @@ const Admin = () => {
   const [userRoles, setUserRoles] = useState<UserRole[]>([]);
   const [bannedWords, setBannedWords] = useState<{ id: string; word: string }[]>([]);
   const [newWord, setNewWord] = useState("");
-  const [tab, setTab] = useState<Tab>("stats");
+  const [tab, setTab] = useState<Tab>(() => {
+    const t = new URLSearchParams(window.location.search).get("tab");
+    return (t && typeof t === "string" && (["comms", "stats", "users", "staff", "banned", "reports", "words", "deleted", "sections", "permissions", "audit", "pending", "codes", "social"] as Tab[]).includes(t as Tab)) ? (t as Tab) : "stats";
+  });
   const [renameUserId, setRenameUserId] = useState<string | null>(null);
   const [newName, setNewName] = useState("");
   const [fieldUserId, setFieldUserId] = useState<string | null>(null);

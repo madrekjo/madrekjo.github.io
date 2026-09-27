@@ -13,6 +13,8 @@ export interface OwnerCommunication {
   created_at: string;
   done_by: string | null;
   done_at: string | null;
+  parent_id?: string | null;
+  image_url?: string | null;
   author_name?: string | null;
   doer_name?: string | null;
 }
@@ -56,11 +58,21 @@ export async function fetchOwnerComms(): Promise<OwnerCommunication[]> {
   }));
 }
 
-export async function sendOwnerComms(kind: CommKind, content: string, targetRole: TargetRole): Promise<void> {
+export async function sendOwnerComms(kind: CommKind, content: string, targetRole: TargetRole, imageUrl?: string | null): Promise<void> {
   const { error } = await supabase.rpc("send_owner_communication", {
     _kind: kind,
     _content: content,
     _target_role: targetRole,
+    _image_url: imageUrl || null,
+  });
+  if (error) throw error;
+}
+
+export async function replyOwnerComms(parentId: string, content: string, imageUrl?: string | null): Promise<void> {
+  const { error } = await supabase.rpc("reply_owner_communication", {
+    _parent_id: parentId,
+    _content: content,
+    _image_url: imageUrl || null,
   });
   if (error) throw error;
 }
