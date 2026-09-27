@@ -12,6 +12,7 @@ interface Broadcast {
   id: string;
   title: string;
   content: Block[];
+  expires_at?: string;
 }
 
 const SEEN_PREFIX = "mdk_night_seen_";
@@ -99,16 +100,20 @@ export default function NightGreeting() {
 
     const check = async () => {
       try {
+        const nowIso = new Date().toISOString();
         const { data, error } = await supabase
           .from("broadcasts")
-          .select("id, title, content")
+          .select("id, title, content, expires_at")
           .eq("kind", "night")
           .eq("visible", true)
+          .lte("starts_at", nowIso)
+          .gt("expires_at", nowIso)
           .order("created_at", { ascending: false })
           .limit(1)
           .maybeSingle();
         if (error || !alive) return;
         if (!data) return;
+        if (data.expires_at && new Date(data.expires_at).getTime() <= Date.now()) return;
         setBcast(data as unknown as Broadcast);
         if (localStorage.getItem(SEEN_PREFIX + (data as { id: string }).id) === "1") {
           setDismissed((data as { id: string }).id);
