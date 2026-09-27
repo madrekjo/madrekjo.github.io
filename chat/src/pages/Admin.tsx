@@ -153,6 +153,13 @@ const Admin = () => {
     { key: "comms", label: "تواصل الفريق", icon: <MessageSquareText className="w-4 h-4" />, show: isOwner || isAdmin || isModerator || isSupervisor },
   ];
 
+  const TAB_GROUPS: { title: string; keys: Tab[] }[] = [
+    { title: "الرئيسية", keys: ["stats", "users"] },
+    { title: "المحتوى والرقابة", keys: ["pending", "reports", "banned", "deleted", "sections", "words"] },
+    { title: "الفريق", keys: ["staff", "social", "comms"] },
+    { title: "النظام وسجل الإدارة", keys: ["audit", "permissions", "codes"] },
+  ];
+
   const logAction = async (action_type: string, target_user_id: string | null, details: string) => {
     const { data: u } = await supabase.auth.getUser();
     if (!u.user) return;
@@ -489,6 +496,7 @@ const Admin = () => {
   });
 
   const staffUsers = users.filter(u => hasAnyStaffRole(u.user_id));
+  const activeTab = TABS.find((t) => t.key === tab);
 
   return (
     <div className="min-h-screen admin-shell relative text-foreground">
@@ -523,35 +531,71 @@ const Admin = () => {
               </div>
             </div>
             <nav className="p-2 flex lg:flex-col gap-1 overflow-x-auto">
-              {TABS.filter(t => t.show).map(t => (
-                <button
-                  key={t.key}
-                  onClick={() => { if (t.key === "audit") void fetchAuditLog(); if (t.key === "comms") void markCommsRead(); setTab(t.key); }}
-                  className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm whitespace-nowrap shrink-0 transition-all border ${
-                    tab === t.key
-                      ? "bg-amber-400/10 border-amber-400/40 text-amber-300 shadow-[0_0_20px_rgba(251,191,36,0.12)]"
-                      : "border-transparent text-muted-foreground hover:text-foreground hover:bg-white/5"
-                  }`}
-                >
-                  {t.icon}
-                  <span className="flex-1 text-right lg:text-right">{t.label}</span>
-                  {(() => {
-                    const b = t.key === "comms" ? commsUnread : t.badge;
-                    return !!b && b > 0 ? (
-                      <span className={`rounded-full px-1.5 h-4 min-w-[16px] text-[10px] font-bold flex items-center justify-center ${
-                        t.key === "pending" ? "bg-amber-500 text-black" : "bg-destructive text-destructive-foreground"
-                      }`}>
-                        {b > 99 ? "99+" : b}
-                      </span>
-                    ) : null;
-                  })()}
-                </button>
-              ))}
+              {TAB_GROUPS.map((g) => {
+                const items = TABS.filter((t) => g.keys.includes(t.key) && t.show);
+                if (!items.length) return null;
+                return (
+                  <div key={g.title} className="contents">
+                    <div className="flex items-center gap-2 px-3 pt-2.5 pb-1 lg:pt-3 shrink-0 lg:shrink lg:w-full">
+                      <p className="text-[10px] font-bold tracking-wider text-amber-400/50 uppercase shrink-0">{g.title}</p>
+                      <span className="hidden lg:block h-px flex-1 bg-white/5" />
+                    </div>
+                    {items.map((t) => (
+                      <button
+                        key={t.key}
+                        onClick={() => { if (t.key === "audit") void fetchAuditLog(); if (t.key === "comms") void markCommsRead(); setTab(t.key); }}
+                        className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm whitespace-nowrap shrink-0 transition-all border ${
+                          tab === t.key
+                            ? "bg-amber-400/10 border-amber-400/40 text-amber-300 shadow-[0_0_20px_rgba(251,191,36,0.12)]"
+                            : "border-transparent text-muted-foreground hover:text-foreground hover:bg-white/5"
+                        }`}
+                      >
+                        {t.icon}
+                        <span className="flex-1 text-right lg:text-right">{t.label}</span>
+                        {(() => {
+                          const b = t.key === "comms" ? commsUnread : t.badge;
+                          return !!b && b > 0 ? (
+                            <span className={`rounded-full px-1.5 h-4 min-w-[16px] text-[10px] font-bold flex items-center justify-center ${
+                              t.key === "pending" ? "bg-amber-500 text-black" : "bg-destructive text-destructive-foreground"
+                            }`}>
+                              {b > 99 ? "99+" : b}
+                            </span>
+                          ) : null;
+                        })()}
+                      </button>
+                    ))}
+                  </div>
+                );
+              })}
             </nav>
           </div>
         </aside>
 
         <main className="flex-1 min-w-0 space-y-4 admin-enter">
+
+  <div className="flex items-center justify-between gap-3 flex-wrap rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl px-4 py-3">
+    <div className="flex items-center gap-2.5">
+      <div className="w-8 h-8 rounded-lg bg-amber-400/10 border border-amber-400/30 text-amber-400 flex items-center justify-center">
+        {activeTab?.icon}
+      </div>
+      <p className="font-bold leading-tight">{activeTab?.label || "المنطقة الإدارية"}</p>
+    </div>
+    {isOwner && (
+      <div className="flex items-center gap-1.5 flex-wrap text-[11px] font-medium">
+        {[
+          { label: "المستخدمون", value: totalUsers, accent: "text-amber-300" },
+          { label: "للراجعة", value: pendingCount, accent: "text-amber-300" },
+          { label: "بلاغات", value: pendingReports, accent: "text-rose-400" },
+          { label: "تواصل جديد", value: commsUnread, accent: "text-emerald-400" },
+        ].map((s) => (
+          <span key={s.label} className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 bg-white/5 border border-white/10">
+            {s.label}
+            <b className={s.accent}>{s.value}</b>
+          </span>
+        ))}
+      </div>
+    )}
+  </div>
 
       {tab === "stats" && isOwner && (
         <div className="space-y-4">
