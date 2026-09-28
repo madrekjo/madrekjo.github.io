@@ -10,6 +10,7 @@ import { WarningScreen } from "@/components/warning-screen";
 import Index from "@/pages/Index.tsx";
 import Login from "@/pages/Login.tsx";
 import Admin from "@/pages/Admin.tsx";
+import NightGreeting from "@/components/NightGreeting";
 import { useEffect, useState } from "react";
 
 const queryClient = new QueryClient({
@@ -95,6 +96,7 @@ const App = () => (
             <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFoundComponent />} />
           </Routes>
+          <NightGreeting />
         </VisitorGate>
         <Toaster />
       </BrowserRouter>
