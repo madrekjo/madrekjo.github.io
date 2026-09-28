@@ -1,5 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
-import { getDeviceId } from "@/lib/device";
+import { getDeviceId, setDeviceId } from "@/lib/device";
 import { deviceFingerprintParts } from "@/lib/fingerprint";
 
 async function sha256Hex(input: string): Promise<string> {
@@ -90,7 +90,14 @@ export async function checkVisitor({ data }: { data: { device_id: string } }) {
     warning?: string;
     warning_at?: string;
     device_name?: string | null;
+    device_id?: string;
+    linked?: boolean;
   };
+  // الدومين تغيّر أو مسح التخزين؟ رجّع المستخدم لمعرّفه الأصلي
+  // فيسترجع اسمه ورقمه المجهول وسجلّه كله.
+  if (parsed.linked && parsed.device_id && parsed.device_id !== getDeviceId()) {
+    setDeviceId(parsed.device_id);
+  }
   return {
     banned: !!parsed.banned,
     reason: parsed.reason ?? null,
