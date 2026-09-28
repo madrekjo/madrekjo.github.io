@@ -13,12 +13,8 @@ export async function setDeviceName(name: string) {
 }
 
 export async function probeNameFeature(): Promise<boolean> {
-  const { error } = await (supabase.rpc as any)("device_name_feature", {});
-  if (!error) return true;
-  const { error: fallbackError } = await (supabase.rpc as any)("get_device_name", {
-    p_device_id: getDeviceId(),
-  });
-  return !fallbackError;
+  const { error } = await (supabase.rpc as any)("get_device_name", { p_device_id: getDeviceId() });
+  return !error;
 }
 
 let nameMap: Map<string, string> | null = null;

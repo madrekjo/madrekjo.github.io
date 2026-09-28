@@ -280,10 +280,10 @@ function Admin() {
     setReports(rp ?? []);
   }
 
-  async function loadUsers(search = userSearch, page = userPage, sort = userSort) {
+  async function loadUsers(search = userSearch, page = userPage) {
     setUsersLoading(true);
     const { data, error } = await (supabase.rpc as any)("admin_list_devices", {
-      p_search: search || null, p_limit: USER_PAGE, p_offset: page * USER_PAGE, p_sort: sort,
+      p_search: search || null, p_limit: USER_PAGE, p_offset: page * USER_PAGE, p_sort: userSort,
     });
     setUsersLoading(false);
     if (error) { toast.error("تعذر تحميل المستخدمين: " + error.message); return; }
@@ -653,7 +653,7 @@ function Admin() {
                 {([["old", "الأقدم أولاً"], ["num", "حسب الرقم"], ["new", "الأحدث"]] as const).map(([v, lbl]) => (
                   <button
                     key={v}
-                    onClick={() => { setUserSort(v); setUserPage(0); void loadUsers(userSearch, 0, v); }}
+                    onClick={() => { setUserSort(v); setUserPage(0); setTimeout(() => loadUsers(userSearch, 0), 0); }}
                     className={cn("rounded-md px-2 py-1 font-semibold transition", userSort === v ? "bg-background shadow-sm" : "text-muted-foreground")}
                   >{lbl}</button>
                 ))}
