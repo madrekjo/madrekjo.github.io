@@ -1,42 +1,68 @@
 -- =========================================================
--- استرجاع الأسماء التي فقدها المستخدمون بعد تغيّر الدومين:
--- ربط الهوية نقل device_id، والاسم بقي مربوطاً بالمعرّف القديم.
--- هنا نبحث عن أي جهاز يطابقه (canvas/fp/screen) وله اسم،
--- فننقل الاسم إلى المعرّف الحالي إن كان nameless.
--- آمن للتكرار، ولا يحذف شيئاً.
+-- استرجاع الأسماء التي فقدها المستخدمون بعد تغيّر الدومين
+-- (ربط الهوية نقل device_id، والاسم بقي مربوطاً بالمعرّف القديم)
+--
+-- ⚠ نفّذ الجملتين بالترتيب:
+--   1) الجملة الأولى: معاينة فقط (لا تغيّر شيئاً) — راجع النتيجة قبل التالي
+--   2) الجملة الثانية: الترميم الفعلي
 -- =========================================================
 
--- 1) المعرّفات التي-match جهازاً له اسم
-CREATE TEMP TABLE _fix_src AS
-SELECT DISTINCT
-       cur.device_id AS cur_id,
-       (SELECT dn.device_id
-          FROM public.device_names dn
-         WHERE dn.device_id <> cur.device_id
-         ORDER BY dn.updated_at DESC NULLS LAST
-         LIMIT 1) AS src_id
-  FROM public.device_signatures cur
- WHERE NOT EXISTS (SELECT 1 FROM public.device_names x WHERE x.device_id = cur.device_id)
-   AND EXISTS (
-     SELECT 1
-       FROM public.device_signatures other
-       JOIN public.device_names dn2 ON dn2.device_id = other.device_id
-      WHERE other.device_id <> cur.device_id
-        AND other.sig_type IN ('canvas', 'fp', 'screen')
-        AND EXISTS (
-          SELECT 1 FROM public.device_signatures c2
-           WHERE c2.device_id = cur.device_id
-             AND c2.sig_type = other.sig_type
-             AND c2.sig_value = other.sig_value
-        )
-   );
 
--- 2) نقول الاسم
+-- -------------------------------------------------------------
+-- 1) معاينة: من سيسترجع اسمه ومن أي اسم
+-- -------------------------------------------------------------
+WITH pairs AS (
+  SELECT cur.device_id                        AS cur_id,
+         dn.device_id                        AS src_id,
+         dn.name                             AS src_name,
+         count(DISTINCT cs.sig_type)         AS shared
+    FROM public.device_signatures cur
+    JOIN public.device_signatures cs
+      ON cs.sig_value = cur.sig_value
+     AND cs.sig_type  = cur.sig_type
+     AND cs.sig_type IN ('canvas', 'fp', 'screen')
+     AND cs.device_id <> cur.device_id
+    JOIN public.device_names dn
+      ON dn.device_id = cs.device_id
+   WHERE NOT EXISTS (SELECT 1 FROM public.device_names x WHERE x.device_id = cur.device_id)
+   GROUP BY cur.device_id, dn.device_id, dn.name
+),
+best AS (
+  SELECT DISTINCT ON (cur_id) cur_id, src_id, src_name, shared
+    FROM pairs
+   WHERE shared >= 2
+   ORDER BY cur_id, shared DESC, src_id
+)
+SELECT cur_id AS "المعرّف_الحالي", src_id AS "المعرّف_القديم", src_name AS "الاسم_المستعاد", shared AS "عدد_البصمات"
+  FROM best
+ ORDER BY shared DESC, cur_id;
+
+
+-- -------------------------------------------------------------
+-- 2) الترميم الفعلي (يتجاهل أي جهاز صار له اسم بالفعل)
+-- -------------------------------------------------------------
+WITH pairs AS (
+  SELECT cur.device_id                AS cur_id,
+         dn.device_id                AS src_id,
+         dn.name                     AS src_name,
+         count(DISTINCT cs.sig_type) AS shared
+    FROM public.device_signatures cur
+    JOIN public.device_signatures cs
+      ON cs.sig_value = cur.sig_value
+     AND cs.sig_type  = cur.sig_type
+     AND cs.sig_type IN ('canvas', 'fp', 'screen')
+     AND cs.device_id <> cur.device_id
+    JOIN public.device_names dn
+      ON dn.device_id = cs.device_id
+   WHERE NOT EXISTS (SELECT 1 FROM public.device_names x WHERE x.device_id = cur.device_id)
+   GROUP BY cur.device_id, dn.device_id, dn.name
+),
+best AS (
+  SELECT DISTINCT ON (cur_id) cur_id, src_name
+    FROM pairs
+   WHERE shared >= 2
+   ORDER BY cur_id, shared DESC, src_id
+)
 INSERT INTO public.device_names(device_id, name)
-SELECT f.cur_id, dn.name
-  FROM _fix_src f
-  JOIN public.device_names dn ON dn.device_id = f.src_id
- WHERE f.src_id IS NOT NULL
+SELECT cur_id, src_name FROM best
 ON CONFLICT (device_id) DO NOTHING;
-
-DROP TABLE IF EXISTS _fix_src;
