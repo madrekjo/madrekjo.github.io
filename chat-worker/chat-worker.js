@@ -29,7 +29,7 @@
 
 const CHAT_URL = "https://hvrtzzouasqseyswjcex.supabase.co";
 
-const DEFAULT_ALLOWED_ORIGIN = "https://madrekjo.github.io";
+const DEFAULT_ALLOWED_ORIGIN = "https://madrekjo.github.io,https://madrekjo.study";
 
 const FEED_PAGE_SIZE = 25;
 

@@ -18,7 +18,7 @@ const ANON_URL = "https://dqrzsllhdcvykoisisoy.supabase.co";
 const ACHIEVEMENT_URL = "https://itflhfhsfzrdfpxvlzrv.supabase.co";
 
 const SESSION_TTL = 60 * 60 * 1000; // ساعة
-const DEFAULT_ALLOWED_ORIGIN = "https://madrekjo.github.io";
+const DEFAULT_ALLOWED_ORIGIN = "https://madrekjo.github.io,https://madrekjo.study";
 
 // هوية أدمين لوحة التحكم في سوبابيس الإنجازات (messages.sender_id/receiver_id أعمدة uuid)
 const OPS_ADMIN_UUID = "00000000-0000-0000-0000-000000000000";

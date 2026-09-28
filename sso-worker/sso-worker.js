@@ -13,7 +13,7 @@
  * 7. Redirect to the requested app
  */
 
-const DEFAULT_APP_ORIGIN = "https://madrekjo.github.io";
+const DEFAULT_APP_ORIGIN = "https://madrekjo.github.io,https://madrekjo.study";
 
 const GOOGLE_AUTH_ENDPOINT =
   "https://accounts.google.com/o/oauth2/v2/auth";

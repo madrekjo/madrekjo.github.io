@@ -420,6 +420,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const allowedOrigins = [
         window.location.origin,
         "https://madrekjo.github.io",
+        "https://madrekjo.study",
       ];
       if (!allowedOrigins.includes(event.origin)) return;
 

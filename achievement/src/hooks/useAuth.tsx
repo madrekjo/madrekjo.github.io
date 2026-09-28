@@ -91,6 +91,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const allowedOrigins = [
         window.location.origin,
         "https://madrekjo.github.io",
+        "https://madrekjo.study",
       ];
       if (!allowedOrigins.includes(event.origin)) return;
       if (event.data?.type !== "GOOGLE_LOGIN_SUCCESS") return;
