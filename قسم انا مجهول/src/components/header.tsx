@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Shield, Ghost, Sun, Moon } from "lucide-react";
+import { Shield, Ghost, Sun, Moon, RefreshCw } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -48,6 +48,16 @@ export function Header() {
           )}
           {session ? (
             <div className="flex items-center gap-1.5">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-8 gap-1 px-2"
+                title="تحديث الصفحة"
+                onClick={() => { sessionStorage.removeItem("anon-update-seen"); location.reload(); }}
+              >
+                <RefreshCw className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">تحديث</span>
+              </Button>
               {adminChecked && !isAdmin && !adminError && (
                 <span
                   dir="ltr"

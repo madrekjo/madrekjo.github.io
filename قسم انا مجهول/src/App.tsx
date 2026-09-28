@@ -12,6 +12,7 @@ import Login from "@/pages/Login.tsx";
 import Admin from "@/pages/Admin.tsx";
 import NightGreeting from "@/components/NightGreeting";
 import { useEffect, useState } from "react";
+import { UpdateWatcher } from "@/components/update-watcher";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -88,6 +89,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <ErrorBoundary>
       <BrowserRouter basename="/anon">
+        <UpdateWatcher />
         <HeartbeatRunner />
         <VisitorGate>
           <Routes>
