@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "@/App";
 import "@/index.css";
 
-// OPS يعمل على نطاق الموقع الرئيسي (madrekjo.github.io) إذن يسري عليه
+// OPS يعمل على نطاق الموقع الرئيسي (madrekjo.study) إذن يسري عليه
 // Service Worker الخاص بالموقع الأساسي (sw.js) الذي يعترض الطلبات الخارجية
 // (Supabase + Worker) ويسبب أخطاء CORS / Failed to fetch.
 // هنا نُعطّل/نُلغي أي Service Worker يتحكم بصفحة التحكم:
