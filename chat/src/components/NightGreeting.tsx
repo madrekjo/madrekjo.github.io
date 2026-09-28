@@ -62,7 +62,7 @@ const SAMPLE: Block[] = [
 ];
 
 /* ---------- صوت الليل: تسجيل حقيقي لصرير الحشرات (مرفق في المشروع) ---------- */
-const AUDIO_URL = import.meta.env.BASE_URL + "audio/night-crickets-v1.mp3";
+const AUDIO_URL = import.meta.env.BASE_URL + "audio/night-sea-waves-v1.mp3";
 
 /* ---------- نجوم ثابتة تتولد مرة واحدة ---------- */
 const STARS = Array.from({ length: 46 }, (_, i) => ({
@@ -345,6 +345,9 @@ export default function NightGreeting() {
                 <Volume2 className="w-3.5 h-3.5" /> صوت الليل معك…
               </p>
             </div>
+            <p className="text-center text-[9px] leading-relaxed text-white/25">
+              صوت أمواج بحر هادئة · Free Sounds Library (CC BY 4.0)
+            </p>
 
             <div className="space-y-3">{body}</div>
 
