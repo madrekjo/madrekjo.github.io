@@ -6,6 +6,8 @@
 --      وعند التطابق نرجّع المستخدم لمعرّفه الأصلي.
 -- =========================================================
 
+DROP FUNCTION IF EXISTS public.record_visitor_fingerprint(text,text,text,text,text,text,text,text,text);
+
 CREATE OR REPLACE FUNCTION public.record_visitor_fingerprint(
   p_device_id text, p_ip_hash text, p_ua_hash text, p_canvas_hash text,
   p_webgl_hash text, p_audio_hash text, p_fonts_hash text,
