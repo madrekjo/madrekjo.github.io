@@ -163,6 +163,18 @@ export default function NightGreeting() {
     };
   }, [isPreview]);
 
+  /* إغلاق قاطع عند وقت الانتهاء (3 فجراً): يختفي التنبيه والزر معاً بلا استثناء */
+  useEffect(() => {
+    if (!bcast?.expires_at) return;
+    const ms = new Date(bcast.expires_at).getTime() - Date.now();
+    if (ms <= 0) {
+      setBcast(null);
+      return;
+    }
+    const t = setTimeout(() => setBcast(null), Math.min(ms, 2_147_483_647));
+    return () => clearTimeout(t);
+  }, [bcast]);
+
   /* عنصر صوتي دائم يُنشأ عند التركيب (يحاول التشغيل التلقائي حيث يسمح المتصفح) */
   useEffect(() => {
     if (typeof document === "undefined") return;
@@ -212,16 +224,20 @@ export default function NightGreeting() {
   }, [isOwner]);
 
   if (!showOverlay) {
-    return isOwner ? (
+    /* نافذة التنبيه ما زالت مفتوحة (لحد 3 فجراً) → نعرض زراً للجميع يعيد فتحها */
+    const inWindow = !!(bcast && (!bcast.expires_at || new Date(bcast.expires_at).getTime() > Date.now()));
+    if (!inWindow && !isOwner) return null;
+
+    return (
       <button
-        onClick={() => setForced(true)}
+        onClick={() => (bcast ? setDismissed(null) : setForced(true))}
         className="fixed bottom-16 left-3 z-40 rounded-full border border-white/15 bg-black/60 text-sky-200 h-12 w-12 text-xl font-bold shadow-lg backdrop-blur flex items-center justify-center"
-        aria-label="تجربة ما قبل النوم"
-        title="تجربة ما قبل النوم (Ctrl+Shift+N)"
+        aria-label="تنبيه وقت النوم"
+        title={inWindow ? "تنبيه وقت النوم — اضغط للعرض" : "تجربة ما قبل النوم (Ctrl+Shift+N)"}
       >
         🌙
       </button>
-    ) : null;
+    );
   }
 
   const dismiss = (e?: React.MouseEvent) => {
@@ -280,6 +296,10 @@ export default function NightGreeting() {
         );
     }
   };
+
+  /* هل ما زال وقت العرض مفتوحاً؟ (يُخفي التلميح بعد 3 فجر) */
+  const inWindowHint =
+    !forced && !isPreview && !!bcast?.expires_at && new Date(bcast.expires_at).getTime() > Date.now();
 
   const body: React.ReactNode[] = [];
   (() => {
@@ -363,6 +383,11 @@ export default function NightGreeting() {
                 {sndOn ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
                 {sndOn ? "كتم صوت الليل" : "تشغيل صوت الليل"}
               </button>
+              {inWindowHint && (
+                <p className="text-center text-[10px] text-white/45 leading-relaxed">
+                  تقدر ترجع تشوفه وقت ما تحب من زر 🌙 — يضل ظاهر لحد الساعة 3 فجراً
+                </p>
+              )}
               {(forced || isPreview) && (
                 <p className="text-center text-[10px] text-amber-300/80">
                   وضع المعاينة — لا يظهر لغيرك
