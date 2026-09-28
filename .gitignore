@@ -47,3 +47,4 @@ ops-worker/.wrangler/
 
 # Nested git/workspace dirs (never commit)
 قسم انا مجهول/.workspace/
+sso-worker/.wrangler/
