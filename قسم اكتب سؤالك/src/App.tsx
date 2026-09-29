@@ -16,6 +16,7 @@ import {
   listSavedIds,
   myProfile as dbMyProfile,
   recordAttempt,
+  revealCorrectKey,
   submitAnswer,
   supabase,
   toggleLike as dbToggleLike,
@@ -69,6 +70,7 @@ export default function App() {
 
   const [questions, setQuestions] = useState<Question[]>(() => loadSaved());
   const [answers, setAnswers] = useState<Record<string, AnswerState>>({});
+  const [answering, setAnswering] = useState<Record<string, boolean>>({});
   const [likedIds, setLikedIds] = useState<Record<string, boolean>>({});
   const [likeCounts, setLikeCounts] = useState<Record<string, number>>({});
   const [screen, setScreen] = useState<"home" | "reels">(() =>
@@ -277,32 +279,64 @@ export default function App() {
   };
 
   const handleAnswer = async (q: Question, key: OptionKey) => {
-    if (answers[q.id]) return;
-    let correct = key === q.correct;
-    let correctKey = q.correct;
+    if (answers[q.id] || answering[q.id]) return;
+    setAnswering((p) => ({ ...p, [q.id]: true }));
 
-    if (!correctKey && dbReady && uid) {
-      // وضع السحابة: الإجابة الصحيحة يفحصها الخادم (RPC) — لا تصل للعميل قبل الإجابة
-      try {
-        const res = await submitAnswer(q.id, key, uid);
-        if (!res) return;
-        correct = res.correct;
-        correctKey = res.correctKey ?? undefined;
-      } catch (e) {
-        console.error("[Answer] فشل فحص الإجابة", e);
+    try {
+      let correctKey: OptionKey | undefined = q.correct;
+
+      if (!correctKey && dbReady && uid) {
+        // وضع السحابة: الإجابة الصحيحة يفحصها الخادم (RPC) — لا تصل للعميل قبل الإجابة
+        try {
+          const res = await submitAnswer(q.id, key, uid);
+          if (!res) return;
+          correctKey = res.correctKey ?? undefined;
+        } catch (e) {
+          // دالة submit_answer غير مُنفَّذة بالقاعدة بعد → نكشف المفاتيح بعد الاختيار
+          console.warn("[Answer] submit_answer غير متاحة — حل احتياطي", e);
+          correctKey = (await revealCorrectKey(q.id)) ?? undefined;
+        }
+      }
+
+      if (!correctKey) {
+        // لا مفاتيح أصلاً (وضع محلي بلا فحص) — لا ندّعي أن الإجابة خاطئة
+        setAnswers((p) => ({
+          ...p,
+          [q.id]: { chosen: key, correct: false, unknown: true },
+        }));
         return;
       }
-    } else if (dbReady && uid) {
-      recordAttempt({
-        userId: uid,
-        questionId: q.id,
-        chosen: key,
-        correct,
-      }).catch(() => {});
-    }
 
-    setAnswers((p) => ({ ...p, [q.id]: { chosen: key, correct, correctKey } }));
-    if (correct) setCorrectIds((p) => ({ ...p, [q.id]: true }));
+      const correct = key === correctKey;
+      setAnswers((p) => ({
+        ...p,
+        [q.id]: { chosen: key, correct, correctKey, unknown: false },
+      }));
+      if (correct) setCorrectIds((p) => ({ ...p, [q.id]: true }));
+
+      // تسجيل المحاولة (المسار الاحتياطي يتجاوز دالة الخادم)
+      if (dbReady && uid) {
+        recordAttempt({
+          userId: uid,
+          questionId: q.id,
+          chosen: key,
+          correct,
+        }).catch(() => {});
+      }
+    } catch (e) {
+      console.error("[Answer] فشل فحص الإجابة", e);
+      flash("⚠️ ما قدرنا نفحص إجابتك — حاول تاني");
+      setAnswers((p) => ({
+        ...p,
+        [q.id]: { chosen: key, correct: false, unknown: true },
+      }));
+    } finally {
+      setAnswering((p) => {
+        const next = { ...p };
+        delete next[q.id];
+        return next;
+      });
+    }
   };
 
   const handleSaveImage = async (q: Question) => {
@@ -492,6 +526,7 @@ export default function App() {
           <QuestionReels
             questions={visibleList}
             answers={answers}
+            answering={answering}
             likedIds={likedIds}
             likeCounts={likeCounts}
             savedIds={savedIds}

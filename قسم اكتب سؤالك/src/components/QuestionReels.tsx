@@ -6,6 +6,7 @@ import QuestionCard from "./QuestionCard";
 export default function QuestionReels({
   questions,
   answers,
+  answering,
   likedIds,
   likeCounts,
   savedIds,
@@ -26,6 +27,7 @@ export default function QuestionReels({
 }: {
   questions: Question[];
   answers: Record<string, AnswerState>;
+  answering: Record<string, boolean>;
   likedIds: Record<string, boolean>;
   likeCounts: Record<string, number>;
   savedIds: Record<string, boolean>;
@@ -162,6 +164,7 @@ export default function QuestionReels({
               <QuestionCard
                 q={q}
                 answer={answers[q.id] ?? null}
+                pending={!!answering[q.id]}
                 liked={liked}
                 likes={likes}
                 saved={saved}

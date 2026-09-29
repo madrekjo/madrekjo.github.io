@@ -1,11 +1,14 @@
 import {
   Bookmark,
   BookOpen,
+  Check,
   Download,
   Heart,
+  HelpCircle,
   MessageCircle,
   RotateCcw,
   Share2,
+  XCircle,
 } from "lucide-react";
 import type { AnswerState, OptionKey, Question } from "@/types";
 import { OPTION_KEYS } from "@/types";
@@ -17,7 +20,12 @@ function stateBg(
   isCorrectKey: boolean
 ): string {
   if (!answer) return "bg-ink/5 text-ink";
-  if (answer.chosen === key) return answer.correct ? "bg-green-600 text-white" : "bg-red-600 text-white";
+  if (answer.chosen === key)
+    return answer.unknown
+      ? "bg-amber-500 text-white"
+      : answer.correct
+        ? "bg-green-600 text-white"
+        : "bg-red-600 text-white";
   if (isCorrectKey) return "bg-green-600 text-white";
   return "bg-ink/10 text-ink/50";
 }
@@ -25,9 +33,13 @@ function stateBg(
 const railBtn =
   "grid size-10 place-items-center rounded-full bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/25 active:scale-90";
 
+const resetBtn =
+  "flex shrink-0 items-center gap-1 rounded-full bg-white/70 px-2.5 py-1 text-[11px] font-bold text-ink transition hover:bg-white";
+
 export default function QuestionCard({
   q,
   answer,
+  pending,
   liked,
   likes,
   saved,
@@ -42,6 +54,7 @@ export default function QuestionCard({
 }: {
   q: Question;
   answer: AnswerState | null;
+  pending: boolean;
   liked: boolean;
   likes: number;
   saved: boolean;
@@ -55,10 +68,18 @@ export default function QuestionCard({
   saving: boolean;
 }) {
   const answered = answer !== null;
+  const locked = answered || pending;
+  // النص الكامل للخيار الصحيح — يُعرض للطالب فقط بعد إجابته خطأً
+  const correctOption =
+    answered && !answer.correct && answer.correctKey
+      ? q.options.find((o) => o.key === answer.correctKey)
+      : undefined;
   const border = answered
     ? answer.correct
       ? "border-green-500 ring-2 ring-green-500/30"
-      : "border-red-500 ring-2 ring-red-500/30"
+      : answer.unknown
+        ? "border-amber-500 ring-2 ring-amber-500/30"
+        : "border-red-500 ring-2 ring-red-500/30"
     : "border-gold/40";
 
   return (
@@ -121,48 +142,79 @@ export default function QuestionCard({
 
           {/* منطقة الإجابة الثابتة: النتيجة + الخيارات (دائماً ظاهرة) */}
           <div className="shrink-0 px-4 pb-2 pt-2">
-            {answered && (
-              <div
-                className={
-                  "pop-in mb-2 flex items-center justify-between gap-2 rounded-xl px-3 py-1.5 text-xs font-extrabold " +
-                  (answer.correct
-                    ? "bg-green-100 text-green-800"
-                    : "bg-red-100 text-red-800")
-                }
-              >
-                <span>
-                  {answer.correct
-                    ? "✓ إجابتك صحيحة"
-                    : `✕ إجابتك خاطئة — الصحيح: ${answer.correctKey ?? "-"}`}
+            {pending && (
+              <div className="pop-in mb-2 flex items-center justify-center gap-2 rounded-xl bg-ink/5 px-3 py-1.5 text-xs font-extrabold text-ink-soft">
+                <span className="size-3 animate-spin rounded-full border-2 border-ink/25 border-t-ink" />
+                جاري فحص إجابتك…
+              </div>
+            )}
+
+            {answered && answer.unknown && (
+              <div className="pop-in mb-2 flex items-center justify-between gap-2 rounded-xl bg-amber-100 px-3 py-1.5 text-xs font-extrabold text-amber-800">
+                <span className="flex items-center gap-1">
+                  <HelpCircle size={14} /> ما قدرنا نتحقق من الإجابة
                 </span>
-                <button
-                  onClick={onResetAnswer}
-                  className="flex shrink-0 items-center gap-1 rounded-full bg-white/70 px-2.5 py-1 text-[11px] font-bold text-ink transition hover:bg-white"
-                >
+                <button onClick={onResetAnswer} className={resetBtn}>
                   <RotateCcw size={12} /> إعادة الحل
                 </button>
+              </div>
+            )}
+
+            {answered && !answer.unknown && answer.correct && (
+              <div className="pop-in mb-2 flex items-center justify-between gap-2 rounded-xl bg-green-100 px-3 py-1.5 text-xs font-extrabold text-green-800">
+                <span className="flex items-center gap-1">
+                  <Check size={14} strokeWidth={3} /> إجابتك صحيحة
+                </span>
+                <button onClick={onResetAnswer} className={resetBtn}>
+                  <RotateCcw size={12} /> إعادة الحل
+                </button>
+              </div>
+            )}
+
+            {answered && !answer.unknown && !answer.correct && (
+              <div className="pop-in mb-2 rounded-xl border-2 border-red-300 bg-red-50 px-3 py-2">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="flex items-center gap-1 text-xs font-extrabold text-red-700">
+                    <XCircle size={14} /> إجابتك خاطئة
+                  </span>
+                  <button onClick={onResetAnswer} className={resetBtn}>
+                    <RotateCcw size={12} /> إعادة الحل
+                  </button>
+                </div>
+                <div className="mt-1.5 flex items-start gap-2 rounded-lg bg-green-600 px-2.5 py-1.5 text-white shadow-sm">
+                  <span className="mt-px grid size-5 shrink-0 place-items-center rounded-full bg-white/25 text-[11px] font-extrabold">
+                    {answer.correctKey ?? "؟"}
+                  </span>
+                  <span className="min-w-0 flex-1 break-words text-[13px] font-bold leading-snug">
+                    {correctOption?.text ?? "راجع السؤال وحاول مرة ثانية"}
+                  </span>
+                </div>
               </div>
             )}
 
             <div
               className={
                 "grid grid-cols-2 gap-2 " +
-                (answered ? "pointer-events-none" : "")
+                (locked ? "pointer-events-none opacity-70" : "")
               }
             >
               {q.options.map((opt) => {
                 const isCorrectKey = (answer?.correctKey ?? q.correct) === opt.key;
+                const showRightMark =
+                  answered && !answer.unknown && isCorrectKey && !answer.correct;
                 const cls = !answered
                   ? "border-line bg-white/60 text-ink hover:border-gold-deep hover:bg-gold/10 active:scale-[0.98]"
-                  : answer.correct
-                    ? opt.key === answer.chosen
-                      ? "border-green-500 bg-green-50/70 text-green-900"
-                      : "border-line/60 bg-white/40 text-ink/40"
-                    : opt.key === answer.chosen
-                      ? "border-red-500 bg-red-50 text-red-900"
-                      : isCorrectKey
+                  : answer.unknown
+                    ? "border-line/60 bg-white/40 text-ink/40"
+                    : answer.correct
+                      ? opt.key === answer.chosen
                         ? "border-green-500 bg-green-50/70 text-green-900"
-                        : "border-line/60 bg-white/40 text-ink/40";
+                        : "border-line/60 bg-white/40 text-ink/40"
+                      : opt.key === answer.chosen
+                        ? "border-red-500 bg-red-50 text-red-900"
+                        : isCorrectKey
+                          ? "border-green-500 bg-green-50/70 text-green-900"
+                          : "border-line/60 bg-white/40 text-ink/40";
                 return (
                   <button
                     key={opt.key}
@@ -181,6 +233,14 @@ export default function QuestionCard({
                       {opt.key}
                     </span>
                     <span className="flex-1 leading-snug">{opt.text}</span>
+                    {showRightMark && (
+                      <span
+                        className="grid size-5 shrink-0 place-items-center rounded-full bg-green-600 text-white"
+                        title="الإجابة الصحيحة"
+                      >
+                        <Check size={13} strokeWidth={3} />
+                      </span>
+                    )}
                   </button>
                 );
               })}
@@ -250,20 +310,26 @@ export default function QuestionCard({
         {OPTION_KEYS.map((k) => {
           const chosen = answer?.chosen === k;
           const isRight = k === (answer?.correctKey ?? q.correct);
-          const btnCls = !answered
+          const btnCls = !locked
             ? "bg-white/10 text-white hover:bg-gold/80 hover:text-ink active:scale-95"
-            : chosen && answer!.correct
-              ? "bg-green-500 text-white"
-              : chosen && !answer!.correct
-                ? "bg-red-500 text-white"
-                : isRight
+            : answer === null
+              ? "bg-white/10 text-white/40 opacity-60"
+              : answer.unknown
+                ? chosen
+                  ? "bg-amber-500 text-white"
+                  : "bg-white/10 text-white/40 opacity-60"
+                : chosen && answer.correct
                   ? "bg-green-500 text-white"
-                  : "bg-white/10 text-white/40 opacity-60";
+                  : chosen
+                    ? "bg-red-500 text-white"
+                    : isRight
+                      ? "bg-green-500 text-white"
+                      : "bg-white/10 text-white/40 opacity-60";
           return (
             <button
               key={k}
               onClick={() => onAnswer(k)}
-              disabled={answered}
+              disabled={locked}
               aria-label={`الجواب ${k}`}
               className={
                 "grid size-10 place-items-center rounded-full text-lg font-extrabold shadow-lg backdrop-blur-sm transition disabled:cursor-default " +

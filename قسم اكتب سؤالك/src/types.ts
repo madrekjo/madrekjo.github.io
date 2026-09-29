@@ -40,6 +40,8 @@ export type AnswerState = {
   chosen: OptionKey;
   correct: boolean;
   correctKey?: OptionKey;
+  /** تعذّر التأكد من الإجابة (لم يُفحصها الخادم) — لا نعرض «الصحيح: -» */
+  unknown?: boolean;
 };
 
 export type Scope = "mine-field" | "all";
