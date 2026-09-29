@@ -59,9 +59,11 @@ CREATE OR REPLACE FUNCTION public.round_base_balance() RETURNS integer
 CREATE OR REPLACE FUNCTION public.round_max_balance() RETURNS integer
   LANGUAGE sql IMMUTABLE PARALLEL SAFE AS $$ SELECT 100 $$;
 
--- نقطة واحدة كل 20 دقيقة عمل متحقَّقة
+-- 10 نقاط كل ساعتين من الزمن داخل الجولة
+--   7200 ثانية (ساعتان) ÷ 10 = 720 ثانية لكل نقطة
+-- الزمن هنا هو زمن التواجد (حتى لو كانت الجولة في استراحة)، لا وقت العمل الصافي.
 CREATE OR REPLACE FUNCTION public.round_seconds_per_point() RETURNS integer
-  LANGUAGE sql IMMUTABLE PARALLEL SAFE AS $$ SELECT 1200 $$;
+  LANGUAGE sql IMMUTABLE PARALLEL SAFE AS $$ SELECT 720 $$;
 
 -- أقصى ثوانٍ تُدمج في نبضة واحدة (حماية من التبويب المجمّد)
 CREATE OR REPLACE FUNCTION public.round_beat_cap() RETURNS integer
@@ -575,6 +577,9 @@ BEGIN
   END IF;
 
   -- ------------------------------------------------- احتساب الحضور
+  --   الزمن المحتسب هو زمن التواجد داخل الجولة كاملاً (حتى الاستراحات)،
+  --   لا وقت العمل الصافي. 10 نقاط كل 7200 ثانية.
+  --
   --   النافذة الأخيرة قبل نهاية الجولة تُحتسب هنا قبل الإقفال،
   --   وإلا ضاعت حتى 120 ثانية (سقف النبضة) بلا سبب.
   --   (v_clip مقصوص عند scheduled_end_at فلا يمكن تجاوز النهاية)
@@ -583,10 +588,8 @@ BEGIN
 
     -- الراحة (> 300 ث) = مستخدم غادر: نبدأ نافذة جديدة من الصفر
     IF v_gap > 0 AND v_gap <= public.round_beat_liveness() THEN
-      v_window := public.round_focus_seconds(
-        v_r.started_at, v_r.duration_minutes,
-        v_r.break_enabled, v_r.break_interval_minutes, v_r.break_duration_minutes,
-        v_from, v_clip);
+      -- زمن حقيقي من ساعة الخادم، مقصوص عند نهاية الجولة
+      v_window := v_gap;
 
       IF v_window > 0 THEN
         v_delta := LEAST(v_window, public.round_beat_cap());

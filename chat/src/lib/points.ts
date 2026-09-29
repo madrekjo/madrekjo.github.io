@@ -1,5 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
-import { BASE_BALANCE, MAX_BALANCE, SECONDS_PER_POINT } from "@/lib/roundSchedule";
+import { BASE_BALANCE, MAX_BALANCE, SECONDS_PER_POINT, SECONDS_PER_BATCH, POINTS_PER_BATCH } from "@/lib/roundSchedule";
 
 export interface PointsInfo {
   balance: number;
@@ -242,10 +242,9 @@ export function hasEnoughPoints(balance: number, type: PointCostType): boolean {
 }
 
 /**
- * النقاط تُحسب من الوقت المتحقَّق في الجولة: نقطة كل
- * SECONDS_PER_POINT (20 دقيقة) عمل مؤكَّد — لا "بعد ساعتين" anymore،
- * ولا اعتماد على ساعة المتصفح.
+ * النقاط تُحسب من زمن التواجد داخل الجولة: 10 نقاط كل ساعتين.
+ * الزمن يشمل الاستراحات، ويُحتسب من ساعة الخادم لا ساعة المتصفح.
  */
-export const ROUND_POINT_LABEL = `نقطة كل ${SECONDS_PER_POINT / 60} دقيقة حضور حقيقي`;
+export const ROUND_POINT_LABEL = `${POINTS_PER_BATCH} نقاط كل ${SECONDS_PER_BATCH / 3600} ساعة حضور في الجولة`;
 
-export { MAX_BALANCE, BASE_BALANCE, SECONDS_PER_POINT };
+export { MAX_BALANCE, BASE_BALANCE, SECONDS_PER_POINT, SECONDS_PER_BATCH, POINTS_PER_BATCH };

@@ -29,7 +29,8 @@ import {
   breakSecondsLeft,
   formatDuration,
   MAX_BALANCE,
-  SECONDS_PER_POINT,
+  SECONDS_PER_BATCH,
+  POINTS_PER_BATCH,
   type RoundState,
 } from "@/lib/roundSchedule";
 import type { RoundLeaderboardRow } from "@/lib/points";
@@ -124,9 +125,15 @@ const Rounds = () => {
   // لوحة الحضور داخل الجلسة
   const [board, setBoard] = useState<RoundLeaderboardRow[]>([]);
 
-  // نبضة الحضور: شغّلها فقط داخل جلسة نشطة
+  // زر دخول/خروج: صريح لل��ستخدم، ويوقف الاحتساب فور الضغط على "خروج"
+  const [sessionJoined, setSessionJoined] = useState(false);
+
+  // نبضة الحضور: تشتغل فقط داخل جلسة نشطة **و** بعد ضغط زر "دخول"
   const sessionIsActive = sessionRound?.status === "active";
-  const { live, beat, beating } = useRoundHeartbeat(!!sessionRoundId && !!sessionIsActive, sessionRoundId);
+  const { live, beat, beating } = useRoundHeartbeat(
+    !!sessionRoundId && !!sessionIsActive && sessionJoined,
+    sessionRoundId
+  );
 
   // يُخزَّن المشاركون والبروفايلات خارج قائمة الجولات حتى لا يُعاد جلبها كل استطلاع.
   const detailCache = useRef<{ parts: any[]; profiles: any[] }>({ parts: [], profiles: [] });
@@ -470,41 +477,74 @@ const Rounds = () => {
   const myMeetings = meetings;
 
   // بطاقة الحضور الشخصي داخل جلسة الجولة (دالة عرض، ليست مكوّناً)
-  const renderFocusCard = (st: RoundState) => (
-    <div className="rounded-xl border border-primary/30 bg-primary/5 p-4 space-y-2">
-      <p className="text-xs font-medium text-muted-foreground flex items-center gap-1">
-        <Activity className="w-3.5 h-3.5" /> حضورك المُثبَت في هذه الجولة
-      </p>
-      <div className="flex items-end justify-between gap-3">
-        <div>
-          <p className="text-3xl font-bold tabular-nums text-primary">{formatDuration(live.liveFocus)}</p>
-          <p className="text-[11px] text-muted-foreground">عمل مؤكَّد (البريكات لا تُحتسب)</p>
+  const renderFocusCard = (st: RoundState) => {
+    const secs = Math.max(0, Math.floor(live.liveFocus));
+    const pct = (secs % SECONDS_PER_BATCH) / SECONDS_PER_BATCH;
+    const toBatch = SECONDS_PER_BATCH - (secs % SECONDS_PER_BATCH);
+    return (
+      <div className="rounded-xl border border-primary/30 bg-primary/5 p-4 space-y-3">
+        {/* الصف: زر دخول/خروج + العدّاد + علامة +10 */}
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <Button
+            type="button"
+            variant={sessionJoined ? "destructive" : "default"}
+            disabled={!sessionIsActive || st.wallRemaining <= 0}
+            onClick={() => setSessionJoined((v) => !v)}
+            className="gap-1.5 font-semibold"
+          >
+            {sessionJoined ? <LogOutIcon className="w-4 h-4" /> : <LogIn className="w-4 h-4" />}
+            {sessionJoined ? "خروج" : "دخول"}
+          </Button>
+
+          <div className="flex items-center gap-2">
+            <span className="text-3xl font-bold tabular-nums text-primary" dir="ltr">
+              {formatDuration(secs)}
+            </span>
+            <span className="text-xl font-bold text-muted-foreground" aria-hidden>+</span>
+            <span className="text-2xl font-bold tabular-nums text-amber-500">
+              {POINTS_PER_BATCH} نقاط
+            </span>
+          </div>
         </div>
-        <div className="text-left">
-          <p className="text-2xl font-bold tabular-nums text-amber-500">+{live.points}</p>
-          <p className="text-[11px] text-muted-foreground">نقطة حصلت عليها</p>
+
+        <p className="text-[11px] text-muted-foreground">
+          {sessionJoined
+            ? `تُحتسب النقاط كل ${SECONDS_PER_BATCH / 3600} ساعة حضور — الدفعة القادمة بعد ${formatDuration(toBatch)}`
+            : "اضغط «دخول» ليبدأ احتساب وقتك داخل الجولة."}
+        </p>
+
+        <div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
+          <div
+            className="h-full rounded-full bg-primary transition-all duration-500"
+            style={{ width: `${Math.min(100, pct * 100)}%` }}
+          />
         </div>
+
+        <div className="flex items-end justify-between gap-3">
+          <div>
+            <p className="text-2xl font-bold tabular-nums text-amber-500">+{live.points}</p>
+            <p className="text-[11px] text-muted-foreground">نقطة حصلت عليها في هذه الجولة</p>
+          </div>
+          <div className="text-left text-[11px] text-muted-foreground">
+            <p>رصيدك الآن {balance} — سقف اليوم {MAX_BALANCE}</p>
+            <p>
+              {live.nextPointIn !== null && live.nextPointIn > 0
+                ? `النقطة التالية بعد ${formatDuration(live.nextPointIn)}`
+                : "لا سقف لجلسة اليوم"}
+            </p>
+          </div>
+        </div>
+
+        {live.error && <p className="text-[11px] text-destructive">{live.error}</p>}
+        {!sessionIsActive && sessionRound?.status === "pending" && (
+          <p className="text-[11px] text-muted-foreground">الجولة لم تبدأ بعد — لا يُحتسب شيء قبل أن يبدأها الخادم.</p>
+        )}
+        {st.wallRemaining <= 0 && (
+          <p className="text-[11px] text-green-600 dark:text-green-400">انتهى زمن الجولة — تسجيل حضورك مُجمَّد.</p>
+        )}
       </div>
-      <div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
-        <div
-          className="h-full rounded-full bg-primary transition-all duration-500"
-          style={{ width: `${Math.min(100, ((live.liveFocus % SECONDS_PER_POINT) / SECONDS_PER_POINT) * 100)}%` }}
-        />
-      </div>
-      <p className="text-[11px] text-muted-foreground">
-        {live.nextPointIn !== null && live.nextPointIn > 0
-          ? `النقطة التالية بعد ${formatDuration(live.nextPointIn)} من الحضور`
-          : `رصيدك الآن ${balance} — سقف اليوم ${MAX_BALANCE}، ونقطة كل ${SECONDS_PER_POINT / 60} دقيقة حضور`}
-      </p>
-      {live.error && <p className="text-[11px] text-destructive">{live.error}</p>}
-      {!sessionIsActive && sessionRound?.status === "pending" && (
-        <p className="text-[11px] text-muted-foreground">الجولة لم تبدأ بعد — لا يُحتسب شيء قبل أن يبدأها الخادم.</p>
-      )}
-      {st.wallRemaining <= 0 && (
-        <p className="text-[11px] text-green-600 dark:text-green-400">انتهى زمن الجولة — تسجيل حضورك مُجمَّد.</p>
-      )}
-    </div>
-  );
+    );
+  };
 
   const renderCard = (r: Round) => {
     const isOwner = r.user_id === user?.id;
@@ -789,7 +829,7 @@ const Rounds = () => {
                 <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground justify-center">
                   <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {sessionRound.duration_minutes} دقيقة عمل</span>
                   <span className="flex items-center gap-1"><Users className="w-3 h-3" /> {sessionRound.participants.length} مشارك</span>
-                  <span className="flex items-center gap-1"><Flame className="w-3 h-3" /> نقطة كل {SECONDS_PER_POINT / 60} دقيقة</span>
+                  <span className="flex items-center gap-1"><Flame className="w-3 h-3" /> {POINTS_PER_BATCH} نقاط كل ساعتين</span>
                 </div>
 
                 {/* لوحة الحضور — المالك فقط، وإثبات أن النقاط محسوبة على وقت حقيقي */}
@@ -939,9 +979,9 @@ const Rounds = () => {
             <p>📝 <b>إنشاء جولة:</b> اضغط "جولة جديدة" واكتب الاسم والوصف ومدة العمل.</p>
             <p>☕ <b>البريك:</b> المدة التي تكتبها هي <b>صافي وقت العمل</b>. البريكات تُضاف فوقها ولا تُحتسب عملاً. مثال: 60 دقيقة مع بريك 5 كل 25 ⇒ الجولة 70 دقيقة على الأرض.</p>
             <p>▶️ <b>البدء:</b> صاحب الجولة يضغط "بدء"، والخادم هو من يحسب الجدول ونهاية الجولة ويخزّنهما. لا أحد يعدّلهما من المتصفح.</p>
-            <p>⏱️ <b>الاحتساب حقيقي:</b> وأنت داخل الجولة، المتصفح يرسل نبضة كل 30 ثانية <b>والتبويب مرئي فقط</b>. الخادم يحسب الثواني من ساعته هو.</p>
+            <p>⏱️ <b>الاحتساب حقيقي:</b> اضغط «دخول» ليبدأ العدّاد، و«خروج» لإيقافه. طالما الجلسة نشطة يرسل المتصفح نبضة كل 30 ثانية <b>والتبويب مرئي فقط</b>. الخادم يحسب الثواني من ساعته هو.</p>
             <p>🚫 <b>ما لا يُحتسب:</b> إغلاق التبويب، أو الانتقال لتبويب آخر، أو غياب يتجاوز 5 دقائق. لا يمكن اختلاق الوقت من أي جهاز.</p>
-            <p>🔥 <b>النقاط:</b> نقطة واحدة كل {SECONDS_PER_POINT / 60} دقيقة حضور مؤكَّد. الرصيد اليومي يبدأ من 50 ولا يتجاوز 100، وما أُضيف يُسجَّل في سجل معاملاتك.</p>
+            <p>🔥 <b>النقاط:</b> {POINTS_PER_BATCH} نقاط كل {SECONDS_PER_BATCH / 3600} ساعة حضور داخل الجولة (تشمل الاستراحات). الرصيد اليومي يبدأ من 50 ولا يتجاوز 100، وما أُضيف يُسجَّل في سجل معاملاتك.</p>
             <p>🏁 <b>الإنهاء:</b> عند انتهاء الوقت يُجمّد الخادم سجل الحضور تلقائياً، أو يستطيع المالك إنهاؤها مبكراً. النقاط كانت مُنحت أثناء الجولة بالفعل.</p>
             <p>📝 <b>تقييم الإنجاز:</b> اختياري وأدبي فقط — لا يمنح نقاط.</p>
             <p>🚫 <b>طرد:</b> الأدمن والمشرفون يقدروا يطردوا أي مشارك من قائمة المشاركين.</p>

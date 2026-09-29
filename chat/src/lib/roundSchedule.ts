@@ -11,8 +11,18 @@
  * في src/test/roundSchedule.test.ts بنفس أرقام الـ SQL.
  */
 
-/** نقطة واحدة كل 20 دقيقة عمل متحقَّقة (يطابق round_seconds_per_point) */
-export const SECONDS_PER_POINT = 1200;
+/**
+ * 10 نقاط كل ساعتين من زمن التواجد داخل الجولة (يطابق round_seconds_per_point).
+ *   7200 ثانية ÷ 10 نقاط = 720 ثانية لكل نقطة.
+ * الزمن المحتسب هو زمن التواجد كاملاً (حتى الاستراحات).
+ */
+export const SECONDS_PER_POINT = 720;
+
+/** 10 نقاط كل ساعتين — الرقم الظاهر للمستخدم بجوار العداد */
+export const POINTS_PER_BATCH = 10;
+
+/** ثوانٍ كل دفعة نقاط = مدّة الساعتين */
+export const SECONDS_PER_BATCH = 7200;
 
 /** الرصيد الأساسي اليومي — لا يتجاوزه أي حد أقصى (يطابق round_base_balance) */
 export const BASE_BALANCE = 50;

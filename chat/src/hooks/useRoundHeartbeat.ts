@@ -57,8 +57,8 @@ export function useRoundHeartbeat(enabled: boolean, roundId: string | null) {
   roundIdRef.current = roundId;
 
   const beat = useCallback(
-    async (opts: { final?: boolean } = {}) => {
-      const id = roundIdRef.current;
+    async (opts: { final?: boolean; id?: string } = {}) => {
+      const id = opts.id || roundIdRef.current;
       if (!id) return;
       setBeating(true);
       try {
@@ -90,17 +90,19 @@ export function useRoundHeartbeat(enabled: boolean, roundId: string | null) {
     [heartbeat]
   );
 
-  // نبضة فورية عند الدخول + نبضة أخيرة عند الخروج
+  // تصفير كامل عند تبديل الجولة فقط.
+  // عند إيقاف الجلسة (زر خروج) نحتفظ بالأرقام المجمّعة بدل تصفيرها.
   useEffect(() => {
-    if (!enabled || !roundId) {
-      // لا نبضة بلا جلسة ⇒ لا تُعرض أرقام جولة سابقة على جولة جديدة
-      lastBeatAt.current = 0;
-      setLive(EMPTY);
-      return;
-    }
-    void beat();
+    lastBeatAt.current = 0;
+    setLive(EMPTY);
+  }, [roundId]);
+
+  // نبضة فورية عند الدخول + نبضة أخيرة عند الإيقاف حتى لا يضيع المحتسب
+  useEffect(() => {
+    if (!enabled || !roundId) return;
+    void beat({ id: roundId });
     return () => {
-      void beat({ final: true });
+      void beat({ final: true, id: roundId });
     };
   }, [enabled, roundId, beat]);
 
@@ -145,18 +147,16 @@ export function useRoundHeartbeat(enabled: boolean, roundId: string | null) {
     };
   }, [enabled, roundId, beat]);
 
-  // عدّاد حيّ بين النبضات: يعرض ما سيحتسبه الخادم فعلاً
+  // عدّاد حيّ بين النبضات: يعرض ما سيحتسبه الخادم فعلاً.
+  // الزمن المُحتسب هو زمن التواجد كاملاً، فلا يتوقف أثناء الاستراحة.
   useEffect(() => {
     if (!enabled) return;
     const t = setInterval(() => {
       setLive(prev => {
-        if (prev.inBreak || !prev.isActive || !lastBeatAt.current) return prev;
+        if (!prev.isActive || !lastBeatAt.current) return prev;
         // الخادم يقصّ الإدماج عند 120 ثانية لكل نبضة
         const since = Math.min((Date.now() - lastBeatAt.current) / 1000, 120);
-        const liveFocus = Math.min(
-          prev.serverFocus + since,
-          prev.totalWork || Number.POSITIVE_INFINITY
-        );
+        const liveFocus = prev.serverFocus + since;
         if (Math.abs(liveFocus - prev.liveFocus) < 0.5) return prev;
         return { ...prev, liveFocus };
       });
