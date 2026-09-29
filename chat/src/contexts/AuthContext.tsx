@@ -25,6 +25,9 @@ interface Profile {
   via_invite?: boolean;
 }
 
+const PROFILE_SELECT =
+  "id, user_id, full_name, avatar_url, name_changed_at, is_banned, chat_banned, timeout_until, generation, field, gender, theme, last_seen_at, via_invite";
+
 type Permission =
   | "can_delete_posts"
   | "can_delete_comments"
@@ -201,7 +204,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
               withTimeout(
                 supabase
                   .from("profiles")
-                  .select("id, user_id, full_name, avatar_url, name_changed_at, is_banned, chat_banned, timeout_until, generation, field, gender, theme, last_seen_at, via_invite")
+                  .select(PROFILE_SELECT)
                   .eq("user_id", userId)
                   .maybeSingle(),
                 { data: null, error: null } as any,
@@ -242,7 +245,31 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         cachedRolePermissions = permData;
       }
 
-      setProfile(data || null);
+      setProfile(data ? (data as Profile) : null);
+
+      // شبكة أمان: بعض الحسابات (أُنشئت قبل توفّر trigger handle_new_user)
+      // ما لها صف في profiles، فتفشل التعليقات/النشر بسبب الـFK ويظهر الاسم
+      // «مستخدم». ننشئ الصف الناقص مرة واحدة ثم نعيد الجلب مباشرة.
+      if (!data) {
+        try {
+          const { error: healErr } = await supabase.rpc("ensure_my_profile");
+          if (!healErr) {
+            invalidateCache(`auth:profile:${userId}`);
+            const { data: healed } = await withTimeout(
+              supabase
+                .from("profiles")
+                .select(PROFILE_SELECT)
+                .eq("user_id", userId)
+                .maybeSingle(),
+              { data: null, error: null } as any,
+              5000
+            );
+            if (healed) setProfile(healed as Profile);
+          }
+        } catch {
+          /* لا نكسر الدخول إن فشل الإصلاح — سيبقى البروفايل كما هو */
+        }
+      }
 
       const roleList = (roleData || []).map((r: any) => r.role);
       setRoles(roleList);
