@@ -30,6 +30,7 @@ function useNameForm(initial: string | null) {
       r.error === "no links" ? "الاسم ما بقدر يكون رابط أو إيميل" :
       r.error === "too long" ? `الاسم طويل زيادة (${MAX} حرف كحد أقصى)` :
       r.error === "too short" ? "الاسم قصير زيادة" :
+      r.error === "name taken" ? "هذا الاسم محجوز لجهاز ثاني — جرّب اسماً ثاني" :
       "تعذّر الحفظ، جرّب مرة ثانية"
     );
     return false;
