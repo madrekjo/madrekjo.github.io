@@ -10,6 +10,12 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+
+# Supabase secrets (NEVER commit)
+# set_bypass_code.sql فيه رمز فك الحظر الحقيقي.
+# استخدم set_bypass_code.example.sql كقالب.
+supabase/scripts/set_bypass_code.sql
+supabase/scripts/*.local.sql
 .output
 .vinxi
 .tanstack/**
