@@ -454,3 +454,12 @@ html.admin-vault {
   25% { opacity: 1; }
   100% { transform: translateY(-40px) scale(1.2); opacity: 0; }
 }
+
+/* ============================================================
+   عجلة الجوائز: مصابيح تسير حول العجلة + بريق دائم للحواف
+   ============================================================ */
+@keyframes bulb-chase {
+  0%   { opacity: 1;   box-shadow: 0 0 14px 5px rgba(253, 224, 71, 0.95); }
+  45%  { opacity: 0.25; box-shadow: 0 0 4px 1px rgba(253, 224, 71, 0.35); }
+  100% { opacity: 1;   box-shadow: 0 0 14px 5px rgba(253, 224, 71, 0.95); }
+}

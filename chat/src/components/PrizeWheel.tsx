@@ -15,6 +15,8 @@ const SEGMENT_COLORS = [
   "#06b6d4",
   "#6366f1",
   "#a855f7",
+  "#fb7185",
+  "#f59e0b",
 ];
 
 const SEGMENT_COUNT = WHEEL_PRIZES.length;
@@ -32,6 +34,27 @@ function buildConic(): string {
   });
   return `conic-gradient(from 0deg, ${stops.join(", ")})`;
 }
+
+/** مصابيح العجلة: حلقة أضواء تسير حولها ببطء، وتسرّع أثناء الدوران. */
+const BULB_COUNT = 28;
+const Bulbs = ({ spinning }: { spinning: boolean }) => (
+  <div className="pointer-events-none absolute -inset-3" aria-hidden="true">
+    {Array.from({ length: BULB_COUNT }).map((_, i) => (
+      <span
+        key={i}
+        className="absolute left-1/2 top-1/2 h-2.5 w-2.5 rounded-full"
+        style={{
+          transform: `rotate(${(360 / BULB_COUNT) * i}deg) translateY(-134px)`,
+          background: "#fff7ae",
+          boxShadow: "0 0 10px 3px rgba(253,224,71,.9)",
+          animation: `bulb-chase ${spinning ? 0.45 : 1.4}s linear infinite`,
+          animationDelay: `${((BULB_COUNT - i) / BULB_COUNT) * (spinning ? 0.45 : 1.4)}s`,
+          opacity: spinning ? 1 : 0.85,
+        }}
+      />
+    ))}
+  </div>
+);
 
 const Pointer = () => (
   <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-[8px] z-20">
@@ -130,9 +153,10 @@ const PrizeWheel = () => {
         </DialogHeader>
 
         <div className="relative mx-auto w-[260px] h-[260px] select-none">
+          <Bulbs spinning={spinning} />
           <Pointer />
           <div
-            className="w-full h-full rounded-full border-4 border-yellow-400/80 shadow-[0_0_24px_rgba(250,204,21,0.35)]"
+            className="relative w-full h-full rounded-full border-4 border-yellow-300 shadow-[0_0_30px_rgba(250,204,21,0.55),0_0_70px_rgba(249,115,22,0.35)]"
             style={{
               background: buildConic(),
               transform: `rotate(${rotation}deg)`,

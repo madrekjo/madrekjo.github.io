@@ -1,7 +1,7 @@
 import { supabase } from "@/integrations/supabase/client";
 
 /** أجزاء عجلة الجوائز بالنقاط (ترتيبها في العجلة: من رقم 0 جنوب وباتجاه عقارب الساعة). */
-export const WHEEL_PRIZES = [5, 10, 15, 20, 25, 30, 40] as const;
+export const WHEEL_PRIZES = [5, 10, 15, 20, 25, 30, 40, 50, 100] as const;
 
 export type WheelPrize = (typeof WHEEL_PRIZES)[number];
 
