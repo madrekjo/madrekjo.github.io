@@ -22,7 +22,7 @@ import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import MeetingChat from "@/components/MeetingChat";
 import { usePoints } from "@/contexts/PointsContext";
-import { useRoundHeartbeat } from "@/hooks/useRoundHeartbeat";
+import { useRoundPresence } from "@/contexts/RoundPresenceContext";
 import {
   roundStateAt,
   roundTotalSeconds,
@@ -125,20 +125,25 @@ const Rounds = () => {
   // لوحة الحضور داخل الجلسة
   const [board, setBoard] = useState<RoundLeaderboardRow[]>([]);
 
-  // زر دخول/خروج: صريح للمستخدم، ويوقف الاحتساب فور الضغط على "خروج"
-  const [sessionJoined, setSessionJoined] = useState(false);
+  // زر دخول/خروج: صريح للمستخدم. الحضور يعيش في RoundPresenceProvider فوق
+  // التطبيق كله، فيستمر الاحتساب حتى لو غيّر المستخدم الصفحة أو التبويب.
 
   // المشارك المعروض تفاصيله (عند الضغط على اسمه)
   const [viewingMember, setViewingMember] = useState<{
     uid: string; name?: string; avatar?: string | null; owner: boolean;
   } | null>(null);
 
-  // نبضة الحضور: تشتغل فقط داخل جلسة نشطة **و** بعد ضغط زر "دخول"
+  const {
+    joinedRoundId: presenceRoundId,
+    join: enterRound,
+    leave: exitRound,
+    live,
+    beat,
+    beating,
+  } = useRoundPresence();
+
   const sessionIsActive = sessionRound?.status === "active";
-  const { live, beat, beating } = useRoundHeartbeat(
-    !!sessionRoundId && !!sessionIsActive && sessionJoined,
-    sessionRoundId
-  );
+  const sessionJoined = !!sessionRoundId && presenceRoundId === sessionRoundId;
 
   // يُخزَّن المشاركون والبروفايلات خارج قائمة الجولات حتى لا يُعاد جلبها كل استطلاع.
   const detailCache = useRef<{ parts: any[]; profiles: any[] }>({ parts: [], profiles: [] });
@@ -492,7 +497,7 @@ const Rounds = () => {
           type="button"
           variant={sessionJoined ? "destructive" : "default"}
           disabled={!sessionIsActive || st.wallRemaining <= 0}
-          onClick={() => setSessionJoined((v) => !v)}
+          onClick={() => (sessionJoined ? exitRound() : enterRound(sessionRoundId!))}
           className="w-full gap-1.5 font-semibold"
         >
           {sessionJoined ? <LogOutIcon className="w-4 h-4" /> : <LogIn className="w-4 h-4" />}

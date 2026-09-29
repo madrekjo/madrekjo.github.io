@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import { PointsProvider } from "@/contexts/PointsContext";
+import { RoundPresenceProvider } from "@/contexts/RoundPresenceContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import Navbar from "@/components/Navbar";
 import ErrorBoundary from "@/components/ErrorBoundary";
@@ -122,6 +123,7 @@ const App = () => (
     <AuthProvider>
       <ThemeProvider>
         <PointsProvider>
+        <RoundPresenceProvider>
         <TooltipProvider>
           <Toaster />
           <Sonner />
@@ -132,6 +134,7 @@ const App = () => (
             </ErrorBoundary>
           </BrowserRouter>
         </TooltipProvider>
+        </RoundPresenceProvider>
         </PointsProvider>
       </ThemeProvider>
     </AuthProvider>
