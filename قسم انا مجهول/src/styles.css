@@ -168,7 +168,7 @@
   }
 }
 
-/* ===== تنبيه وقت النوم — شاشة كاملة ===== */
+/* ===== تنبيه وقت النوم — شاشة كاملة (بألوان الدردشة الداكنة) ===== */
 .night-overlay {
   position: fixed;
   inset: 0;
@@ -177,12 +177,52 @@
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
   touch-action: manipulation;
-  color: #fff;
+  color: hsl(40 15% 92%);
   background:
-    radial-gradient(1100px 560px at 78% -12%, rgba(88, 120, 255, 0.22), transparent 55%),
-    radial-gradient(900px 520px at 8% 112%, rgba(122, 70, 220, 0.16), transparent 50%),
-    linear-gradient(180deg, #050a18 0%, #0b1630 48%, #142a52 100%);
+    radial-gradient(1100px 560px at 78% -12%, hsl(168 55% 45% / 0.12), transparent 55%),
+    radial-gradient(900px 520px at 8% 112%, hsl(220 60% 32% / 0.38), transparent 50%),
+    linear-gradient(180deg, hsl(220 26% 8%) 0%, hsl(220 22% 11%) 55%, hsl(220 20% 14%) 100%);
 }
+
+/* بطاقة النافذة — نفس درجات الـcard في الدردشة */
+.night-card {
+  background: hsl(220 18% 14% / 0.94);
+  border: 1px solid hsl(220 15% 22%);
+  color: hsl(40 15% 92%);
+  box-shadow:
+    0 24px 60px -24px rgba(0, 0, 0, 0.8),
+    0 0 70px -20px hsl(168 55% 45% / 0.35);
+}
+.night-title { color: hsl(40 15% 92%); }
+.night-body { color: hsl(40 15% 92% / 0.86); }
+.night-muted { color: hsl(220 10% 55%); }
+.night-primary { color: hsl(168 55% 45%); }
+.night-accent { color: hsl(30 80% 58%); }
+.night-list { color: hsl(40 15% 92% / 0.9); }
+.night-list li::marker { color: hsl(168 55% 45%); }
+
+.night-btn-primary {
+  background: hsl(168 55% 45%);
+  color: #fff;
+  box-shadow: 0 10px 24px -12px hsl(168 55% 45% / 0.9);
+}
+.night-btn-primary:hover { background: hsl(168 55% 38%); }
+.night-btn-ghost {
+  border: 1px solid hsl(220 15% 22%);
+  background: hsl(220 15% 18% / 0.6);
+  color: hsl(220 10% 65%);
+}
+.night-btn-ghost:hover {
+  background: hsl(220 15% 22% / 0.85);
+  color: hsl(40 15% 92%);
+}
+.night-fab {
+  background: hsl(220 18% 14% / 0.92);
+  border: 1px solid hsl(220 15% 22%);
+  color: hsl(168 55% 45%);
+  box-shadow: 0 14px 30px -14px rgba(0, 0, 0, 0.8);
+}
+.night-fab:hover { background: hsl(220 18% 18% / 0.95); }
 .night-sky {
   position: fixed;
   inset: 0;
