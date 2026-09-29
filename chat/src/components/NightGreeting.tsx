@@ -110,10 +110,16 @@ export default function NightGreeting() {
     typeof window !== "undefined" &&
     new URLSearchParams(window.location.search).get("night") === "1";
 
+  /* وضع الاختبار: نفس آلية الإغلاق الساعة 3:00 بالضبط، بس بعد 45 ثانية.
+     بيفتح بـ ?nighttest=1 — ما بيأثر على أحد غيرك. */
+  const nightTest =
+    typeof window !== "undefined" &&
+    new URLSearchParams(window.location.search).get("nighttest") === "1";
+
   // النافذة الليلية الثابتة: تعمل بلا ما تحتاج صفّ بالجدول
   const win = nightWindow();
   const fallback: Broadcast | null =
-    !isPreview && !bcast && win.inWindow
+    !isPreview && !nightTest && !bcast && win.inWindow
       ? {
           id: win.key,
           title: "🌙 وقت النوم",
@@ -127,9 +133,9 @@ export default function NightGreeting() {
       ? { id: "forced", title: "🌙 وقت النوم — معاينة", content: SAMPLE }
       : bcast ?? fallback;
 
-  // المعاينة وحدها بتسكِر؛ النافذة الحقيقية ثابتة لحد 3 فجراً
+  // المعاينة والاختبار وحدهم بسكروا؛ النافذة الحقيقية ثابتة لحد 3 فجراً
   const showOverlay =
-    forced || (!!active && (isPreview ? active.id !== dismissed : true));
+    forced || (!!active && (isPreview || nightTest ? active.id !== dismissed : true));
 
   /* ---- عدّاد تنازلي لحد الساعة 3:00 فجراً (= 00:00 UTC بتوقيتنا UTC+3) ---- */
   const endAt = active?.expires_at
@@ -181,6 +187,19 @@ export default function NightGreeting() {
       }
     };
 
+    if (nightTest) {
+      setBcast({
+        id: "nighttest",
+        title: "🌙 وقت النوم — اختبار الإغلاق",
+        content: SAMPLE,
+        starts_at: new Date().toISOString(),
+        expires_at: new Date(Date.now() + 45_000).toISOString(),
+      });
+      return () => {
+        alive = false;
+      };
+    }
+
     if (isPreview) {
       if (sessionStorage.getItem("mdk_night_preview_done") === "1") {
         setDismissed("preview");
@@ -218,7 +237,7 @@ export default function NightGreeting() {
       document.removeEventListener("visibilitychange", onVisible);
       window.removeEventListener("focus", onVisible);
     };
-  }, [isPreview]);
+  }, [isPreview, nightTest]);
 
   /* إغلاق قاطع عند 3 فجراً: يوقف صوت الليل ويخفي التنبيه وزره معاً، فتظهر
      الدردشة عند كل المتصلين. نتحقق دورياً لأن المتصفح يؤخّر المؤقتات في
@@ -255,6 +274,14 @@ export default function NightGreeting() {
       window.removeEventListener("focus", onVisible);
     };
   }, [bcast]);
+
+  /* حارس الإغلاق: أي ما وصلت النافذة لنهايتها (جدول أو نافذة مدمجة) —
+     يقف الصوت ويطفئ الزر، حتى لو تأخّر المؤقتات بالتبويبات المخفية. */
+  useEffect(() => {
+    if (remainMs > 0) return;
+    sndRef.current?.pause();
+    setSndOn(false);
+  }, [remainMs]);
 
   /* عنصر صوتي دائم يُنشأ عند التركيب (يحاول التشغيل التلقائي حيث يسمح المتصفح) */
   useEffect(() => {
@@ -484,6 +511,11 @@ export default function NightGreeting() {
               {inWindowHint && (forced || isPreview) && (
                 <p className="night-muted text-center text-[10px] leading-relaxed">
                   وضع المعاينة — تقدر ترجع تشوفه وقت ما تحب
+                </p>
+              )}
+              {nightTest && (
+                <p className="night-accent text-center text-[10px]">
+                  وضع الاختبار — رح تنقفل تلقائياً وتظهر الدردشة (ما بتأثر على حدا)
                 </p>
               )}
               {(forced || isPreview) && (
