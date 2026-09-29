@@ -83,7 +83,9 @@ const PrizeWheel = () => {
       const status = await getWheelStatus();
       if (!active) return;
       setChecking(false);
-      if (status && !status.spun) {
+      // الخادم هو الحكم النهائي: لو فشل الاستعلام نبيّنها بدل ما نخفيها،
+      // وحينها spin_wheel نفسه يرفض بحالة "استخدمت العجلة مسبقاً".
+      if (!status || !status.spun) {
         setEverVisible(true);
         setOpen(true);
       }
