@@ -28,7 +28,90 @@ type Dossier = {
   recent_posts: { id: string; content: string; created_at: string; status: string }[];
   recent_comments: { id: string; post_id: string; content: string; created_at: string }[];
   sigs: { type: string; value: string; last_seen: string }[] | null;
+  last_seen?: string | null;
+  ban?: BanInfo | null;
+  challenge?: {
+    score: number;
+    matched: string[];
+    reason: string | null;
+    since: string;
+    open_count: number;
+  } | null;
+  ban_history?: BanAuditEntry[] | null;
+  profile?: Record<string, string | boolean | null> | null;
 };
+
+type BanInfo = {
+  ban_id: string;
+  status: string;
+  decision: string | null;
+  score: number;
+  matched: string[];
+  match_reason: string | null;
+  reason: string | null;
+  created_at: string;
+  ban_created_at: string;
+  expires_at: string | null;
+  ban_expires_at: string | null;
+  requires_review: boolean;
+  banned_by: string | null;
+  unbanned_at: string | null;
+  matched_profile_device_id: string | null;
+};
+
+type BanAuditEntry = {
+  decision: string;
+  score: number;
+  strong_count: number;
+  matched_signals: string[];
+  matched_profile_device_id: string | null;
+  reason: string | null;
+  actor: string;
+  created_at: string;
+  ban_status: string | null;
+};
+
+const SIGNAL_LABELS: Record<string, string> = {
+  device_id: "معرّف الجهاز",
+  fp: "البصمة الكاملة",
+  canvas: "canvas",
+  webgl: "WebGL",
+  audio: "الصوت",
+  fonts: "الخطوط",
+  screen: "الشاشة",
+  ua: "المتصفح",
+  ip: "IP",
+};
+
+const STATUS_LABELS: Record<string, string> = {
+  ACTIVE: "نشط",
+  UNBANNED: "مرفوع",
+  REVOKED: "ملغى",
+  EXPIRED: "منتهي",
+};
+
+const DECISION_LABELS: Record<string, string> = {
+  MANUAL: "يدوي",
+  AUTO_BLOCK: "تلقائي (نقاط)",
+  CHALLENGE_ESCALATED: "تصعيد تحقق",
+  LEGACY_AUTO: "تلقائي قديم",
+};
+
+function SignalChips({ matched }: { matched: string[] }) {
+  if (!matched?.length) return <span className="text-[11px] text-muted-foreground">—</span>;
+  return (
+    <span className="flex flex-wrap gap-1">
+      {matched.map((m) => (
+        <span
+          key={m}
+          className="inline-flex items-center gap-0.5 rounded-md bg-destructive/15 px-1.5 py-0.5 text-[10px] font-semibold text-destructive"
+        >
+          ✓ {SIGNAL_LABELS[m] ?? m}
+        </span>
+      ))}
+    </span>
+  );
+}
 
 function fmtDuration(sec: number) {
   if (!sec) return "0د";
@@ -71,8 +154,16 @@ export function DeviceInspector({ deviceId, open, onOpenChange }: { deviceId: st
   async function toggleBlock() {
     if (!data) return;
     if (data.is_blocked) {
-      const { error } = await supabase.from("blocked_devices").delete().eq("device_id", deviceId!);
-      if (error) toast.error("فشل"); else { toast.success("رُفع الحظر"); load(); }
+      // الرفع = تغيير حالة (لا حذف): يبقى سجل التدقيق وسجل التدقيق اللاحق
+      const { error } = await supabase.rpc("admin_unban_device", {
+        p_device_id: deviceId!,
+        p_status: "UNBANNED",
+      });
+      if (error) toast.error("فشل رفع الحظر: " + error.message);
+      else {
+        toast.success("رُفع الحظر");
+        load();
+      }
     } else {
       setBanOpen(true);
     }
@@ -145,6 +236,155 @@ export function DeviceInspector({ deviceId, open, onOpenChange }: { deviceId: st
                 <ShieldPlus className="h-3 w-3 ml-1" /> {data.is_admin ? "إزالة أدمن" : "تعيين أدمن"}
               </Button>
             </div>
+
+            {data.ban && (
+              <div
+                className={`space-y-2 rounded-lg border p-3 text-xs ${
+                  data.ban.status === "ACTIVE"
+                    ? "border-destructive/40 bg-destructive/5"
+                    : "border-border bg-muted/40"
+                }`}
+              >
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <span className="font-black">
+                    {data.ban.status === "ACTIVE" ? "محظور" : "غير محظور"}
+                  </span>
+                  <span className="rounded-md bg-muted px-1.5 py-0.5 text-[10px] font-semibold">
+                    الحالة: {STATUS_LABELS[data.ban.status] ?? data.ban.status}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-x-3 gap-y-1">
+                  <div>
+                    درجة الثقة:{" "}
+                    <b className={data.ban.score >= 100 ? "text-destructive" : ""}>
+                      {data.ban.score}
+                    </b>
+                  </div>
+                  <div>تاريخ الحظر: <b>{timeAgo(data.ban.created_at)}</b></div>
+                  <div>آخر ظهور: <b>{data.last_seen ? timeAgo(data.last_seen) : "—"}</b></div>
+                  <div>
+                    ينتهي:{" "}
+                    <b>
+                      {data.ban.ban_expires_at ? timeAgo(data.ban.ban_expires_at) : "دائم"}
+                    </b>
+                  </div>
+                  <div>
+                    المصدر:{" "}
+                    <b>{DECISION_LABELS[data.ban.decision ?? ""] ?? data.ban.decision ?? "—"}</b>
+                  </div>
+                  <div>
+                    مُطابَق مع:{" "}
+                    <b dir="ltr" className="font-mono text-[10px]">
+                      {data.ban.matched_profile_device_id?.slice(0, 10) ?? "—"}
+                    </b>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="mb-1 text-[10px] font-semibold text-muted-foreground">
+                    الإشارات المتطابقة
+                  </div>
+                  <SignalChips matched={data.ban.matched ?? []} />
+                </div>
+
+                {data.ban.requires_review && (
+                  <p className="rounded-md bg-amber-500/15 px-2 py-1 text-[11px] font-semibold text-amber-700 dark:text-amber-400">
+                    هذا الحظر يحتاج مراجعة يدوية (حظر تلقائي قديم أو تصعيد تحقق).
+                  </p>
+                )}
+
+                {data.ban.reason && (
+                  <div>
+                    <div className="mb-0.5 text-[10px] font-semibold text-muted-foreground">
+                      سبب الحظر
+                    </div>
+                    <p className="whitespace-pre-wrap">{data.ban.reason}</p>
+                  </div>
+                )}
+
+                {data.ban.unbanned_at && (
+                  <p className="text-[10px] text-muted-foreground">
+                    رُفع الحظر {timeAgo(data.ban.unbanned_at)} (السجل محفوظ).
+                  </p>
+                )}
+
+                {/* تشخيص: الهاشات مخفية افتراضياً */}
+                {data.profile && (
+                  <details className="text-[10px]">
+                    <summary className="cursor-pointer text-muted-foreground">
+                      تشخيص (بصمة الحظر)
+                    </summary>
+                    <div className="mt-1 grid grid-cols-2 gap-x-3 gap-y-0.5 font-mono">
+                      {Object.entries(data.profile).map(([k, v]) => (
+                        <div key={k} className="truncate">
+                          {k}: {String(v ?? "—")}
+                        </div>
+                      ))}
+                    </div>
+                  </details>
+                )}
+              </div>
+            )}
+
+            {data.challenge && (
+              <div className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-3 text-xs">
+                <div className="font-bold text-amber-700 dark:text-amber-400">
+                  تحت التحقق — درجة {data.challenge.score} · {data.challenge.open_count} مرة
+                </div>
+                <div className="mt-1">
+                  <SignalChips matched={data.challenge.matched ?? []} />
+                </div>
+                {data.challenge.reason && (
+                  <p className="mt-1 text-[11px] text-muted-foreground">{data.challenge.reason}</p>
+                )}
+                <p className="mt-1 text-[10px] text-muted-foreground">
+                  منذ {timeAgo(data.challenge.since)} — الإبلاغ معطّل مؤقتاً فقط.
+                </p>
+              </div>
+            )}
+
+            {(data.ban_history?.length ?? 0) > 0 && (
+              <div>
+                <div className="mb-1 text-xs font-semibold">سجل قرارات الحظر</div>
+                <div className="space-y-1">
+                  {data.ban_history!.map((a, i) => (
+                    <div
+                      key={i}
+                      className="rounded border border-border bg-card p-2 text-[11px]"
+                    >
+                      <div className="flex flex-wrap items-center justify-between gap-1">
+                        <b
+                          className={
+                            a.decision === "BLOCK"
+                              ? "text-destructive"
+                              : a.decision === "CHALLENGE"
+                                ? "text-amber-600 dark:text-amber-400"
+                                : "text-emerald-600 dark:text-emerald-400"
+                          }
+                        >
+                          {a.decision === "BLOCK"
+                            ? "حظر"
+                            : a.decision === "CHALLENGE"
+                              ? "تحقق"
+                              : "مسموح"}
+                          {a.decision === "ALLOW" ? ` (${a.ban_status ? (STATUS_LABELS[a.ban_status] ?? a.ban_status) : ""})` : ""}
+                        </b>
+                        <span className="text-[10px] text-muted-foreground">
+                          {timeAgo(a.created_at)} · {a.score}
+                        </span>
+                      </div>
+                      <div className="mt-1">
+                        <SignalChips matched={a.matched_signals ?? []} />
+                      </div>
+                      {a.reason && (
+                        <p className="mt-1 text-[10px] text-muted-foreground">{a.reason}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {data.warning && (
               <div className="rounded-lg border border-red-500/40 bg-red-500/10 p-2 text-xs">

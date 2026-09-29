@@ -7,6 +7,7 @@ import { useHeartbeat } from "@/hooks/use-heartbeat";
 import { useVisitorGate } from "@/hooks/use-visitor-gate";
 import { BanScreen } from "@/components/ban-screen";
 import { WarningScreen } from "@/components/warning-screen";
+import { ChallengeDialog } from "@/components/challenge-dialog";
 import Index from "@/pages/Index.tsx";
 import Login from "@/pages/Login.tsx";
 import Admin from "@/pages/Admin.tsx";
@@ -74,13 +75,27 @@ function HeartbeatRunner() {
 }
 
 function VisitorGate({ children }: { children: ReactNode }) {
-  const { loading, banned, reason, expires_at, evidence_url, warning } = useVisitorGate();
+  const { loading, banned, reason, expires_at, evidence_url, warning, challenge } = useVisitorGate();
+  // إشعار التحقق يُعرض مرة واحدة لكل جلسة لكل جهاز
+  const [challengeDismissed, setChallengeDismissed] = useState(false);
+  useEffect(() => {
+    if (!challenge) setChallengeDismissed(false);
+  }, [challenge]);
   if (loading) return <>{children}</>;
   if (banned) return <BanScreen reason={reason} expiresAt={expires_at} evidenceUrl={evidence_url} />;
   return (
     <>
       {children}
       {warning && <WarningScreen warning={warning} />}
+      {challenge && !challengeDismissed && (
+        <ChallengeDialog
+          challenge={challenge}
+          open
+          onOpenChange={(o) => {
+            if (!o) setChallengeDismissed(true);
+          }}
+        />
+      )}
     </>
   );
 }

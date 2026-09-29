@@ -1,4 +1,4 @@
-import type { Line } from "./api";
+﻿import type { Line } from "./api";
 
 const W = 1080;
 const BASE_H = 1350;
@@ -227,7 +227,7 @@ export async function renderCardImage(
 
   ctx.fillStyle = soft;
   ctx.font = "400 30px Tajawal, sans-serif";
-  ctx.fillText("madrekjo.com — كل سطر بتحبه، فيه غيرك بيعيشه", W / 2, H - 80);
+  ctx.fillText("madrekjo.study — كل سطر بتحبه، فيه غيرك بيعيشه", W / 2, H - 80);
 
   return await new Promise<Blob>((resolve, reject) => {
     canvas.toBlob(

@@ -1,6 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
-
-const MAX_BALANCE = 100;
+import { BASE_BALANCE, MAX_BALANCE, SECONDS_PER_POINT } from "@/lib/roundSchedule";
 
 export interface PointsInfo {
   balance: number;
@@ -21,11 +20,11 @@ export async function fetchUserPoints(): Promise<PointsInfo> {
   const { data, error } = await supabase.rpc("get_user_points" as any).single();
 
   if (error || !data) {
-    return { balance: 50, dailyResetAt: null, lastRewardedRoundAt: null };
+    return { balance: BASE_BALANCE, dailyResetAt: null, lastRewardedRoundAt: null };
   }
 
   return {
-    balance: (data as any).balance ?? 50,
+    balance: (data as any).balance ?? BASE_BALANCE,
     dailyResetAt: (data as any).daily_reset_at ?? null,
     lastRewardedRoundAt: (data as any).last_rewarded_round_at ?? null,
   };
@@ -64,6 +63,12 @@ export async function spendPoints(
 /**
  * مكافأة المشاركة في الجولة
  * RPC: reward_round_time (Atomic — server-side only)
+ *
+ * ملاحظة: الدالة تتجاهل طابعَي p_started_at / p_ended_at اللذين
+ * يرسلهما العميل تماماً. النقاط تُحسب من سجل الحضور الحقيقي
+ * (round_presence) عبر نبضة round_heartbeat، فبإرسال أي تاريخ
+ * مستقبلي لم يعد هناك ما يُمنح. هذه الدالة صارت للتوافق فقط
+ * وتُبلّغ بالرقم الذي نالوه فعلياً.
  */
 export async function rewardRoundTime(
   roundId: string,
@@ -89,6 +94,101 @@ export async function rewardRoundTime(
     errorMessage: row?.error_message ?? undefined,
   };
 }
+
+/** ما يرسله الخادم في كل نبضة حضور */
+export interface RoundHeartbeat {
+  ok: boolean;
+  error_message: string | null;
+  is_active: boolean;
+  in_break: boolean;
+  work_remaining_seconds: number;
+  break_remaining_seconds: number;
+  total_work_seconds: number;
+  focus_seconds: number;
+  round_points: number;
+  new_balance: number;
+  next_point_in_seconds: number | null;
+  scheduled_end_at: string | null;
+}
+
+/**
+ * نبضة الحضور — تُستدعى كل 30 ثانية والتبويب مرئي فقط.
+ * الخادم يحسب كل شيء من now(): لا ساعة العميل ولا توقيتاته.
+ */
+export async function roundHeartbeat(roundId: string): Promise<RoundHeartbeat | null> {
+  const { data, error } = await supabase.rpc("round_heartbeat" as any, {
+    p_round_id: roundId,
+  }).single();
+
+  if (error || !data) {
+    console.error("[Points] roundHeartbeat error:", error);
+    return null;
+  }
+  return data as RoundHeartbeat;
+}
+
+/** بدء الجولة — الخادم هو من يحسب جدول البريكات وتاريخ الانتهاء */
+export async function startRound(
+  roundId: string
+): Promise<{ success: boolean; startedAt: string | null; scheduledEndAt: string | null; errorMessage?: string }> {
+  const { data, error } = await supabase.rpc("start_round" as any, {
+    p_round_id: roundId,
+  }).single();
+
+  if (error || !data) {
+    console.error("[Points] startRound error:", error);
+    return { success: false, startedAt: null, scheduledEndAt: null, errorMessage: "خطأ في الخادم" };
+  }
+  const row = data as any;
+  return {
+    success: row?.ok ?? false,
+    startedAt: row?.started_at ?? null,
+    scheduledEndAt: row?.scheduled_end_at ?? null,
+    errorMessage: row?.error_message ?? undefined,
+  };
+}
+
+/** إنهاء الجولة يدوياً (المالك أو الأدمن) مع تجميد سجل الحضور */
+export async function settleRound(
+  roundId: string
+): Promise<{ success: boolean; participants: number; errorMessage?: string }> {
+  const { data, error } = await supabase.rpc("settle_round" as any, {
+    p_round_id: roundId,
+  }).single();
+
+  if (error || !data) {
+    console.error("[Points] settleRound error:", error);
+    return { success: false, participants: 0, errorMessage: "خطأ في الخادم" };
+  }
+  const row = data as any;
+  return {
+    success: row?.ok ?? false,
+    participants: row?.participants ?? 0,
+    errorMessage: row?.error_message ?? undefined,
+  };
+}
+
+export interface RoundLeaderboardRow {
+  user_id: string;
+  full_name: string;
+  avatar_url: string | null;
+  focus_seconds: number;
+  focus_minutes: number;
+  points_awarded: number;
+}
+
+/** لوحة الحضور — إثبات مرئي أن النقاق محسوبة على وقت حقيقي */
+export async function roundLeaderboard(roundId: string): Promise<RoundLeaderboardRow[]> {
+  const { data, error } = await supabase.rpc("round_leaderboard" as any, {
+    p_round_id: roundId,
+  });
+  if (error) {
+    console.error("[Points] roundLeaderboard error:", error);
+    return [];
+  }
+  return (data as RoundLeaderboardRow[]) || [];
+}
+
 
 /**
  * منح نقاط من Admin
@@ -142,19 +242,10 @@ export function hasEnoughPoints(balance: number, type: PointCostType): boolean {
 }
 
 /**
- * حساب الوقت المتبقي للمكافأة التالية
+ * النقاط تُحسب من الوقت المتحقَّق في الجولة: نقطة كل
+ * SECONDS_PER_POINT (20 دقيقة) عمل مؤكَّد — لا "بعد ساعتين" anymore،
+ * ولا اعتماد على ساعة المتصفح.
  */
-export function getNextRewardTimeLeft(lastRewardedAt: string | null): string | null {
-  if (!lastRewardedAt) return null;
-  const lastReward = new Date(lastRewardedAt).getTime();
-  const nextRewardAt = lastReward + 2 * 60 * 60 * 1000; // +2 hours
-  const now = Date.now();
-  if (now >= nextRewardAt) return null; // eligible now
-  const remaining = nextRewardAt - now;
-  const hours = Math.floor(remaining / 3600000);
-  const minutes = Math.floor((remaining % 3600000) / 60000);
-  if (hours > 0) return `${hours}س ${minutes}د`;
-  return `${minutes}د`;
-}
+export const ROUND_POINT_LABEL = `نقطة كل ${SECONDS_PER_POINT / 60} دقيقة حضور حقيقي`;
 
-export { MAX_BALANCE };
+export { MAX_BALANCE, BASE_BALANCE, SECONDS_PER_POINT };

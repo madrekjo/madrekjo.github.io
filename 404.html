@@ -12,17 +12,25 @@
          ذاتي التحديث بالكامل: يقرأ /<app>/index.html ديناميكياً
          لاستخراج روابط الأصول (js/css) مهما تغيّرت أسماؤها بعد كل
          build. لا توجد أسماء أصول صلبة هنا.
-         - /achievement -> تطبيق الإنجاز (SPA)
-         - /chat        -> تطبيق الدردشة (SPA)
-         - /anon        -> تطبيق أنا مجهول (SPA)
-         - /talaawat    -> تطبيق التلاوات (SPA)
+         - /achievement   -> تطبيق الإنجاز (SPA)
+         - /chat          -> تطبيق الدردشة (SPA)
+         - /anon          -> تطبيق أنا مجهول (SPA)
+         - /talaawat      -> تطبيق التلاوات (SPA)
          - /teacher-files -> تطبيق ملفات المعلمين (SPA)
+         - /ajr           -> تطبيق أجر وثواب (SPA)
+         - /sutur         -> تطبيق بين السطور (SPA)
+         - /ask           -> تطبيق اكتب سؤالك (SPA)
          - غير ذلك       -> يرجع للصفحة الرئيسية
          ============================================================ */
       (function () {
         try {
           var p = window.location.pathname;
-          if (p.indexOf('/achievement') !== 0 && p.indexOf('/chat') !== 0 && p.indexOf('/anon') !== 0 && p.indexOf('/talaawat') !== 0 && p.indexOf('/teacher-files') !== 0) {
+          var apps = ['/achievement', '/chat', '/anon', '/talaawat', '/teacher-files', '/ajr', '/sutur', '/ask'];
+          var known = false;
+          for (var i = 0; i < apps.length; i++) {
+            if (p.indexOf(apps[i]) === 0) { known = true; break; }
+          }
+          if (!known) {
             window.location.replace('/');
           }
         } catch (e) {}
@@ -42,6 +50,9 @@
         else if (p.indexOf('/anon') === 0) app = 'anon';
         else if (p.indexOf('/talaawat') === 0) app = 'talaawat';
         else if (p.indexOf('/teacher-files') === 0) app = 'teacher-files';
+        else if (p.indexOf('/ajr') === 0) app = 'ajr';
+        else if (p.indexOf('/sutur') === 0) app = 'sutur';
+        else if (p.indexOf('/ask') === 0) app = 'ask';
         if (!app) return;
 
         function inject(urls) {

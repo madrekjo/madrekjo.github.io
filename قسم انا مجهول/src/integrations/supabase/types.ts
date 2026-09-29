@@ -61,31 +61,222 @@ export type Database = {
       }
       blocked_devices: {
         Row: {
+          ban_created_at: string
+          ban_expires_at: string | null
+          ban_id: string
+          ban_status: string
           banned_by: string | null
+          confidence_score: number | null
           created_at: string
+          decision: string | null
           device_id: string
           evidence_url: string | null
           evidence_visible: boolean
           expires_at: string | null
+          last_seen: string | null
+          match_reason: string | null
+          matched_profile_device_id: string | null
+          matched_signals: string[] | null
           reason: string | null
+          requires_review: boolean
+          unbanned_at: string | null
+          unbanned_by: string | null
+          user_id: string | null
         }
         Insert: {
+          ban_id?: string
+          ban_status?: string
           banned_by?: string | null
+          confidence_score?: number | null
           created_at?: string
+          decision?: string | null
           device_id: string
           evidence_url?: string | null
           evidence_visible?: boolean
           expires_at?: string | null
+          last_seen?: string | null
+          match_reason?: string | null
+          matched_profile_device_id?: string | null
+          matched_signals?: string[] | null
           reason?: string | null
+          requires_review?: boolean
+          unbanned_at?: string | null
+          unbanned_by?: string | null
+          user_id?: string | null
         }
         Update: {
+          ban_id?: string
+          ban_status?: string
           banned_by?: string | null
+          confidence_score?: number | null
           created_at?: string
+          decision?: string | null
           device_id?: string
           evidence_url?: string | null
           evidence_visible?: boolean
           expires_at?: string | null
+          last_seen?: string | null
+          match_reason?: string | null
+          matched_profile_device_id?: string | null
+          matched_signals?: string[] | null
           reason?: string | null
+          requires_review?: boolean
+          unbanned_at?: string | null
+          unbanned_by?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      ban_audit_log: {
+        Row: {
+          actor: string
+          ban_id: string | null
+          ban_status: string | null
+          created_at: string
+          decision: string
+          device_id: string
+          id: string
+          matched_profile_device_id: string | null
+          matched_profile_id: string | null
+          matched_signals: string[]
+          reason: string | null
+          score: number
+          strong_count: number
+        }
+        Insert: {
+          actor?: string
+          ban_id?: string | null
+          ban_status?: string | null
+          created_at?: string
+          decision: string
+          device_id: string
+          id?: string
+          matched_profile_device_id?: string | null
+          matched_profile_id?: string | null
+          matched_signals?: string[]
+          reason?: string | null
+          score?: number
+          strong_count?: number
+        }
+        Update: {
+          actor?: string
+          ban_id?: string | null
+          ban_status?: string | null
+          created_at?: string
+          decision?: string
+          device_id?: string
+          id?: string
+          matched_profile_device_id?: string | null
+          matched_profile_id?: string | null
+          matched_signals?: string[]
+          reason?: string | null
+          score?: number
+          strong_count?: number
+        }
+        Relationships: []
+      }
+      ban_fingerprint_profiles: {
+        Row: {
+          active: boolean
+          audio: string | null
+          ban_id: string
+          canvas: string | null
+          created_at: string
+          device_id: string
+          fonts: string | null
+          fp: string | null
+          ip: string | null
+          profile_id: string
+          screen: string | null
+          signal_count: number
+          source: string
+          strong_count: number
+          ua: string | null
+          updated_at: string
+          webgl: string | null
+        }
+        Insert: {
+          active?: boolean
+          audio?: string | null
+          ban_id: string
+          canvas?: string | null
+          created_at?: string
+          device_id: string
+          fonts?: string | null
+          fp?: string | null
+          ip?: string | null
+          profile_id?: string
+          screen?: string | null
+          signal_count?: number
+          source?: string
+          strong_count?: number
+          ua?: string | null
+          updated_at?: string
+          webgl?: string | null
+        }
+        Update: {
+          active?: boolean
+          audio?: string | null
+          ban_id?: string
+          canvas?: string | null
+          created_at?: string
+          device_id?: string
+          fonts?: string | null
+          fp?: string | null
+          ip?: string | null
+          profile_id?: string
+          screen?: string | null
+          signal_count?: number
+          source?: string
+          strong_count?: number
+          ua?: string | null
+          updated_at?: string
+          webgl?: string | null
+        }
+        Relationships: []
+      }
+      ban_challenges: {
+        Row: {
+          created_at: string
+          device_id: string
+          id: string
+          matched_profile_device_id: string | null
+          matched_profile_id: string | null
+          matched_signals: string[]
+          reason: string | null
+          resolved_at: string | null
+          resolved_by: string | null
+          score: number
+          status: string
+          strong_count: number
+        }
+        Insert: {
+          created_at?: string
+          device_id: string
+          id?: string
+          matched_profile_device_id?: string | null
+          matched_profile_id?: string | null
+          matched_signals?: string[]
+          reason?: string | null
+          resolved_at?: string | null
+          resolved_by?: string | null
+          score?: number
+          status?: string
+          strong_count?: number
+        }
+        Update: {
+          created_at?: string
+          device_id?: string
+          id?: string
+          matched_profile_device_id?: string | null
+          matched_profile_id?: string | null
+          matched_signals?: string[]
+          reason?: string | null
+          resolved_at?: string | null
+          resolved_by?: string | null
+          score?: number
+          status?: string
+          strong_count?: number
         }
         Relationships: []
       }
@@ -772,7 +963,16 @@ export type Database = {
         Args: { p_action: string; p_note: string; p_report_id: string }
         Returns: Json
       }
-      admin_unban_device: { Args: { p_device_id: string }; Returns: undefined }
+      admin_unban_device: {
+        Args: { p_device_id: string; p_status?: string }
+        Returns: Json
+      }
+      admin_ban_scoring_config: { Args: Record<PropertyKey, never>; Returns: Json }
+      admin_set_ban_scoring_config: {
+        Args: { p_key: string; p_value: Json }
+        Returns: Json
+      }
+      device_has_open_challenge: { Args: { p_device_id: string }; Returns: boolean }
       admin_clear_warning: { Args: { p_device_id: string }; Returns: undefined }
       admin_warn_device: { Args: { p_device_id: string; p_message: string }; Returns: undefined }
       ack_device_warning: { Args: { p_device_id: string }; Returns: undefined }
@@ -814,7 +1014,17 @@ export type Database = {
         Returns: undefined
       }
       record_visitor_fingerprint: {
-        Args: { p_device_id: string; p_ip_hash: string; p_ua_hash: string }
+        Args: {
+          p_device_id: string
+          p_ip_hash: string
+          p_ua_hash: string
+          p_canvas_hash: string
+          p_webgl_hash: string
+          p_audio_hash: string
+          p_fonts_hash: string
+          p_screen_hash: string
+          p_fp_hash: string
+        }
         Returns: Json
       }
       set_device_label: {

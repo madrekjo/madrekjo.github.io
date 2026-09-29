@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /ops/
+Disallow: /k7-x9mz4-ops/
+Disallow: /question-factory/
+Disallow: /report/
 
-Sitemap: https://madrekjo.github.io/sitemap.xml
+Sitemap: https://madrekjo.study/sitemap.xml

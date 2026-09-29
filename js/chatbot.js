@@ -784,7 +784,7 @@
   var BOT = {
     name: 'مُدرك',
     tagline: 'مساعد مدارك جو الذكي',
-    logo: 'https://j.top4top.io/p_3809pwg4f1.png'
+    logo: 'https://madrekjo.study/assets/icons/icon-192.png'
   };
 
   // ---------- إعدادات الذكاء الاصطناعي ----------

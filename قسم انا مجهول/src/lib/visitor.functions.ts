@@ -2,6 +2,20 @@ import { supabase } from "@/integrations/supabase/client";
 import { getDeviceId, setDeviceId } from "@/lib/device";
 import { deviceFingerprintParts } from "@/lib/fingerprint";
 
+/** قرار الخادم. المتصفح لا يختار القرار ولا يحسب النقاط. */
+export type Decision = "ALLOW" | "CHALLENGE" | "BLOCK";
+
+export type Challenge = {
+  reason: string | null;
+  open_count: number;
+  restrict_reporting: boolean;
+};
+
+function normalizeDecision(raw: unknown, banned: boolean): Decision {
+  if (raw === "BLOCK" || raw === "CHALLENGE" || raw === "ALLOW") return raw;
+  return banned ? "BLOCK" : "ALLOW";
+}
+
 async function sha256Hex(input: string): Promise<string> {
   try {
     const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(input));
@@ -45,10 +59,10 @@ async function networkIpHash(): Promise<string | null> {
 }
 
 /**
- * Records the visitor's full device fingerprint (IP + UA + بصمات الجهاز
- * المستقلة مثل canvas/webgl/audio/fonts) and returns whether this device is
- * banned — حتى لو غيّر المحظور معرف جهازه أو مسح التخزين أو استخدم
- * وضع التصفح المتخفي، تبقى بصمات الجهاز نفسها فتُحظر تلقائياً.
+ * ترسل إشارات الجهاز (hashes فقط) إلى الخادم، والخادم هو من يحسب score
+ * ويقرر BLOCK / CHALLENGE / ALLOW. لا يحسب المتصفح أي نقطة ولا يقرر شيئاً.
+ *
+ * `decision` / `score` / `matched` قيم مُرجعة من الخادم للعرض فقط.
  */
 export async function checkVisitor({ data }: { data: { device_id: string } }) {
   if (
@@ -75,15 +89,23 @@ export async function checkVisitor({ data }: { data: { device_id: string } }) {
   if (error) {
     return {
       banned: false as boolean,
+      decision: "ALLOW" as Decision,
+      score: 0,
+      matched: [] as string[],
       reason: null as string | null,
       expires_at: null as string | null,
       evidence_url: null as string | null,
       warning: null as { message: string; at: string | null } | null,
+      challenge: null as Challenge | null,
       device_name: null as string | null,
     };
   }
   const parsed = (result ?? { banned: false }) as {
     banned?: boolean;
+    decision?: string;
+    score?: number;
+    strong_count?: number;
+    matched?: string[];
     reason?: string;
     expires_at?: string;
     evidence_url?: string;
@@ -92,6 +114,7 @@ export async function checkVisitor({ data }: { data: { device_id: string } }) {
     device_name?: string | null;
     device_id?: string;
     linked?: boolean;
+    challenge?: { reason?: string; open_count?: number; restrict_reporting?: boolean } | null;
   };
   // الدومين تغيّر أو مسح التخزين؟ رجّع المستخدم لمعرّفه الأصلي
   // فيسترجع اسمه ورقمه المجهول وسجلّه كله.
@@ -100,10 +123,20 @@ export async function checkVisitor({ data }: { data: { device_id: string } }) {
   }
   return {
     banned: !!parsed.banned,
+    decision: normalizeDecision(parsed.decision, !!parsed.banned),
+    score: typeof parsed.score === "number" ? parsed.score : 0,
+    matched: Array.isArray(parsed.matched) ? parsed.matched.slice(0, 9) : [],
     reason: parsed.reason ?? null,
     expires_at: parsed.expires_at ?? null,
     evidence_url: parsed.evidence_url ?? null,
     warning: parsed.warning ? { message: parsed.warning, at: parsed.warning_at ?? null } : null,
+    challenge: parsed.challenge
+      ? {
+          reason: parsed.challenge.reason ?? null,
+          open_count: parsed.challenge.open_count ?? 0,
+          restrict_reporting: parsed.challenge.restrict_reporting !== false,
+        }
+      : null,
     device_name: parsed.device_name ?? null,
   };
 }
@@ -171,7 +204,9 @@ export async function submitReport({
     p_reason_text: reason_text || "",
   });
   if (error) {
-    if (error.message?.toLowerCase().includes("banned")) return { ok: false, reason: "banned" };
+    const msg = (error.message || "").toLowerCase();
+    if (msg.includes("banned")) return { ok: false, reason: "banned" };
+    if (msg.includes("challenge")) return { ok: false, reason: "challenge" };
     return { ok: false, reason: error.message };
   }
   return { ok: true };

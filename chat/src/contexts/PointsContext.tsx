@@ -4,9 +4,15 @@ import {
   fetchUserPoints,
   spendPoints,
   rewardRoundTime,
+  roundHeartbeat,
+  startRound,
+  settleRound,
+  roundLeaderboard,
   POINT_COSTS,
   type PointCostType,
   type PointsInfo,
+  type RoundHeartbeat,
+  type RoundLeaderboardRow,
   type SpendResult,
 } from "@/lib/points";
 
@@ -17,6 +23,10 @@ interface PointsContextType {
   loading: boolean;
   spend: (amount: number, type: PointCostType, source?: string, metadata?: Record<string, unknown>) => Promise<SpendResult>;
   rewardRound: (roundId: string, startedAt: string, endedAt: string) => Promise<SpendResult & { pointsEarned: number }>;
+  heartbeat: (roundId: string) => Promise<RoundHeartbeat | null>;
+  startRound: (roundId: string) => Promise<{ success: boolean; startedAt: string | null; scheduledEndAt: string | null; errorMessage?: string }>;
+  settleRound: (roundId: string) => Promise<{ success: boolean; participants: number; errorMessage?: string }>;
+  leaderboard: (roundId: string) => Promise<RoundLeaderboardRow[]>;
   refreshPoints: () => Promise<void>;
   getCost: (type: PointCostType) => number;
 }
@@ -96,6 +106,29 @@ export function PointsProvider({ children }: { children: ReactNode }) {
     return POINT_COSTS[type];
   }, []);
 
+  // نبضة الحضور: الرصيد يُحدَّث من رقم الخادم دائماً (لا رقم مُقدَّر)
+  const heartbeat = useCallback(async (roundId: string): Promise<RoundHeartbeat | null> => {
+    const res = await roundHeartbeat(roundId);
+    if (res?.ok && typeof res.new_balance === "number") {
+      setPoints(prev => ({ ...prev, balance: res.new_balance }));
+    }
+    return res;
+  }, []);
+
+  const start = useCallback(async (roundId: string) => {
+    const res = await startRound(roundId);
+    if (res.success) await refreshPoints();
+    return res;
+  }, [refreshPoints]);
+
+  const settle = useCallback(async (roundId: string) => {
+    const res = await settleRound(roundId);
+    if (res.success) await refreshPoints();
+    return res;
+  }, [refreshPoints]);
+
+  const leaderboard = useCallback((roundId: string) => roundLeaderboard(roundId), []);
+
   return (
     <PointsContext.Provider
       value={{
@@ -105,6 +138,10 @@ export function PointsProvider({ children }: { children: ReactNode }) {
         loading,
         spend,
         rewardRound,
+        heartbeat,
+        startRound: start,
+        settleRound: settle,
+        leaderboard,
         refreshPoints,
         getCost,
       }}

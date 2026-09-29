@@ -1,20 +1,20 @@
 import { usePoints } from "@/contexts/PointsContext";
 import { useAuth } from "@/contexts/AuthContext";
-import { MAX_BALANCE, getNextRewardTimeLeft } from "@/lib/points";
-import { Coins, Clock, RefreshCw } from "lucide-react";
+import { BASE_BALANCE, MAX_BALANCE, SECONDS_PER_POINT } from "@/lib/points";
+import { Coins, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useState } from "react";
 
 const PointsDisplay = () => {
-  const { balance, loading, lastRewardedRoundAt, refreshPoints } = usePoints();
+  const { balance, loading, refreshPoints } = usePoints();
   const { isAdmin, isStaff } = useAuth();
   const [refreshing, setRefreshing] = useState(false);
 
   if (loading) return null;
 
-  const nextReward = getNextRewardTimeLeft(lastRewardedRoundAt);
   const percentage = Math.min((balance / MAX_BALANCE) * 100, 100);
+  const earned = Math.max(0, balance - BASE_BALANCE);
 
   const handleRefresh = async () => {
     setRefreshing(true);
@@ -42,11 +42,12 @@ const PointsDisplay = () => {
             <RefreshCw className={`h-3.5 w-3.5 ${refreshing ? "animate-spin" : ""}`} />
           </Button>
         </div>
-        {!isAdmin && !isStaff && nextReward && (
-          <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
-            <Clock className="w-3 h-3" />
-            <span>مكافأة الجولة (+10 نقاط) بعد: {nextReward}</span>
-          </div>
+        {!isAdmin && !isStaff && (
+          <span className="text-[10px] text-muted-foreground">
+            {earned > 0
+              ? `+${earned} مكتسبة من الجولات اليوم`
+              : `نقطة كل ${SECONDS_PER_POINT / 60} دقيقة حضور في الجولة`}
+          </span>
         )}
         {(isAdmin || isStaff) && (
           <span className="text-[10px] text-green-600 dark:text-green-400 font-medium">بدون حد</span>

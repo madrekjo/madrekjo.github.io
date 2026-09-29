@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { invalidateTable } from "@/lib/invalidation";
 import { supabase } from "@/integrations/supabase/client";
@@ -15,12 +15,24 @@ import {
 import { toast } from "sonner";
 import {
   Users, Plus, Loader2, Trash2, LogIn, LogOut as LogOutIcon, Clock, Play,
-  Coffee, BellRing, Eye, HelpCircle, CheckCircle2, UserMinus, Edit2, Lock, MessageSquare, RefreshCw,
+  Coffee, BellRing, Eye, HelpCircle, CheckCircle2, UserMinus, Edit2, Lock,
+  MessageSquare, RefreshCw, Flame, Trophy, Square, Activity,
 } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import MeetingChat from "@/components/MeetingChat";
 import { usePoints } from "@/contexts/PointsContext";
+import { useRoundHeartbeat } from "@/hooks/useRoundHeartbeat";
+import {
+  roundStateAt,
+  roundTotalSeconds,
+  breakSecondsLeft,
+  formatDuration,
+  MAX_BALANCE,
+  SECONDS_PER_POINT,
+  type RoundState,
+} from "@/lib/roundSchedule";
+import type { RoundLeaderboardRow } from "@/lib/points";
 
 interface Round {
   id: string;
@@ -31,8 +43,12 @@ interface Round {
   break_enabled: boolean;
   break_interval_minutes: number | null;
   break_duration_minutes: number | null;
+  alarm_muted: boolean;
   started_at: string | null;
   ended_at: string | null;
+  /** يُحسب مرة واحدة في الخادم عند start_round — لا يلمسه العميل */
+  scheduled_end_at: string | null;
+  settled: boolean;
   status: "pending" | "active" | "completed";
   created_at: string;
   profile?: { full_name: string; avatar_url: string | null } | null;
@@ -41,52 +57,40 @@ interface Round {
 
 interface Meeting { id: string; owner_id: string; title: string; }
 
-const fmt = (s: number) => {
-  const m = Math.floor(s / 60);
-  const sec = s % 60;
-  return `${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
+const ROUND_COLUMNS =
+  "id, user_id, title, description, duration_minutes, break_enabled, break_interval_minutes, break_duration_minutes, alarm_muted, started_at, ended_at, scheduled_end_at, settled, status, created_at";
+
+/** وقت انتهاء الجولة بالمللي — من جدول الخادم إن وُجد، وإلا من نفس رياضة الجدولة */
+const roundEndMs = (r: Round) => {
+  if (r.scheduled_end_at) return new Date(r.scheduled_end_at).getTime();
+  if (!r.started_at) return Number.POSITIVE_INFINITY;
+  return new Date(r.started_at).getTime() + roundTotalSeconds(r) * 1000;
 };
 
-const computeTimer = (r: Round, now: number) => {
-  let remainingSec = 0;
-  let inBreak = false;
-  let breakRemaining = 0;
-  let timerLabel = "الوقت المتبقي";
-  if (r.status === "active" && r.started_at) {
-    const elapsed = Math.floor((now - new Date(r.started_at).getTime()) / 1000);
-    const total = r.duration_minutes * 60;
-    const totalRemaining = Math.max(0, total - elapsed);
-    if (r.break_enabled && r.break_interval_minutes && r.break_duration_minutes) {
-      const interval = r.break_interval_minutes * 60;
-      const breakDur = r.break_duration_minutes * 60;
-      const sinceBreak = elapsed % interval;
-      if (elapsed >= interval && sinceBreak < breakDur) {
-        inBreak = true;
-        breakRemaining = breakDur - sinceBreak;
-      } else {
-        const toNextBreak = interval - sinceBreak;
-        remainingSec = Math.min(toNextBreak, totalRemaining);
-        timerLabel = "الوقت حتى البريك التالي";
-      }
-    } else {
-      remainingSec = totalRemaining;
-    }
-  }
-  return { remainingSec, inBreak, breakRemaining, timerLabel };
-};
+/** هل انتهى زمن الجولة كاملاً (عمل + بريكات)؟ */
+const isRoundOver = (r: Round, now: number) =>
+  r.status !== "pending" && roundEndMs(r) <= now;
 
 const Rounds = () => {
   const { user, isAdmin, isModerator, isRoundsManager } = useAuth();
-  const { rewardRound, lastRewardedRoundAt, refreshPoints } = usePoints();
-  const autoRewarded = useRef<Set<string>>(new Set());
+  const { startRound, settleRound, leaderboard, refreshPoints, balance } = usePoints();
+
   const canCreateRound = isAdmin || isRoundsManager;
+  const isStaff = isAdmin || isModerator;
+
   const [rounds, setRounds] = useState<Round[]>([]);
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
   const [viewingRound, setViewingRound] = useState<Round | null>(null);
   const [editingRound, setEditingRound] = useState<Round | null>(null);
-  const [sessionRound, setSessionRound] = useState<Round | null>(null);
+
+  // نُخزّن المعرّف لا الكائن، حتى لا يبقى في الحوار كائن قديم بعد التحديث
+  const [sessionRoundId, setSessionRoundId] = useState<string | null>(null);
+  const sessionRound = useMemo(
+    () => rounds.find((r) => r.id === sessionRoundId) ?? null,
+    [rounds, sessionRoundId]
+  );
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -97,12 +101,14 @@ const Rounds = () => {
   const [alarmMuted, setAlarmMuted] = useState(false);
   const [creating, setCreating] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
+  const [busyId, setBusyId] = useState<string | null>(null);
 
   const [now, setNow] = useState(Date.now());
   const alarmRef = useRef<HTMLAudioElement | null>(null);
   const ringingFor = useRef<Set<string>>(new Set());
+  const wasInBreak = useRef<Map<string, boolean>>(new Map());
+  const promptedFor = useRef<Set<string>>(new Set());
   const [, forceTick] = useState(0);
-  const notifiedBreaks = useRef<Set<string>>(new Set());
 
   // Meetings
   const [meetings, setMeetings] = useState<Meeting[]>([]);
@@ -115,14 +121,18 @@ const Rounds = () => {
   const [achievement, setAchievement] = useState("");
   const [myCompletions, setMyCompletions] = useState<Set<string>>(new Set());
 
-  const isStaff = isAdmin || isModerator;
+  // لوحة الحضور داخل الجلسة
+  const [board, setBoard] = useState<RoundLeaderboardRow[]>([]);
+
+  // نبضة الحضور: شغّلها فقط داخل جلسة نشطة
+  const sessionIsActive = sessionRound?.status === "active";
+  const { live, beat, beating } = useRoundHeartbeat(!!sessionRoundId && !!sessionIsActive, sessionRoundId);
 
   // يُخزَّن المشاركون والبروفايلات خارج قائمة الجولات حتى لا يُعاد جلبها كل استطلاع.
-  // تُجلب فقط على فترات بطيئة (5 دقائق) وعند الانضمام/الخروج فقط — لتقليل استهلاك القاعدة.
   const detailCache = useRef<{ parts: any[]; profiles: any[] }>({ parts: [], profiles: [] });
+  const roundsRef = useRef<Round[]>(rounds);
+  roundsRef.current = rounds;
 
-  // بدون استطلاع دوري (كان كل 30 ثانية + كل 5 دقائق يضربان القاعدة).
-  // الجلب يتم عند الدخول + زر التحديث اليدوي فقط.
   useEffect(() => {
     void fetchRounds();
     void fetchMeetings();
@@ -144,7 +154,7 @@ const Rounds = () => {
   const fetchRounds = async () => {
     try {
       const { data: roundsData, error } = await (supabase as any)
-        .from("study_rounds").select("id, user_id, title, description, duration_minutes, break_enabled, break_interval_minutes, break_duration_minutes, started_at, ended_at, status, created_at").order("created_at", { ascending: false }).limit(100);
+        .from("study_rounds").select(ROUND_COLUMNS).order("created_at", { ascending: false }).limit(100);
       if (error) throw error;
       if (!roundsData) return;
       const { parts, profiles } = detailCache.current;
@@ -164,10 +174,9 @@ const Rounds = () => {
     }
   };
 
-  // يُجلب المشاركون والبروفايلات ببطء (مرة كل 5 دقائق وعند الانضمام/الخروج) ويُخزَّن في الكاش
+  // يُجلب المشاركون والبروفايلات ببطء (عند الدخول + الانضمام/الخروج فقط)
   const fetchRoundsDetail = async () => {
     try {
-      // نجلب قائمة الجولات الحالية بأنفسنا بدلاً من الاعتماد على حالة `rounds` (حتى تعمل أول دخول)
       let roundIds: string[] = [];
       let userIds: string[] = [];
       const { data: brief } = await (supabase as any)
@@ -197,7 +206,6 @@ const Rounds = () => {
     }
   };
 
-  // جلب التفاصيل مرة أولى عند الدخول
   useEffect(() => {
     fetchRoundsDetail();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -216,84 +224,70 @@ const Rounds = () => {
 
   useEffect(() => { fetchMyCompletions(); }, [user?.id]);
 
-  const submitCompletion = async () => {
-    if (!completionRound || !user || !achievement.trim()) return;
-    const { error } = await (supabase as any).from("round_completions").insert({
-      round_id: completionRound.id, user_id: user.id, achievement: achievement.trim(),
-    });
-    if (error) toast.error("فشل الحفظ");
-    else {
-      toast.success("تم تسجيل إنجازك! 🔥");
-      // مكافأة المشاركة في الجولة
-      if (completionRound.started_at && completionRound.status === "completed") {
-        const rewardResult = await rewardRound(
-          completionRound.id,
-          completionRound.started_at,
-          new Date().toISOString()
-        );
-        if (rewardResult.success && rewardResult.pointsEarned > 0) {
-          toast.success(`حصلت على ${rewardResult.pointsEarned} نقاط مكافأة! 🎉`);
+  // لوحة الحضور: عند فتح الجلسة ثم كل دقيقة
+  const loadBoard = useCallback(async (id: string) => {
+    setBoard(await leaderboard(id));
+  }, [leaderboard]);
+
+  useEffect(() => {
+    if (!sessionRoundId) { setBoard([]); return; }
+    void loadBoard(sessionRoundId);
+    const t = setInterval(() => void loadBoard(sessionRoundId), 60_000);
+    return () => clearInterval(t);
+  }, [sessionRoundId, loadBoard]);
+
+  // ---------------------------------------------------------------
+  // المؤقّت والإشعارات — عرض فقط، ولا يكتب شيئاً في القاعدة
+  // ---------------------------------------------------------------
+  useEffect(() => {
+    roundsRef.current.forEach(r => {
+      if (r.status !== "active") return;
+      const st = roundStateAt(r, now);
+
+      // انتقال داخل/خارج البريك ⇒ إشعار دقيق مرة واحدة لكل بريك
+      const was = wasInBreak.current.get(r.id) ?? false;
+      if (st.inBreak !== was) {
+        wasInBreak.current.set(r.id, st.inBreak);
+        if (st.inBreak) {
+          toast.info(`☕ وقت الراحة في "${r.title}" — لا تُحتسب دقائق، وإغلاق التبويب يوقف الاحتساب`);
+        } else {
+          toast.success(`رجعنا للعمل — "${r.title}"`);
         }
       }
-      setMyCompletions(s => new Set([...s, completionRound.id]));
-      setCompletionRound(null); setAchievement("");
-      void invalidateTable("round_completions");
-    }
-  };
 
-  // Auto-complete + alarm trigger
-  useEffect(() => {
-    rounds.forEach(r => {
-      if (r.status !== "active" || !r.started_at) return;
-      const elapsed = (now - new Date(r.started_at).getTime()) / 1000;
-      const total = r.duration_minutes * 60;
-      if (elapsed >= total && !ringingFor.current.has(r.id)) {
+      // منبّه انتهاء الجولة
+      if (now >= roundEndMs(r) && !ringingFor.current.has(r.id)) {
         ringingFor.current.add(r.id);
         forceTick(x => x + 1);
-        // Auto mark completed (no alarm — just open completion dialog for participants/owner)
-        if (r.user_id === user?.id || isAdmin) {
-          (supabase as any).from("study_rounds")
-            .update({ status: "completed", ended_at: new Date().toISOString() })
-            .eq("id", r.id).then(() => { fetchRounds(); void invalidateTable("study_rounds"); });
-        }
-        const isMember = r.user_id === user?.id || r.participants.find(p => p.user_id === user?.id);
-        if (isMember && !myCompletions.has(r.id) && !completionRound) {
-          setCompletionRound(r);
-        }
-      }
-      if (r.break_enabled && r.break_interval_minutes) {
-        const interval = r.break_interval_minutes * 60;
-        const breakIdx = Math.floor(elapsed / interval);
-        if (breakIdx > 0 && elapsed % interval < 5) {
-          const key = `${r.id}-${breakIdx}`;
-          if (!notifiedBreaks.current.has(key)) {
-            notifiedBreaks.current.add(key);
-            toast.info(`☕ وقت البريك! استرح ${r.break_duration_minutes} دقيقة - "${r.title}"`);
-          }
-        }
-      }
-      // مكافأة تلقائية: +10 نقاط كل ساعتين حضور في الجولة
-      if (r.status === "active" && r.started_at && user) {
-        const isMember = r.user_id === user.id || (r.participants || []).find(p => p.user_id === user.id);
-        if (isMember) {
-          const rewardKey = `${r.id}-${user.id}`;
-          const lastRewardMs = lastRewardedRoundAt ? new Date(lastRewardedRoundAt).getTime() : 0;
-          const baseMs = lastRewardMs || new Date(r.started_at).getTime();
-          const twoHours = 2 * 60 * 60 * 1000;
-          if (now - baseMs >= twoHours && !autoRewarded.current.has(rewardKey)) {
-            autoRewarded.current.add(rewardKey);
-            (async () => {
-              const res = await rewardRound(r.id, r.started_at!, new Date().toISOString());
-              if (res.success && res.pointsEarned > 0) {
-                toast.success(`حصلت على +${res.pointsEarned} نقاط مكافأة حضور الجولة! 🎉`);
-                await refreshPoints();
-              }
-            })();
-          }
-        }
+        if (!r.alarm_muted) playAlarm();
+        if (sessionRoundId === r.id) void beat();
       }
     });
-  }, [now, rounds, user, isAdmin, lastRewardedRoundAt, rewardRound, refreshPoints]);
+  }, [now, rounds, sessionRoundId, beat]);
+
+  // من انتهى وقته ولم يُنهِه الخادم بعد: نُحدّث القائمة مرة كل دقيقة
+  // (الخادم وحده يُثبّت الحالة، لكن الواجهة تحتاج أن تُعلن النهاية)
+  useEffect(() => {
+    const t = setInterval(() => {
+      const t0 = Date.now();
+      if (roundsRef.current.some(r => r.status === "active" && roundEndMs(r) <= t0)) {
+        void fetchRounds();
+      }
+    }, 60_000);
+    return () => clearInterval(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // الخادم هو من يُثبّت "انتهت الجولة"، هو نطلب تقييم الإنجاز (مرة واحدة)
+  useEffect(() => {
+    if (!user || completionRound) return;
+    const target = rounds.find(r => r.status === "completed" && !myCompletions.has(r.id));
+    if (!target || promptedFor.current.has(target.id)) return;
+    const isMember = target.user_id === user.id || target.participants.some(p => p.user_id === user.id);
+    if (!isMember) return;
+    promptedFor.current.add(target.id);
+    setCompletionRound(target);
+  }, [rounds, myCompletions, user, completionRound]);
 
   const playAlarm = () => {
     if (!alarmRef.current) return;
@@ -342,7 +336,7 @@ const Rounds = () => {
     setBreakEnabled(r.break_enabled);
     setBreakInterval(r.break_interval_minutes || 25);
     setBreakDuration(r.break_duration_minutes || 5);
-    setAlarmMuted(!!(r as any).alarm_muted);
+    setAlarmMuted(!!r.alarm_muted);
   };
 
   const handleSaveEdit = async () => {
@@ -360,10 +354,31 @@ const Rounds = () => {
     else { toast.success("تم التعديل"); setEditingRound(null); resetForm(); fetchRounds(); void invalidateTable("study_rounds"); }
   };
 
+  // ---------------------------------------------------------------
+  // البدء والإنهاء: RPC فقط. لا ساعة المتصفح تتدخل في أي منهما.
+  // ---------------------------------------------------------------
   const handleStart = async (r: Round) => {
-    const { error } = await (supabase as any).from("study_rounds")
-      .update({ status: "active", started_at: new Date().toISOString() }).eq("id", r.id);
-    if (error) toast.error("فشل البدء"); else { toast.success("بدأت الجولة"); fetchRounds(); void invalidateTable("study_rounds"); }
+    setBusyId(r.id);
+    const res = await startRound(r.id);
+    setBusyId(null);
+    if (!res.success) { toast.error(res.errorMessage || "فشل البدء"); return; }
+    stopAlarm(r.id, true);
+    toast.success("بدأت الجولة — النقاط تُحسب من الآن مقابل حضورك الفعلي");
+    await fetchRounds();
+    void invalidateTable("study_rounds");
+  };
+
+  const handleEndRound = async (r: Round) => {
+    if (!confirm("إنهاء الجولة الآن وتجميد سجل الحضور؟")) return;
+    setBusyId(r.id);
+    const res = await settleRound(r.id);
+    setBusyId(null);
+    if (!res.success) { toast.error(res.errorMessage || "فشل الإنهاء"); return; }
+    stopAlarm(r.id, true);
+    if (sessionRoundId === r.id) setSessionRoundId(null);
+    toast.success(`انتهت الجولة — جُمّد حضور ${res.participants} مشارك (النقاط كانت تُمنح أثناء الجولة)`);
+    await fetchRounds();
+    void invalidateTable("study_rounds");
   };
 
   const joinAndEnter = async (r: Round) => {
@@ -384,34 +399,49 @@ const Rounds = () => {
             toast.error(`فشل الانضمام: ${msg}`);
             return;
           }
-          joined = true;
-        } else {
-          joined = true;
-          toast.success("انضممت للجولة");
         }
+        joined = true;
+        toast.success("انضممت للجولة");
       } else {
         joined = true;
       }
-      await fetchRoundsDetail(); fetchRounds(); void invalidateTable("round_participants");
+      await fetchRoundsDetail(); await fetchRounds(); void invalidateTable("round_participants");
     } else {
-      await fetchRoundsDetail(); fetchRounds(); void invalidateTable("round_participants");
+      await fetchRoundsDetail(); await fetchRounds(); void invalidateTable("round_participants");
     }
-    if (joined) setSessionRound(r);
+    if (joined) setSessionRoundId(r.id);
   };
+
   const handleLeave = async (roundId: string) => {
     if (!user) return;
     const { error } = await (supabase as any).from("round_participants").delete().eq("round_id", roundId).eq("user_id", user.id);
-    if (error) toast.error("فشل الخروج"); else { toast.success("خرجت من الجولة"); await fetchRoundsDetail(); fetchRounds(); void invalidateTable("round_participants"); }
+    if (error) toast.error("فشل الخروج"); else { toast.success("خرجت من الجولة"); await fetchRoundsDetail(); await fetchRounds(); void invalidateTable("round_participants"); }
   };
+
   const handleKick = async (roundId: string, uid: string) => {
     if (!confirm("طرد هذا المستخدم؟")) return;
     const { error } = await (supabase as any).from("round_participants").delete().eq("round_id", roundId).eq("user_id", uid);
-    if (error) toast.error("فشل الطرد"); else { toast.success("تم الطرد"); await fetchRoundsDetail(); fetchRounds(); setViewingRound(null); void invalidateTable("round_participants"); }
+    if (error) toast.error("فشل الطرد"); else { toast.success("تم الطرد"); await fetchRoundsDetail(); await fetchRounds(); setViewingRound(null); void invalidateTable("round_participants"); }
   };
+
   const handleDelete = async (roundId: string) => {
     if (!confirm("حذف الجولة؟")) return;
     const { error } = await (supabase as any).from("study_rounds").delete().eq("id", roundId);
     if (error) toast.error("فشل الحذف"); else { toast.success("تم الحذف"); fetchRounds(); void invalidateTable("study_rounds"); }
+  };
+
+  // إنجاز الجولة: أدبي فقط. النقاط مُنحت أصلاً مقابل الحضور.
+  const submitCompletion = async () => {
+    if (!completionRound || !user || !achievement.trim()) return;
+    const { error } = await (supabase as any).from("round_completions").insert({
+      round_id: completionRound.id, user_id: user.id, achievement: achievement.trim(),
+    });
+    if (error) { toast.error("فشل الحفظ"); return; }
+    toast.success("تم تسجيل إنجازك! 🔥");
+    setMyCompletions(s => new Set([...s, completionRound.id]));
+    setCompletionRound(null); setAchievement("");
+    void invalidateTable("round_completions");
+    void refreshPoints();
   };
 
   const handleCreateMeeting = async () => {
@@ -421,6 +451,7 @@ const Rounds = () => {
     if (error) toast.error("فشل إنشاء الاجتماع");
     else { setMeetingTitle(""); setCreateMeetingOpen(false); fetchMeetings(); setMeetingOpen(data); void invalidateTable("round_meetings"); }
   };
+
   const handleDeleteMeeting = async (id: string) => {
     if (!confirm("حذف الاجتماع؟")) return;
     await (supabase as any).from("round_meetings").delete().eq("id", id);
@@ -436,19 +467,57 @@ const Rounds = () => {
 
   const active = rounds.filter(r => r.status !== "completed");
   const completed = rounds.filter(r => r.status === "completed");
-
-  // Visible meetings: owner OR member (server enforces; UI shows only what RLS returned)
   const myMeetings = meetings;
+
+  // بطاقة الحضور الشخصي داخل جلسة الجولة (دالة عرض، ليست مكوّناً)
+  const renderFocusCard = (st: RoundState) => (
+    <div className="rounded-xl border border-primary/30 bg-primary/5 p-4 space-y-2">
+      <p className="text-xs font-medium text-muted-foreground flex items-center gap-1">
+        <Activity className="w-3.5 h-3.5" /> حضورك المُثبَت في هذه الجولة
+      </p>
+      <div className="flex items-end justify-between gap-3">
+        <div>
+          <p className="text-3xl font-bold tabular-nums text-primary">{formatDuration(live.liveFocus)}</p>
+          <p className="text-[11px] text-muted-foreground">عمل مؤكَّد (البريكات لا تُحتسب)</p>
+        </div>
+        <div className="text-left">
+          <p className="text-2xl font-bold tabular-nums text-amber-500">+{live.points}</p>
+          <p className="text-[11px] text-muted-foreground">نقطة حصلت عليها</p>
+        </div>
+      </div>
+      <div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
+        <div
+          className="h-full rounded-full bg-primary transition-all duration-500"
+          style={{ width: `${Math.min(100, ((live.liveFocus % SECONDS_PER_POINT) / SECONDS_PER_POINT) * 100)}%` }}
+        />
+      </div>
+      <p className="text-[11px] text-muted-foreground">
+        {live.nextPointIn !== null && live.nextPointIn > 0
+          ? `النقطة التالية بعد ${formatDuration(live.nextPointIn)} من الحضور`
+          : `رصيدك الآن ${balance} — سقف اليوم ${MAX_BALANCE}، ونقطة كل ${SECONDS_PER_POINT / 60} دقيقة حضور`}
+      </p>
+      {live.error && <p className="text-[11px] text-destructive">{live.error}</p>}
+      {!sessionIsActive && sessionRound?.status === "pending" && (
+        <p className="text-[11px] text-muted-foreground">الجولة لم تبدأ بعد — لا يُحتسب شيء قبل أن يبدأها الخادم.</p>
+      )}
+      {st.wallRemaining <= 0 && (
+        <p className="text-[11px] text-green-600 dark:text-green-400">انتهى زمن الجولة — تسجيل حضورك مُجمَّد.</p>
+      )}
+    </div>
+  );
 
   const renderCard = (r: Round) => {
     const isOwner = r.user_id === user?.id;
     const canDelete = isOwner || isStaff;
     const canStart = isOwner && r.status === "pending";
-    const canEdit = isOwner;
-    const canKick = isStaff;
+    const canEnd = isOwner && r.status === "active";
+    const canEdit = isOwner && r.status !== "active";
 
-    const { remainingSec, inBreak, breakRemaining, timerLabel } = computeTimer(r, now);
+    const st = roundStateAt(r, now);
+    const over = r.status === "active" && st.wallRemaining <= 0;
     const isRinging = ringingFor.current.has(r.id);
+    const busy = busyId === r.id;
+    const didComplete = myCompletions.has(r.id);
 
     return (
       <Card key={r.id} className={r.status === "active" ? "border-primary/40" : ""}>
@@ -489,27 +558,36 @@ const Rounds = () => {
           {r.description && <p className="text-sm">{r.description}</p>}
 
           <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-            <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {r.duration_minutes} دقيقة</span>
+            <span className="flex items-center gap-1">
+              <Clock className="w-3 h-3" /> {r.duration_minutes} دقيقة عمل
+              {r.break_enabled && <span className="text-muted-foreground/70"> (+{formatDuration(breakSecondsLeft(st))} راحة)</span>}
+            </span>
             {r.break_enabled && (
               <span className="flex items-center gap-1">
                 <Coffee className="w-3 h-3" /> بريك {r.break_duration_minutes}د كل {r.break_interval_minutes}د
               </span>
             )}
+            {r.settled && <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-green-500" /> سجل الحضور مُجمَّد</span>}
           </div>
 
           {r.status === "active" && (
-            <div className={`rounded-lg p-3 text-center ${inBreak ? "bg-amber-500/10 border border-amber-500/30" : "bg-primary/10 border border-primary/30"}`}>
-              {inBreak ? (
+            <div className={`rounded-lg p-3 text-center ${st.inBreak ? "bg-amber-500/10 border border-amber-500/30" : "bg-primary/10 border border-primary/30"}`}>
+              {st.inBreak ? (
                 <>
                   <p className="text-xs text-amber-600 dark:text-amber-400 font-medium mb-1 flex items-center justify-center gap-1">
-                    <Coffee className="w-3 h-3" /> فترة راحة
+                    <Coffee className="w-3 h-3" /> فترة راحة — لا تُحتسب
                   </p>
-                  <p className="text-2xl font-bold tabular-nums">{fmt(breakRemaining)}</p>
+                  <p className="text-2xl font-bold tabular-nums">{formatDuration(st.breakRemaining)}</p>
+                </>
+              ) : over ? (
+                <>
+                  <p className="text-xs font-medium mb-1 text-green-600 dark:text-green-400">انتهت الجولة</p>
+                  <p className="text-2xl font-bold tabular-nums text-muted-foreground">00:00</p>
                 </>
               ) : (
                 <>
-                  <p className="text-xs text-primary font-medium mb-1">{timerLabel}</p>
-                  <p className="text-2xl font-bold tabular-nums text-primary">{fmt(remainingSec)}</p>
+                  <p className="text-xs text-primary font-medium mb-1">الوقت المتبقي للعمل</p>
+                  <p className="text-2xl font-bold tabular-nums text-primary">{formatDuration(st.workRemaining)}</p>
                 </>
               )}
             </div>
@@ -518,7 +596,10 @@ const Rounds = () => {
           {isRinging && (
             <div className="flex items-center gap-2 bg-destructive/10 border border-destructive/30 rounded-lg p-2">
               <BellRing className="w-4 h-4 text-destructive animate-pulse" />
-              <span className="text-xs flex-1">انتهت الجولة!</span>
+              <span className="text-xs flex-1">انتهت زمن الجولة!</span>
+              {canEnd && !r.settled && (
+                <Button size="sm" variant="outline" onClick={() => handleEndRound(r)}>تثبيت النهاية</Button>
+              )}
               <Button size="sm" variant="destructive" onClick={() => stopAlarm(r.id)}>إيقاف</Button>
             </div>
           )}
@@ -529,8 +610,18 @@ const Rounds = () => {
             </Button>
             <div className="flex gap-2">
               {canStart && (
-                <Button size="sm" variant="default" onClick={() => handleStart(r)} className="gap-1">
-                  <Play className="w-3 h-3" /> بدء
+                <Button size="sm" variant="default" onClick={() => handleStart(r)} disabled={busy} className="gap-1">
+                  {busy ? <Loader2 className="w-3 h-3 animate-spin" /> : <Play className="w-3 h-3" />} بدء
+                </Button>
+              )}
+              {canEnd && (
+                <Button size="sm" variant="outline" onClick={() => handleEndRound(r)} disabled={busy} className="gap-1 text-destructive">
+                  {busy ? <Loader2 className="w-3 h-3 animate-spin" /> : <Square className="w-3 h-3" />} إنهاء الآن
+                </Button>
+              )}
+              {r.status === "completed" && !didComplete && (
+                <Button size="sm" variant="ghost" onClick={() => setCompletionRound(r)} className="gap-1">
+                  <Flame className="w-3 h-3" /> إنجازي
                 </Button>
               )}
               {r.status !== "completed" && (
@@ -645,12 +736,14 @@ const Rounds = () => {
       </Tabs>
 
       {/* دخول الجولة: شاشة تركيز داخل الجولة */}
-      <Dialog open={!!sessionRound} onOpenChange={o => !o && setSessionRound(null)}>
+      <Dialog open={!!sessionRound} onOpenChange={o => !o && setSessionRoundId(null)}>
         <DialogContent className="max-h-[92vh] overflow-y-auto">
           {sessionRound && (() => {
-            const t = computeTimer(sessionRound, now);
+            const st = roundStateAt(sessionRound, now);
             const isOwnerHere = sessionRound.user_id === user?.id;
             const isMemberHere = sessionRound.participants.find(p => p.user_id === user?.id);
+            const over = sessionRound.status === "active" && st.wallRemaining <= 0;
+            const me = board.find(b => b.user_id === user?.id);
             return (
               <>
                 <DialogHeader className="text-center">
@@ -661,34 +754,73 @@ const Rounds = () => {
 
                 {sessionRound.status === "pending" ? (
                   <div className="rounded-xl border p-6 text-center bg-muted/40">
-                    <p className="text-sm text-muted-foreground mb-2">بانتظار بدء الجولة</p>
+                    <p className="text-sm text-muted-foreground mb-2">بانتظار بدء الجولة من الخادم</p>
                     <p className="text-3xl font-bold">🎬</p>
                     {isOwnerHere && (
-                      <Button className="mt-3 gap-1" onClick={() => { handleStart(sessionRound); }}>
-                        <Play className="w-4 h-4" /> بدء الجولة الآن
+                      <Button className="mt-3 gap-1" onClick={() => handleStart(sessionRound)} disabled={busyId === sessionRound.id}>
+                        {busyId === sessionRound.id ? <Loader2 className="w-4 h-4 animate-spin" /> : <Play className="w-4 h-4" />} ابدأ الآن
                       </Button>
                     )}
                   </div>
                 ) : (
-                  <div className={`rounded-xl p-6 text-center ${t.inBreak ? "bg-amber-500/10 border border-amber-500/30" : "bg-primary/10 border border-primary/30"}`}>
-                    <p className="text-xs text-primary font-medium mb-2">{t.inBreak ? "☕ استراحة" : t.timerLabel}</p>
-                    <p className={`text-6xl font-bold tabular-nums ${t.inBreak ? "text-amber-600 dark:text-amber-400" : "text-primary"}`}>
-                      {fmt(t.inBreak ? t.breakRemaining : t.remainingSec)}
+                  <div className={`rounded-xl p-6 text-center ${st.inBreak ? "bg-amber-500/10 border border-amber-500/30" : "bg-primary/10 border border-primary/30"}`}>
+                    <p className="text-xs text-primary font-medium mb-2">
+                      {st.inBreak ? "☕ راحة (لا تُحتسب)" : over ? "انتهت الجولة" : "الوقت المتبقي للعمل"}
                     </p>
-                    {sessionRound.break_enabled && (
-                      <p className="text-xs text-muted-foreground mt-2">
-                        بريك كل {sessionRound.break_interval_minutes} دقيقة لمدة {sessionRound.break_duration_minutes} دقائق
-                      </p>
-                    )}
+                    <p className={`text-6xl font-bold tabular-nums ${st.inBreak ? "text-amber-600 dark:text-amber-400" : "text-primary"}`}>
+                      {formatDuration(st.inBreak ? st.breakRemaining : st.workRemaining)}
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-2">
+                      من أصل {formatDuration(st.totalWorkSeconds)} عمل
+                      {sessionRound.break_enabled && ` + ${formatDuration(breakSecondsLeft(st))} راحة متبقية`}
+                    </p>
                   </div>
                 )}
 
+                {(isOwnerHere || isMemberHere) && renderFocusCard(st)}
+
+                {sessionRound.status === "active" && (isOwnerHere || isMemberHere) && (
+                  <p className="text-[11px] text-muted-foreground text-center">
+                    {beating ? <span className="flex items-center justify-center gap-1"><Activity className="w-3 h-3 animate-pulse" /> جارٍ تسجيل حضورك…</span>
+                      : "احتسابك يتم على الخادم كل 30 ثانية. إخفاء التبويب أو إغلاقه يوقف الاحتساب."}
+                  </p>
+                )}
+
                 <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground justify-center">
-                  <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {sessionRound.duration_minutes} دقيقة</span>
+                  <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {sessionRound.duration_minutes} دقيقة عمل</span>
                   <span className="flex items-center gap-1"><Users className="w-3 h-3" /> {sessionRound.participants.length} مشارك</span>
+                  <span className="flex items-center gap-1"><Flame className="w-3 h-3" /> نقطة كل {SECONDS_PER_POINT / 60} دقيقة</span>
                 </div>
 
-                <div className="space-y-1.5 max-h-[28vh] overflow-y-auto">
+                {/* لوحة الحضور — المالك فقط، وإثبات أن النقاط محسوبة على وقت حقيقي */}
+                {isOwnerHere && (
+                  <div className="space-y-1.5">
+                    <p className="text-xs font-medium text-muted-foreground flex items-center gap-1">
+                      <Trophy className="w-3.5 h-3.5" /> سجل الحضور (محسوب على الخادم)
+                    </p>
+                    {board.length === 0 ? (
+                      <p className="text-sm text-muted-foreground text-center py-2">لا يوجد حضور مسجَّل بعد</p>
+                    ) : (
+                      <div className="space-y-1 max-h-[26vh] overflow-y-auto">
+                        {board.map((b, i) => (
+                          <div key={b.user_id} className={`flex items-center gap-2 rounded-lg p-2 ${b.user_id === user?.id ? "bg-primary/10" : "bg-muted/50"}`}>
+                            <span className="text-xs w-5 text-muted-foreground tabular-nums">{i + 1}</span>
+                            <Avatar className="w-6 h-6">
+                              <AvatarImage src={b.avatar_url || ""} />
+                              <AvatarFallback className="text-[10px]">{b.full_name?.charAt(0) || "م"}</AvatarFallback>
+                            </Avatar>
+                            <span className="text-sm flex-1 truncate">{b.full_name}{b.user_id === user?.id && <span className="text-[10px] text-muted-foreground"> (أنت)</span>}</span>
+                            <span className="text-xs tabular-nums text-muted-foreground">{formatDuration(b.focus_seconds)}</span>
+                            <span className="text-xs font-bold text-amber-500 tabular-nums w-10 text-left">+{b.points_awarded}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    {me && <p className="text-[11px] text-muted-foreground text-center">سجلك: {formatDuration(me.focus_seconds)} حضور ⇒ {me.points_awarded} نقطة</p>}
+                  </div>
+                )}
+
+                <div className="space-y-1.5 max-h-[20vh] overflow-y-auto">
                   <p className="text-xs font-medium text-muted-foreground">المشاركون:</p>
                   {sessionRound.participants.length === 0 ? (
                     <p className="text-sm text-muted-foreground text-center py-2">لا يوجد مشاركون بعد</p>
@@ -709,11 +841,16 @@ const Rounds = () => {
                 </div>
 
                 <DialogFooter className="gap-2 sm:justify-center">
-                  <Button variant="outline" onClick={() => setSessionRound(null)} className="gap-1">
+                  <Button variant="outline" onClick={() => setSessionRoundId(null)} className="gap-1">
                     <LogOutIcon className="w-3 h-3" /> العودة للجولات
                   </Button>
-                  {(isOwnerHere || isMemberHere) && (
-                    <Button variant="destructive" onClick={async () => { await handleLeave(sessionRound.id); setSessionRound(null); }} className="gap-1">
+                  {isOwnerHere && sessionRound.status === "active" && (
+                    <Button variant="outline" onClick={() => handleEndRound(sessionRound)} disabled={busyId === sessionRound.id} className="gap-1 text-destructive">
+                      {busyId === sessionRound.id ? <Loader2 className="w-3 h-3 animate-spin" /> : <Square className="w-3 h-3" />} إنهاء الجولة الآن
+                    </Button>
+                  )}
+                  {isMemberHere && (
+                    <Button variant="destructive" onClick={async () => { await handleLeave(sessionRound.id); setSessionRoundId(null); }} className="gap-1">
                       <LogOutIcon className="w-3 h-3" /> الخروج من الجولة
                     </Button>
                   )}
@@ -797,16 +934,18 @@ const Rounds = () => {
 
       <Dialog open={helpOpen} onOpenChange={setHelpOpen}>
         <DialogContent>
-          <DialogHeader><DialogTitle>كيفية استخدام الجولات الدراسية</DialogTitle></DialogHeader>
+          <DialogHeader><DialogTitle>كيف تُحسب النقاط في الجولات</DialogTitle></DialogHeader>
           <div className="space-y-3 text-sm">
-            <p>📝 <b>إنشاء جولة:</b> اضغط "جولة جديدة" واكتب الاسم والوصف ومدة الجولة.</p>
-            <p>☕ <b>البريك:</b> فعّل فترات الراحة وحدد كل كم دقيقة وعدد دقائق البريك.</p>
-            <p>⏳ <b>العد التنازلي:</b> يعدّ حتى البريك التالي، وفي البريك يعدّ تنازلياً لانتهاء الراحة.</p>
-            <p>▶️ <b>البدء:</b> صاحب الجولة يضغط "بدء".</p>
-            <p>✏️ <b>تعديل:</b> صاحب الجولة يقدر يعدّل الاسم والوصف والمدة.</p>
+            <p>📝 <b>إنشاء جولة:</b> اضغط "جولة جديدة" واكتب الاسم والوصف ومدة العمل.</p>
+            <p>☕ <b>البريك:</b> المدة التي تكتبها هي <b>صافي وقت العمل</b>. البريكات تُضاف فوقها ولا تُحتسب عملاً. مثال: 60 دقيقة مع بريك 5 كل 25 ⇒ الجولة 70 دقيقة على الأرض.</p>
+            <p>▶️ <b>البدء:</b> صاحب الجولة يضغط "بدء"، والخادم هو من يحسب الجدول ونهاية الجولة ويخزّنهما. لا أحد يعدّلهما من المتصفح.</p>
+            <p>⏱️ <b>الاحتساب حقيقي:</b> وأنت داخل الجولة، المتصفح يرسل نبضة كل 30 ثانية <b>والتبويب مرئي فقط</b>. الخادم يحسب الثواني من ساعته هو.</p>
+            <p>🚫 <b>ما لا يُحتسب:</b> إغلاق التبويب، أو الانتقال لتبويب آخر، أو غياب يتجاوز 5 دقائق. لا يمكن اختلاق الوقت من أي جهاز.</p>
+            <p>🔥 <b>النقاط:</b> نقطة واحدة كل {SECONDS_PER_POINT / 60} دقيقة حضور مؤكَّد. الرصيد اليومي يبدأ من 50 ولا يتجاوز 100، وما أُضيف يُسجَّل في سجل معاملاتك.</p>
+            <p>🏁 <b>الإنهاء:</b> عند انتهاء الوقت يُجمّد الخادم سجل الحضور تلقائياً، أو يستطيع المالك إنهاؤها مبكراً. النقاط كانت مُنحت أثناء الجولة بالفعل.</p>
+            <p>📝 <b>تقييم الإنجاز:</b> اختياري وأدبي فقط — لا يمنح نقاط.</p>
             <p>🚫 <b>طرد:</b> الأدمن والمشرفون يقدروا يطردوا أي مشارك من قائمة المشاركين.</p>
             <p>🔒 <b>الاجتماعات الخاصة:</b> أنشئ اجتماعاً خاصاً وادعُ من تريد فقط.</p>
-            <p>🔥 <b>الشعلة:</b> تحسب فقط بعد ما تكتب إنجازك في تقييم نهاية الجولة.</p>
           </div>
         </DialogContent>
       </Dialog>
@@ -815,7 +954,7 @@ const Rounds = () => {
       <Dialog open={!!completionRound} onOpenChange={(o) => { if (!o) { setCompletionRound(null); setAchievement(""); } }}>
         <DialogContent>
           <DialogHeader><DialogTitle>🎉 انتهت الجولة "{completionRound?.title}"</DialogTitle></DialogHeader>
-          <p className="text-sm text-muted-foreground">شارك إنجازك في هذه الجولة (سيتم احتساب الشعلة 🔥 بعد إرسال إنجازك)</p>
+          <p className="text-sm text-muted-foreground">شارك إنجازك في هذه الجولة. نقاطك محسوبة أصلاً من حضورك الحقيقي وقت الجولة.</p>
           <Textarea value={achievement} onChange={e => setAchievement(e.target.value)} placeholder="مثال: راجعت 3 وحدات وحليت 20 سؤال..." className="min-h-[100px]" />
           <DialogFooter>
             <Button variant="ghost" onClick={() => { setCompletionRound(null); setAchievement(""); }}>لاحقاً</Button>
@@ -838,20 +977,21 @@ const RoundForm = (p: any) => (
       <Textarea placeholder="ماذا ستتم دراسته..." value={p.description} onChange={e => p.setDescription(e.target.value)} />
     </div>
     <div>
-      <label className="text-sm font-medium">مدة الجولة (دقائق)</label>
+      <label className="text-sm font-medium">مدة العمل الصافية (دقائق)</label>
       <Input type="number" min={5} max={480} value={p.duration} onChange={e => p.setDuration(Number(e.target.value))} />
+      <p className="text-xs text-muted-foreground mt-1">البريكات تُضاف فوق هذه المدة ولا تُحتسب عملاً.</p>
     </div>
     <div className="flex items-center justify-between rounded-lg border p-3">
       <div>
         <p className="text-sm font-medium flex items-center gap-1"><Coffee className="w-4 h-4" /> فترات راحة</p>
-        <p className="text-xs text-muted-foreground">إضافة بريك أثناء الجولة</p>
+        <p className="text-xs text-muted-foreground">إضافة بريك أثناء الجولة (لا يُحتسب عملاً)</p>
       </div>
       <Switch checked={p.breakEnabled} onCheckedChange={p.setBreakEnabled} />
     </div>
     {p.breakEnabled && (
       <div className="grid grid-cols-2 gap-3 animate-fade-in">
         <div>
-          <label className="text-xs text-muted-foreground">كل كم دقيقة بريك؟</label>
+          <label className="text-xs text-muted-foreground">بعد كم دقيقة عمل بريك؟</label>
           <Input type="number" min={5} max={240} value={p.breakInterval} onChange={e => p.setBreakInterval(Number(e.target.value))} />
         </div>
         <div>
@@ -863,7 +1003,7 @@ const RoundForm = (p: any) => (
     <div className="flex items-center justify-between rounded-lg border p-3">
       <div>
         <p className="text-sm font-medium flex items-center gap-1">🔕 كتم صوت المنبّه</p>
-        <p className="text-xs text-muted-foreground">عند كتم الصوت لن يصدر أي زمّور عند انتهاء الجولة</p>
+        <p className="text-xs text-muted-foreground">عند كتم الصوت لن يصدر أي زمّور عند انتهاء زمن الجولة</p>
       </div>
       <Switch checked={p.alarmMuted} onCheckedChange={p.setAlarmMuted} />
     </div>
