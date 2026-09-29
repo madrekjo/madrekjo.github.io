@@ -242,7 +242,7 @@ export function hasEnoughPoints(balance: number, type: PointCostType): boolean {
 }
 
 /**
- * النقاط تُحسب من زمن التواجد داخل الجولة: 10 نقاط كل ساعتين.
+ * النقاط تُحسب من زمن التواجد داخل الجولة: 20 نقطة كل ساعتين.
  * الزمن يشمل الاستراحات، ويُحتسب من ساعة الخادم لا ساعة المتصفح.
  */
 export const ROUND_POINT_LABEL = `${POINTS_PER_BATCH} نقاط كل ${SECONDS_PER_BATCH / 3600} ساعة حضور في الجولة`;

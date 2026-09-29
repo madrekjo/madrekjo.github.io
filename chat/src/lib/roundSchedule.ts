@@ -12,14 +12,14 @@
  */
 
 /**
- * 10 نقاط كل ساعتين من زمن التواجد داخل الجولة (يطابق round_seconds_per_point).
- *   7200 ثانية ÷ 10 نقاط = 720 ثانية لكل نقطة.
+ * 20 نقطة كل ساعتين من زمن التواجد داخل الجولة (يطابق round_seconds_per_point).
+ *   7200 ثانية ÷ 20 نقطة = 360 ثانية لكل نقطة.
  * الزمن المحتسب هو زمن التواجد كاملاً (حتى الاستراحات).
  */
-export const SECONDS_PER_POINT = 720;
+export const SECONDS_PER_POINT = 360;
 
-/** 10 نقاط كل ساعتين — الرقم الظاهر للمستخدم بجوار العداد */
-export const POINTS_PER_BATCH = 10;
+/** 20 نقطة كل ساعتين — الرقم الظاهر للمستخدم بجوار العداد */
+export const POINTS_PER_BATCH = 20;
 
 /** ثوانٍ كل دفعة نقاط = مدّة الساعتين */
 export const SECONDS_PER_BATCH = 7200;
@@ -28,7 +28,7 @@ export const SECONDS_PER_BATCH = 7200;
 export const BASE_BALANCE = 50;
 
 /** سقف الرصيد — بعده لا يُضاف شيء (يطابق round_max_balance) */
-export const MAX_BALANCE = 100;
+export const MAX_BALANCE = 200;
 
 export interface RoundScheduleInput {
   started_at: string | null;

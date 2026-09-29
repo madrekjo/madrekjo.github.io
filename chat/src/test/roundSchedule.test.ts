@@ -48,10 +48,10 @@ const NO_BREAKS: RoundScheduleInput = {
 };
 
 describe("ثوابت النظام (يطابق SQL)", () => {
-  it("نقطة كل 20 دقيقة، أساس 50، سقف 100", () => {
-    expect(SECONDS_PER_POINT).toBe(720);
+  it("نقطة كل 6 دقائق، أساس 50، سقف 200", () => {
+    expect(SECONDS_PER_POINT).toBe(360);
     expect(BASE_BALANCE).toBe(50);
-    expect(MAX_BALANCE).toBe(100);
+    expect(MAX_BALANCE).toBe(200);
   });
 });
 
@@ -173,17 +173,17 @@ describe("roundStateAt — حالة الجولة", () => {
 });
 
 describe("النقاط — دالة حتمية على الثواني", () => {
-  it("نقطة واحدة كل 12 دقيقة (720 ثانية) بالضبط", () => {
+  it("نقطة واحدة كل 6 دقائق (360 ثانية) بالضبط", () => {
     expect(pointsForFocusSeconds(0)).toBe(0);
-    expect(pointsForFocusSeconds(719)).toBe(0);
-    expect(pointsForFocusSeconds(720)).toBe(1);
-    expect(pointsForFocusSeconds(1439)).toBe(1);
-    expect(pointsForFocusSeconds(1440)).toBe(2);
+    expect(pointsForFocusSeconds(359)).toBe(0);
+    expect(pointsForFocusSeconds(360)).toBe(1);
+    expect(pointsForFocusSeconds(719)).toBe(1);
+    expect(pointsForFocusSeconds(720)).toBe(2);
   });
 
-  it("10 نقاط كل ساعتين بالضبط — الشرط المطلوب", () => {
+  it("20 نقطة كل ساعتين بالضبط — الشرط المطلوب", () => {
     expect(SECONDS_PER_BATCH).toBe(7200);
-    expect(POINTS_PER_BATCH).toBe(10);
+    expect(POINTS_PER_BATCH).toBe(20);
     expect(pointsForFocusSeconds(SECONDS_PER_BATCH)).toBe(POINTS_PER_BATCH);
     expect(pointsForFocusSeconds(SECONDS_PER_BATCH - 1)).toBe(POINTS_PER_BATCH - 1);
     expect(pointsForFocusSeconds(SECONDS_PER_BATCH * 2)).toBe(POINTS_PER_BATCH * 2);
@@ -201,20 +201,20 @@ describe("النقاط — دالة حتمية على الثواني", () => {
 
   it("الوقت المتبقي للنقطة التالية", () => {
     expect(secondsToNextPoint(0)).toBe(SECONDS_PER_POINT);
-    expect(secondsToNextPoint(300)).toBe(420);
-    expect(secondsToNextPoint(720)).toBe(SECONDS_PER_POINT); // وصل لنقطة بالضبط
+    expect(secondsToNextPoint(120)).toBe(240);
+    expect(secondsToNextPoint(360)).toBe(SECONDS_PER_POINT); // وصل لنقطة بالضبط
   });
 
   it("الزمن الكامل يُحتسب: استراحة الجولة تحسب مع العمل", () => {
     // جولة 60د مع استراحتين = 70 دقيقة زمن فعلي ⇒ 70*60 = 4200 ثانية
     expect(roundTotalSeconds(WITH_BREAKS)).toBe(4200);
-    // 4200 ÷ 720 = 5 نقاط (وليس 3600÷720 = 5 لأن الاستراحات تُحتسب أيضاً)
-    expect(pointsForFocusSeconds(roundTotalSeconds(WITH_BREAKS))).toBe(5);
-    expect(pointsForFocusSeconds(4200)).toBe(5);
+    // 4200 ÷ 360 = 11 نقطة (وليس 3600÷360 = 10 لأن الاستراحات تُحتسب أيضاً)
+    expect(pointsForFocusSeconds(roundTotalSeconds(WITH_BREAKS))).toBe(11);
+    expect(pointsForFocusSeconds(4200)).toBe(11);
   });
 
-  it("نقطة كل 12 دقيقة ⇒ 5 نقاط لكل ساعة", () => {
-    expect(pointsForFocusSeconds(3600)).toBe(5);
+  it("نقطة كل 6 دقائق ⇒ 10 نقاط لكل ساعة", () => {
+    expect(pointsForFocusSeconds(3600)).toBe(10);
   });
 });
 

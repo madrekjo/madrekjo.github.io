@@ -64,7 +64,7 @@ const UpdateNotice = () => {
           <div className="flex items-start gap-2 bg-muted/50 rounded-lg p-3">
             <Trophy className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
             <p className="text-[13px] text-muted-foreground">
-              اجلس في الجولة أو أنهيها: كل <b className="text-foreground">ساعتين = +10 نقاط</b> مكافأة!
+              اجلس في الجولة أو أنهيها: كل <b className="text-foreground">ساعتين = +20 نقطة</b> مكافأة!
             </p>
           </div>
         </div>
