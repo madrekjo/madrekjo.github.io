@@ -33,7 +33,6 @@ function nightWindow() {
   };
 }
 
-const SEEN_PREFIX = "mdk_night_seen_";
 
 const SAMPLE: Block[] = [
   { t: "salam", text: "يا أهل مدارك 🤍" },
@@ -128,7 +127,9 @@ export default function NightGreeting() {
       ? { id: "forced", title: "🌙 وقت النوم — معاينة", content: SAMPLE }
       : bcast ?? fallback;
 
-  const showOverlay = forced || (!!active && active.id !== dismissed);
+  // المعاينة وحدها بتسكِر؛ النافذة الحقيقية ثابتة لحد 3 فجراً
+  const showOverlay =
+    forced || (!!active && (isPreview ? active.id !== dismissed : true));
 
   /* ---- عدّاد تنازلي لحد الساعة 3:00 فجراً (= 00:00 UTC بتوقيتنا UTC+3) ---- */
   const endAt = active?.expires_at
@@ -173,12 +174,8 @@ export default function NightGreeting() {
         if (data.expires_at && new Date(data.expires_at).getTime() <= Date.now()) return;
         setBcast(data as unknown as Broadcast);
         clearInterval(id);
-        const row = data as unknown as Broadcast;
-        // المفتاح يتضمّن بداية النافذة: اللي فتحها بالليلة الماضية ما
-        // يتخطّى العرض الجديد لما يفتح المالك بثاً جديداً على نفس الصف.
-        if (localStorage.getItem(SEEN_PREFIX + row.id + (row.starts_at || "")) === "1") {
-          setDismissed(row.id);
-        }
+        /* النافذة ثابتة: ما بنحفظ علامة «شُفتُها» أبداً، فبتطلع لكل
+           المتصلين من أول لحظة، وما بتنكسر إلّا الساعة 3:00 فجراً. */
       } catch {
         /* الجدول غير موجود — بلا إزعاج */
       }
@@ -328,8 +325,7 @@ export default function NightGreeting() {
     e?.stopPropagation();
     dismissRef.current = true;
     if (!forced) {
-      if (isPreview) sessionStorage.setItem("mdk_night_preview_done", "1");
-      else localStorage.setItem(SEEN_PREFIX + active.id + (active.starts_at || ""), "1");
+      sessionStorage.setItem("mdk_night_preview_done", "1");
     }
     snd?.pause();
     setSndOn(false);
@@ -464,13 +460,15 @@ export default function NightGreeting() {
             <div className="space-y-3">{body}</div>
 
             <div className="pt-2 flex flex-col gap-2">
-              <button
-                data-silent
-                onClick={dismiss}
-                className="night-btn-primary w-full rounded-xl py-3 font-bold transition-colors"
-              >
-                تصبحون على خير 🌙
-              </button>
+              {(forced || isPreview) && (
+                <button
+                  data-silent
+                  onClick={dismiss}
+                  className="night-btn-primary w-full rounded-xl py-3 font-bold transition-colors"
+                >
+                  إغلاق المعاينة
+                </button>
+              )}
               <button
                 onClick={toggleSound}
                 className="night-btn-ghost w-full rounded-xl py-2 text-xs font-semibold transition-colors flex items-center justify-center gap-2"
@@ -478,9 +476,14 @@ export default function NightGreeting() {
                 {sndOn ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
                 {sndOn ? "كتم صوت الليل" : "تشغيل صوت الليل"}
               </button>
-              {inWindowHint && (
+              {!forced && !isPreview && (
                 <p className="night-muted text-center text-[10px] leading-relaxed">
-                  تقدر ترجع تشوفه وقت ما تحب من زر 🌙 — يضل ظاهر لحد الساعة 3 فجراً
+                  النافذة بتفضل ظاهرة لحد الساعة 3:00 فجراً — بعدها يفتح الشات
+                </p>
+              )}
+              {inWindowHint && (forced || isPreview) && (
+                <p className="night-muted text-center text-[10px] leading-relaxed">
+                  وضع المعاينة — تقدر ترجع تشوفه وقت ما تحب
                 </p>
               )}
               {(forced || isPreview) && (
