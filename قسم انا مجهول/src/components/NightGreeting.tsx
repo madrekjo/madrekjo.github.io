@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Moon, Volume2, VolumeX } from "lucide-react";
+import { Clock, Moon, Volume2, VolumeX } from "lucide-react";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -103,6 +103,30 @@ export default function NightGreeting() {
       : bcast;
 
   const showOverlay = forced || (!!bcast && bcast.id !== dismissed);
+
+  /* ---- عدّاد تنازلي لحد الساعة 3:00 فجراً (= 00:00 UTC بتوقيتنا UTC+3) ---- */
+  const endAt = useMemo(() => {
+    if (active.expires_at) return new Date(active.expires_at).getTime();
+    const n = new Date();
+    return Date.UTC(n.getUTCFullYear(), n.getUTCMonth(), n.getUTCDate() + 1, 0, 0, 0);
+  }, [active.expires_at]);
+
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => {
+    if (!showOverlay) return;
+    setNow(Date.now());
+    const t = window.setInterval(() => setNow(Date.now()), 1_000);
+    return () => window.clearInterval(t);
+  }, [showOverlay, endAt]);
+
+  const remainMs = Math.max(0, endAt - now);
+  const remainText = (() => {
+    const s = Math.floor(remainMs / 1000);
+    const hh = String(Math.floor(s / 3600)).padStart(2, "0");
+    const mm = String(Math.floor((s % 3600) / 60)).padStart(2, "0");
+    const ss = String(s % 60).padStart(2, "0");
+    return `${hh}:${mm}:${ss}`;
+  })();
 
   useEffect(() => {
     let alive = true;
@@ -390,6 +414,17 @@ export default function NightGreeting() {
               <p className="night-muted text-[11px] flex items-center justify-center gap-1">
                 <Volume2 className="w-3.5 h-3.5 night-primary" /> صوت الليل معك…
               </p>
+              {remainMs > 0 && (
+                <p
+                  data-silent
+                  className="night-countdown mx-auto mt-2 inline-flex items-center gap-2"
+                  dir="ltr"
+                >
+                  <Clock className="w-3.5 h-3.5" />
+                  <span className="tabular-nums font-bold">{remainText}</span>
+                  <span className="night-countdown-label">يفتح الشات عند 3:00 فجراً</span>
+                </p>
+              )}
             </div>
 
             <div className="space-y-3">{body}</div>

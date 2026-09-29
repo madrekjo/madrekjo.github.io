@@ -223,6 +223,20 @@
   box-shadow: 0 14px 30px -14px rgba(0, 0, 0, 0.8);
 }
 .night-fab:hover { background: hsl(220 18% 18% / 0.95); }
+.night-countdown {
+  background: hsl(168 55% 45% / 0.12);
+  border: 1px solid hsl(168 55% 45% / 0.35);
+  color: hsl(168 55% 55%);
+  border-radius: 9999px;
+  padding: 0.3rem 0.85rem;
+  font-size: 12px;
+  font-weight: 600;
+}
+.night-countdown-label {
+  color: hsl(220 10% 60%);
+  font-weight: 500;
+  font-size: 11px;
+}
 .night-sky {
   position: fixed;
   inset: 0;
