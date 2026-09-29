@@ -376,6 +376,45 @@ export async function ensureUser(
   return data as string;
 }
 
+export interface RecoverCandidate {
+  id: string;
+  username: string;
+  bio: string;
+  avatar_url: string;
+  card_count: number;
+  created_at: string;
+}
+
+export async function recoverCandidates(
+  query = ""
+): Promise<RecoverCandidate[]> {
+  const { data, error } = await supabase.rpc("recover_candidates", {
+    p_query: query.trim(),
+    p_device: getDeviceId(),
+  });
+  if (error) {
+    console.error("recover_candidates error:", error, { query });
+    throw new Error(errorMessage(error, "تعذّر البحث عن حسابك القديم"));
+  }
+  return (Array.isArray(data) ? data : []) as RecoverCandidate[];
+}
+
+export async function recoverAccount(username: string): Promise<string> {
+  const device = getDeviceId();
+  if (device.length < 4) throw new Error("تعذّر التعرّف على جهازك");
+  const { data, error } = await supabase.rpc("recover_account", {
+    p_username: username.trim().slice(0, 25),
+    p_device: device,
+  });
+  if (error) {
+    console.error("recover_account error:", error, { username });
+    throw new Error(
+      errorMessage(error, "تعذّر استرجاع حسابك — جرّب مرة أخرى لاحقاً")
+    );
+  }
+  return data as string;
+}
+
 export async function myProfile(): Promise<UserProfile | null> {
   const { data, error } = await supabase.rpc("my_profile", {
     p_device: getDeviceId(),
