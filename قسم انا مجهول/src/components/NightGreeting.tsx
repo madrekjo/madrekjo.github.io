@@ -85,6 +85,11 @@ export default function NightGreeting() {
   const [dismissed, setDismissed] = useState<string | null>(null);
   const [sndOn, setSndOn] = useState(false);
   const [snd, setSnd] = useState<HTMLAudioElement | null>(null);
+  const sndRef = useRef<HTMLAudioElement | null>(null);
+  const setSound = (el: HTMLAudioElement | null) => {
+    sndRef.current = el;
+    setSnd(el);
+  };
   const stars = useMemo(() => STARS, []);
   const dismissRef = useRef(false);
 
@@ -167,16 +172,40 @@ export default function NightGreeting() {
     };
   }, [isPreview]);
 
-  /* إغلاق قاطع عند وقت الانتهاء (3 فجراً): يختفي التنبيه والزر معاً بلا استثناء */
+  /* إغلاق قاطع عند 3 فجراً: يوقف صوت الليل ويخفي التنبيه وزره معاً، فتظهر
+     الصفحة (الدردشة) عند كل المتصلين. نتحقق دورياً لأن المتصفح يؤخّر
+     المؤقتات في التبويبات المخفية. */
   useEffect(() => {
     if (!bcast?.expires_at) return;
-    const ms = new Date(bcast.expires_at).getTime() - Date.now();
-    if (ms <= 0) {
+    const endAt = new Date(bcast.expires_at).getTime();
+
+    const closeNow = () => {
+      sndRef.current?.pause();
+      setSndOn(false);
       setBcast(null);
+    };
+
+    if (endAt <= Date.now()) {
+      closeNow();
       return;
     }
-    const t = setTimeout(() => setBcast(null), Math.min(ms, 2_147_483_647));
-    return () => clearTimeout(t);
+
+    const t = window.setTimeout(closeNow, Math.min(endAt - Date.now(), 2_147_483_647));
+    const guard = window.setInterval(() => {
+      if (endAt <= Date.now()) closeNow();
+    }, 15_000);
+    const onVisible = () => {
+      if (endAt <= Date.now()) closeNow();
+    };
+    document.addEventListener("visibilitychange", onVisible);
+    window.addEventListener("focus", onVisible);
+
+    return () => {
+      window.clearTimeout(t);
+      window.clearInterval(guard);
+      document.removeEventListener("visibilitychange", onVisible);
+      window.removeEventListener("focus", onVisible);
+    };
   }, [bcast]);
 
   /* عنصر صوتي دائم يُنشأ عند التركيب (يحاول التشغيل التلقائي حيث يسمح المتصفح) */
@@ -186,7 +215,7 @@ export default function NightGreeting() {
     el.loop = true;
     el.volume = 0.55;
     el.preload = "auto";
-    setSnd(el);
+    setSound(el);
     return () => {
       el.pause();
       el.src = "";
@@ -199,7 +228,7 @@ export default function NightGreeting() {
       el = new Audio(AUDIO_URL);
       el.loop = true;
       el.volume = 0.55;
-      setSnd(el);
+      setSound(el);
     }
     const p = el.play();
     if (p) {
