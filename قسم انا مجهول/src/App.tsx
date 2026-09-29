@@ -11,7 +11,6 @@ import { ChallengeDialog } from "@/components/challenge-dialog";
 import Index from "@/pages/Index.tsx";
 import Login from "@/pages/Login.tsx";
 import Admin from "@/pages/Admin.tsx";
-import NightGreeting from "@/components/NightGreeting";
 import { useEffect, useState } from "react";
 import { UpdateWatcher } from "@/components/update-watcher";
 
@@ -113,7 +112,6 @@ const App = () => (
             <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFoundComponent />} />
           </Routes>
-          <NightGreeting />
         </VisitorGate>
         <Toaster />
       </BrowserRouter>

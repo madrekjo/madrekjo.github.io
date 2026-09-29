@@ -12,7 +12,25 @@ interface Broadcast {
   id: string;
   title: string;
   content: Block[];
+  starts_at?: string;
   expires_at?: string;
+}
+
+/* نافذة ليلية ثابتة: من 20:00 حتى 3:00 فجراً بتوقيت المستخدم.
+   بتضمن إن النافذة بتطلع لكل الناس حتى لو ما في صف بثّ بالجدول. */
+const NIGHT_START_HOUR = 20;
+
+function nightWindow() {
+  const d = new Date();
+  const h = d.getHours();
+  const end = new Date(d);
+  end.setHours(3, 0, 0, 0);
+  if (end.getTime() <= d.getTime()) end.setDate(end.getDate() + 1);
+  return {
+    inWindow: h >= NIGHT_START_HOUR || h < 3,
+    end,
+    key: `night-${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
+  };
 }
 
 const SEEN_PREFIX = "mdk_night_seen_";
@@ -93,19 +111,29 @@ export default function NightGreeting() {
     typeof window !== "undefined" &&
     new URLSearchParams(window.location.search).get("night") === "1";
 
-  const active =
-    forced || !bcast
-      ? { id: "forced", title: "🌙 وقت النوم — معاينة", content: SAMPLE }
-      : bcast;
+  // النافذة الليلية الثابتة: تعمل بلا ما تحتاج صفّ بالجدول
+  const win = nightWindow();
+  const fallback: Broadcast | null =
+    !isPreview && !bcast && win.inWindow
+      ? {
+          id: win.key,
+          title: "🌙 وقت النوم",
+          content: SAMPLE,
+          expires_at: win.end.toISOString(),
+        }
+      : null;
 
-  const showOverlay = forced || (!!bcast && bcast.id !== dismissed);
+  const active: Broadcast | null =
+    forced || isPreview
+      ? { id: "forced", title: "🌙 وقت النوم — معاينة", content: SAMPLE }
+      : bcast ?? fallback;
+
+  const showOverlay = forced || (!!active && active.id !== dismissed);
 
   /* ---- عدّاد تنازلي لحد الساعة 3:00 فجراً (= 00:00 UTC بتوقيتنا UTC+3) ---- */
-  const endAt = useMemo(() => {
-    if (active.expires_at) return new Date(active.expires_at).getTime();
-    const n = new Date();
-    return Date.UTC(n.getUTCFullYear(), n.getUTCMonth(), n.getUTCDate() + 1, 0, 0, 0);
-  }, [active.expires_at]);
+  const endAt = active?.expires_at
+    ? new Date(active.expires_at).getTime()
+    : win.end.getTime();
 
   const [now, setNow] = useState(() => Date.now());
   useEffect(() => {
@@ -132,7 +160,7 @@ export default function NightGreeting() {
         const nowIso = new Date().toISOString();
         const { data, error } = await supabase
           .from("broadcasts")
-          .select("id, title, content, expires_at")
+          .select("id, title, content, starts_at, expires_at")
           .eq("kind", "night")
           .eq("visible", true)
           .lte("starts_at", nowIso)
@@ -145,8 +173,11 @@ export default function NightGreeting() {
         if (data.expires_at && new Date(data.expires_at).getTime() <= Date.now()) return;
         setBcast(data as unknown as Broadcast);
         clearInterval(id);
-        if (localStorage.getItem(SEEN_PREFIX + (data as { id: string }).id) === "1") {
-          setDismissed((data as { id: string }).id);
+        const row = data as unknown as Broadcast;
+        // المفتاح يتضمّن بداية النافذة: اللي فتحها بالليلة الماضية ما
+        // يتخطّى العرض الجديد لما يفتح المالك بثاً جديداً على نفس الصف.
+        if (localStorage.getItem(SEEN_PREFIX + row.id + (row.starts_at || "")) === "1") {
+          setDismissed(row.id);
         }
       } catch {
         /* الجدول غير موجود — بلا إزعاج */
@@ -278,12 +309,12 @@ export default function NightGreeting() {
 
   if (!showOverlay) {
     /* نافذة التنبيه ما زالت مفتوحة (لحد 3 فجراً) → نعرض زراً للجميع يعيد فتحها */
-    const inWindow = !!(bcast && (!bcast.expires_at || new Date(bcast.expires_at).getTime() > Date.now()));
+    const inWindow = !!(active && (!active.expires_at || new Date(active.expires_at).getTime() > Date.now()));
     if (!inWindow && !isOwner) return null;
 
     return (
       <button
-        onClick={() => (bcast ? setDismissed(null) : setForced(true))}
+        onClick={() => (active ? setDismissed(active.id) : setForced(true))}
         className="night-fab fixed bottom-16 left-3 z-40 rounded-full h-12 w-12 text-xl font-bold backdrop-blur flex items-center justify-center transition-colors"
         aria-label="تنبيه وقت النوم"
         title={inWindow ? "تنبيه وقت النوم — اضغط للعرض" : "تجربة ما قبل النوم (Ctrl+Shift+N)"}
@@ -298,7 +329,7 @@ export default function NightGreeting() {
     dismissRef.current = true;
     if (!forced) {
       if (isPreview) sessionStorage.setItem("mdk_night_preview_done", "1");
-      else localStorage.setItem(SEEN_PREFIX + active.id, "1");
+      else localStorage.setItem(SEEN_PREFIX + active.id + (active.starts_at || ""), "1");
     }
     snd?.pause();
     setSndOn(false);
