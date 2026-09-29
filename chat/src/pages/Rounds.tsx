@@ -22,7 +22,7 @@ import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import MeetingChat from "@/components/MeetingChat";
 import { usePoints } from "@/contexts/PointsContext";
-import { useRoundPresence } from "@/contexts/RoundPresenceContext";
+import { useRoundPresence } from "@/hooks/useRoundPresence";
 import {
   roundStateAt,
   roundTotalSeconds,
@@ -125,8 +125,8 @@ const Rounds = () => {
   // لوحة الحضور داخل الجلسة
   const [board, setBoard] = useState<RoundLeaderboardRow[]>([]);
 
-  // زر دخول/خروج: صريح للمستخدم. الحضور يعيش في RoundPresenceProvider فوق
-  // التطبيق كله، فيستمر الاحتساب حتى لو غيّر المستخدم الصفحة أو التبويب.
+  // زر دخول/خروج: صريح للمستخدم. الاحتساب كله على الخادم من لحظة الدخول،
+  // فيستمر ولو غيّر المستخدم التبويب أو الصفحة — بلا نبض كل 30 ثانية.
 
   // المشارك المعروض تفاصيله (عند الضغط على اسمه)
   const [viewingMember, setViewingMember] = useState<{
