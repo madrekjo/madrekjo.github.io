@@ -371,7 +371,10 @@ SELECT bd.ban_id,
  WHERE bs.origin_device_id IS NOT NULL
    AND bd.ban_id IS NOT NULL
    AND NOT EXISTS (SELECT 1 FROM public.ban_fingerprint_profiles x WHERE x.ban_id = bd.ban_id)
- GROUP BY bd.ban_id, bs.origin_device_id
+ -- ban_status لازم يكون في GROUP BY: ban_id_constraint UNIQUE وليس PRIMARY KEY،
+ -- فـ Postgres ما بيستنتج الاعتماد الوظيفي تلقائياً مثل ما يفعل مع PK حقيقي.
+ -- ban_id واحد = ban_status واحد، فإضافة العمود لا تغيّر التقسيم.
+ GROUP BY bd.ban_id, bd.ban_status, bs.origin_device_id
 ON CONFLICT (ban_id) DO UPDATE SET
   fp     = COALESCE(p.fp,     EXCLUDED.fp),
   canvas = COALESCE(p.canvas, EXCLUDED.canvas),
