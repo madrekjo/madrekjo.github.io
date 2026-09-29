@@ -7,11 +7,9 @@ import {
 } from "@/lib/api";
 
 export default function RecoverAccountModal({
-  open,
   onClose,
   onDone,
 }: {
-  open: boolean;
   onClose: () => void;
   onDone: (id: string, username: string) => void;
 }) {
@@ -19,8 +17,6 @@ export default function RecoverAccountModal({
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [candidates, setCandidates] = useState<RecoverCandidate[] | null>(null);
-
-  if (!open) return null;
 
   const doSearch = async () => {
     setError("");
