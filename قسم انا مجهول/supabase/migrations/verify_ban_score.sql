@@ -106,11 +106,11 @@ SELECT s.score, s.strong_count, s.matched,
        public.ban_decide(s.score, s.strong_count) AS decision,
        CASE WHEN s.score = 95 AND public.ban_decide(s.score, s.strong_count) = 'BLOCK'
             THEN 'PASS' ELSE 'CHECK' END AS verdict
-FROM public.ban_score_visitor(
-       'ZZTESTNEWDEVICE',   -- معرّف جهاز جديد تماماً بعد مسح التخزين
-       t.fp, t.cv, t.wg, t.au, t.fo, t.sc, t.ua, NULL
-     ) s
-CROSS JOIN t_cfg t
+FROM t_cfg t
+CROSS JOIN LATERAL public.ban_score_visitor(
+         'ZZTESTNEWDEVICE',   -- معرّف جهاز جديد تماماً بعد مسح التخزين
+         t.fp, t.cv, t.wg, t.au, t.fo, t.sc, t.ua, NULL
+       ) s
 LIMIT 1;
 
 \echo ''
@@ -126,15 +126,15 @@ VALUES ('ZZTESTBAN2', 'اختبار 2 — يُمحى بـ ROLLBACK', 'ACTIVE');
 \echo '--- درجة كل بروفايل على حدة (يجب أن يبقى كل واحد منها منخفضاً) ---'
 SELECT s.profile_device_id, s.score, s.strong_count, s.matched,
        public.ban_decide(s.score, s.strong_count) AS decision
-FROM public.ban_score_visitor(
-       'ZZTESTNEWDEVICE2',        -- جهاز جديد
-       t.fp,                       -- fp  الخاص بالجهاز 1
-       'TESTCV'||repeat('9',60),   -- canvas الخاص بالجهاز 2
-       'TESTWG'||repeat('9',60),   -- webgl  الخاص بالجهاز 2
-       'TESTAU'||repeat('9',60),   -- audio  الخاص بالجهاز 2
-       NULL, NULL, NULL, NULL
-     ) s
-CROSS JOIN t_cfg t
+FROM t_cfg t
+CROSS JOIN LATERAL public.ban_score_visitor(
+         'ZZTESTNEWDEVICE2',        -- جهاز جديد
+         t.fp,                       -- fp  الخاص بالجهاز 1
+         'TESTCV'||repeat('9',60),   -- canvas الخاص بالجهاز 2
+         'TESTWG'||repeat('9',60),   -- webgl  الخاص بالجهاز 2
+         'TESTAU'||repeat('9',60),   -- audio  الخاص بالجهاز 2
+         NULL, NULL, NULL, NULL
+       ) s
 ORDER BY s.score DESC;
 
 \echo '--- Expected: جهاز1 = 55 (fp فقط)، جهاز2 = 40 (3 قوية) => ALLOW'
@@ -143,12 +143,12 @@ SELECT s.score AS best_score, s.strong_count, s.matched,
        public.ban_decide(s.score, s.strong_count) AS decision,
        CASE WHEN public.ban_decide(s.score, s.strong_count) = 'ALLOW'
             THEN 'PASS — لا جمع عبر الأجهزة' ELSE 'FAIL — نقاط مجمّعة!' END AS verdict
-FROM public.ban_score_visitor(
-       'ZZTESTNEWDEVICE2', t.fp,
-       'TESTCV'||repeat('9',60), 'TESTWG'||repeat('9',60), 'TESTAU'||repeat('9',60),
-       NULL, NULL, NULL, NULL
-     ) s
-CROSS JOIN t_cfg t
+FROM t_cfg t
+CROSS JOIN LATERAL public.ban_score_visitor(
+         'ZZTESTNEWDEVICE2', t.fp,
+         'TESTCV'||repeat('9',60), 'TESTWG'||repeat('9',60), 'TESTAU'||repeat('9',60),
+         NULL, NULL, NULL, NULL
+       ) s
 ORDER BY s.score DESC
 LIMIT 1;
 

@@ -206,7 +206,7 @@ function run(stmt) {
   if (/admin_ban_device/.test(s)) trace(s, "in");
 
   // ---- DROP (يزيل من الحالة) ----
-  let m = s.match(/^drop\s+(function|table|index|type|policy|trigger|view|materialized\s+view|extension|schema|cascade)\s+(if\s+exists\s+)?([\w".]+(?:\s*\([^)]*\))?)/i);
+  let m = s.match(/^drop\s+(function|table|index|type|policy|trigger|view|materialized\s+view|extension|schema|cascade)\s+(if\s+exists\s+)?("[^"]+"|[\w".]+(?:\s*\([^)]*\))?)/i);
   if (m) {
     const what = m[1].toLowerCase();
     const ifExists = !!m[2];
@@ -248,7 +248,9 @@ function run(stmt) {
   }
 
   // ---- DROP POLICY IF EXISTS name ON table ----
-  m = s.match(/^drop\s+policy\s+(if\s+exists\s+)?([\w"]+)\s+on\s+([\w".]+)/i);
+  // الأسماءquoeted ممكن تحتوي مسافات ("admins read ban bypasses")، فبدون
+  // ("[^"]+"|[\w.]+) كان الفحص يتجاهل كل سياسة في المخطط بصمت.
+  m = s.match(/^drop\s+policy\s+(if\s+exists\s+)?("[^"]+"|[\w.]+)\s+on\s+("[^"]+"|[\w.]+)/i);
   if (m) {
     const key = `${bare(m[3])}|${bare(m[2])}`;
     if (!m[1] && !state.pol.has(key)) {
@@ -259,7 +261,7 @@ function run(stmt) {
   }
 
   // ---- DROP TRIGGER IF EXISTS name ON table ----
-  m = s.match(/^drop\s+trigger\s+(if\s+exists\s+)?([\w"]+)\s+on\s+([\w".]+)/i);
+  m = s.match(/^drop\s+trigger\s+(if\s+exists\s+)?("[^"]+"|[\w.]+)\s+on\s+("[^"]+"|[\w.]+)/i);
   if (m) {
     const key = `${bare(m[3])}|${bare(m[2])}`;
     if (!m[1] && !state.trg.has(key)) {
@@ -333,7 +335,7 @@ function run(stmt) {
   }
 
   // ---- CREATE POLICY ----
-  m = s.match(/^create\s+policy\s+([\w"]+)\s+on\s+([\w".]+)/i);
+  m = s.match(/^create\s+policy\s+("[^"]+"|[\w.]+)\s+on\s+("[^"]+"|[\w.]+)/i);
   if (m) {
     const key = `${bare(m[2])}|${bare(m[1])}`;
     if (state.pol.has(key)) {
@@ -344,7 +346,7 @@ function run(stmt) {
   }
 
   // ---- CREATE TRIGGER ----
-  m = s.match(/^create\s+(?:or\s+replace\s+)?(?:constraint\s+)?trigger\s+([\w"]+)\s+on\s+([\w".]+)/i);
+  m = s.match(/^create\s+(?:or\s+replace\s+)?(?:constraint\s+)?trigger\s+("[^"]+"|[\w.]+)\s+on\s+("[^"]+"|[\w.]+)/i);
   if (m) {
     const key = `${bare(m[2])}|${bare(m[1])}`;
     if (state.trg.has(key)) {
@@ -434,6 +436,37 @@ for (const f of files) {
   }
 }
 
+const firstPassCount = problems.length;
+
+// --rerun <file> : طبّق كل المخططات، ثم أعد تطبيق ملف واحد فوق القاعدة المبنية.
+// هذا يلتقط الأخطاء التي لا تظهر على قاعدة فارغة — مثل 42710 على CREATE POLICY
+// بلا DROP سابق، وهو بالضبط ما كسر إعادة تطبيق 20261002000000 على القاعدة الحية.
+const rerunIdx = process.argv.indexOf("--rerun");
+const rerunProblems = [];
+if (rerunIdx !== -1) {
+  const target = process.argv[rerunIdx + 1];
+  const full = path.join(migDir, target);
+  if (!target || !fs.existsSync(full)) {
+    console.error(`\n❌ ملف غير موجود لإعادة التطبيق: ${target}`);
+    process.exit(1);
+  }
+  const mark = problems.length;
+  file = `${target}  ⟵ إعادة تطبيق`;
+  const sql = stripComments(fs.readFileSync(full, "utf8").replace(/\r\n/g, "\n"));
+  let n = 0;
+  for (const st of splitStatements(sql)) {
+    total++;
+    n++;
+    run(st);
+  }
+  rerunProblems.push(...problems.slice(mark));
+  console.log(
+    rerunProblems.length === 0
+      ? `\n✅ إعادة تطبيق ${target} (${n} جملة) على قاعدة مبنية: ما في تعارض.`
+      : `\n❌ إعادة تطبيق ${target} (${n} جملة) على قاعدة مبنية: ${rerunProblems.length} جملة رح تفشل.`
+  );
+}
+
 // dedupe by (code, msg)
 const seen = new Set();
 const uniq = problems.filter((p) => {
@@ -453,3 +486,5 @@ if (uniq.length === 0) {
     console.log(`   > ${p.stmt}\n`);
   });
 }
+
+if (rerunProblems.length) process.exit(1);

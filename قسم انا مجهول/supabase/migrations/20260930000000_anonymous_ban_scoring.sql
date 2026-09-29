@@ -266,7 +266,10 @@ SECURITY DEFINER
 SET search_path = public
 AS $$
 DECLARE
-  st  jsonb := public.ban_scoring_settings();
+  -- لازم نلفّ مفتاح strong_signals تحديداً: jsonb_array_elements_text على
+  -- كائن كامل (مش مصفوفة) يفشل بـ 22023 "cannot extract elements from an object".
+  -- كان الخطأ هنا يطعّ كل INSERT على blocked_devices — يعني الحظر ما كان يشتغل.
+  st  jsonb := public.ban_scoring_settings() -> 'strong_signals';
   sig text[];
 BEGIN
   SELECT COALESCE(array_agg(DISTINCT s.sig_type), '{}')

@@ -57,7 +57,7 @@ BEGIN
   EXECUTE format(
     'CREATE OR REPLACE FUNCTION public.bp_crypt(p_code text)
        RETURNS text LANGUAGE sql VOLATILE AS %L',
-    format('SELECT encode(%1$I.crypt(p_code, %1$I.gen_salt(''bf'')), ''hex'')', ext)
+    format('SELECT %1$I.crypt(p_code, %1$I.gen_salt(''bf''))', ext)
   );
 
   -- التحقق لازم يستخدم الهاش المخزّن نفسه كـ salt.
@@ -88,6 +88,9 @@ CREATE TABLE IF NOT EXISTS public.ban_bypasses (
 
 GRANT ALL ON public.ban_bypasses TO service_role;
 ALTER TABLE public.ban_bypasses ENABLE ROW LEVEL SECURITY;
+-- لازم DROP قبل CREATE: إنشاء سياسة باسم موجود يفشل بـ 42710،
+-- و Management API يلفّ الملف كله بـ transaction فأي خطأ بيلغي كل شي.
+DROP POLICY IF EXISTS "admins read ban bypasses" ON public.ban_bypasses;
 CREATE POLICY "admins read ban bypasses" ON public.ban_bypasses
   FOR SELECT TO authenticated USING (public.has_role(auth.uid(), 'admin'));
 
