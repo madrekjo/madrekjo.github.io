@@ -617,7 +617,7 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-// ========== أزرار عائمة قابلة للسحب ==========
+// ========== زر المساعد الذكي: عائم وقابل للسحب ==========
 function makeDraggable(el, key) {
   if (!el || el._mkDrag) return;
   el._mkDrag = true;
@@ -677,8 +677,21 @@ function makeDraggable(el, key) {
   el.addEventListener('dragstart', function(e) { e.preventDefault(); });
 }
 
+// أزرار انستغرام وديسكورد: ثابتة دائماً في مكانها — لا تُسحب ولا تُحفظ مواضعها
+function pinFloating(el, key) {
+  if (!el) return;
+  try { localStorage.removeItem(key); } catch (e) {}
+  // تنظيف أي إزاحة قديمة اتركها السحب في نسخ سابقة
+  ['left', 'top', 'right', 'bottom', 'transform'].forEach(function (p) { el.style.removeProperty(p); });
+  el.classList.add('mk-pinned');
+  el.setAttribute('draggable', 'false');
+  el.addEventListener('dragstart', function (e) { e.preventDefault(); });
+  el.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-  makeDraggable(document.querySelector('.ig-floating'), 'madrekjo_drag_ig');
-  makeDraggable(document.querySelector('.dc-floating'), 'madrekjo_drag_dc');
+  pinFloating(document.querySelector('.ig-floating'), 'madrekjo_drag_ig');
+  pinFloating(document.querySelector('.dc-floating'), 'madrekjo_drag_dc');
+  // زر المساعد الذكي يبقى قابلاً للسحب
   makeDraggable(document.getElementById('mkFab'), 'madrekjo_drag_ai');
 });

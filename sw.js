@@ -1,18 +1,17 @@
-```js
 /* ========================================
    مدارك جو — Service Worker
    ======================================== */
 
-const CACHE = 'madrekjo-v29';
+const CACHE = 'madrekjo-v31';
 
 const CORE = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/css/style.css',
-  '/css/chatbot.css',
-  '/js/main.js',
-  '/js/chatbot.js',
+  '/css/style.css?v=3',
+  '/css/chatbot.css?v=3',
+  '/js/main.js?v=3',
+  '/js/chatbot.js?v=3',
   '/exam.html',
   '/privacy.html',
   '/2009/index.html',
@@ -23,7 +22,8 @@ const CORE = [
   '/2010/index.html',
   '/assets/icons/icon-192.png',
   '/assets/icons/icon-512.png',
-  '/assets/icons/icon-maskable-512.png'
+  '/assets/icons/icon-maskable-512.png',
+  '/assets/og-image.png'
 ];
 
 function offlineResponse() {
@@ -302,4 +302,4 @@ self.addEventListener('fetch', function(e) {
   //
   return;
 });
-```
+
