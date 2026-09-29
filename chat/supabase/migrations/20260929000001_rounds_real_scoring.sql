@@ -412,18 +412,18 @@ DECLARE
   v_end timestamptz;
 BEGIN
   IF v_uid IS NULL THEN
-    RETURN QUERY SELECT false, 'يجب تسجيل الدخول'::text, NULL, NULL; RETURN;
+    RETURN QUERY SELECT false, 'يجب تسجيل الدخول'::text, NULL::timestamptz, NULL::timestamptz; RETURN;
   END IF;
 
   SELECT * INTO v_r FROM public.study_rounds WHERE id = p_round_id FOR UPDATE;
   IF NOT FOUND THEN
-    RETURN QUERY SELECT false, 'الجولة غير موجودة'::text, NULL, NULL; RETURN;
+    RETURN QUERY SELECT false, 'الجولة غير موجودة'::text, NULL::timestamptz, NULL::timestamptz; RETURN;
   END IF;
 
   IF v_r.user_id IS DISTINCT FROM v_uid
      AND NOT public.has_role(v_uid, 'admin')
      AND NOT public.has_role(v_uid, 'moderator') THEN
-    RETURN QUERY SELECT false, 'فقط صاحب الجولة أو الإدارة يبدأها'::text, NULL, NULL; RETURN;
+    RETURN QUERY SELECT false, 'فقط صاحب الجولة أو الإدارة يبدأها'::text, NULL::timestamptz, NULL::timestamptz; RETURN;
   END IF;
 
   -- إعادة تشغيل؟ نُبقي الجدول الأصلي حتى لا تتضاعف المدة
@@ -432,7 +432,7 @@ BEGIN
   END IF;
 
   IF v_r.status = 'completed' THEN
-    RETURN QUERY SELECT false, 'انتهت هذه الجولة مسبقاً'::text, NULL, NULL; RETURN;
+    RETURN QUERY SELECT false, 'انتهت هذه الجولة مسبقاً'::text, NULL::timestamptz, NULL::timestamptz; RETURN;
   END IF;
 
   v_end := v_now + make_interval(secs => public.round_total_seconds(
@@ -525,20 +525,20 @@ DECLARE
 BEGIN
   IF v_uid IS NULL THEN
     RETURN QUERY SELECT false, 'يجب تسجيل الدخول'::text, false, false,
-                        0, 0, 0, 0, 0, 0, NULL, NULL::timestamptz;
+                        0, 0, 0, 0, 0, 0, NULL::integer, NULL::timestamptz;
     RETURN;
   END IF;
 
   SELECT * INTO v_r FROM public.study_rounds WHERE id = p_round_id;
   IF NOT FOUND THEN
     RETURN QUERY SELECT false, 'الجولة غير موجودة'::text, false, false,
-                        0, 0, 0, 0, 0, 0, NULL, NULL::timestamptz;
+                        0, 0, 0, 0, 0, 0, NULL::integer, NULL::timestamptz;
     RETURN;
   END IF;
 
   IF NOT public.is_round_member(p_round_id, v_uid) THEN
     RETURN QUERY SELECT false, 'لست عضواً في هذه الجولة'::text, false, false,
-                        0, 0, 0, 0, 0, 0, NULL, v_r.scheduled_end_at;
+                        0, 0, 0, 0, 0, 0, NULL::integer, v_r.scheduled_end_at;
     RETURN;
   END IF;
 
@@ -809,7 +809,7 @@ DECLARE
   v_last_reward TIMESTAMPTZ;
 BEGIN
   IF v_uid IS NULL THEN
-    RETURN QUERY SELECT NULL::INTEGER, NULL, NULL, NULL::NUMERIC;
+    RETURN QUERY SELECT NULL::INTEGER, NULL::TIMESTAMPTZ, NULL::TIMESTAMPTZ, NULL::NUMERIC;
     RETURN;
   END IF;
 
