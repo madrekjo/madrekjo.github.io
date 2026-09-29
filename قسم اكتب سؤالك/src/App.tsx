@@ -16,7 +16,6 @@ import {
   listSavedIds,
   myProfile as dbMyProfile,
   recordAttempt,
-  revealCorrectKey,
   submitAnswer,
   supabase,
   toggleLike as dbToggleLike,
@@ -292,9 +291,10 @@ export default function App() {
           if (!res) return;
           correctKey = res.correctKey ?? undefined;
         } catch (e) {
-          // دالة submit_answer غير مُنفَّذة بالقاعدة بعد → نكشف المفاتيح بعد الاختيار
-          console.warn("[Answer] submit_answer غير متاحة — حل احتياطي", e);
-          correctKey = (await revealCorrectKey(q.id)) ?? undefined;
+          // لا نفصح عن المفاتيح محلياً — نعرض رسالة ويقدر الطالب يعيد المحاولة
+          console.error("[Answer] فشل فحص الإجابة", e);
+          flash("⚠️ ما قدرنا نفحص إجابتك — حاول تاني");
+          return;
         }
       }
 
@@ -314,8 +314,9 @@ export default function App() {
       }));
       if (correct) setCorrectIds((p) => ({ ...p, [q.id]: true }));
 
-      // تسجيل المحاولة (المسار الاحتياطي يتجاوز دالة الخادم)
-      if (dbReady && uid) {
+      // الخادم يسجّل المحاولة داخل submit_answer — نسجّل محلياً فقط
+      // إن كان السؤال محفوظ على الجهاز بدون سحابة (وضع غير متصل)
+      if (dbReady && uid && q.correct) {
         recordAttempt({
           userId: uid,
           questionId: q.id,

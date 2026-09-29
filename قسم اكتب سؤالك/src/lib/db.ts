@@ -274,29 +274,6 @@ export async function submitAnswer(
   };
 }
 
-/**
- * حل احتياطي — يُستدعى فقط لو فشل submit_answer (غالباً porque مهاجرة
- * 20260918000001_hide_correct_answer.sql لم تُنفَّذ في لوحة Supabase).
- * يقرأ مفتاح الصحيح مباشرةً، لكن **بعد** أن يكون الطالب قد اختراب —
- * أي بنفس لحظة كشف الإجابة لو كانت الدالة الخادمية تعمل.
- *
- * ⚠ احذف هذه الدالة بعد تشغيل المهاجرة في Supabase → SQL Editor، لأنها
- *   تجعل عمود correct قابلاً للقراءة قبل الإجابة عند من يفحص الشبكة.
- */
-export async function revealCorrectKey(questionId: string): Promise<OptionKey | null> {
-  if (!supabase) return null;
-  const { data, error } = await supabase
-    .from("questions")
-    .select("correct")
-    .eq("id", questionId)
-    .maybeSingle();
-  if (error) {
-    console.warn("[Answer] تعذّر جلب الإجابة الصحيحة", error);
-    return null;
-  }
-  return ((data?.correct as OptionKey) ?? null);
-}
-
 // ---- البروفايل ----
 
 export async function myProfile(userId: string) {
