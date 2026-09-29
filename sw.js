@@ -2,7 +2,7 @@
    مدارك جو — Service Worker
    ======================================== */
 
-const CACHE = 'madrekjo-v31';
+const CACHE = 'madrekjo-v32';
 
 const CORE = [
   '/',
@@ -20,10 +20,10 @@ const CORE = [
   '/2009/business.html',
   '/2009/languages.html',
   '/2010/index.html',
-  '/assets/icons/icon-192.png',
-  '/assets/icons/icon-512.png',
-  '/assets/icons/icon-maskable-512.png',
-  '/assets/og-image.png'
+  '/assets/icons/icon-192.png?v=2',
+  '/assets/icons/icon-512.png?v=2',
+  '/assets/icons/icon-maskable-512.png?v=2',
+  '/assets/images/logo.png?v=2'
 ];
 
 function offlineResponse() {

@@ -38,6 +38,7 @@ import { lines as sampleLines } from "./data";
 import { wait } from "./lib/helpers";
 import AddLineModal from "./components/AddLineModal";
 import Onboarding from "./components/Onboarding";
+import RecoverAccountModal from "./components/RecoverAccountModal";
 import Profile from "./components/Profile";
 import Reels from "./components/Reels";
 import ShareSheet from "./components/ShareSheet";
@@ -101,6 +102,7 @@ export default function App() {
   const [me, setMe] = useState<UserProfile | null>(null);
   const [identityReady, setIdentityReady] = useState(false);
   const [onboardingOpen, setOnboardingOpen] = useState(false);
+  const [recoverOpen, setRecoverOpen] = useState(false);
   const [reels, setReels] = useState<ReelRow[]>([]);
   const [reelsReady, setReelsReady] = useState(false);
 
@@ -128,6 +130,13 @@ const [readerOpen, setReaderOpen] = useState(false);
   const [busyAction, setBusyAction] = useState("");
   const [notice, setNotice] = useState("");
   const [banBanner, setBanBanner] = useState("");
+  const [recoverBannerHidden, setRecoverBannerHidden] = useState(() => {
+    try {
+      return sessionStorage.getItem("bst-recover-banner") === "1";
+    } catch {
+      return false;
+    }
+  });
 
   const visitedRef = useRef<string | null>(null);
 
@@ -694,6 +703,44 @@ const [readerOpen, setReaderOpen] = useState(false);
         </div>
       )}
 
+      {me && !openedUser && !recoverBannerHidden && (
+        <div className="mb-6 flex items-start gap-3 rounded-2xl border border-gold/50 bg-gold/10 p-4 text-right">
+          <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-gold text-xl">
+            🧡
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-sm font-bold text-ink">
+              معك حساب قديم عالمنصة؟
+            </span>
+            <span className="mt-0.5 block text-xs leading-5 text-ink-soft">
+              بعد تغيير رابط المنصة، الحسابات الصايرة على الجهاز نفسه اتسجّلت
+              من جديد بدل القديمة. لو كان عندك حساب قديم، اضغط «استرجاع
+              حسابي» لترجّع بطاقاتك وإحصائياتك القديمة.
+            </span>
+            <button
+              onClick={() => setRecoverOpen(true)}
+              className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-gold px-3.5 py-1.5 text-xs font-bold text-white transition hover:bg-gold-deep"
+            >
+              استرجاع حسابي ←
+            </button>
+          </span>
+          <button
+            onClick={() => {
+              setRecoverBannerHidden(true);
+              try {
+                sessionStorage.setItem("bst-recover-banner", "1");
+              } catch {
+                /* تجاهل */
+              }
+            }}
+            aria-label="إغلاق التنبيه"
+            className="grid size-7 shrink-0 place-items-center rounded-full text-ink-soft transition hover:text-ink"
+          >
+            ✕
+          </button>
+        </div>
+      )}
+
       {openedUser ? (
         <Profile
           isMine={false}
@@ -902,6 +949,29 @@ const [readerOpen, setReaderOpen] = useState(false);
             })();
           }}
           onSkip={() => setOnboardingOpen(false)}
+        />
+      )}
+
+      {recoverOpen && (
+        <RecoverAccountModal
+          onClose={() => setRecoverOpen(false)}
+          onDone={(id, username) => {
+            setRecoverOpen(false);
+            setMe((m) =>
+              m ? { ...m, id, username } : { id, username, bio: "", avatar_url: "", card_count: 0, likes_total: 0, shares_total: 0, stars_earned: 0, stars_avg: 0, stars_count: 0, followers_count: 0, following_count: 0 }
+            );
+            void (async () => {
+              const prof = await myProfile();
+              if (prof) setMe(prof);
+              try {
+                const rows = await fetchLines();
+                setDbLines(rows);
+                setReels(await reelsFeed(80));
+              } catch {
+                /* ignore */
+              }
+            })();
+          }}
         />
       )}
     </div>
