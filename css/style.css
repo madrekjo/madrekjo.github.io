@@ -1709,7 +1709,14 @@ body {
 .onb-tooltip[data-arrow="left"] .onb-tooltip-arrow { right: -8px; top: 50%; margin-top: -7px; transform: rotate(135deg); }
 .onb-tooltip[data-arrow="right"] .onb-tooltip-arrow { left: -8px; top: 50%; margin-top: -7px; transform: rotate(-45deg); border-left: none; border-top: none; }
 
-.ig-floating, .dc-floating { touch-action: none; user-select: none; -webkit-user-select: none; }
+/* انستغرام وديسكورد: أزرار ثابتة لا تقبل السحب أو النقل */
+.ig-floating, .dc-floating { touch-action: manipulation; user-select: none; -webkit-user-select: none; }
+.ig-floating.mk-pinned, .dc-floating.mk-pinned {
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-user-drag: none;
+}
+.ig-floating.mk-pinned:active, .dc-floating.mk-pinned:active { transform: scale(0.94); }
 
 /* ========= MOBILE FIXES & PERFORMANCE ========= */
 html, body { max-width: 100%; overflow-x: hidden; }
