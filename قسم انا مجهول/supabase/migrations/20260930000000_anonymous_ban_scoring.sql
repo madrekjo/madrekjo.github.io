@@ -477,7 +477,7 @@ BEGIN
    ORDER BY LEAST(100, f.raw_score) DESC, f.strong_count DESC, f.profile_device_id
    LIMIT 5;
 END $$;
-REVOKE EXECUTE ON FUNCTION public.ban_score_visitor(text,text,text,text,text,text,text,text) FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.ban_score_visitor(text,text,text,text,text,text,text,text,text) FROM PUBLIC;
 
 
 -- ============================================================================
@@ -1391,8 +1391,16 @@ GRANT EXECUTE ON FUNCTION public.get_device_dossier(text) TO authenticated;
 
 
 -- 18.b) قائمة الأجهزة: ban_status بدل is_blocked فقط
+--  شرط مهم: التوقيع يجب أن يطابق نداء Admin.tsx تماماً
+--  (p_search, p_limit, p_offset, p_sort). لو اختلف التوقيع اختار PostgREST
+--  نسخة أخرى وأعادت الحقول الناقصة (ban_score/ban_status/...) فاختفت كل
+--  شارات نظام النقاط من اللوحة. لذلك نوحّدها هنا على 4 وسائط ونحذف
+--  نسخة 3-الوسائط حتى لا يبقى بديل يتنافس عليها.
+DROP FUNCTION IF EXISTS public.admin_list_devices(text,int,int);
+
 CREATE OR REPLACE FUNCTION public.admin_list_devices(
-  p_search text DEFAULT NULL, p_limit int DEFAULT 100, p_offset int DEFAULT 0
+  p_search text DEFAULT NULL, p_limit int DEFAULT 100, p_offset int DEFAULT 0,
+  p_sort   text DEFAULT 'new'
 )
 RETURNS jsonb
 LANGUAGE plpgsql
@@ -1408,6 +1416,7 @@ BEGIN
   WITH devices AS (
     SELECT device_id FROM public.device_presence
     UNION SELECT device_id FROM public.device_names
+    UNION SELECT device_id FROM public.device_aliases
     UNION SELECT device_id FROM public.posts
     UNION SELECT device_id FROM public.comments
     UNION SELECT device_id FROM public.blocked_devices
@@ -1446,17 +1455,23 @@ BEGIN
        OR COALESCE(n.name, '') ILIKE '%' || btrim(p_search) || '%'
        OR COALESCE(nt.label, '') ILIKE '%' || btrim(p_search) || '%'
        OR d.device_id ILIKE '%' || btrim(p_search) || '%'
+  ), sorted AS (
+    SELECT * FROM rows
+    ORDER BY
+      CASE WHEN p_sort = 'old' THEN COALESCE(first_seen, 'epoch'::timestamptz) END ASC NULLS LAST,
+      CASE WHEN p_sort = 'num' THEN anon_number END ASC NULLS LAST,
+      last_seen DESC NULLS LAST
+    LIMIT LEAST(GREATEST(p_limit,1),500) OFFSET GREATEST(p_offset,0)
   )
   SELECT jsonb_build_object(
     'total', (SELECT count(*)::int FROM rows),
-    'rows',  COALESCE((SELECT jsonb_agg(to_jsonb(rows) ORDER BY rows.last_seen DESC NULLS LAST)
-                        FROM (SELECT * FROM rows ORDER BY rows.last_seen DESC NULLS LAST
-                              LIMIT LEAST(GREATEST(p_limit,1),500) OFFSET GREATEST(p_offset,0)) rows), '[]'::jsonb)
+    'rows',  COALESCE((SELECT jsonb_agg(to_jsonb(sorted)) FROM sorted), '[]'::jsonb)
   ) INTO result;
+
   RETURN result;
 END $$;
-REVOKE EXECUTE ON FUNCTION public.admin_list_devices(text,int,int) FROM PUBLIC, anon;
-GRANT EXECUTE ON FUNCTION public.admin_list_devices(text,int,int) TO authenticated;
+REVOKE EXECUTE ON FUNCTION public.admin_list_devices(text,int,int,text) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.admin_list_devices(text,int,int,text) TO authenticated;
 
 
 -- ============================================================================

@@ -338,8 +338,12 @@ function Admin() {
   }
 
   async function unblock(id: string) {
-    if (!confirm("رفع الحظر عن هذا الجهاز؟ سيتم مسح البصمة المرتبطة به.")) return;
-    const { error } = await supabase.from("blocked_devices").delete().eq("device_id", id);
+    if (!confirm("رفع الحظر عن هذا الجهاز؟\n\nسيتحوّل الحظر إلى «مرفوع» (لا يُحذف السجل)،\nوتُعطَّل بصمة الحظر حتى لا يُعاد احتسابه.")) return;
+    // الرفع = تغيير حالة وليس حذف: يبقى سجل التدقيق ولا يفقد النظام تاريخه
+    const { error } = await supabase.rpc("admin_unban_device", {
+      p_device_id: id,
+      p_status: "UNBANNED",
+    });
     if (error) toast.error("فشل: " + error.message); else { toast.success("تم رفع الحظر"); loadAll(); }
   }
 
@@ -680,7 +684,25 @@ function Admin() {
                     </span>
                     <div className="flex flex-wrap items-center gap-1">
                       {u.label && <span className="rounded-md bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold text-primary">{u.label}</span>}
-                      {u.is_blocked && <span className="rounded-md bg-destructive/15 px-1.5 py-0.5 text-[10px] font-bold text-destructive">محظور</span>}
+                      {u.is_blocked && (
+                        <span className="flex items-center gap-1">
+                          <span className="rounded-md bg-destructive/15 px-1.5 py-0.5 text-[10px] font-bold text-destructive">محظور</span>
+                          {u.ban_score != null && (
+                            <span className="rounded-md bg-destructive/10 px-1.5 py-0.5 font-mono text-[10px] font-bold text-destructive">{u.ban_score}</span>
+                          )}
+                        </span>
+                      )}
+                      {!u.is_blocked && u.ban_status && (
+                        <span className="rounded-md bg-muted px-1.5 py-0.5 text-[10px] font-bold text-muted-foreground">
+                          {u.ban_status === "UNBANNED" ? "حظر مرفوع" : u.ban_status === "EXPIRED" ? "حظر منتهي" : u.ban_status === "REVOKED" ? "حظر ملغى" : u.ban_status}
+                        </span>
+                      )}
+                      {u.is_blocked && u.ban_needs_review && (
+                        <span className="rounded-md bg-amber-500/20 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">يحتاج مراجعة</span>
+                      )}
+                      {u.is_challenged && (
+                        <span className="rounded-md bg-amber-500/15 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">تحت التحقق</span>
+                      )}
                       {u.warning && <span className="rounded-md bg-amber-500/20 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">مُحذَّر</span>}
                       {u.is_admin && <span className="rounded-md bg-emerald-500/15 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700">أدمن</span>}
                     </div>

@@ -237,9 +237,9 @@ function CommentNode({ c, all, profile }: { c: ChatComment; all: ChatComment[]; 
 
 type PostRealtimeReg = { postId: string; refreshComments: () => void; refreshLikes: () => void };
 
-function PostCard({ post, profile, mutedSet, realtimeReg }: {
+function PostCard({ post, profile, mutedSet, onRegister }: {
   post: ChatPost; profile: ChatProfile; mutedSet: Set<string>;
-  realtimeReg: (reg: PostRealtimeReg) => void;
+  onRegister: (postId: string, reg: PostRealtimeReg | null) => void;
 }) {
   const isAdminPost = post.is_admin;
   const { isAdmin } = useAuth();
@@ -273,8 +273,10 @@ function PostCard({ post, profile, mutedSet, realtimeReg }: {
 
   useEffect(() => {
     loadComments(); loadLikes();
-    realtimeReg({ postId: post.id, refreshComments: loadComments, refreshLikes: loadLikes });
-    return () => realtimeReg(null as unknown as PostRealtimeReg);
+    // نُسجّل دوال التحديث باسم المنشور حتى يقدر اشتراك الـ realtime
+    // تحديث التعليقات/الإعجابات للمنشور المتأثر فقط دون إعادة تحميل الكل.
+    onRegister(post.id, { postId: post.id, refreshComments: loadComments, refreshLikes: loadLikes });
+    return () => onRegister(post.id, null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [post.id]);
 
@@ -420,6 +422,25 @@ export function ChatRoom() {
   const [loading, setLoading] = useState(true);
   const initRef = useRef(false);
   const { isAdmin } = useAuth();
+  // سجلّ المنشور ← دوال التحديث. كل PostCard يسجّل نفسه عند التركيب
+  // ويزيل نفسه عند الفكّ، فيبقى السجل نظيفاً بلا تسريب.
+  const regsRef = useRef(new Map<string, PostRealtimeReg>());
+
+  const onRegister = useCallback((postId: string, reg: PostRealtimeReg | null) => {
+    if (reg) regsRef.current.set(postId, reg);
+    else regsRef.current.delete(postId);
+  }, []);
+
+  /** يحدّث منشوراً واحداً عند وصول تغيير realtime.comments / chat_likes. */
+  const refreshPostFromRealtime = useCallback((payload: any) => {
+    const row = payload?.new ?? payload?.old;
+    const postId = row?.post_id;
+    if (!postId) return;
+    const reg = regsRef.current.get(postId);
+    if (!reg) return;
+    reg.refreshComments();
+    reg.refreshLikes();
+  }, []);
 
   useEffect(() => {
     if (initRef.current) return;
@@ -445,6 +466,8 @@ export function ChatRoom() {
     const ch = supabase.channel("chat-posts-feed")
       .on("postgres_changes", { event: "*", schema: "public", table: "chat_posts" }, load)
       .on("postgres_changes", { event: "*", schema: "public", table: "chat_post_mutes" }, load)
+      .on("postgres_changes", { event: "*", schema: "public", table: "chat_comments" }, refreshPostFromRealtime)
+      .on("postgres_changes", { event: "*", schema: "public", table: "chat_likes" }, refreshPostFromRealtime)
       .subscribe();
     return () => { supabase.removeChannel(ch); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -461,7 +484,7 @@ export function ChatRoom() {
       ) : posts.length === 0 ? (
         <p className="py-10 text-center text-muted-foreground">لا منشورات بعد. كن أول من يشارك!</p>
       ) : (
-        posts.map((p) => <PostCard key={p.id} post={p} profile={profile} mutedSet={mutedSet} />)
+        posts.map((p) => <PostCard key={p.id} post={p} profile={profile} mutedSet={mutedSet} onRegister={onRegister} />)
       )}
 
     </div>
