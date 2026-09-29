@@ -125,8 +125,13 @@ const Rounds = () => {
   // لوحة الحضور داخل الجلسة
   const [board, setBoard] = useState<RoundLeaderboardRow[]>([]);
 
-  // زر دخول/خروج: صريح لل��ستخدم، ويوقف الاحتساب فور الضغط على "خروج"
+  // زر دخول/خروج: صريح للمستخدم، ويوقف الاحتساب فور الضغط على "خروج"
   const [sessionJoined, setSessionJoined] = useState(false);
+
+  // المشارك المعروض تفاصيله (عند الضغط على اسمه)
+  const [viewingMember, setViewingMember] = useState<{
+    uid: string; name?: string; avatar?: string | null; owner: boolean;
+  } | null>(null);
 
   // نبضة الحضور: تشتغل فقط داخل جلسة نشطة **و** بعد ضغط زر "دخول"
   const sessionIsActive = sessionRound?.status === "active";
@@ -476,42 +481,34 @@ const Rounds = () => {
   const completed = rounds.filter(r => r.status === "completed");
   const myMeetings = meetings;
 
-  // بطاقة الحضور الشخصي داخل جلسة الجولة (دالة عرض، ليست مكوّناً)
+  // بطاقة الحضور الشخصي: زر دخول/خروج + العدّاد التصاعدي تحت العدّاد الكبير
   const renderFocusCard = (st: RoundState) => {
     const secs = Math.max(0, Math.floor(live.liveFocus));
     const pct = (secs % SECONDS_PER_BATCH) / SECONDS_PER_BATCH;
     const toBatch = SECONDS_PER_BATCH - (secs % SECONDS_PER_BATCH);
     return (
       <div className="rounded-xl border border-primary/30 bg-primary/5 p-4 space-y-3">
-        {/* الصف: زر دخول/خروج + العدّاد + علامة +10 */}
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <Button
-            type="button"
-            variant={sessionJoined ? "destructive" : "default"}
-            disabled={!sessionIsActive || st.wallRemaining <= 0}
-            onClick={() => setSessionJoined((v) => !v)}
-            className="gap-1.5 font-semibold"
-          >
-            {sessionJoined ? <LogOutIcon className="w-4 h-4" /> : <LogIn className="w-4 h-4" />}
-            {sessionJoined ? "خروج" : "دخول"}
-          </Button>
+        <Button
+          type="button"
+          variant={sessionJoined ? "destructive" : "default"}
+          disabled={!sessionIsActive || st.wallRemaining <= 0}
+          onClick={() => setSessionJoined((v) => !v)}
+          className="w-full gap-1.5 font-semibold"
+        >
+          {sessionJoined ? <LogOutIcon className="w-4 h-4" /> : <LogIn className="w-4 h-4" />}
+          {sessionJoined ? "خروج" : "دخول"}
+        </Button>
 
-          <div className="flex items-center gap-2">
-            <span className="text-3xl font-bold tabular-nums text-primary" dir="ltr">
-              {formatDuration(secs)}
-            </span>
-            <span className="text-xl font-bold text-muted-foreground" aria-hidden>+</span>
-            <span className="text-2xl font-bold tabular-nums text-amber-500">
-              {POINTS_PER_BATCH} نقاط
-            </span>
-          </div>
+        {/* العدّاد التصاعدي: يزيد من الصفر ما دمت داخل الجولة */}
+        <div className="text-center">
+          <p className="text-xs text-muted-foreground">وقتك داخل الجولة</p>
+          <p className="text-4xl font-bold tabular-nums text-primary" dir="ltr">
+            {formatDuration(secs)}
+          </p>
+          <p className="text-lg font-semibold text-muted-foreground mt-1">
+            <span dir="ltr">+</span> {POINTS_PER_BATCH} نقاط كل {SECONDS_PER_BATCH / 3600} ساعة
+          </p>
         </div>
-
-        <p className="text-[11px] text-muted-foreground">
-          {sessionJoined
-            ? `تُحتسب النقاط كل ${SECONDS_PER_BATCH / 3600} ساعة حضور — الدفعة القادمة بعد ${formatDuration(toBatch)}`
-            : "اضغط «دخول» ليبدأ احتساب وقتك داخل الجولة."}
-        </p>
 
         <div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
           <div
@@ -520,28 +517,18 @@ const Rounds = () => {
           />
         </div>
 
-        <div className="flex items-end justify-between gap-3">
-          <div>
-            <p className="text-2xl font-bold tabular-nums text-amber-500">+{live.points}</p>
-            <p className="text-[11px] text-muted-foreground">نقطة حصلت عليها في هذه الجولة</p>
-          </div>
-          <div className="text-left text-[11px] text-muted-foreground">
-            <p>رصيدك الآن {balance} — سقف اليوم {MAX_BALANCE}</p>
-            <p>
-              {live.nextPointIn !== null && live.nextPointIn > 0
-                ? `النقطة التالية بعد ${formatDuration(live.nextPointIn)}`
-                : "لا سقف لجلسة اليوم"}
-            </p>
-          </div>
+        <p className="text-[11px] text-muted-foreground text-center">
+          {sessionJoined
+            ? `الدفعة القادمة بعد ${formatDuration(toBatch)}`
+            : "اضغط «دخول» ليبدأ العدّاد"}
+        </p>
+
+        <div className="flex items-center justify-between gap-3 text-[11px] text-muted-foreground">
+          <span className="font-bold text-amber-500 text-base tabular-nums">+{live.points}</span>
+          <span>رصيدك {balance} / {MAX_BALANCE}</span>
         </div>
 
         {live.error && <p className="text-[11px] text-destructive">{live.error}</p>}
-        {!sessionIsActive && sessionRound?.status === "pending" && (
-          <p className="text-[11px] text-muted-foreground">الجولة لم تبدأ بعد — لا يُحتسب شيء قبل أن يبدأها الخادم.</p>
-        )}
-        {st.wallRemaining <= 0 && (
-          <p className="text-[11px] text-green-600 dark:text-green-400">انتهى زمن الجولة — تسجيل حضورك مُجمَّد.</p>
-        )}
       </div>
     );
   };
@@ -828,7 +815,7 @@ const Rounds = () => {
 
                 <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground justify-center">
                   <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {sessionRound.duration_minutes} دقيقة عمل</span>
-                  <span className="flex items-center gap-1"><Users className="w-3 h-3" /> {sessionRound.participants.length} مشارك</span>
+                  <span className="flex items-center gap-1"><Users className="w-3 h-3" /> {sessionRound.participants.length + 1} مشارك</span>
                   <span className="flex items-center gap-1"><Flame className="w-3 h-3" /> {POINTS_PER_BATCH} نقاط كل ساعتين</span>
                 </div>
 
@@ -860,25 +847,82 @@ const Rounds = () => {
                   </div>
                 )}
 
-                <div className="space-y-1.5 max-h-[20vh] overflow-y-auto">
-                  <p className="text-xs font-medium text-muted-foreground">المشاركون:</p>
-                  {sessionRound.participants.length === 0 ? (
-                    <p className="text-sm text-muted-foreground text-center py-2">لا يوجد مشاركون بعد</p>
-                  ) : (
-                    <div className="flex flex-wrap gap-2">
-                      {sessionRound.participants.map(p => (
-                        <span key={p.user_id} className="inline-flex items-center gap-1.5 bg-muted rounded-full px-3 py-1 text-xs">
-                          <Avatar className="w-5 h-5">
-                            <AvatarImage src={p.profile?.avatar_url || ""} />
-                            <AvatarFallback>{p.profile?.full_name?.charAt(0) || "م"}</AvatarFallback>
+                {/* المشاركون: قائمة جانبية، الضغط على أي واحد يعرض تفاصيله */}
+                <div className="space-y-1.5">
+                  <p className="text-xs font-medium text-muted-foreground flex items-center gap-1">
+                    <Users className="w-3.5 h-3.5" /> المشاركون ({sessionRound.participants.length + 1})
+                  </p>
+                  <div className="space-y-1 max-h-[24vh] overflow-y-auto">
+                    {(() => {
+                      const rows = [
+                        { uid: sessionRound.user_id, name: sessionRound.profile?.full_name, avatar: sessionRound.profile?.avatar_url, owner: true },
+                        ...sessionRound.participants
+                          .filter(p => p.user_id !== sessionRound.user_id)
+                          .map(p => ({ uid: p.user_id, name: p.profile?.full_name, avatar: p.profile?.avatar_url, owner: false })),
+                      ];
+                      return rows.map(r => (
+                        <button
+                          key={r.uid}
+                          type="button"
+                          onClick={() => setViewingMember(r)}
+                          className="w-full flex items-center gap-2 rounded-lg p-2 text-right hover:bg-muted/60 transition-colors"
+                        >
+                          <Avatar className="w-6 h-6">
+                            <AvatarImage src={r.avatar || ""} />
+                            <AvatarFallback className="text-[10px]">{r.name?.charAt(0) || "م"}</AvatarFallback>
                           </Avatar>
-                          {p.profile?.full_name || "مستخدم"}
-                          {p.user_id === sessionRound.user_id && <span className="text-[10px] text-primary">(المالك)</span>}
-                        </span>
-                      ))}
-                    </div>
-                  )}
+                          <span className="text-sm flex-1 truncate">{r.name || "مستخدم"}</span>
+                          {r.owner && <span className="text-[10px] text-primary">(المالك)</span>}
+                          {r.uid === user?.id && <span className="text-[10px] text-muted-foreground">(أنت)</span>}
+                          <Eye className="w-3.5 h-3.5 text-muted-foreground" />
+                        </button>
+                      ));
+                    })()}
+                  </div>
                 </div>
+
+                {/* تفاصيل المشارك */}
+                <Dialog open={!!viewingMember} onOpenChange={o => !o && setViewingMember(null)}>
+                  <DialogContent className="max-w-sm">
+                    <DialogHeader>
+                      <DialogTitle>تفاصيل المشارك</DialogTitle>
+                    </DialogHeader>
+                    {viewingMember && (() => {
+                      const row = board.find(b => b.user_id === viewingMember.uid);
+                      return (
+                        <div className="space-y-3">
+                          <div className="flex items-center gap-3">
+                            <Avatar className="w-12 h-12">
+                              <AvatarImage src={viewingMember.avatar || ""} />
+                              <AvatarFallback>{viewingMember.name?.charAt(0) || "م"}</AvatarFallback>
+                            </Avatar>
+                            <div>
+                              <p className="font-semibold">{viewingMember.name || "مستخدم"}</p>
+                              {viewingMember.owner && <p className="text-xs text-primary">صاحب الجولة</p>}
+                              {viewingMember.uid === user?.id && <p className="text-xs text-muted-foreground">أنت</p>}
+                            </div>
+                          </div>
+                          {row ? (
+                            <div className="grid grid-cols-2 gap-2 text-center">
+                              <div className="rounded-lg bg-muted/60 p-3">
+                                <p className="text-lg font-bold tabular-nums" dir="ltr">{formatDuration(row.focus_seconds)}</p>
+                                <p className="text-[11px] text-muted-foreground">وقت داخل الجولة</p>
+                              </div>
+                              <div className="rounded-lg bg-muted/60 p-3">
+                                <p className="text-lg font-bold tabular-nums text-amber-500">+{row.points_awarded}</p>
+                                <p className="text-[11px] text-muted-foreground">نقطة</p>
+                              </div>
+                            </div>
+                          ) : (
+                            <p className="text-sm text-muted-foreground text-center py-2">
+                              لم يُسجَّل حضور لهذا المشارك بعد.
+                            </p>
+                          )}
+                        </div>
+                      );
+                    })()}
+                  </DialogContent>
+                </Dialog>
 
                 <DialogFooter className="gap-2 sm:justify-center">
                   <Button variant="outline" onClick={() => setSessionRoundId(null)} className="gap-1">
