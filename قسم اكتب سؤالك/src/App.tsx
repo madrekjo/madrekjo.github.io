@@ -239,7 +239,28 @@ export default function App() {
         username: p.name,
         field: p.field,
         grade: p.grade,
-      }).catch(() => {});
+      })
+        .then((savedName) => {
+          if (savedName && savedName !== p.name) {
+            setProfile((prev) =>
+              prev ? { ...prev, name: savedName } : { ...p, name: savedName }
+            );
+            try {
+              const cur = JSON.parse(
+                localStorage.getItem(PROFILE_KEY) || "null"
+              );
+              if (cur) {
+                localStorage.setItem(
+                  PROFILE_KEY,
+                  JSON.stringify({ ...cur, name: savedName })
+                );
+              }
+            } catch {
+              /* ignore */
+            }
+          }
+        })
+        .catch(() => {});
     }
     flash("✓ حُفظ ملفك الشخصي");
   };

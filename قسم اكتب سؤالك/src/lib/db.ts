@@ -206,9 +206,12 @@ export type AttemptInput = {
 
 export async function fetchCorrectCount(userId: string): Promise<number> {
   if (!supabase) return 0;
+  // ملاحظة: جدول answer_attempts ما عنده عمود id — أعمدته:
+  // user_id, question_id, chosen, correct, attempts, updated_at.
+  // لذلك نعدّ بـ question_id (تعبئة أي عمود sau-trigger معبّئ كافي).
   const { count } = await supabase
     .from("answer_attempts")
-    .select("id", { count: "exact", head: true })
+    .select("question_id", { count: "exact", head: true })
     .eq("user_id", userId)
     .eq("correct", true);
   return count ?? 0;
@@ -287,18 +290,50 @@ export async function myProfile(userId: string) {
   return data;
 }
 
+const SUFFIX_CHARS = "abcdefghijkmnpqrstuvwxyz23456789"; // بلا 0/o و1/l
+const nameSuffix = () =>
+  "_" +
+  Array.from({ length: 4 }, () =>
+    SUFFIX_CHARS[Math.floor(Math.random() * SUFFIX_CHARS.length)]
+  ).join("");
+
+/**
+ * يحدّث بروفايل المستخدم. عمود username فريد، فلو الاسم محجوز من طالب
+ * ثاني ترجع القاعدة 23505 — هنا نجرّب بلاحقة عشوائية بدل ما نفقد الاسم
+ * ونُخفي الخطأ. يُرجع الاسم المحفوظ فعلياً.
+ */
 export async function updateMyProfile(
   userId: string,
   input: { username: string; field: string; grade: string }
-): Promise<void> {
-  if (!supabase) return;
+): Promise<string> {
+  if (!supabase) return input.username;
+
+  const base = input.username.trim().slice(0, 40);
+  const grade = input.grade || null;
+  const field = input.field || null;
+
+  for (let attempt = 0; attempt < 6; attempt++) {
+    const username = attempt === 0 ? base : `${base}${nameSuffix()}`;
+    if (!username) return base;
+    const { error } = await supabase
+      .from("profiles")
+      .update({ username, field, grade })
+      .eq("id", userId);
+
+    if (!error) return username;
+
+    // 23505 = تكرار المفتاح الفريد (الاسم محجوز) → جرّب بلاحقة
+    const isDuplicate =
+      error.code === "23505" || /duplicate key|profiles_username_key/i.test(error.message);
+    if (!isDuplicate) throw error;
+  }
+
+  // اسم مستعار مضمون التفرّد لو فشل كل المحاولات
+  const fallback = `${base || "طالب"}${Date.now().toString(36)}`.slice(0, 40);
   const { error } = await supabase
     .from("profiles")
-    .update({
-      username: input.username,
-      field: input.field,
-      grade: input.grade || null,
-    })
+    .update({ username: fallback, field, grade })
     .eq("id", userId);
   if (error) throw error;
+  return fallback;
 }
