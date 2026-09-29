@@ -81,6 +81,11 @@ export default function NightGreeting() {
   const [dismissed, setDismissed] = useState<string | null>(null);
   const [sndOn, setSndOn] = useState(false);
   const [snd, setSnd] = useState<HTMLAudioElement | null>(null);
+  const sndRef = useRef<HTMLAudioElement | null>(null);
+  const setSound = (el: HTMLAudioElement | null) => {
+    sndRef.current = el;
+    setSnd(el);
+  };
   const stars = useMemo(() => STARS, []);
   const dismissRef = useRef(false);
 
@@ -163,16 +168,40 @@ export default function NightGreeting() {
     };
   }, [isPreview]);
 
-  /* إغلاق قاطع عند وقت الانتهاء (3 فجراً): يختفي التنبيه والزر معاً بلا استثناء */
+  /* إغلاق قاطع عند 3 فجراً: يوقف صوت الليل ويخفي التنبيه وزره معاً، فتظهر
+     الدردشة عند كل المتصلين. نتحقق دورياً لأن المتصفح يؤخّر المؤقتات في
+     التبويبات المخفية. */
   useEffect(() => {
     if (!bcast?.expires_at) return;
-    const ms = new Date(bcast.expires_at).getTime() - Date.now();
-    if (ms <= 0) {
+    const endAt = new Date(bcast.expires_at).getTime();
+
+    const closeNow = () => {
+      sndRef.current?.pause();
+      setSndOn(false);
       setBcast(null);
+    };
+
+    if (endAt <= Date.now()) {
+      closeNow();
       return;
     }
-    const t = setTimeout(() => setBcast(null), Math.min(ms, 2_147_483_647));
-    return () => clearTimeout(t);
+
+    const t = window.setTimeout(closeNow, Math.min(endAt - Date.now(), 2_147_483_647));
+    const guard = window.setInterval(() => {
+      if (endAt <= Date.now()) closeNow();
+    }, 15_000);
+    const onVisible = () => {
+      if (endAt <= Date.now()) closeNow();
+    };
+    document.addEventListener("visibilitychange", onVisible);
+    window.addEventListener("focus", onVisible);
+
+    return () => {
+      window.clearTimeout(t);
+      window.clearInterval(guard);
+      document.removeEventListener("visibilitychange", onVisible);
+      window.removeEventListener("focus", onVisible);
+    };
   }, [bcast]);
 
   /* عنصر صوتي دائم يُنشأ عند التركيب (يحاول التشغيل التلقائي حيث يسمح المتصفح) */
@@ -182,7 +211,7 @@ export default function NightGreeting() {
     el.loop = true;
     el.volume = 0.55;
     el.preload = "auto";
-    setSnd(el);
+    setSound(el);
     return () => {
       el.pause();
       el.src = "";
@@ -195,7 +224,7 @@ export default function NightGreeting() {
       el = new Audio(AUDIO_URL);
       el.loop = true;
       el.volume = 0.55;
-      setSnd(el);
+      setSound(el);
     }
     const p = el.play();
     if (p) {
@@ -231,7 +260,7 @@ export default function NightGreeting() {
     return (
       <button
         onClick={() => (bcast ? setDismissed(null) : setForced(true))}
-        className="fixed bottom-16 left-3 z-40 rounded-full border border-white/15 bg-black/60 text-sky-200 h-12 w-12 text-xl font-bold shadow-lg backdrop-blur flex items-center justify-center"
+        className="night-fab fixed bottom-16 left-3 z-40 rounded-full h-12 w-12 text-xl font-bold backdrop-blur flex items-center justify-center transition-colors"
         aria-label="تنبيه وقت النوم"
         title={inWindow ? "تنبيه وقت النوم — اضغط للعرض" : "تجربة ما قبل النوم (Ctrl+Shift+N)"}
       >
@@ -272,25 +301,25 @@ export default function NightGreeting() {
     switch (b.t) {
       case "salam":
         return (
-          <p key={i} className="text-center font-extrabold text-lg sm:text-2xl leading-snug">
+          <p key={i} className="night-title text-center font-extrabold text-lg sm:text-2xl leading-snug">
             {b.text}
           </p>
         );
       case "tipsHeader":
         return (
-          <p key={i} className="font-bold text-emerald-300 text-base sm:text-lg flex items-center gap-2 pt-1">
+          <p key={i} className="night-primary font-bold text-base sm:text-lg flex items-center gap-2 pt-1">
             <Moon className="w-4 h-4 shrink-0" /> {b.text}
           </p>
         );
       case "closing":
         return (
-          <p key={i} className="text-center font-extrabold text-emerald-200 text-base sm:text-lg whitespace-pre-wrap">
+          <p key={i} className="night-accent text-center font-extrabold text-base sm:text-lg whitespace-pre-wrap">
             {b.text}
           </p>
         );
       default:
         return (
-          <p key={i} className="leading-relaxed text-foreground/90 whitespace-pre-wrap">
+          <p key={i} className="night-body leading-relaxed whitespace-pre-wrap">
             {b.text}
           </p>
         );
@@ -312,7 +341,7 @@ export default function NightGreeting() {
       }
       if (ul) {
         body.push(
-          <ul key={`ul-${i}`} className="list-disc pr-5 space-y-1.5 text-foreground/95">
+          <ul key={`ul-${i}`} className="night-list list-disc pr-5 space-y-1.5">
             {ul.map((li, j) => (
               <li key={j}>{li.text}</li>
             ))}
@@ -324,7 +353,7 @@ export default function NightGreeting() {
     });
     if (ul) {
       body.push(
-        <ul key="ul-end" className="list-disc pr-5 space-y-1.5 text-foreground/95">
+        <ul key="ul-end" className="night-list list-disc pr-5 space-y-1.5">
           {ul.map((li, j) => (
             <li key={j}>{li.text}</li>
           ))}
@@ -358,11 +387,11 @@ export default function NightGreeting() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl shadow-[0_0_60px_rgba(56,102,255,0.18)] p-5 sm:p-7 space-y-4 text-sm sm:text-[15px]">
+          <div className="night-card rounded-3xl p-5 sm:p-7 space-y-4 text-sm sm:text-[15px]">
             <div className="text-center space-y-1">
-              <p className="font-extrabold text-xl sm:text-2xl text-white">{active.title}</p>
-              <p className="text-[11px] text-sky-300/80 flex items-center justify-center gap-1">
-                <Volume2 className="w-3.5 h-3.5" /> صوت الليل معك…
+              <p className="night-title font-extrabold text-xl sm:text-2xl">{active.title}</p>
+              <p className="night-muted text-[11px] flex items-center justify-center gap-1">
+                <Volume2 className="w-3.5 h-3.5 night-primary" /> صوت الليل معك…
               </p>
             </div>
 
@@ -372,24 +401,24 @@ export default function NightGreeting() {
               <button
                 data-silent
                 onClick={dismiss}
-                className="w-full rounded-xl py-3 font-bold text-white bg-gradient-to-l from-indigo-500 to-teal-500 hover:opacity-90 transition-opacity shadow-lg"
+                className="night-btn-primary w-full rounded-xl py-3 font-bold transition-colors"
               >
                 تصبحون على خير 🌙
               </button>
               <button
                 onClick={toggleSound}
-                className="w-full rounded-xl py-2 text-xs font-semibold border border-white/15 text-sky-200 hover:bg-white/5 transition-colors flex items-center justify-center gap-2"
+                className="night-btn-ghost w-full rounded-xl py-2 text-xs font-semibold transition-colors flex items-center justify-center gap-2"
               >
                 {sndOn ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
                 {sndOn ? "كتم صوت الليل" : "تشغيل صوت الليل"}
               </button>
               {inWindowHint && (
-                <p className="text-center text-[10px] text-white/45 leading-relaxed">
+                <p className="night-muted text-center text-[10px] leading-relaxed">
                   تقدر ترجع تشوفه وقت ما تحب من زر 🌙 — يضل ظاهر لحد الساعة 3 فجراً
                 </p>
               )}
               {(forced || isPreview) && (
-                <p className="text-center text-[10px] text-amber-300/80">
+                <p className="night-accent text-center text-[10px]">
                   وضع المعاينة — لا يظهر لغيرك
                 </p>
               )}
