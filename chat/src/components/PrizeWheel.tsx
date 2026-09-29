@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { usePoints } from "@/contexts/PointsContext";
 import { getWheelStatus, spinWheel, WHEEL_PRIZES } from "@/lib/wheel";
+import { MAX_BALANCE } from "@/lib/roundSchedule";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const SEGMENT_COLORS = [
@@ -46,7 +47,7 @@ const PrizeWheel = () => {
   const [everVisible, setEverVisible] = useState(false);
   const [spinning, setSpinning] = useState(false);
   const [rotation, setRotation] = useState(0);
-  const [result, setResult] = useState<{ prize: number; newBalance: number } | null>(null);
+  const [result, setResult] = useState<{ prize: number; newBalance: number; credited: number } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [revealed, setRevealed] = useState(false);
   const spun = useRef(false);
@@ -98,7 +99,7 @@ const PrizeWheel = () => {
     setRotation((prev) => prev + spins * 360 + (360 - target));
 
     window.setTimeout(() => {
-      setResult({ prize: res.prizePoints, newBalance: res.newBalance });
+      setResult({ prize: res.prizePoints, newBalance: res.newBalance, credited: res.newBalance - balance });
       setRevealed(true);
       setSpinning(false);
       spun.current = true;
@@ -168,6 +169,11 @@ const PrizeWheel = () => {
               مبروك! ربحت <span className="text-xl">{arNum(result.prize)}</span> نقطة
             </p>
             <p className="text-amber-900 text-sm mt-1">رصيدك الحالي: {arNum(result.newBalance)}</p>
+            {result.credited < result.prize && (
+              <p className="text-amber-800 text-xs mt-1">
+               وصلتَ للسقف ({arNum(MAX_BALANCE)})، فأُضيف لرصيدك {arNum(result.credited)} فعلياً.
+              </p>
+            )}
             <Button className="mt-3 w-full" onClick={() => setOpen(false)}>
               ممتاز
             </Button>
