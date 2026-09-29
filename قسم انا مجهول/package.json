@@ -10,6 +10,8 @@
     "build:dev": "tsc --noEmit && vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
+    "db:check": "node supabase/scripts/simulate-migrations.cjs",
+    "db:build": "node supabase/scripts/build-full-schema.cjs",
     "format": "prettier --write ."
   },
   "dependencies": {

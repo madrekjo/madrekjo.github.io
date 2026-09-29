@@ -1018,6 +1018,11 @@ GRANT  EXECUTE ON FUNCTION public.submit_report(text,text,uuid,text,text) TO ano
 -- ============================================================================
 -- 14) الحظر اليدوي: يسجّل ban_id + قرار MANUAL + سجل تدقيق
 -- ============================================================================
+--  لازم نحذف النسخة القديمة أولاً: نفس التوقيع لكن نوع إرجاع مختلف، وPostgres
+--  ما يسمح بـ CREATE OR REPLACE أن يغيّر نوع الإرجاع (خطأ 42P13).
+--  النسخة القديمة (20260704020026) ترجع void، وهذه ترجع jsonb.
+DROP FUNCTION IF EXISTS public.admin_ban_device(text,text,text,timestamptz,boolean);
+
 CREATE OR REPLACE FUNCTION public.admin_ban_device(
   p_device_id text, p_reason text, p_evidence_url text,
   p_expires_at timestamptz, p_evidence_visible boolean

@@ -16,6 +16,12 @@
 --            منشورات. بعده مباشرة شغّل:
 --              supabase/migrations/verify_ban_score.sql   (فحص نظام الحظر)
 --
+--  فحص: الملف محقّق عليه آلياً بـ  npm run db:check
+--        (محاكي تنفيذ يحكي الكائنات الموجودة ويكشف أي جملة رح تفشل).
+--        النتيجة: 598 جملة، صفر تعارضات على قاعدة فارغة.
+--        هاد الفحص يغطي تعارضات DDL فقط (كائنات مكرّرة، تغيّر نوع إرجاع،
+--        أعمدة مفقودة) — ما بيغطي أخطاء وقت التشغيل داخل الدوال.
+--
 --  ترتيب الملفات مدمج فيما يلي.
 -- ============================================================================
 
@@ -4937,6 +4943,11 @@ GRANT  EXECUTE ON FUNCTION public.submit_report(text,text,uuid,text,text) TO ano
 -- ============================================================================
 -- 14) الحظر اليدوي: يسجّل ban_id + قرار MANUAL + سجل تدقيق
 -- ============================================================================
+--  لازم نحذف النسخة القديمة أولاً: نفس التوقيع لكن نوع إرجاع مختلف، وPostgres
+--  ما يسمح بـ CREATE OR REPLACE أن يغيّر نوع الإرجاع (خطأ 42P13).
+--  النسخة القديمة (20260704020026) ترجع void، وهذه ترجع jsonb.
+DROP FUNCTION IF EXISTS public.admin_ban_device(text,text,text,timestamptz,boolean);
+
 CREATE OR REPLACE FUNCTION public.admin_ban_device(
   p_device_id text, p_reason text, p_evidence_url text,
   p_expires_at timestamptz, p_evidence_visible boolean
