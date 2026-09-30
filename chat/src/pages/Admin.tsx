@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { toast } from "sonner";
-import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key, Clock, KeyRound, Copy, Loader2, RefreshCw, ScrollText, UserCheck, ClipboardList, MessageSquareText } from "lucide-react";
+import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key, Clock, KeyRound, Copy, Loader2, RefreshCw, ScrollText, UserCheck, ClipboardList, MessageSquareText, Coins, LoaderCircle } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { Navigate } from "react-router-dom";
@@ -22,6 +22,7 @@ import PermissionsPanel from "@/components/PermissionsPanel";
 import AdminReportsPanel from "@/components/AdminReportsPanel";
 import SocialTasksPanel from "@/components/SocialTasksPanel";
 import StaffCommsPanel from "@/components/StaffCommsPanel";
+import { adjustPoints, fetchPointsMap } from "@/lib/points";
 
 interface UserProfile {
   id: string;
@@ -65,6 +66,12 @@ const Admin = () => {
   const { isAdmin, isModerator, isSupervisor, isOwner, isSocialAdmin, hasPermission, user } = useAuth();
   const [users, setUsers] = useState<UserProfile[]>([]);
   const [emailMap, setEmailMap] = useState<Record<string, string>>({});
+  const [pointsMap, setPointsMap] = useState<Record<string, number>>({});
+  const [pointsUser, setPointsUser] = useState<{ id: string; name: string } | null>(null);
+  const [pointsAmount, setPointsAmount] = useState("");
+  const [pointsReason, setPointsReason] = useState("");
+  const [pointsTake, setPointsTake] = useState(false);
+  const [pointsBusy, setPointsBusy] = useState(false);
   const [userRoles, setUserRoles] = useState<UserRole[]>([]);
   const [bannedWords, setBannedWords] = useState<{ id: string; word: string }[]>([]);
   const [newWord, setNewWord] = useState("");
@@ -229,7 +236,7 @@ const Admin = () => {
     if (isAdmin || isModerator || isSupervisor || isOwner) {
       fetchUsers();
       fetchUserRoles();
-      if (isAdmin || isOwner) { fetchBannedWords(); fetchDeleted(); fetchSectionLocks(); fetchChannelSettings(); fetchAccessCodes(); }
+      if (isAdmin || isOwner) { fetchBannedWords(); fetchDeleted(); fetchSectionLocks(); fetchChannelSettings(); fetchAccessCodes(); fetchPoints(); }
       (supabase as any).from("post_reports").select("*", { count: "exact", head: true }).eq("status", "pending").then((r: any) => setPendingReports(r.count || 0));
     }
     if (isAdmin || isModerator || isOwner) fetchPendingPosts();
@@ -351,6 +358,32 @@ const Admin = () => {
     // البريد لا يُقرأ مباشرةً بعد اليوم — يُجلب للأدمن عبر RPC محمي (get_user_email)
     const { data } = await supabase.from("profiles").select("id, user_id, full_name, avatar_url, is_banned, chat_banned, timeout_until, generation, field, gender, theme, created_at, via_invite").order("created_at", { ascending: true });
     if (data) { setUsers(data); void hydrateEmails(data as UserProfile[]); }
+  };
+  const fetchPoints = async () => {
+    if (!isAdmin && !isOwner) return;
+    const map = await fetchPointsMap();
+    setPointsMap((prev) => ({ ...prev, ...map }));
+  };
+  const openPoints = (u: { user_id: string; full_name: string }) => {
+    setPointsUser({ id: u.user_id, name: u.full_name });
+    setPointsAmount("10");
+    setPointsReason("");
+    setPointsTake(false);
+  };
+  const handleAdjustPoints = async () => {
+    if (!pointsUser) return;
+    const n = Math.abs(parseInt(pointsAmount, 10));
+    if (!n || n <= 0) { toast.error("اكتب عدد صحيح"); return; }
+    setPointsBusy(true);
+    const amount = pointsTake ? -n : n;
+    const res = await adjustPoints(pointsUser.id, amount, pointsReason);
+    setPointsBusy(false);
+    if (!res.success) { toast.error(res.errorMessage || "فشل التعديل"); return; }
+    setPointsMap((prev) => ({ ...prev, [pointsUser.id]: res.newBalance }));
+    toast.success(
+      `${pointsTake ? "خُصمت" : "مُنحت"} ${n} نقطة لـ ${pointsUser.name} — الرصيد الآن ${res.newBalance}`
+    );
+    setPointsUser(null);
   };
   const hydrateEmails = async (list: UserProfile[]) => {
     const ids = (list || []).map((u) => u.user_id).filter(Boolean);
@@ -711,6 +744,11 @@ const Admin = () => {
                       <p className="font-semibold leading-tight">
                         {formatDisplayName(u)}
                         <RoundsBadge userId={u.user_id} />
+                        {(isAdmin || isOwner) && pointsMap[u.user_id] != null && (
+                          <span className="inline-flex items-center gap-1 align-middle text-[11px] font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 rounded-full px-1.5 py-0.5 mr-1">
+                            <Coins className="w-3 h-3" /> {pointsMap[u.user_id]}
+                          </span>
+                        )}
                       </p>
                       <p className="text-xs text-muted-foreground mt-0.5 truncate">
                         {u.generation && <span className="ml-1">{u.generation}</span>}
@@ -762,6 +800,12 @@ const Admin = () => {
                       {isOwner && (
                         <Button variant="outline" size="sm" onClick={() => setRolesDialogUser({ id: u.user_id, name: u.full_name })} className="gap-1">
                           <ShieldCheck className="w-4 h-4" /> الرتب
+                        </Button>
+                      )}
+                      {(isAdmin || isOwner) && (
+                        <Button variant="outline" size="sm" onClick={() => openPoints(u)} className="gap-1" title="منح/خصم نقاط">
+                          <Coins className="w-4 h-4 text-amber-500" />
+                          {pointsMap[u.user_id] != null ? pointsMap[u.user_id] : "نقاط"}
                         </Button>
                       )}
                       {canWarn && (
@@ -1269,6 +1313,94 @@ const Admin = () => {
           <DialogFooter>
             <Button variant="ghost" onClick={() => setFieldUserId(null)}>إلغاء</Button>
             <Button onClick={handleChangeField}>حفظ</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={!!pointsUser} onOpenChange={(o) => { if (!o && !pointsBusy) setPointsUser(null); }}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <Coins className="w-5 h-5 text-amber-500" />
+              {pointsTake ? "خصم نقاط" : "منح نقاط"} — {pointsUser?.name}
+            </DialogTitle>
+          </DialogHeader>
+
+          {pointsUser && (
+            <p className="text-sm text-muted-foreground">
+              رصيده الحالي:{" "}
+              <b className="text-foreground">{pointsMap[pointsUser.id] ?? "—"}</b> نقطة
+              {" "}(السقف 200)
+            </p>
+          )}
+
+          <div className="flex gap-1">
+            <Button
+              type="button"
+              variant={pointsTake ? "outline" : "default"}
+              className="flex-1"
+              onClick={() => setPointsTake(false)}
+            >
+              منح +
+            </Button>
+            <Button
+              type="button"
+              variant={pointsTake ? "destructive" : "outline"}
+              className="flex-1"
+              onClick={() => setPointsTake(true)}
+            >
+              خصم −
+            </Button>
+          </div>
+
+          <div className="space-y-1.5">
+            <Label htmlFor="pts-amount">المقدار</Label>
+            <Input
+              id="pts-amount"
+              type="number"
+              min={1}
+              max={2000}
+              dir="ltr"
+              inputMode="numeric"
+              value={pointsAmount}
+              onChange={(e) => setPointsAmount(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleAdjustPoints()}
+            />
+            <div className="flex gap-1 flex-wrap">
+              {[5, 10, 20, 25, 50, 100].map((n) => (
+                <Button key={n} type="button" variant="ghost" size="sm"
+                  onClick={() => setPointsAmount(String(n))}
+                  className="h-7 px-2 text-xs">
+                  {n}
+                </Button>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-1.5">
+            <Label htmlFor="pts-reason">السبب (يُسجّل في سجل الحركات)</Label>
+            <Input
+              id="pts-reason"
+              value={pointsReason}
+              onChange={(e) => setPointsReason(e.target.value)}
+              placeholder="مثال: تميّز في المشاركة"
+              onKeyDown={(e) => e.key === "Enter" && handleAdjustPoints()}
+            />
+          </div>
+
+          <DialogFooter>
+            <Button variant="ghost" onClick={() => setPointsUser(null)} disabled={pointsBusy}>
+              إلغاء
+            </Button>
+            <Button
+              onClick={handleAdjustPoints}
+              disabled={pointsBusy || !parseInt(pointsAmount, 10)}
+              variant={pointsTake ? "destructive" : "default"}
+              className="gap-1"
+            >
+              {pointsBusy && <LoaderCircle className="w-4 h-4 animate-spin" />}
+              {pointsTake ? "خصم" : "منح"}
+            </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

@@ -191,22 +191,23 @@ export async function roundLeaderboard(roundId: string): Promise<RoundLeaderboar
 
 
 /**
- * منح نقاط من Admin
- * RPC: grant_points (Atomic — server-side only)
+ * تعديل نقاط مستخدم من لوحة الإدارة (منح/خصم)
+ * amount موجب = منح، سالب = خصم
+ * RPC: admin_adjust_points (SECURITY DEFINER — يتحقق من الدور بـ auth.uid())
  */
-export async function grantPoints(
+export async function adjustPoints(
   targetUserId: string,
   amount: number,
   reason?: string
 ): Promise<SpendResult> {
-  const { data, error } = await supabase.rpc("grant_points" as any, {
-    p_target_user_id: targetUserId,
-    p_amount: amount,
-    p_reason: reason ?? null,
+  const { data, error } = await supabase.rpc("admin_adjust_points" as any, {
+    p_user_id: targetUserId,
+    p_amount: Math.round(amount),
+    p_reason: reason?.trim() ? reason.trim() : null,
   }).single();
 
   if (error) {
-    console.error("[Points] grantPoints error:", error);
+    console.error("[Points] adjustPoints error:", error);
     return { success: false, newBalance: 0, errorMessage: "خطأ في الخادم" };
   }
 
@@ -216,6 +217,23 @@ export async function grantPoints(
     newBalance: row?.new_balance ?? 0,
     errorMessage: row?.error_message ?? undefined,
   };
+}
+
+/** مثل grantPoints بس يقبل الخصم بالسالب */
+export const grantPoints = adjustPoints;
+
+/**
+ * أرصدة كل المستخدمين بنداء واحد (للأدمن/المالك فقط)
+ */
+export async function fetchPointsMap(): Promise<Record<string, number>> {
+  const { data, error } = await supabase.rpc("admin_points_map" as any);
+  if (error) {
+    console.error("[Points] fetchPointsMap error:", error);
+    return {};
+  }
+  const map: Record<string, number> = {};
+  for (const row of (data || []) as any[]) map[row.user_id] = row.balance;
+  return map;
 }
 
 /**
