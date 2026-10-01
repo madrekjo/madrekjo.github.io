@@ -25,7 +25,7 @@ export const POINTS_PER_BATCH = 20;
 export const SECONDS_PER_BATCH = 7200;
 
 /** الرصيد الأساسي اليومي — لا يتجاوزه أي حد أقصى (يطابق round_base_balance) */
-export const BASE_BALANCE = 50;
+export const BASE_BALANCE = 100;
 
 /** سقف الرصيد — بعده لا يُضاف شيء (يطابق round_max_balance) */
 export const MAX_BALANCE = 200;

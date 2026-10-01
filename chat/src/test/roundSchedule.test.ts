@@ -48,9 +48,9 @@ const NO_BREAKS: RoundScheduleInput = {
 };
 
 describe("ثوابت النظام (يطابق SQL)", () => {
-  it("نقطة كل 6 دقائق، أساس 50، سقف 200", () => {
+  it("نقطة كل 6 دقائق، أساس 100، سقف 200", () => {
     expect(SECONDS_PER_POINT).toBe(360);
-    expect(BASE_BALANCE).toBe(50);
+    expect(BASE_BALANCE).toBe(100);
     expect(MAX_BALANCE).toBe(200);
   });
 });

@@ -15,6 +15,7 @@ import {
   type RoundLeaderboardRow,
   type SpendResult,
 } from "@/lib/points";
+import { BASE_BALANCE } from "@/lib/roundSchedule";
 
 interface PointsContextType {
   balance: number;
@@ -36,7 +37,7 @@ const PointsContext = createContext<PointsContextType | undefined>(undefined);
 export function PointsProvider({ children }: { children: ReactNode }) {
   const { user, isAdmin, isStaff } = useAuth();
   const [points, setPoints] = useState<PointsInfo>({
-    balance: 50,
+    balance: BASE_BALANCE,
     dailyResetAt: null,
     lastRewardedRoundAt: null,
   });

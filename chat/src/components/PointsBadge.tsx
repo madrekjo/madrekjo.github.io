@@ -2,6 +2,7 @@ import { useState } from "react";
 import { usePoints } from "@/contexts/PointsContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { MAX_BALANCE } from "@/lib/points";
+import { BASE_BALANCE } from "@/lib/roundSchedule";
 import { Coins } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -24,7 +25,7 @@ const COSTS: { label: string; cost: string }[] = [
 
 const EARN: string[] = [
   "شارك في الجولة (كل ساعتين مكتملتين): تحصل على +20 نقطة",
-  "رصيدك يتجدد تلقائياً كل يوم عند منتصف الليل إلى 50 نقطة",
+  "رصيدك يتجدد تلقائياً كل يوم عند منتصف الليل إلى 100 نقطة",
   "الأدمن / المشرفين لا يخصم من رصيدهم — بلا حد",
 ];
 
@@ -36,7 +37,7 @@ const PointsBadge = () => {
   if (loading) return null;
 
   // الحالة: فل (كامل) أو ناقص
-  const isFull = isAdmin || isStaff ? true : balance >= 50;
+  const isFull = isAdmin || isStaff ? true : balance >= BASE_BALANCE;
   const pct = Math.min((balance / MAX_BALANCE) * 100, 100);
   const color = isAdmin || isStaff
     ? "text-green-500"
