@@ -16,9 +16,9 @@ interface Broadcast {
   expires_at?: string;
 }
 
-/* نافذة ليلية ثابتة: من 20:00 حتى 3:00 فجراً بتوقيت المستخدم.
+/* نافذة ليلية ثابتة: من 11:00 الليل حتى 3:00 فجراً بتوقيت المستخدم.
    بتضمن إن النافذة بتطلع لكل الناس حتى لو ما في صف بثّ بالجدول. */
-const NIGHT_START_HOUR = 20;
+const NIGHT_START_HOUR = 23;
 
 function nightWindow() {
   const d = new Date();
@@ -173,7 +173,7 @@ export default function NightGreeting() {
       const h = d.getHours();
       if (h >= NIGHT_START_HOUR || h < 3) return 20 * 60_000; // داخل النافذة
       const t = new Date(d);
-      t.setHours(NIGHT_START_HOUR, 0, 20, 0);
+      t.setHours(NIGHT_START_HOUR, 0, 0, 0);
       if (t.getTime() <= d.getTime()) t.setDate(t.getDate() + 1);
       return Math.min(Math.max(t.getTime() - d.getTime(), 30_000), 2_147_000_000);
     };
