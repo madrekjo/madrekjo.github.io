@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -33,8 +33,14 @@ const NotificationBell = () => {
   const [open, setOpen] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
 
-  const fetchUnread = async () => {
+  /* آخر مرة جلبنا فيها العدّاد — نستخدمه لتقليل الطلبات */
+  const lastUnreadRef = useRef(0);
+
+  const fetchUnread = async (force = false) => {
     if (!user) return;
+    // رجوع التبويب كان يضرب السيرفر كل مرة (أكبر مصدر طلبات) — نخليه مرة كل دقيقة
+    if (!force && Date.now() - lastUnreadRef.current < 60_000) return;
+    lastUnreadRef.current = Date.now();
     const { count } = await supabase
       .from("notifications")
       .select("id", { count: "exact", head: true })
@@ -45,13 +51,13 @@ const NotificationBell = () => {
 
   useEffect(() => {
     if (!user) return;
-    void fetchUnread();
+    void fetchUnread(true);
     const chan = supabase
       .channel(`notif-${user.id}`)
       .on(
         "postgres_changes",
         { event: "INSERT", schema: "public", table: "notifications", filter: `user_id=eq.${user.id}` },
-        () => void fetchUnread()
+        () => void fetchUnread(true)
       )
       .subscribe();
     const onFocus = () => void fetchUnread();

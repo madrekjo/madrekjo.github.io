@@ -26,8 +26,13 @@ export default function MorningGreeting() {
 
   useEffect(() => {
     let alive = true;
+    let timer: number | undefined;
+    const lastCheckRef = { current: 0 };
 
-    const check = async () => {
+    const check = async (force = false) => {
+      // رجوع التبويب كان يضرب السيرفر كل مرة — نخليه مرة كل دقيقة
+      if (!force && Date.now() - lastCheckRef.current < 60_000) return;
+      lastCheckRef.current = Date.now();
       try {
         const { data, error } = await supabase
           .from("broadcasts")
@@ -46,21 +51,31 @@ export default function MorningGreeting() {
         }
         setBcast(data as unknown as Broadcast);
         if (localStorage.getItem(SEEN_PREFIX + data.id) === "1") setDone(true);
-        clearInterval(id);
+        // لقينا البثّ: منستناش أكثر
+        if (timer) window.clearTimeout(timer);
       } catch {
         // الجدول غير موجود أو خطأ شبكة — بلا إزعاج.
       }
     };
 
-    void check();
-    const id = setInterval(check, 600_000);
+    /* كان بيستطلع كل 10 دقايق للأبد (~144 طلب/يوم لكل مستخدم).
+       الحين: مرة كل 30 دقيقة كشبكة أمان بس، وRealtime بيوصّل البثّ فوراً. */
+    const schedule = () => {
+      if (!alive) return;
+      timer = window.setTimeout(async () => {
+        await check(true);
+        schedule();
+      }, 30 * 60_000);
+    };
+
+    void check(true).then(schedule);
 
     const chan = supabase
       .channel("broadcasts-morning")
       .on(
         "postgres_changes",
         { event: "INSERT", schema: "public", table: "broadcasts", filter: "kind=eq.morning" },
-        () => void check()
+        () => void check(true)
       )
       .subscribe();
 
@@ -71,7 +86,7 @@ export default function MorningGreeting() {
     window.addEventListener("focus", onVisible);
     return () => {
       alive = false;
-      clearInterval(id);
+      if (timer) window.clearTimeout(timer);
       supabase.removeChannel(chan);
       document.removeEventListener("visibilitychange", onVisible);
       window.removeEventListener("focus", onVisible);
