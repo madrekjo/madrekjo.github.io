@@ -94,6 +94,8 @@ const STARS = Array.from({ length: 46 }, (_, i) => ({
 export default function NightGreeting() {
   const { isOwner } = useAuth();
   const [bcast, setBcast] = useState<Broadcast | null>(null);
+  /* هل لقينا النافذة؟ بيمنع الفحص الزايد بالتبويبات المخفية */
+  const loadedRef = useRef(false);
   const [forced, setForced] = useState(false);
   const [dismissed, setDismissed] = useState<string | null>(null);
   const [sndOn, setSndOn] = useState(false);
@@ -161,6 +163,20 @@ export default function NightGreeting() {
 
   useEffect(() => {
     let alive = true;
+    let stopped = false;
+    let timer: number | undefined;
+
+    /* جدولة الفحص الذكي: برّا نافذة الليل (20:00 → 3:00) ما في أي استطلاع —
+       بننتظر وقت محدّد بدل ما نضرب السيرفر كل 10 دقايق بلا فايدة. */
+    const nextWait = (): number => {
+      const d = new Date();
+      const h = d.getHours();
+      if (h >= NIGHT_START_HOUR || h < 3) return 20 * 60_000; // داخل النافذة
+      const t = new Date(d);
+      t.setHours(NIGHT_START_HOUR, 0, 20, 0);
+      if (t.getTime() <= d.getTime()) t.setDate(t.getDate() + 1);
+      return Math.min(Math.max(t.getTime() - d.getTime(), 30_000), 2_147_000_000);
+    };
 
     const check = async () => {
       try {
@@ -179,7 +195,10 @@ export default function NightGreeting() {
         if (!data) return;
         if (data.expires_at && new Date(data.expires_at).getTime() <= Date.now()) return;
         setBcast(data as unknown as Broadcast);
-        clearInterval(id);
+        loadedRef.current = true;
+        // لقينا النافذة: بنوقف كل الاستطلاع — ما عاد إلا الإغلاق الساعة 3:00
+        stopped = true;
+        if (timer) window.clearTimeout(timer);
         /* النافذة ثابتة: ما بنحفظ علامة «شُفتُها» أبداً، فبتطلع لكل
            المتصلين من أول لحظة، وما بتنكسر إلّا الساعة 3:00 فجراً. */
       } catch {
@@ -213,8 +232,15 @@ export default function NightGreeting() {
       };
     }
 
-    void check();
-    const id = setInterval(check, 600_000);
+    const schedule = () => {
+      if (stopped || !alive) return;
+      timer = window.setTimeout(async () => {
+        await check();
+        schedule();
+      }, nextWait());
+    };
+
+    void check().then(schedule);
 
     const chan = supabase
       .channel("broadcasts-night")
@@ -225,14 +251,16 @@ export default function NightGreeting() {
       )
       .subscribe();
 
+    // رجوع المستخدم للتبويب: نفحص فقط إذا لسّا عم ينتظر النافذة
     const onVisible = () => {
-      if (document.visibilityState === "visible") void check();
+      if (document.visibilityState === "visible" && !loadedRef.current) void check();
     };
     document.addEventListener("visibilitychange", onVisible);
     window.addEventListener("focus", onVisible);
     return () => {
       alive = false;
-      clearInterval(id);
+      stopped = true;
+      if (timer) window.clearTimeout(timer);
       supabase.removeChannel(chan);
       document.removeEventListener("visibilitychange", onVisible);
       window.removeEventListener("focus", onVisible);
