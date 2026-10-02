@@ -4,6 +4,12 @@ import { supabase } from "@/integrations/supabase/client";
 import { cachedRead } from "@/lib/dataLayer";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
+import {
+  FIELD_MENTION_LIST,
+  FIELD_MENTION_META,
+  fieldGroupId,
+  isFieldGroupId,
+} from "@/lib/fieldMentions";
 
 interface Suggestion {
   user_id: string;
@@ -73,6 +79,8 @@ const MentionInput = ({
 }: MentionInputProps) => {
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [mentionActive, setMentionActive] = useState(false);
+  // النص المكتوب بعد @ — نرشّح به خيارات الحقول محلياً (بلا طلب قاعدة)
+  const [mentionSearch, setMentionSearch] = useState("");
   const [suggestionIndex, setSuggestionIndex] = useState(0);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   // تأخير كتابة @ (debounce) — يجمّع الضغطات في طلب واحد لكل حرف مكتوب كاملاً.
@@ -119,6 +127,7 @@ const MentionInput = ({
     const m = v.slice(0, e.target.selectionStart).match(MENTION_RE);
     if (m) {
       setMentionActive(true);
+      setMentionSearch(m[1]);
       // debounce: لا نضرب القاعدة مع كل ضغطة، بل بعد توقف الكتابة قليلاً.
       if (searchTimerRef.current) clearTimeout(searchTimerRef.current);
       searchTimerRef.current = setTimeout(() => {
@@ -128,6 +137,7 @@ const MentionInput = ({
       if (searchTimerRef.current) { clearTimeout(searchTimerRef.current); searchTimerRef.current = null; }
       setMentionActive(false);
       setSuggestions([]);
+      setMentionSearch("");
     }
   };
 
@@ -148,6 +158,7 @@ const MentionInput = ({
     onChange(newValue);
     setMentionActive(false);
     setSuggestions([]);
+    setMentionSearch("");
     requestAnimationFrame(() => {
       const pos = before.length - m[0].length + insert.length;
       ta.focus();
@@ -190,7 +201,21 @@ const MentionInput = ({
         ? { user_id: "girls", full_name: GROUP_OPTION.girls.label, avatar_url: null, gender: "female", generation: null }
         : null;
 
-  const activeSuggestion = mentionActive && (isAdmin || !!myGroup || suggestions.length > 0);
+  // منشن الحقل: أي مستخدم يقدر يذكر أي حقل — مُرشَّح بالاسم المكتوب بعد @
+  const q = (mentionSearch || "").trim();
+  const fieldSuggestions: Suggestion[] = FIELD_MENTION_LIST
+    .filter(f => !q || FIELD_MENTION_META[f].label.includes(q) || f.includes(q.toLowerCase()))
+    .map(f => ({
+      user_id: fieldGroupId(f)!,
+      full_name: FIELD_MENTION_META[f].label,
+      avatar_url: null,
+      gender: null,
+      generation: null,
+      field: f,
+    }));
+
+  const activeSuggestion =
+    mentionActive && (isAdmin || !!myGroup || fieldSuggestions.length > 0 || suggestions.length > 0);
 
   const allSuggestion: Suggestion = {
     user_id: "everyone",
@@ -201,6 +226,7 @@ const MentionInput = ({
   };
   const shownItems = [
     ...(myGroup ? [myGroup] : []),
+    ...fieldSuggestions,
     ...(isAdmin ? [allSuggestion] : []),
     ...suggestions,
   ];
@@ -215,6 +241,13 @@ const MentionInput = ({
       return (
         <span className="flex items-center justify-center w-6 h-6 rounded-full bg-muted text-sm shrink-0">
           {GROUP_OPTION[s.user_id].icon}
+        </span>
+      );
+    }
+    if (isFieldGroupId(s.user_id)) {
+      return (
+        <span className="flex items-center justify-center w-6 h-6 rounded-full bg-muted text-sm shrink-0">
+          {FIELD_MENTION_META[s.field as keyof typeof FIELD_MENTION_META].icon}
         </span>
       );
     }
@@ -252,6 +285,13 @@ const MentionInput = ({
       <>
         <span className="font-bold">{s.full_name}</span>
         <span className="text-[10px] text-muted-foreground mr-auto">{GROUP_OPTION[s.user_id].hint}</span>
+      </>
+    ) : isFieldGroupId(s.user_id) ? (
+      <>
+        <span className="font-bold">حقل {s.full_name}</span>
+        <span className="text-[10px] text-muted-foreground mr-auto">
+          {FIELD_MENTION_META[s.field as keyof typeof FIELD_MENTION_META].hint}
+        </span>
       </>
     ) : (
       <>

@@ -19,7 +19,7 @@ import Lightbox from "@/components/Lightbox";
 import ReportDialog from "@/components/ReportDialog";
 import { formatDisplayName } from "@/lib/displayName";
 import MentionInput from "@/components/MentionInput";
-import { renderMentions, submitMentions } from "@/lib/mentions";
+import { hasBulkMention, mentionCostFor, renderMentions, submitMentions } from "@/lib/mentions";
 import { ShieldCheck, Crown, Instagram } from "lucide-react";
 import { REACTIONS, reactionEmoji } from "@/lib/reactions";
 
@@ -277,8 +277,8 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
     if (profile?.is_banned) { toast.error("حسابك محظور، لا يمكنك التعليق"); return; }
     if (containsBannedWord(commentText, isAdmin)) { toast.error("التعليق يحتوي على كلمات محظورة"); return; }
     // فحص النقاط
-    const hasMentionAll = /@everyone|@الجميع/.test(commentText);
-    const commentCost = hasMentionAll ? getCost("everyone") : getCost("comment");
+    const hasBulk = hasBulkMention(commentText);
+    const commentCost = mentionCostFor(commentText, getCost("comment"));
     if (!isStaff && balance < commentCost) {
       toast.error(`تحتاج ${commentCost} نقطة لإضافة تعليق. رصيدك الحالي: ${balance}`);
       return;
@@ -289,7 +289,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
       await submitMentions(supabase, { postId: post.id, commentId, actorId: user.id, text: commentText, channel: (post as any).channel || "all" });
       // خصم النقاط بعد التعليق الناجح
       if (!isStaff) {
-        await spend(commentCost, hasMentionAll ? "everyone" : "comment", "chat", { postId: post.id, commentId });
+        await spend(commentCost, hasBulk ? "everyone" : "comment", "chat", { postId: post.id, commentId });
       }
     }
     if (post.user_id !== user.id) {
@@ -306,8 +306,8 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
     if (profile?.is_banned) { toast.error("حسابك محظور، لا يمكنك الرد"); return; }
     if (containsBannedWord(replyText, isAdmin)) { toast.error("الرد يحتوي على كلمات محظورة"); return; }
     // فحص النقاط
-    const hasMentionAll = /@everyone|@الجميع/.test(replyText);
-    const replyCost = hasMentionAll ? getCost("everyone") : getCost("comment");
+    const hasBulkReply = hasBulkMention(replyText);
+    const replyCost = mentionCostFor(replyText, getCost("comment"));
     if (!isStaff && balance < replyCost) {
       toast.error(`تحتاج ${replyCost} نقطة لإضافة رد. رصيدك الحالي: ${balance}`);
       return;
@@ -318,7 +318,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
       await submitMentions(supabase, { postId: post.id, commentId, actorId: user.id, text: replyText, channel: (post as any).channel || "all" });
       // خصم النقاط بعد الرد الناجح
       if (!isStaff) {
-        await spend(replyCost, hasMentionAll ? "everyone" : "comment", "chat", { postId: post.id, commentId });
+        await spend(replyCost, hasBulkReply ? "everyone" : "comment", "chat", { postId: post.id, commentId });
       }
     }
     const parentComment = loadedComments.find(c => c.id === parentId);

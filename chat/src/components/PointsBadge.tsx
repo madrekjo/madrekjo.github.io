@@ -19,6 +19,7 @@ const COSTS: { label: string; cost: string }[] = [
   { label: "رسالة في الجولة", cost: "1 نقطة" },
   { label: "منشن @كل شخص (mention)", cost: "2 نقاط" },
   { label: "@everyone / @الجميع", cost: "10 نقاط" },
+  { label: "منشن حقل كامل (صحي/هندسي/لغات/أعمال/قانون)", cost: "3 نقاط" },
   { label: "إضافة صورة/ملف", cost: "2 نقاط" },
   { label: "إعجاب (لايك)", cost: "مجاني" },
 ];

@@ -7,7 +7,7 @@ import { loadChannelSettings, loadSectionLocks, isSectionEffectivelyLocked, load
 import { isReadGatewayConfigured, readGateway } from "@/lib/readGateway";
 import PostCard from "@/components/PostCard";
 import MentionInput from "@/components/MentionInput";
-import { renderMentions, submitMentions } from "@/lib/mentions";
+import { mentionCostFor, renderMentions, submitMentions } from "@/lib/mentions";
 import { usePoints } from "@/contexts/PointsContext";
 import PointsDisplay from "@/components/PointsDisplay";
 import { Button } from "@/components/ui/button";
@@ -431,11 +431,8 @@ const Chat = () => {
       return;
     }
     if (containsBannedWord(content, isAdmin)) { toast.error("المحتوى يحتوي على كلمات محظورة"); return; }
-    // فحص النقاط: تكلفة المنشور = 5 (أو 10 مع @everyone أو @الشباب/@البنات)
-    const hasMentionAll = /@everyone|@الجميع/.test(content);
-    const hasMentionGroup = /@الشباب|@البنات/.test(content);
-    const expensiveMention = hasMentionAll || hasMentionGroup;
-    const postCost = expensiveMention ? getCost("everyone") : getCost("post");
+    // فحص النقاط: 5 للمنشور · منشن الحقل max(5,3)=5 · منشن الجنس/الجميع = 10
+    const postCost = mentionCostFor(content, getCost("post"));
     if (!isStaff && balance < postCost) {
       toast.error(`تحتاج ${postCost} نقطة لإنشاء منشور. رصيدك الحالي: ${balance}`);
       return;
