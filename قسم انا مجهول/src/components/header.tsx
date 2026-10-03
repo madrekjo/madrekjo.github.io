@@ -33,7 +33,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
-      <div className="mx-auto flex max-w-2xl items-center justify-between px-4 py-3">
+      <div className="mx-auto flex max-w-2xl flex-wrap items-center justify-between gap-2 px-4 py-3">
         <Link to="/" className="flex items-center gap-2">
           <Ghost className="h-6 w-6 text-primary" />
           <span className="text-lg font-bold">أنا مجهول</span>
@@ -41,7 +41,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           {isAdmin && (
             <Link to="/admin">
-              <Button variant="secondary" size="sm" className="gap-1">
+              <Button variant="secondary" size="sm" className="shrink-0 gap-1">
                 <Shield className="h-4 w-4" /> الإدارة
               </Button>
             </Link>
@@ -51,7 +51,7 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="sm"
-                className="h-8 gap-1 px-2"
+                className="h-8 shrink-0 gap-1 px-2"
                 title="تحديث الصفحة"
                 onClick={() => { sessionStorage.removeItem("anon-update-seen"); location.reload(); }}
               >
@@ -73,13 +73,13 @@ export function Header() {
                   className="h-2.5 w-2.5 animate-pulse rounded-full bg-red-500"
                 />
               )}
-              <Button size="sm" variant="ghost" onClick={() => supabase.auth.signOut()}>
+              <Button size="sm" variant="ghost" className="shrink-0" onClick={() => supabase.auth.signOut()}>
                 خروج
               </Button>
             </div>
           ) : (
             <Link to="/login">
-              <Button size="sm" variant="ghost">دخول</Button>
+              <Button size="sm" variant="ghost" className="shrink-0">دخول</Button>
             </Link>
           )}
           <ThemeToggle />
