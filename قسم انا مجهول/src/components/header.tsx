@@ -4,6 +4,7 @@ import { Shield, Ghost, Sun, Moon } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
+import { IdentitySheet } from "@/components/identity-sheet";
 
 function ThemeToggle() {
   const [dark, setDark] = useState(false);
@@ -39,6 +40,7 @@ export function Header() {
           <span className="text-lg font-bold">أنا مجهول</span>
         </Link>
         <div className="flex items-center gap-2">
+          <IdentitySheet />
           {isAdmin && (
             <Link to="/admin">
               <Button variant="secondary" size="sm" className="shrink-0 gap-1">
