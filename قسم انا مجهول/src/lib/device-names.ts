@@ -13,8 +13,33 @@ export async function setDeviceName(name: string) {
 }
 
 export async function probeNameFeature(): Promise<boolean> {
-  const { error } = await (supabase.rpc as any)("get_device_name", { p_device_id: getDeviceId() });
+  const { error } = await (supabase.rpc as any)("device_name_feature", {});
   return !error;
+}
+
+/** تطبيع عربي يطابق public.normalize_anon_name في القاعدة. */
+export function normalizeName(raw: string): string {
+  return (raw || "")
+    .replace(/[ً-ْٰـ]/g, "")
+    .replace(/[أإآٱ]/g, "ا")
+    .replace(/ى/g, "ي")
+    .replace(/ة/g, "ه")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+export type NameCheck = { state: "empty" | "ok" | "taken" | "short"; message?: string };
+
+export function checkNameAvailable(raw: string, taken: Map<string, string>, selfId: string): NameCheck {
+  const n = normalizeName(raw);
+  if (!n) return { state: "empty" };
+  if (n.length < 2) return { state: "short", message: "قصير زيادة" };
+  for (const [id, name] of taken) {
+    if (id === selfId) continue;
+    if (normalizeName(name) === n) return { state: "taken", message: "هذا الاسم محجوز" };
+  }
+  return { state: "ok" };
 }
 
 let nameMap: Map<string, string> | null = null;

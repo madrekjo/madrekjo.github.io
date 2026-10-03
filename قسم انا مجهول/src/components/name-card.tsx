@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { UserRound, Check, X, Pencil, Loader2, ShieldQuestion } from "lucide-react";
-import { setDeviceName } from "@/lib/device-names";
+import { setDeviceName, useDeviceNames, checkNameAvailable } from "@/lib/device-names";
+import { getDeviceId } from "@/lib/device";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
@@ -104,6 +105,9 @@ export function NameCard({ name, onSaved }: { name: string | null; onSaved: () =
     if (r.ok) { toast.success("تم حذف الاسم"); setOpen(false); onSaved(); }
   }
 
+  const { names } = useDeviceNames(true);
+  const check = checkNameAvailable(form.value, names, getDeviceId());
+
   if (!name || open) {
     return (
       <div className="rounded-xl border border-primary/40 bg-primary/5 p-3 text-sm">
@@ -126,12 +130,16 @@ export function NameCard({ name, onSaved }: { name: string | null; onSaved: () =
           <Button
             size="sm"
             className="h-9 shrink-0"
-            disabled={form.saving}
+            disabled={form.saving || check.state === "taken" || check.state === "short"}
             onClick={() => form.save().then((ok) => ok && onSaved())}
           >
             {form.saving ? <Loader2 className="h-3 w-3 animate-spin" /> : <Check className="h-3 w-3" />} حفظ
           </Button>
         </div>
+        {check.state === "taken" && <p className="mt-1.5 text-xs font-semibold text-destructive">{check.message}</p>}
+        {check.state === "ok" && !form.err && (
+          <p className="mt-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400">الاسم متاح</p>
+        )}
         {form.err && <p className="mt-1.5 text-xs text-destructive">{form.err}</p>}
         {name && (
           <Button size="sm" variant="ghost" className="mt-1 h-7 gap-1 text-xs" onClick={() => setOpen(false)}>
