@@ -1,5 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
-import { getDeviceId, setDeviceId } from "@/lib/device";
+import { getDeviceId } from "@/lib/device";
 import { deviceFingerprintParts } from "@/lib/fingerprint";
 
 /** قرار الخادم. المتصفح لا يختار القرار ولا يحسب النقاط. */
@@ -116,11 +116,6 @@ export async function checkVisitor({ data }: { data: { device_id: string } }) {
     linked?: boolean;
     challenge?: { reason?: string; open_count?: number; restrict_reporting?: boolean } | null;
   };
-  // الدومين تغيّر أو مسح التخزين؟ رجّع المستخدم لمعرّفه الأصلي
-  // فيسترجع اسمه ورقمه المجهول وسجلّه كله.
-  if (parsed.linked && parsed.device_id && parsed.device_id !== getDeviceId()) {
-    setDeviceId(parsed.device_id);
-  }
   return {
     banned: !!parsed.banned,
     decision: normalizeDecision(parsed.decision, !!parsed.banned),
