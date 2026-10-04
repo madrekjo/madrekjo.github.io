@@ -957,6 +957,13 @@ const [readerOpen, setReaderOpen] = useState(false);
           onClose={() => setRecoverOpen(false)}
           onDone={(id, username) => {
             setRecoverOpen(false);
+            setRecoverBannerHidden(true);
+            try {
+              sessionStorage.setItem("bst-recover-banner", "1");
+            } catch {
+              /* تجاهل */
+            }
+            setRecoverOpen(false);
             setMe((m) =>
               m ? { ...m, id, username } : { id, username, bio: "", avatar_url: "", card_count: 0, likes_total: 0, shares_total: 0, stars_earned: 0, stars_avg: 0, stars_count: 0, followers_count: 0, following_count: 0 }
             );
