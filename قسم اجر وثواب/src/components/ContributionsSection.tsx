@@ -142,20 +142,20 @@ const ContributionsSection = () => {
     if (!adminPin.trim() || adminPin.trim().length < 4) return;
     setLoggingIn(true);
     try {
-      const { data: rpcData, error: rpcError } = await supabase.rpc("admin_login_with_pin", {
-        p_pin: adminPin.trim(),
-      });
-      if (rpcError) throw rpcError;
-      const row = (rpcData as RpcRow[])?.[0];
-      if (!row?.success) {
-        toast.error(row?.message || "فشل تسجيل الدخول");
-        return;
-      }
       const { error: authError } = await supabase.auth.signInWithPassword({
         email: "admin@madrekjo.com",
         password: adminPin.trim(),
       });
-      if (authError) throw authError;
+      if (authError) {
+        toast.error("الرقم السري غير صحيح");
+        return;
+      }
+      const { data: adminOk, error: adminCheckError } = await supabase.rpc("is_ajr_admin");
+      if (adminCheckError || adminOk !== true) {
+        await supabase.auth.signOut();
+        toast.error("الرقم السري غير صحيح");
+        return;
+      }
       setIsAdmin(true);
       setShowLogin(false);
       setAdminPin("");
