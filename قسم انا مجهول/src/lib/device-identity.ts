@@ -47,6 +47,57 @@ function formatCode(fp: string): string {
   return `${hex.slice(0, 4)}-${hex.slice(4, 8)}`;
 }
 
+/** رمز الجهاز الكامل (١٢ خانة) — أساس الهوية المرتبطة بالعتاد. */
+async function fullCode(): Promise<string> {
+  try {
+    const fp = await deviceFingerprint();
+    return (fp || "").replace(/[^0-9a-f]/gi, "").toLowerCase().slice(0, 12).padEnd(12, "0");
+  } catch {
+    return "";
+  }
+}
+
+let resolved: Promise<void> | undefined;
+
+/**
+ * يربط الهوية برمز الجهاز: يستعيد المعرّف بعد مسح بيانات المتصفح، أو ينشئه.
+ * لازم ينادى مرة واحدة قبل أول استدعاء لـ getDeviceId().
+ */
+export function resolveIdentity(): Promise<void> {
+  if (!resolved) resolved = (async () => {
+    const code = await fullCode();
+    if (!code) return;
+    const dev = detectDevice();
+    try {
+      const { supabase } = await import("@/integrations/supabase/client");
+      const { data } = await (supabase.rpc as any)("resolve_device_identity", {
+        p_code: code,
+        p_kind: dev.kind,
+      });
+      const id = (data as { device_id?: string } | null)?.device_id;
+      if (id && id.length >= 8) {
+        const prev = localStorage.getItem("anon_device_id");
+        if (prev !== id) {
+          const hadName = prev && prev !== id;
+          localStorage.setItem("anon_device_id", id);
+          if (hadName) {
+            localStorage.setItem("anon_identity_restored", "1");
+          }
+        }
+      }
+    } catch {}
+  })();
+  return resolved;
+}
+
+export function identityWasRestored(): boolean {
+  try {
+    return sessionStorage.getItem("anon_identity_restored") === "1";
+  } catch {
+    return false;
+  }
+}
+
 let cached: Promise<DeviceIdentity> | undefined;
 
 export function getDeviceIdentity(): Promise<DeviceIdentity> {
