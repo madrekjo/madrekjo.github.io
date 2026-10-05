@@ -1,28 +1,22 @@
 -- =============================================================================
--- تطبيع الأسماء العربية + منع التكرار البصري
+-- تطبيع الأسماء العربية + حسم التعارضات تلقائياً + قيد التفرّد
 -- =============================================================================
--- الاختبار على القاعدة الجديدة أظهر:
---   1) «زهرة» ثم «زهرة»      → name taken   ✅ التكرار الحرفي ممنوع
---   2) «زهرة» ثم «  زهره  »  → ok:true      ❌ مرّ! لأن ة ≠ ه
+-- الإصدار السابق من هذا الملف كان يرفع استثناءً عند وجود تعارض، فتراجع
+-- كل شيء بالدالة normalize_anon_name — وهو سبب خطأ:
+--   ERROR: function public.normalize_anon_name(text) does not exist
 --
---也就是说 التطبيع الحالي يعمل على trim + lower فقط، ولا يوحّد الإملاء العربي:
---   «محمّد» / «محمد» / «مـحـمـد» / «محمد »  ← أربعة أسماء مختلفة المظهر، متطابقة الشكل
---   «أحمد» / «إحمد» / «آحمد»               ← ثلاثة أشكال لحرف واحد
---   «يوسف» / «یوسف» / «يوسف»               ← ي/ى/ی
---   «مدرسة» / «مدرسه»                       ← ة/ه
+-- هذا الإصدار يحسم التعارضات بنفسه: يبقي الأقدم على اسمه، ويضيف رقماً
+-- للاحداث («محمد» ← «محمّد» ← يصبح «محمّد 2»). لا أحد يخسر حسابه،
+-- ولا يبقى الاسم مكرراً.
 --
--- النتيجة: Administration»: خمسة مستخدمين يكتبون اسماً واحداً بأشكال مختلفة،
--- فيظهر وكأنهم «حساب واحد» — وهو بالضبط ما شكا منه المستخدم.
---
--- الحل:
---   1) دالة normalize_anon_name تطبّع الشكل العربي.
---   2) تفرّد على الصورة المطبّعة، فلا يمرّ شكلان متشابهان معاً.
---   3) تُخزَّن الاسم بصيغته المطبّعة، فالعرض متسق أمام الناس والإدارة.
+-- ملاحظة: هذا الملف آمن للتشغيل المتكرر (idempotent).
 -- =============================================================================
 
 BEGIN;
 
--- 1) دالة التطبيع -----------------------------------------------------------
+-- ---------------------------------------------------------------------------
+-- 1) دالة التطبيع — تنشأ أولاً حتى لو فشل ما بعدها
+-- ---------------------------------------------------------------------------
 CREATE OR REPLACE FUNCTION public.normalize_anon_name(p text)
 RETURNS text
 LANGUAGE sql
@@ -36,37 +30,87 @@ AS $$
   ));
 $$;
 
--- 2) إعادة فحص التفرّد على الصورة المطبّعة ----------------------------------
--- نزيل القيد القديم المبني على lower(name) لأن عمود الاسم نفسه سيصير مطبّعاً،
--- فالقيد الجديد أدق ويغطّي الحالتين.
+-- ---------------------------------------------------------------------------
+-- 2) نزيل القيود القديمة قبل التعديل (وإلا تعارض التطبيع مع القيد القديم)
+-- ---------------------------------------------------------------------------
+DROP INDEX IF EXISTS public.device_names_name_idx;
+DROP INDEX IF EXISTS public.device_names_uniq_lower_name;
 
+-- ---------------------------------------------------------------------------
+-- 3) حسم التعارضات: الأحدث يأخذ رقماً
+--    نكرّر حتى ينتهي، لأن إضافة الرقم قد تصطدم باسم موجود مسبقاً
+--    («محمد 2» قد يكون موجوداً أصلاً فيصير «محمد 2 2» وهكذا).
+-- ---------------------------------------------------------------------------
 DO $$
+DECLARE
+  attempt  int  := 1;
+  conflicts int := 0;
 BEGIN
-  -- نكشف التعارضات الموجودة قبل القيد: نمنع التطبيق إن وُجدت.
-  IF EXISTS (
-    SELECT 1 FROM public.device_names
-     GROUP BY public.normalize_anon_name(name)
-    HAVING count(*) > 1
-  ) THEN
-    RAISE EXCEPTION
-      'يوجد أسماء متطابقة بالشكل ما بعد التطبيع. راجع السجلات قبل تفعيل القيد.';
+  WHILE attempt <= 12 LOOP
+    SELECT count(*) INTO conflicts FROM (
+      SELECT 1
+        FROM public.device_names
+       GROUP BY public.normalize_anon_name(name)
+      HAVING count(*) > 1
+    ) q;
+
+    EXIT WHEN conflicts = 0;
+
+    WITH ranked AS (
+      SELECT device_id,
+             row_number() OVER (
+               PARTITION BY public.normalize_anon_name(name)
+               ORDER BY created_at, device_id
+             ) AS rn
+        FROM public.device_names
+    )
+    UPDATE public.device_names d
+       SET name = public.normalize_anon_name(d.name) || ' ' || r.rn,
+           updated_at = now()
+      FROM ranked r
+     WHERE d.device_id = r.device_id
+       AND r.rn > 1;
+
+    attempt := attempt + 1;
+  END LOOP;
+
+  -- احتياط: لم Stabil --krit Stabil بعد ١٢ محاولة، نلحق بلاحق مشتق من المعرّف
+  -- (device_id مفتاح أساسي، فمضمون أنه مختلف لكل صف)
+  IF conflicts > 0 THEN
+    WITH ranked AS (
+      SELECT device_id,
+             row_number() OVER (
+               PARTITION BY public.normalize_anon_name(name)
+               ORDER BY created_at, device_id
+             ) AS rn
+        FROM public.device_names
+    )
+    UPDATE public.device_names d
+       SET name = public.normalize_anon_name(d.name) || '-' || substr(md5(d.device_id), 1, 4),
+           updated_at = now()
+      FROM ranked r
+     WHERE d.device_id = r.device_id
+       AND r.rn > 1;
   END IF;
 END $$;
 
--- 3) تطبيع كل الأسماء القائمة ----------------------------------------------
+-- ---------------------------------------------------------------------------
+-- 4) تطبيع كل الأسماء
+-- ---------------------------------------------------------------------------
 UPDATE public.device_names
    SET name = public.normalize_anon_name(name),
        updated_at = now()
  WHERE name IS DISTINCT FROM public.normalize_anon_name(name);
 
--- 4) القيد الجديد: التفرّد على الصورة المطبّعة ------------------------------
-DROP INDEX IF EXISTS public.device_names_name_idx;
-DROP INDEX IF EXISTS public.device_names_uniq_lower_name;
-
+-- ---------------------------------------------------------------------------
+-- 5) القيد الجديد: التفرّد على الصورة المطبّعة
+-- ---------------------------------------------------------------------------
 CREATE UNIQUE INDEX IF NOT EXISTS device_names_uniq_normalized
   ON public.device_names (public.normalize_anon_name(name));
 
--- 5) set_device_name يطبّع قبل الفحص والحفظ ---------------------------------
+-- ---------------------------------------------------------------------------
+-- 6) set_device_name يطبّع قبل الفحص والحفظ
+-- ---------------------------------------------------------------------------
 CREATE OR REPLACE FUNCTION public.set_device_name(p_device_id text, p_name text)
 RETURNS jsonb
 LANGUAGE plpgsql
@@ -74,14 +118,14 @@ SECURITY DEFINER
 SET search_path = public
 AS $$
 DECLARE
-  clean text;
-  maxlen int := COALESCE(public.cfg_num(public.ban_scoring_settings(), 'name_max_len', 30), 30);
+  clean  text;
+  maxlen int := COALESCE(public.cfg_num(public.ban_scoring_settings(), 'name_max_len', 40), 40);
 BEGIN
   IF p_device_id IS NULL OR length(btrim(p_device_id)) < 8 THEN
     RETURN jsonb_build_object('ok', false, 'error', 'invalid device');
   END IF;
 
-  -- الاسم الفارغ = إزالة الاسم (سلوك محفوظ)
+  -- الاسم الفارغ = إزالة الاسم
   clean := public.normalize_anon_name(regexp_replace(coalesce(p_name, ''), '[^[:print:][:space:]]', '', 'g'));
   IF clean = '' THEN
     DELETE FROM public.device_names WHERE device_id = p_device_id;
@@ -122,12 +166,17 @@ $$;
 COMMIT;
 
 -- =============================================================================
--- تحقق بعد التشغيل
+-- تقرير بعد التشغيل
 -- =============================================================================
--- SELECT name, count(*) FROM public.device_names
---  GROUP BY name HAVING count(*) > 1;      -- يجب أن يطبع ��ius لا شيء
+-- SELECT count(*) AS "عدد الأسماء" FROM public.device_names;
 --
--- اختبار سريع (نفسه عبر REST):
---   set_device_name('aaaa…','محمّد')  → ok
---   set_device_name('bbbb…','محمد')   → name taken   ✅ بعد التطبيع
---   set_device_name('cccc…','إحمد')   → name taken   ✅ أ/إ/آ موحّدة
+-- يجب أن يطبع لا شيء:
+-- SELECT public.normalize_anon_name(name), count(*)
+--   FROM public.device_names GROUP BY 1 HAVING count(*) > 1;
+--
+-- للمعاينة قبل أي تعديل:
+-- SELECT public.normalize_anon_name(name) AS مطبّع,
+--        count(*) AS العدد,
+--        string_agg(name, ' | ' ORDER BY created_at) AS الأشكال
+--   FROM public.device_names
+--  GROUP BY 1 HAVING count(*) > 1 ORDER BY 2 DESC;
