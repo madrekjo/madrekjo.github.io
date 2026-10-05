@@ -47,7 +47,7 @@ function formatCode(fp: string): string {
   return `${hex.slice(0, 4)}-${hex.slice(4, 8)}`;
 }
 
-/** رمز الجهاز الكامل (١٢ خانة) — أساس الهوية المرتبطة بالعتاد. */
+/** رمز الجهاز (من العتاد فقط) — قد تتطابق بين أجهزة متشابهة. */
 async function fullCode(): Promise<string> {
   try {
     const fp = await deviceFingerprint();
@@ -57,44 +57,52 @@ async function fullCode(): Promise<string> {
   }
 }
 
+const SALT_KEY = "anon_visitor_salt";
+const VISITOR_KEY = "anon_visitor_code";
+
+function salt(): string {
+  let s = localStorage.getItem(SALT_KEY);
+  if (!s || s.length < 8) {
+    s = crypto.randomUUID().replace(/-/g, "");
+    localStorage.setItem(SALT_KEY, s);
+  }
+  return s;
+}
+
 let resolved: Promise<void> | undefined;
 
 /**
- * يربط الهوية برمز الجهاز: يستعيد المعرّف بعد مسح بيانات المتصفح، أو ينشئه.
- * لازم ينادى مرة واحدة قبل أول استدعاء لـ getDeviceId().
+ * بصمة الزائر: device_code + salt خاص فيه.
+ * - مستخدمان على جهاز واحد ← بصمتان مختلفتان (لا تشارك ولا تصادم)
+ * - نفس المستخدم على نفس الجهاز ← نفس البصمة
+ * salt لا يُشارَك مع أحد، فلا يمكن أن يُشتق جهازان متطابقان من بعضهما.
  */
 export function resolveIdentity(): Promise<void> {
   if (!resolved) resolved = (async () => {
-    const code = await fullCode();
-    if (!code) return;
-    const dev = detectDevice();
+    const deviceCode = await fullCode();
+    if (!deviceCode) return;
     try {
       const { supabase } = await import("@/integrations/supabase/client");
-      const { data } = await (supabase.rpc as any)("resolve_device_identity", {
-        p_code: code,
-        p_kind: dev.kind,
+      const { data } = await (supabase.rpc as any)("issue_visitor_code", {
+        p_device_code: deviceCode,
+        p_salt: salt(),
       });
-      const id = (data as { device_id?: string } | null)?.device_id;
-      if (id && id.length >= 8) {
-        const prev = localStorage.getItem("anon_device_id");
-        if (prev !== id) {
-          const hadName = prev && prev !== id;
-          localStorage.setItem("anon_device_id", id);
-          if (hadName) {
-            localStorage.setItem("anon_identity_restored", "1");
-          }
-        }
+      const vc = (data as { visitor_code?: string } | null)?.visitor_code;
+      if (vc && vc.length >= 8) {
+        localStorage.setItem(VISITOR_KEY, vc);
+        sessionStorage.setItem("anon_visitor_code", vc);
+        sessionStorage.removeItem("anon_identity_restored");
       }
     } catch {}
   })();
   return resolved;
 }
 
-export function identityWasRestored(): boolean {
+export function visitorCode(): string {
   try {
-    return sessionStorage.getItem("anon_identity_restored") === "1";
+    return sessionStorage.getItem("anon_visitor_code") || localStorage.getItem(VISITOR_KEY) || "";
   } catch {
-    return false;
+    return "";
   }
 }
 
