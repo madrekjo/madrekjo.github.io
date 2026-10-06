@@ -47,7 +47,13 @@ export async function loadPostComments(userId: string, postId: string): Promise<
     `/comments?post_id=${encodeURIComponent(postId)}`
   );
   if (bundle && Array.isArray(bundle.comments)) {
-    return composeComments(bundle.comments, bundle.commentLikes || [], bundle.profiles || {}, userId);
+    // الـworker القديم لا يُدرج image_url في الاستعلام — إن غاب الحقل كلياً
+    // نسقط إلى المسار المباشر لنحصل على المرفقات بدل عرض تعليقات ناقصة.
+    const gatewayHasImage =
+      bundle.comments.length === 0 || bundle.comments.some((c) => "image_url" in c);
+    if (gatewayHasImage) {
+      return composeComments(bundle.comments, bundle.commentLikes || [], bundle.profiles || {}, userId);
+    }
   }
 
   // تراجع مباشر بصلاحيات RLS للمستخدم نفسه (نفس استعلام المسار القديم تماماً).
