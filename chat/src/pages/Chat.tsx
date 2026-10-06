@@ -15,7 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Send, Image as ImageIcon, Video, Loader2, Lock, RefreshCw, X } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
-import { compressMedia } from "@/lib/mediaCompression";
+import { compressMedia, MAX_IMAGE_BYTES } from "@/lib/mediaCompression";
 import { uploadToCloudinary } from "@/lib/cloudinary";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 
@@ -451,7 +451,17 @@ const Chat = () => {
     if (mediaFiles.length > 0) {
       const urls: string[] = [];
       for (const file of mediaFiles) {
+        if (mediaType === "image" && file.size > MAX_IMAGE_BYTES * 4) {
+          toast.error("حجم الملف كبير جداً — الحد 5MB");
+          setPosting(false);
+          return;
+        }
         const compressed = await compressMedia(file);
+        if (mediaType === "image" && compressed.size > MAX_IMAGE_BYTES) {
+          toast.error("تعذر تصغير الملف تحت 5MB — اختر صورة/GIF أصغر");
+          setPosting(false);
+          return;
+        }
         try {
           const cdnUrl = await uploadToCloudinary(compressed);
           urls.push(cdnUrl);
@@ -654,7 +664,7 @@ const Chat = () => {
           </div>
           <div className="flex items-center justify-between">
             <div className="flex gap-1">
-              <Button variant="ghost" size="sm" onClick={() => handleFileSelect("image")} className="gap-1"><ImageIcon className="w-4 h-4" /> صورة</Button>
+              <Button variant="ghost" size="sm" onClick={() => handleFileSelect("image")} className="gap-1"><ImageIcon className="w-4 h-4" /> صورة/GIF</Button>
               <Button variant="ghost" size="sm" onClick={() => handleFileSelect("video")} className="gap-1"><Video className="w-4 h-4" /> فيديو</Button>
             </div>
             <Button onClick={handlePost} disabled={posting || !content.trim()} size="sm" className="gap-1">

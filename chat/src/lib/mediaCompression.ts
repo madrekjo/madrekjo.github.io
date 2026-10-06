@@ -2,6 +2,9 @@
 // Images: re-encode via canvas with quality + max dimension, keeping visual quality high.
 // Videos: best-effort transcode using MediaRecorder when supported; otherwise return as-is.
 
+// سقف حجم الصورة/الـGIF بعد الضغط (الصور العادية تنضغط تحته، والـGIF يبقى كما هو).
+export const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
+
 export interface ImageCompressOptions {
   maxWidth?: number;
   maxHeight?: number;
