@@ -59,7 +59,9 @@ BEGIN
 
   -- منشن الحقل: أي مستخدم يقدر يذكر أي حقل من الخمسة
   IF NEW.mention_group LIKE 'field:%' THEN
-    v_field := substring(NEW.mention_group FROM 6);
+    -- split_part بدل substring(... FROM 6): فهرس PostgreSQL يبدأ من 1
+    -- فكان FROM 6 يعطي ':engineering' (من الفاصلة) بدل 'engineering'.
+    v_field := split_part(NEW.mention_group, ':', 2);
     IF v_field NOT IN ('medical', 'engineering', 'languages', 'business', 'law') THEN
       RAISE EXCEPTION 'unknown_mention_group';
     END IF;
@@ -103,7 +105,7 @@ CREATE POLICY "Valid notifications only" ON public.notifications
                     AND (
                       pp.gender = pm.mention_group
                       OR (pm.mention_group LIKE 'field:%'
-                          AND pp.field = substring(pm.mention_group FROM 6))
+                          AND pp.field = split_part(pm.mention_group, ':', 2))
                     )
                 )
               )
