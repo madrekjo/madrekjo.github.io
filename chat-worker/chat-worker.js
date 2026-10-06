@@ -507,7 +507,7 @@ async function buildFeed(svc, page, limit, channel, token) {
  */
 async function buildComments(svc, postId) {
   const comments = (await fetchAll(svc, "comments",
-    `select=id,post_id,user_id,content,parent_comment_id,created_at,is_pinned&post_id=eq.${postId}&deleted_at=is.null&order=created_at.asc&limit=100`, null, "comments") || []);
+    `select=id,post_id,user_id,content,image_url,parent_comment_id,created_at,is_pinned&post_id=eq.${postId}&deleted_at=is.null&order=created_at.asc&limit=100`, null, "comments") || []);
 
   if (comments.length === 0) {
     return { comments: [], commentLikes: [], profiles: {} };

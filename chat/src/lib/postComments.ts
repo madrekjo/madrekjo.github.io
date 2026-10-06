@@ -20,6 +20,7 @@ export interface PostCommentProfile {
 export interface PostComment {
   id: string;
   content: string;
+  image_url?: string | null;
   user_id: string;
   parent_comment_id: string | null;
   created_at: string;
@@ -50,15 +51,29 @@ export async function loadPostComments(userId: string, postId: string): Promise<
   }
 
   // تراجع مباشر بصلاحيات RLS للمستخدم نفسه (نفس استعلام المسار القديم تماماً).
-  const { data: commentRows, error } = await supabase
+  const baseSelect =
+    "id, post_id, content, user_id, parent_comment_id, created_at, is_pinned, profiles:profiles!comments_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)";
+  const withImage = await supabase
     .from("comments")
-    .select("id, post_id, content, user_id, parent_comment_id, created_at, is_pinned, profiles:profiles!comments_user_id_profiles_fkey(full_name, avatar_url, generation, field, gender)")
+    .select(`${baseSelect}, image_url`)
     .eq("post_id", postId)
     .is("deleted_at", null)
     .order("created_at", { ascending: true });
-  if (error) throw error;
 
-  const baseRows = (commentRows || []) as unknown as PostComment[];
+  let baseRows: PostComment[];
+  if (!withImage.error) {
+    baseRows = (withImage.data || []) as unknown as PostComment[];
+  } else {
+    // عمود image_url غير موجود بعد (قبل تشغيل migration التعليقات) — نحمّل النصوص فقط.
+    const legacy = await supabase
+      .from("comments")
+      .select(baseSelect)
+      .eq("post_id", postId)
+      .is("deleted_at", null)
+      .order("created_at", { ascending: true });
+    if (legacy.error) throw legacy.error;
+    baseRows = (legacy.data || []) as unknown as PostComment[];
+  }
   const ids = baseRows.map((c) => c.id);
   const [likesRes] = ids.length
     ? await Promise.all([
@@ -85,7 +100,9 @@ function composeComments(
 ): PostCommentsBundle {
   const comments: PostComment[] = rows.map((c) => ({
     id: c.id,
-    content: c.content,
+    // content صار nullable في القاعدة (تعليق "صورة فقط") — نوحّده إلى نص فارغ للعرض والتحرير.
+    content: c.content || "",
+    image_url: c.image_url ?? null,
     user_id: c.user_id,
     parent_comment_id: c.parent_comment_id,
     created_at: c.created_at,

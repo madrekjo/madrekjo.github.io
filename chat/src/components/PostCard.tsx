@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo, forwardRef, type ReactNode } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef, forwardRef, type ReactNode } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { containsBannedWord } from "@/lib/bannedWords";
@@ -9,7 +9,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Heart, MessageCircle, Trash2, Edit2, Send, CornerDownLeft, Pin, PinOff, Flag, Loader2 } from "lucide-react";
+import { Heart, MessageCircle, Trash2, Edit2, Send, CornerDownLeft, Pin, PinOff, Flag, Loader2, Image as ImageIcon, X } from "lucide-react";
+import { uploadToCloudinary } from "@/lib/cloudinary";
+import { compressMedia, MAX_IMAGE_BYTES } from "@/lib/mediaCompression";
 import { usePoints } from "@/contexts/PointsContext";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
@@ -110,6 +112,17 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
   const [profileUserId, setProfileUserId] = useState<string | null>(null);
   const [editingCommentId, setEditingCommentId] = useState<string | null>(null);
   const [editCommentText, setEditCommentText] = useState("");
+  // مرفق صورة/الغيف: للتعليق الجديد والرد الجديد (ملف واحد لكل واحد).
+  const [commentImage, setCommentImage] = useState<File | null>(null);
+  const [commentPreview, setCommentPreview] = useState<string | null>(null);
+  const [replyImage, setReplyImage] = useState<File | null>(null);
+  const [replyPreview, setReplyPreview] = useState<string | null>(null);
+  const [editCommentRemoveImage, setEditCommentRemoveImage] = useState(false);
+  const [sendingComment, setSendingComment] = useState(false);
+  const commentFileRef = useRef<HTMLInputElement>(null);
+  const replyFileRef = useRef<HTMLInputElement>(null);
+  useEffect(() => () => { if (commentPreview) URL.revokeObjectURL(commentPreview); }, [commentPreview]);
+  useEffect(() => () => { if (replyPreview) URL.revokeObjectURL(replyPreview); }, [replyPreview]);
   const [lightbox, setLightbox] = useState<{ src: string; images?: string[]; index?: number; type: "image" | "video" } | null>(null);
   const [reportOpen, setReportOpen] = useState(false);
   const [authorIsAdmin, setAuthorIsAdmin] = useState(authorIsAdminProp ?? false);
@@ -272,10 +285,27 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
     }));
   };
 
+  // مرفق تعليق واحد: ضغط الصور العادية وتجاوز الـGIF (يبقى متحركاً) ثم رفع Cloudinary.
+  const uploadCommentImage = async (file: File): Promise<string> => {
+    const compressed = await compressMedia(file);
+    if (compressed.size > MAX_IMAGE_BYTES) throw new Error("too_large");
+    return await uploadToCloudinary(compressed);
+  };
+
+  const pickCommentImage = (file: File | undefined, kind: "comment" | "reply") => {
+    if (!file) return;
+    if (!file.type.startsWith("image/")) { toast.error("الملف ليس صورة"); return; }
+    if (file.size > MAX_IMAGE_BYTES * 4) { toast.error("حجم الملف كبير جداً — الحد 5MB"); return; }
+    const preview = URL.createObjectURL(file);
+    if (kind === "comment") { setCommentImage(file); setCommentPreview(preview); }
+    else { setReplyImage(file); setReplyPreview(preview); }
+  };
+
   const handleComment = async () => {
-    if (!user || !commentText.trim()) return;
+    const hasImage = !!commentImage;
+    if (!user || sendingComment || (!commentText.trim() && !hasImage)) return;
     if (profile?.is_banned) { toast.error("حسابك محظور، لا يمكنك التعليق"); return; }
-    if (containsBannedWord(commentText, isAdmin)) { toast.error("التعليق يحتوي على كلمات محظورة"); return; }
+    if (commentText.trim() && containsBannedWord(commentText, isAdmin)) { toast.error("التعليق يحتوي على كلمات محظورة"); return; }
     // فحص النقاط
     const hasBulk = hasBulkMention(commentText);
     const commentCost = mentionCostFor(commentText, getCost("comment"));
@@ -283,28 +313,51 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
       toast.error(`تحتاج ${commentCost} نقطة لإضافة تعليق. رصيدك الحالي: ${balance}`);
       return;
     }
-    const { data: insertedC, error } = await supabase.from("comments").insert({ post_id: post.id, user_id: user.id, content: commentText.trim() }).select("id");
-    if (!error && insertedC?.[0]?.id) {
+    setSendingComment(true);
+    try {
+      let imageUrl: string | null = null;
+      if (commentImage) {
+        try { imageUrl = await uploadCommentImage(commentImage); }
+        catch { toast.error("تعذر رفع صورة التعليق — الحد 5MB"); return; }
+      }
+      const payload = {
+        post_id: post.id,
+        user_id: user.id,
+        content: commentText.trim(),
+        ...(imageUrl ? { image_url: imageUrl } : {}),
+      };
+      const { data: insertedC, error } = await supabase.from("comments").insert(payload).select("id");
+      if (error || !insertedC?.[0]?.id) {
+        toast.error(
+          error?.message?.includes("image_url")
+            ? "المرفقات غير مفعّلة بعد — شغّل migration التعليقات في SQL Editor"
+            : "فشل إرسال التعليق"
+        );
+        return;
+      }
       const commentId = insertedC[0].id;
       await submitMentions(supabase, { postId: post.id, commentId, actorId: user.id, text: commentText, channel: (post as any).channel || "all" });
       // خصم النقاط بعد التعليق الناجح
       if (!isStaff) {
         await spend(commentCost, hasBulk ? "everyone" : "comment", "chat", { postId: post.id, commentId });
       }
+      if (post.user_id !== user.id) {
+        await supabase.from("notifications").insert({ user_id: post.user_id, actor_id: user.id, type: "comment", post_id: post.id });
+      }
+      setCommentText(""); setCommentImage(null); setCommentPreview(null);
+      void invalidateTable("comments");
+      setLocalCount(n => n + 1);
+      void reloadComments();
+    } finally {
+      setSendingComment(false);
     }
-    if (post.user_id !== user.id) {
-      await supabase.from("notifications").insert({ user_id: post.user_id, actor_id: user.id, type: "comment", post_id: post.id });
-    }
-    setCommentText("");
-    void invalidateTable("comments");
-    setLocalCount(n => n + 1);
-    void reloadComments();
   };
 
   const handleReply = async (parentId: string) => {
-    if (!user || !replyText.trim()) return;
+    const hasImage = !!replyImage;
+    if (!user || sendingComment || (!replyText.trim() && !hasImage)) return;
     if (profile?.is_banned) { toast.error("حسابك محظور، لا يمكنك الرد"); return; }
-    if (containsBannedWord(replyText, isAdmin)) { toast.error("الرد يحتوي على كلمات محظورة"); return; }
+    if (replyText.trim() && containsBannedWord(replyText, isAdmin)) { toast.error("الرد يحتوي على كلمات محظورة"); return; }
     // فحص النقاط
     const hasBulkReply = hasBulkMention(replyText);
     const replyCost = mentionCostFor(replyText, getCost("comment"));
@@ -312,24 +365,47 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
       toast.error(`تحتاج ${replyCost} نقطة لإضافة رد. رصيدك الحالي: ${balance}`);
       return;
     }
-    const { data: insertedR, error } = await supabase.from("comments").insert({ post_id: post.id, user_id: user.id, content: replyText.trim(), parent_comment_id: parentId }).select("id");
-    if (!error && insertedR?.[0]?.id) {
+    setSendingComment(true);
+    try {
+      let imageUrl: string | null = null;
+      if (replyImage) {
+        try { imageUrl = await uploadCommentImage(replyImage); }
+        catch { toast.error("تعذر رفع صورة الرد — الحد 5MB"); return; }
+      }
+      const payload = {
+        post_id: post.id,
+        user_id: user.id,
+        content: replyText.trim(),
+        parent_comment_id: parentId,
+        ...(imageUrl ? { image_url: imageUrl } : {}),
+      };
+      const { data: insertedR, error } = await supabase.from("comments").insert(payload).select("id");
+      if (error || !insertedR?.[0]?.id) {
+        toast.error(
+          error?.message?.includes("image_url")
+            ? "المرفقات غير مفعّلة بعد — شغّل migration التعليقات في SQL Editor"
+            : "فشل إرسال الرد"
+        );
+        return;
+      }
       const commentId = insertedR[0].id;
       await submitMentions(supabase, { postId: post.id, commentId, actorId: user.id, text: replyText, channel: (post as any).channel || "all" });
       // خصم النقاط بعد الرد الناجح
       if (!isStaff) {
         await spend(replyCost, hasBulkReply ? "everyone" : "comment", "chat", { postId: post.id, commentId });
       }
+      const parentComment = loadedComments.find(c => c.id === parentId);
+      if (parentComment && parentComment.user_id !== user.id) {
+        await supabase.from("notifications").insert({ user_id: parentComment.user_id, actor_id: user.id, type: "reply", post_id: post.id, comment_id: parentId });
+      }
+      setReplyText(""); setReplyImage(null); setReplyPreview(null);
+      setReplyTo(null);
+      void invalidateTable("comments");
+      setLocalCount(n => n + 1);
+      void reloadComments();
+    } finally {
+      setSendingComment(false);
     }
-    const parentComment = loadedComments.find(c => c.id === parentId);
-    if (parentComment && parentComment.user_id !== user.id) {
-      await supabase.from("notifications").insert({ user_id: parentComment.user_id, actor_id: user.id, type: "reply", post_id: post.id, comment_id: parentId });
-    }
-    setReplyText("");
-    setReplyTo(null);
-    void invalidateTable("comments");
-    setLocalCount(n => n + 1);
-    void reloadComments();
   };
 
   const handleDeletePost = async () => {
@@ -351,13 +427,19 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
     setLocalCount(n => Math.max(0, n - 1));
   };
   const handleEditComment = async (commentId: string) => {
-    if (!editCommentText.trim()) return;
-    if (containsBannedWord(editCommentText, isAdmin)) { toast.error("التعليق يحتوي على كلمات محظورة"); return; }
-    const { error } = await supabase.from("comments").update({ content: editCommentText.trim() }).eq("id", commentId);
+    const target = loadedComments.find(c => c.id === commentId);
+    const keepsImage = !!target?.image_url && !editCommentRemoveImage;
+    if (!editCommentText.trim() && !keepsImage) return;
+    if (editCommentText.trim() && containsBannedWord(editCommentText, isAdmin)) { toast.error("التعليق يحتوي على كلمات محظورة"); return; }
+    const payload: { content: string; image_url?: string | null } = { content: editCommentText.trim() };
+    if (editCommentRemoveImage) payload.image_url = null;
+    const { error } = await supabase.from("comments").update(payload).eq("id", commentId);
     if (error) toast.error("فشل التعديل");
     else {
-      setLoadedComments(prev => prev.map(c => c.id === commentId ? { ...c, content: editCommentText.trim() } : c));
-      setEditingCommentId(null); setEditCommentText(""); void invalidateTable("comments");
+      setLoadedComments(prev => prev.map(c => c.id === commentId
+        ? { ...c, content: payload.content, image_url: editCommentRemoveImage ? null : c.image_url }
+        : c));
+      setEditingCommentId(null); setEditCommentText(""); setEditCommentRemoveImage(false); void invalidateTable("comments");
     }
   };
   const handlePinComment = async (commentId: string, currentlyPinned: boolean) => {
@@ -667,7 +749,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
                         </Button>
                       )}
                       {user?.id === comment.user_id && editingCommentId !== comment.id && (
-                        <Button variant="ghost" size="icon" className="h-6 w-6" onClick={() => { setEditingCommentId(comment.id); setEditCommentText(comment.content); }}>
+                        <Button variant="ghost" size="icon" className="h-6 w-6" onClick={() => { setEditingCommentId(comment.id); setEditCommentText(comment.content); setEditCommentRemoveImage(false); }}>
                           <Edit2 className="w-3 h-3" />
                         </Button>
                       )}
@@ -680,14 +762,40 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
                   </div>
                   {editingCommentId === comment.id ? (
                     <div className="space-y-1 mt-1">
+                      {comment.image_url && !editCommentRemoveImage && (
+                        <div className="relative inline-block">
+                          <img src={comment.image_url} alt="مرفق" className="h-16 rounded-md border object-cover" />
+                          <button
+                            type="button"
+                            title="إزالة الصورة"
+                            onClick={() => setEditCommentRemoveImage(true)}
+                            className="absolute -top-2 -left-2 w-5 h-5 rounded-full bg-destructive text-destructive-foreground text-xs flex items-center justify-center hover:opacity-80"
+                          >
+                            <X className="w-3 h-3" />
+                          </button>
+                        </div>
+                      )}
                       <Textarea value={editCommentText} onChange={e => setEditCommentText(e.target.value)} className="text-sm min-h-[40px] resize-none" />
                       <div className="flex gap-1">
                         <Button size="sm" onClick={() => handleEditComment(comment.id)}>حفظ</Button>
-                        <Button size="sm" variant="ghost" onClick={() => { setEditingCommentId(null); setEditCommentText(""); }}>إلغاء</Button>
+                        <Button size="sm" variant="ghost" onClick={() => { setEditingCommentId(null); setEditCommentText(""); setEditCommentRemoveImage(false); }}>إلغاء</Button>
                       </div>
                     </div>
                   ) : (
-                    <p className="text-sm whitespace-pre-wrap break-words">{renderMentions(comment.content, setProfileUserId)}</p>
+                    <>
+                      {comment.content && (
+                        <p className="text-sm whitespace-pre-wrap break-words">{renderMentions(comment.content, setProfileUserId)}</p>
+                      )}
+                      {comment.image_url && (
+                        <img
+                          src={comment.image_url}
+                          alt="صورة في التعليق"
+                          loading="lazy"
+                          className="mt-1 rounded-md max-h-64 w-auto max-w-full object-cover cursor-zoom-in"
+                          onClick={() => setLightbox({ src: comment.image_url!, images: [comment.image_url!], index: 0, type: "image" })}
+                        />
+                      )}
+                    </>
                   )}
                   <div className="flex items-center gap-3 mt-1">
                     {renderCommentLike(comment.id)}
@@ -735,7 +843,18 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
                         )}
                       </div>
                     </div>
-                    <p className="text-sm whitespace-pre-wrap break-words">{renderMentions(reply.content, setProfileUserId)}</p>
+                    {reply.content && (
+                      <p className="text-sm whitespace-pre-wrap break-words">{renderMentions(reply.content, setProfileUserId)}</p>
+                    )}
+                    {reply.image_url && (
+                      <img
+                        src={reply.image_url}
+                        alt="صورة في الرد"
+                        loading="lazy"
+                        className="mt-1 rounded-md max-h-64 w-auto max-w-full object-cover cursor-zoom-in"
+                        onClick={() => setLightbox({ src: reply.image_url!, images: [reply.image_url!], index: 0, type: "image" })}
+                      />
+                    )}
                     <div className="mt-1">
                       {renderCommentLike(reply.id)}
                     </div>
@@ -746,19 +865,46 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
               {/* Reply input */}
               {replyTo === comment.id && (
                 <div className="flex gap-2 mr-8 items-end">
-                  <MentionInput
-                    value={replyText}
-                    onChange={setReplyText}
-                    placeholder="اكتب ردك... (اكتب @ لمنشن)"
-                    channel={(post as any).channel || "all"}
-                    currentGender={user && (profile as any)?.gender}
-                    isAdmin={isAdmin}
-                    minRows={1}
-                    className="min-h-[40px] text-sm"
-                  />
-                  <Button size="icon" className="shrink-0" onClick={() => handleReply(comment.id)}>
-                    <Send className="w-4 h-4" />
+                  <div className="flex-1 space-y-1">
+                    {replyPreview && (
+                      <div className="relative inline-block">
+                        <img src={replyPreview} alt="معاينة المرفق" className="h-16 rounded-md border object-cover" />
+                        <button
+                          type="button"
+                          title="إزالة المرفق"
+                          onClick={() => { setReplyImage(null); setReplyPreview(null); }}
+                          className="absolute -top-2 -left-2 w-5 h-5 rounded-full bg-destructive text-destructive-foreground text-xs flex items-center justify-center hover:opacity-80"
+                        >
+                          <X className="w-3 h-3" />
+                        </button>
+                      </div>
+                    )}
+                    <div className="flex items-end gap-1">
+                      <Button variant="ghost" size="icon" className="h-8 w-8 shrink-0" title="إرفاق صورة/GIF" onClick={() => replyFileRef.current?.click()}>
+                        <ImageIcon className="w-4 h-4" />
+                      </Button>
+                      <MentionInput
+                        value={replyText}
+                        onChange={setReplyText}
+                        placeholder="اكتب ردك... (اكتب @ لمنشن)"
+                        channel={(post as any).channel || "all"}
+                        currentGender={user && (profile as any)?.gender}
+                        isAdmin={isAdmin}
+                        minRows={1}
+                        className="min-h-[40px] text-sm"
+                      />
+                    </div>
+                  </div>
+                  <Button size="icon" className="shrink-0" onClick={() => handleReply(comment.id)} disabled={sendingComment || (!replyText.trim() && !replyImage)}>
+                    {sendingComment ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                   </Button>
+                  <input
+                    ref={replyFileRef}
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={e => { pickCommentImage(e.target.files?.[0], "reply"); e.target.value = ""; }}
+                  />
                 </div>
               )}
             </div>
@@ -767,19 +913,46 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
           {/* New comment */}
           {user && (
             <div className="flex gap-2 items-end">
-              <MentionInput
-                value={commentText}
-                onChange={setCommentText}
-                placeholder="اكتب تعليقاً... (اكتب @ لمنشن)"
-                channel={(post as any).channel || "all"}
-                currentGender={user && (profile as any)?.gender}
-                isAdmin={isAdmin}
-                minRows={1}
-                className="min-h-[40px] text-sm"
-              />
-              <Button size="icon" className="shrink-0" onClick={handleComment} disabled={!commentText.trim()}>
-                <Send className="w-4 h-4" />
+              <div className="flex-1 space-y-1">
+                {commentPreview && (
+                  <div className="relative inline-block">
+                    <img src={commentPreview} alt="معاينة المرفق" className="h-16 rounded-md border object-cover" />
+                    <button
+                      type="button"
+                      title="إزالة المرفق"
+                      onClick={() => { setCommentImage(null); setCommentPreview(null); }}
+                      className="absolute -top-2 -left-2 w-5 h-5 rounded-full bg-destructive text-destructive-foreground text-xs flex items-center justify-center hover:opacity-80"
+                    >
+                      <X className="w-3 h-3" />
+                    </button>
+                  </div>
+                )}
+                <div className="flex items-end gap-1">
+                  <Button variant="ghost" size="icon" className="h-8 w-8 shrink-0" title="إرفاق صورة/GIF" onClick={() => commentFileRef.current?.click()}>
+                    <ImageIcon className="w-4 h-4" />
+                  </Button>
+                  <MentionInput
+                    value={commentText}
+                    onChange={setCommentText}
+                    placeholder="اكتب تعليقاً... (اكتب @ لمنشن)"
+                    channel={(post as any).channel || "all"}
+                    currentGender={user && (profile as any)?.gender}
+                    isAdmin={isAdmin}
+                    minRows={1}
+                    className="min-h-[40px] text-sm"
+                  />
+                </div>
+              </div>
+              <Button size="icon" className="shrink-0" onClick={handleComment} disabled={sendingComment || (!commentText.trim() && !commentImage)}>
+                {sendingComment ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
               </Button>
+              <input
+                ref={commentFileRef}
+                type="file"
+                accept="image/*"
+                className="hidden"
+                onChange={e => { pickCommentImage(e.target.files?.[0], "comment"); e.target.value = ""; }}
+              />
             </div>
           )}
             </>

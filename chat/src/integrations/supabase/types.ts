@@ -171,11 +171,12 @@ export type Database = {
       }
       comments: {
         Row: {
-          content: string
+          content: string | null
           created_at: string
           deleted_at: string | null
           deleted_by: string | null
           generation: string | null
+          image_url: string | null
           id: string
           is_pinned: boolean
           parent_comment_id: string | null
@@ -184,11 +185,12 @@ export type Database = {
           user_id: string
         }
         Insert: {
-          content: string
+          content?: string | null
           created_at?: string
           deleted_at?: string | null
           deleted_by?: string | null
           generation?: string | null
+          image_url?: string | null
           id?: string
           is_pinned?: boolean
           parent_comment_id?: string | null
@@ -197,11 +199,12 @@ export type Database = {
           user_id: string
         }
         Update: {
-          content?: string
+          content?: string | null
           created_at?: string
           deleted_at?: string | null
           deleted_by?: string | null
           generation?: string | null
+          image_url?: string | null
           id?: string
           is_pinned?: boolean
           parent_comment_id?: string | null
