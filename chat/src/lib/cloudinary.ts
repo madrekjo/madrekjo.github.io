@@ -4,7 +4,14 @@
 // ملاحظة: بلا Sandbox باسم dlv4q1lzg و preset te8bwmkc - تبديلها من لوحة Cloudinary.
 const CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME || "iahnnsgu";
 const UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET || "madarik";
-const CLOUDINARY_UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
+
+// Cloudinary يفصل نوع المورد: الفيديو يُرفع على /video/upload وإلا رفض 400 «Invalid image file».
+function isVideoFile(file: File): boolean {
+  return file.type.startsWith("video/") || /\.(mp4|webm|mov|m4v|avi|mkv)$/i.test(file.name);
+}
+
+const uploadUrlFor = (file: File) =>
+  `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/${isVideoFile(file) ? "video" : "image"}/upload`;
 
 export function isCloudinaryConfigured(): boolean {
   return Boolean(CLOUD_NAME && UPLOAD_PRESET);
@@ -16,7 +23,7 @@ export async function uploadToCloudinary(file: File): Promise<string> {
   formData.append("upload_preset", UPLOAD_PRESET);
   formData.append("folder", "madarik");
   // فولدر فرعي حسب النوع يمكن تحديده من المتصل عبر خيار
-  const res = await fetch(CLOUDINARY_UPLOAD_URL, {
+  const res = await fetch(uploadUrlFor(file), {
     method: "POST",
     body: formData,
   });
