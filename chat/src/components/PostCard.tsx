@@ -294,7 +294,10 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
 
   const pickCommentImage = (file: File | undefined, kind: "comment" | "reply") => {
     if (!file) return;
-    if (!file.type.startsWith("image/")) { toast.error("الملف ليس صورة"); return; }
+    if (file.type !== "image/gif" && !file.name.toLowerCase().endsWith(".gif")) {
+      toast.error("التعليقات تقبل GIF فقط");
+      return;
+    }
     if (file.size > MAX_IMAGE_BYTES * 4) { toast.error("حجم الملف كبير جداً — الحد 5MB"); return; }
     const preview = URL.createObjectURL(file);
     if (kind === "comment") { setCommentImage(file); setCommentPreview(preview); }
@@ -318,7 +321,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
       let imageUrl: string | null = null;
       if (commentImage) {
         try { imageUrl = await uploadCommentImage(commentImage); }
-        catch { toast.error("تعذر رفع صورة التعليق — الحد 5MB"); return; }
+        catch { toast.error("تعذر رفع GIF — الحد 5MB"); return; }
       }
       const payload = {
         post_id: post.id,
@@ -370,7 +373,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
       let imageUrl: string | null = null;
       if (replyImage) {
         try { imageUrl = await uploadCommentImage(replyImage); }
-        catch { toast.error("تعذر رفع صورة الرد — الحد 5MB"); return; }
+        catch { toast.error("تعذر رفع GIF — الحد 5MB"); return; }
       }
       const payload = {
         post_id: post.id,
@@ -880,7 +883,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
                       </div>
                     )}
                     <div className="flex items-end gap-1">
-                      <Button variant="ghost" size="icon" className="h-8 w-8 shrink-0" title="إرفاق صورة/GIF" onClick={() => replyFileRef.current?.click()}>
+                      <Button variant="ghost" size="icon" className="h-8 w-8 shrink-0" title="إرفاق GIF" onClick={() => replyFileRef.current?.click()}>
                         <ImageIcon className="w-4 h-4" />
                       </Button>
                       <MentionInput
@@ -901,7 +904,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
                   <input
                     ref={replyFileRef}
                     type="file"
-                    accept="image/*"
+                    accept="image/gif"
                     className="hidden"
                     onChange={e => { pickCommentImage(e.target.files?.[0], "reply"); e.target.value = ""; }}
                   />
@@ -928,7 +931,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
                   </div>
                 )}
                 <div className="flex items-end gap-1">
-                  <Button variant="ghost" size="icon" className="h-8 w-8 shrink-0" title="إرفاق صورة/GIF" onClick={() => commentFileRef.current?.click()}>
+                  <Button variant="ghost" size="icon" className="h-8 w-8 shrink-0" title="إرفاق GIF" onClick={() => commentFileRef.current?.click()}>
                     <ImageIcon className="w-4 h-4" />
                   </Button>
                   <MentionInput
@@ -949,7 +952,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
               <input
                 ref={commentFileRef}
                 type="file"
-                accept="image/*"
+                accept="image/gif"
                 className="hidden"
                 onChange={e => { pickCommentImage(e.target.files?.[0], "comment"); e.target.value = ""; }}
               />
