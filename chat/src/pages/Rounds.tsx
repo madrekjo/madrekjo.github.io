@@ -241,7 +241,7 @@ const Rounds = () => {
 
   useEffect(() => { fetchMyCompletions(); }, [user?.id]);
 
-  // لوحة الحضور: عند فتح الجلسة ثم كل دقيقة
+  // لوحة الحضور: تُجلب مرة واحدة عند فتح الجلسة — بلا استطلاع متكرر
   const loadBoard = useCallback(async (id: string) => {
     setBoard(await leaderboard(id));
   }, [leaderboard]);
@@ -249,8 +249,6 @@ const Rounds = () => {
   useEffect(() => {
     if (!sessionRoundId) { setBoard([]); return; }
     void loadBoard(sessionRoundId);
-    const t = setInterval(() => void loadBoard(sessionRoundId), 60_000);
-    return () => clearInterval(t);
   }, [sessionRoundId, loadBoard]);
 
   // ---------------------------------------------------------------
