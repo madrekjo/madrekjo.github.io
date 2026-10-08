@@ -18,6 +18,7 @@ import {
   Users, Plus, Loader2, Trash2, LogIn, Clock, Play,
   Coffee, BellRing, Eye, HelpCircle, CheckCircle2, UserMinus, Edit2, Lock,
   MessageSquare, RefreshCw, Flame, Square, ImagePlus, UserPlus,
+  LayoutGrid, List, Target, Award, Activity,
 } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
@@ -90,6 +91,15 @@ const Rounds = () => {
   const [creating, setCreating] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [busyId, setBusyId] = useState<string | null>(null);
+  // وضع العرض: شبكة بطاقات أو قائمة مضغوطة (محفوظ محلياً)
+  const [viewMode, setViewMode] = useState<"grid" | "list">(() => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("rounds:viewMode") === "list") return "list";
+    return "grid";
+  });
+  const toggleView = (m: "grid" | "list") => {
+    setViewMode(m);
+    try { localStorage.setItem("rounds:viewMode", m); } catch {}
+  };
 
   const [now, setNow] = useState(Date.now());
   const alarmRef = useRef<HTMLAudioElement | null>(null);
@@ -555,7 +565,117 @@ const Rounds = () => {
   const completed = rounds.filter(r => r.status === "completed");
   const myMeetings = meetings;
 
+  // إحصائيات الهيرو
+  const activeCount = active.length;
+  const activeNow = active.filter(r => r.status === "active" && !isRoundOver(r, now)).length;
+  const totalParticipants = rounds.reduce((s, r) => s + r.participants.length, 0);
+  const myActive = rounds.filter(r => r.status !== "completed" && (r.user_id === user?.id || r.participants.some(x => x.user_id === user?.id))).length;
+
   // بطاقة الحضور الشخصي انتقلت إلى شاشة الجولة (RoundSessionScreen)
+
+  const statusChip = (r: Round) => {
+    const over = r.status === "active" && isRoundOver(r, now);
+    const chip = "flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-medium";
+    if (r.status === "completed")
+      return <span className={`${chip} bg-green-500/15 text-green-600 dark:text-green-400`}><CheckCircle2 className="h-3 w-3" /> {r.settled ? "محسومة" : "منجزة"}</span>;
+    if (over) return <span className={`${chip} bg-amber-500/15 text-amber-600 dark:text-amber-400`}>انتهت</span>;
+    if (r.status === "active")
+      return <span className={`${chip} bg-primary/15 text-primary`}><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" /> نشطة</span>;
+    return <span className={`${chip} bg-muted text-muted-foreground`}>بانتظار البدء</span>;
+  };
+
+  /** قائمة مضغوطة — صف أفقي مدمج لكل جولة */
+  const renderCompactRow = (r: Round) => {
+    const isOwner = r.user_id === user?.id;
+    const canStart = isOwner && r.status === "pending";
+    const canEnd = isOwner && r.status === "active";
+    const st = roundStateAt(r, now);
+    const over = r.status === "active" && st.wallRemaining <= 0;
+    const busy = busyId === r.id;
+    const didComplete = myCompletions.has(r.id);
+
+    return (
+      <div
+        key={r.id}
+        className={`group flex items-center gap-3 rounded-xl border bg-card p-3 transition-all hover:shadow-md cursor-pointer ${r.status === "active" && !over ? "border-primary/40 shadow-sm" : ""}`}
+        onClick={() => joinAndEnter(r)}
+      >
+        {/* صورة مصغّرة */}
+        <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg">
+          {r.cover_image_url ? (
+            <img src={r.cover_image_url} alt="" loading="lazy" className="h-full w-full object-cover" />
+          ) : (
+            <div className={`h-full w-full ${r.status === "active" && !over ? "bg-gradient-to-br from-primary/80 to-emerald-500/60" : "bg-gradient-to-br from-slate-500/60 to-slate-700/60"}`} />
+          )}
+          {r.status === "active" && !over && (
+            <span className="absolute bottom-1 left-1 h-2 w-2 animate-pulse rounded-full bg-green-400 ring-2 ring-black/50" />
+          )}
+        </div>
+
+        {/* المحتوى */}
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center gap-2">
+            <p className="truncate text-sm font-bold group-hover:text-primary transition-colors">{r.title}</p>
+            {statusChip(r)}
+          </div>
+          <p className="mt-0.5 flex items-center gap-2 truncate text-xs text-muted-foreground">
+            <Avatar className="h-4 w-4 border">
+              <AvatarImage src={r.profile?.avatar_url || ""} />
+              <AvatarFallback className="text-[8px]">{r.profile?.full_name?.charAt(0) || "م"}</AvatarFallback>
+            </Avatar>
+            <span className="truncate">{r.profile?.full_name}</span>
+            <span className="shrink-0">• {r.duration_minutes}د</span>
+            {r.capacity != null && <span className="shrink-0 flex items-center gap-0.5"><Users className="h-3 w-3" />{r.participants.length}/{r.capacity}</span>}
+            {r.status !== "completed" && r.capacity == null && <span className="shrink-0 flex items-center gap-0.5"><Users className="h-3 w-3" />{r.participants.length}</span>}
+          </p>
+        </div>
+
+        {/* الجهة اليسرى: الوقت + الأفعال */}
+        <div className="flex shrink-0 items-center gap-2" onClick={e => e.stopPropagation()}>
+          {r.status === "active" && (
+            <span className={`rounded-full px-2.5 py-1 text-sm font-bold tabular-nums ${over ? "bg-muted text-muted-foreground" : "bg-primary/10 text-primary"}`} dir="ltr">
+              {over ? "00:00" : formatDuration(st.wallRemaining)}
+            </span>
+          )}
+          {r.status === "completed" && myCompletions.has(r.id) === false && (
+            <Button size="sm" variant="ghost" className="h-8 gap-1" onClick={() => setCompletionRound(r)}>
+              <Flame className="h-3.5 w-3.5" /> إنجازي
+            </Button>
+          )}
+          {canStart && (
+            <Button size="sm" onClick={() => handleStart(r)} disabled={busy} className="h-8 gap-1">
+              {busy ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Play className="h-3.5 w-3.5" />} بدء
+            </Button>
+          )}
+          {canEnd && (
+            <Button size="sm" variant="outline" onClick={() => handleEndRound(r)} disabled={busy} className="h-8 gap-1 text-destructive">
+              {busy ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Square className="h-3.5 w-3.5" />} إنهاء
+            </Button>
+          )}
+          {r.status !== "completed" && !canStart && !canEnd && (
+            <Button size="sm" onClick={() => joinAndEnter(r)} className="h-8 gap-1">
+              <LogIn className="h-3.5 w-3.5" /> دخول
+            </Button>
+          )}
+          {(isOwner || isStaff) && (
+            <>
+              {isOwner && r.status !== "active" && (
+                <Button size="icon" variant="ghost" className="h-8 w-8" onClick={() => openEdit(r)} title="تعديل">
+                  <Edit2 className="h-3.5 w-3.5" />
+                </Button>
+              )}
+              <Button size="icon" variant="ghost" className="h-8 w-8 text-destructive" onClick={() => handleDelete(r.id)} title="حذف">
+                <Trash2 className="h-3.5 w-3.5" />
+              </Button>
+            </>
+          )}
+          <Button size="icon" variant="ghost" className="h-8 w-8" onClick={() => setViewingRound(r)} title="المشاركون">
+            <Eye className="h-3.5 w-3.5" />
+          </Button>
+        </div>
+      </div>
+    );
+  };
 
   const renderCard = (r: Round) => {
     const isOwner = r.user_id === user?.id;
@@ -735,46 +855,106 @@ const Rounds = () => {
     <div className="container mx-auto px-4 py-6 max-w-5xl">
       <audio ref={alarmRef} src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" preload="auto" />
 
-      <div className="flex items-center justify-between mb-6 flex-wrap gap-2">
-        <div className="flex items-center gap-2">
-          <Users className="w-6 h-6 text-primary" />
-          <h1 className="text-2xl font-bold">الجولات الدراسية</h1>
-        </div>
-        <div className="flex gap-2">
-          <Button size="sm" variant="outline" disabled={refreshing} onClick={async () => {
-            setRefreshing(true);
-            try { await fetchRounds(); await fetchMeetings(); await fetchRoundsDetail(); }
-            finally { setRefreshing(false); }
-          }} className="gap-1">
-            {refreshing ? <Loader2 className="w-4 h-4 animate-spin" /> : <RefreshCw className="w-4 h-4" />} تحديث
-          </Button>
-          <Button size="sm" variant="ghost" onClick={() => setHelpOpen(true)} className="gap-1">
-            <HelpCircle className="w-4 h-4" /> شرح
-          </Button>
-          {canCreateRound && (
-            <Dialog open={open} onOpenChange={o => { setOpen(o); if (!o) resetForm(); }}>
-              <DialogTrigger asChild>
-                <Button size="sm" className="gap-1"><Plus className="w-4 h-4" />جولة جديدة</Button>
-              </DialogTrigger>
-              <DialogContent className="max-h-[90vh] overflow-y-auto">
-                <DialogHeader><DialogTitle>إنشاء جولة دراسية</DialogTitle></DialogHeader>
-                <RoundForm
-                  title={title} setTitle={setTitle}
-                  description={description} setDescription={setDescription}
-                  duration={duration} setDuration={setDuration}
-                  breakEnabled={breakEnabled} setBreakEnabled={setBreakEnabled}
-                  breakInterval={breakInterval} setBreakInterval={setBreakInterval}
-                  breakDuration={breakDuration} setBreakDuration={setBreakDuration}
-                  alarmMuted={alarmMuted} setAlarmMuted={setAlarmMuted}
-                  capacity={capacity} setCapacity={setCapacity}
-                  coverPreview={coverPreview} onPickCover={pickCover} onRemoveCover={clearCover}
-                />
-                <Button onClick={handleCreate} disabled={creating || !title.trim()} className="w-full">
-                  {creating ? <Loader2 className="w-4 h-4 animate-spin" /> : "إنشاء"}
-                </Button>
-              </DialogContent>
-            </Dialog>
-          )}
+      {/* ===== الهيرو ===== */}
+      <div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-primary/12 via-card to-card mb-6">
+        {/* زخارف خلفية */}
+        <div className="pointer-events-none absolute -top-20 -left-20 h-56 w-56 rounded-full bg-primary/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -right-16 h-64 w-64 rounded-full bg-emerald-500/8 blur-3xl" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,transparent_60%,primary/5_100%)]" />
+
+        <div className="relative p-5 sm:p-7">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/15 text-primary ring-1 ring-primary/25">
+                <Target className="h-7 w-7" />
+              </div>
+              <div>
+                <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">الجولات الدراسية</h1>
+                <p className="mt-0.5 text-sm text-muted-foreground">
+                  ادرس مع زملائك بتركيز مشترك — كل ساعة حضور = <b className="text-amber-500">{POINTS_PER_BATCH} نقاط</b>
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2">
+              <Button size="sm" variant="outline" disabled={refreshing} onClick={async () => {
+                setRefreshing(true);
+                try { await fetchRounds(); await fetchMeetings(); await fetchRoundsDetail(); }
+                finally { setRefreshing(false); }
+              }} className="gap-1">
+                {refreshing ? <Loader2 className="w-4 h-4 animate-spin" /> : <RefreshCw className="w-4 h-4" />} تحديث
+              </Button>
+              <Button size="sm" variant="ghost" onClick={() => setHelpOpen(true)} className="gap-1">
+                <HelpCircle className="w-4 h-4" /> شرح
+              </Button>
+              {canCreateRound && (
+                <Dialog open={open} onOpenChange={o => { setOpen(o); if (!o) resetForm(); }}>
+                  <DialogTrigger asChild>
+                    <Button size="sm" className="gap-1.5 shadow-lg shadow-primary/25">
+                      <Plus className="w-4 h-4" /> جولة جديدة
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-h-[90vh] overflow-y-auto">
+                    <DialogHeader><DialogTitle>إنشاء جولة دراسية</DialogTitle></DialogHeader>
+                    <RoundForm
+                      title={title} setTitle={setTitle}
+                      description={description} setDescription={setDescription}
+                      duration={duration} setDuration={setDuration}
+                      breakEnabled={breakEnabled} setBreakEnabled={setBreakEnabled}
+                      breakInterval={breakInterval} setBreakInterval={setBreakInterval}
+                      breakDuration={breakDuration} setBreakDuration={setBreakDuration}
+                      alarmMuted={alarmMuted} setAlarmMuted={setAlarmMuted}
+                      capacity={capacity} setCapacity={setCapacity}
+                      coverPreview={coverPreview} onPickCover={pickCover} onRemoveCover={clearCover}
+                    />
+                    <Button onClick={handleCreate} disabled={creating || !title.trim()} className="w-full">
+                      {creating ? <Loader2 className="w-4 h-4 animate-spin" /> : "إنشاء"}
+                    </Button>
+                  </DialogContent>
+                </Dialog>
+              )}
+            </div>
+          </div>
+
+          {/* إحصائيات */}
+          <div className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4">
+            <div className="flex items-center gap-2.5 rounded-xl border bg-background/60 px-3 py-2.5 backdrop-blur">
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <Activity className="h-4 w-4" />
+              </span>
+              <div>
+                <p className="text-lg font-extrabold leading-none tabular-nums">{activeNow}</p>
+                <p className="mt-0.5 text-[11px] text-muted-foreground">جولة تُحتسب الآن</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2.5 rounded-xl border bg-background/60 px-3 py-2.5 backdrop-blur">
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <Users className="h-4 w-4" />
+              </span>
+              <div>
+                <p className="text-lg font-extrabold leading-none tabular-nums">{activeCount}</p>
+                <p className="mt-0.5 text-[11px] text-muted-foreground">جولة {activeCount === 1 ? "نشطة" : "نشطة"}</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2.5 rounded-xl border bg-background/60 px-3 py-2.5 backdrop-blur">
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <LogIn className="h-4 w-4" />
+              </span>
+              <div>
+                <p className="text-lg font-extrabold leading-none tabular-nums">{myActive}</p>
+                <p className="mt-0.5 text-[11px] text-muted-foreground">أنت منضم فيها</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2.5 rounded-xl border bg-background/60 px-3 py-2.5 backdrop-blur">
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500">
+                <Award className="h-4 w-4" />
+              </span>
+              <div>
+                <p className="text-lg font-extrabold leading-none tabular-nums text-amber-500">{balance}</p>
+                <p className="mt-0.5 text-[11px] text-muted-foreground">رصيدك من {MAX_BALANCE}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -816,19 +996,46 @@ const Rounds = () => {
       )}
 
       <Tabs defaultValue="active">
-        <TabsList className="grid grid-cols-2 mb-4">
-          <TabsTrigger value="active">النشطة ({active.length})</TabsTrigger>
-          <TabsTrigger value="completed">المنجزة ({completed.length})</TabsTrigger>
-        </TabsList>
+        <div className="mb-4 flex items-center justify-between gap-2">
+          <TabsList className="grid w-full max-w-xs grid-cols-2">
+            <TabsTrigger value="active">النشطة ({active.length})</TabsTrigger>
+            <TabsTrigger value="completed">المنجزة ({completed.length})</TabsTrigger>
+          </TabsList>
+          {/* مبدّل شبكة / قائمة */}
+          <div className="flex shrink-0 items-center gap-1 rounded-lg border bg-muted/40 p-1">
+            <button
+              onClick={() => toggleView("grid")}
+              aria-label="عرض شبكي"
+              className={`flex h-7 w-7 items-center justify-center rounded-md transition-colors ${viewMode === "grid" ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"}`}
+            >
+              <LayoutGrid className="h-4 w-4" />
+            </button>
+            <button
+              onClick={() => toggleView("list")}
+              aria-label="عرض قائمة"
+              className={`flex h-7 w-7 items-center justify-center rounded-md transition-colors ${viewMode === "list" ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"}`}
+            >
+              <List className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
         <TabsContent value="active">
           {active.length === 0 ? (
             <p className="text-center py-12 text-muted-foreground">لا توجد جولات نشطة</p>
-          ) : <div className="grid gap-3 sm:grid-cols-2">{active.map(renderCard)}</div>}
+          ) : viewMode === "grid" ? (
+            <div className="grid gap-3 sm:grid-cols-2">{active.map(renderCard)}</div>
+          ) : (
+            <div className="space-y-2">{active.map(renderCompactRow)}</div>
+          )}
         </TabsContent>
         <TabsContent value="completed">
           {completed.length === 0 ? (
             <p className="text-center py-12 text-muted-foreground">لا توجد جولات منجزة</p>
-          ) : <div className="grid gap-3 sm:grid-cols-2">{completed.map(renderCard)}</div>}
+          ) : viewMode === "grid" ? (
+            <div className="grid gap-3 sm:grid-cols-2">{completed.map(renderCard)}</div>
+          ) : (
+            <div className="space-y-2">{completed.map(renderCompactRow)}</div>
+          )}
         </TabsContent>
       </Tabs>
 
