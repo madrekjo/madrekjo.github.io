@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/accordion";
 import {
   X, Users, Clock, Coffee, Play, Square, LogOut as LogOutIcon, UserMinus,
-  Trophy, Flame, Activity, CheckCircle2, UserPlus, Hourglass, BellRing,
+  Trophy, Flame, Activity, CheckCircle2, UserPlus, Hourglass, BellRing, PauseCircle,
 } from "lucide-react";
 import {
   roundStateAt,
@@ -51,8 +51,8 @@ interface RoundSessionScreenProps {
 
 /**
  * شاشة الجولة — تغطّي الصفحة كلها.
- * الدخول تلقائي عند الفتح والجولة نشطة، والخروج من الشاشة (×) لا يوقف
- * الاحتساب؛ يوقفه زر «إيقاف الاحتساب» أو نهاية الجولة.
+ * زر «مغادرة الجولة» يوقف الاحتساب ويخرج من الشاشة (كل شيء يتوقف).
+ * زر «×» يُغلق الشاشة فقط ويستمر الاحتساب في الخلفية.
  */
 const RoundSessionScreen = (p: RoundSessionScreenProps) => {
   const { round, now, board, joined, live, beating, busy } = p;
@@ -86,9 +86,9 @@ const RoundSessionScreen = (p: RoundSessionScreenProps) => {
   return (
     <div className="fixed inset-0 z-[60] bg-background overflow-y-auto">
       <div className="mx-auto flex max-w-2xl min-h-full flex-col gap-4 px-4 py-4">
-        {/* شريط علوي: رجوع + عنوان + إيقاف الاحتساب */}
+        {/* شريط علوي: رجوع + عنوان + مغادرة */}
         <div className="sticky top-0 z-10 -mx-4 flex items-center gap-2 border-b bg-background px-4 py-3">
-          <Button variant="ghost" size="icon" onClick={p.onBack} aria-label="رجوع">
+          <Button variant="ghost" size="icon" onClick={p.onBack} aria-label="إغلاق">
             <X className="w-5 h-5" />
           </Button>
           <div className="min-w-0 flex-1">
@@ -98,8 +98,8 @@ const RoundSessionScreen = (p: RoundSessionScreenProps) => {
             )}
           </div>
           {joined && (
-            <Button variant="outline" size="sm" className="gap-1 text-destructive" onClick={p.onExit}>
-              <LogOutIcon className="w-4 h-4" /> إيقاف الاحتساب
+            <Button variant="destructive" size="sm" className="gap-1" onClick={p.onLeave}>
+              <LogOutIcon className="w-4 h-4" /> مغادرة الجولة
             </Button>
           )}
         </div>
@@ -254,6 +254,11 @@ const RoundSessionScreen = (p: RoundSessionScreenProps) => {
                 <p className="text-[11px] text-muted-foreground">
                   رصيدك {balance} / {MAX_BALANCE}
                 </p>
+                {joined && (
+                  <Button variant="outline" size="sm" className="mt-1 gap-1 text-destructive" onClick={p.onExit}>
+                    <PauseCircle className="h-4 w-4" /> إيقاف الاحتساب
+                  </Button>
+                )}
               </div>
             </div>
 
@@ -284,15 +289,6 @@ const RoundSessionScreen = (p: RoundSessionScreenProps) => {
             {isOwner && (
               <Button variant="outline" className="gap-1" onClick={p.onInvite}>
                 <UserPlus className="h-4 w-4" /> دعوة
-              </Button>
-            )}
-            {p.isMember && !isOwner && (
-              <Button
-                variant="destructive"
-                className="gap-1"
-                onClick={p.onLeave}
-              >
-                <LogOutIcon className="h-4 w-4" /> مغادرة الجولة
               </Button>
             )}
           </div>
@@ -418,8 +414,8 @@ const RoundSessionScreen = (p: RoundSessionScreenProps) => {
         </Accordion>
 
         <p className="pb-2 text-center text-[11px] text-muted-foreground">
-          الاحتساب يبدأ بزر «ابدأ الاحتساب»، ويستمر ولو انتقلت لصفحة أخرى — يوقفه
-          «إيقاف الاحتساب» أو نهاية الجولة. الساعة من الخادم لا من جهازك.
+          «×» يُغلق الشاشة فقط ويستمر الاحتساب في الخلفية. «مغادرة الجولة» توقف
+          الاحتساب والمنبّه وتخرج بالكامل. الساعة من الخادم لا من جهازك.
         </p>
       </div>
     </div>

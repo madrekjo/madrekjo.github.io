@@ -849,7 +849,7 @@ const Rounds = () => {
           onEnter={() => enterRound(sessionRound.id)}
           onExit={() => exitRound()}
           onBack={() => setSessionRoundId(null)}
-          onLeave={async () => { exitRound(); await handleLeave(sessionRound.id); setSessionRoundId(null); }}
+          onLeave={async () => { stopAlarm(sessionRound.id, true); exitRound(); await handleLeave(sessionRound.id); setSessionRoundId(null); }}
           onStart={() => handleStart(sessionRound)}
           onEnd={() => handleEndRound(sessionRound)}
           onInvite={() => setInviteRound(sessionRound)}
