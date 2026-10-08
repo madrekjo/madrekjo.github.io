@@ -84,7 +84,7 @@ const RoundSessionScreen = (p: RoundSessionScreenProps) => {
   ];
 
   return (
-    <div className="fixed inset-0 z-[45] bg-background overflow-y-auto">
+    <div className="fixed inset-0 z-[60] bg-background overflow-y-auto">
       <div className="mx-auto flex max-w-2xl min-h-full flex-col gap-4 px-4 py-4">
         {/* شريط علوي: رجوع + عنوان + إيقاف الاحتساب */}
         <div className="sticky top-0 z-10 -mx-4 flex items-center gap-2 border-b bg-background px-4 py-3">

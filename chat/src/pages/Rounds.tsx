@@ -570,46 +570,80 @@ const Rounds = () => {
     const busy = busyId === r.id;
     const didComplete = myCompletions.has(r.id);
 
+    const chip = "flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-medium backdrop-blur";
+
     return (
-      <Card key={r.id} className={r.status === "active" ? "border-primary/40" : ""}>
-        <CardHeader className="pb-2">
-          <div className="flex items-start justify-between gap-2">
-            <div className="flex items-center gap-2">
-              <Avatar className="w-8 h-8">
+      <Card key={r.id} className={`group overflow-hidden p-0 transition-all hover:shadow-lg ${r.status === "active" ? "border-primary/40 shadow-md" : ""}`}>
+        {/* الغلاف: صورة أو تدرّج + شارات الحالة */}
+        <div className="relative h-36">
+          {r.cover_image_url ? (
+            <img src={r.cover_image_url} alt="" loading="lazy" className="h-full w-full object-cover" />
+          ) : (
+            <div className={`h-full w-full ${r.status === "active" ? "bg-gradient-to-br from-primary/80 via-primary/50 to-emerald-500/50" : "bg-gradient-to-br from-slate-500/70 via-slate-600/50 to-slate-700/60"}`} />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-black/10" />
+
+          <div className="absolute right-2 top-2 flex gap-1.5">
+            {r.status === "completed" ? (
+              <span className={`${chip} bg-green-600/90 text-white`}>
+                <CheckCircle2 className="h-3 w-3" /> منجزة{r.settled ? " • محسومة" : " • غير محسومة"}
+              </span>
+            ) : over ? (
+              <span className={`${chip} bg-amber-500/90 text-white`}>انتهت</span>
+            ) : r.status === "active" ? (
+              <span className={`${chip} bg-primary/90 text-primary-foreground`}>
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" /> نشطة
+              </span>
+            ) : (
+              <span className={`${chip} bg-black/55 text-white`}>بانتظار البدء</span>
+            )}
+            {r.capacity != null && (
+              <span className={`${chip} bg-black/55 text-white`}>
+                <Users className="h-3 w-3" /> {r.participants.length}/{r.capacity}
+              </span>
+            )}
+          </div>
+
+          {(canEdit || canDelete) && (
+            <div className="absolute left-2 top-2 flex gap-1">
+              {canEdit && (
+                <Button size="icon" className="h-7 w-7 border border-white/20 bg-black/40 text-white backdrop-blur hover:bg-black/60" onClick={() => openEdit(r)} title="تعديل">
+                  <Edit2 className="h-3.5 w-3.5" />
+                </Button>
+              )}
+              {canDelete && (
+                <Button size="icon" className="h-7 w-7 border border-white/20 bg-black/40 text-white backdrop-blur hover:bg-black/60" onClick={() => handleDelete(r.id)} title="حذف">
+                  <Trash2 className="h-3.5 w-3.5" />
+                </Button>
+              )}
+            </div>
+          )}
+
+          <div className="absolute inset-x-3 bottom-2 flex items-end justify-between gap-2">
+            <div className="flex min-w-0 items-center gap-2">
+              <Avatar className="h-7 w-7 border border-white/40">
                 <AvatarImage src={r.profile?.avatar_url || ""} />
-                <AvatarFallback className="bg-primary/10 text-primary text-xs">
+                <AvatarFallback className="bg-black/40 text-white text-xs">
                   {r.profile?.full_name?.charAt(0) || "م"}
                 </AvatarFallback>
               </Avatar>
-              <div>
-                <CardTitle className="text-base flex items-center gap-2">
-                  {r.title}
-                  {r.status === "completed" && <CheckCircle2 className="w-4 h-4 text-green-500" />}
-                </CardTitle>
-                <p className="text-xs text-muted-foreground">
+              <div className="min-w-0">
+                <p className="truncate text-sm font-bold text-white drop-shadow">{r.title}</p>
+                <p className="truncate text-[10px] text-white/80">
                   {r.profile?.full_name} • {formatDistanceToNow(new Date(r.created_at), { addSuffix: true, locale: ar })}
                 </p>
               </div>
             </div>
-            <div className="flex gap-1">
-              {canEdit && (
-                <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => openEdit(r)} title="تعديل">
-                  <Edit2 className="w-4 h-4" />
-                </Button>
-              )}
-              {canDelete && (
-                <Button variant="ghost" size="icon" className="text-destructive h-8 w-8" onClick={() => handleDelete(r.id)}>
-                  <Trash2 className="w-4 h-4" />
-                </Button>
-              )}
-            </div>
+            {r.status === "active" && (
+              <span className="shrink-0 rounded-full bg-black/55 px-2 py-1 text-xs font-bold tabular-nums text-white backdrop-blur" dir="ltr">
+                {over ? "00:00" : formatDuration(st.wallRemaining)}
+              </span>
+            )}
           </div>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          {r.cover_image_url && (
-            <img src={r.cover_image_url} alt="" loading="lazy" className="h-40 w-full rounded-lg border object-cover" />
-          )}
-          {r.description && <p className="text-sm">{r.description}</p>}
+        </div>
+
+        <CardContent className="space-y-3 p-3 sm:p-4">
+          {r.description && <p className="text-sm text-muted-foreground line-clamp-2">{r.description}</p>}
 
           <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
             <span className="flex items-center gap-1">
@@ -624,7 +658,6 @@ const Rounds = () => {
                 <Coffee className="w-3 h-3" /> بريك {r.break_duration_minutes}د كل {r.break_interval_minutes}د
               </span>
             )}
-            {r.settled && <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-green-500" /> سجل الحضور مُجمَّد</span>}
           </div>
 
           {r.status === "active" && (
@@ -699,7 +732,7 @@ const Rounds = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-6 max-w-3xl">
+    <div className="container mx-auto px-4 py-6 max-w-5xl">
       <audio ref={alarmRef} src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" preload="auto" />
 
       <div className="flex items-center justify-between mb-6 flex-wrap gap-2">
@@ -790,12 +823,12 @@ const Rounds = () => {
         <TabsContent value="active">
           {active.length === 0 ? (
             <p className="text-center py-12 text-muted-foreground">لا توجد جولات نشطة</p>
-          ) : <div className="space-y-3">{active.map(renderCard)}</div>}
+          ) : <div className="grid gap-3 sm:grid-cols-2">{active.map(renderCard)}</div>}
         </TabsContent>
         <TabsContent value="completed">
           {completed.length === 0 ? (
             <p className="text-center py-12 text-muted-foreground">لا توجد جولات منجزة</p>
-          ) : <div className="space-y-3">{completed.map(renderCard)}</div>}
+          ) : <div className="grid gap-3 sm:grid-cols-2">{completed.map(renderCard)}</div>}
         </TabsContent>
       </Tabs>
 
