@@ -181,9 +181,9 @@ describe("النقاط — دالة حتمية على الثواني", () => {
     expect(pointsForFocusSeconds(720)).toBe(2);
   });
 
-  it("20 نقطة كل ساعتين بالضبط — الشرط المطلوب", () => {
-    expect(SECONDS_PER_BATCH).toBe(7200);
-    expect(POINTS_PER_BATCH).toBe(20);
+  it("10 نقاط كل ساعة بالضبط — الشرط المطلوب", () => {
+    expect(SECONDS_PER_BATCH).toBe(3600);
+    expect(POINTS_PER_BATCH).toBe(10);
     expect(pointsForFocusSeconds(SECONDS_PER_BATCH)).toBe(POINTS_PER_BATCH);
     expect(pointsForFocusSeconds(SECONDS_PER_BATCH - 1)).toBe(POINTS_PER_BATCH - 1);
     expect(pointsForFocusSeconds(SECONDS_PER_BATCH * 2)).toBe(POINTS_PER_BATCH * 2);

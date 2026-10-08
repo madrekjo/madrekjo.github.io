@@ -273,6 +273,7 @@ export type Database = {
           id: string
           is_read: boolean
           post_id: string | null
+          round_id: string | null
           type: string
           user_id: string
         }
@@ -283,6 +284,7 @@ export type Database = {
           id?: string
           is_read?: boolean
           post_id?: string | null
+          round_id?: string | null
           type: string
           user_id: string
         }
@@ -293,6 +295,7 @@ export type Database = {
           id?: string
           is_read?: boolean
           post_id?: string | null
+          round_id?: string | null
           type?: string
           user_id?: string
         }
@@ -309,6 +312,13 @@ export type Database = {
             columns: ["post_id"]
             isOneToOne: false
             referencedRelation: "posts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "notifications_round_id_fkey"
+            columns: ["round_id"]
+            isOneToOne: false
+            referencedRelation: "study_rounds"
             referencedColumns: ["id"]
           },
         ]
@@ -852,6 +862,8 @@ export type Database = {
           break_duration_minutes: number | null
           break_enabled: boolean
           break_interval_minutes: number | null
+          capacity: number | null
+          cover_image_url: string | null
           created_at: string
           description: string | null
           duration_minutes: number
@@ -868,6 +880,8 @@ export type Database = {
           break_duration_minutes?: number | null
           break_enabled?: boolean
           break_interval_minutes?: number | null
+          capacity?: number | null
+          cover_image_url?: string | null
           created_at?: string
           description?: string | null
           duration_minutes?: number
@@ -884,6 +898,8 @@ export type Database = {
           break_duration_minutes?: number | null
           break_enabled?: boolean
           break_interval_minutes?: number | null
+          capacity?: number | null
+          cover_image_url?: string | null
           created_at?: string
           description?: string | null
           duration_minutes?: number

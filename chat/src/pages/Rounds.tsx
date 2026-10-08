@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { invalidateTable } from "@/lib/invalidation";
 import { supabase } from "@/integrations/supabase/client";
@@ -14,52 +15,33 @@ import {
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import {
-  Users, Plus, Loader2, Trash2, LogIn, LogOut as LogOutIcon, Clock, Play,
+  Users, Plus, Loader2, Trash2, LogIn, Clock, Play,
   Coffee, BellRing, Eye, HelpCircle, CheckCircle2, UserMinus, Edit2, Lock,
-  MessageSquare, RefreshCw, Flame, Trophy, Square, Activity,
+  MessageSquare, RefreshCw, Flame, Square, ImagePlus, UserPlus,
 } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import MeetingChat from "@/components/MeetingChat";
 import { usePoints } from "@/contexts/PointsContext";
 import { useRoundPresence } from "@/hooks/useRoundPresence";
+import RoundSessionScreen from "@/components/rounds/RoundSessionScreen";
+import InviteDialog from "@/components/rounds/InviteDialog";
+import type { Round, Meeting } from "@/components/rounds/types";
+import { compressImage, MAX_IMAGE_BYTES } from "@/lib/mediaCompression";
+import { uploadToCloudinary } from "@/lib/cloudinary";
 import {
   roundStateAt,
   roundTotalSeconds,
   breakSecondsLeft,
   formatDuration,
+  BASE_BALANCE,
   MAX_BALANCE,
-  SECONDS_PER_BATCH,
   POINTS_PER_BATCH,
-  type RoundState,
 } from "@/lib/roundSchedule";
 import type { RoundLeaderboardRow } from "@/lib/points";
 
-interface Round {
-  id: string;
-  user_id: string;
-  title: string;
-  description: string | null;
-  duration_minutes: number;
-  break_enabled: boolean;
-  break_interval_minutes: number | null;
-  break_duration_minutes: number | null;
-  alarm_muted: boolean;
-  started_at: string | null;
-  ended_at: string | null;
-  /** يُحسب مرة واحدة في الخادم عند start_round — لا يلمسه العميل */
-  scheduled_end_at: string | null;
-  settled: boolean;
-  status: "pending" | "active" | "completed";
-  created_at: string;
-  profile?: { full_name: string; avatar_url: string | null } | null;
-  participants: { user_id: string; profile?: { full_name: string; avatar_url: string | null } | null }[];
-}
-
-interface Meeting { id: string; owner_id: string; title: string; }
-
 const ROUND_COLUMNS =
-  "id, user_id, title, description, duration_minutes, break_enabled, break_interval_minutes, break_duration_minutes, alarm_muted, started_at, ended_at, scheduled_end_at, settled, status, created_at";
+  "id, user_id, title, description, duration_minutes, break_enabled, break_interval_minutes, break_duration_minutes, alarm_muted, started_at, ended_at, scheduled_end_at, settled, status, created_at, capacity, cover_image_url";
 
 /** وقت انتهاء الجولة بالمللي — من جدول الخادم إن وُجد، وإلا من نفس رياضة الجدولة */
 const roundEndMs = (r: Round) => {
@@ -73,10 +55,11 @@ const isRoundOver = (r: Round, now: number) =>
   r.status !== "pending" && roundEndMs(r) <= now;
 
 const Rounds = () => {
-  const { user, isAdmin, isModerator, isRoundsManager } = useAuth();
+  const { user, isAdmin, isModerator } = useAuth();
   const { startRound, settleRound, leaderboard, refreshPoints, balance } = usePoints();
 
-  const canCreateRound = isAdmin || isRoundsManager;
+  // الإنشاء متاح للجميع — السقفك (جولة نشطة/معلقة واحدة لكل مستخدم) على الخادم
+  const canCreateRound = !!user;
   const isStaff = isAdmin || isModerator;
 
   const [rounds, setRounds] = useState<Round[]>([]);
@@ -100,6 +83,10 @@ const Rounds = () => {
   const [breakInterval, setBreakInterval] = useState(25);
   const [breakDuration, setBreakDuration] = useState(5);
   const [alarmMuted, setAlarmMuted] = useState(false);
+  const [capacity, setCapacity] = useState<number | null>(null);
+  const [coverFile, setCoverFile] = useState<File | null>(null);
+  const [coverPreview, setCoverPreview] = useState<string | null>(null);
+  const [inviteRound, setInviteRound] = useState<Round | null>(null);
   const [creating, setCreating] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [busyId, setBusyId] = useState<string | null>(null);
@@ -128,11 +115,6 @@ const Rounds = () => {
   // زر دخول/خروج: صريح للمستخدم. الاحتساب كله على الخادم من لحظة الدخول،
   // فيستمر ولو غيّر المستخدم التبويب أو الصفحة — بلا نبض كل 30 ثانية.
 
-  // المشارك المعروض تفاصيله (عند الضغط على اسمه)
-  const [viewingMember, setViewingMember] = useState<{
-    uid: string; name?: string; avatar?: string | null; owner: boolean;
-  } | null>(null);
-
   const {
     joinedRoundId: presenceRoundId,
     join: enterRound,
@@ -142,7 +124,6 @@ const Rounds = () => {
     beating,
   } = useRoundPresence();
 
-  const sessionIsActive = sessionRound?.status === "active";
   const sessionJoined = !!sessionRoundId && presenceRoundId === sessionRoundId;
 
   // يُخزَّن المشاركون والبروفايلات خارج قائمة الجولات حتى لا يُعاد جلبها كل استطلاع.
@@ -241,6 +222,18 @@ const Rounds = () => {
 
   useEffect(() => { fetchMyCompletions(); }, [user?.id]);
 
+  // دعوة إشعارية: /rounds?r=<id> تفتح شاشة الجولة مباشرة
+  const location = useLocation();
+  const navigate = useNavigate();
+  useEffect(() => {
+    const rid = new URLSearchParams(location.search).get("r");
+    if (!rid || rounds.length === 0) return;
+    if (!rounds.some(r => r.id === rid)) return;
+    setSessionRoundId(rid);
+    navigate("/rounds", { replace: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.search, rounds]);
+
   // لوحة الحضور: تُجلب مرة واحدة عند فتح الجلسة — بلا استطلاع متكرر
   const loadBoard = useCallback(async (id: string) => {
     setBoard(await leaderboard(id));
@@ -280,16 +273,22 @@ const Rounds = () => {
     });
   }, [now, rounds, sessionRoundId, beat]);
 
-  // من انتهى وقته ولم يُنهِه الخادم بعد: نُحدّث القائمة مرة كل دقيقة
-  // (الخادم وحده يُثبّت الحالة، لكن الواجهة تحتاج أن تُعلن النهاية)
+  // من انتهى وقته ولم يُنهِه الخادم بعد: نُحدّث القائمة عند العودة للصفحة
+  // ومرة واحدة بعد 65 ثانية — بلا استطلاع متكرر (التسوية تلقائية في الخادم كل دقيقة)
   useEffect(() => {
-    const t = setInterval(() => {
-      const t0 = Date.now();
-      if (roundsRef.current.some(r => r.status === "active" && roundEndMs(r) <= t0)) {
+    const onVisibility = () => {
+      if (document.visibilityState === "visible") void fetchRounds();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+    const t = setTimeout(() => {
+      if (roundsRef.current.some(r => r.status === "active" && roundEndMs(r) <= Date.now())) {
         void fetchRounds();
       }
-    }, 60_000);
-    return () => clearInterval(t);
+    }, 65_000);
+    return () => {
+      document.removeEventListener("visibilitychange", onVisibility);
+      clearTimeout(t);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -319,28 +318,71 @@ const Rounds = () => {
     if (!auto) toast.success("تم إيقاف المنبّه");
   };
 
+  const clearCover = () => {
+    if (coverPreview?.startsWith("blob:")) URL.revokeObjectURL(coverPreview);
+    setCoverFile(null);
+    setCoverPreview(null);
+  };
+
+  const pickCover = (file: File | undefined | null) => {
+    if (!file) return;
+    if (file.size > MAX_IMAGE_BYTES * 4) {
+      toast.error("صورة كبيرة جداً — الحد 5 ميغابايت");
+      return;
+    }
+    clearCover();
+    setCoverFile(file);
+    setCoverPreview(URL.createObjectURL(file));
+  };
+
   const resetForm = () => {
     setTitle(""); setDescription(""); setDuration(60);
     setBreakEnabled(false); setBreakInterval(25); setBreakDuration(5); setAlarmMuted(false);
+    setCapacity(null);
+    clearCover();
   };
 
   const handleCreate = async () => {
-    if (!user || !title.trim()) return;
+    if (!user || !title.trim() || creating) return;
     setCreating(true);
-    const { error } = await (supabase as any).from("study_rounds").insert({
-      user_id: user.id,
-      title: title.trim(),
-      description: description.trim() || null,
-      duration_minutes: duration,
-      break_enabled: breakEnabled,
-      break_interval_minutes: breakEnabled ? breakInterval : null,
-      break_duration_minutes: breakEnabled ? breakDuration : null,
-      alarm_muted: alarmMuted,
-      status: "pending",
-    });
-    if (error) toast.error("فشل إنشاء الجولة");
-    else { toast.success("تم إنشاء الجولة"); setOpen(false); resetForm(); fetchRounds(); void invalidateTable("study_rounds"); }
-    setCreating(false);
+    try {
+      let cover_image_url: string | null = null;
+      if (coverFile) {
+        const compressed = await compressImage(coverFile);
+        cover_image_url = await uploadToCloudinary(compressed);
+      }
+      const { error } = await (supabase as any).from("study_rounds").insert({
+        user_id: user.id,
+        title: title.trim(),
+        description: description.trim() || null,
+        duration_minutes: duration,
+        break_enabled: breakEnabled,
+        break_interval_minutes: breakEnabled ? breakInterval : null,
+        break_duration_minutes: breakEnabled ? breakDuration : null,
+        alarm_muted: alarmMuted,
+        capacity: capacity && capacity > 0 ? capacity : null,
+        cover_image_url,
+        status: "pending",
+      });
+      if (error) {
+        const msg = String((error as any)?.message || error);
+        if (/round_limit_reached/.test(msg)) {
+          toast.error((error as any)?.hint || "لديك جولة نشطة أو معلّقة بالفعل — أنهِها أو احذفها أولاً");
+        } else if (/round_full/.test(msg)) {
+          toast.error("الجولة ممتلئة");
+        } else {
+          toast.error("فشل إنشاء الجولة");
+        }
+        return;
+      }
+      toast.success("تم إنشاء الجولة");
+      setOpen(false); resetForm(); fetchRounds(); void invalidateTable("study_rounds");
+    } catch (err) {
+      console.error("Failed to create round", err);
+      toast.error("تعذر رفع صورة الجولة");
+    } finally {
+      setCreating(false);
+    }
   };
 
   const openEdit = (r: Round) => {
@@ -352,21 +394,40 @@ const Rounds = () => {
     setBreakInterval(r.break_interval_minutes || 25);
     setBreakDuration(r.break_duration_minutes || 5);
     setAlarmMuted(!!r.alarm_muted);
+    setCapacity(r.capacity);
+    setCoverFile(null);
+    setCoverPreview(r.cover_image_url);
   };
 
   const handleSaveEdit = async () => {
-    if (!editingRound) return;
-    const { error } = await (supabase as any).from("study_rounds").update({
-      title: title.trim(),
-      description: description.trim() || null,
-      duration_minutes: duration,
-      break_enabled: breakEnabled,
-      break_interval_minutes: breakEnabled ? breakInterval : null,
-      break_duration_minutes: breakEnabled ? breakDuration : null,
-      alarm_muted: alarmMuted,
-    }).eq("id", editingRound.id);
-    if (error) toast.error("فشل التعديل");
-    else { toast.success("تم التعديل"); setEditingRound(null); resetForm(); fetchRounds(); void invalidateTable("study_rounds"); }
+    if (!editingRound || creating) return;
+    setCreating(true);
+    try {
+      let cover_image_url: string | null = coverPreview;
+      if (coverFile) {
+        const compressed = await compressImage(coverFile);
+        cover_image_url = await uploadToCloudinary(compressed);
+      }
+      const { error } = await (supabase as any).from("study_rounds").update({
+        title: title.trim(),
+        description: description.trim() || null,
+        duration_minutes: duration,
+        break_enabled: breakEnabled,
+        break_interval_minutes: breakEnabled ? breakInterval : null,
+        break_duration_minutes: breakEnabled ? breakDuration : null,
+        alarm_muted: alarmMuted,
+        capacity: capacity && capacity > 0 ? capacity : null,
+        cover_image_url,
+      }).eq("id", editingRound.id);
+      if (error) { toast.error("فشل التعديل"); return; }
+      toast.success("تم التعديل");
+      setEditingRound(null); resetForm(); fetchRounds(); void invalidateTable("study_rounds");
+    } catch (err) {
+      console.error("Failed to save round", err);
+      toast.error("تعذر رفع صورة الجولة");
+    } finally {
+      setCreating(false);
+    }
   };
 
   // ---------------------------------------------------------------
@@ -410,13 +471,19 @@ const Rounds = () => {
         const { error } = await (supabase as any).from("round_participants").insert({ round_id: r.id, user_id: user.id });
         if (error) {
           const msg = String((error as any)?.message || error);
-          if (!/duplicate key value violates unique constraint/i.test(msg)) {
+          if (/duplicate key value violates unique constraint/i.test(msg)) {
+            joined = true;
+          } else if (/round_full/.test(msg)) {
+            toast.error(r.capacity ? `الجولة ممتلئة — السعة ${r.capacity} منضم` : "الجولة ممتلئة");
+            return;
+          } else {
             toast.error(`فشل الانضمام: ${msg}`);
             return;
           }
+        } else {
+          joined = true;
+          toast.success("انضممت للجولة");
         }
-        joined = true;
-        toast.success("انضممت للجولة");
       } else {
         joined = true;
       }
@@ -424,7 +491,11 @@ const Rounds = () => {
     } else {
       await fetchRoundsDetail(); await fetchRounds(); void invalidateTable("round_participants");
     }
-    if (joined) setSessionRoundId(r.id);
+    if (joined) {
+      setSessionRoundId(r.id);
+      // الدخول = احتسب فوري: والجولة نشطة نُدخل حضورك مباشرة
+      if (r.status === "active" && presenceRoundId !== r.id) enterRound(r.id);
+    }
   };
 
   const handleLeave = async (roundId: string) => {
@@ -484,57 +555,7 @@ const Rounds = () => {
   const completed = rounds.filter(r => r.status === "completed");
   const myMeetings = meetings;
 
-  // بطاقة الحضور الشخصي: زر دخول/خروج + العدّاد التصاعدي تحت العدّاد الكبير
-  const renderFocusCard = (st: RoundState) => {
-    const secs = Math.max(0, Math.floor(live.liveFocus));
-    const pct = (secs % SECONDS_PER_BATCH) / SECONDS_PER_BATCH;
-    const toBatch = SECONDS_PER_BATCH - (secs % SECONDS_PER_BATCH);
-    return (
-      <div className="rounded-xl border border-primary/30 bg-primary/5 p-4 space-y-3">
-        <Button
-          type="button"
-          variant={sessionJoined ? "destructive" : "default"}
-          disabled={!sessionIsActive || st.wallRemaining <= 0}
-          onClick={() => (sessionJoined ? exitRound() : enterRound(sessionRoundId!))}
-          className="w-full gap-1.5 font-semibold"
-        >
-          {sessionJoined ? <LogOutIcon className="w-4 h-4" /> : <LogIn className="w-4 h-4" />}
-          {sessionJoined ? "خروج" : "دخول"}
-        </Button>
-
-        {/* العدّاد التصاعدي: يزيد من الصفر ما دمت داخل الجولة */}
-        <div className="text-center">
-          <p className="text-xs text-muted-foreground">وقتك داخل الجولة</p>
-          <p className="text-4xl font-bold tabular-nums text-primary" dir="ltr">
-            {formatDuration(secs)}
-          </p>
-          <p className="text-lg font-semibold text-muted-foreground mt-1">
-            <span dir="ltr">+</span> {POINTS_PER_BATCH} نقاط كل {SECONDS_PER_BATCH / 3600} ساعة
-          </p>
-        </div>
-
-        <div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
-          <div
-            className="h-full rounded-full bg-primary transition-all duration-500"
-            style={{ width: `${Math.min(100, pct * 100)}%` }}
-          />
-        </div>
-
-        <p className="text-[11px] text-muted-foreground text-center">
-          {sessionJoined
-            ? `الدفعة القادمة بعد ${formatDuration(toBatch)}`
-            : "اضغط «دخول» ليبدأ العدّاد"}
-        </p>
-
-        <div className="flex items-center justify-between gap-3 text-[11px] text-muted-foreground">
-          <span className="font-bold text-amber-500 text-base tabular-nums">+{live.points}</span>
-          <span>رصيدك {balance} / {MAX_BALANCE}</span>
-        </div>
-
-        {live.error && <p className="text-[11px] text-destructive">{live.error}</p>}
-      </div>
-    );
-  };
+  // بطاقة الحضور الشخصي انتقلت إلى شاشة الجولة (RoundSessionScreen)
 
   const renderCard = (r: Round) => {
     const isOwner = r.user_id === user?.id;
@@ -585,12 +606,18 @@ const Rounds = () => {
           </div>
         </CardHeader>
         <CardContent className="space-y-3">
+          {r.cover_image_url && (
+            <img src={r.cover_image_url} alt="" loading="lazy" className="h-40 w-full rounded-lg border object-cover" />
+          )}
           {r.description && <p className="text-sm">{r.description}</p>}
 
           <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
             <span className="flex items-center gap-1">
               <Clock className="w-3 h-3" /> {r.duration_minutes} دقيقة عمل
               {r.break_enabled && <span className="text-muted-foreground/70"> (+{formatDuration(breakSecondsLeft(st))} راحة)</span>}
+            </span>
+            <span className="flex items-center gap-1">
+              <Users className="w-3 h-3" /> {r.participants.length}{r.capacity ? `/${r.capacity}` : ""} منضم
             </span>
             {r.break_enabled && (
               <span className="flex items-center gap-1">
@@ -639,6 +666,11 @@ const Rounds = () => {
               <Eye className="w-3 h-3" /> المشاركون ({r.participants.length})
             </Button>
             <div className="flex gap-2">
+              {isOwner && r.status !== "completed" && (
+                <Button size="sm" variant="ghost" className="h-7 px-2 gap-1" onClick={() => setInviteRound(r)}>
+                  <UserPlus className="w-3 h-3" /> دعوة
+                </Button>
+              )}
               {canStart && (
                 <Button size="sm" variant="default" onClick={() => handleStart(r)} disabled={busy} className="gap-1">
                   {busy ? <Loader2 className="w-3 h-3 animate-spin" /> : <Play className="w-3 h-3" />} بدء
@@ -656,7 +688,7 @@ const Rounds = () => {
               )}
               {r.status !== "completed" && (
                 <Button size="sm" onClick={() => joinAndEnter(r)} className="gap-1">
-                  <LogIn className="w-3 h-3" /> دخول
+                  <LogIn className="w-3 h-3" /> دخول الجولة
                 </Button>
               )}
             </div>
@@ -687,7 +719,7 @@ const Rounds = () => {
             <HelpCircle className="w-4 h-4" /> شرح
           </Button>
           {canCreateRound && (
-            <Dialog open={open} onOpenChange={setOpen}>
+            <Dialog open={open} onOpenChange={o => { setOpen(o); if (!o) resetForm(); }}>
               <DialogTrigger asChild>
                 <Button size="sm" className="gap-1"><Plus className="w-4 h-4" />جولة جديدة</Button>
               </DialogTrigger>
@@ -701,6 +733,8 @@ const Rounds = () => {
                   breakInterval={breakInterval} setBreakInterval={setBreakInterval}
                   breakDuration={breakDuration} setBreakDuration={setBreakDuration}
                   alarmMuted={alarmMuted} setAlarmMuted={setAlarmMuted}
+                  capacity={capacity} setCapacity={setCapacity}
+                  coverPreview={coverPreview} onPickCover={pickCover} onRemoveCover={clearCover}
                 />
                 <Button onClick={handleCreate} disabled={creating || !title.trim()} className="w-full">
                   {creating ? <Loader2 className="w-4 h-4 animate-spin" /> : "إنشاء"}
@@ -765,188 +799,32 @@ const Rounds = () => {
         </TabsContent>
       </Tabs>
 
-      {/* دخول الجولة: شاشة تركيز داخل الجولة */}
-      <Dialog open={!!sessionRound} onOpenChange={o => !o && setSessionRoundId(null)}>
-        <DialogContent className="max-h-[92vh] overflow-y-auto">
-          {sessionRound && (() => {
-            const st = roundStateAt(sessionRound, now);
-            const isOwnerHere = sessionRound.user_id === user?.id;
-            const isMemberHere = sessionRound.participants.find(p => p.user_id === user?.id);
-            const over = sessionRound.status === "active" && st.wallRemaining <= 0;
-            const me = board.find(b => b.user_id === user?.id);
-            return (
-              <>
-                <DialogHeader className="text-center">
-                  <DialogTitle className="text-xl">🎯 داخل الجولة</DialogTitle>
-                  <p className="text-base font-bold text-primary">{sessionRound.title}</p>
-                  {sessionRound.description && <p className="text-sm text-muted-foreground">{sessionRound.description}</p>}
-                </DialogHeader>
-
-                {sessionRound.status === "pending" ? (
-                  <div className="rounded-xl border p-6 text-center bg-muted/40">
-                    <p className="text-sm text-muted-foreground mb-2">بانتظار بدء الجولة من الخادم</p>
-                    <p className="text-3xl font-bold">🎬</p>
-                    {isOwnerHere && (
-                      <Button className="mt-3 gap-1" onClick={() => handleStart(sessionRound)} disabled={busyId === sessionRound.id}>
-                        {busyId === sessionRound.id ? <Loader2 className="w-4 h-4 animate-spin" /> : <Play className="w-4 h-4" />} ابدأ الآن
-                      </Button>
-                    )}
-                  </div>
-                ) : (
-                  <div className={`rounded-xl p-6 text-center ${st.inBreak ? "bg-amber-500/10 border border-amber-500/30" : "bg-primary/10 border border-primary/30"}`}>
-                    <p className="text-xs text-primary font-medium mb-2">
-                      {st.inBreak ? "☕ راحة (لا تُحتسب)" : over ? "انتهت الجولة" : "الوقت المتبقي للعمل"}
-                    </p>
-                    <p className={`text-6xl font-bold tabular-nums ${st.inBreak ? "text-amber-600 dark:text-amber-400" : "text-primary"}`}>
-                      {formatDuration(st.inBreak ? st.breakRemaining : st.workRemaining)}
-                    </p>
-                    <p className="text-xs text-muted-foreground mt-2">
-                      من أصل {formatDuration(st.totalWorkSeconds)} عمل
-                      {sessionRound.break_enabled && ` + ${formatDuration(breakSecondsLeft(st))} راحة متبقية`}
-                    </p>
-                  </div>
-                )}
-
-                {(isOwnerHere || isMemberHere) && renderFocusCard(st)}
-
-                {sessionRound.status === "active" && (isOwnerHere || isMemberHere) && (
-                  <p className="text-[11px] text-muted-foreground text-center">
-                    {beating ? <span className="flex items-center justify-center gap-1"><Activity className="w-3 h-3 animate-pulse" /> جارٍ تسجيل حضورك…</span>
-                      : "احتسابك يتم على الخادم كل 30 ثانية. إخفاء التبويب أو إغلاقه يوقف الاحتساب."}
-                  </p>
-                )}
-
-                <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground justify-center">
-                  <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {sessionRound.duration_minutes} دقيقة عمل</span>
-                  <span className="flex items-center gap-1"><Users className="w-3 h-3" /> {sessionRound.participants.length + 1} مشارك</span>
-                  <span className="flex items-center gap-1"><Flame className="w-3 h-3" /> {POINTS_PER_BATCH} نقاط كل ساعتين</span>
-                </div>
-
-                {/* لوحة الحضور — المالك فقط، وإثبات أن النقاط محسوبة على وقت حقيقي */}
-                {isOwnerHere && (
-                  <div className="space-y-1.5">
-                    <p className="text-xs font-medium text-muted-foreground flex items-center gap-1">
-                      <Trophy className="w-3.5 h-3.5" /> سجل الحضور (محسوب على الخادم)
-                    </p>
-                    {board.length === 0 ? (
-                      <p className="text-sm text-muted-foreground text-center py-2">لا يوجد حضور مسجَّل بعد</p>
-                    ) : (
-                      <div className="space-y-1 max-h-[26vh] overflow-y-auto">
-                        {board.map((b, i) => (
-                          <div key={b.user_id} className={`flex items-center gap-2 rounded-lg p-2 ${b.user_id === user?.id ? "bg-primary/10" : "bg-muted/50"}`}>
-                            <span className="text-xs w-5 text-muted-foreground tabular-nums">{i + 1}</span>
-                            <Avatar className="w-6 h-6">
-                              <AvatarImage src={b.avatar_url || ""} />
-                              <AvatarFallback className="text-[10px]">{b.full_name?.charAt(0) || "م"}</AvatarFallback>
-                            </Avatar>
-                            <span className="text-sm flex-1 truncate">{b.full_name}{b.user_id === user?.id && <span className="text-[10px] text-muted-foreground"> (أنت)</span>}</span>
-                            <span className="text-xs tabular-nums text-muted-foreground">{formatDuration(b.focus_seconds)}</span>
-                            <span className="text-xs font-bold text-amber-500 tabular-nums w-10 text-left">+{b.points_awarded}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                    {me && <p className="text-[11px] text-muted-foreground text-center">سجلك: {formatDuration(me.focus_seconds)} حضور ⇒ {me.points_awarded} نقطة</p>}
-                  </div>
-                )}
-
-                {/* المشاركون: قائمة جانبية، الضغط على أي واحد يعرض تفاصيله */}
-                <div className="space-y-1.5">
-                  <p className="text-xs font-medium text-muted-foreground flex items-center gap-1">
-                    <Users className="w-3.5 h-3.5" /> المشاركون ({sessionRound.participants.length + 1})
-                  </p>
-                  <div className="space-y-1 max-h-[24vh] overflow-y-auto">
-                    {(() => {
-                      const rows = [
-                        { uid: sessionRound.user_id, name: sessionRound.profile?.full_name, avatar: sessionRound.profile?.avatar_url, owner: true },
-                        ...sessionRound.participants
-                          .filter(p => p.user_id !== sessionRound.user_id)
-                          .map(p => ({ uid: p.user_id, name: p.profile?.full_name, avatar: p.profile?.avatar_url, owner: false })),
-                      ];
-                      return rows.map(r => (
-                        <button
-                          key={r.uid}
-                          type="button"
-                          onClick={() => setViewingMember(r)}
-                          className="w-full flex items-center gap-2 rounded-lg p-2 text-right hover:bg-muted/60 transition-colors"
-                        >
-                          <Avatar className="w-6 h-6">
-                            <AvatarImage src={r.avatar || ""} />
-                            <AvatarFallback className="text-[10px]">{r.name?.charAt(0) || "م"}</AvatarFallback>
-                          </Avatar>
-                          <span className="text-sm flex-1 truncate">{r.name || "مستخدم"}</span>
-                          {r.owner && <span className="text-[10px] text-primary">(المالك)</span>}
-                          {r.uid === user?.id && <span className="text-[10px] text-muted-foreground">(أنت)</span>}
-                          <Eye className="w-3.5 h-3.5 text-muted-foreground" />
-                        </button>
-                      ));
-                    })()}
-                  </div>
-                </div>
-
-                {/* تفاصيل المشارك */}
-                <Dialog open={!!viewingMember} onOpenChange={o => !o && setViewingMember(null)}>
-                  <DialogContent className="max-w-sm">
-                    <DialogHeader>
-                      <DialogTitle>تفاصيل المشارك</DialogTitle>
-                    </DialogHeader>
-                    {viewingMember && (() => {
-                      const row = board.find(b => b.user_id === viewingMember.uid);
-                      return (
-                        <div className="space-y-3">
-                          <div className="flex items-center gap-3">
-                            <Avatar className="w-12 h-12">
-                              <AvatarImage src={viewingMember.avatar || ""} />
-                              <AvatarFallback>{viewingMember.name?.charAt(0) || "م"}</AvatarFallback>
-                            </Avatar>
-                            <div>
-                              <p className="font-semibold">{viewingMember.name || "مستخدم"}</p>
-                              {viewingMember.owner && <p className="text-xs text-primary">صاحب الجولة</p>}
-                              {viewingMember.uid === user?.id && <p className="text-xs text-muted-foreground">أنت</p>}
-                            </div>
-                          </div>
-                          {row ? (
-                            <div className="grid grid-cols-2 gap-2 text-center">
-                              <div className="rounded-lg bg-muted/60 p-3">
-                                <p className="text-lg font-bold tabular-nums" dir="ltr">{formatDuration(row.focus_seconds)}</p>
-                                <p className="text-[11px] text-muted-foreground">وقت داخل الجولة</p>
-                              </div>
-                              <div className="rounded-lg bg-muted/60 p-3">
-                                <p className="text-lg font-bold tabular-nums text-amber-500">+{row.points_awarded}</p>
-                                <p className="text-[11px] text-muted-foreground">نقطة</p>
-                              </div>
-                            </div>
-                          ) : (
-                            <p className="text-sm text-muted-foreground text-center py-2">
-                              لم يُسجَّل حضور لهذا المشارك بعد.
-                            </p>
-                          )}
-                        </div>
-                      );
-                    })()}
-                  </DialogContent>
-                </Dialog>
-
-                <DialogFooter className="gap-2 sm:justify-center">
-                  <Button variant="outline" onClick={() => setSessionRoundId(null)} className="gap-1">
-                    <LogOutIcon className="w-3 h-3" /> العودة للجولات
-                  </Button>
-                  {isOwnerHere && sessionRound.status === "active" && (
-                    <Button variant="outline" onClick={() => handleEndRound(sessionRound)} disabled={busyId === sessionRound.id} className="gap-1 text-destructive">
-                      {busyId === sessionRound.id ? <Loader2 className="w-3 h-3 animate-spin" /> : <Square className="w-3 h-3" />} إنهاء الجولة الآن
-                    </Button>
-                  )}
-                  {isMemberHere && (
-                    <Button variant="destructive" onClick={async () => { await handleLeave(sessionRound.id); setSessionRoundId(null); }} className="gap-1">
-                      <LogOutIcon className="w-3 h-3" /> الخروج من الجولة
-                    </Button>
-                  )}
-                </DialogFooter>
-              </>
-            );
-          })()}
-        </DialogContent>
-      </Dialog>
+      {/* شاشة الجولة — تغطّي الصفحة، والخروج منها لا يوقف الاحتساب */}
+      {sessionRound && (
+        <RoundSessionScreen
+          round={sessionRound}
+          now={now}
+          board={board}
+          joined={sessionJoined}
+          live={live}
+          beating={beating}
+          busy={busyId === sessionRound.id}
+          ringing={ringingFor.current.has(sessionRound.id)}
+          isStaff={isStaff}
+          isMember={sessionRound.user_id === user?.id || sessionRound.participants.some(x => x.user_id === user?.id)}
+          hasCompletion={myCompletions.has(sessionRound.id)}
+          onEnter={() => enterRound(sessionRound.id)}
+          onExit={() => exitRound()}
+          onBack={() => setSessionRoundId(null)}
+          onLeave={async () => { exitRound(); await handleLeave(sessionRound.id); setSessionRoundId(null); }}
+          onStart={() => handleStart(sessionRound)}
+          onEnd={() => handleEndRound(sessionRound)}
+          onInvite={() => setInviteRound(sessionRound)}
+          onKick={(uid) => handleKick(sessionRound.id, uid)}
+          onCompletion={() => setCompletionRound(sessionRound)}
+          onStopAlarm={() => stopAlarm(sessionRound.id)}
+        />
+      )}
 
       {/* Participants viewer */}
       <Dialog open={!!viewingRound} onOpenChange={o => !o && setViewingRound(null)}>
@@ -977,6 +855,9 @@ const Rounds = () => {
         </DialogContent>
       </Dialog>
 
+      {/* دعوة أشخاص للجولة */}
+      <InviteDialog round={inviteRound} onClose={() => setInviteRound(null)} />
+
       {/* Edit round */}
       <Dialog open={!!editingRound} onOpenChange={o => { if (!o) { setEditingRound(null); resetForm(); } }}>
         <DialogContent className="max-h-[90vh] overflow-y-auto">
@@ -989,10 +870,14 @@ const Rounds = () => {
             breakInterval={breakInterval} setBreakInterval={setBreakInterval}
             breakDuration={breakDuration} setBreakDuration={setBreakDuration}
             alarmMuted={alarmMuted} setAlarmMuted={setAlarmMuted}
+            capacity={capacity} setCapacity={setCapacity}
+            coverPreview={coverPreview} onPickCover={pickCover} onRemoveCover={clearCover}
           />
           <DialogFooter>
             <Button variant="ghost" onClick={() => { setEditingRound(null); resetForm(); }}>إلغاء</Button>
-            <Button onClick={handleSaveEdit} disabled={!title.trim()}>حفظ</Button>
+            <Button onClick={handleSaveEdit} disabled={!title.trim() || creating} className="gap-1">
+              {creating && <Loader2 className="w-4 h-4 animate-spin" />} حفظ
+            </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
@@ -1023,15 +908,15 @@ const Rounds = () => {
         <DialogContent>
           <DialogHeader><DialogTitle>كيف تُحسب النقاط في الجولات</DialogTitle></DialogHeader>
           <div className="space-y-3 text-sm">
-            <p>📝 <b>إنشاء جولة:</b> اضغط "جولة جديدة" واكتب الاسم والوصف ومدة العمل.</p>
+            <p>📝 <b>إنشاء جولة:</b> أي عضو يقدر ينشئ جولة — لكل مستخدم جولة نشطة واحدة في الوقت نفسه. تقدر تضيف صورة الجولة وسعة عدد المنضمين.</p>
             <p>☕ <b>البريك:</b> المدة التي تكتبها هي <b>صافي وقت العمل</b>. البريكات تُضاف فوقها ولا تُحتسب عملاً. مثال: 60 دقيقة مع بريك 5 كل 25 ⇒ الجولة 70 دقيقة على الأرض.</p>
             <p>▶️ <b>البدء:</b> صاحب الجولة يضغط "بدء"، والخادم هو من يحسب الجدول ونهاية الجولة ويخزّنهما. لا أحد يعدّلهما من المتصفح.</p>
-            <p>⏱️ <b>الاحتساب حقيقي:</b> اضغط «دخول» ليبدأ العدّاد، و«خروج» لإيقافه. طالما الجلسة نشطة يرسل المتصفح نبضة كل 30 ثانية <b>والتبويب مرئي فقط</b>. الخادم يحسب الثواني من ساعته هو.</p>
-            <p>🚫 <b>ما لا يُحتسب:</b> إغلاق التبويب، أو الانتقال لتبويب آخر، أو غياب يتجاوز 5 دقائق. لا يمكن اختلاق الوقت من أي جهاز.</p>
-            <p>🔥 <b>النقاط:</b> {POINTS_PER_BATCH} نقاط كل {SECONDS_PER_BATCH / 3600} ساعة حضور داخل الجولة (تشمل الاستراحات). الرصيد اليومي يبدأ من 50 ولا يتجاوز 200، وما أُضيف يُسجَّل في سجل معاملاتك.</p>
-            <p>🏁 <b>الإنهاء:</b> عند انتهاء الوقت يُجمّد الخادم سجل الحضور تلقائياً، أو يستطيع المالك إنهاؤها مبكراً. النقاط كانت مُنحت أثناء الجولة بالفعل.</p>
+            <p>⏱️ <b>الاحتساب:</b> «دخول الجولة» من البطاقة يبدأ الاحتساب فوراً. الانتقال لصفحة أخرى أو إخفاء التبويب <b>لا يوقف</b> الاحتساب — يوقفه زر «إيقاف الاحتساب» أو نهاية الجولة. الساعة من الخادم لا من جهازك.</p>
+            <p>🔥 <b>النقاط:</b> {POINTS_PER_BATCH} نقاط كل ساعة حضور داخل الجولة (تشمل الاستراحات). الرصيد اليومي يبدأ من {BASE_BALANCE} ولا يتجاوز {MAX_BALANCE}، وما أُضيف يُسجَّل في سجل معاملاتك.</p>
+            <p>👥 <b>السعة والدعوة:</b> عند امتلاء السعة يُرفض الانضمام تلقائياً. وزر «دعوة» يبحث بالاسم ويرسل إشعاراً يفتح الجولة بنقرة (الحد اليومي 100 دعوة).</p>
+            <p>🏁 <b>الإنهاء:</b> عند انتهاء الوقت تُحسم الجولة تلقائياً خلال دقيقة وتُجمَّد سجل الحضور، أو يستطيع المالك إنهاؤها مبكراً. النقاط كانت مُنحت أثناء الجولة بالفعل.</p>
             <p>📝 <b>تقييم الإنجاز:</b> اختياري وأدبي فقط — لا يمنح نقاط.</p>
-            <p>🚫 <b>طرد:</b> الأدمن والمشرفون يقدروا يطردوا أي مشارك من قائمة المشاركين.</p>
+            <p>🚫 <b>طرد:</b> الأدمن والمشرفون يقدروا يطردوا أي مشارك من قائمة الأشخاص.</p>
             <p>🔒 <b>الاجتماعات الخاصة:</b> أنشئ اجتماعاً خاصاً وادعُ من تريد فقط.</p>
           </div>
         </DialogContent>
@@ -1062,6 +947,41 @@ const RoundForm = (p: any) => (
     <div>
       <label className="text-sm font-medium">وصف الجولة (اختياري)</label>
       <Textarea placeholder="ماذا ستتم دراسته..." value={p.description} onChange={e => p.setDescription(e.target.value)} />
+    </div>
+    <div>
+      <label className="text-sm font-medium">صورة الجولة (اختياري)</label>
+      <label className="mt-1 flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed p-4 text-sm text-muted-foreground transition-colors hover:bg-muted/50">
+        <ImagePlus className="w-4 h-4" />
+        {p.coverPreview ? "تغيير الصورة" : "اختر صورة"}
+        <input type="file" accept="image/*" className="hidden" onChange={e => p.onPickCover(e.target.files?.[0])} />
+      </label>
+      {p.coverPreview && (
+        <div className="relative mt-2">
+          <img src={p.coverPreview} alt="صورة الجولة" className="h-36 w-full rounded-lg border object-cover" />
+          <Button
+            type="button"
+            size="icon"
+            variant="secondary"
+            className="absolute left-1 top-1 h-7 w-7"
+            onClick={p.onRemoveCover}
+            title="حذف الصورة"
+          >
+            <Trash2 className="w-3.5 h-3.5" />
+          </Button>
+        </div>
+      )}
+    </div>
+    <div>
+      <label className="text-sm font-medium">سعة الجولة — عدد المنضمين (اختياري)</label>
+      <Input
+        type="number"
+        min={1}
+        max={500}
+        placeholder="بلا حد"
+        value={p.capacity ?? ""}
+        onChange={e => p.setCapacity(e.target.value === "" ? null : Math.max(1, Math.min(500, Number(e.target.value) || 1)))}
+      />
+      <p className="text-xs text-muted-foreground mt-1">عند امتلاء السعة يُرفض الانضمام الجديد تلقائياً.</p>
     </div>
     <div>
       <label className="text-sm font-medium">مدة العمل الصافية (دقائق)</label>

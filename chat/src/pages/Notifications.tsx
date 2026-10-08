@@ -2,7 +2,7 @@ import { useEffect, useCallback, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Bell, Heart, MessageCircle, CornerDownLeft, AtSign, Loader2, MessageSquare } from "lucide-react";
+import { Bell, Heart, MessageCircle, CornerDownLeft, AtSign, Loader2, MessageSquare, UserPlus } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +20,7 @@ interface Notification {
   type: string;
   post_id: string | null;
   comment_id: string | null;
+  round_id: string | null;
   is_read: boolean;
   created_at: string;
   actor_profile?: { full_name: string; avatar_url: string | null } | null;
@@ -40,7 +41,7 @@ const Notifications = () => {
     if (append) setLoadingMore(true);
     const { data, error } = await supabase
       .from("notifications")
-      .select("id, user_id, actor_id, type, post_id, comment_id, is_read, created_at")
+      .select("id, user_id, actor_id, type, post_id, comment_id, round_id, is_read, created_at")
       .eq("user_id", user.id)
       .order("created_at", { ascending: false })
       .range(offset, offset + BATCH - 1);
@@ -86,6 +87,7 @@ const Notifications = () => {
       case "reply": return <CornerDownLeft className="w-4 h-4 text-primary" />;
       case "mention": return <AtSign className="w-4 h-4 text-primary" />;
       case "support_reply": return <MessageSquare className="w-4 h-4 text-primary" />;
+      case "round_invite": return <UserPlus className="w-4 h-4 text-primary" />;
       default: return <Bell className="w-4 h-4" />;
     }
   };
@@ -97,6 +99,7 @@ const Notifications = () => {
       case "reply": return `${name} رد على تعليقك`;
       case "mention": return isAll ? `${name} منشن الجميع في منشور` : `${name} منشنك`;
       case "support_reply": return "الإدارة ردّت على رسالتك في الدعم";
+      case "round_invite": return `${name} دعاك لجولته`;
       default: return `${name} تفاعل معك`;
     }
   };
@@ -117,7 +120,11 @@ const Notifications = () => {
           {notifications.map(n => (
             <div
               key={n.id}
-              onClick={() => n.type === "support_reply" ? navigate("/support") : (n.post_id && navigate(`/?post=${n.post_id}`))}
+              onClick={() => {
+                if (n.type === "support_reply") navigate("/support");
+                else if (n.type === "round_invite" && n.round_id) navigate(`/rounds?r=${n.round_id}`);
+                else if (n.post_id) navigate(`/?post=${n.post_id}`);
+              }}
               className="flex items-start gap-3 p-4 hover:bg-muted/50 cursor-pointer transition-colors"
             >
               <Avatar className="w-10 h-10 shrink-0">

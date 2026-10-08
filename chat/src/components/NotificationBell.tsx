@@ -8,7 +8,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Bell, Heart, MessageCircle, CornerDownLeft, MessageSquare, MessageSquareText, Reply, AtSign } from "lucide-react";
+import { Bell, Heart, MessageCircle, CornerDownLeft, MessageSquare, MessageSquareText, Reply, AtSign, UserPlus } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -21,6 +21,7 @@ interface Notification {
   type: string;
   post_id: string | null;
   comment_id: string | null;
+  round_id: string | null;
   is_read: boolean;
   created_at: string;
   actor_profile?: { full_name: string; avatar_url: string | null } | null;
@@ -72,7 +73,7 @@ const NotificationBell = () => {
     if (!user) return;
     const { data } = await supabase
       .from("notifications")
-      .select("id, user_id, actor_id, type, post_id, comment_id, is_read, created_at")
+      .select("id, user_id, actor_id, type, post_id, comment_id, round_id, is_read, created_at")
       .eq("user_id", user.id)
       .order("created_at", { ascending: false })
       .limit(10);
@@ -126,6 +127,11 @@ const NotificationBell = () => {
       navigate("/support");
       return;
     }
+    if (n.type === "round_invite" && n.round_id) {
+      setOpen(false);
+      navigate(`/rounds?r=${n.round_id}`);
+      return;
+    }
     if (n.type === "owner_comms" || n.type === "owner_comms_reply") {
       setOpen(false);
       navigate("/admin?tab=comms");
@@ -146,6 +152,7 @@ const NotificationBell = () => {
       case "owner_comms": return <MessageSquareText className="w-4 h-4 text-blue-500" />;
       case "owner_comms_reply": return <Reply className="w-4 h-4 text-blue-500" />;
       case "support_reply": return <MessageSquare className="w-4 h-4 text-primary" />;
+      case "round_invite": return <UserPlus className="w-4 h-4 text-primary" />;
       default: return <Bell className="w-4 h-4" />;
     }
   };
@@ -159,6 +166,7 @@ const NotificationBell = () => {
       case "owner_comms": return `المالك بعث لك رسالة/مهمة جديدة — تواصل الفريق`;
       case "owner_comms_reply": return `${actorName} ردّ عليك في تواصل الفريق`;
       case "support_reply": return "الإدارة ردّت على رسالتك في الدعم";
+      case "round_invite": return `${actorName} دعاك لجولته`;
       default: return `${actorName} تفاعل معك`;
     }
   };

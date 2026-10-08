@@ -1,6 +1,6 @@
 import { usePoints } from "@/contexts/PointsContext";
 import { useAuth } from "@/contexts/AuthContext";
-import { BASE_BALANCE, MAX_BALANCE, POINTS_PER_BATCH } from "@/lib/points";
+import { BASE_BALANCE, MAX_BALANCE, ROUND_POINT_LABEL } from "@/lib/points";
 import { Coins, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -46,7 +46,7 @@ const PointsDisplay = () => {
           <span className="text-[10px] text-muted-foreground">
             {earned > 0
               ? `+${earned} مكتسبة من الجولات اليوم`
-              : `${POINTS_PER_BATCH} نقاط كل ساعتين حضور في الجولة`}
+              : ROUND_POINT_LABEL}
           </span>
         )}
         {(isAdmin || isStaff) && (
