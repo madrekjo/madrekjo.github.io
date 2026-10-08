@@ -94,7 +94,13 @@ const InviteDialog = ({ round, onClose }: InviteDialogProps) => {
     const { error } = await supabase.from("notifications").insert(rows);
     setSending(false);
     if (error) {
-      toast.error("تعذر إرسال الدعوات — قد يكون وصلت للحد اليومي (100 دعوة)");
+      console.error("[INVITE] insert failed:", error);
+      // 23514 = قيد CHECK على نوع الإشعار (يُصلحه migration 20261008000002) — ليس حد يومي
+      if (error.code === "23514") {
+        toast.error("تعذر إرسال الدعوات — نوع الإشعار مرفوض من القاعدة (بانتظار تحديث migration notifications_type_check)");
+      } else {
+        toast.error("تعذر إرسال الدعوات — قد يكون وصلت للحد اليومي (100 دعوة)");
+      }
       return;
     }
     toast.success(`أُرسلت ${rows.length} دعوة إلى "${round.title}"`);
