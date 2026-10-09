@@ -13,10 +13,11 @@ import PointsDisplay from "@/components/PointsDisplay";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Send, Image as ImageIcon, Video, Loader2, Lock, RefreshCw, X } from "lucide-react";
+import { Send, Image as ImageIcon, Video, Loader2, Lock, RefreshCw, X, BarChart3, Plus, Trash2 } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { compressMedia, MAX_IMAGE_BYTES } from "@/lib/mediaCompression";
 import { uploadToCloudinary } from "@/lib/cloudinary";
+import { createPoll, fetchPollsForPosts, votePoll, applyVote, type PollData } from "@/lib/polls";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 
 const SALAWAT_KEY = "madrekjo_salawat_last";
@@ -67,6 +68,8 @@ interface Post {
   }[];
   /** عدد التعليقات — يُملأ من الفيد الرفيع (بدل حمل أجسام التعليقات). */
   commentCount?: number;
+  /** تصويت مرفق بالمنشور (إن وُجد). */
+  poll?: PollData | null;
 }
 
 /** حِزمة /feed من البوابة (Layer 2) — تُقرأ بصلاحيات RLS الخاصة بالمستخدم. */
@@ -103,7 +106,7 @@ interface GatewayFeed {
 }
 
 const Chat = () => {
-  const { user, profile, isAdmin, isStaff, refreshProfile, session } = useAuth();
+  const { user, profile, isAdmin, isOwner, isStaff, refreshProfile, session } = useAuth();
   const { getCost, balance } = usePoints();
   const [posts, setPosts] = useState<Post[]>([]);
   const [content, setContent] = useState("");
@@ -127,6 +130,11 @@ const Chat = () => {
   const [sectionLocks, setSectionLocks] = useState<Record<string, boolean>>({});
   const [adminUserIds, setAdminUserIds] = useState<Set<string>>(new Set());
   const [ownerUserIds, setOwnerUserIds] = useState<Set<string>>(new Set());
+  const [pollOpen, setPollOpen] = useState(false);
+  const [pollQuestion, setPollQuestion] = useState("");
+  const [pollOptions, setPollOptions] = useState<string[]>(["", ""]);
+  const [creatingPoll, setCreatingPoll] = useState(false);
+  const canCreatePoll = isOwner || isAdmin;
 
   // إشعار ترحيبي في شات الجميع/شباب/بنات — يظهر مرة واحدة لكل قناة ويمكن إغلاقه
   const [channelBannerDismissed, setChannelBannerDismissed] = useState<Record<string, boolean>>(() => {
@@ -241,7 +249,10 @@ const Chat = () => {
           commentCount: countsMap[p.id] || 0,
         })) as unknown as Post[];
 
-        const sorted = cleaned.sort(sortPosts);
+        const pollMap = await fetchPollsForPosts(postIds, user?.id ?? "");
+        const sorted = cleaned
+          .map(p => ({ ...p, poll: pollMap[p.id] ?? null }))
+          .sort(sortPosts);
         setPosts(prev => append ? [...prev, ...sorted] : sorted);
         setHasMore(baseRows.length === PAGE_SIZE);
         lastCreatedCursor.current = baseRows.length
@@ -270,15 +281,19 @@ const Chat = () => {
         );
 
         if (feed && Array.isArray(feed.posts)) {
-          const postsForPage = feed.posts
+          const postsBase = feed.posts
             .map((p: GatewayFeedPost) => ({
               ...p,
               profiles: feed.profiles?.[p.user_id] ?? null,
               likes: (feed.likes || []).filter((l) => l.post_id === p.id),
               comments: [],
               commentCount: feed.commentCounts?.[p.id] ?? 0,
-            }))
-            .sort(sortPosts) as unknown as Post[];
+            })) as unknown as Post[];
+
+          const pollMap = await fetchPollsForPosts(feed.posts.map(p => p.id), user?.id ?? "");
+          const postsForPage = postsBase
+            .map(p => ({ ...p, poll: pollMap[p.id] ?? null }))
+            .sort(sortPosts);
 
           setPosts(prev => append ? [...prev, ...postsForPage] : postsForPage);
           setHasMore(feed.posts.length === PAGE_SIZE);
@@ -350,6 +365,9 @@ const Chat = () => {
         commentCount: (countsRes.data || []).length,
       } as unknown as Post;
 
+      const pollMap = await fetchPollsForPosts([postId], user?.id ?? "");
+      cleaned.poll = pollMap[postId] ?? null;
+
       setPosts(prev => {
         const exists = prev.some(p => p.id === postId);
         const base = exists ? prev.map(p => (p.id === postId ? cleaned : p)) : [cleaned, ...prev];
@@ -358,7 +376,7 @@ const Chat = () => {
     } catch {
       console.error("Failed to refresh post", postId);
     }
-  }, []);
+  }, [user]);
 
   const sectionKeyFor = (ch: string) =>
     ch === "all" ? "chat_all" : ch === "09" ? "chat_09" : ch === "10" ? "chat_10" : null;
@@ -392,6 +410,44 @@ const Chat = () => {
       )
     );
   }, [user]);
+
+  // تسجيل صوت على تصويت — تفاؤلي محلياً ثم تأكيد الخادم.
+  const handlePollVote = useCallback(async (postId: string, pollId: string, optionId: string) => {
+    if (!user) return;
+    setPosts(prev =>
+      prev.map(p => (p.id === postId && p.poll ? { ...p, poll: applyVote(p.poll, optionId) } : p))
+    );
+    const res = await votePoll(pollId, optionId, user.id);
+    if (!res.ok) {
+      toast.error(res.error || "تعذر تسجيل صوتك");
+      void refreshPost(postId);
+    }
+  }, [user, refreshPost]);
+
+  const resetPollForm = () => {
+    setPollQuestion("");
+    setPollOptions(["", ""]);
+  };
+
+  const handleCreatePoll = async () => {
+    if (!user) return;
+    const question = pollQuestion.trim();
+    const options = pollOptions.map(o => o.trim()).filter(Boolean);
+    if (!question) { toast.error("اكتب سؤال التصويت أولاً"); return; }
+    if (options.length < 2) { toast.error("أضف خيارين على الأقل"); return; }
+    setCreatingPoll(true);
+    try {
+      const res = await createPoll(question, channelFilter, options);
+      if (!res.ok) { toast.error(res.error || "فشل إنشاء التصويت"); return; }
+      toast.success("تم نشر التصويت");
+      setPollOpen(false);
+      resetPollForm();
+      invalidateTable("posts");
+      await fetchPosts(0, false);
+    } finally {
+      setCreatingPoll(false);
+    }
+  };
 
   useEffect(() => {
     if (shouldShowSalawat()) setShowSalawat(true);
@@ -666,6 +722,9 @@ const Chat = () => {
             <div className="flex gap-1">
               <Button variant="ghost" size="sm" onClick={() => handleFileSelect("image")} className="gap-1"><ImageIcon className="w-4 h-4" /> صورة/GIF</Button>
               <Button variant="ghost" size="sm" onClick={() => handleFileSelect("video")} className="gap-1"><Video className="w-4 h-4" /> فيديو</Button>
+              {canCreatePoll && (
+                <Button variant="ghost" size="sm" onClick={() => setPollOpen(true)} className="gap-1" title="إنشاء تصويت"><BarChart3 className="w-4 h-4" /> تصويت</Button>
+              )}
             </div>
             <Button onClick={handlePost} disabled={posting || !content.trim()} size="sm" className="gap-1">
               {posting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
@@ -792,6 +851,7 @@ const Chat = () => {
                 post={post}
                 onRefresh={() => refreshPost(post.id)}
                 onLikeChanged={handleLikeChanged}
+                onPollVote={handlePollVote}
                 highlight={post.id === highlightPostId}
                 authorIsAdmin={adminUserIds.has(post.user_id)}
                 authorIsOwner={ownerUserIds.has(post.user_id)}
@@ -841,6 +901,62 @@ const Chat = () => {
         </div>
         <DialogFooter className="sm:justify-center">
           <Button onClick={() => setShowSalawat(false)}>ﷺ صلِّ على النبي ×3</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+
+    <Dialog open={pollOpen} onOpenChange={(o) => { setPollOpen(o); if (!o) resetPollForm(); }}>
+      <DialogContent dir="rtl">
+        <DialogHeader>
+          <DialogTitle className="flex items-center gap-2"><BarChart3 className="w-5 h-5 text-primary" /> إنشاء تصويت</DialogTitle>
+          <DialogDescription>سؤال واحد مع خيارين إلى عشرة — اختيار واحد لكل مصوّت.</DialogDescription>
+        </DialogHeader>
+        <div className="space-y-4 py-2">
+          <div>
+            <label className="text-sm font-medium mb-1 block">سؤال التصويت</label>
+            <Textarea
+              value={pollQuestion}
+              onChange={(e) => setPollQuestion(e.target.value)}
+              placeholder="ما سؤالك؟"
+              maxLength={300}
+              className="resize-none"
+            />
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm font-medium block">الخيارات</label>
+            {pollOptions.map((opt, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <Textarea
+                  value={opt}
+                  onChange={(e) => setPollOptions(prev => prev.map((o, j) => j === i ? e.target.value : o))}
+                  placeholder={`الخيار ${i + 1}`}
+                  maxLength={120}
+                  className="resize-none"
+                  rows={1}
+                />
+                {pollOptions.length > 2 && (
+                  <Button variant="ghost" size="icon" onClick={() => setPollOptions(prev => prev.filter((_, j) => j !== i))} title="حذف الخيار">
+                    <Trash2 className="w-4 h-4 text-destructive" />
+                  </Button>
+                )}
+              </div>
+            ))}
+            {pollOptions.length < 10 && (
+              <Button variant="outline" size="sm" className="gap-1" onClick={() => setPollOptions(prev => [...prev, ""])}>
+                <Plus className="w-4 h-4" /> إضافة خيار
+              </Button>
+            )}
+          </div>
+          <p className="text-xs text-muted-foreground">
+            سيُنشر التصويت في قناة {channelTabs.find(t => t.key === channelFilter)?.label ?? "الجميع"} فوراً.
+          </p>
+        </div>
+        <DialogFooter>
+          <Button variant="ghost" onClick={() => { setPollOpen(false); resetPollForm(); }}>إلغاء</Button>
+          <Button onClick={() => void handleCreatePoll()} disabled={creatingPoll} className="gap-1">
+            {creatingPoll ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+            نشر التصويت
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

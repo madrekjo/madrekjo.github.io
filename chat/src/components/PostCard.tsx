@@ -17,6 +17,8 @@ import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import UserProfileDialog from "@/components/UserProfileDialog";
 import RoundsBadge from "@/components/RoundsBadge";
+import PollView from "@/components/PollView";
+import type { PollData } from "@/lib/polls";
 import Lightbox from "@/components/Lightbox";
 import ReportDialog from "@/components/ReportDialog";
 import { formatDisplayName } from "@/lib/displayName";
@@ -84,17 +86,21 @@ interface PostProps {
     comments: PostComment[];
     /** عدد التعليقات — من الفيد الرفيع (المنشورات الحية لا تحمل أجسام التعليقات). */
     commentCount?: number;
+    /** تصويت مرفق بالمنشور (إن وُجد). */
+    poll?: PollData | null;
   };
   onRefresh: () => void;
   /** تغيير محلي فوري لحالة تفاعل المنشور عند المتصل (بدون إعادة جلب).
    * reaction: نوع التفاعل الجديد، أو null عند إزالته. */
   onLikeChanged?: (postId: string, reaction: string | null) => void;
+  /** تسجيل صوت على تصويت هذا المنشور. */
+  onPollVote?: (postId: string, pollId: string, optionId: string) => void;
   highlight?: boolean;
   authorIsAdmin?: boolean;
   authorIsOwner?: boolean;
 }
 
-const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLikeChanged, highlight, authorIsAdmin: authorIsAdminProp, authorIsOwner: authorIsOwnerProp }, ref) => {
+const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLikeChanged, onPollVote, highlight, authorIsAdmin: authorIsAdminProp, authorIsOwner: authorIsOwnerProp }, ref) => {
   const { user, isAdmin, isModerator, profile, isStaff } = useAuth();
   const { spend, getCost, balance } = usePoints();
   const [showComments, setShowComments] = useState(false);
@@ -554,6 +560,14 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
         </div>
       ) : (
         <p className="mb-3 whitespace-pre-wrap">{renderMentions(post.content, setProfileUserId)}</p>
+      )}
+
+      {/* Poll */}
+      {post.poll && (
+        <PollView
+          poll={post.poll}
+          onVote={(optionId) => onPollVote?.(post.id, post.poll!.id, optionId)}
+        />
       )}
 
       {/* Media */}
