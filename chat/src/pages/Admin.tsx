@@ -167,7 +167,7 @@ const Admin = () => {
     { key: "codes", label: "أكواد الدخول", icon: <KeyRound className="w-4 h-4" />, show: isOwner },
     { key: "words", label: "الكلمات المحظورة", icon: <MessageCircle className="w-4 h-4" />, show: isOwner },
     { key: "sections", label: "الأقسام والقنوات", icon: <Layers className="w-4 h-4" />, show: isAdmin || isOwner },
-    { key: "deleted", label: "المحذوفات", icon: <Archive className="w-4 h-4" />, show: isOwner },
+    { key: "deleted", label: "المحذوفات", icon: <Archive className="w-4 h-4" />, show: isAdmin || isOwner },
     { key: "audit", label: "سجل الإدارة", icon: <ScrollText className="w-4 h-4" />, show: isOwner },
     { key: "social", label: "مهام السوشيال", icon: <ClipboardList className="w-4 h-4" />, show: isAdmin || isModerator || isSupervisor || isOwner || isSocialAdmin },
     { key: "comms", label: "تواصل الفريق", icon: <MessageSquareText className="w-4 h-4" />, show: isOwner || isAdmin || isModerator || isSupervisor },
@@ -965,7 +965,7 @@ const Admin = () => {
         </div>
       )}
 
-      {tab === "deleted" && isOwner && (
+      {tab === "deleted" && (isAdmin || isOwner) && (
         <div className="space-y-6">
           <TabHeader
             icon={<Archive className="w-5 h-5" />}
