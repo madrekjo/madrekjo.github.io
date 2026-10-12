@@ -501,5 +501,21 @@ if (location.hash === '#recitations') {
 }
 </script>
 <script src="js/contributions.js?v=20260919a"></script>
+<div id="ajrClosed" style="display:none;position:fixed;inset:0;z-index:99999;background:#0a0a0f;color:#f0f0f5;font-family:'Cairo',sans-serif;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;gap:14px">
+  <div style="font-size:3rem">🌙</div>
+  <div style="font-size:1.5rem;font-weight:900;color:#FFD700">القسم مغلق مؤقتًا</div>
+  <p style="color:#888899;max-width:360px;line-height:1.9;margin:0">نعتذر، تم إغلاق قسم «أجر وثواب» مؤقتًا. سنعيده قريبًا بإذن الله.</p>
+  <a href="/" style="margin-top:6px;background:rgba(255,215,0,0.1);border:1px solid rgba(255,215,0,0.3);color:#FFD700;text-decoration:none;padding:10px 20px;border-radius:12px;font-weight:700">العودة للرئيسية</a>
+</div>
+<script>
+(function(){
+  var c = document.getElementById('ajrClosed');
+  if (c) c.style.display = 'flex';
+  var w = document.querySelector('.wrap');
+  if (w) w.style.display = 'none';
+  var m = document.getElementById('pageModal');
+  if (m) m.style.display = 'none';
+})();
+</script>
 </body>
 </html>
