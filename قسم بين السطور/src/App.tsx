@@ -37,6 +37,7 @@ import {
 import { downloadBlob, renderCardImage, renderNotebookImage } from "./lib/cardImage";
 import { lines as sampleLines } from "./data";
 import { wait } from "./lib/helpers";
+import { logout } from "./lib/sso";
 import AddLineModal from "./components/AddLineModal";
 import Onboarding from "./components/Onboarding";
 import RecoverAccountModal from "./components/RecoverAccountModal";
@@ -696,9 +697,19 @@ const [readerOpen, setReaderOpen] = useState(false);
           </button>
         )}
         <h1 className="font-serif text-3xl font-bold text-ink">بين السطور</h1>
-        <p className="mt-1 flex items-center justify-center gap-1 text-xs text-ink-soft">
-          <GraduationCap size={13} className="text-gold-deep" />
-          منصة القرّاء والكتّاب · مدارك جو
+        <p className="mt-1 flex items-center justify-center gap-3 text-xs text-ink-soft">
+          <span className="flex items-center gap-1">
+            <GraduationCap size={13} className="text-gold-deep" />
+            منصة القرّاء والكتّاب · مدارك جو
+          </span>
+          <button
+            onClick={logout}
+            title="إنهاء جلسة الدخول الموحد"
+            aria-label="تسجيل الخروج"
+            className="rounded-full border border-gold/40 px-2.5 py-0.5 font-bold text-gold-deep transition hover:bg-gold/10"
+          >
+            خروج
+          </button>
         </p>
       </header>
 

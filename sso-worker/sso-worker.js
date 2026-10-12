@@ -60,8 +60,9 @@ const SECTIONS = [
   { target: "/anon/", key: "anon", name: "أنا مجهول", status: "maintenance",
     supabaseUrl: "https://jmucsccdxxizvqtkyieq.supabase.co",
     anonKey: "sb_publishable_9z430osiEJbuJ2vaENWixw_hHCUGb0L" },
-  { target: "/sutur/", key: "sutur", name: "بين السطور", status: "maintenance",
-    supabaseUrl: "https://cfwnarueaparjbetagpi.supabase.co", anonKey: "" },
+  { target: "/sutur/", key: "sutur", name: "بين السطور", status: "active",
+    supabaseUrl: "https://cfwnarueaparjbetagpi.supabase.co",
+    anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNmd25hcnVlYXBhcmpiZXRhZ3BpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg5NzQ5MTQsImV4cCI6MjEwNDU1MDkxNH0.a96Oho0lpnX2Dtpa2q52m8BH1j_1-jr1ws95ET-aIqU" },
   { target: "/ask/", key: "ask", name: "اكتب سؤالك", status: "maintenance",
     supabaseUrl: "https://khqhlznlummkjdpssbds.supabase.co",
     anonKey: "sb_publishable_LJ47l76NmFo4lpLbMhi1WA_rO7WvtGC" },
@@ -1079,24 +1080,51 @@ async function handleCallback(
       "[sso] Starting Supabase sessions..."
     );
 
-    await Promise.all(
+    // منح مرن: الصمود مدخل فردي لا يُسقط الدخول كاملاً. قسمٌ فشل
+    // (مثل: لم يُفعَّل مزود Google في قاعدته بعد) يُسجَّل فقط ولا يظهر
+    // في التذكرة، حتى لا ينقطع تسجيل الدخول على سائر الأقسام.
+    const results = await Promise.allSettled(
       ACTIVE_SECTIONS.map(
-        async (section) => {
-          sessions[section.key] =
-            await mintSession(
-              env,
-              section.key,
-              section.supabaseUrl,
-              section.anonKey,
-              tokenData.id_token
-            );
-        }
+        async (section) =>
+          mintSession(
+            env,
+            section.key,
+            section.supabaseUrl,
+            section.anonKey,
+            tokenData.id_token
+          )
       )
     );
+
+    results.forEach((res, i) => {
+      const section = ACTIVE_SECTIONS[i];
+      if (res.status === "fulfilled") {
+        sessions[section.key] = res.value;
+      } else {
+        console.error(
+          `[sso] mintSession failed for "${section.key}":`,
+          res.reason?.message || "unknown error"
+        );
+      }
+    });
   } catch (err) {
     console.error(
-      "[sso] mintSession failed:",
+      "[sso] mintSession loop error:",
       err
+    );
+
+    return new Response(
+      "Failed to create sessions",
+      {
+        status: 502,
+      }
+    );
+  }
+
+  // بدون أي جلسة ناجحة لا معنى للدخول — نرفض.
+  if (Object.keys(sessions).length === 0) {
+    console.error(
+      "[sso] No sessions could be minted for any section"
     );
 
     return new Response(
