@@ -447,8 +447,7 @@ input, select, textarea { font-family: inherit; }
 }
 .mj-reset-btn:hover { border-color: var(--mj-teal-500); color: var(--mj-teal-600); }
 
-.mj-quick-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
-.mj-quick-tab {
+.mj-quick-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }.mj-quick-tab {
   background: #fff;
   border: 1px solid var(--mj-line);
   color: var(--mj-muted);
@@ -464,6 +463,93 @@ input, select, textarea { font-family: inherit; }
   border-color: transparent;
   color: #fff;
 }
+
+/* ---------- تبويبات أقسام المكتبة (ملفات / روابط مباشرة) ---------- */
+.mj-view-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 22px 0 0;
+  background: #fff;
+  border: 1px solid var(--mj-line);
+  border-radius: 999px;
+  padding: 6px;
+  box-shadow: var(--mj-shadow-sm);
+  width: fit-content;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+.mj-view-tab {
+  background: transparent;
+  border: 0;
+  color: var(--mj-muted);
+  font-weight: 800;
+  font-size: 0.95rem;
+  border-radius: 999px;
+  padding: 10px 24px;
+  transition: all 0.2s;
+  flex: 1 1 auto;
+}
+.mj-view-tab:hover { color: var(--mj-teal-600); }
+.mj-view-tab.is-active {
+  background: linear-gradient(135deg, var(--mj-green-600), var(--mj-teal-600));
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(13, 148, 136, 0.28);
+}
+.mj-view-pane[hidden] { display: none; }
+
+/* ---------- بطاقات الروابط المباشرة ---------- */
+.mj-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.mj-link-card {
+  background: var(--mj-card);
+  border: 1px solid var(--mj-line);
+  border-radius: var(--mj-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--mj-shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-top: 3px solid var(--mj-teal-500);
+}
+.mj-link-card:hover { transform: translateY(-4px); box-shadow: var(--mj-shadow); }
+.mj-link-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 14px 0;
+}
+.mj-link-ic {
+  width: 46px; height: 46px;
+  flex: 0 0 auto;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, var(--mj-green-600), var(--mj-teal-600));
+  color: #fff;
+}
+.mj-admin-row .mj-link-ic { width: 40px; height: 40px; font-size: 1.05rem; }
+
+/* ---------- شريحة المعلم ---------- */
+.mj-teacher-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  color: #4338ca;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+  width: fit-content;
+}
+.mj-teacher-chip strong { font-weight: 900; }
 
 /* ---------- بطاقات الملفات ---------- */
 .mj-files-grid {
@@ -919,6 +1005,8 @@ input, select, textarea { font-family: inherit; }
 .mj-admin-live > strong { font-weight: 800; }
 .mj-admin-live .mj-mini-btn { margin-inline-start: auto; }
 .mj-admin-status-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+.mj-admin-type-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+.mj-admin-type-tabs .mj-chip { font-size: 0.86rem; padding: 8px 18px; }
 .mj-chip {
   background: #fff;
   border: 1px solid var(--mj-line);

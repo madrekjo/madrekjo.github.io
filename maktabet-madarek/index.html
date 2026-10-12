@@ -8,12 +8,12 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/logo.png?v=2">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/library.css?v=4">
+<link rel="stylesheet" href="css/library.css?v=5">
 </head>
 <body>
 
-<!-- شريط تنبيه حالة القسم (يتحول تلقائياً بين المباشر والتجريبي) -->
-<div class="trial-banner" role="note">
+<!-- شريط تنبيه حالة القسم (يظهر في النسخة التجريبية فقط) -->
+<div class="trial-banner" role="note" hidden>
   <span class="trial-dot"></span>
   <span id="bannerText">نسخة تجريبية محلية — الملفات والبيانات وهمية ولا تُرفع إلى أي خادم.</span>
   <button type="button" class="trial-close" id="trialClose" aria-label="إغلاق التنبيه">✕</button>
@@ -60,29 +60,38 @@
     </div>
   </section>
 
+  <!-- ===================== تبويبات الأقسام ===================== -->
+  <section class="mj-view-tabs" role="tablist" aria-label="أقسام المكتبة">
+    <button type="button" class="mj-view-tab is-active" data-view="files" role="tab" aria-selected="true">📁 الملفات</button>
+    <button type="button" class="mj-view-tab" data-view="links" role="tab" aria-selected="false">🔗 الروابط المباشرة</button>
+  </section>
+
   <!-- ===================== بطاقات إحصائية ===================== -->
   <section class="mj-stats" id="statsSection" aria-label="إحصائيات المكتبة">
     <div class="mj-stat-card">
-      <div class="mj-stat-icon">📁</div>
+      <div class="mj-stat-icon" id="stat1Icon">📁</div>
       <div class="mj-stat-value" id="statFiles">0</div>
-      <div class="mj-stat-label">ملف متاح</div>
+      <div class="mj-stat-label" id="stat1Label">ملف متاح</div>
     </div>
     <div class="mj-stat-card">
-      <div class="mj-stat-icon">📚</div>
+      <div class="mj-stat-icon" id="stat2Icon">📚</div>
       <div class="mj-stat-value" id="statSubjects">0</div>
-      <div class="mj-stat-label">مادة دراسية</div>
+      <div class="mj-stat-label" id="stat2Label">مادة دراسية</div>
     </div>
     <div class="mj-stat-card">
-      <div class="mj-stat-icon">✅</div>
+      <div class="mj-stat-icon" id="stat3Icon">✅</div>
       <div class="mj-stat-value" id="statApproved">0</div>
-      <div class="mj-stat-label">ملف معتمد</div>
+      <div class="mj-stat-label" id="stat3Label">عنصر معتمد</div>
     </div>
     <div class="mj-stat-card">
-      <div class="mj-stat-icon">⬇️</div>
+      <div class="mj-stat-icon" id="stat4Icon">⬇️</div>
       <div class="mj-stat-value" id="statDownloads">0</div>
-      <div class="mj-stat-label">عملية تنزيل</div>
+      <div class="mj-stat-label" id="stat4Label">نشاط (تنزيل/فتح)</div>
     </div>
   </section>
+
+  <!-- ===================== عرض الملفات ===================== -->
+  <div id="filesView" class="mj-view-pane">
 
   <!-- ===================== تصنيفات المواد ===================== -->
   <section class="mj-block" aria-label="المواد الدراسية">
@@ -143,6 +152,51 @@
       <button type="button" class="mj-secondary-btn" id="emptyReset">↺ إعادة ضبط الفلاتر</button>
     </div>
   </section>
+
+  </div><!-- /filesView -->
+
+  <!-- ===================== عرض الروابط المباشرة ===================== -->
+  <div id="linksView" class="mj-view-pane" hidden>
+    <section class="mj-block" aria-label="الروابط المباشرة">
+      <div class="mj-block-head">
+        <h2 class="mj-block-title">🔗 الروابط المباشرة</h2>
+        <button type="button" class="mj-primary-btn" id="openAddLink">➕ إضافة رابط</button>
+      </div>
+      <p class="mj-note" id="linksNote">شارك رابطاً تعليمياً (فيديو، مذكرة، موقعاً، قناة…) وسيظهر بعد اعتماد المشرف.</p>
+
+      <div class="mj-filters">
+        <label class="mj-field">
+          <span>السنة</span>
+          <select id="linkFilterYear"><option value="">كل السنوات</option></select>
+        </label>
+        <label class="mj-field">
+          <span>المادة</span>
+          <select id="linkFilterSubject"><option value="">كل المواد</option></select>
+        </label>
+        <label class="mj-field">
+          <span>الفصل</span>
+          <select id="linkFilterTerm"><option value="">كل الفصول</option></select>
+        </label>
+        <label class="mj-field">
+          <span>الترتيب</span>
+          <select id="linkFilterSort">
+            <option value="newest">الأحدث</option>
+            <option value="clicks">الأكثر فتحاً</option>
+            <option value="oldest">الأقدم</option>
+            <option value="title">الاسم (أ–ي)</option>
+          </select>
+        </label>
+        <button type="button" class="mj-reset-btn" id="resetLinkFilters">↺ إعادة ضبط</button>
+      </div>
+
+      <div class="mj-links-grid" id="linksGrid"></div>
+      <div class="mj-empty" id="linksEmpty" hidden>
+        <div class="mj-empty-icon">🔗</div>
+        <h3>لا توجد روابط معتمدة بعد</h3>
+        <p>أضف أول رابط وسيظهر هنا بعد اعتماد المشرف.</p>
+      </div>
+    </section>
+  </div><!-- /linksView -->
 
   <footer class="mj-footer">
     <div class="mj-footer-inner">
@@ -217,6 +271,10 @@
             <span>اسمك (اختياري)</span>
             <input type="text" id="upUploader" maxlength="60" placeholder="سيظهر بجانب الملف — اتركه فارغاً للبقاء مجهولاً">
           </label>
+          <label class="mj-field full">
+            <span>اسم المعلم (اختياري) 👨‍🏫</span>
+            <input type="text" id="upTeacher" maxlength="60" placeholder="إذا كان الملف خاصاً بمعلم معيّن — اتركه فارغاً إن كان عاماً">
+          </label>
         </div>
 
         <div class="mj-error" id="uploadError" hidden></div>
@@ -229,6 +287,68 @@
         <div class="mj-modal-actions">
           <button type="button" class="mj-ghost-btn big" data-close="uploadModal">إلغاء</button>
           <button type="submit" class="mj-primary-btn" id="uploadSubmit">إرسال للمراجعة</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== نافذة إضافة رابط مباشر ===================== -->
+<div class="mj-modal" id="linkModal" hidden>
+  <div class="mj-modal-backdrop" data-close="linkModal"></div>
+  <div class="mj-modal-panel" role="dialog" aria-modal="true" aria-labelledby="linkTitle">
+    <div class="mj-modal-head">
+      <h3 id="linkTitle">🔗 إضافة رابط مباشر</h3>
+      <button type="button" class="mj-modal-close" data-close="linkModal" aria-label="إغلاق">✕</button>
+    </div>
+
+    <div class="mj-modal-body">
+      <p class="mj-note" id="linkNote">يُضاف الرابط بحالة «قيد المراجعة» حتى يعتمده المشرف — ويظهر للجميع بعد الاعتماد.</p>
+
+      <form id="linkForm" novalidate>
+        <div class="mj-form-grid">
+          <label class="mj-field full">
+            <span>عنوان الرابط *</span>
+            <input type="text" id="lkTitle" maxlength="120" placeholder="مثال: شرح قاعدة النصب — فيديو">
+          </label>
+
+          <label class="mj-field full">
+            <span>الرابط (URL) *</span>
+            <input type="url" id="lkUrl" maxlength="500" placeholder="https://..." dir="ltr" style="text-align:left">
+          </label>
+
+          <label class="mj-field full">
+            <span>وصف مختصر *</span>
+            <textarea id="lkDesc" rows="2" maxlength="300" placeholder="اكتب وصفاً يوضّح محتوى الرابط..."></textarea>
+          </label>
+
+          <label class="mj-field">
+            <span>السنة الدراسية *</span>
+            <select id="lkYear"><option value="">— اختر —</option></select>
+          </label>
+          <label class="mj-field">
+            <span>المادة *</span>
+            <select id="lkSubject"><option value="">— اختر —</option></select>
+          </label>
+          <label class="mj-field">
+            <span>الفصل *</span>
+            <select id="lkTerm"><option value="">— اختر —</option></select>
+          </label>
+          <label class="mj-field full">
+            <span>اسم المعلم (اختياري) 👨‍🏫</span>
+            <input type="text" id="lkTeacher" maxlength="60" placeholder="إذا كان الرابط خاصاً بمعلم معيّن — اتركه فارغاً إن كان عاماً">
+          </label>
+          <label class="mj-field full">
+            <span>اسمك (اختياري)</span>
+            <input type="text" id="lkUploader" maxlength="60" placeholder="سيظهر بجانب الرابط — اتركه فارغاً للبقاء مجهولاً">
+          </label>
+        </div>
+
+        <div class="mj-error" id="linkError" hidden></div>
+
+        <div class="mj-modal-actions">
+          <button type="button" class="mj-ghost-btn big" data-close="linkModal">إلغاء</button>
+          <button type="submit" class="mj-primary-btn" id="linkSubmit">إرسال للمراجعة</button>
         </div>
       </form>
     </div>
@@ -294,7 +414,11 @@
     </div>
 
     <div class="mj-admin-toolbar">
-      <input type="search" id="adminSearch" placeholder="🔍 بحث في كل الملفات (بما فيها المعلّقة والمرفوضة)">
+      <div class="mj-admin-type-tabs" id="adminTypeTabs" role="tablist" aria-label="نوع المحتوى المُدار">
+        <button type="button" class="mj-chip is-active" data-admin-type="files">🗂️ الملفات</button>
+        <button type="button" class="mj-chip" data-admin-type="links">🔗 الروابط المباشرة</button>
+      </div>
+      <input type="search" id="adminSearch" placeholder="🔍 بحث في كل المحتوى (بما فيه المعلّق والمرفوض)">
       <div class="mj-admin-status-tabs" id="adminStatusTabs">
         <button type="button" class="mj-chip is-active" data-status="any">الكل</button>
         <button type="button" class="mj-chip" data-status="pending">قيد المراجعة</button>
@@ -304,6 +428,7 @@
     </div>
 
     <div class="mj-admin-list" id="adminList"></div>
+    <div class="mj-admin-list" id="adminLinksList" hidden></div>
   </div>
 </div>
 
@@ -328,10 +453,10 @@
 <div class="mj-toasts" id="toasts" aria-live="polite" aria-atomic="false"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/config.js?v=4"></script>
-<script src="js/supabase-config.js?v=4"></script>
-<script src="js/seed.js?v=4"></script>
-<script src="js/store.js?v=4"></script>
-<script src="js/app.js?v=4"></script>
+<script src="js/config.js?v=5"></script>
+<script src="js/supabase-config.js?v=5"></script>
+<script src="js/seed.js?v=5"></script>
+<script src="js/store.js?v=5"></script>
+<script src="js/app.js?v=5"></script>
 </body>
 </html>

@@ -76,7 +76,7 @@
   }
 
   /* ---------- النوافذ المنبثقة ---------- */
-  const modalIds = ['uploadModal', 'detailsModal', 'adminLoginModal', 'confirmModal'];
+  const modalIds = ['uploadModal', 'linkModal', 'detailsModal', 'adminLoginModal', 'confirmModal'];
 
   function openModal(id) {
     const el = document.getElementById(id);
@@ -120,11 +120,19 @@
     type: '',
     sort: 'newest',
     quick: 'all',
+    view: 'files', // 'files' | 'links' — القسم المعروض للزائر
+    linkYear: '',
+    linkSubject: '',
+    linkTerm: '',
+    linkSort: 'newest',
+    linkQ: '',
     adminStatus: 'any',
     adminQ: '',
+    adminView: 'files', // 'files' | 'links' — القسم المُدار في لوحة الإدارة
   };
 
   let pendingDeleteId = null;
+  let pendingDeleteKind = 'file'; // 'file' | 'link'
 
   /* ---------- تعبئة القوائم ---------- */
   function fillSelect(select, items, labelKey) {
@@ -146,6 +154,15 @@
     fillSelect($('#upSubject'), CFG.subjects, 'label');
     fillSelect($('#upTerm'), CFG.terms, 'label');
     fillSelect($('#upType'), CFG.types, 'label');
+
+    // الروابط المباشرة (فلاتر + نافذة الإضافة)
+    fillSelect($('#linkFilterYear'), CFG.years, 'label');
+    fillSelect($('#linkFilterSubject'), CFG.subjects, 'label');
+    fillSelect($('#linkFilterTerm'), CFG.terms, 'label');
+
+    fillSelect($('#lkYear'), CFG.years, 'label');
+    fillSelect($('#lkSubject'), CFG.subjects, 'label');
+    fillSelect($('#lkTerm'), CFG.terms, 'label');
   }
 
   const mjSubject = (id) => CFG.subjects.find((s) => s.id === id) || null;
@@ -187,10 +204,34 @@
 
   /* ---------- الإحصائيات ---------- */
   function renderStats() {
+    if (state.view === 'links') {
+      const s = Store.linkStats();
+      $('#stat1Icon').textContent = '🔗';
+      $('#stat1Label').textContent = 'رابط متاح';
+      $('#statFiles').textContent = formatNum(s.approved);
+      $('#stat2Icon').textContent = '📚';
+      $('#stat2Label').textContent = 'مادة دراسية';
+      $('#statSubjects').textContent = formatNum(s.subjects);
+      $('#stat3Icon').textContent = '✅';
+      $('#stat3Label').textContent = 'رابط معتمد';
+      $('#statApproved').textContent = formatNum(s.approved);
+      $('#stat4Label').textContent = 'مرة فتح للروابط';
+      $('#stat4Icon').textContent = '🖱️';
+      $('#statDownloads').textContent = formatNum(s.clicks);
+      return;
+    }
     const s = Store.stats();
+    $('#stat1Icon').textContent = '📁';
+    $('#stat1Label').textContent = 'ملف متاح';
     $('#statFiles').textContent = formatNum(s.total);
+    $('#stat2Icon').textContent = '📚';
+    $('#stat2Label').textContent = 'مادة دراسية';
     $('#statSubjects').textContent = formatNum(s.subjects);
+    $('#stat3Icon').textContent = '✅';
+    $('#stat3Label').textContent = 'عنصر معتمد';
     $('#statApproved').textContent = formatNum(s.approved);
+    $('#stat4Label').textContent = 'نشاط (تنزيل/فتح)';
+    $('#stat4Icon').textContent = '⬇️';
     $('#statDownloads').textContent = formatNum(s.downloads);
   }
 
@@ -230,6 +271,7 @@
         '<div class="mj-file-body">' +
           '<h3 class="mj-file-title">' + escapeHtml(f.title) + '</h3>' +
           '<p class="mj-file-desc">' + escapeHtml(f.description) + '</p>' +
+          (f.teacher ? '<div class="mj-teacher-chip">👨‍🏫 <strong>' + escapeHtml(f.teacher) + '</strong></div>' : '') +
           '<div class="mj-file-meta">' +
             '<span>📚 ' + (subj ? escapeHtml(subj.label) : '—') + '</span>' +
             '<span>👤 ' + escapeHtml(f.uploader) + '</span>' +
@@ -272,6 +314,134 @@
       if (detailBtn) openDetails(detailBtn.getAttribute('data-detail'));
       if (dlBtn) downloadFile(dlBtn.getAttribute('data-download'));
     });
+  }
+
+  /* ---------- بطاقات الروابط المباشرة (العرض العام) ---------- */
+  function safeUrl(url) {
+    try {
+      const u = new URL(url);
+      return /^https?:$/.test(u.protocol) ? u.href : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function linkHost(url) {
+    try {
+      const u = new URL(url);
+      return u.hostname.replace(/^www\./, '');
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function linkCard(l) {
+    const subj = mjSubject(l.subject);
+    const term = mjTerm(l.term);
+    const year = mjYear(l.year);
+    const host = escapeHtml(linkHost(l.url));
+
+    return (
+      '<article class="mj-link-card" data-id="' + escapeHtml(l.id) + '">' +
+        '<div class="mj-link-top">' +
+          '<span class="mj-link-ic">🔗</span>' +
+          '<div class="mj-file-tags">' +
+            (year ? '<span class="mj-tag year">' + escapeHtml(year.label) + '</span>' : '') +
+            (term ? '<span class="mj-tag term">ف' + escapeHtml(term.id === '1' ? '١' : '٢') + '</span>' : '') +
+            (host ? '<span class="mj-tag type">' + host + '</span>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="mj-file-body">' +
+          '<h3 class="mj-file-title">' + escapeHtml(l.title) + '</h3>' +
+          '<p class="mj-file-desc">' + escapeHtml(l.description) + '</p>' +
+          (l.teacher ? '<div class="mj-teacher-chip">👨‍🏫 <strong>' + escapeHtml(l.teacher) + '</strong></div>' : '') +
+          '<div class="mj-file-meta">' +
+            '<span>📚 ' + (subj ? escapeHtml(subj.label) : '—') + '</span>' +
+            '<span>👤 ' + escapeHtml(l.uploader) + '</span>' +
+            '<span>🖱️ ' + formatNum(l.clicks) + ' فتحة</span>' +
+            '<span>📅 ' + escapeHtml(formatDate(l.uploadedAt)) + '</span>' +
+          '</div>' +
+          '<div class="mj-file-actions">' +
+            '<button type="button" class="mj-mini-btn primary" data-open-link="' + escapeHtml(l.id) + '">🌐 فتح الرابط</button>' +
+          '</div>' +
+        '</div>' +
+      '</article>'
+    );
+  }
+
+  function renderLinks() {
+    const grid = $('#linksGrid');
+    const empty = $('#linksEmpty');
+    const note = $('#linksNote');
+
+    // قسم الروابط غير مُفعَّل في القاعدة بعد (migration إضافي لم يُنفَّذ).
+    const addBtn = $('#openAddLink');
+    if (Store.isLinksUnavailable && Store.isLinksUnavailable()) {
+      if (addBtn) addBtn.hidden = true;
+      if (note) note.textContent = 'قسم الروابط المباشرة سيُفعَّل بعد تشغيل تحديث SQL الإضافي للمكتبة (20261013_maktabet_links.sql).';
+      grid.innerHTML = '';
+      grid.hidden = true;
+      empty.hidden = false;
+      empty.innerHTML =
+        '<div class="mj-empty-icon">🛠️</div>' +
+        '<h3>قسم الروابط قيد التجهيز</h3>' +
+        '<p>لم يُنشأ جدول الروابط في قاعدة البيانات بعد. التشغيل يتم مرة واحدة من لوحة Supabase → SQL Editor.</p>';
+      return;
+    }
+
+    if (addBtn) addBtn.hidden = false;
+
+    const rows = Store.queryLinks({
+      q: state.linkQ,
+      year: state.linkYear,
+      subject: state.linkSubject,
+      term: state.linkTerm,
+      sort: state.linkSort,
+      status: 'approved',
+    });
+
+    const total = Store.allLinks().filter((x) => x.status === 'approved').length;
+    if (note) note.textContent = 'شارك رابطاً تعليمياً (فيديو، مذكرة، موقعاً، قناة…) وسيظهر بعد اعتماد المشرف.' +
+      (total > 0 ? ' حالياً ' + total + ' رابط معتمد.' : '');
+
+    if (rows.length === 0) {
+      grid.innerHTML = '';
+      grid.hidden = true;
+      empty.hidden = false;
+      empty.innerHTML =
+        '<div class="mj-empty-icon">🔗</div>' +
+        '<h3>لا توجد روابط هنا</h3>' +
+        '<p>جرّب تعديل الفلاتر أو البحث، أو شارك أول رابط تعليمي.</p>';
+      return;
+    }
+    grid.hidden = false;
+    empty.hidden = true;
+    grid.innerHTML = rows.map(linkCard).join('');
+  }
+
+  function bindLinksGrid() {
+    const grid = $('#linksGrid');
+    grid.addEventListener('click', (e) => {
+      const openBtn = e.target.closest('[data-open-link]');
+      if (openBtn) openLink(openBtn.getAttribute('data-open-link'));
+    });
+  }
+
+  async function openLink(id) {
+    const l = Store.getLink(id);
+    if (!l) {
+      toast('الرابط غير موجود.', 'error');
+      return;
+    }
+    const url = safeUrl(l.url);
+    if (!url) {
+      toast('الرابط غير صالح أو غير آمن.', 'error');
+      return;
+    }
+    window.open(url, '_blank', 'noopener');
+    try { await Store.incrementLinkClick(id); } catch (e) { /* العداد اختياري */ }
+    renderLinks();
+    renderStats();
   }
 
   /* ---------- فتح تفاصيل + تنزيل ---------- */
@@ -322,6 +492,7 @@
         detailItem('السنة', year ? year.label : '—') +
         detailItem('الفصل', term ? term.label : '—') +
         detailItem('نوع الملف', type ? type.label : '—') +
+        detailItem('المعلم', f.teacher ? f.teacher : 'عام (غير مخصص)') +
         detailItem('الامتداد', stIcon.label) +
         detailItem('الحجم', formatSize(f.size)) +
         detailItem('رفعه', f.uploader) +
@@ -548,11 +719,76 @@
     toast('تمت إعادة ضبط الفلاتر.', 'info');
   }
 
+  /* ---------- فلاتر الروابط المباشرة ---------- */
+  function bindLinkFilters() {
+    $('#linkFilterYear').addEventListener('change', (e) => { state.linkYear = e.target.value; renderLinkFiltersView(); });
+    $('#linkFilterSubject').addEventListener('change', (e) => { state.linkSubject = e.target.value; renderLinkFiltersView(); });
+    $('#linkFilterTerm').addEventListener('change', (e) => { state.linkTerm = e.target.value; renderLinkFiltersView(); });
+    $('#linkFilterSort').addEventListener('change', (e) => { state.linkSort = e.target.value; renderLinkFiltersView(); });
+
+    $('#resetLinkFilters').addEventListener('click', () => {
+      state.linkYear = '';
+      state.linkSubject = '';
+      state.linkTerm = '';
+      state.linkSort = 'newest';
+      $('#linkFilterYear').value = '';
+      $('#linkFilterSubject').value = '';
+      $('#linkFilterTerm').value = '';
+      $('#linkFilterSort').value = 'newest';
+      renderLinkFiltersView();
+      toast('تمت إعادة ضبط فلاتر الروابط.', 'info');
+    });
+  }
+
+  function renderLinkFiltersView() {
+    renderStats();
+    renderLinks();
+  }
+
+  /* ---------- تبديل أقسام المكتبة: الملفات / الروابط المباشرة ---------- */
+  function bindViewTabs() {
+    $$('.mj-view-tab').forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const v = tab.getAttribute('data-view');
+        state.view = v;
+        $$('.mj-view-tab').forEach((t) => {
+          const active = t === tab;
+          t.classList.toggle('is-active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        const filesView = $('#filesView');
+        const linksView = $('#linksView');
+        if (filesView) filesView.hidden = v !== 'files';
+        if (linksView) linksView.hidden = v !== 'links';
+        const searchInput = $('#searchInput');
+        if (searchInput) {
+          searchInput.placeholder = v === 'links'
+            ? 'ابحث عن رابط بالاسم أو الوصف أو المعلم...'
+            : 'ابحث عن ملف بالاسم أو الوصف...';
+        }
+        renderStats();
+        if (v === 'links') {
+          renderLinks();
+        } else {
+          renderFiles();
+          renderSubjects();
+        }
+      });
+    });
+  }
+
   /* ---------- البحث ---------- */
   function bindSearch() {
     $('#searchForm').addEventListener('submit', (e) => {
       e.preventDefault();
-      state.q = $('#searchInput').value;
+      const q = $('#searchInput').value;
+      if (state.view === 'links') {
+        state.linkQ = q;
+        renderLinks();
+        $('#linksView').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+      state.q = q;
       state.quick = 'all';
       refreshQuickTabs();
       renderFiles();
@@ -601,6 +837,7 @@
     $('#upTerm').value = '';
     $('#upType').value = '';
     $('#upUploader').value = '';
+    $('#upTeacher').value = '';
     $('#uploadError').hidden = true;
     $('#uploadProgress').hidden = true;
     setProgress(0);
@@ -703,6 +940,7 @@
       ext: (selectedFile.name || '').split('.').pop().toLowerCase(),
       size: selectedFile.size,
       uploader: $('#upUploader').value.trim() || 'مستخدم مجهول',
+      teacher: $('#upTeacher').value.trim() || '',
     };
 
     $('#uploadProgress').hidden = false;
@@ -759,6 +997,94 @@
     }, 120);
   }
 
+  /* ---------- نافذة إضافة رابط مباشر ---------- */
+  function bindAddLink() {
+    $('#openAddLink').addEventListener('click', openAddLinkModal);
+
+    $('#linkForm').addEventListener('submit', onSubmitLink);
+  }
+
+  function openAddLinkModal() {
+    $('#lkTitle').value = '';
+    $('#lkUrl').value = '';
+    $('#lkDesc').value = '';
+    $('#lkYear').value = '';
+    $('#lkSubject').value = '';
+    $('#lkTerm').value = '';
+    $('#lkTeacher').value = '';
+    $('#lkUploader').value = '';
+    $('#linkError').hidden = true;
+    $('#linkSubmit').disabled = false;
+    openModal('linkModal');
+  }
+
+  function showLinkError(msg) {
+    const el = $('#linkError');
+    if (el) {
+      el.textContent = '⚠️ ' + msg;
+      el.hidden = false;
+    }
+  }
+
+  function validateLinkUrl(url) {
+    try {
+      const u = new URL(url);
+      return /^https?:$/.test(u.protocol) ? u.href : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async function onSubmitLink(e) {
+    e.preventDefault();
+    const errEl = $('#linkError');
+    if (errEl) errEl.hidden = true;
+
+    const title = $('#lkTitle').value.trim();
+    const url = $('#lkUrl').value.trim();
+    const desc = $('#lkDesc').value.trim();
+    const year = $('#lkYear').value;
+    const subject = $('#lkSubject').value;
+    const term = $('#lkTerm').value;
+
+    if (!title) { showLinkError('أدخل عنوان الرابط.'); return; }
+    if (!url) { showLinkError('أدخل رابطاً (URL) صحيحاً.'); return; }
+    if (!validateLinkUrl(url)) { showLinkError('الرابط غير صالح — يجب أن يبدأ بـ https:// أو http://'); return; }
+    if (!desc) { showLinkError('أدخل وصفاً مختصراً للرابط.'); return; }
+    if (!year) { showLinkError('اختر السنة الدراسية.'); return; }
+    if (!subject) { showLinkError('اختر المادة.'); return; }
+    if (!term) { showLinkError('اختر الفصل.'); return; }
+
+    const btn = $('#linkSubmit');
+    btn.disabled = true;
+
+    const meta = {
+      title,
+      url,
+      description: desc,
+      year,
+      subject,
+      term,
+      teacher: $('#lkTeacher').value.trim() || '',
+      uploader: $('#lkUploader').value.trim() || 'مستخدم مجهول',
+    };
+
+    try {
+      await Store.addLink(meta);
+      closeModal('linkModal');
+      toast('تم إرسال الرابط للمراجعة ✅ — سيظهر بعد اعتماد المشرف.', 'success');
+      renderStats();
+      renderLinks();
+      if (state.view === 'links') {
+        renderLinks();
+      }
+    } catch (upErr) {
+      showLinkError(upErr && upErr.friendly ? upErr.message : 'تعذّر حفظ الرابط في القاعدة.');
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
   /* ---------- وضع النسخة (نصوص تتبدل حسب Live/Trial) ---------- */
   function applyModeCopy() {
     const live = Store.isLive();
@@ -767,13 +1093,14 @@
       if (el) el.textContent = txt;
     };
 
+    // الشريط العلوي: المعروض لاحقاً تجريبي فقط — لا يُظهر رسائل الوضع مباشرة.
+    const banner = document.querySelector('.trial-banner');
+    if (banner) banner.hidden = live;
+
     if (live) {
-      set('bannerText', Store.isEnabled()
-        ? 'وضع مباشر — الملفات تُقرأ وتُرفع إلى قاعدة بيانات المكتبة، وتظهر بعد اعتماد المشرف.'
-        : '⚠️ المكتبة غير مفعّلة: لا تظهر الملفات للزوار. فعّلها من لوحة الإدارة.');
       set('uploadNote', 'سيُرفع ملفك فوراً إلى قاعدة بيانات المكتبة بحالة «قيد المراجعة» حتى يعتمده المشرف. يُسمح فقط بـ PDF و JPG و PNG بحد أقصى 10MB.');
       set('adminNote', 'أدخل رمز الإدارة للوصول إلى اللوحة. الرمز مخزّن في قاعدة البيانات فقط وليس في كود الصفحة.');
-      set('footerNote', 'النسخة المباشرة — البيانات مربوطة بقاعدة بيانات Supabase.');
+      set('footerNote', 'المكتبة');
       const adminBtn = $('#openAdmin');
       if (adminBtn) adminBtn.title = 'لوحة الإدارة';
     } else {
@@ -879,6 +1206,14 @@
       });
     });
 
+    $$('#adminTypeTabs .mj-chip').forEach((chip) => {
+      chip.addEventListener('click', () => {
+        state.adminView = chip.getAttribute('data-admin-type');
+        $$('#adminTypeTabs .mj-chip').forEach((c) => c.classList.toggle('is-active', c === chip));
+        renderAdminList();
+      });
+    });
+
     $('#adminReset').addEventListener('click', () => {
       askConfirm(
         'إعادة تهيئة البيانات التجريبية',
@@ -927,12 +1262,13 @@
   }
 
   function renderAdminStats() {
-    const s = Store.stats();
+    const f = Store.stats();
+    const l = Store.linkStats();
     $('#adminStats').innerHTML =
-      '<div class="mj-admin-stat total"><div class="num">' + formatNum(s.total) + '</div><div class="lbl">إجمالي الملفات</div></div>' +
-      '<div class="mj-admin-stat pending"><div class="num">' + formatNum(s.pending) + '</div><div class="lbl">قيد المراجعة</div></div>' +
-      '<div class="mj-admin-stat approved"><div class="num">' + formatNum(s.approved) + '</div><div class="lbl">معتمد</div></div>' +
-      '<div class="mj-admin-stat rejected"><div class="num">' + formatNum(s.rejected) + '</div><div class="lbl">مرفوض</div></div>';
+      '<div class="mj-admin-stat total"><div class="num">' + formatNum(f.total) + '</div><div class="lbl">إجمالي الملفات</div></div>' +
+      '<div class="mj-admin-stat total"><div class="num">' + formatNum(l.total) + '</div><div class="lbl">إجمالي الروابط</div></div>' +
+      '<div class="mj-admin-stat pending"><div class="num">' + formatNum(f.pending + l.pending) + '</div><div class="lbl">قيد المراجعة</div></div>' +
+      '<div class="mj-admin-stat approved"><div class="num">' + formatNum(f.approved + l.approved) + '</div><div class="lbl">معتمد</div></div>';
   }
 
   function adminRow(f) {
@@ -964,6 +1300,7 @@
           '<div class="mj-admin-row-sub">' +
             '<span>' + (subj ? escapeHtml(subj.label) : '—') + '</span>' +
             '<span>' + escapeHtml((mjYear(f.year) || { label: '—' }).label) + ' · ' + escapeHtml((mjTerm(f.term) || { label: '—' }).label) + '</span>' +
+            (f.teacher ? '<span>👨‍🏫 ' + escapeHtml(f.teacher) + '</span>' : '') +
             '<span>⬇️ ' + formatNum(f.downloads) + '</span>' +
             '<span>📅 ' + escapeHtml(formatDate(f.uploadedAt)) + '</span>' +
             '<span class="mj-file-status ' + st.className + '">' + escapeHtml(st.label) + '</span>' +
@@ -975,25 +1312,71 @@
     );
   }
 
+  function adminLinkRow(l) {
+    const subj = mjSubject(l.subject);
+    const st = CFG.statuses[l.status];
+    const host = escapeHtml(linkHost(l.url));
+
+    const buttons = [];
+    if (l.status !== 'approved') {
+      buttons.push('<button type="button" class="mj-mini-btn primary" data-admin-approve="' + escapeHtml(l.id) + '">✔️ اعتماد</button>');
+    }
+    if (l.status !== 'rejected') {
+      buttons.push('<button type="button" class="mj-mini-btn" data-admin-reject="' + escapeHtml(l.id) + '" style="color:#b45309">📛 رفض</button>');
+    }
+    if (l.status === 'approved' || l.status === 'rejected') {
+      buttons.push('<button type="button" class="mj-mini-btn" data-admin-pending="' + escapeHtml(l.id) + '">↩️ إعادة للمراجعة</button>');
+    }
+    buttons.push('<button type="button" class="mj-mini-btn danger" data-admin-delete="' + escapeHtml(l.id) + '">🗑️ حذف</button>');
+    buttons.push('<button type="button" class="mj-mini-btn" data-admin-open="' + escapeHtml(l.id) + '">🌐 فتح الرابط</button>');
+
+    return (
+      '<div class="mj-admin-row" data-id="' + escapeHtml(l.id) + '">' +
+        '<span class="mj-link-ic">🔗</span>' +
+        '<div class="mj-admin-row-main">' +
+          '<p class="mj-admin-row-title">' + escapeHtml(l.title) + '</p>' +
+          '<div class="mj-admin-row-sub">' +
+            '<span>' + (subj ? escapeHtml(subj.label) : '—') + '</span>' +
+            '<span>' + escapeHtml((mjYear(l.year) || { label: '—' }).label) + ' · ' + escapeHtml((mjTerm(l.term) || { label: '—' }).label) + '</span>' +
+            (l.teacher ? '<span>👨‍🏫 ' + escapeHtml(l.teacher) + '</span>' : '') +
+            (host ? '<span>🌐 ' + host + '</span>' : '') +
+            '<span>🖱️ ' + formatNum(l.clicks) + '</span>' +
+            '<span>📅 ' + escapeHtml(formatDate(l.uploadedAt)) + '</span>' +
+            '<span class="mj-file-status ' + st.className + '">' + escapeHtml(st.label) + '</span>' +
+            (l.note ? '<span style="color:var(--mj-danger)">' + escapeHtml(l.note) + '</span>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="mj-admin-row-actions">' + buttons.join('') + '</div>' +
+      '</div>'
+    );
+  }
+
   function renderAdminList() {
     const list = $('#adminList');
+    const linksList = $('#adminLinksList');
     const q = state.adminQ.trim();
-    const rows = Store.query({
-      q: q,
-      status: state.adminStatus,
-      sort: 'newest',
-    });
+    const isLinks = state.adminView === 'links';
+
+    if (list) list.hidden = isLinks;
+    if (linksList) linksList.hidden = !isLinks;
+
+    const target = isLinks ? linksList : list;
+    if (!target) return;
+
+    const rows = isLinks
+      ? Store.queryLinks({ q: q, status: state.adminStatus, sort: 'newest' })
+      : Store.query({ q: q, status: state.adminStatus, sort: 'newest' });
 
     if (rows.length === 0) {
-      list.innerHTML =
+      target.innerHTML =
         '<div class="mj-empty">' +
-          '<div class="mj-empty-icon">📭</div>' +
-          '<h3>لا توجد ملفات هنا</h3>' +
-          '<p>جرّب تغيير البحث أو التصنيف، أو ارفع ملفات جديدة من المكتبة العامة.</p>' +
+          '<div class="mj-empty-icon">' + (isLinks ? '🔗' : '📭') + '</div>' +
+          '<h3>' + (isLinks ? 'لا توجد روابط هنا' : 'لا توجد ملفات هنا') + '</h3>' +
+          '<p>' + (isLinks ? 'جرّب تغيير البحث أو التصنيف، أو أضف روابط من المكتبة العامة.' : 'جرّب تغيير البحث أو التصنيف، أو ارفع ملفات جديدة من المكتبة العامة.') + '</p>' +
         '</div>';
       return;
     }
-    list.innerHTML = rows.map(adminRow).join('');
+    target.innerHTML = (isLinks ? rows.map(adminLinkRow) : rows.map(adminRow)).join('');
   }
 
   function renderAdmin() {
@@ -1019,6 +1402,20 @@
       if (detail) openDetails(detail.getAttribute('data-admin-detail'));
       if (preview) previewLiveFile(preview.getAttribute('data-admin-preview'));
     });
+
+    $('#adminLinksList').addEventListener('click', (e) => {
+      const approve = e.target.closest('[data-admin-approve]');
+      const reject = e.target.closest('[data-admin-reject]');
+      const pending = e.target.closest('[data-admin-pending]');
+      const del = e.target.closest('[data-admin-delete]');
+      const open = e.target.closest('[data-admin-open]');
+
+      if (approve) adminSetLinkStatus(approve.getAttribute('data-admin-approve'), 'approved');
+      if (reject) adminSetLinkStatus(reject.getAttribute('data-admin-reject'), 'rejected');
+      if (pending) adminSetLinkStatus(pending.getAttribute('data-admin-pending'), 'pending');
+      if (del) adminAskDelete(del.getAttribute('data-admin-delete'));
+      if (open) openLink(open.getAttribute('data-admin-open'));
+    });
   }
 
   async function adminSetStatus(id, status) {
@@ -1033,12 +1430,26 @@
     renderFiles();
   }
 
+  async function adminSetLinkStatus(id, status) {
+    const link = Store.getLink(id);
+    if (!link) { toast('الرابط غير موجود.', 'error'); return; }
+    const updated = await Store.updateLinkStatus(id, status);
+    const labels = { approved: 'اعتمد الرابط', rejected: 'رُفض الرابط', pending: 'أُعيد الرابط للمراجعة' };
+    if (updated) toast(labels[status] + ' ✅', 'success');
+    else toast('تعذّر تحديث الحالة في القاعدة.', 'error');
+    renderAdmin();
+    renderStats();
+    renderLinks();
+  }
+
   function adminAskDelete(id) {
-    const file = Store.get(id);
-    if (!file) { toast('الملف غير موجود.', 'error'); return; }
+    const isLink = state.adminView === 'links';
+    const item = isLink ? Store.getLink(id) : Store.get(id);
+    if (!item) { toast('العنصر غير موجود.', 'error'); return; }
+    pendingDeleteKind = isLink ? 'link' : 'file';
     pendingDeleteId = id;
     $('#confirmTitle').textContent = 'تأكيد الحذف';
-    $('#confirmText').textContent = 'هل تريد بالتأكيد حذف «' + file.title + '»؟ لا يمكن التراجع عن الحذف.';
+    $('#confirmText').textContent = 'هل تريد بالتأكيد حذف «' + item.title + '»؟ لا يمكن التراجع عن الحذف.';
     openModal('confirmModal');
   }
 
@@ -1054,13 +1465,17 @@
   function bindConfirmGeneral() {
     $('#confirmDelete').addEventListener('click', async () => {
       if (pendingDeleteId) {
-        const ok = await Store.removeFile(pendingDeleteId);
+        const ok = pendingDeleteKind === 'link'
+          ? await Store.removeLink(pendingDeleteId)
+          : await Store.removeFile(pendingDeleteId);
         pendingDeleteId = null;
+        pendingDeleteKind = 'file';
         closeModal('confirmModal');
-        toast(ok ? 'تم حذف الملف 🗑️' : 'تعذّر حذف الملف من القاعدة.', ok ? 'success' : 'error');
+        toast(ok ? 'تم حذف العنصر 🗑️' : 'تعذّر حذف العنصر من القاعدة.', ok ? 'success' : 'error');
         renderAdmin();
         renderStats();
         renderFiles();
+        renderLinks();
         return;
       }
       if (typeof confirmAction === 'function') {
@@ -1074,9 +1489,12 @@
 
   /* ---------- أحداث عامة ---------- */
   function bindMisc() {
-    $('#trialClose').addEventListener('click', () => {
-      $('#trialClose').closest('.trial-banner').remove();
-    });
+    const trialClose = $('#trialClose');
+    if (trialClose) {
+      trialClose.addEventListener('click', () => {
+        $('#trialClose').closest('.trial-banner').remove();
+      });
+    }
 
     $('#scrollToFilesBtn').addEventListener('click', () => {
       $('#filesSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1092,13 +1510,18 @@
     renderSubjects();
     renderStats();
     renderFiles();
+    renderLinks();
     refreshQuickTabs();
 
     bindFilesGrid();
     bindDetailsBody();
     bindFilters();
+    bindLinkFilters();
     bindSearch();
+    bindViewTabs();
     bindUpload();
+    bindAddLink();
+    bindLinksGrid();
     bindAdmin();
     bindAdminList();
     bindConfirmGeneral();
@@ -1115,13 +1538,6 @@
         toast('ينبغي تشغيل تحديث SQL الإضافي للمكتبة (دالة maktabet_is_admin) لدخول الإدارة.', 'warn');
       }, 1300);
     }
-
-    setTimeout(() => {
-      toast(live ? 'أهلاً بك في المكتبة — النسخة المباشرة 💚' : 'أهلاً بك في المكتبة — نسخة تجريبية محلية 💚', 'info');
-      if (live && !Store.isEnabled()) {
-        toast('المكتبة غير مفعّلة حالياً — المحتوى مخفي عن الزوار. فعّلها من لوحة الإدارة.', 'warn');
-      }
-    }, 600);
   }
 
   if (document.readyState === 'loading') {

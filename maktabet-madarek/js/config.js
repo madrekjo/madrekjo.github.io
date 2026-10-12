@@ -61,6 +61,7 @@ const MAKTABET_CONFIG = {
   // مفاتيح التخزين المحلي التجريبي
   storageKeys: {
     files: 'maktabet_madarek_files_v1',
+    links: 'maktabet_madarek_links_v1',
     admin: 'maktabet_madarek_admin_v1',
     downloads: 'maktabet_madarek_downloads_v1',
   },

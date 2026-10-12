@@ -26,11 +26,13 @@ const MaktabetStore = (function () {
 
   let state = {
     files: [],
+    links: [],
     admin: false,
     enabled: true, // مفتاح تفعيل المكتبة (library_enabled)
     mode: 'unknown', // 'live' | 'trial'
     error: null,
     missingRpc: false,
+    linksUnavailable: false, // جدول الروابط غير منشأ بعد في القاعدة
   };
   const listeners = new Set();
 
@@ -67,9 +69,21 @@ const MaktabetStore = (function () {
     }
   }
 
+  function readLocalLinks() {
+    try {
+      const raw = localStorage.getItem(KEYS.links);
+      if (raw == null) return null;
+      const arr = safeParse(raw, null);
+      return Array.isArray(arr) ? arr : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
   function writeLocal() {
     try {
       localStorage.setItem(KEYS.files, JSON.stringify(state.files));
+      localStorage.setItem(KEYS.links, JSON.stringify(state.links));
     } catch (e) {
       console.warn('[المكتبة] تعذّر الحفظ في التخزين المحلي:', e);
     }
@@ -116,6 +130,7 @@ const MaktabetStore = (function () {
       ext: String(f.ext || '').toLowerCase(),
       size: Number(f.size != null ? f.size : f.size_bytes) || 0,
       uploader: String(f.uploader || 'مستخدم مجهول').trim(),
+      teacher: f.teacher ? String(f.teacher).trim() : '',
       uploadedAt: f.uploadedAt || f.created_at || nowISO(),
       downloads: Number(f.downloads) || 0,
       status: ['approved', 'pending', 'rejected'].includes(f.status) ? f.status : 'pending',
@@ -123,6 +138,24 @@ const MaktabetStore = (function () {
       note: f.note ? String(f.note) : '',
       storagePath: f.storage_path || null,
       hasRealFile: !!f.storage_path && !isSample,
+    };
+  }
+
+  function normalizeLink(l) {
+    return {
+      id: String(l.id || genId()),
+      title: String(l.title || '').trim(),
+      url: String(l.url || '').trim(),
+      description: String(l.description || '').trim(),
+      year: String(l.year || ''),
+      subject: String(l.subject || ''),
+      term: String(l.term || ''),
+      teacher: l.teacher ? String(l.teacher).trim() : '',
+      uploader: String(l.uploader || 'مستخدم مجهول').trim(),
+      uploadedAt: l.uploadedAt || l.created_at || nowISO(),
+      clicks: Number(l.clicks) || 0,
+      status: ['approved', 'pending', 'rejected'].includes(l.status) ? l.status : 'pending',
+      note: l.note ? String(l.note) : '',
     };
   }
 
@@ -217,6 +250,16 @@ const MaktabetStore = (function () {
     return res.data || [];
   }
 
+  async function fetchAllLinks() {
+    const c = client();
+    const res = await timeoutRace(
+      c.from('maktabet_library_links').select('*').order('created_at', { ascending: false }).limit(1000),
+      6000
+    );
+    if (!res || res.error) throw (res && res.error) || new Error('timeout');
+    return res.data || [];
+  }
+
   async function checkAdmin() {
     const c = client();
     if (!c) {
@@ -241,20 +284,45 @@ const MaktabetStore = (function () {
     if (!state.admin) writeAdmin(false);
   }
 
-  async function refreshLive() {
+  async function refreshLive(opts) {
     const c = client();
     if (!c) return;
+    let coreFailed = false;
+
+    // الإعدادات
     try {
-      const [rows, settings] = await Promise.all([fetchAllFiles(), fetchSettings()]);
+      const settings = await fetchSettings();
       if (settings) state.enabled = !!settings.library_enabled;
-      state.files = rows.map(normalize);
-      state.error = null;
-      await checkAdmin();
-      emit();
     } catch (e) {
-      state.error = e && e.message ? String(e.message) : String(e);
-      console.warn('[المكتبة] لم نتمكن من جلب البيانات من القاعدة:', e);
+      coreFailed = true;
+      console.warn('[المكتبة] تعذّر جلب الإعدادات:', e);
     }
+
+    // الملفات
+    try {
+      const rows = await fetchAllFiles();
+      state.files = rows.map(normalize);
+    } catch (e) {
+      coreFailed = true;
+      console.warn('[المكتبة] تعذّر جلب الملفات:', e);
+    }
+
+    // الروابط — قد لا يكون جدولها منشأً بعد (migration إضافي لم يُنفَّذ).
+    // فشلها لا يجب أن يُسقط بقية القسم.
+    try {
+      const links = await fetchAllLinks();
+      state.links = links.map(normalizeLink);
+      state.linksUnavailable = false;
+    } catch (e) {
+      state.links = [];
+      state.linksUnavailable = /maktabet_library_links/i.test(String(e && e.message));
+      console.warn('[المكتبة] تعذّر جلب الروابط:', e);
+    }
+
+    if (!coreFailed) state.error = null;
+    else if (!state.error) state.error = 'partial';
+    if (!(opts && opts.skipAdminCheck)) await checkAdmin();
+    emit();
   }
 
   /* ---------- الكتابة في الوضع الحي ---------- */
@@ -314,6 +382,7 @@ const MaktabetStore = (function () {
         p_size_bytes: Number(meta.size) || 0,
         p_uploader: meta.uploader || 'مستخدم مجهول',
         p_storage_path: storagePath,
+        p_teacher: meta.teacher || null,
       }),
       15000
     );
@@ -359,6 +428,13 @@ const MaktabetStore = (function () {
           state.files = window.MAKTABET_SEED.map(normalize);
           writeLocal();
         }
+        const storedLinks = readLocalLinks();
+        if (storedLinks) {
+          state.links = storedLinks.map(normalizeLink);
+        } else {
+          state.links = [];
+          writeLocal();
+        }
         state.admin = readAdmin();
         state.enabled = true;
         emit();
@@ -387,6 +463,9 @@ const MaktabetStore = (function () {
     isMissingRpc() {
       return state.missingRpc;
     },
+    isLinksUnavailable() {
+      return state.linksUnavailable;
+    },
 
     /* -- قراءة (متزامنة على الكاش) -- */
     all() {
@@ -396,6 +475,15 @@ const MaktabetStore = (function () {
     get(id) {
       const f = state.files.find((x) => x.id === id);
       return f ? clone(f) : null;
+    },
+
+    allLinks() {
+      return clone(state.links);
+    },
+
+    getLink(id) {
+      const l = state.links.find((x) => x.id === id);
+      return l ? clone(l) : null;
     },
 
     isAdmin() {
@@ -438,6 +526,40 @@ const MaktabetStore = (function () {
       const subjects = new Set(s.map((x) => x.subject)).size;
       const downloads = s.reduce((sum, x) => sum + x.downloads, 0);
       return { total: s.length, approved, pending, rejected, subjects, downloads };
+    },
+
+    linkStats() {
+      const l = state.links;
+      const approved = l.filter((x) => x.status === 'approved').length;
+      const pending = l.filter((x) => x.status === 'pending').length;
+      const rejected = l.filter((x) => x.status === 'rejected').length;
+      const subjects = new Set(l.map((x) => x.subject)).size;
+      const clicks = l.reduce((sum, x) => sum + x.clicks, 0);
+      return { total: l.length, approved, pending, rejected, subjects, clicks };
+    },
+
+    queryLinks(filters = {}) {
+      const f = filters;
+      const q = (f.q || '').trim().toLowerCase();
+      let rows = state.links.filter((link) => {
+        if (f.status && f.status !== 'any' && link.status !== f.status) return false;
+        if (f.year && link.year !== f.year) return false;
+        if (f.subject && link.subject !== f.subject) return false;
+        if (f.term && link.term !== f.term) return false;
+        if (q) {
+          const hay = (link.title + ' ' + link.description + ' ' + link.uploader + ' ' + link.teacher).toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+      const sort = f.sort || 'newest';
+      rows.sort((a, b) => {
+        if (sort === 'clicks') return b.clicks - a.clicks;
+        if (sort === 'oldest') return new Date(a.uploadedAt) - new Date(b.uploadedAt);
+        if (sort === 'title') return a.title.localeCompare(b.title, 'ar');
+        return new Date(b.uploadedAt) - new Date(a.uploadedAt);
+      });
+      return clone(rows);
     },
 
     /* -- كتابة -- */
@@ -497,6 +619,109 @@ const MaktabetStore = (function () {
       return clone(f);
     },
 
+    /* -- الروابط المباشرة -- */
+    async addLink(meta) {
+      if (this.isLive()) {
+        const c = client();
+        const rpcRes = await timeoutRace(
+          c.rpc('maktabet_add_link', {
+            p_title: meta.title,
+            p_url: meta.url,
+            p_description: meta.description || '',
+            p_year: Number(meta.year),
+            p_subject: meta.subject,
+            p_term: Number(meta.term),
+            p_teacher: meta.teacher || null,
+            p_uploader: meta.uploader || 'مستخدم مجهول',
+          }),
+          15000
+        );
+        if (rpcRes === null || rpcRes.error || !rpcRes.data) {
+          const err = new Error('تعذّر حفظ الرابط في قاعدة البيانات.');
+          err.friendly = true;
+          throw err;
+        }
+        await refreshLive();
+        const created = state.links.find((x) => x.id === String(rpcRes.data)) || null;
+        return created ? clone(created) : null;
+      }
+      const link = normalizeLink({
+        ...meta,
+        id: genId(),
+        status: 'pending',
+        clicks: 0,
+        uploadedAt: nowISO(),
+      });
+      state.links.unshift(link);
+      writeLocal();
+      emit();
+      return clone(link);
+    },
+
+    async updateLinkStatus(id, status, note) {
+      if (!['approved', 'pending', 'rejected'].includes(status)) return null;
+      if (this.isLive()) {
+        const c = client();
+        const res = await timeoutRace(
+          c.rpc('maktabet_set_link_status', {
+            p_link_id: id,
+            p_status: status,
+            p_note: note == null ? null : String(note),
+          }),
+          8000
+        );
+        if (res === null || res.error) {
+          console.warn('[المكتبة] فشل تحديث حالة الرابط:', res && res.error);
+          return null;
+        }
+        await refreshLive();
+        const l = state.links.find((x) => x.id === id);
+        return l ? clone(l) : null;
+      }
+      const l = state.links.find((x) => x.id === id);
+      if (!l) return null;
+      l.status = status;
+      l.note = note != null ? String(note) : l.note || '';
+      writeLocal();
+      emit();
+      return clone(l);
+    },
+
+    async removeLink(id) {
+      if (this.isLive()) {
+        const c = client();
+        const res = await timeoutRace(c.rpc('maktabet_delete_link', { p_link_id: id }), 8000);
+        if (res === null || res.error) {
+          console.warn('[المكتبة] فشل حذف الرابط:', res && res.error);
+          return false;
+        }
+        await refreshLive();
+        return true;
+      }
+      const i = state.links.findIndex((x) => x.id === id);
+      if (i === -1) return false;
+      state.links.splice(i, 1);
+      writeLocal();
+      emit();
+      return true;
+    },
+
+    async incrementLinkClick(id) {
+      if (this.isLive()) {
+        const c = client();
+        const res = await timeoutRace(c.rpc('maktabet_increment_link_click', { p_link_id: id }), 8000);
+        if (!(res === null || res.error)) await refreshLive();
+        const l = state.links.find((x) => x.id === id);
+        return l ? clone(l) : null;
+      }
+      const l = state.links.find((x) => x.id === id);
+      if (!l) return null;
+      l.clicks += 1;
+      writeLocal();
+      emit();
+      return clone(l);
+    },
+
     async removeFile(id) {
       if (this.isLive()) {
         const c = client();
@@ -537,6 +762,7 @@ const MaktabetStore = (function () {
     async reset() {
       if (this.isLive()) return false;
       state.files = window.MAKTABET_SEED.map(normalize);
+      state.links = [];
       sessionBlobs.clear();
       writeLocal();
       emit();
@@ -546,6 +772,7 @@ const MaktabetStore = (function () {
     async clearAll() {
       if (this.isLive()) return false;
       state.files = [];
+      state.links = [];
       sessionBlobs.clear();
       writeLocal();
       emit();
@@ -559,6 +786,7 @@ const MaktabetStore = (function () {
           kind: this.isLive() ? 'maktabet-madarek-live' : 'maktabet-madarek-trial',
           mode: this.isLive() ? 'live' : 'trial',
           files: state.files,
+          links: state.links,
         },
         null,
         2,
@@ -600,10 +828,25 @@ const MaktabetStore = (function () {
     },
 
     async logoutAdmin() {
+      if (this.isLive()) {
+        const c = client();
+        if (c) {
+          // خروج حقيقي: نطلب من القاعدة حذف دور الأدمن لهذه الجلسة،
+          // حتى لا يكتشفه فحص checkAdmin عند كل تحديث.
+          try {
+            await timeoutRace(c.rpc('maktabet_logout_admin'), 8000);
+          } catch (e) {
+            /* إذا كانت الدالة غير موجودة نكتفي بالخروج المحلي */
+          }
+        }
+        state.admin = false;
+        writeAdmin(false);
+        await refreshLive({ skipAdminCheck: true });
+        return true;
+      }
       state.admin = false;
       writeAdmin(false);
-      if (this.isLive()) await refreshLive();
-      else emit();
+      emit();
       return true;
     },
 
