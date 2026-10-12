@@ -59,7 +59,8 @@ const Rounds = () => {
   const { user, isAdmin, isModerator } = useAuth();
   const { startRound, settleRound, leaderboard, refreshPoints, balance } = usePoints();
 
-  // الإنشاء متاح للجميع — السقفك (جولة نشطة/معلقة واحدة لكل مستخدم) على الخادم
+  // الإنشاء متاح للجميع — الحدود على الخادم: جولة واحدة يومياً (تتجدد 3:00 فجراً)
+  // + جولة نشطة/معلّقة واحدة في الوقت نفسه. الطاقم (admin/rounds_manager/owner) مستثنى.
   const canCreateRound = !!user;
   const isStaff = isAdmin || isModerator;
 
@@ -376,7 +377,9 @@ const Rounds = () => {
       });
       if (error) {
         const msg = String((error as any)?.message || error);
-        if (/round_limit_reached/.test(msg)) {
+        if (/round_daily_limit_reached/.test(msg)) {
+          toast.error((error as any)?.hint || "يمكنك إنشاء جولة واحدة يومياً — جرّب مجدداً بعد الساعة 3:00 فجراً");
+        } else if (/round_limit_reached/.test(msg)) {
           toast.error((error as any)?.hint || "لديك جولة نشطة أو معلّقة بالفعل — أنهِها أو احذفها أولاً");
         } else if (/round_full/.test(msg)) {
           toast.error("الجولة ممتلئة");
@@ -1163,7 +1166,7 @@ const Rounds = () => {
         <DialogContent>
           <DialogHeader><DialogTitle>كيف تُحسب النقاط في الجولات</DialogTitle></DialogHeader>
           <div className="space-y-3 text-sm">
-            <p>📝 <b>إنشاء جولة:</b> أي عضو يقدر ينشئ جولة — لكل مستخدم جولة نشطة واحدة في الوقت نفسه. تقدر تضيف صورة الجولة وسعة عدد المنضمين.</p>
+            <p>📝 <b>إنشاء جولة:</b> أي عضو يقدر ينشئ جولة — <b>جولة واحدة يومياً لكل مستخدم</b> (اليوم يبدأ 3:00 فجراً)، وجولة نشطة واحدة في الوقت نفسه. تقدر تضيف صورة الجولة وسعة عدد المنضمين.</p>
             <p>☕ <b>البريك:</b> المدة التي تكتبها هي <b>صافي وقت العمل</b>. البريكات تُضاف فوقها ولا تُحتسب عملاً. مثال: 60 دقيقة مع بريك 5 كل 25 ⇒ الجولة 70 دقيقة على الأرض.</p>
             <p>▶️ <b>البدء:</b> صاحب الجولة يضغط "بدء"، والخادم هو من يحسب الجدول ونهاية الجولة ويخزّنهما. لا أحد يعدّلهما من المتصفح.</p>
             <p>⏱️ <b>الاحتساب:</b> «دخول الجولة» من البطاقة يبدأ الاحتساب فوراً. الانتقال لصفحة أخرى أو إخفاء التبويب <b>لا يوقف</b> الاحتساب — يوقفه زر «إيقاف الاحتساب» أو نهاية الجولة. الساعة من الخادم لا من جهازك.</p>
