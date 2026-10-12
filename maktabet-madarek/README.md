@@ -94,6 +94,15 @@ create policy "user_roles_select_self" on public.user_roles
    ```sql
    UPDATE public.maktabet_library_settings SET library_enabled = true WHERE id = 1;
    ```
+3. **عيّن رمز الإدارة بنفسك** (لا يوجد رمز حقيقي في المستودع — القيمة في
+   الـ migration مجرد مكانٍ مؤقّت `CHANGE_ADMIN_PIN`):
+   ```sql
+   UPDATE public.maktabet_library_settings SET admin_pin = 'ضع-رمزاً-قوياً-هنا' WHERE id = 1;
+   ```
+
+> ⚠️ **أمن**: مجلد `supabase/` داخل القسم منشور علناً عبر GitHub Pages، لذا لا
+> يُكتب رمز الإدارة الحقيقي في أي ملف بالمستودع. الرمز يعيش في القاعدة فقط،
+> ويُغيَّر من Dashboard → SQL Editor. يُنصح بتدوير الرمز إن كان قد نُشر سابقاً.
 
 ## بيانات تجريبية
 

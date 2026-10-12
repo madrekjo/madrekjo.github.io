@@ -57,7 +57,7 @@ create policy "user_roles_select_self" on public.user_roles
 create table if not exists public.maktabet_library_settings (
   id integer primary key check (id = 1),
   library_enabled boolean not null default false,
-  admin_pin text not null default '3330116',
+  admin_pin text not null default 'CHANGE_ADMIN_PIN', -- ⚠️ رمز مؤقّت: غيّره من Dashboard فور التنفيذ (آخر الملف)
   max_size_bytes bigint not null default 10485760, -- 10MB
   updated_by uuid references auth.users(id) on delete set null,
   updated_at timestamptz not null default now()
@@ -202,7 +202,7 @@ grant select, delete on public.maktabet_library_reports to authenticated;
 grant all on public.maktabet_library_files to service_role;
 grant all on public.maktabet_library_reports to service_role;
 
--- ========= 5. دخول أدمن المكتبة (رمز 3330116 مخزّن في القاعدة) =========
+-- ========= 5. دخول أدمن المكتبة (الرمز مخزّن في القاعدة فقط — لا يُكتب في الكود) =========
 -- لا يستخدم login_admin_by_code الخاص بملفات المعلمين؛ رمز المكتبة
 -- مستقل ويُغيّر من جدول maktabet_library_settings.
 create or replace function public.maktabet_login_admin(p_code text)
@@ -444,7 +444,7 @@ create trigger maktabet_library_size_guard_trg
 -- ========= 13. التنبيه النهائي =========
 -- 1. للتفعيل بعد مراجعتك:
 --      UPDATE public.maktabet_library_settings SET library_enabled = true WHERE id = 1;
--- 2. رمز الإدارة الافتراضي هو 3330116 ويمكن تغييره:
+-- 2. الرمز الافتراضي مؤقّت (CHANGE_ADMIN_PIN) — **غيّره فوراً** بعد التنفيذ:
 --      UPDATE public.maktabet_library_settings SET admin_pin = 'رمزك' WHERE id = 1;
 -- 3. حد الحجم يعمل في طبقتين: تطبيق العميل (10MB) + حارس التخزين هنا.
 -- 4. ربط الواجهة لاحقاً يكون عبر: أ) رفع الملف إلى المخزن،
