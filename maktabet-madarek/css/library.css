@@ -364,6 +364,19 @@ input, select, textarea { font-family: inherit; }
   box-shadow: var(--mj-shadow-sm);
 }
 .mj-subject-name { font-size: 0.86rem; font-weight: 800; color: var(--mj-green-900); line-height: 1.4; }
+.mj-subject-count {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #0f766e;
+  background: rgba(20, 184, 166, 0.13);
+  border-radius: 999px;
+  padding: 1px 9px;
+  min-width: 26px;
+  line-height: 1.75;
+}
+.mj-subject-card.is-empty { opacity: 0.5; }
+.mj-subject-card.is-empty .mj-subject-count { color: #64748b; background: rgba(100, 116, 139, 0.12); }
+.mj-subject-card.is-empty:hover { opacity: 0.85; }
 
 /* ---------- الفلاتر ---------- */
 .mj-filters {

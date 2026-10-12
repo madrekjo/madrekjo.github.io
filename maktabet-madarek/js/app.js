@@ -171,25 +171,34 @@
   const mjType = (id) => CFG.types.find((s) => s.id === id) || null;
 
   /* ---------- تصنيفات المواد ---------- */
+  /* عدد ملفات مادة معيّنة ضمن باقي الفلاتر الحالية (السنة/الفصل/النوع/البحث) */
+  function subjectCount(id) {
+    const q = getPublicQuery();
+    q.subject = id;
+    return Store.query(q).length;
+  }
+
   function renderSubjects() {
     const grid = $('#subjectsGrid');
     grid.innerHTML = '';
     CFG.subjects.forEach((s) => {
+      const count = subjectCount(s.id);
       const card = document.createElement('button');
       card.type = 'button';
-      card.className = 'mj-subject-card' + (state.subject === s.id ? ' is-active' : '');
+      card.className = 'mj-subject-card' + (state.subject === s.id ? ' is-active' : '') + (count ? '' : ' is-empty');
       card.setAttribute('data-subject', s.id);
+      card.setAttribute('title', count ? formatNum(count) + ' ملف — ' + s.label : 'لا توجد ملفات في ' + s.label + ' ضمن الفلتر الحالي');
       card.innerHTML =
         '<span class="mj-subject-icon" style="background:' + s.color + '">' + s.icon + '</span>' +
-        '<span class="mj-subject-name">' + escapeHtml(s.label) + '</span>';
+        '<span class="mj-subject-name">' + escapeHtml(s.label) + '</span>' +
+        '<span class="mj-subject-count">' + formatNum(count) + '</span>';
       card.addEventListener('click', () => {
         state.subject = state.subject === s.id ? '' : s.id;
         state.quick = 'all';
         $('#filterSubject').value = state.subject;
         $('#filterSort').value = state.sort;
-        renderSubjects();
-        renderStats();
-        renderFiles();
+        refreshQuickTabs();
+        renderFiltersView();
         showToggleClearSubject();
         $('#filesSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
@@ -681,7 +690,7 @@
   /* ---------- الفلاتر ---------- */
   function bindFilters() {
     $('#filterYear').addEventListener('change', (e) => { state.year = e.target.value; state.quick = 'all'; refreshQuickTabs(); renderFiltersView(); });
-    $('#filterSubject').addEventListener('change', (e) => { state.subject = e.target.value; state.quick = 'all'; refreshQuickTabs(); renderSubjects(); });
+    $('#filterSubject').addEventListener('change', (e) => { state.subject = e.target.value; state.quick = 'all'; refreshQuickTabs(); renderFiltersView(); });
     $('#filterTerm').addEventListener('change', (e) => { state.term = e.target.value; state.quick = 'all'; refreshQuickTabs(); renderFiltersView(); });
     $('#filterType').addEventListener('change', (e) => { state.type = e.target.value; state.quick = 'all'; refreshQuickTabs(); renderFiltersView(); });
     $('#filterSort').addEventListener('change', (e) => { state.sort = e.target.value; state.quick = 'all'; refreshQuickTabs(); renderFiltersView(); });
@@ -712,6 +721,7 @@
 
   function renderFiltersView() {
     renderStats();
+    renderSubjects();
     renderFiles();
   }
 
@@ -807,7 +817,7 @@
       state.q = q;
       state.quick = 'all';
       refreshQuickTabs();
-      renderFiles();
+      renderFiltersView();
       $('#filesSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   }
