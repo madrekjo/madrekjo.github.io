@@ -143,6 +143,16 @@ function isInfected(stats) {
   return Number(stats.malicious || 0) > 0 || Number(stats.suspicious || 0) > 0;
 }
 
+/* تحقّق سريع من صلاحية مفتاح VirusTotal — يفشل العامل بوضوح إن كان المفتاح خطأ */
+async function vtCheckKey() {
+  const r = await fetch('https://www.virustotal.com/api/v3/domains/example.com', {
+    headers: { 'x-apikey': VT_KEY },
+  });
+  if (r.status === 401 || r.status === 403) {
+    throw new Error('مفتاح VirusTotal غير صالح (استجابة ' + r.status + ') — راجع السر VIRUSTOTAL_API_KEY.');
+  }
+}
+
 async function main() {
   need('SUPABASE_URL', SUPABASE_URL);
   need('SUPABASE_SERVICE_ROLE_KEY', SERVICE_KEY);
@@ -150,8 +160,14 @@ async function main() {
 
   const rows = await listPending();
   console.log('🔎 ملفات بانتظار الفحص: ' + rows.length);
-  if (!rows.length) return;
+  if (!rows.length) {
+    console.log('لا يوجد جديد — انتهى بلا عمل.');
+    return;
+  }
 
+  await vtCheckKey();
+
+  let failures = 0;
   for (const row of rows) {
     if (!row.storage_path) {
       await patchRow(row.id, { scan_status: 'clean', note: 'لا يوجد ملف مخزّن — لا شيء لفحصه.' });
@@ -177,9 +193,15 @@ async function main() {
       }
     } catch (e) {
       // نتركها 'pending' لإعادة المحاولة في التشغيل القادم
+      failures++;
       console.warn('⚠ فشل فحص «' + row.title + '»: ' + (e && e.message ? e.message : e));
     }
     await sleep(15000); // فاصل بين الملفات
+  }
+
+  console.log('📊 الملخّص: نجح ' + (rows.length - failures) + ' من ' + rows.length + '، فشل ' + failures + '.');
+  if (failures) {
+    throw new Error('فشل فحص ' + failures + ' ملف — راجع الرسائل أعلاه.');
   }
 }
 
