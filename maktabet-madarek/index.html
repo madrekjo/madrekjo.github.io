@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مكتبة مدارك | مدارك جو</title>
+<meta name="description" content="مكتبة مدارك — مكانك لاكتشاف ومشاركة الملفات التعليمية مع طلاب مدارك جو. نسخة تجريبية محلية.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/images/logo.png?v=2">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/library.css?v=2">
+</head>
+<body>
+
+<!-- شريط تنبيه النسخة التجريبية -->
+<div class="trial-banner" role="note">
+  <span class="trial-dot"></span>
+  نسخة تجريبية محلية — الملفات والبيانات وهمية ولا تُرفع إلى أي خادم.
+  <button type="button" class="trial-close" id="trialClose" aria-label="إغلاق التنبيه">✕</button>
+</div>
+
+<!-- ===================== الترويسة ===================== -->
+<header class="mj-header">
+  <div class="mj-header-inner">
+    <a class="mj-brand" href="/" title="العودة إلى مدارك جو">
+      <img src="/assets/images/logo.png?v=2" alt="شعار مدارك جو" class="mj-logo">
+      <span class="mj-brand-text">
+        <strong>مدارك</strong><em>جو</em>
+        <small>مكتبة مدارك</small>
+      </span>
+    </a>
+
+    <nav class="mj-header-actions">
+      <a class="mj-ghost-btn" href="/" title="الموقع الرئيسي">🏠 الرئيسية</a>
+      <button type="button" class="mj-upload-btn" id="openUploadTop">⬆️ ارفع ملفك</button>
+      <button type="button" class="mj-admin-btn" id="openAdmin" title="لوحة الإدارة (تجريبي)" aria-label="الإدارة">🛡️</button>
+    </nav>
+  </div>
+</header>
+
+<main class="mj-main">
+
+  <!-- ===================== قسم ترحيبي ===================== -->
+  <section class="mj-hero">
+    <div class="mj-hero-glow" aria-hidden="true"></div>
+    <div class="mj-hero-inner">
+      <span class="mj-hero-badge">📚 مكتبة رقمية تعليمية</span>
+      <h1 class="mj-hero-title">مكتبة مدارك</h1>
+      <p class="mj-hero-desc">مكانك لاكتشاف ومشاركة الملفات التعليمية مع طلاب مدارك جو.</p>
+
+      <div class="mj-hero-actions">
+        <button type="button" class="mj-primary-btn" id="openUploadHero">⬆️ ارفع ملفك</button>
+        <button type="button" class="mj-secondary-btn" id="scrollToFilesBtn">🔎 تصفّح الملفات</button>
+      </div>
+
+      <form class="mj-search" id="searchForm" role="search">
+        <span class="mj-search-icon" aria-hidden="true">🔍</span>
+        <input type="search" id="searchInput" placeholder="ابحث عن ملف بالاسم أو الوصف..." autocomplete="off" aria-label="بحث في الملفات">
+        <button type="submit" class="mj-search-submit">بحث</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== بطاقات إحصائية ===================== -->
+  <section class="mj-stats" id="statsSection" aria-label="إحصائيات المكتبة">
+    <div class="mj-stat-card">
+      <div class="mj-stat-icon">📁</div>
+      <div class="mj-stat-value" id="statFiles">0</div>
+      <div class="mj-stat-label">ملف متاح</div>
+    </div>
+    <div class="mj-stat-card">
+      <div class="mj-stat-icon">📚</div>
+      <div class="mj-stat-value" id="statSubjects">0</div>
+      <div class="mj-stat-label">مادة دراسية</div>
+    </div>
+    <div class="mj-stat-card">
+      <div class="mj-stat-icon">✅</div>
+      <div class="mj-stat-value" id="statApproved">0</div>
+      <div class="mj-stat-label">ملف معتمد</div>
+    </div>
+    <div class="mj-stat-card">
+      <div class="mj-stat-icon">⬇️</div>
+      <div class="mj-stat-value" id="statDownloads">0</div>
+      <div class="mj-stat-label">عملية تنزيل</div>
+    </div>
+  </section>
+
+  <!-- ===================== تصنيفات المواد ===================== -->
+  <section class="mj-block" aria-label="المواد الدراسية">
+    <div class="mj-block-head">
+      <h2 class="mj-block-title">📚 تصفّح حسب المادة</h2>
+      <button type="button" class="mj-link-btn" id="clearSubjectBtn" hidden>إظهار الكل</button>
+    </div>
+    <div class="mj-subjects" id="subjectsGrid"></div>
+  </section>
+
+  <!-- ===================== الفلاتر ===================== -->
+  <section class="mj-block" id="filesSection" aria-label="تصفية الملفات">
+    <div class="mj-block-head">
+      <h2 class="mj-block-title">🗂️ الملفات</h2>
+      <span class="mj-result-count" id="resultCount">—</span>
+    </div>
+
+    <div class="mj-filters">
+      <label class="mj-field">
+        <span>السنة</span>
+        <select id="filterYear"><option value="">كل السنوات</option></select>
+      </label>
+      <label class="mj-field">
+        <span>المادة</span>
+        <select id="filterSubject"><option value="">كل المواد</option></select>
+      </label>
+      <label class="mj-field">
+        <span>الفصل</span>
+        <select id="filterTerm"><option value="">كل الفصول</option></select>
+      </label>
+      <label class="mj-field">
+        <span>نوع الملف</span>
+        <select id="filterType"><option value="">كل الأنواع</option></select>
+      </label>
+      <label class="mj-field">
+        <span>الترتيب</span>
+        <select id="filterSort">
+          <option value="newest">الأحدث</option>
+          <option value="downloads">الأكثر تحميلًا</option>
+          <option value="oldest">الأقدم</option>
+          <option value="title">الاسم (أ–ي)</option>
+        </select>
+      </label>
+      <button type="button" class="mj-reset-btn" id="resetFilters">↺ إعادة ضبط</button>
+    </div>
+
+    <div class="mj-quick-tabs" role="tablist" aria-label="عرض سريع">
+      <button type="button" class="mj-quick-tab is-active" data-quick="all" role="tab">الكل</button>
+      <button type="button" class="mj-quick-tab" data-quick="newest" role="tab">🆕 أحدث الملفات</button>
+      <button type="button" class="mj-quick-tab" data-quick="downloads" role="tab">🔥 الأكثر تحميلًا</button>
+    </div>
+
+    <div class="mj-files-grid" id="filesGrid"></div>
+    <div class="mj-empty" id="emptyState" hidden>
+      <div class="mj-empty-icon">🔍</div>
+      <h3>لا توجد نتائج مطابقة</h3>
+      <p>جرّب تغيير كلمات البحث أو إعادة ضبط الفلاتر.</p>
+      <button type="button" class="mj-secondary-btn" id="emptyReset">↺ إعادة ضبط الفلاتر</button>
+    </div>
+  </section>
+
+  <footer class="mj-footer">
+    <div class="mj-footer-inner">
+      <div class="mj-footer-brand">
+        <img src="/assets/images/logo.png?v=2" alt="مدارك جو" class="mj-logo small">
+        <div>
+          <strong>مكتبة مدارك</strong>
+          <p>نسخة تجريبية محلية — غير مربوطة بقاعدة بيانات بعد.</p>
+        </div>
+      </div>
+      <nav class="mj-footer-links">
+        <a href="/">الموقع الرئيسي</a>
+        <a href="/2009/">منصة 2009</a>
+        <a href="/2010/">منصة 2010</a>
+      </nav>
+    </div>
+  </footer>
+</main>
+
+<!-- ===================== نافذة رفع ملف ===================== -->
+<div class="mj-modal" id="uploadModal" hidden>
+  <div class="mj-modal-backdrop" data-close="uploadModal"></div>
+  <div class="mj-modal-panel" role="dialog" aria-modal="true" aria-labelledby="uploadTitle">
+    <div class="mj-modal-head">
+      <h3 id="uploadTitle">⬆️ رفع ملف جديد</h3>
+      <button type="button" class="mj-modal-close" data-close="uploadModal" aria-label="إغلاق">✕</button>
+    </div>
+
+    <div class="mj-modal-body">
+      <p class="mj-note">وضع تجريبي: يُسمح بملفات PDF و JPG و PNG فقط، بحد أقصى 10 ميغابايت. لن يُرفع الملف إلى أي خادم.</p>
+
+      <form id="uploadForm" novalidate>
+        <label class="mj-dropzone" id="dropzone">
+          <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" hidden>
+          <span class="mj-dropzone-icon">📄</span>
+          <span class="mj-dropzone-text" id="dropzoneText">اضغط لاختيار ملف أو اسحبه إلى هنا</span>
+          <span class="mj-dropzone-hint">PDF · JPG · PNG — حتى 10MB</span>
+        </label>
+
+        <div class="mj-selected-file" id="selectedFile" hidden>
+          <span class="mj-selected-icon" id="selectedIcon">📄</span>
+          <div class="mj-selected-meta">
+            <strong id="selectedName">—</strong>
+            <small id="selectedInfo">—</small>
+          </div>
+          <button type="button" class="mj-selected-clear" id="clearFileBtn" aria-label="إزالة الملف">✕</button>
+        </div>
+
+        <div class="mj-form-grid">
+          <label class="mj-field full">
+            <span>عنوان الملف *</span>
+            <input type="text" id="upTitle" maxlength="120" placeholder="مثال: مراجعة شاملة فيزياء — الفصل الأول">
+          </label>
+
+          <label class="mj-field full">
+            <span>وصف مختصر *</span>
+            <textarea id="upDesc" rows="3" maxlength="300" placeholder="اكتب وصفاً يوضّح محتوى الملف..."></textarea>
+          </label>
+
+          <label class="mj-field">
+            <span>السنة الدراسية *</span>
+            <select id="upYear"><option value="">— اختر —</option></select>
+          </label>
+          <label class="mj-field">
+            <span>المادة *</span>
+            <select id="upSubject"><option value="">— اختر —</option></select>
+          </label>
+          <label class="mj-field">
+            <span>الفصل *</span>
+            <select id="upTerm"><option value="">— اختر —</option></select>
+          </label>
+          <label class="mj-field">
+            <span>نوع الملف *</span>
+            <select id="upType"><option value="">— اختر —</option></select>
+          </label>
+          <label class="mj-field full">
+            <span>اسمك (اختياري)</span>
+            <input type="text" id="upUploader" maxlength="60" placeholder="سيظهر بجانب الملف — اتركه فارغاً للبقاء مجهولاً">
+          </label>
+        </div>
+
+        <div class="mj-error" id="uploadError" hidden></div>
+
+        <div class="mj-progress" id="uploadProgress" hidden>
+          <div class="mj-progress-bar" id="uploadProgressBar"></div>
+          <span class="mj-progress-label" id="uploadProgressLabel">0%</span>
+        </div>
+
+        <div class="mj-modal-actions">
+          <button type="button" class="mj-ghost-btn big" data-close="uploadModal">إلغاء</button>
+          <button type="submit" class="mj-primary-btn" id="uploadSubmit">إرسال للمراجعة</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== نافذة تفاصيل ملف ===================== -->
+<div class="mj-modal" id="detailsModal" hidden>
+  <div class="mj-modal-backdrop" data-close="detailsModal"></div>
+  <div class="mj-modal-panel wide" role="dialog" aria-modal="true" aria-labelledby="detailsTitle">
+    <div class="mj-modal-head">
+      <h3 id="detailsTitle">تفاصيل الملف</h3>
+      <button type="button" class="mj-modal-close" data-close="detailsModal" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="mj-modal-body" id="detailsBody"></div>
+  </div>
+</div>
+
+<!-- ===================== نافذة دخول الإدارة ===================== -->
+<div class="mj-modal" id="adminLoginModal" hidden>
+  <div class="mj-modal-backdrop" data-close="adminLoginModal"></div>
+  <div class="mj-modal-panel narrow" role="dialog" aria-modal="true" aria-labelledby="adminLoginTitle">
+    <div class="mj-modal-head">
+      <h3 id="adminLoginTitle">🛡️ دخول الإدارة</h3>
+      <button type="button" class="mj-modal-close" data-close="adminLoginModal" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="mj-modal-body">
+      <p class="mj-note">أدخل رمز الإدارة التجريبي للوصول إلى لوحة التحكم. هذا الرمز تجريبي فقط وغير آمن للإنتاج.</p>
+      <form id="adminLoginForm">
+        <label class="mj-field full">
+          <span>رمز الإدارة</span>
+          <input type="password" id="adminCode" inputmode="numeric" autocomplete="off" placeholder="•••••••">
+        </label>
+        <div class="mj-error" id="adminError" hidden></div>
+        <div class="mj-modal-actions">
+          <button type="button" class="mj-ghost-btn big" data-close="adminLoginModal">إلغاء</button>
+          <button type="submit" class="mj-primary-btn">دخول</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== لوحة الإدارة ===================== -->
+<div class="mj-admin-overlay" id="adminPanel" hidden>
+  <div class="mj-admin-shell" role="dialog" aria-modal="true" aria-labelledby="adminPanelTitle">
+    <header class="mj-admin-top">
+      <h2 id="adminPanelTitle">🛡️ لوحة إدارة مكتبة مدارك</h2>
+      <div class="mj-admin-top-actions">
+        <button type="button" class="mj-ghost-btn" id="adminReset" title="إعادة بيانات التجربة">↺ إعادة التهيئة</button>
+        <button type="button" class="mj-ghost-btn" id="adminExport" title="تصدير JSON">⬇️ تصدير</button>
+        <button type="button" class="mj-danger-btn" id="adminLogout">🚪 خروج من الإدارة</button>
+        <button type="button" class="mj-modal-close" id="adminClose" aria-label="إغلاق اللوحة">✕</button>
+      </div>
+    </header>
+
+    <div class="mj-admin-stats" id="adminStats"></div>
+
+    <div class="mj-admin-toolbar">
+      <input type="search" id="adminSearch" placeholder="🔍 بحث في كل الملفات (بما فيها المعلّقة والمرفوضة)">
+      <div class="mj-admin-status-tabs" id="adminStatusTabs">
+        <button type="button" class="mj-chip is-active" data-status="any">الكل</button>
+        <button type="button" class="mj-chip" data-status="pending">قيد المراجعة</button>
+        <button type="button" class="mj-chip" data-status="approved">معتمد</button>
+        <button type="button" class="mj-chip" data-status="rejected">مرفوض</button>
+      </div>
+    </div>
+
+    <div class="mj-admin-list" id="adminList"></div>
+  </div>
+</div>
+
+<!-- تأكيد الحذف -->
+<div class="mj-modal" id="confirmModal" hidden>
+  <div class="mj-modal-backdrop" data-close="confirmModal"></div>
+  <div class="mj-modal-panel narrow" role="alertdialog" aria-modal="true" aria-labelledby="confirmTitle">
+    <div class="mj-modal-head">
+      <h3 id="confirmTitle">تأكيد الحذف</h3>
+    </div>
+    <div class="mj-modal-body">
+      <p id="confirmText">هل أنت متأكد من حذف هذا الملف؟ لا يمكن التراجع.</p>
+      <div class="mj-modal-actions">
+        <button type="button" class="mj-ghost-btn big" data-close="confirmModal">إلغاء</button>
+        <button type="button" class="mj-danger-btn" id="confirmDelete">نعم، احذف</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- الإشعارات -->
+<div class="mj-toasts" id="toasts" aria-live="polite" aria-atomic="false"></div>
+
+<script src="js/config.js?v=2"></script>
+<script src="js/supabase-config.js?v=2"></script>
+<script src="js/seed.js?v=2"></script>
+<script src="js/store.js?v=2"></script>
+<script src="js/app.js?v=2"></script>
+</body>
+</html>
