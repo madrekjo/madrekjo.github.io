@@ -8,14 +8,14 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/logo.png?v=2">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/library.css?v=2">
+<link rel="stylesheet" href="css/library.css?v=3">
 </head>
 <body>
 
-<!-- شريط تنبيه النسخة التجريبية -->
+<!-- شريط تنبيه حالة القسم (يتحول تلقائياً بين المباشر والتجريبي) -->
 <div class="trial-banner" role="note">
   <span class="trial-dot"></span>
-  نسخة تجريبية محلية — الملفات والبيانات وهمية ولا تُرفع إلى أي خادم.
+  <span id="bannerText">نسخة تجريبية محلية — الملفات والبيانات وهمية ولا تُرفع إلى أي خادم.</span>
   <button type="button" class="trial-close" id="trialClose" aria-label="إغلاق التنبيه">✕</button>
 </div>
 
@@ -151,7 +151,7 @@
         <img src="/assets/images/logo.png?v=2" alt="مدارك جو" class="mj-logo small">
         <div>
           <strong>مكتبة مدارك</strong>
-          <p>نسخة تجريبية محلية — غير مربوطة بقاعدة بيانات بعد.</p>
+          <p id="footerNote">نسخة تجريبية محلية — غير مربوطة بقاعدة بيانات بعد.</p>
         </div>
       </div>
       <nav class="mj-footer-links">
@@ -173,7 +173,7 @@
     </div>
 
     <div class="mj-modal-body">
-      <p class="mj-note">وضع تجريبي: يُسمح بملفات PDF و JPG و PNG فقط، بحد أقصى 10 ميغابايت. لن يُرفع الملف إلى أي خادم.</p>
+      <p class="mj-note" id="uploadNote">وضع تجريبي: يُسمح بملفات PDF و JPG و PNG فقط، بحد أقصى 10 ميغابايت. لن يُرفع الملف إلى أي خادم.</p>
 
       <form id="uploadForm" novalidate>
         <label class="mj-dropzone" id="dropzone">
@@ -262,7 +262,7 @@
       <button type="button" class="mj-modal-close" data-close="adminLoginModal" aria-label="إغلاق">✕</button>
     </div>
     <div class="mj-modal-body">
-      <p class="mj-note">أدخل رمز الإدارة التجريبي للوصول إلى لوحة التحكم. هذا الرمز تجريبي فقط وغير آمن للإنتاج.</p>
+      <p class="mj-note" id="adminNote">أدخل رمز الإدارة التجريبي للوصول إلى لوحة التحكم. هذا الرمز تجريبي فقط وغير آمن للإنتاج.</p>
       <form id="adminLoginForm">
         <label class="mj-field full">
           <span>رمز الإدارة</span>
@@ -292,6 +292,12 @@
     </header>
 
     <div class="mj-admin-stats" id="adminStats"></div>
+
+    <div class="mj-admin-live" id="adminLiveBar" hidden>
+      <span>حالة المكتبة:</span>
+      <strong id="liveModeLabel">—</strong>
+      <button type="button" class="mj-mini-btn" id="adminToggleEnabled">▶️ تفعيل المكتبة للزوار</button>
+    </div>
 
     <div class="mj-admin-toolbar">
       <input type="search" id="adminSearch" placeholder="🔍 بحث في كل الملفات (بما فيها المعلّقة والمرفوضة)">
@@ -327,10 +333,11 @@
 <!-- الإشعارات -->
 <div class="mj-toasts" id="toasts" aria-live="polite" aria-atomic="false"></div>
 
-<script src="js/config.js?v=2"></script>
-<script src="js/supabase-config.js?v=2"></script>
-<script src="js/seed.js?v=2"></script>
-<script src="js/store.js?v=2"></script>
-<script src="js/app.js?v=2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js?v=3"></script>
+<script src="js/supabase-config.js?v=3"></script>
+<script src="js/seed.js?v=3"></script>
+<script src="js/store.js?v=3"></script>
+<script src="js/app.js?v=3"></script>
 </body>
 </html>

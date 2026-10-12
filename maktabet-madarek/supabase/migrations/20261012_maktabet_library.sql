@@ -45,6 +45,12 @@ $$;
 
 grant execute on function public.has_role(uuid, public.app_role) to anon, authenticated;
 
+-- سياسة قراءة الذات: المستخدم يرى دوره فقط (زادت أماناً للتحقق من الأدمن).
+drop policy if exists "user_roles_select_self" on public.user_roles;
+create policy "user_roles_select_self" on public.user_roles
+  for select to authenticated
+  using (user_id = auth.uid());
+
 -- ========= 1. إعدادات المكتبة =========
 create table if not exists public.maktabet_library_settings (
   id integer primary key check (id = 1),
@@ -220,6 +226,17 @@ end;
 $$;
 
 grant execute on function public.maktabet_login_admin(text) to anon, authenticated;
+
+-- فحص حالة الأدمن للجلسة الحالية (يستخدمه العميل عند البدء/التحديث.
+-- security definer ليعمل دائماً مهما كانت سياسات user_roles).
+create or replace function public.maktabet_is_admin()
+returns boolean
+language sql stable security definer set search_path = public
+as $$
+  select public.has_role(auth.uid(), 'admin')
+$$;
+
+grant execute on function public.maktabet_is_admin() to anon, authenticated;
 
 -- ========= 6. إدراج ملف جديد (تحقق مركزي بالحدود) =========
 create or replace function public.maktabet_add_file(

@@ -1,7 +1,10 @@
 /* ============================================================
-   مكتبة مدارك — منطق الواجهة (نسخة تجريبية مستقلة)
-   كل العمليات محلية: LocalStorage للبيانات الوصفية فقط + ذاكرة
-   الجلسة لمحتوى الملفات المرفوعة. لا يوجد أي اتصال شبكي.
+   مكتبة مدارك — منطق الواجهة
+   ------------------------------------------------------------
+   يدعم وضعين يعملان بنفس الواجهة:
+   - وضع مباشر (Live):   البيانات عبر Supabase (رفع/تنزيل حقيقي).
+   - وضع تجريبي (Trial): LocalStorage + ذاكرة الجلسة (احتياط).
+   الوضع يُكتشف تلقائياً من طبقة Store.
    ============================================================ */
 
 (function () {
@@ -94,7 +97,7 @@
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      if (!$('#adminPanel').hidden) return; // لوحة الإدارة لها زر إغلاق خاص
+      if (!$('#adminPanel').hidden) return;
       closeAllModals();
     }
   });
@@ -103,7 +106,7 @@
     const el = document.getElementById(id);
     if (el) {
       el.addEventListener('click', (e) => {
-        if (e.target === el) closeModal(id); // النقر على الخلفية
+        if (e.target === el) closeModal(id);
       });
     }
   });
@@ -144,6 +147,11 @@
     fillSelect($('#upTerm'), CFG.terms, 'label');
     fillSelect($('#upType'), CFG.types, 'label');
   }
+
+  const mjSubject = (id) => CFG.subjects.find((s) => s.id === id) || null;
+  const mjYear = (id) => CFG.years.find((s) => s.id === id) || null;
+  const mjTerm = (id) => CFG.terms.find((s) => s.id === id) || null;
+  const mjType = (id) => CFG.types.find((s) => s.id === id) || null;
 
   /* ---------- تصنيفات المواد ---------- */
   function renderSubjects() {
@@ -279,11 +287,25 @@
     const year = mjYear(f.year);
     const stIcon = extStyle(f);
     const hasBlob = Store.hasSessionBlob(id);
+    const canPreviewLive = Store.isLive() && f.hasRealFile;
 
-    const previewBtn =
-      !f.sample && hasBlob
-        ? '<button type="button" class="mj-secondary-btn" data-preview-session="' + escapeHtml(id) + '" style="border-color:var(--mj-line);color:var(--mj-green-700)">🖥️ معاينة الملف المرفوع (هذه الجلسة)</button>'
-        : '<button type="button" class="mj-secondary-btn" data-preview-note="' + escapeHtml(id) + '" style="border-color:var(--mj-line);color:var(--mj-muted)">👁️ معاينة</button>';
+    let previewBtn;
+    if (canPreviewLive) {
+      previewBtn = '<button type="button" class="mj-secondary-btn" data-preview-live="' + escapeHtml(id) + '" style="border-color:var(--mj-line);color:var(--mj-green-700)">🖥️ معاينة الملف الحقيقي</button>';
+    } else if (!f.sample && hasBlob) {
+      previewBtn = '<button type="button" class="mj-secondary-btn" data-preview-session="' + escapeHtml(id) + '" style="border-color:var(--mj-line);color:var(--mj-green-700)">🖥️ معاينة الملف المرفوع (هذه الجلسة)</button>';
+    } else {
+      previewBtn = '<button type="button" class="mj-secondary-btn" data-preview-note="' + escapeHtml(id) + '" style="border-color:var(--mj-line);color:var(--mj-muted)">👁️ معاينة</button>';
+    }
+
+    let trialNote;
+    if (canPreviewLive) {
+      trialNote = 'يمكنك معاينة وتنزيل هذا الملف الحقيقي من قاعدة البيانات.';
+    } else if (Store.isLive()) {
+      trialNote = 'هذا الملف وصفي بلا محتوى مرفوع في القاعدة حالياً — سيُولّد النظام نموذجاً نصياً عند التنزيل.';
+    } else {
+      trialNote = 'هذه نسخة تجريبية: الملفات الوصفية لا تحتوي محتوى حقيقياً قابلاً للتنزيل — سيولّد النظام ملفاً نصياً تجريبياً عند الضغط على التنزيل.';
+    }
 
     $('#detailsTitle').textContent = 'تفاصيل الملف';
     $('#detailsBody').innerHTML =
@@ -313,7 +335,7 @@
         previewBtn +
         '<button type="button" class="mj-mini-btn danger" data-report="' + escapeHtml(id) + '">🚩 الإبلاغ عن ملف</button>' +
       '</div>' +
-      '<p class="mj-note" style="margin-top:14px">هذه نسخة تجريبية: الملفات الوصفية لا تحتوي محتوى حقيقياً قابلاً للتنزيل — سيولّد النظام ملفاً نصياً تجريبياً عند الضغط على التنزيل.</p>';
+      '<p class="mj-note" style="margin-top:14px">' + escapeHtml(trialNote) + '</p>';
 
     openModal('detailsModal');
   }
@@ -328,13 +350,15 @@
     $('#detailsBody').addEventListener('click', (e) => {
       const dl = e.target.closest('[data-download]');
       const preview = e.target.closest('[data-preview-session]');
+      const previewLive = e.target.closest('[data-preview-live]');
       const previewNote = e.target.closest('[data-preview-note]');
       const report = e.target.closest('[data-report]');
 
       if (dl) downloadFile(dl.getAttribute('data-download'));
+      if (previewLive) previewLiveFile(previewLive.getAttribute('data-preview-live'));
       if (preview) previewUploaded(preview.getAttribute('data-preview-session'));
       if (previewNote) {
-        toast('لا يوجد محتوى فعلي للمعاينة في هذه النسخة التجريبية — الملف وصف فقط.', 'warn');
+        toast('لا يوجد محتوى فعلي للمعاينة — هذا الملف وصفي فقط.', 'warn');
       }
       if (report) {
         const id = report.getAttribute('data-report');
@@ -343,20 +367,39 @@
           return;
         }
         reportedIds.add(id);
-        toast('تم استلام بلاغك (تجريبي). سيُراجع المشرف هذا الملف.', 'success');
+        Store.reportFile(id, 'بلاغ من زائر').then((ok) => {
+          toast(ok ? 'تم استلام بلاغك وسيراجعه المشرف.' : 'تعذّر إرسال البلاغ إلى القاعدة.', ok ? 'success' : 'error');
+        });
       }
     });
   }
 
   function previewUploaded(id) {
-    // المعاينة تعمل فقط داخل الجلسة نفسها لأن المحتوى لا يُخزَّن محلياً.
     const blob = Store.getSessionBlob(id);
     if (!blob) {
       toast('المحتوى غير متاح (يعمل فقط داخل نفس الجلسة).', 'warn');
       return;
     }
+    openBlobInViewer(blob, 'application/pdf');
+  }
+
+  async function previewLiveFile(id) {
+    const f = Store.get(id);
+    if (!f || !f.hasRealFile) {
+      toast('لا يوجد محتوى حقيقي للمعاينة.', 'warn');
+      return;
+    }
+    const blob = await Store.fetchRealBlob(f);
+    if (!blob) {
+      toast('تعذّر جلب الملف من الخادم للمعاينة.', 'warn');
+      return;
+    }
+    openBlobInViewer(blob, f.ext);
+  }
+
+  function openBlobInViewer(blob, ext) {
     const url = URL.createObjectURL(blob);
-    const isPdf = blob.type === 'application/pdf';
+    const isPdf = (blob && blob.type === 'application/pdf') || String(ext) === 'pdf';
     if (isPdf) {
       window.open(url, '_blank');
     } else {
@@ -371,7 +414,7 @@
   function makeTrialBlob(f) {
     const lines = [
       '==================================================',
-      '  مكتبة مدارك — ملف تجريبي (نموذج وصف فقط)',
+      '  مكتبة مدارك — نموذج وصفي (لا يوجد محتوى حقيقي)',
       '==================================================',
       '',
       'العنوان : ' + f.title,
@@ -383,9 +426,10 @@
       'رافعه   : ' + f.uploader,
       'الحالة  : ' + CFG.statuses[f.status].label,
       '',
-      'ملاحظة: هذا الملف وهمي أُنشئ داخل النسخة التجريبية من مكتبة مدارك.',
-      'لا يحتوي على أي محتوى دراسي حقيقي، ولا يُخزَّن على أي خادم.',
-      'عند ربط القسم بقاعدة البيانات سيُرفق الملف الفعلي هنا.',
+      'ملاحظة: هذا الملف وصفي فقط ولا يحتوي محتوى دراسياً حقيقياً.',
+      Store.isLive()
+        ? 'المحتوى الحقيقي للملفات المرفوعة يُخزَّن في القاعدة ويُحمَّل مباشرة.'
+        : 'انشئ داخل النسخة التجريبية — عند ربط القسم بقاعدة البيانات سيُرفق الملف الفعلي هنا.',
       '',
       'شكراً لتجربة مكتبة مدارك 💚',
     ];
@@ -408,37 +452,43 @@
     return base + '.' + (ext || 'txt');
   }
 
-  function downloadFile(id) {
+  async function downloadFile(id) {
     const f = Store.get(id);
     if (!f) {
       toast('الملف غير موجود.', 'error');
       return;
     }
+    const path = f.storagePath;
+    const real = f.hasRealFile;
 
-    // تفعيل العداد التجريبي (بدون إنزال فعلي). TODO: Supabase RPC atomic.
-    Store.incrementDownload(id);
+    // تفعيل عدّاد التنزيل (يؤثر على القاعدة في الوضع الحي).
+    try { await Store.incrementDownload(id); } catch (e) { /* العداد اختياري */ }
     renderStats();
     renderFiles();
 
-    const blob = Store.getSessionBlob(id);
+    // ملف حقيقي في القاعدة — ننزّله فعلياً.
+    if (Store.isLive() && real && path) {
+      const fresh = Store.get(id);
+      const blob = await Store.fetchRealBlob(fresh && fresh.storagePath ? fresh : f);
+      if (blob) {
+        downloadBlob(blob, safeFilename(f.title, f.ext));
+        toast('تم تنزيل الملف الحقيقي من قاعدة البيانات ✅', 'success');
+        return;
+      }
+      toast('تعذّر جلب الملف من الخادم.', 'warn');
+    }
 
-    if (!f.sample && blob) {
-      // ملف مرفوع فعلياً في هذه الجلسة — يُنزَّل نسخة حقيقية من ذاكرة الجلسة.
-      downloadBlob(blob, safeFilename(f.title, f.ext));
+    // محتوى مرفوع في نفس الجلسة (وضع التجربة فقط).
+    const sessionBlob = Store.getSessionBlob(id);
+    if (!f.sample && sessionBlob) {
+      downloadBlob(sessionBlob, safeFilename(f.title, f.ext));
       toast('تم تنزيل الملف المرفوع (نسخة هذه الجلسة).', 'success');
       return;
     }
 
-    if (!f.sample && !blob) {
-      // ملف مرفوع سابقاً لكن محتواه لم يُحفظ (المحتوى يُحفظ في الجلسة فقط).
-      toast('محتوى هذا الملف غير متاح الآن — المحتوى يُحفظ داخل الجلسة فقط في النسخة التجريبية.', 'warn');
-      downloadBlob(makeTrialBlob(f), safeFilename(f.title, 'txt'));
-      return;
-    }
-
-    // ملف وصف تجريبي — نولّد نموذجاً نصياً يوضّح ذلك بصراحة.
+    // ملف وصفي لا يحتوي محتوى — نموذج نصي بصراحة.
     downloadBlob(makeTrialBlob(f), safeFilename(f.title, 'txt'));
-    toast('تم توليد ملف نصي تجريبي بدلاً من الملف الحقيقي (لأنه ملف وصف فقط).', 'info');
+    toast(Store.isLive() ? 'هذا الملف وصفي بلا محتوى حقيقي في القاعدة.' : 'تم توليد ملف نصي تجريبي بدلاً من الملف الحقيقي.', 'info');
   }
 
   /* ---------- الفلاتر ---------- */
@@ -553,6 +603,7 @@
     $('#upUploader').value = '';
     $('#uploadError').hidden = true;
     $('#uploadProgress').hidden = true;
+    setProgress(0);
     $('#uploadSubmit').disabled = false;
     renderSelectedFile();
     openModal('uploadModal');
@@ -583,7 +634,7 @@
       return 'نوع الملف غير مدعوم (تم رفضه بصيغته الفعلية).';
     }
     if (file.size > rules.maxBytes) {
-      return 'حجم الملف يتجاوز الحد التجريبي (' + formatSize(CFG.upload.maxBytes) + ') — حجم الملف: ' + formatSize(file.size) + '.';
+      return 'حجم الملف يتجاوز الحد المسموح (' + formatSize(CFG.upload.maxBytes) + ') — حجم الملف: ' + formatSize(file.size) + '.';
     }
     return null;
   }
@@ -636,55 +687,126 @@
     if (!term) { showUploadError('اختر الفصل.'); return; }
     if (!type) { showUploadError('اختر نوع الملف.'); return; }
 
-    // فحص نهائي قبل الإرسال
     const err = validateFile(selectedFile);
     if (err) { showUploadError(err); return; }
 
     const btn = $('#uploadSubmit');
     btn.disabled = true;
 
-    // شريط تقدم تجريبي — لا يوجد رفع فعلي لشبكة.
+    const meta = {
+      title,
+      description: desc,
+      year,
+      subject,
+      term,
+      type,
+      ext: (selectedFile.name || '').split('.').pop().toLowerCase(),
+      size: selectedFile.size,
+      uploader: $('#upUploader').value.trim() || 'مستخدم مجهول',
+    };
+
     $('#uploadProgress').hidden = false;
     setProgress(2);
 
-    const timer = setInterval(() => {
+    if (Store.isLive()) {
+      doLiveUpload(meta, btn);
+    } else {
+      doTrialUpload(meta, btn);
+    }
+  }
+
+  async function doLiveUpload(meta, btn) {
+    try {
+      await Store.addFile(meta, {
+        file: selectedFile,
+        onProgress: setProgress,
+      });
+      setProgress(100);
+      closeModal('uploadModal');
+      toast('تم رفع الملف إلى القاعدة بنجاح ✅ — بانتظار مراجعة المشرف.', 'success');
+      renderStats();
+      renderFiles();
+      selectedFile = null;
+    } catch (upErr) {
+      showUploadError(upErr && upErr.friendly ? upErr.message : 'تعذّر رفع الملف إلى القاعدة.');
+    } finally {
+      $('#uploadProgress').hidden = true;
+      btn.disabled = false;
+    }
+  }
+
+  function doTrialUpload(meta, btn) {
+    const timer = setInterval(async () => {
       const bar = $('#uploadProgressBar');
       const cur = parseFloat(bar.style.width) || 0;
       const next = Math.min(cur + Math.random() * 22 + 6, 99);
       setProgress(next);
       if (next >= 99) {
         clearInterval(timer);
-        finishSubmit({
-          title,
-          description: desc,
-          year,
-          subject,
-          term,
-          type,
-          ext: (selectedFile.name || '').split('.').pop().toLowerCase(),
-          size: selectedFile.size,
-          uploader: $('#upUploader').value.trim() || 'مستخدم مجهول',
-        });
+        const file = await Store.addFile(meta);
+        Store.attachSessionBlob(file && file.id, selectedFile);
+        setProgress(100);
+        setTimeout(() => {
+          closeModal('uploadModal');
+          toast('تم إرسال الملف للمراجعة ✅ — سيظهر في لوحة الإدارة.', 'success');
+          renderStats();
+          renderFiles();
+          selectedFile = null;
+          btn.disabled = false;
+          $('#uploadProgress').hidden = true;
+        }, 350);
       }
     }, 120);
   }
 
-  function finishSubmit(meta) {
-    // TODO: Supabase — الفعل الحقيقي هنا: رفع الملف إلى Storage + إدراج صف في الجدول.
-    const file = Store.addFile(meta);
+  /* ---------- وضع النسخة (نصوص تتبدل حسب Live/Trial) ---------- */
+  function applyModeCopy() {
+    const live = Store.isLive();
+    const set = (id, txt) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = txt;
+    };
 
-    // المحتوى الفعلي يُحفظ في ذاكرة الجلسة فقط (لا يُخزَّن في LocalStorage).
-    Store.attachSessionBlob(file.id, selectedFile);
+    if (live) {
+      set('bannerText', Store.isEnabled()
+        ? 'وضع مباشر — الملفات تُقرأ وتُرفع إلى قاعدة بيانات المكتبة، وتظهر بعد اعتماد المشرف.'
+        : '⚠️ المكتبة غير مفعّلة: لا تظهر الملفات للزوار. فعّلها من لوحة الإدارة.');
+      set('uploadNote', 'سيُرفع ملفك فوراً إلى قاعدة بيانات المكتبة بحالة «قيد المراجعة» حتى يعتمده المشرف. يُسمح فقط بـ PDF و JPG و PNG بحد أقصى 10MB.');
+      set('adminNote', 'أدخل رمز الإدارة للوصول إلى اللوحة. الرمز الافتراضي 3330116 وهو مخزّن في قاعدة البيانات.');
+      set('footerNote', 'النسخة المباشرة — البيانات مربوطة بقاعدة بيانات Supabase.');
+      const adminBtn = $('#openAdmin');
+      if (adminBtn) adminBtn.title = 'لوحة الإدارة';
+    } else {
+      set('bannerText', 'نسخة تجريبية محلية — الملفات والبيانات وهمية ولا تُرفع إلى أي خادم.');
+      set('uploadNote', 'وضع تجريبي: يُسمح بملفات PDF و JPG و PNG فقط، بحد أقصى 10 ميغابايت. لن يُرفع الملف إلى أي خادم.');
+      set('adminNote', 'أدخل رمز الإدارة التجريبي للوصول إلى لوحة التحكم. هذا الرمز تجريبي فقط وغير آمن للإنتاج.');
+      set('footerNote', 'نسخة تجريبية محلية — غير مربوطة بقاعدة بيانات بعد.');
+      const adminBtn = $('#openAdmin');
+      if (adminBtn) adminBtn.title = 'لوحة الإدارة (تجريبي)';
+    }
 
-    setProgress(100);
-    setTimeout(() => {
-      closeModal('uploadModal');
-      toast('تم إرسال الملف للمراجعة ✅ — سيظهر في لوحة الإدارة.', 'success');
-      renderStats();
-      renderFiles();
-      selectedFile = null;
-      $('#uploadSubmit').disabled = false;
-    }, 350);
+    const liveBar = $('#adminLiveBar');
+    if (liveBar) liveBar.hidden = !live;
+    const resetBtn = $('#adminReset');
+    if (resetBtn) resetBtn.hidden = live;
+    updateEnabledUI();
+  }
+
+  function updateEnabledUI() {
+    const label = $('#liveModeLabel');
+    const toggle = $('#adminToggleEnabled');
+    if (!label || !toggle) return;
+    const on = Store.isEnabled();
+    if (on) {
+      label.textContent = 'مفعّلة ✅ — الملفات المعتمدة ظاهرة للجميع';
+      label.style.color = 'var(--mj-green-700, #14532d)';
+      toggle.textContent = '⏸️ إيقاف التفعيل';
+    } else {
+      label.textContent = 'متوقفة ❌ — لا شيء ظاهر للزوار';
+      label.style.color = 'var(--mj-danger, #b91c1c)';
+      toggle.textContent = '▶️ تفعيل المكتبة للزوار';
+    }
+    toggle.disabled = !Store.isAdmin();
   }
 
   /* ---------- الإدارة ---------- */
@@ -695,20 +817,36 @@
       else openModal('adminLoginModal');
     });
 
-    $('#adminLoginForm').addEventListener('submit', (e) => {
+    $('#adminLoginForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const code = $('#adminCode').value;
       const errEl = $('#adminError');
-      if (Store.loginAdmin(code)) {
-        errEl.hidden = true;
-        $('#adminCode').value = '';
-        closeModal('adminLoginModal');
-        toast('مرحباً بك في لوحة الإدارة 🔑 (نسخة تجريبية)', 'success');
-        openAdminPanel();
-      } else {
-        errEl.textContent = 'الرمز غير صحيح. حاول مجدداً.';
+      const btn = e.submitter || $('#adminLoginForm').querySelector('button[type="submit"]');
+      if (btn) btn.disabled = true;
+      try {
+        const ok = await Store.loginAdmin(code);
+        if (ok) {
+          errEl.hidden = true;
+          $('#adminCode').value = '';
+          closeModal('adminLoginModal');
+          toast('مرحباً بك في لوحة الإدارة 🔑', 'success');
+          openAdminPanel();
+        } else {
+          errEl.textContent = 'الرمز غير صحيح. حاول مجدداً.';
+          errEl.hidden = false;
+          toast('رمز الإدارة غير صحيح.', 'error');
+        }
+      } catch (err) {
         errEl.hidden = false;
-        toast('رمز الإدارة غير صحيح.', 'error');
+        if (err && err.friendly && String(err.message) === 'ANON_DISABLED') {
+          errEl.textContent = 'لا يمكن الدخول: فعّل «Allow anonymous sign-ins» من لوحة Supabase → Authentication → Sign In / Up، ثم أعد المحاولة.';
+          toast('تسجيل الدخول المجهول معطّل في القاعدة.', 'error');
+        } else {
+          errEl.textContent = 'حدث خطأ أثناء الاتصال بقاعدة البيانات. حاول مجدداً.';
+          toast('تعذّر الاتصال بقاعدة البيانات.', 'error');
+        }
+      } finally {
+        if (btn) btn.disabled = false;
       }
     });
 
@@ -716,9 +854,14 @@
       $('#adminPanel').hidden = true;
     });
 
-    $('#adminLogout').addEventListener('click', () => {
-      Store.logoutAdmin();
+    $('#adminLogout').addEventListener('click', async () => {
+      await Store.logoutAdmin();
       $('#adminPanel').hidden = true;
+      const openAdmin = $('#openAdmin');
+      if (openAdmin) openAdmin.classList.remove('is-active');
+      applyModeCopy();
+      renderStats();
+      renderFiles();
       toast('تم تسجيل الخروج من الإدارة.', 'info');
     });
 
@@ -737,11 +880,17 @@
     });
 
     $('#adminReset').addEventListener('click', () => {
-      askConfirm('إعادة تهيئة البيانات التجريبية', 'سيتم حذف كل ما رفعته واستعادة الملفات التجريبية الأصلية. متابعة؟', () => {
-        Store.reset();
-        renderAdmin();
-        toast('تمت إعادة تهيئة بيانات التجربة.', 'success');
-      });
+      askConfirm(
+        'إعادة تهيئة البيانات التجريبية',
+        'سيتم حذف كل ما رفعته محلياً واستعادة الملفات التجريبية الأصلية. متابعة؟',
+        async () => {
+          await Store.reset();
+          renderAdmin();
+          renderStats();
+          renderFiles();
+          toast('تمت إعادة تهيئة بيانات التجربة.', 'success');
+        }
+      );
     });
 
     $('#adminExport').addEventListener('click', () => {
@@ -749,13 +898,32 @@
       downloadBlob(blob, CFG.exportName);
       toast('تم تصدير بيانات المكتبة (JSON).', 'success');
     });
+
+    const toggle = $('#adminToggleEnabled');
+    if (toggle) {
+      toggle.addEventListener('click', async () => {
+        const target = !Store.isEnabled();
+        const ok = await Store.setLibraryEnabled(target);
+        if (ok) {
+          toast(target ? 'تم تفعيل المكتبة — أصبحت الملفات المعتمدة ظاهرة للجميع.' : 'تم إيقاف المكتبة — المحتوى مخفي الآن.', 'success');
+        } else {
+          toast('تعذّر تغيير حالة المكتبة (تأكد أنك أدمن في النسخة المباشرة).', 'error');
+        }
+        applyModeCopy();
+        renderAdmin();
+        renderStats();
+        renderFiles();
+      });
+    }
   }
 
   function openAdminPanel() {
     renderAdminStats();
     renderAdminList();
+    updateEnabledUI();
     $('#adminPanel').hidden = false;
-    if ($('#openAdmin')) $('#openAdmin').classList.add('is-active');
+    const openAdmin = $('#openAdmin');
+    if (openAdmin) openAdmin.classList.add('is-active');
   }
 
   function renderAdminStats() {
@@ -784,6 +952,9 @@
     }
     buttons.push('<button type="button" class="mj-mini-btn danger" data-admin-delete="' + escapeHtml(f.id) + '">🗑️ حذف</button>');
     buttons.push('<button type="button" class="mj-mini-btn" data-admin-detail="' + escapeHtml(f.id) + '">👁️ عرض</button>');
+    if (Store.isLive() && f.hasRealFile) {
+      buttons.push('<button type="button" class="mj-mini-btn" data-admin-preview="' + escapeHtml(f.id) + '" style="color:var(--mj-green-700)">🖥️ معاينة</button>');
+    }
 
     return (
       '<div class="mj-admin-row" data-id="' + escapeHtml(f.id) + '">' +
@@ -809,7 +980,7 @@
     const q = state.adminQ.trim();
     const rows = Store.query({
       q: q,
-      status: state.adminStatus, // 'any' -> الكل
+      status: state.adminStatus,
       sort: 'newest',
     });
 
@@ -829,6 +1000,7 @@
     if ($('#adminPanel').hidden) return;
     renderAdminStats();
     renderAdminList();
+    updateEnabledUI();
   }
 
   function bindAdminList() {
@@ -838,21 +1010,24 @@
       const pending = e.target.closest('[data-admin-pending]');
       const del = e.target.closest('[data-admin-delete]');
       const detail = e.target.closest('[data-admin-detail]');
+      const preview = e.target.closest('[data-admin-preview]');
 
       if (approve) adminSetStatus(approve.getAttribute('data-admin-approve'), 'approved');
       if (reject) adminSetStatus(reject.getAttribute('data-admin-reject'), 'rejected');
       if (pending) adminSetStatus(pending.getAttribute('data-admin-pending'), 'pending');
       if (del) adminAskDelete(del.getAttribute('data-admin-delete'));
       if (detail) openDetails(detail.getAttribute('data-admin-detail'));
+      if (preview) previewLiveFile(preview.getAttribute('data-admin-preview'));
     });
   }
 
-  function adminSetStatus(id, status) {
+  async function adminSetStatus(id, status) {
     const file = Store.get(id);
     if (!file) { toast('الملف غير موجود.', 'error'); return; }
-    Store.updateStatus(id, status);
+    const updated = await Store.updateStatus(id, status);
     const labels = { approved: 'اعتمد الملف', rejected: 'رُفض الملف', pending: 'أُعيد الملف للمراجعة' };
-    toast(labels[status] + ' ✅', 'success');
+    if (updated) toast(labels[status] + ' ✅', 'success');
+    else toast('تعذّر تحديث الحالة في القاعدة.', 'error');
     renderAdmin();
     renderStats();
     renderFiles();
@@ -867,7 +1042,7 @@
     openModal('confirmModal');
   }
 
-  /* ---------- تأكيد عام (حذف ملف أو إجراءات اللوحة) ---------- */
+  /* ---------- تأكيد عام ---------- */
   let confirmAction = null;
   function askConfirm(title, text, fn) {
     confirmAction = fn;
@@ -875,15 +1050,14 @@
     $('#confirmText').textContent = text;
     openModal('confirmModal');
   }
-  // ربط زر الحذف: يتحقق أولاً من وجود عملية حذف، وإلا ينفّذ التأكيد العام.
+
   function bindConfirmGeneral() {
-    const btn = $('#confirmDelete');
-    btn.addEventListener('click', () => {
+    $('#confirmDelete').addEventListener('click', async () => {
       if (pendingDeleteId) {
-        Store.removeFile(pendingDeleteId);
+        const ok = await Store.removeFile(pendingDeleteId);
         pendingDeleteId = null;
         closeModal('confirmModal');
-        toast('تم حذف الملف 🗑️', 'success');
+        toast(ok ? 'تم حذف الملف 🗑️' : 'تعذّر حذف الملف من القاعدة.', ok ? 'success' : 'error');
         renderAdmin();
         renderStats();
         renderFiles();
@@ -910,8 +1084,10 @@
   }
 
   /* ---------- بدء التشغيل ---------- */
-  function init() {
-    Store.init();
+  async function init() {
+    await Store.init();
+    applyModeCopy();
+
     populateSelects();
     renderSubjects();
     renderStats();
@@ -928,9 +1104,23 @@
     bindConfirmGeneral();
     bindMisc();
 
-    // إشعار ترحيبي يعرّف بطبيعة النسخة.
+    const live = Store.isLive();
+    if (live && Store.getError()) {
+      setTimeout(() => {
+        toast('تعذّر الوصول إلى قاعدة البيانات — تحقق من الاتصال أو من تنفيذ الـ migration.', 'error');
+      }, 700);
+    }
+    if (live && Store.isMissingRpc()) {
+      setTimeout(() => {
+        toast('ينبغي تشغيل تحديث SQL الإضافي لمكتبة مدارك (دالة maktabet_is_admin) لدخول الإدارة.', 'warn');
+      }, 1300);
+    }
+
     setTimeout(() => {
-      toast('أهلاً بك في مكتبة مدارك — نسخة تجريبية محلية 💚', 'info');
+      toast(live ? 'أهلاً بك في مكتبة مدارك — النسخة المباشرة 💚' : 'أهلاً بك في مكتبة مدارك — نسخة تجريبية محلية 💚', 'info');
+      if (live && !Store.isEnabled()) {
+        toast('المكتبة غير مفعّلة حالياً — المحتوى مخفي عن الزوار. فعّلها من لوحة الإدارة.', 'warn');
+      }
     }, 600);
   }
 
