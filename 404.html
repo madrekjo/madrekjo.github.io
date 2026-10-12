@@ -19,13 +19,12 @@
          - /teacher-files -> تطبيق ملفات المعلمين (SPA)
          - /ajr           -> تطبيق أجر وثواب (SPA)
          - /sutur         -> تطبيق بين السطور (SPA)
-         - /ask           -> تطبيق اكتب سؤالك (SPA)
          - غير ذلك       -> يرجع للصفحة الرئيسية
          ============================================================ */
       (function () {
         try {
           var p = window.location.pathname;
-          var apps = ['/achievement', '/chat', '/anon', '/talaawat', '/teacher-files', '/ajr', '/sutur', '/ask'];
+          var apps = ['/achievement', '/chat', '/anon', '/talaawat', '/teacher-files', '/ajr', '/sutur'];
           var known = false;
           for (var i = 0; i < apps.length; i++) {
             if (p.indexOf(apps[i]) === 0) { known = true; break; }
@@ -52,7 +51,6 @@
         else if (p.indexOf('/teacher-files') === 0) app = 'teacher-files';
         else if (p.indexOf('/ajr') === 0) app = 'ajr';
         else if (p.indexOf('/sutur') === 0) app = 'sutur';
-        else if (p.indexOf('/ask') === 0) app = 'ask';
         if (!app) return;
 
         function inject(urls) {
