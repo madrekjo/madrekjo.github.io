@@ -644,16 +644,20 @@ async function handleLogin(
   const target =
     url.searchParams.get(
       "target"
-    );
+    ) ||
+    "/";
 
+  // "/" = الرئيسية: وجهة دخول صالحة دون أن تكون قسماً.
   const section =
-    SECTIONS.find(
-      (s) => s.target === target
-    );
+    target === "/"
+      ? null
+      : SECTIONS.find(
+          (s) => s.target === target
+        );
 
-  if (!section) {
+  if (!section && target !== "/") {
     return new Response(
-      `Unknown target "${target}". Select one of: ${SECTIONS.map(
+      `Unknown target "${target}". Select one of: / ${SECTIONS.map(
         (s) => s.target
       ).join(" ")}`,
       {
@@ -663,7 +667,7 @@ async function handleLogin(
   }
 
   // القسم المؤجل (لم يُربط بالدخول الموحد بعد) → صفحة تحت الصيانة.
-  if (section.status !== "active") {
+  if (section && section.status !== "active") {
     console.log(
       "[sso][login] Section deferred (maintenance):",
       section.key
@@ -888,6 +892,7 @@ async function handleCallback(
     parsed.target;
 
   if (
+    target !== "/" &&
     !SECTIONS.some(
       (s) => s.target === target
     )
@@ -1193,7 +1198,7 @@ async function handleCallback(
       .trim();
 
   const destination =
-    `${appOrigin}${target}auth/callback?ticket=${encodeURIComponent(
+    `${appOrigin}/login?ticket=${encodeURIComponent(
       ticket
     )}`;
 

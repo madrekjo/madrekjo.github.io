@@ -9,35 +9,51 @@ export interface SsoSectionSession {
   user?: unknown;
 }
 
-const STORAGE_KEY = "mdk:sso:sutur";
+// مفتاح الجلسة الموحّدة — يشترك فيه كل أقسام المنصة (نفس النطاق madrekjo.study).
+const SHARED_KEY = "mdk:sso:session";
+
+type SharedPayload = Record<string, unknown>;
+
+function readShared(): SharedPayload {
+  try {
+    const raw = localStorage.getItem(SHARED_KEY);
+    return raw ? (JSON.parse(raw) as SharedPayload) : {};
+  } catch {
+    return {};
+  }
+}
+
+function writeShared(payload: SharedPayload): void {
+  try {
+    localStorage.setItem(SHARED_KEY, JSON.stringify(payload));
+  } catch {
+    /* تجاهل */
+  }
+}
 
 export function ssoLoginUrl(): string {
   return `${SSO_AUTH_BASE_URL}/login?target=${encodeURIComponent(SSO_TARGET)}`;
 }
 
+export function unifiedLoginUrl(): string {
+  return `/login/?from=${encodeURIComponent(SSO_TARGET)}`;
+}
+
 export function getStoredSsoSession(): SsoSectionSession | null {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? (JSON.parse(raw) as SsoSectionSession) : null;
-  } catch {
-    return null;
-  }
+  const session = readShared().sutur as SsoSectionSession | undefined;
+  return session?.access_token ? session : null;
 }
 
 function setStoredSsoSession(session: SsoSectionSession): void {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
-  } catch {
-    /* تجاهل */
-  }
+  const payload = readShared();
+  payload.sutur = session;
+  writeShared(payload);
 }
 
 export function clearStoredSsoSession(): void {
-  try {
-    localStorage.removeItem(STORAGE_KEY);
-  } catch {
-    /* تجاهل */
-  }
+  const payload = readShared();
+  delete payload.sutur;
+  writeShared(payload);
 }
 
 export async function consumeSsoTicket(ticket: string): Promise<SsoSectionSession> {
@@ -49,14 +65,15 @@ export async function consumeSsoTicket(ticket: string): Promise<SsoSectionSessio
     const text = await res.text().catch(() => "");
     throw new Error(`sso session failed (${res.status}): ${text.slice(0, 160)}`);
   }
-  const payload = (await res.json()) as Record<string, unknown>;
+  const payload = (await res.json()) as SharedPayload;
   const session = payload?.sutur as SsoSectionSession | undefined;
   if (!session?.access_token) {
     throw new Error("sutur session missing — section not open yet");
   }
-  setStoredSsoSession(session);
+  // احفظ كامل الحمولة في الجلسة الموحّدة (لا نُسقط باقي الأقسام).
+  writeShared(payload);
   // ربط الجلسة بعميل supabase للقسم ليُستثمر الحارس والمزايا اللاحقة
-  // (الحظر الشامل، تحويل المتصفح،...) مربوطة بالحساب.
+  // (الحظر الشامل...) مربوطة بالحساب.
   try {
     await supabase.auth.setSession({
       access_token: session.access_token,
