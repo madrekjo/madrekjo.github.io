@@ -28,6 +28,7 @@ import {
   recordVisit,
   myBanInfo,
   isAdminDevice,
+  isSectionClosed,
   type Line,
   type NotebookPage,
   type ReelRow,
@@ -138,6 +139,8 @@ const [readerOpen, setReaderOpen] = useState(false);
     }
   });
 
+  const [sectionClosed, setSectionClosed] = useState(false);
+
   const visitedRef = useRef<string | null>(null);
 
   // ---------- الوضع الليلي ----------
@@ -178,6 +181,12 @@ const [readerOpen, setReaderOpen] = useState(false);
   // ---------- التحميل الأول ----------
   useEffect(() => {
     (async () => {
+      try {
+        const closed = await isSectionClosed();
+        setSectionClosed(closed);
+      } catch {
+        /* لا نمانع — يظهر القسم بشكل طبيعي */
+      }
       try {
         const rows = await fetchLines();
         setDbLines(rows);
@@ -636,6 +645,24 @@ const [readerOpen, setReaderOpen] = useState(false);
   const shareSheetStar = (l: Line) => void handleToggleStar(l.id);
 
   // ---------- الواجهة ----------
+  if (sectionClosed) {
+    return (
+      <div className="mx-auto flex min-h-screen w-full max-w-2xl flex-col items-center justify-center px-6 text-center">
+        <p className="font-serif text-3xl font-bold text-gold-deep">بين السطور</p>
+        <p className="mt-4 text-lg font-semibold text-ink">القسم مغلق حالياً</p>
+        <p className="mt-2 text-sm text-ink-soft">
+          قسم «بين السطور» في وضع صيانة مؤقت. سيُفتح قريباً بإذن الله — عُد إلينا لاحقاً.
+        </p>
+        <a
+          href="/"
+          className="mt-6 rounded-full bg-gold-deep px-6 py-2 text-sm font-bold text-white transition hover:bg-gold-deep/90"
+        >
+          العودة للرئيسية
+        </a>
+      </div>
+    );
+  }
+
   if (!identityReady || !reelsReady || !dbLines) {
     return (
       <div className="mx-auto flex min-h-screen w-full max-w-2xl flex-col items-center justify-center px-6 text-center">

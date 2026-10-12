@@ -877,3 +877,13 @@ export async function myBanInfo(): Promise<MyBanInfo | null> {
   const row = Array.isArray(data) ? data[0] : data;
   return row ? (row as MyBanInfo) : null;
 }
+
+/** هل القسم مغلق (وضع صيانة)؟ تُقرأ من جدول section_flag في القاعدة. */
+export async function isSectionClosed(): Promise<boolean> {
+  try {
+    const { data, error } = await supabase.rpc("is_section_closed");
+    return !error && data === true;
+  } catch {
+    return false;
+  }
+}
