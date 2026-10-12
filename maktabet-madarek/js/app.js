@@ -1093,21 +1093,14 @@
       if (el) el.textContent = txt;
     };
 
-    // الشريط العلوي: المعروض لاحقاً تجريبي فقط — لا يُظهر رسائل الوضع مباشرة.
-    const banner = document.querySelector('.trial-banner');
-    if (banner) banner.hidden = live;
-
     if (live) {
       set('uploadNote', 'سيُرفع ملفك فوراً إلى قاعدة بيانات المكتبة بحالة «قيد المراجعة» حتى يعتمده المشرف. يُسمح فقط بـ PDF و JPG و PNG بحد أقصى 10MB.');
       set('adminNote', 'أدخل رمز الإدارة للوصول إلى اللوحة. الرمز مخزّن في قاعدة البيانات فقط وليس في كود الصفحة.');
-      set('footerNote', 'المكتبة');
       const adminBtn = $('#openAdmin');
       if (adminBtn) adminBtn.title = 'لوحة الإدارة';
     } else {
-      set('bannerText', 'نسخة تجريبية محلية — الملفات والبيانات وهمية ولا تُرفع إلى أي خادم.');
       set('uploadNote', 'وضع تجريبي: يُسمح بملفات PDF و JPG و PNG فقط، بحد أقصى 10 ميغابايت. لن يُرفع الملف إلى أي خادم.');
       set('adminNote', 'الإدارة تعمل في النسخة المباشرة فقط (عبر قاعدة البيانات) — هذه النسخة التجريبية لا تحوي رمز إدارة.');
-      set('footerNote', 'نسخة تجريبية محلية — غير مربوطة بقاعدة بيانات بعد.');
       const adminBtn = $('#openAdmin');
       if (adminBtn) adminBtn.title = 'لوحة الإدارة (تجريبي)';
     }
@@ -1489,13 +1482,6 @@
 
   /* ---------- أحداث عامة ---------- */
   function bindMisc() {
-    const trialClose = $('#trialClose');
-    if (trialClose) {
-      trialClose.addEventListener('click', () => {
-        $('#trialClose').closest('.trial-banner').remove();
-      });
-    }
-
     $('#scrollToFilesBtn').addEventListener('click', () => {
       $('#filesSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
