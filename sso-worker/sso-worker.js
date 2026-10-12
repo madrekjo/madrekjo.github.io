@@ -63,7 +63,7 @@ const SECTIONS = [
   { target: "/sutur/", key: "sutur", name: "بين السطور", status: "active",
     supabaseUrl: "https://cfwnarueaparjbetagpi.supabase.co",
     anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNmd25hcnVlYXBhcmpiZXRhZ3BpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg5NzQ5MTQsImV4cCI6MjEwNDU1MDkxNH0.a96Oho0lpnX2Dtpa2q52m8BH1j_1-jr1ws95ET-aIqU" },
-  { target: "/ask/", key: "ask", name: "اكتب سؤالك", status: "active",
+  { target: "/ask/", key: "ask", name: "اكتب سؤالك", status: "maintenance",
     supabaseUrl: "https://khqhlznlummkjdpssbds.supabase.co",
     anonKey: "sb_publishable_LJ47l76NmFo4lpLbMhi1WA_rO7WvtGC" },
   // أجر وثواب والتلاوات تتشاركان نفس مشروع Supabase (njdvogv…).
@@ -73,7 +73,7 @@ const SECTIONS = [
   { target: "/talaawat/", key: "talaawat", name: "التلاوات", status: "active",
     supabaseUrl: "https://njdvogvquzofnqqwyvyl.supabase.co",
     anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5qZHZvZ3ZxdXpvZm5xcXd5dnlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgxOTIyODQsImV4cCI6MjEwMzc2ODI4NH0.a0zbP1xm8rFuoTFSvbscdWo7HPZR2a9Dq3DEtZf_ua4" },
-  { target: "/teacher-files/", key: "teacherFiles", name: "ملفات المعلمين", status: "active",
+  { target: "/teacher-files/", key: "teacherFiles", name: "ملفات المعلمين", status: "maintenance",
     supabaseUrl: "https://gmqzdbdvybutfrjtgejr.supabase.co",
     anonKey: "sb_publishable_11T_W4ZNdJ74LfX22cWTPg_5XxYTd2B" },
 ];
