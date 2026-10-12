@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { toast } from "sonner";
-import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, Key, Clock, KeyRound, Copy, Loader2, RefreshCw, ScrollText, UserCheck, ClipboardList, MessageSquareText, Coins, LoaderCircle } from "lucide-react";
+import { Shield, Ban, Trash2, Plus, Users, MessageCircle, BarChart3, Edit2, Archive, AlertTriangle, Search, Layers, Flag, UserMinus, ShieldCheck, ShieldAlert, Key, Clock, KeyRound, Copy, Loader2, RefreshCw, ScrollText, UserCheck, ClipboardList, MessageSquareText, Coins, LoaderCircle } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { Navigate } from "react-router-dom";
@@ -20,6 +20,7 @@ import BanDialog from "@/components/BanDialog";
 import RolesDialog from "@/components/RolesDialog";
 import PermissionsPanel from "@/components/PermissionsPanel";
 import AdminReportsPanel from "@/components/AdminReportsPanel";
+import GlobalBansPanel from "@/components/GlobalBansPanel";
 import SocialTasksPanel from "@/components/SocialTasksPanel";
 import StaffCommsPanel from "@/components/StaffCommsPanel";
 import { adjustPoints, fetchPointsMap } from "@/lib/points";
@@ -42,7 +43,7 @@ interface UserRole {
   role: string;
 }
 
-type Tab = "stats" | "users" | "staff" | "banned" | "reports" | "words" | "deleted" | "sections" | "permissions" | "audit" | "pending" | "codes" | "social" | "comms";
+type Tab = "stats" | "users" | "staff" | "banned" | "globalBans" | "reports" | "words" | "deleted" | "sections" | "permissions" | "audit" | "pending" | "codes" | "social" | "comms";
 
 const TabHeader = ({ icon, title, count, desc, action }: { icon: ReactNode; title: string; count?: number; desc?: string; action?: ReactNode }) => (
   <div className="flex items-start justify-between gap-3 flex-wrap mb-4">
@@ -77,7 +78,7 @@ const Admin = () => {
   const [newWord, setNewWord] = useState("");
   const [tab, setTab] = useState<Tab>(() => {
     const t = new URLSearchParams(window.location.search).get("tab");
-    return (t && typeof t === "string" && (["comms", "stats", "users", "staff", "banned", "reports", "words", "deleted", "sections", "permissions", "audit", "pending", "codes", "social"] as Tab[]).includes(t as Tab)) ? (t as Tab) : "stats";
+    return (t && typeof t === "string" && (["comms", "stats", "users", "staff", "banned", "globalBans", "reports", "words", "deleted", "sections", "permissions", "audit", "pending", "codes", "social"] as Tab[]).includes(t as Tab)) ? (t as Tab) : "stats";
   });
   const [commsUnread, setCommsUnread] = useState(0);
 
@@ -161,6 +162,7 @@ const Admin = () => {
     { key: "users", label: "المستخدمين", icon: <Users className="w-4 h-4" />, show: true },
     { key: "staff", label: "الإدارة والمشرفين", icon: <ShieldCheck className="w-4 h-4" />, show: isOwner },
     { key: "banned", label: "المحظورين", icon: <Ban className="w-4 h-4" />, show: isAdmin || isOwner },
+    { key: "globalBans", label: "الحظر الموحد", icon: <ShieldAlert className="w-4 h-4" />, show: isAdmin || isOwner },
     { key: "reports", label: "البلاغات", icon: <Flag className="w-4 h-4" />, show: isAdmin || isOwner, badge: pendingReports },
     { key: "pending", label: "للمراجعة", icon: <Clock className="w-4 h-4" />, show: isAdmin || isOwner, badge: pendingCount },
     { key: "permissions", label: "الصلاحيات", icon: <Key className="w-4 h-4" />, show: isOwner },
@@ -175,7 +177,7 @@ const Admin = () => {
 
   const TAB_GROUPS: { title: string; keys: Tab[] }[] = [
     { title: "الرئيسية", keys: ["stats", "users"] },
-    { title: "المحتوى والرقابة", keys: ["pending", "reports", "banned", "deleted", "sections", "words"] },
+    { title: "المحتوى والرقابة", keys: ["pending", "reports", "banned", "globalBans", "deleted", "sections", "words"] },
     { title: "الفريق", keys: ["staff", "social", "comms"] },
     { title: "النظام وسجل الإدارة", keys: ["audit", "permissions", "codes"] },
   ];
@@ -940,6 +942,7 @@ const Admin = () => {
       )}
 
       {tab === "reports" && (isAdmin || isOwner) && <AdminReportsPanel />}
+      {tab === "globalBans" && (isAdmin || isOwner) && <GlobalBansPanel />}
       {tab === "permissions" && isOwner && <PermissionsPanel />}
 
       {tab === "words" && isOwner && (

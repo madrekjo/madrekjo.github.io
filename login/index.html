@@ -197,6 +197,21 @@
     }
   }
 
+  function renderBanned() {
+    wrap().innerHTML = "";
+    wrap().appendChild(el("p", { className: "title" }, ["حسابك محظور"]));
+    wrap().appendChild(el("p", { className: "desc" }, [
+      "تم تعليق هذا الحساب من دخول المنصة على جميع الأقسام. إذا كنتَ تعتقد أنّ هذا خطأ، تواصل مع إدارة المنصة."
+    ]));
+    wrap().appendChild(el("button", {
+      className: "btn-ghost",
+      onClick: function () {
+        try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+        window.location.replace("/");
+      }
+    }, ["العودة إلى الرئيسية"]));
+  }
+
   function renderError(msg) {
     wrap().innerHTML = "";
     wrap().appendChild(el("div", { className: "error" }, [msg]));
@@ -279,6 +294,10 @@
     const ticket = qp("ticket");
     if (ticket) {
       handleTicket(ticket);
+      return;
+    }
+    if (qp("banned") === "1") {
+      renderBanned();
       return;
     }
     renderIdle();

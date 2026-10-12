@@ -83,6 +83,58 @@ const ACTIVE_SECTIONS = SECTIONS.filter(
   (s) => s.status === "active"
 );
 
+/* ---------------------------------------------------------------
+   الحظر الموحد (مركزي): قائمة المحظورين تعيش في قاعدة الشات
+   (hvrtzzouasqseyswjcex) عبر جدول global_bans + RPC is_global_banned.
+   الوركر يفحصها عند كل تسجيل دخول قبل منح الجلسات، فيُحرم
+   المحظور من كل الأقسام دفعة واحدة.
+   --------------------------------------------------------------- */
+const CENTRAL_BAN_URL =
+  "https://hvrtzzouasqseyswjcex.supabase.co";
+const CENTRAL_BAN_KEY =
+  "sb_publishable_nJGYgrQQhe8r6ohmmkkCdA_8-ivUaMC";
+
+/** فحص القائمة المركزية: هل البريد محظور حظراً موحداً؟ فشل الفحص =
+ *  عدم تأكيد — يُمرَّر (fail-open) ليُسجَّل في السجلات فقط. */
+async function isGlobalBanned(env, email) {
+  if (!email) return false;
+
+  try {
+    const res = await fetch(
+      `${CENTRAL_BAN_URL}/rest/v1/rpc/is_global_banned`,
+      {
+        method: "POST",
+        headers: {
+          apikey: CENTRAL_BAN_KEY,
+          Authorization: `Bearer ${CENTRAL_BAN_KEY}`,
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          p_email: email.toLowerCase(),
+        }),
+      }
+    );
+
+    if (!res.ok) {
+      console.error(
+        `[sso] is_global_banned check failed (${res.status})`,
+        email.toLowerCase()
+      );
+      return false;
+    }
+
+    const result = await res.json();
+    return result === true;
+  } catch (err) {
+    console.error(
+      "[sso] is_global_banned check threw:",
+      err
+    );
+    return false;
+  }
+}
+
 const TICKET_TTL_SECONDS = 300;
 
 
@@ -1077,6 +1129,33 @@ async function handleCallback(
   console.log(
     "[sso][google] Google account verified"
   );
+
+  /* -------------------------------------------------------
+     الحظر الموحد: رفض المحظور قبل منح أي جلسة (كل الأقسام)
+     ------------------------------------------------------- */
+
+  const banned =
+    await isGlobalBanned(
+      env,
+      claims.email
+    );
+
+  if (banned) {
+    console.warn(
+      `[sso] Global ban hit for "${claims.email}" — login denied`
+    );
+
+    const banAppOrigin =
+      (env.APP_ORIGIN ||
+        DEFAULT_APP_ORIGIN)
+        .split(",")[0]
+        .trim();
+
+    return Response.redirect(
+      `${banAppOrigin}/login/?banned=1`,
+      302
+    );
+  }
 
   /* -------------------------------------------------------
      Mint Supabase sessions (لكل الأقسام النشطة فقط)
