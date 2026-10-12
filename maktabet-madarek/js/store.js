@@ -183,8 +183,36 @@ const MaktabetStore = (function () {
     return sb;
   }
 
-  function liveReady() {
-    return !!(client() && SUP && SUP.storageBucket);
+  /* النسخة المنشورة يجب أن تكون مربوطة بقاعدة البيانات دائماً.
+     إن لم تُحمّل مكتبة Supabase (تعذّر الشبكة أو الـ CDN) نعيد المحاولة،
+     ولا نعرض أي بيانات محلية/تجريبية للزوار إطلاقاً. */
+  function hasRemoteConfig() {
+    return !!(SUP && SUP.url && SUP.publishableKey);
+  }
+
+  function loadSdkOnce() {
+    if (window.supabase) return Promise.resolve(true);
+    return new Promise((resolve) => {
+      let settled = false;
+      const done = (ok) => {
+        if (!settled) { settled = true; resolve(!!ok); }
+      };
+      const s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+      s.async = true;
+      s.onload = () => done(!!window.supabase);
+      s.onerror = () => done(false);
+      document.head.appendChild(s);
+      window.setTimeout(() => done(!!window.supabase), 9000);
+    });
+  }
+
+  async function ensureSdk() {
+    if (window.supabase) return true;
+    for (let i = 0; i < 2; i++) {
+      if (await loadSdkOnce()) return true;
+    }
+    return false;
   }
 
   /** شبكة محصّنة: تُحسم بلا نتيجة بعد مهلة بدل التعليق للأبد. */
@@ -414,9 +442,17 @@ const MaktabetStore = (function () {
   const api = {
     /* -- التهيئة -- */
     async init() {
-      if (liveReady()) {
+      if (hasRemoteConfig()) {
+        // النسخة المنشورة: مربوطة بقاعدة البيانات دائماً — بلا بيانات محلية إطلاقاً.
         state.mode = 'live';
         state.enabled = false; // احترازي حتى تتأكد الإعدادات من القاعدة
+        const sdkOk = await ensureSdk();
+        if (!sdkOk) {
+          // مكتبة Supabase لم تُحمّل: نُظهر حالة «تعذّر الاتصال» بدل بيانات وهمية.
+          state.error = 'offline';
+          emit();
+          return api;
+        }
         await ensureAnonSession(); // لا تُلزم أحداً؛ مفيدة للإدارة فقط
         await refreshLive();
       } else {
@@ -459,6 +495,9 @@ const MaktabetStore = (function () {
     },
     getError() {
       return state.error;
+    },
+    isOffline() {
+      return state.error === 'offline';
     },
     isMissingRpc() {
       return state.missingRpc;

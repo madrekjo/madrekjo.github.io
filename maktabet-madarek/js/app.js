@@ -293,6 +293,22 @@
     const empty = $('#emptyState');
     const rows = Store.query(getPublicQuery());
 
+    // تعذّر الوصول إلى قاعدة البيانات — لا نُظهر أي بيانات محلية إطلاقاً.
+    if (Store.isLive() && Store.isOffline()) {
+      grid.innerHTML = '';
+      grid.hidden = true;
+      empty.hidden = false;
+      empty.innerHTML =
+        '<div class="mj-empty-icon">📡</div>' +
+        '<h3>تعذّر الاتصال بقاعدة البيانات</h3>' +
+        '<p>لم نتمكّن من الوصول إلى ملفات المكتبة الآن. تحقّق من اتصالك بالإنترنت ثم أعد المحاولة.</p>' +
+        '<button type="button" class="mj-primary-btn" id="emptyRetry">↺ إعادة المحاولة</button>';
+      const retry = $('#emptyRetry');
+      if (retry) retry.addEventListener('click', () => window.location.reload());
+      $('#resultCount').textContent = '—';
+      return;
+    }
+
     $('#resultCount').textContent = rows.length === 0 ? 'لا توجد نتائج' : formatNum(rows.length) + ' ملف';
 
     if (rows.length === 0) {
