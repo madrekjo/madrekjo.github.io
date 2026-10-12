@@ -255,7 +255,7 @@ async function dispatch(url, request, origin, env) {
     const limit = Math.min(50, parseInt(url.searchParams.get("limit") || String(FEED_PAGE_SIZE), 10) || FEED_PAGE_SIZE);
     const channel = sanitizeChannel(url.searchParams.get("channel"));
     const principal = await tokenHash(token);
-    const cacheKey = `feed:${principal}:p${page}:n${limit}:c${channel}`;
+    const cacheKey = `feed:v2:${principal}:p${page}:n${limit}:c${channel}`;
     const data = await withCache(kv, cacheKey, "feed", CACHE_TTL_SECONDS, force, () => buildFeed(svc, page, limit, channel, token));
     return json(data, origin, 200, "feed");
   }
@@ -461,7 +461,7 @@ async function buildFeed(svc, page, limit, channel, token) {
       : `channel=eq.${channel}`;
 
   const posts = (await fetchAll(svc, "posts",
-    `select=id,user_id,content,image_url,image_urls,video_url,created_at,updated_at,is_pinned,generation,field,channel,status&deleted_at=is.null&${channelFilter}&order=created_at.desc&limit=${limit}&offset=${offset}`, token, "feed") || []);
+    `select=id,user_id,content,image_url,image_urls,video_url,created_at,updated_at,is_pinned,generation,channel,status&deleted_at=is.null&${channelFilter}&order=created_at.desc&limit=${limit}&offset=${offset}`, token, "feed") || []);
 
   const postIds = posts.map((p) => p.id);
 
@@ -477,8 +477,10 @@ async function buildFeed(svc, page, limit, channel, token) {
   }
 
   // إعجابات المنشورات (لأيقونة/عداد اللايك — تبقى حية في الفيد).
+  // نُضمّن type حتى تُميَّز التفاعلات (love/haha/wow/sad/angry) عن اللايك؛
+  // بدونه تظهر كل التفاعلات "like" ولا يظهر اختيار المستخدم.
   const likes = postIds.length
-    ? (await fetchAll(svc, "likes", `select=post_id,user_id&post_id=in.(${postIds.join(",")})&limit=2000`, token, "feed") || [])
+    ? (await fetchAll(svc, "likes", `select=post_id,user_id,type&post_id=in.(${postIds.join(",")})&limit=2000`, token, "feed") || [])
     : [];
 
   // الملفات الشخصية المعنية بشكل مركزي — أعمدة عامة فقط، بدون is_banned.

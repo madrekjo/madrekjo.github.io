@@ -1,16 +1,19 @@
 /**
  * sso-worker.js
  *
- * Cloudflare Worker for unified Google SSO across two Supabase projects.
+ * Cloudflare Worker for unified Google SSO across all platform sections.
  *
  * Flow:
- * 1. /login?target=/chat/
+ * 1. /login?target=/chat/        (target يجب أن يكون ضمن سجلّ SECTIONS)
  * 2. Google OAuth
  * 3. /callback
  * 4. Verify Google ID token
- * 5. Mint Supabase sessions for Chat + Achievement
- * 6. Store sessions in KV
+ * 5. Mint Supabase sessions لكل قسم نشط في SECTIONS (active فقط)
+ * 6. Store sessions in D1 (ticket)
  * 7. Redirect to the requested app
+ *
+ * الأقسام المؤجلة (status: "maintenance") تُحال مباشرة إلى صفحة
+ * «تحت الصيانة» — لا يُمنح لها أي جلسة حتى تُفعَّل في سجلّ SECTIONS.
  */
 
 const DEFAULT_APP_ORIGIN = "https://madrekjo.github.io,https://madrekjo.study";
@@ -29,10 +32,51 @@ const SUPPORTED_ISSUERS = [
   "accounts.google.com",
 ];
 
-const ALLOWED_TARGETS = [
-  "/chat/",
-  "/achievement/",
+/** صفحة «تحت الصيانة» الموحدة (تُنشر في جذر الموقع). */
+const MAINTENANCE_URL =
+  "https://madrekjo.github.io/maintenance.html";
+
+/**
+ * سجلّ أقسام المنصة الموحّدة.
+ *
+ * - `target`: مسار القسم على الموقع (يُستخدم مع ?target=...)
+ * - `key`: مفتاح الجلسة في حمولة التذكرة (تستهلكه واجهة القسم)
+ * - `name`: الاسم الظاهر في صفحة الصيانة
+ * - `status`: "active" → يُمنح جلسة في الدخول الموحد،
+ *             "maintenance" → القسم مؤجل (دخوله مغلق ويُحال للصيانة)
+ * - `supabaseUrl`/`anonKey`: قاعدة القسم ومفتاحه القابل للنشر.
+ *   تُملأ عند نقل القسم من maintenance إلى active.
+ *
+ * أي قسم نضيفه لاحقاً: أضِفه هنا مع supabaseUrl + anonKey + status
+ * ثم وزّع صفحة AuthCallback في واجهته — صفر تغيير في باقي الوركر.
+ */
+const SECTIONS = [
+  { target: "/chat/", key: "chat", name: "الدردشة", status: "active",
+    supabaseUrl: "https://hvrtzzouasqseyswjcex.supabase.co",
+    anonKey: "sb_publishable_nJGYgrQQhe8r6ohmmkkCdA_8-ivUaMC" },
+  { target: "/achievement/", key: "achievement", name: "الإنجاز", status: "active",
+    supabaseUrl: "https://itflhfhsfzrdfpxvlzrv.supabase.co",
+    anonKey: "sb_publishable_3mypt4J1F0sG5RD6oTSZZg_6PNgwoyY" },
+  { target: "/anon/", key: "anon", name: "أنا مجهول", status: "maintenance",
+    supabaseUrl: "https://jmucsccdxxizvqtkyieq.supabase.co",
+    anonKey: "sb_publishable_9z430osiEJbuJ2vaENWixw_hHCUGb0L" },
+  { target: "/sutur/", key: "sutur", name: "بين السطور", status: "maintenance",
+    supabaseUrl: "https://cfwnarueaparjbetagpi.supabase.co", anonKey: "" },
+  { target: "/ask/", key: "ask", name: "اكتب سؤالك", status: "maintenance",
+    supabaseUrl: "https://khqhlznlummkjdpssbds.supabase.co",
+    anonKey: "sb_publishable_LJ47l76NmFo4lpLbMhi1WA_rO7WvtGC" },
+  { target: "/ajr/", key: "ajr", name: "أجر وثواب", status: "maintenance",
+    supabaseUrl: "https://njdvogvquzofnqqwyvyl.supabase.co", anonKey: "" },
+  { target: "/talaawat/", key: "talaawat", name: "التلاوات", status: "maintenance",
+    supabaseUrl: "https://gmqzdbdvybutfrjtgejr.supabase.co", anonKey: "" },
+  { target: "/teacher-files/", key: "teacherFiles", name: "ملفات المعلمين", status: "maintenance",
+    supabaseUrl: "https://njdvogvquzofnqqwyvyl.supabase.co", anonKey: "" },
 ];
+
+/** الأقسام النشطة فقط تُمنح جلسات عند الدخول الموحد. */
+const ACTIVE_SECTIONS = SECTIONS.filter(
+  (s) => s.status === "active"
+);
 
 const TICKET_TTL_SECONDS = 300;
 
@@ -601,17 +645,34 @@ async function handleLogin(
       "target"
     );
 
-  if (
-    !target ||
-    !ALLOWED_TARGETS.includes(
-      target
-    )
-  ) {
+  const section =
+    SECTIONS.find(
+      (s) => s.target === target
+    );
+
+  if (!section) {
     return new Response(
-      "Invalid target. Use ?target=/chat/ or ?target=/achievement/",
+      `Unknown target "${target}". Select one of: ${SECTIONS.map(
+        (s) => s.target
+      ).join(" ")}`,
       {
         status: 400,
       }
+    );
+  }
+
+  // القسم المؤجل (لم يُربط بالدخول الموحد بعد) → صفحة تحت الصيانة.
+  if (section.status !== "active") {
+    console.log(
+      "[sso][login] Section deferred (maintenance):",
+      section.key
+    );
+
+    return Response.redirect(
+      `${MAINTENANCE_URL}?section=${encodeURIComponent(
+        section.key
+      )}`,
+      302
     );
   }
 
@@ -826,8 +887,8 @@ async function handleCallback(
     parsed.target;
 
   if (
-    !ALLOWED_TARGETS.includes(
-      target
+    !SECTIONS.some(
+      (s) => s.target === target
     )
   ) {
     return new Response(
@@ -1008,37 +1069,30 @@ async function handleCallback(
   );
 
   /* -------------------------------------------------------
-     Mint Supabase sessions
+     Mint Supabase sessions (لكل الأقسام النشطة فقط)
      ------------------------------------------------------- */
 
-  let chatSession;
-  let achievementSession;
+  let sessions = {};
 
   try {
     console.log(
       "[sso] Starting Supabase sessions..."
     );
 
-    [
-      chatSession,
-      achievementSession,
-    ] = await Promise.all([
-      mintSession(
-        env,
-        "chat",
-        env.CHAT_SUPABASE_URL,
-        env.CHAT_ANON_KEY,
-        tokenData.id_token
-      ),
-
-      mintSession(
-        env,
-        "achievement",
-        env.ACHIEVEMENT_SUPABASE_URL,
-        env.ACHIEVEMENT_ANON_KEY,
-        tokenData.id_token
-      ),
-    ]);
+    await Promise.all(
+      ACTIVE_SECTIONS.map(
+        async (section) => {
+          sessions[section.key] =
+            await mintSession(
+              env,
+              section.key,
+              section.supabaseUrl,
+              section.anonKey,
+              tokenData.id_token
+            );
+        }
+      )
+    );
   } catch (err) {
     console.error(
       "[sso] mintSession failed:",
@@ -1054,7 +1108,8 @@ async function handleCallback(
   }
 
   console.log(
-    "[sso] Both Supabase sessions created successfully"
+    "[sso] Active Supabase sessions created successfully",
+    Object.keys(sessions)
   );
 
   /* -------------------------------------------------------
@@ -1075,11 +1130,7 @@ async function handleCallback(
       .bind(
         ticket,
         JSON.stringify({
-          chat:
-            chatSession,
-
-          achievement:
-            achievementSession,
+          ...sessions,
 
           target,
         }),
@@ -1108,8 +1159,10 @@ async function handleCallback(
   );
 
   const appOrigin =
-    env.APP_ORIGIN ||
-    DEFAULT_APP_ORIGIN;
+    (env.APP_ORIGIN ||
+      DEFAULT_APP_ORIGIN)
+      .split(",")[0]
+      .trim();
 
   const destination =
     `${appOrigin}${target}auth/callback?ticket=${encodeURIComponent(
