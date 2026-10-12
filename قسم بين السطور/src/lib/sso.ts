@@ -36,7 +36,9 @@ export function ssoLoginUrl(): string {
 }
 
 export function unifiedLoginUrl(): string {
-  return `/login/?from=${encodeURIComponent(SSO_TARGET)}`;
+  // الدخول على مستوى المنصة: بعد النجاح نهبط على الرئيسية ونتصفح
+  // كل الأقسام (كلها مفتوحة بالحساب نفسه).
+  return "/login/";
 }
 
 export function getStoredSsoSession(): SsoSectionSession | null {
