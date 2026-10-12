@@ -6,7 +6,9 @@
 --  تكن موجودة تُنشأ هنا بأمان).
 --
 -- كيف تنفّذه:
---   1. افتح مشروع Supabase: cfwnarueaparjbetagpi
+--   1. افتح مشروع المكتبة في Supabase: avfybjxkdlmzqpvbvdeq
+--      (ملاحظة مهمة: cfwnarueaparjbetagpi هو مشروع قسم «بين السطور»
+--       وليس المشروع الذي تتصل به المكتبة — لا تشغّل هذا الملف هناك).
 --   2. Database → SQL Editor → الصق الملف كاملاً → Run
 --   3. للتفعيل: UPDATE public.maktabet_library_settings
 --        SET library_enabled = true WHERE id = 1;
