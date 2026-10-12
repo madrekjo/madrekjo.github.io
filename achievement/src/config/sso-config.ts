@@ -3,7 +3,7 @@
 // المشروع الشقيق: الإنجاز (achievement)
 
 // رابط الـ Worker الفعلي على Cloudflare (workers.dev)
-export const SSO_AUTH_BASE_URL = "https://madrekjo-sso.abdalrhmanmaaith1.workers.dev";
+export const SSO_AUTH_BASE_URL = "https://madrekjo-sso.madrekjo.workers.dev";
 
 export const SSO_TARGET = "/achievement/";
 
