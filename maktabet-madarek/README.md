@@ -131,8 +131,37 @@ create policy "user_roles_select_self" on public.user_roles
 | فحص الأكواد داخل PDF | `/JavaScript` · `/JS` · `/Launch` · `/EmbeddedFile` · `/RichMedia` |
 | فحص اسم الملف | امتداد مزدوج (`file.pdf.exe`) أو أحرف تحكّم مخفية (RTL override) |
 
-> هذه طبقة حماية فورية تمنع الحالات الخطرة الشائعة. الفحص بمحرّك مضاد
-> فيروسات حقيقي (VirusTotal) خطوة إضافية منفصلة تُفعَّل عند الحاجة.
+> هذه طبقة حماية فورية داخل المتصفح تمنع الحالات الخطرة الشائعة.
+
+## فحص الفيروسات الحقيقي (VirusTotal + GitHub Actions)
+
+الطبقة الثانية تفحص **محتوى** كل ملف بمحرّك مضاد فيروسات حقيقي عبر عامل
+تلقائي في GitHub Actions (`tools/scan-library.mjs` +
+`.github/workflows/maktabet-virus-scan.yml`). أي ملف مصاب يُرفض ويُحذف من
+التخزين تلقائياً قبل أن يراه أي زائر.
+
+**الترتيب المطلوب (مرة واحدة):**
+
+1. نفّذ `supabase/migrations/20261015_maktabet_virus_scan.sql` في
+   Supabase → SQL Editor.
+2. أنشئ حساباً مجانياً في virustotal.com وخُذ مفتاح API.
+3. GitHub → Settings → Secrets and variables → Actions، أضف:
+   - `VIRUSTOTAL_API_KEY` = مفتاح VirusTotal.
+   - `MAKTABET_SERVICE_ROLE_KEY` = مفتاح service_role (Supabase → Settings → API).
+     ⚠️ يوضع في Secrets فقط — لا يُكتب في أي ملف داخل المستودع.
+4. شغّل العامل مرة: GitHub → Actions → «فحص فيروسات المكتبة» → Run workflow.
+5. فعّل الفحص في القاعدة:
+   ```sql
+   update public.maktabet_library_settings set virus_scan_enabled = true where id = 1;
+   ```
+
+**بعد التفعيل:** كل ملف جديد يدخل بحالة `scan_status = 'pending'` فلا يظهر
+للزوار، ثم يفحصه العامل كل 15 دقيقة: الآمن يصبح `clean`، والمصاب يُحذف
+ويُوسم `infected` + `rejected`. وللمشرف من اللوحة زر «🛡️ اعتماد كآمن»
+لمعالجة أي ملف عالق يدوياً.
+
+> ما دام `virus_scan_enabled = false` فالسلوك لا يتغيّر: الملفات تُوسم
+> `clean` مباشرة وتظهر بعد اعتماد المشرف.
 
 ## ما يبقى للنسخة المباشرة
 

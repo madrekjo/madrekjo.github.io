@@ -1014,7 +1014,7 @@
       });
       setProgress(100);
       closeModal('uploadModal');
-      toast('تم رفع الملف إلى القاعدة بنجاح ✅ — بانتظار مراجعة المشرف.', 'success');
+      toast('تم رفع الملف بنجاح ✅ — يخضع لفحص الفيروسات ثم مراجعة المشرف.', 'success');
       renderStats();
       renderFiles();
       selectedFile = null;
@@ -1317,6 +1317,18 @@
       '<div class="mj-admin-stat approved"><div class="num">' + formatNum(f.approved + l.approved) + '</div><div class="lbl">معتمد</div></div>';
   }
 
+  function scanBadge(f) {
+    const s = f.scanStatus || 'clean';
+    const map = {
+      clean: { label: '🛡️ آمن', color: 'var(--mj-green-700)' },
+      pending: { label: '⏳ بانتظار الفحص', color: '#b45309' },
+      infected: { label: '🛑 مصاب — مُزال', color: 'var(--mj-danger)' },
+      error: { label: '⚠️ فشل الفحص', color: '#b45309' },
+    };
+    const m = map[s] || map.clean;
+    return '<span style="color:' + m.color + ';font-weight:700">' + escapeHtml(m.label) + '</span>';
+  }
+
   function adminRow(f) {
     const subj = mjSubject(f.subject);
     const stIcon = extStyle(f);
@@ -1337,6 +1349,9 @@
     if (Store.isLive() && f.hasRealFile) {
       buttons.push('<button type="button" class="mj-mini-btn" data-admin-preview="' + escapeHtml(f.id) + '" style="color:var(--mj-green-700)">🖥️ معاينة</button>');
     }
+    if (Store.isLive() && f.scanStatus !== 'clean') {
+      buttons.push('<button type="button" class="mj-mini-btn" data-admin-scansafe="' + escapeHtml(f.id) + '" style="color:var(--mj-green-700)">🛡️ اعتماد كآمن</button>');
+    }
 
     return (
       '<div class="mj-admin-row" data-id="' + escapeHtml(f.id) + '">' +
@@ -1350,6 +1365,7 @@
             '<span>⬇️ ' + formatNum(f.downloads) + '</span>' +
             '<span>📅 ' + escapeHtml(formatDate(f.uploadedAt)) + '</span>' +
             '<span class="mj-file-status ' + st.className + '">' + escapeHtml(st.label) + '</span>' +
+            scanBadge(f) +
             (f.note ? '<span style="color:var(--mj-danger)">' + escapeHtml(f.note) + '</span>' : '') +
           '</div>' +
         '</div>' +
@@ -1440,6 +1456,7 @@
       const del = e.target.closest('[data-admin-delete]');
       const detail = e.target.closest('[data-admin-detail]');
       const preview = e.target.closest('[data-admin-preview]');
+      const scansafe = e.target.closest('[data-admin-scansafe]');
 
       if (approve) adminSetStatus(approve.getAttribute('data-admin-approve'), 'approved');
       if (reject) adminSetStatus(reject.getAttribute('data-admin-reject'), 'rejected');
@@ -1447,6 +1464,7 @@
       if (del) adminAskDelete(del.getAttribute('data-admin-delete'));
       if (detail) openDetails(detail.getAttribute('data-admin-detail'));
       if (preview) previewLiveFile(preview.getAttribute('data-admin-preview'));
+      if (scansafe) adminSetScanSafe(scansafe.getAttribute('data-admin-scansafe'));
     });
 
     $('#adminLinksList').addEventListener('click', (e) => {
@@ -1471,6 +1489,15 @@
     const labels = { approved: 'اعتمد الملف', rejected: 'رُفض الملف', pending: 'أُعيد الملف للمراجعة' };
     if (updated) toast(labels[status] + ' ✅', 'success');
     else toast('تعذّر تحديث الحالة في القاعدة.', 'error');
+    renderAdmin();
+    renderStats();
+    renderFiles();
+  }
+
+  async function adminSetScanSafe(id) {
+    const updated = await Store.setScanStatus(id, 'clean');
+    if (updated) toast('اعتُمد الملف كآمن ✅ — سيظهر بعد اعتماده.', 'success');
+    else toast('تعذّر تحديث حالة الفحص (تأكّد من تنفيذ تحديث قاعدة البيانات).', 'error');
     renderAdmin();
     renderStats();
     renderFiles();

@@ -134,6 +134,7 @@ const MaktabetStore = (function () {
       uploadedAt: f.uploadedAt || f.created_at || nowISO(),
       downloads: Number(f.downloads) || 0,
       status: ['approved', 'pending', 'rejected'].includes(f.status) ? f.status : 'pending',
+      scanStatus: ['clean', 'pending', 'infected', 'error'].includes(f.scan_status) ? f.scan_status : 'clean',
       sample: isSample,
       note: f.note ? String(f.note) : '',
       storagePath: f.storage_path || null,
@@ -656,6 +657,24 @@ const MaktabetStore = (function () {
       writeLocal();
       emit();
       return clone(f);
+    },
+
+    /** (أدمن) اعتماد حالة فحص الملف يدوياً — تجاوز عند تعذّر عامل الفحص. */
+    async setScanStatus(id, status) {
+      if (!['clean', 'pending', 'infected', 'error'].includes(status)) return null;
+      if (!this.isLive()) return null;
+      const c = client();
+      const res = await timeoutRace(
+        c.from('maktabet_library_files').update({ scan_status: status }).eq('id', id),
+        8000
+      );
+      if (res === null || (res && res.error)) {
+        console.warn('[المكتبة] فشل تحديث حالة الفحص:', res && res.error);
+        return null;
+      }
+      await refreshLive();
+      const f = state.files.find((x) => x.id === id);
+      return f ? clone(f) : null;
     },
 
     /* -- الروابط المباشرة -- */

@@ -1,0 +1,41 @@
+name: فحص فيروسات المكتبة
+
+# يفحص الملفات الجديدة المرفوعة إلى مكتبة مدارك جوهـر
+# بمحرّك VirusTotal، ويحجب/يحذف أي ملف مصاب تلقائياً.
+#
+# المتطلبات (مرة واحدة):
+#   Settings → Secrets and variables → Actions:
+#     VIRUSTOTAL_API_KEY         (مفتاح VirusTotal)
+#     MAKTABET_SERVICE_ROLE_KEY  (service_role من Supabase → Settings → API)
+#   ثم فعّل الفحص في القاعدة:
+#     update public.maktabet_library_settings set virus_scan_enabled = true where id = 1;
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: maktabet-virus-scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: فحص الملفات الجديدة في VirusTotal
+        env:
+          SUPABASE_URL: https://avfybjxkdlmzqpvbvdeq.supabase.co
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.MAKTABET_SERVICE_ROLE_KEY }}
+          VIRUSTOTAL_API_KEY: ${{ secrets.VIRUSTOTAL_API_KEY }}
+        run: node maktabet-madarek/tools/scan-library.mjs
