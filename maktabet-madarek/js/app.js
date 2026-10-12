@@ -862,7 +862,7 @@
     openModal('uploadModal');
   }
 
-  function handleFileChoose(file) {
+  async function handleFileChoose(file) {
     const err = validateFile(file);
     if (err) {
       selectedFile = null;
@@ -873,6 +873,24 @@
     hideUploadError();
     selectedFile = file;
     renderSelectedFile();
+
+    // الفحص الأمني (نوع حقيقي + كشف الأكواد الخطرة)
+    if (!window.MaktabetGuard) return;
+    $('#dropzoneText').textContent = '🛡️ جارٍ فحص الملف أمنياً...';
+    let verdict;
+    try {
+      verdict = await window.MaktabetGuard.inspect(file);
+    } catch (e) {
+      verdict = { ok: false, reason: 'تعذّر فحص الملف — أعد المحاولة.' };
+    }
+    if (selectedFile !== file) return; // تغيّر الاختيار أثناء الفحص
+    if (!verdict.ok) {
+      selectedFile = null;
+      renderSelectedFile();
+      showUploadError(verdict.reason || 'الملف مرفوض لأسباب أمنية.');
+      return;
+    }
+    $('#dropzoneText').textContent = 'تم اختيار الملف ✅ — اجتاز الفحص الأمني';
   }
 
   function validateFile(file) {
@@ -921,7 +939,7 @@
     $('#uploadProgressLabel').textContent = Math.round(pct) + '%';
   }
 
-  function onSubmitUpload(e) {
+  async function onSubmitUpload(e) {
     e.preventDefault();
     hideUploadError();
 
@@ -944,6 +962,25 @@
     if (err) { showUploadError(err); return; }
 
     const btn = $('#uploadSubmit');
+
+    // إعادة الفحص الأمني مباشرة قبل الرفع (حماية مزدوجة)
+    if (window.MaktabetGuard) {
+      btn.disabled = true;
+      $('#dropzoneText').textContent = '🛡️ جارٍ الفحص الأمني...';
+      let verdict;
+      try {
+        verdict = await window.MaktabetGuard.inspect(selectedFile);
+      } catch (er) {
+        verdict = { ok: false, reason: 'تعذّر فحص الملف — أعد المحاولة.' };
+      }
+      if (!verdict.ok) {
+        btn.disabled = false;
+        $('#dropzoneText').textContent = 'تم اختيار الملف';
+        showUploadError(verdict.reason || 'الملف مرفوض لأسباب أمنية.');
+        return;
+      }
+    }
+
     btn.disabled = true;
 
     const meta = {
