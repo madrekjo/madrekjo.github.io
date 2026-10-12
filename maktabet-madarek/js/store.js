@@ -1,5 +1,5 @@
 /* ============================================================
-   مكتبة مدارك — طبقة البيانات (Store)
+   المكتبة — طبقة البيانات (Store)
    ------------------------------------------------------------
    طبقة معزولة تماماً عن الواجهة؛ كل القراءة والكتابة تمر من هنا.
 
@@ -71,7 +71,7 @@ const MaktabetStore = (function () {
     try {
       localStorage.setItem(KEYS.files, JSON.stringify(state.files));
     } catch (e) {
-      console.warn('[مكتبة مدارك] تعذّر الحفظ في التخزين المحلي:', e);
+      console.warn('[المكتبة] تعذّر الحفظ في التخزين المحلي:', e);
     }
   }
 
@@ -253,7 +253,7 @@ const MaktabetStore = (function () {
       emit();
     } catch (e) {
       state.error = e && e.message ? String(e.message) : String(e);
-      console.warn('[مكتبة مدارك] لم نتمكن من جلب البيانات من القاعدة:', e);
+      console.warn('[المكتبة] لم نتمكن من جلب البيانات من القاعدة:', e);
     }
   }
 
@@ -481,7 +481,7 @@ const MaktabetStore = (function () {
           8000
         );
         if (res === null || res.error) {
-          console.warn('[مكتبة مدارك] فشل تحديث الحالة:', res && res.error);
+          console.warn('[المكتبة] فشل تحديث الحالة:', res && res.error);
           return null;
         }
         await refreshLive();
@@ -502,7 +502,7 @@ const MaktabetStore = (function () {
         const c = client();
         const res = await timeoutRace(c.rpc('maktabet_delete_file', { p_file_id: id }), 8000);
         if (res === null || res.error) {
-          console.warn('[مكتبة مدارك] فشل الحذف:', res && res.error);
+          console.warn('[المكتبة] فشل الحذف:', res && res.error);
           return false;
         }
         await refreshLive();
@@ -594,13 +594,9 @@ const MaktabetStore = (function () {
         await refreshLive();
         return true;
       }
-      const ok = window.maktabetCheckAdminCode(code);
-      if (ok) {
-        state.admin = true;
-        writeAdmin(true);
-        emit();
-      }
-      return ok;
+      // في وضع التجربة لا يوجد رمز إدارة في الصفحة — الإدارة تعمل
+      // في النسخة المباشرة فقط عبر قاعدة البيانات (maktabet_login_admin).
+      return false;
     },
 
     async logoutAdmin() {

@@ -1,8 +1,8 @@
 /* ============================================================
-   مكتبة مدارك — إعدادات النسخة التجريبية المستقلة
+   المكتبة — إعدادات القسم
    ------------------------------------------------------------
-   ملاحظة: هذا الملف لا يتصل بأي خادم ولا بـ Supabase.
-   كل القيم ثابتة لخدمة الواجهة التجريبية فقط.
+   ملاحظة: هذا الملف لا يتصل بخادم ولا يحوي أي رمز إدارة.
+   كل القيم تخدم الواجهة والتصنيفات وقيود الرفع.
    ============================================================ */
 
 const MAKTABET_CONFIG = {
@@ -69,32 +69,9 @@ const MAKTABET_CONFIG = {
   exportName: 'maktabet-madarek-trial-data.json',
 };
 
-/* ------------------------------------------------------------
-   رمز الإدارة التجريبي (3330116)
-   مخزّن بصيغة مرمّزة حتى لا يظهر كنص مباشر على الشاشة أو في
-   بيانات الملفات. هذا ليس أماناً حقيقياً — هو مجرد حماية شكلية
-   للنسخة التجريبية، وسيُستبدل بمصادقة حقيقية عند ربط Supabase.
-   ------------------------------------------------------------ */
-const MAKTABET_ADMIN_HASH = (function () {
-  // الرمز مخزّن مفكّكاً إلى قيم رقمية (وليس نصاً واحداً واضحاً)،
-  // حتى لا يظهر كلمح نصوص عادي في البيانات. ليس هذا حماية حقيقية
-  // — النسخة تجريبية فقط وستستبدل بمصادقة حقيقية عند ربط Supabase.
-  const parts = [3, 3, 3, 0, 1, 1, 6]; // قيم أرقام رمز الإدارة مفكّكة
-  return parts;
-})();
-
-/**
- * يتحقق من رمز الإدارة التجريبي.
- * @param {string} input
- * @returns {boolean}
- */
-function maktabetCheckAdminCode(input) {
-  const clean = String(input || '').replace(/\s+/g, '');
-  if (clean.length !== MAKTABET_ADMIN_HASH.length) return false;
-  return clean
-    .split('')
-    .every((ch, i) => ch.charCodeAt(0) - 48 === MAKTABET_ADMIN_HASH[i]);
-}
+/* ملاحظة أمان: رمز الإدارة غير موجود في هذا الملف إطلاقاً.
+   في النسخة المباشرة يُتحقق منه داخل قاعدة البيانات (Supabase)
+   عبر دالة maktabet_login_admin، ولا يُكتب في كود الصفحة أبداً. */
 
 /* مساعدات عامة */
 function mjSubject(id) {
@@ -112,7 +89,6 @@ function mjYear(id) {
 
 // إتاحة للاستخدام في المتصفح
 window.MAKTABET_CONFIG = MAKTABET_CONFIG;
-window.maktabetCheckAdminCode = maktabetCheckAdminCode;
 window.mjSubject = mjSubject;
 window.mjTerm = mjTerm;
 window.mjType = mjType;
