@@ -611,9 +611,21 @@ document.addEventListener('DOMContentLoaded', function() {
 // ========== PWA / SERVICE WORKER ==========
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').catch(function(e) {
+    navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' }).then(function(reg) {
+      // ابحث عن تحديث جديد فوراً وكل 30 دقيقة (حتى لا يبقى المتصفح على نسخة قديمة)
+      try { reg.update(); } catch (e) {}
+      setInterval(function() { try { reg.update(); } catch (e) {} }, 30 * 60 * 1000);
+    }).catch(function(e) {
       console.log('SW registration failed:', e);
     });
+  });
+
+  // عند تفعيل نسخة جديدة من الـSW: أعِد التحميل مرة واحدة لتظهر أحدث نسخة
+  var swRefreshing = false;
+  navigator.serviceWorker.addEventListener('controllerchange', function() {
+    if (swRefreshing) return;
+    swRefreshing = true;
+    window.location.reload();
   });
 }
 

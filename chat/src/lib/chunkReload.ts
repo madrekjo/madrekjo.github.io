@@ -1,22 +1,48 @@
-// معالجة فشل تحميل حزمة (chunk) بعد نشر جديد:
-// عندما يبقى المتصفح على نسخة قديمة ثم يحدث نشر، قد يفشل تحميل جزء مؤجَّل
-// (dynamic import) ويرمي: "Failed to fetch dynamically imported module".
-// هنا نعيد التحميل مرة واحدة لكل جلسة ليجلب المتصفح النسخة الجديدة.
-const RELOAD_KEY = "mdk:chunk-reload";
+// تحديث ذاتي للنسخة:
+// 1) إذا فشل تحميل حزمة (chunk) بعد نشر جديد يرمي المتصفح:
+//    "Failed to fetch dynamically imported module" — نعيد التحميل مرة واحدة.
+// 2) عندما تتفعّل نسخة جديدة من الـService Worker نعيد التحميل مرة واحدة
+//    حتى لا يبقى المستخدم على نسخة قديمة من التطبيق.
+
+function reloadOnce(key: string): boolean {
+  try {
+    if (sessionStorage.getItem(key) === "1") return false; // تجنّب حلقة لا نهائية
+    sessionStorage.setItem(key, "1");
+  } catch {
+    /* التخزين غير متاح */
+  }
+  window.location.reload();
+  return true;
+}
 
 window.addEventListener("vite:preloadError", (event) => {
-  let alreadyTried = false;
-  try {
-    alreadyTried = sessionStorage.getItem(RELOAD_KEY) === "1";
-  } catch {
-    /* التخزين غير متاح */
-  }
-  if (alreadyTried) return; // تجنّب حلقة إعادة تحميل لا نهائية
-  try {
-    sessionStorage.setItem(RELOAD_KEY, "1");
-  } catch {
-    /* التخزين غير متاح */
-  }
   event.preventDefault();
-  window.location.reload();
+  reloadOnce("mdk:chunk-reload");
 });
+
+if ("serviceWorker" in navigator) {
+  // ابحث عن تحديث جديد للـSW فوراً وكل 30 دقيقة
+  navigator.serviceWorker.ready
+    .then((reg) => {
+      try {
+        reg.update();
+      } catch {
+        /* تجاهل */
+      }
+      setInterval(() => {
+        try {
+          reg.update();
+        } catch {
+          /* تجاهل */
+        }
+      }, 30 * 60 * 1000);
+    })
+    .catch(() => {
+      /* لا يوجد تسجيل — تجاهل */
+    });
+
+  // عند تفعيل نسخة جديدة من الـSW أعِد التحميل مرة واحدة
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    reloadOnce("mdk:sw-reload");
+  });
+}
