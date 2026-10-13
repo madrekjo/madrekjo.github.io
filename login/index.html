@@ -172,6 +172,23 @@
   .trust{margin-top:20px;font-size:11.5px;color:var(--muted);line-height:1.8;display:flex;align-items:center;justify-content:center;gap:7px;}
   .trust svg{width:14px;height:14px;color:#34d399;flex-shrink:0;}
 
+  .support-cta{
+    margin-top:22px;padding-top:18px;
+    border-top:1px dashed rgba(255,255,255,.1);
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+    animation:fadeUp .7s ease .22s both;
+  }
+  .support-cta-text{font-size:12.5px;color:var(--muted);font-weight:600;}
+  .btn-support{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:11px 22px;border-radius:13px;text-decoration:none;
+    background:linear-gradient(135deg,rgba(124,58,237,.18),rgba(79,70,229,.10));
+    border:1px solid rgba(167,139,250,.4);
+    color:#d7c9ff;font-family:'Cairo',sans-serif;font-size:13.5px;font-weight:800;
+    transition:transform .15s ease,border-color .15s ease,background .15s ease;
+  }
+  .btn-support:hover{transform:translateY(-2px);border-color:rgba(167,139,250,.75);background:linear-gradient(135deg,rgba(124,58,237,.28),rgba(79,70,229,.18));}
+
   .status{margin-top:18px;font-size:13.5px;color:var(--muted);line-height:1.9;}
   .error{margin-top:16px;padding:12px 15px;border-radius:13px;font-size:12.5px;line-height:1.9;
     color:#fecaca;background:rgba(220,38,38,.12);border:1px solid rgba(248,113,113,.3);text-align:right;}
@@ -201,6 +218,10 @@
     <p class="subtitle">أول منصة تعليمية من صنع طالب</p>
     <span class="badge">الدخول الموحّد</span>
     <div id="body-wrap"><!-- يُعبّأ ديناميكياً --></div>
+    <div class="support-cta">
+      <span class="support-cta-text">🛟 تواجه مشكلة أو تحتاج مساعدة؟</span>
+      <a class="btn-support" href="/support/">تواصل مع الدعم ←</a>
+    </div>
   </div>
   <p class="foot" id="foot">
     <a href="/privacy.html">سياسة الخصوصية</a> · <a href="/support/">الدعم والمساعدة</a> · <a href="mailto:madrekjo@gmail.com">البريد</a>
