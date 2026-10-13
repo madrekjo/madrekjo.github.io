@@ -490,6 +490,7 @@
 
     if (existing) {
       wrap().appendChild(el("a", { className: "btn-ghost", href: from }, ["متابعة إلى القسم ←"]));
+      wrap().appendChild(el("a", { className: "btn-ghost", href: "/profile/" }, ["👤 ملفي الشخصي"]));
       wrap().appendChild(el("button", {
         className: "btn-ghost",
         onClick: function () {

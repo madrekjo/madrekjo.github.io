@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<script src="/js/auth-gate.js?v=1"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="theme-color" content="#0a0a0f">
+<title>ملفي الشخصي — مدارك جو</title>
+<meta property="og:title" content="ملفي الشخصي — مدارك جو">
+<meta property="og:description" content="حسابك الموحّد في منصة مدارك جو — معلوماتك وأقسامك وتسجيل الخروج.">
+<meta property="og:site_name" content="مدارك جو">
+<meta property="og:locale" content="ar_AR">
+<link rel="canonical" href="https://madrekjo.study/profile/">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/images/logo.png?v=2">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold:#FFD700; --gold-light:#FFF3B0; --gold-dark:#B8860B;
+    --deep:#0a0a0f; --surface:#111118; --surface2:#1a1a24;
+    --text:#f0f0f5; --muted:#888899; --border:rgba(255,255,255,.08);
+    --accent:#4f46e5; --accent2:#7c3aed;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{min-height:100%;}
+  body{
+    font-family:'Cairo',sans-serif; background:var(--deep); color:var(--text);
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    padding:32px 16px; overflow-x:hidden; position:relative;
+  }
+  .stars{position:fixed; inset:0; pointer-events:none; z-index:0;
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(79,70,229,.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(124,58,237,.12) 0%, transparent 50%);}
+  .star{position:absolute; background:#fff; border-radius:50%; animation:twinkle var(--d,3s) ease-in-out infinite var(--delay,0s);}
+  @keyframes twinkle{0%,100%{opacity:.1;transform:scale(1);}50%{opacity:.8;transform:scale(1.3);}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes glowPulse{
+    0%,100%{box-shadow:0 30px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(255,215,0,.10), 0 0 60px rgba(124,58,237,.12);}
+    50%{box-shadow:0 30px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(255,215,0,.22), 0 0 80px rgba(124,58,237,.22);}
+  }
+
+  .card{
+    position:relative; z-index:1; width:100%; max-width:480px;
+    background:linear-gradient(180deg, rgba(20,20,29,.86), rgba(13,13,20,.92));
+    border:1px solid rgba(255,215,0,.16); border-radius:26px;
+    padding:36px 30px 28px; text-align:center; backdrop-filter:blur(14px);
+    animation:fadeUp .7s ease both, glowPulse 6s ease-in-out infinite;
+  }
+  .card::before{
+    content:""; position:absolute; inset:0; border-radius:26px; padding:1px;
+    background:linear-gradient(140deg, rgba(255,215,0,.55), rgba(124,58,237,.35), rgba(255,215,0,.15));
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:.7;
+  }
+
+  .logo{font-family:'Tajawal',sans-serif;font-weight:800;line-height:1;letter-spacing:-1px;}
+  .logo .m{font-size:40px;background:linear-gradient(135deg,#FFD700 0%,#FFF3B0 40%,#FFD700 70%,#B8860B 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 20px rgba(255,215,0,.35));}
+  .logo .jo{font-size:22px;font-weight:700;background:linear-gradient(135deg,#a78bfa,#818cf8);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .badge{
+    display:inline-flex;align-items:center;gap:7px;margin-top:14px;
+    background:linear-gradient(135deg,rgba(255,215,0,.15),rgba(255,215,0,.05));
+    border:1px solid rgba(255,215,0,.3);border-radius:50px;padding:6px 16px;
+    font-size:12px;font-weight:700;color:var(--gold);
+  }
+  .badge::before{content:"👤";}
+
+  .avatar-wrap{margin-top:22px;display:flex;justify-content:center;}
+  .avatar{
+    width:96px;height:96px;border-radius:50%;object-fit:cover;
+    border:2px solid rgba(255,215,0,.45);
+    box-shadow:0 0 0 6px rgba(255,215,0,.06), 0 14px 40px rgba(0,0,0,.5);
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+  }
+  .avatar-fallback{
+    width:96px;height:96px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:'Tajawal',sans-serif;font-size:40px;font-weight:800;color:#1c1400;
+    background:linear-gradient(135deg,#FFD700,#FFB300);
+    border:2px solid rgba(255,215,0,.45);
+    box-shadow:0 0 0 6px rgba(255,215,0,.06), 0 14px 40px rgba(0,0,0,.5);
+  }
+  .name{margin-top:16px;font-size:22px;font-weight:800;word-break:break-word;}
+  .email{margin-top:6px;font-size:13.5px;color:var(--muted);word-break:break-all;}
+
+  .info{
+    margin-top:24px;text-align:right;background:rgba(255,255,255,.03);
+    border:1px solid var(--border);border-radius:16px;overflow:hidden;
+  }
+  .info-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px;border-bottom:1px solid var(--border);}
+  .info-row:last-child{border-bottom:none;}
+  .info-k{font-size:12.5px;color:var(--muted);font-weight:600;flex-shrink:0;}
+  .info-v{font-size:13px;font-weight:700;word-break:break-all;text-align:left;}
+
+  .sections{margin-top:24px;padding-top:20px;border-top:1px dashed rgba(255,255,255,.1);text-align:right;}
+  .sections-label{font-size:11.5px;color:var(--muted);margin-bottom:12px;letter-spacing:.3px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-start;}
+  .chip{
+    display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:11px;
+    font-size:12.5px;font-weight:700;color:var(--text);text-decoration:none;
+    background:rgba(255,255,255,.04);border:1px solid var(--border);
+    transition:border-color .2s ease,transform .2s ease,background .2s ease;
+  }
+  .chip:hover{border-color:rgba(255,215,0,.45);transform:translateY(-1px);background:rgba(255,215,0,.06);}
+
+  .btn-logout{
+    display:flex;align-items:center;justify-content:center;gap:9px;
+    width:100%;margin-top:24px;padding:14px 16px;border:none;border-radius:15px;cursor:pointer;
+    background:linear-gradient(135deg,rgba(220,38,38,.9),rgba(185,28,28,.9));color:#fff;
+    font-family:'Cairo',sans-serif;font-size:15px;font-weight:800;
+    transition:transform .15s ease,box-shadow .15s ease;
+    box-shadow:0 12px 30px rgba(220,38,38,.25);
+  }
+  .btn-logout:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(220,38,38,.35);}
+  .btn-logout::before{content:"🚪";}
+
+  .btn-ghost{
+    display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
+    margin-top:12px;padding:12px 16px;border:1px solid rgba(255,255,255,.16);border-radius:15px;
+    background:transparent;color:#d7c9ff;font-family:'Cairo',sans-serif;
+    font-size:13.5px;font-weight:700;text-decoration:none;cursor:pointer;
+    transition:background .15s ease,border-color .15s ease;
+  }
+  .btn-ghost:hover{background:rgba(255,215,0,.08);border-color:rgba(255,215,0,.35);}
+
+  .status{margin-top:20px;font-size:13.5px;color:var(--muted);}
+  .spinner{margin:20px auto 0;width:32px;height:32px;border-radius:50%;
+    border:3px solid rgba(255,215,0,.2);border-top-color:var(--gold);animation:spin .8s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  .foot{position:relative;z-index:1;margin-top:22px;font-size:12px;color:#6c7694;text-align:center;}
+  .foot a{color:#c4b5fd;text-decoration:none;}
+  .foot a:hover{color:var(--gold);text-decoration:underline;}
+
+  @media (max-width:480px){
+    .card{padding:28px 20px 22px;border-radius:22px;}
+    .logo .m{font-size:34px;}
+    .avatar,.avatar-fallback{width:82px;height:82px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="stars" id="starsContainer"></div>
+
+<div style="position:relative;z-index:1;width:100%;display:flex;flex-direction:column;align-items:center;">
+  <div class="card">
+    <div class="logo"><span class="m">مدارك</span> <span class="jo">جو</span></div>
+    <span class="badge">الحساب الموحّد</span>
+    <div id="body-wrap"><div class="spinner"></div></div>
+  </div>
+  <p class="foot">
+    <a href="/privacy.html">سياسة الخصوصية</a> · <a href="mailto:madrekjo@gmail.com">الدعم</a>
+  </p>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var STORAGE_KEY = "mdk:sso:session";
+  var LOGIN = "/login/";
+
+  /* الأقسام النشطة: المفتاح في جلسة الدخول الموحّد + الاسم + الرابط. */
+  var SECTIONS = [
+    { key: "chat",        icon: "💬", label: "الدردشة الدراسية", href: "/chat/" },
+    { key: "achievement", icon: "🎯", label: "مؤشر الإنجاز",     href: "/achievement/" },
+    { key: "sutur",       icon: "🃏", label: "بين السطور",       href: "/sutur/" },
+    { key: "anon",        icon: "🫥", label: "أنا مجهول",        href: "/anon/" },
+    { key: "ajr",         icon: "🕌", label: "أجر وثواب",        href: "/ajr/" },
+    { key: "talaawat",    icon: "🎙️", label: "تلاوات",           href: "/talaawat/" }
+  ];
+
+  function readSession() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "null"); }
+    catch (e) { return null; }
+  }
+
+  function b64urlDecode(str) {
+    try {
+      str = String(str).replace(/-/g, "+").replace(/_/g, "/");
+      while (str.length % 4) str += "=";
+      var bin = atob(str);
+      var out = "";
+      for (var i = 0; i < bin.length; i++) {
+        out += "%" + ("00" + bin.charCodeAt(i).toString(16)).slice(-2);
+      }
+      return decodeURIComponent(out);
+    } catch (e) { return null; }
+  }
+
+  function decodeJwt(token) {
+    try {
+      var parts = String(token).split(".");
+      if (parts.length < 2) return null;
+      var json = b64urlDecode(parts[1]);
+      return json ? JSON.parse(json) : null;
+    } catch (e) { return null; }
+  }
+
+  /* يستخرج هوية المستخدم من أي توكن جلسة متاح (نفضّل الشات). */
+  function getIdentity(session) {
+    var order = ["chat", "achievement", "sutur", "anon", "ajr", "talaawat"];
+    var found = null;
+    for (var i = 0; i < order.length && !found; i++) {
+      var s = session && session[order[i]];
+      if (s && s.access_token) found = s;
+    }
+    if (!found) {
+      for (var k in session) {
+        if (session[k] && session[k].access_token) { found = session[k]; break; }
+      }
+    }
+    if (!found) return null;
+    var p = decodeJwt(found.access_token);
+    if (!p) return null;
+    var um = p.user_metadata || {};
+    var email = p.email || um.email || "";
+    var name = um.full_name || um.name || um.display_name || um.user_name || (email ? email.split("@")[0] : "طالب");
+    var avatar = um.avatar_url || um.picture || "";
+    return { id: p.sub || "", email: email, name: name, avatar: avatar };
+  }
+
+  function el(tag, props, children) {
+    var n = document.createElement(tag);
+    if (props) for (var k in props) {
+      if (k === "className") n.className = props[k];
+      else if (k === "html") n.innerHTML = props[k];
+      else if (k === "text") n.textContent = props[k];
+      else if (k.indexOf("on") === 0 && typeof props[k] === "function") n.addEventListener(k.slice(2).toLowerCase(), props[k]);
+      else if (props[k] !== null && props[k] !== undefined) n.setAttribute(k, props[k]);
+    }
+    (children || []).forEach(function (c) {
+      n.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
+    });
+    return n;
+  }
+
+  function qp(name) { return new URLSearchParams(window.location.search).get(name) || ""; }
+
+  function fullLogout() {
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+      Object.keys(localStorage).forEach(function (k) {
+        if (/^sb-.*-auth-token$/.test(k)) localStorage.removeItem(k);
+      });
+    } catch (e) {}
+    window.location.replace(LOGIN);
+  }
+
+  function render(identity, session) {
+    var wrap = document.getElementById("body-wrap");
+    wrap.innerHTML = "";
+
+    var av = el("div", { className: "avatar-wrap" });
+    if (identity.avatar) {
+      var img = el("img", { className: "avatar", src: identity.avatar, alt: identity.name, referrerpolicy: "no-referrer" });
+      img.addEventListener("error", function () {
+        var fb = el("div", { className: "avatar-fallback" }, [ (identity.name || "ط").trim().charAt(0) ]);
+        av.replaceChild(fb, img);
+      });
+      av.appendChild(img);
+    } else {
+      av.appendChild(el("div", { className: "avatar-fallback" }, [ (identity.name || "ط").trim().charAt(0) ]));
+    }
+    wrap.appendChild(av);
+
+    wrap.appendChild(el("div", { className: "name" }, [identity.name || "طالب مدارك جو"]));
+    if (identity.email) wrap.appendChild(el("div", { className: "email" }, [identity.email]));
+
+    var info = el("div", { className: "info" });
+    info.appendChild(row("طريقة الدخول", session.viaCode ? "رمز الدعوة" : "حساب Google"));
+    if (identity.email) info.appendChild(row("البريد", identity.email));
+    if (identity.id) info.appendChild(row("رقم الحساب", identity.id.slice(0, 8) + "…"));
+    wrap.appendChild(info);
+
+    var present = SECTIONS.filter(function (s) { return session[s.key]; });
+    var box = el("div", { className: "sections" });
+    box.appendChild(el("div", { className: "sections-label" }, [
+      present.length > 1 ? "أقسامك المتاحة (" + present.length + "):" : "أقسامك المتاحة:"
+    ]));
+    var chips = el("div", { className: "chips" });
+    if (present.length) {
+      present.forEach(function (s) {
+        chips.appendChild(el("a", { className: "chip", href: s.href }, [s.icon + " " + s.label]));
+      });
+    } else {
+      chips.appendChild(el("span", { className: "chip" }, ["لا أقسام مرتبطة بهذا الحساب بعد"]));
+    }
+    box.appendChild(chips);
+    wrap.appendChild(box);
+
+    wrap.appendChild(el("button", { className: "btn-logout", onClick: fullLogout }, ["تسجيل الخروج"]));
+    wrap.appendChild(el("a", { className: "btn-ghost", href: "/" }, ["العودة إلى الرئيسية"]));
+  }
+
+  function row(k, v) {
+    return el("div", { className: "info-row" }, [
+      el("span", { className: "info-k" }, [k]),
+      el("span", { className: "info-v" }, [v])
+    ]);
+  }
+
+  function renderError(msg) {
+    var wrap = document.getElementById("body-wrap");
+    wrap.innerHTML = "";
+    wrap.appendChild(el("div", { className: "status" }, [msg]));
+    wrap.appendChild(el("a", { className: "btn-ghost", href: LOGIN }, ["إعادة تسجيل الدخول"]));
+  }
+
+  function makeStars() {
+    var c = document.getElementById("starsContainer");
+    if (!c) return;
+    for (var i = 0; i < 46; i++) {
+      var s = document.createElement("span");
+      s.className = "star";
+      var size = Math.random() * 2.2 + 0.8;
+      s.style.width = size + "px"; s.style.height = size + "px";
+      s.style.left = Math.random() * 100 + "%"; s.style.top = Math.random() * 100 + "%";
+      s.style.setProperty("--d", (Math.random() * 3 + 2).toFixed(2) + "s");
+      s.style.setProperty("--delay", (Math.random() * 3).toFixed(2) + "s");
+      c.appendChild(s);
+    }
+  }
+
+  function main() {
+    makeStars();
+    var session = readSession();
+    if (!session) { window.location.replace(LOGIN + "?from=%2Fprofile%2F"); return; }
+    var identity = getIdentity(session);
+    if (!identity) { renderError("تعذّر قراءة بيانات حسابك — أعد تسجيل الدخول."); return; }
+    render(identity, session);
+  }
+
+  document.addEventListener("DOMContentLoaded", main);
+})();
+</script>
+</body>
+</html>
