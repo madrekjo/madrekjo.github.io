@@ -172,22 +172,35 @@
   .trust{margin-top:20px;font-size:11.5px;color:var(--muted);line-height:1.8;display:flex;align-items:center;justify-content:center;gap:7px;}
   .trust svg{width:14px;height:14px;color:#34d399;flex-shrink:0;}
 
-  .support-cta{
-    margin-top:22px;padding-top:18px;
-    border-top:1px dashed rgba(255,255,255,.1);
-    display:flex;flex-direction:column;align-items:center;gap:10px;
-    animation:fadeUp .7s ease .22s both;
+  .support-fab-wrap{
+    position:fixed;top:18px;right:18px;z-index:50;
+    display:flex;align-items:center;gap:9px;
   }
-  .support-cta-text{font-size:12.5px;color:var(--muted);font-weight:600;}
-  .btn-support{
-    display:inline-flex;align-items:center;justify-content:center;gap:8px;
-    padding:11px 22px;border-radius:13px;text-decoration:none;
-    background:linear-gradient(135deg,rgba(124,58,237,.18),rgba(79,70,229,.10));
-    border:1px solid rgba(167,139,250,.4);
-    color:#d7c9ff;font-family:'Cairo',sans-serif;font-size:13.5px;font-weight:800;
-    transition:transform .15s ease,border-color .15s ease,background .15s ease;
+  .support-fab{
+    display:flex;align-items:center;justify-content:center;
+    width:54px;height:54px;border-radius:50%;flex-shrink:0;
+    text-decoration:none;color:var(--gold-light);
+    background:linear-gradient(135deg,rgba(255,215,0,.18),rgba(255,215,0,.05));
+    border:1.5px solid rgba(255,215,0,.55);
+    box-shadow:0 8px 26px rgba(0,0,0,.55),0 0 34px rgba(255,215,0,.14);
+    transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+    animation:fadeUp .7s ease both;
   }
-  .btn-support:hover{transform:translateY(-2px);border-color:rgba(167,139,250,.75);background:linear-gradient(135deg,rgba(124,58,237,.28),rgba(79,70,229,.18));}
+  .support-fab:hover{transform:translateY(-2px) scale(1.06);border-color:rgba(255,215,0,.9);
+    box-shadow:0 12px 32px rgba(0,0,0,.6),0 0 44px rgba(255,215,0,.28);}
+  .support-fab svg{width:27px;height:27px;}
+  .support-fab-label{
+    font-size:12.5px;font-weight:800;color:var(--gold-light);white-space:nowrap;
+    padding:7px 13px;border-radius:50px;
+    background:rgba(20,20,29,.85);border:1px solid rgba(255,215,0,.28);
+    backdrop-filter:blur(10px);animation:fadeUp .7s ease .05s both;
+  }
+  @media (max-width:480px){
+    .support-fab-wrap{top:12px;right:12px;gap:0;}
+    .support-fab{width:48px;height:48px;}
+    .support-fab svg{width:24px;height:24px;}
+    .support-fab-label{display:none;}
+  }
 
   .status{margin-top:18px;font-size:13.5px;color:var(--muted);line-height:1.9;}
   .error{margin-top:16px;padding:12px 15px;border-radius:13px;font-size:12.5px;line-height:1.9;
@@ -212,16 +225,19 @@
 
 <div class="stars" id="starsContainer"></div>
 
+<a class="support-fab-wrap" href="/support/" aria-label="الدعم والمساعدة" title="الدعم والمساعدة">
+  <span class="support-fab">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+  </span>
+  <span class="support-fab-label">الدعم والمساعدة</span>
+</a>
+
 <div style="position:relative;z-index:1;width:100%;display:flex;flex-direction:column;align-items:center;">
   <div class="card" id="card">
     <div class="logo"><span class="m">مدارك</span> <span class="jo">جو</span></div>
     <p class="subtitle">أول منصة تعليمية من صنع طالب</p>
     <span class="badge">الدخول الموحّد</span>
     <div id="body-wrap"><!-- يُعبّأ ديناميكياً --></div>
-    <div class="support-cta">
-      <span class="support-cta-text">🛟 تواجه مشكلة أو تحتاج مساعدة؟</span>
-      <a class="btn-support" href="/support/">تواصل مع الدعم ←</a>
-    </div>
   </div>
   <p class="foot" id="foot">
     <a href="/privacy.html">سياسة الخصوصية</a> · <a href="/support/">الدعم والمساعدة</a> · <a href="mailto:madrekjo@gmail.com">البريد</a>
