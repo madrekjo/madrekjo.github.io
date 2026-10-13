@@ -165,13 +165,13 @@ const Navbar = () => {
                   </Link>
                 </>
               )}
-              <Link to="/support" data-tour="support">
-                <Button variant={isActive("/support") ? "secondary" : "ghost"} size="sm" className="gap-1 relative">
+              <a href="/support/" data-tour="support">
+                <Button variant="ghost" size="sm" className="gap-1 relative">
                   <MessageSquare className="w-4 h-4" />
                   <span className="hidden sm:inline">الدعم</span>
                   {isStaff ? <Badge count={unreadSupport} /> : <Badge count={userUnreadSupport} />}
                 </Button>
-              </Link>
+              </a>
               {(isAdmin || isModerator || isSocialAdmin) && (
                 <Link to="/admin">
                   <Button variant={isActive("/admin") ? "secondary" : "ghost"} size="sm" className="gap-1">

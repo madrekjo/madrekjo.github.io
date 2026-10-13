@@ -33,6 +33,7 @@
     var path = pathNow();
     var PUBLIC = [
       /^\/login(\/|$)/,
+      /^\/support(\/|$)/,
       /^\/maintenance\.html$/,
       /^\/404\.html$/,
       /^\/privacy\.html$/,
