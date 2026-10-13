@@ -3,6 +3,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "sonner";
@@ -16,16 +17,24 @@ import { uploadToCloudinary } from "@/lib/cloudinary";
 
 interface SupportMessage {
   id: string;
-  user_id: string;
-  sender_id: string;
+  user_id: string | null;
+  sender_id: string | null;
   content: string;
   image_urls?: string[] | null;
   is_read: boolean;
   created_at: string;
+  guest_token?: string | null;
+  guest_name?: string | null;
+  guest_contact?: string | null;
+  from_admin?: boolean;
 }
 
 interface ConversationGroup {
-  user_id: string;
+  key: string;
+  user_id: string | null;
+  guest_token: string | null;
+  guest_name: string | null;
+  guest_contact: string | null;
   profile: { full_name: string; avatar_url: string | null } | null;
   messages: SupportMessage[];
   unreadCount: number;
@@ -39,7 +48,8 @@ const SUGGESTED_QUESTIONS = [
 ];
 
 const Support = () => {
-  const { user, isAdmin, isModerator } = useAuth();
+  const { user } = useAuth();
+  const [supportAdmin, setSupportAdmin] = useState(false);
   const [messages, setMessages] = useState<SupportMessage[]>([]);
   const [conversations, setConversations] = useState<ConversationGroup[]>([]);
   const [content, setContent] = useState("");
@@ -58,7 +68,27 @@ const Support = () => {
   const sendFileInputRef = useRef<HTMLInputElement>(null);
   const replyFileInputRef = useRef<HTMLInputElement>(null);
 
-  const isStaff = isAdmin || isModerator;
+  const isStaff = supportAdmin;
+  const isGuest = !user;
+
+  useEffect(() => {
+    (supabase as any).rpc("support_is_admin").then(({ data }: any) => setSupportAdmin(data === true));
+  }, [user?.id]);
+
+  // ---- حالة الزائر (بلا حساب) ----
+  const [guestToken] = useState<string>(() => {
+    let t: string | null = null;
+    try { t = localStorage.getItem("mdk:support:token"); } catch { /* ignore */ }
+    if (!t) {
+      t = (crypto as any)?.randomUUID?.() || (Date.now() + "-" + Math.random().toString(16).slice(2));
+      try { localStorage.setItem("mdk:support:token", t); } catch { /* ignore */ }
+    }
+    return t;
+  });
+  const [guestMsgs, setGuestMsgs] = useState<SupportMessage[]>([]);
+  const [guestSending, setGuestSending] = useState(false);
+  const [guestName, setGuestName] = useState<string>(() => { try { return localStorage.getItem("mdk:support:name") || ""; } catch { return ""; } });
+  const [guestContact, setGuestContact] = useState<string>(() => { try { return localStorage.getItem("mdk:support:contact") || ""; } catch { return ""; } });
 
   const uploadSupportImages = async (files: File[], ownerId: string): Promise<string[] | null> => {
     const urls: string[] = [];
@@ -78,12 +108,43 @@ const Support = () => {
   // بدون Realtime (كان يفتح قناة socket دائمة للدعم). الجلب عند الفتح +
   // عند عودة التبويب + زر تحديث، وبعد أي إرسال/حذف يُعاد الجلب (أدناه).
   useEffect(() => {
+    if (!user) { setLoading(false); return; }
     void fetchMessages();
     const onVis = () => { if (document.visibilityState === "visible") void fetchMessages(); };
     document.addEventListener("visibilitychange", onVis);
     return () => document.removeEventListener("visibilitychange", onVis);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user?.id, isStaff]);
+
+  useEffect(() => {
+    if (!isGuest) return;
+    void fetchGuest();
+    const t = setInterval(() => void fetchGuest(), 10000);
+    const onVis = () => { if (document.visibilityState === "visible") void fetchGuest(); };
+    document.addEventListener("visibilitychange", onVis);
+    return () => { clearInterval(t); document.removeEventListener("visibilitychange", onVis); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isGuest]);
+
+  const fetchGuest = async () => {
+    const { data, error } = await (supabase as any).rpc("support_guest_fetch", { p_token: guestToken });
+    if (error) return;
+    setGuestMsgs((data || []) as SupportMessage[]);
+  };
+
+  const sendGuest = async (preset?: string) => {
+    const text = (preset ?? content).trim();
+    if (!text) return;
+    try { localStorage.setItem("mdk:support:name", guestName); localStorage.setItem("mdk:support:contact", guestContact); } catch { /* ignore */ }
+    setGuestSending(true);
+    const { error } = await (supabase as any).rpc("support_guest_send", {
+      p_token: guestToken, p_name: guestName || null, p_contact: guestContact || null, p_content: text,
+    });
+    setGuestSending(false);
+    if (error) { toast.error("تعذّر الإرسال"); return; }
+    setContent("");
+    fetchGuest();
+  };
 
   const newAdminRepliesLocal = messages.filter(m => m.user_id === user?.id && m.sender_id !== user?.id && !m.is_read).length;
 
@@ -107,7 +168,7 @@ const Support = () => {
   const fetchMessages = async () => {
     const { data, error } = await (supabase as any)
       .from("support_messages")
-      .select("id, user_id, sender_id, content, image_urls, is_read, created_at")
+      .select("id, user_id, sender_id, guest_token, guest_name, guest_contact, content, image_urls, is_read, created_at")
       .order("created_at", { ascending: false }).limit(200);
 
     if (!error && data) {
@@ -123,23 +184,36 @@ const Support = () => {
   const buildConversations = async (msgs: SupportMessage[]) => {
     const grouped = new Map<string, SupportMessage[]>();
     msgs.forEach(m => {
-      const existing = grouped.get(m.user_id) || [];
+      const key = m.user_id || ("g:" + m.guest_token);
+      const existing = grouped.get(key) || [];
       existing.push(m);
-      grouped.set(m.user_id, existing);
+      grouped.set(key, existing);
     });
 
-    const userIds = Array.from(grouped.keys());
-    const { data: profiles } = await supabase
-      .from("profiles")
-      .select("user_id, full_name, avatar_url")
-      .in("user_id", userIds);
+    const userIds = Array.from(grouped.keys()).filter(k => !k.startsWith("g:"));
+    let profiles: { user_id: string; full_name: string | null; avatar_url: string | null }[] = [];
+    if (userIds.length) {
+      const { data } = await supabase
+        .from("profiles")
+        .select("user_id, full_name, avatar_url")
+        .in("user_id", userIds);
+      profiles = (data as any) || [];
+    }
 
-    const convos: ConversationGroup[] = userIds.map(uid => ({
-      user_id: uid,
-      profile: profiles?.find(p => p.user_id === uid) || null,
-      messages: grouped.get(uid) || [],
-      unreadCount: (grouped.get(uid) || []).filter(m => !m.is_read && m.sender_id === uid).length,
-    }));
+    const convos: ConversationGroup[] = Array.from(grouped.entries()).map(([key, list]) => {
+      const guest = key.startsWith("g:");
+      const guestMsg = guest ? list.find(x => x.guest_name || x.guest_contact) : null;
+      return {
+        key,
+        user_id: guest ? null : key,
+        guest_token: guest ? key.slice(2) : null,
+        guest_name: guestMsg?.guest_name ?? null,
+        guest_contact: guestMsg?.guest_contact ?? null,
+        profile: guest ? null : (profiles.find(p => p.user_id === key) || null),
+        messages: list,
+        unreadCount: list.filter(m => !m.is_read && (guest ? m.sender_id === null : m.sender_id === key)).length,
+      };
+    });
 
     convos.sort((a, b) => {
       const lastA = a.messages[a.messages.length - 1]?.created_at || "";
@@ -192,7 +266,7 @@ const Support = () => {
     setSending(false);
   };
 
-  const handleAdminReply = async (targetUserId: string) => {
+  const handleAdminReply = async (targetUserId: string | null, guestToken: string | null = null) => {
     if (!user || (!replyText.trim() && replyImages.length === 0)) return;
     setSending(true);
     let imageUrls: string[] | null = null;
@@ -203,13 +277,14 @@ const Support = () => {
     const insertData: any = {
       user_id: targetUserId,
       sender_id: user.id,
+      guest_token: guestToken,
       content: replyText.trim(),
     };
     if (imageUrls) insertData.image_urls = imageUrls;
     const { error } = await (supabase as any).from("support_messages").insert(insertData);
     if (error) toast.error("فشل إرسال الرد");
     else {
-      if (targetUserId !== user.id) {
+      if (targetUserId && targetUserId !== user.id) {
         await (supabase as any).from("notifications").insert({
           user_id: targetUserId,
           actor_id: user.id,
@@ -232,8 +307,10 @@ const Support = () => {
     }
   };
 
-  const handleDeleteConversation = async (userId: string) => {
-    const { error } = await (supabase as any).from("support_messages").delete().eq("user_id", userId);
+  const handleDeleteConversation = async (userId: string | null, guestToken: string | null = null) => {
+    let q = (supabase as any).from("support_messages").delete();
+    q = userId ? q.eq("user_id", userId) : q.eq("guest_token", guestToken);
+    const { error } = await q;
     if (error) toast.error("فشل حذف المحادثة");
     else {
       toast.success("تم حذف المحادثة بالكامل");
@@ -256,22 +333,19 @@ const Support = () => {
     }
   };
 
-  const toggleConvo = (userId: string) => {
+  const toggleConvo = (key: string, userId: string | null, guestToken: string | null) => {
     setExpandedConvos(prev => {
       const next = new Set(prev);
-      if (next.has(userId)) next.delete(userId);
-      else next.add(userId);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
       return next;
     });
 
     // Mark messages as read when expanding
     if (isStaff) {
-      (supabase as any)
-        .from("support_messages")
-        .update({ is_read: true })
-        .eq("user_id", userId)
-        .eq("is_read", false)
-        .then(() => fetchMessages());
+      let q = (supabase as any).from("support_messages").update({ is_read: true });
+      q = userId ? q.eq("user_id", userId) : q.eq("guest_token", guestToken);
+      q.eq("is_read", false).then(() => fetchMessages());
     }
   };
 
@@ -312,6 +386,65 @@ const Support = () => {
     );
   }
 
+  // Guest view (بلا حساب)
+  if (isGuest) {
+    return (
+      <div className="container mx-auto px-4 py-6 max-w-2xl">
+        <div className="flex items-center gap-2 mb-6">
+          <MessageSquare className="w-6 h-6 text-primary" />
+          <h1 className="text-2xl font-bold">تواصل مع الإدارة</h1>
+        </div>
+        <p className="text-muted-foreground mb-4">أرسل رسالتك وسيصلنا الرد هنا. احفظ هذا المتصفح لترى الرد لاحقاً.</p>
+
+        <Card className="mb-4">
+          <CardContent className="pt-4 space-y-3">
+            <div>
+              <label className="text-sm text-muted-foreground block mb-1">اسمك (اختياري)</label>
+              <Input value={guestName} onChange={e => setGuestName(e.target.value)} placeholder="اكتب اسمك" />
+            </div>
+            <div>
+              <label className="text-sm text-muted-foreground block mb-1">وسيلة تواصل (اختياري): إيميل / جوال / تيليجرام</label>
+              <Input value={guestContact} onChange={e => setGuestContact(e.target.value)} placeholder="مثلاً: name@email.com" />
+            </div>
+          </CardContent>
+        </Card>
+
+        <div className="flex flex-wrap gap-2 mb-6">
+          {SUGGESTED_QUESTIONS.map((q, i) => (
+            <Button key={i} variant="outline" size="sm" className="text-xs" onClick={() => sendGuest(q)}>{q}</Button>
+          ))}
+        </div>
+
+        <div className="space-y-2 mb-4 max-h-[400px] overflow-y-auto">
+          {guestMsgs.length === 0 ? (
+            <p className="text-center py-8 text-muted-foreground text-sm">لا توجد رسائل بعد — اكتب رسالتك وسنرد عليك</p>
+          ) : guestMsgs.map(msg => (
+            <div key={msg.id} className={`p-3 rounded-lg text-sm ${!msg.from_admin ? "bg-primary/10 ml-8" : "bg-muted mr-8"}`}>
+              {msg.from_admin && <p className="text-xs font-medium text-primary mb-1">🛡️ رد الإدارة</p>}
+              <p>{msg.content}</p>
+              <p className="text-xs text-muted-foreground mt-1">
+                {formatDistanceToNow(new Date(msg.created_at), { addSuffix: true, locale: ar })}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex gap-2">
+          <Textarea
+            value={content}
+            onChange={e => setContent(e.target.value)}
+            placeholder="اكتب رسالتك هنا..."
+            className="resize-none min-h-[40px] text-sm"
+            onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendGuest(); } }}
+          />
+          <Button size="icon" className="shrink-0" disabled={guestSending || !content.trim()} onClick={() => sendGuest()}>
+            {guestSending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   // Staff view
   if (isStaff) {
     return (
@@ -329,57 +462,63 @@ const Support = () => {
         ) : (
           <div className="space-y-3">
             {conversations.map(convo => (
-              <Card key={convo.user_id}>
+              <Card key={convo.key}>
                 <CardContent className="pt-4">
                   <div className="flex items-center justify-between">
                     <button
-                      onClick={() => toggleConvo(convo.user_id)}
+                      onClick={() => toggleConvo(convo.key, convo.user_id, convo.guest_token)}
                       className="flex-1 flex items-center justify-between"
                     >
                       <div className="flex items-center gap-3">
                         <Avatar className="w-8 h-8">
                           <AvatarImage src={convo.profile?.avatar_url || ""} />
                           <AvatarFallback className="bg-primary/10 text-primary text-xs">
-                            {convo.profile?.full_name?.charAt(0) || "م"}
+                            {(convo.profile?.full_name || convo.guest_name || "ز").charAt(0)}
                           </AvatarFallback>
                         </Avatar>
                         <div className="text-right">
-                          <p className="font-medium text-sm">{convo.profile?.full_name || "مستخدم"}</p>
+                          <p className="font-medium text-sm">
+                            {convo.profile?.full_name || convo.guest_name || "زائر"}
+                            {!convo.user_id && <span className="text-muted-foreground"> (زائر)</span>}
+                          </p>
                           <p className="text-xs text-muted-foreground">
                             {convo.messages.length} رسالة
+                            {convo.guest_contact && <span className="mr-2">• {convo.guest_contact}</span>}
                             {convo.unreadCount > 0 && (
                               <span className="mr-2 text-primary font-medium">({convo.unreadCount} جديد)</span>
                             )}
                           </p>
                         </div>
                       </div>
-                      {expandedConvos.has(convo.user_id) ? (
+                      {expandedConvos.has(convo.key) ? (
                         <ChevronUp className="w-4 h-4 text-muted-foreground" />
                       ) : (
                         <ChevronDown className="w-4 h-4 text-muted-foreground" />
                       )}
                     </button>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="shrink-0"
-                      onClick={() => setActionsUserId(convo.user_id)}
-                      title="إجراءات المستخدم"
-                    >
-                      <Settings className="w-4 h-4" />
-                    </Button>
+                    {convo.user_id && (
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="shrink-0"
+                        onClick={() => setActionsUserId(convo.user_id)}
+                        title="إجراءات المستخدم"
+                      >
+                        <Settings className="w-4 h-4" />
+                      </Button>
+                    )}
                     <Button
                       variant="ghost"
                       size="icon"
                       className="text-destructive hover:bg-destructive/10 shrink-0 mr-1"
-                      onClick={() => handleDeleteConversation(convo.user_id)}
+                      onClick={() => handleDeleteConversation(convo.user_id, convo.guest_token)}
                       title="حذف المحادثة بالكامل"
                     >
                       <Trash2 className="w-4 h-4" />
                     </Button>
                   </div>
 
-                  {expandedConvos.has(convo.user_id) && (
+                  {expandedConvos.has(convo.key) && (
                     <div className="mt-3 space-y-2 border-t pt-3">
                       {convo.messages.map(msg => (
                         <div
@@ -441,9 +580,9 @@ const Support = () => {
                       <div className="mt-2">
                         <div className="flex gap-2">
                           <Textarea
-                            value={selectedUserId === convo.user_id ? replyText : ""}
-                            onChange={e => { setSelectedUserId(convo.user_id); setReplyText(e.target.value); }}
-                            onFocus={() => setSelectedUserId(convo.user_id)}
+                            value={selectedUserId === convo.key ? replyText : ""}
+                            onChange={e => { setSelectedUserId(convo.key); setReplyText(e.target.value); }}
+                            onFocus={() => setSelectedUserId(convo.key)}
                             placeholder="اكتب رد الإدارة..."
                             className="resize-none min-h-[40px] text-sm"
                           />
@@ -459,8 +598,8 @@ const Support = () => {
                             <Button
                               size="icon"
                               className="shrink-0"
-                              disabled={sending || (!replyText.trim() && replyImages.length === 0) || selectedUserId !== convo.user_id}
-                              onClick={() => handleAdminReply(convo.user_id)}
+                              disabled={sending || (!replyText.trim() && replyImages.length === 0) || selectedUserId !== convo.key}
+                              onClick={() => handleAdminReply(convo.user_id, convo.guest_token)}
                             >
                               {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                             </Button>
@@ -474,7 +613,7 @@ const Support = () => {
                           hidden
                           onChange={e => { pickImages(e.target.files, setReplyImages, replyImages); e.target.value = ""; }}
                         />
-                        {selectedUserId === convo.user_id ? renderImagePreview(replyImages, i => setReplyImages(replyImages.filter((_, idx) => idx !== i))) : null}
+                        {selectedUserId === convo.key ? renderImagePreview(replyImages, i => setReplyImages(replyImages.filter((_, idx) => idx !== i))) : null}
                       </div>
                     </div>
                   )}

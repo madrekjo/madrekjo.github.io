@@ -36,6 +36,15 @@ for (const name of readdirSync(dist)) {
     continue;
   }
 
+  if (name === "support.html") {
+    // مدخل الدعم المستقل: يُنشر تحت /support/index.html (خارج تطبيق الدردشة).
+    const supportDir = path.join(root, "..", "support");
+    mkdirSync(supportDir, { recursive: true });
+    copyFile(src, path.join(supportDir, "index.html"));
+    console.log("[build-fix] support.html -> ../support/index.html");
+    continue;
+  }
+
   if (statSync(src).isDirectory()) {
     // إضافي لا استبدالي: لا نمسح الملفات القديمة (assets/ كلها مجزأة بالهاش).
     // أي تبويب مفتوح من نسخة سابقة يطلب أجزاء قديمة، فحذفها = 404 = شاشة بيضاء.

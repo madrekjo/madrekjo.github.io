@@ -23,7 +23,10 @@ export default defineConfig({
     rollupOptions: {
       // مدخل البناء: entry.html (لأن index.html في الجذر هو نسخة البناء الجاهزة
       // للعرض على GitHub Pages مباشرة، وليست مدخل المصدر).
-      input: { index: path.resolve(__dirname, "entry.html") },
+      input: {
+        index: path.resolve(__dirname, "entry.html"),
+        support: path.resolve(__dirname, "support.html"),
+      },
     },
   },
 });
