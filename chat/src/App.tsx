@@ -16,7 +16,6 @@ import SectionGate from "@/components/SectionGate";
 import WarningNotice from "@/components/WarningNotice";
 import NightGreeting from "@/components/NightGreeting";
 import MorningGreeting from "@/components/MorningGreeting";
-import UpdateNotice from "@/components/UpdateNotice";
 import PrizeWheel from "@/components/PrizeWheel";
 
 const Landing = lazy(() => import("@/pages/Landing"));
@@ -125,7 +124,6 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <Sonner />
-          <UpdateNotice />
           <BrowserRouter basename="/chat" future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
             <ErrorBoundary>
               <AppRoutes />
