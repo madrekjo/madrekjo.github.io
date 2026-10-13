@@ -1,4 +1,4 @@
-import { useState, useEffect, type ReactNode } from "react";
+import { useState, useEffect, useRef, type ReactNode } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { invalidateAppConfig } from "@/lib/appCache";
@@ -67,6 +67,8 @@ const Admin = () => {
   const { isAdmin, isModerator, isSupervisor, isOwner, isSocialAdmin, hasPermission, user } = useAuth();
   const [users, setUsers] = useState<UserProfile[]>([]);
   const [emailMap, setEmailMap] = useState<Record<string, string>>({});
+  const emailMapRef = useRef<Record<string, string>>({});
+  useEffect(() => { emailMapRef.current = emailMap; }, [emailMap]);
   const [pointsMap, setPointsMap] = useState<Record<string, number>>({});
   const [pointsUser, setPointsUser] = useState<{ id: string; name: string } | null>(null);
   const [pointsAmount, setPointsAmount] = useState("");
@@ -388,15 +390,20 @@ const Admin = () => {
     setPointsUser(null);
   };
   const hydrateEmails = async (list: UserProfile[]) => {
-    const ids = (list || []).map((u) => u.user_id).filter(Boolean);
-    const map: Record<string, string> = {};
-    await Promise.all(ids.map(async (id) => {
-      try {
-        const { data: em } = await (supabase.rpc("get_user_email" as any, { _user_id: id }) as any);
-        if (em) map[id] = em as string;
-      } catch { /* تجاهل */ }
-    }));
-    setEmailMap((prev) => ({ ...prev, ...map }));
+    // كان: نداء get_user_email لكل مستخدم (367 طلب/دفعة). الآن: نداء واحد مجمّع
+    // يستدعي get_users_emails، ويجلب فقط الإيميلات الناقصة (المرة الأولى فقط).
+    const ids = Array.from(new Set((list || []).map((u) => u.user_id).filter(Boolean)));
+    const missing = ids.filter((id) => !emailMapRef.current[id]);
+    if (missing.length === 0) return;
+    try {
+      const { data, error } = await (supabase.rpc("get_users_emails" as any, { _user_ids: missing }) as any);
+      if (error) return;
+      const map: Record<string, string> = {};
+      (data || []).forEach((row: any) => {
+        if (row?.user_id && row?.email) map[row.user_id] = row.email as string;
+      });
+      if (Object.keys(map).length) setEmailMap((prev) => ({ ...prev, ...map }));
+    } catch { /* تجاهل — تظهر الإيميلات فور توفّر RPC المجمّع */ }
   };
   const fetchDeleted = async () => {
     const { data: posts } = await (supabase.from("posts") as any)
