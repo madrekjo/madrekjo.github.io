@@ -416,10 +416,8 @@
       const { data } = await sb.auth.getSession();
       const session = data && data.session;
       if (!session) { await renderGuest(); return; }
-      let roles = [];
-      const { data: r } = await sb.from("user_roles").select("role").eq("user_id", session.user.id);
-      if (r) roles = r.map((x) => x.role);
-      if (roles.indexOf("admin") !== -1 || roles.indexOf("moderator") !== -1) await renderStaff(session);
+      const { data: isAdmin } = await sb.rpc("support_is_admin");
+      if (isAdmin === true) await renderStaff(session);
       else await renderUser(session);
     } catch (e) {
       app.innerHTML = "";
