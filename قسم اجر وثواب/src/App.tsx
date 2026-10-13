@@ -8,7 +8,7 @@ import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
 
-const SECTION_CLOSED = true;
+const SECTION_CLOSED = false;
 
 const ClosedNotice = () => (
   <div

@@ -7,7 +7,7 @@ import {
 export const supabase: SupabaseClient = createClient(
   SUPABASE_URL,
   SUPABASE_PUBLISHABLE_KEY,
-  { auth: { persistSession: false } }
+  { auth: { persistSession: true, autoRefreshToken: true } }
 );
 
 export function publicFileUrl(bucket: string, path: string): string {

@@ -34,6 +34,7 @@ interface Contribution {
   type: "dua" | "ayah";
   content: string;
   name: string | null;
+  author_email?: string | null;
   created_at: string;
   is_pinned: boolean;
 }
@@ -52,6 +53,7 @@ const ContributionsSection = () => {
   const [items, setItems] = useState<Contribution[]>([]);
   const [loading, setLoading] = useState(true);
   const [posting, setPosting] = useState(false);
+  const [me, setMe] = useState<{ email: string; name: string } | null>(null);
 
   // إدارة الأدمن (رقم سري)
   const [isAdmin, setIsAdmin] = useState(false);
@@ -64,7 +66,7 @@ const ContributionsSection = () => {
     try {
       const { data, error } = await supabase
         .from("ajr_contributions")
-        .select("id, type, content, name, created_at, is_pinned")
+        .select("id, type, content, name, author_email, created_at, is_pinned")
         .order("is_pinned", { ascending: false })
         .order("created_at", { ascending: false })
         .limit(50);
@@ -97,7 +99,21 @@ const ContributionsSection = () => {
   useEffect(() => {
     void fetchItems();
     void checkAdmin();
-    return () => {};
+
+    const reflect = (user: { email?: string | null; user_metadata?: Record<string, unknown> } | null) => {
+      const email = user?.email ?? null;
+      const metaName = (user?.user_metadata?.full_name as string) || "";
+      setMe(email ? { email, name: metaName.trim() || email.split("@")[0] } : null);
+    };
+
+    void supabase.auth.getSession().then(({ data }) => reflect(data.session?.user ?? null));
+    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) =>
+      reflect(session?.user ?? null),
+    );
+
+    return () => {
+      sub.subscription.unsubscribe();
+    };
   }, []);
 
   const handleSubmit = async () => {
@@ -108,7 +124,7 @@ const ContributionsSection = () => {
       const { data, error } = await supabase.rpc("submit_ajr_contribution", {
         p_type: type,
         p_content: text,
-        p_name: name.trim() || null,
+        p_name: me?.name || name.trim() || null,
         p_author_token: getAuthorToken(),
       });
       if (error) throw error;
@@ -250,7 +266,9 @@ const ContributionsSection = () => {
       </div>
 
       <p className="text-sm text-muted-foreground mb-4">
-        شارك معنا دعاءً أو آيةً لتعمّ الفائدة — بدون تسجيل دخول، والاسم اختياري.
+        {me
+          ? "شارك معنا دعاءً أو آيةً لتعمّ الفائدة — ستُنشر باسم حسابك."
+          : "شارك معنا دعاءً أو آيةً لتعمّ الفائدة — بدون تسجيل دخول، والاسم اختياري."}
       </p>
 
       <div className="bg-background rounded-lg border border-border p-4 mb-6 space-y-3">
@@ -272,12 +290,19 @@ const ContributionsSection = () => {
             📖 آية
           </Button>
         </div>
-        <Input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="اسمك (اختياري)"
-          maxLength={80}
-        />
+        {me ? (
+          <div className="flex items-center gap-2 rounded-md border border-border bg-muted/40 px-3 py-2 text-sm">
+            <span className="text-muted-foreground">تنشر باسم</span>
+            <span className="font-medium text-foreground">{me.name}</span>
+          </div>
+        ) : (
+          <Input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="اسمك (اختياري)"
+            maxLength={80}
+          />
+        )}
         <Textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
@@ -332,7 +357,8 @@ const ContributionsSection = () => {
                   </span>
                   <span className="text-xs text-muted-foreground flex items-center gap-2">
                     {it.is_pinned && <span className="text-gold">📌 مثبّت</span>}
-                    {it.name?.trim() || DEFAULT_NAME} ·{" "}
+                    {it.name?.trim() || DEFAULT_NAME}
+                    {isAdmin && it.author_email ? ` · ${it.author_email}` : ""} ·{" "}
                     {formatDistanceToNow(new Date(it.created_at), { addSuffix: true, locale: ar })}
                   </span>
                 </div>
