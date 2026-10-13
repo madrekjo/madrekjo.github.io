@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex,nofollow">
+<meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="theme-color" content="#0a0a0f">
 <title>تسجيل الدخول — مدارك جو</title>
 <meta property="og:title" content="تسجيل الدخول — مدارك جو">
@@ -16,87 +16,196 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html,body { height:100%; }
-  body {
-    font-family:'Tajawal','Cairo',sans-serif;
-    background:#0a0a0f;
-    background-image:
-      radial-gradient(1000px 500px at 85% -5%, rgba(124,58,237,.22), transparent 60%),
-      radial-gradient(800px 500px at 10% 110%, rgba(56,189,248,.14), transparent 60%),
-      radial-gradient(500px 300px at 50% 50%, rgba(168,85,247,.06), transparent 70%);
-    color:#f5f3ff;
+  :root{
+    --gold:#FFD700; --gold-light:#FFF3B0; --gold-dark:#B8860B;
+    --deep:#0a0a0f; --surface:#111118; --surface2:#1a1a24;
+    --text:#f0f0f5; --muted:#888899; --border:rgba(255,255,255,.08);
+    --accent:#4f46e5; --accent2:#7c3aed;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{min-height:100%;}
+  body{
+    font-family:'Cairo',sans-serif;
+    background:var(--deep);
+    color:var(--text);
     min-height:100vh;
     display:flex;
-    flex-direction:column;
     align-items:center;
     justify-content:center;
-    padding:24px 16px;
+    padding:32px 16px;
+    overflow-x:hidden;
+    position:relative;
   }
-  .card {
-    width:100%;
-    max-width:400px;
-    background:rgba(20,18,36,.72);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:22px;
-    padding:32px 26px 26px;
+  /* ===== خلفية النجوم مطابقة للصفحة الرئيسية ===== */
+  .stars{
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(79,70,229,.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(124,58,237,.12) 0%, transparent 50%);
+  }
+  .star{
+    position:absolute; background:#fff; border-radius:50%;
+    animation:twinkle var(--d,3s) ease-in-out infinite var(--delay,0s);
+  }
+  @keyframes twinkle{
+    0%,100%{opacity:.1;transform:scale(1);}
+    50%{opacity:.8;transform:scale(1.3);}
+  }
+  @keyframes fadeUp{
+    from{opacity:0;transform:translateY(18px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+  @keyframes glowPulse{
+    0%,100%{box-shadow:0 30px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(255,215,0,.10), 0 0 60px rgba(124,58,237,.12);}
+    50%{box-shadow:0 30px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(255,215,0,.22), 0 0 80px rgba(124,58,237,.22);}
+  }
+
+  .card{
+    position:relative; z-index:1;
+    width:100%; max-width:440px;
+    background:linear-gradient(180deg, rgba(20,20,29,.86), rgba(13,13,20,.92));
+    border:1px solid rgba(255,215,0,.16);
+    border-radius:26px;
+    padding:38px 30px 30px;
     text-align:center;
-    box-shadow:0 24px 70px rgba(0,0,0,.5);
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(14px);
+    animation:fadeUp .7s ease both, glowPulse 6s ease-in-out infinite;
   }
-  .logo-text { font-family:'Cairo',sans-serif; font-weight:900; font-size:26px; }
-  .logo-text .jo { color:#8b5cf6; }
-  .subtitle { margin-top:4px; font-size:13px; color:#a5b4d0; }
-  .badge { display:inline-block; margin-top:14px; padding:3px 12px; border-radius:999px; font-size:11px; font-weight:700; color:#c4b5fd; background:rgba(139,92,246,.14); border:1px solid rgba(139,92,246,.35); }
-  .title { margin-top:20px; font-size:19px; font-weight:800; }
-  .desc { margin-top:8px; font-size:13.5px; line-height:1.9; color:#a5b4d0; }
-  .btn-google {
-    display:flex; align-items:center; justify-content:center; gap:12px;
-    width:100%; margin-top:24px; padding:13px 16px;
-    border:none; border-radius:14px; cursor:pointer;
-    background:#ffffff; color:#1c1c28; font-family:'Tajawal',sans-serif;
-    font-size:15px; font-weight:700; text-decoration:none;
+  .card::before{
+    content:""; position:absolute; inset:0; border-radius:26px; padding:1px;
+    background:linear-gradient(140deg, rgba(255,215,0,.55), rgba(124,58,237,.35), rgba(255,215,0,.15));
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor; mask-composite:exclude;
+    pointer-events:none; opacity:.7;
+  }
+
+  .logo{font-family:'Tajawal',sans-serif;font-weight:800;line-height:1;letter-spacing:-1px;}
+  .logo .m{font-size:44px;background:linear-gradient(135deg,#FFD700 0%,#FFF3B0 40%,#FFD700 70%,#B8860B 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    filter:drop-shadow(0 0 20px rgba(255,215,0,.35));}
+  .logo .jo{font-size:24px;font-weight:700;background:linear-gradient(135deg,#a78bfa,#818cf8);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .subtitle{margin-top:6px;font-size:13.5px;color:var(--muted);font-weight:600;}
+  .badge{
+    display:inline-flex;align-items:center;gap:7px;margin-top:16px;
+    background:linear-gradient(135deg,rgba(255,215,0,.15),rgba(255,215,0,.05));
+    border:1px solid rgba(255,215,0,.3);border-radius:50px;padding:6px 16px;
+    font-size:12px;font-weight:700;color:var(--gold);backdrop-filter:blur(10px);
+  }
+  .badge::before{content:"🔐";}
+
+  .title{margin-top:22px;font-size:20px;font-weight:800;animation:fadeUp .7s ease .05s both;}
+  .desc{margin-top:9px;font-size:13.5px;line-height:1.95;color:var(--muted);animation:fadeUp .7s ease .1s both;}
+
+  .btn-google{
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    width:100%;margin-top:24px;padding:14px 16px;
+    border:none;border-radius:15px;cursor:pointer;
+    background:#fff;color:#1c1c28;font-family:'Cairo',sans-serif;
+    font-size:15px;font-weight:800;text-decoration:none;
     transition:transform .15s ease, box-shadow .15s ease;
-    box-shadow:0 10px 30px rgba(0,0,0,.35);
+    box-shadow:0 12px 34px rgba(0,0,0,.4);
+    animation:fadeUp .7s ease .15s both;
   }
-  .btn-google:hover { transform:translateY(-1px); box-shadow:0 14px 34px rgba(0,0,0,.45); }
-  .btn-google:active { transform:translateY(0); }
-  .btn-google svg { width:20px; height:20px; flex-shrink:0; }
-  .btn-ghost {
-    display:inline-flex; align-items:center; justify-content:center; gap:8px;
-    margin-top:12px; padding:9px 18px;
-    border:1px solid rgba(255,255,255,.16); border-radius:12px;
-    background:transparent; color:#d7c9ff; font-family:'Tajawal',sans-serif;
-    font-size:13px; font-weight:700; text-decoration:none; cursor:pointer;
-    transition:background .15s ease;
+  .btn-google:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(0,0,0,.5);}
+  .btn-google:active{transform:translateY(0);}
+  .btn-google svg{width:20px;height:20px;flex-shrink:0;}
+
+  .btn-ghost{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    margin-top:12px;padding:10px 20px;
+    border:1px solid rgba(255,255,255,.16);border-radius:13px;
+    background:transparent;color:#d7c9ff;font-family:'Cairo',sans-serif;
+    font-size:13px;font-weight:700;text-decoration:none;cursor:pointer;
+    transition:background .15s ease,border-color .15s ease;
   }
-  .btn-ghost:hover { background:rgba(139,92,246,.12); }
-  .status { margin-top:16px; font-size:13px; color:#a5b4d0; line-height:1.8; }
-  .error { margin-top:14px; padding:11px 14px; border-radius:12px; font-size:12.5px; line-height:1.8; color:#fecaca; background:rgba(220,38,38,.12); border:1px solid rgba(248,113,113,.3); text-align:right; }
-  .spinner {
-    margin:18px auto 0; width:30px; height:30px; border-radius:50%;
-    border:3px solid rgba(139,92,246,.25); border-top-color:#8b5cf6;
-    animation:spin .8s linear infinite;
+  .btn-ghost:hover{background:rgba(255,215,0,.08);border-color:rgba(255,215,0,.35);}
+
+  .divider{margin-top:20px;display:flex;align-items:center;gap:12px;color:var(--muted);font-size:12px;animation:fadeUp .7s ease .18s both;}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.1);}
+
+  .btn-code{
+    display:flex;align-items:center;justify-content:center;gap:9px;
+    width:100%;margin-top:14px;padding:13px 16px;
+    border:1px solid rgba(255,215,0,.35);border-radius:15px;cursor:pointer;
+    background:linear-gradient(135deg,rgba(255,215,0,.14),rgba(255,215,0,.04));
+    color:var(--gold-light);font-family:'Cairo',sans-serif;
+    font-size:14.5px;font-weight:800;
+    transition:transform .15s ease,border-color .15s ease,background .15s ease;
+    animation:fadeUp .7s ease .2s both;
   }
-  @keyframes spin { to { transform:rotate(360deg); } }
-  .foot { margin-top:26px; font-size:12px; color:#6c7694; }
-  .foot a { color:#a78bfa; text-decoration:none; }
-  .foot a:hover { text-decoration:underline; }
+  .btn-code:hover{transform:translateY(-2px);border-color:rgba(255,215,0,.6);}
+  .btn-code::before{content:"🎟️";}
+
+  .field{text-align:right;margin-top:14px;}
+  .field label{display:block;font-size:12.5px;color:var(--muted);margin-bottom:7px;font-weight:600;}
+  .inp,.sel{
+    width:100%;padding:13px 14px;border-radius:13px;
+    background:rgba(255,255,255,.05);border:1px solid var(--border);
+    color:var(--text);font-family:'Cairo',sans-serif;font-size:15px;outline:none;
+    transition:border-color .15s ease,background .15s ease;
+  }
+  .inp::placeholder{color:#5b5b6b;}
+  .inp:focus,.sel:focus{border-color:rgba(255,215,0,.5);background:rgba(255,255,255,.07);}
+  #codeInput{text-align:center;letter-spacing:8px;font-size:24px;font-weight:800;font-family:'Tajawal',sans-serif;padding-right:14px;}
+  .sel{appearance:none;cursor:pointer;}
+  .btn-primary{
+    width:100%;margin-top:16px;padding:14px 16px;border:none;border-radius:15px;cursor:pointer;
+    background:linear-gradient(135deg,#FFD700,#FFB300);color:#1c1400;
+    font-family:'Cairo',sans-serif;font-size:15px;font-weight:900;
+    transition:transform .15s ease,opacity .15s ease;
+  }
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-primary[disabled]{opacity:.55;cursor:default;transform:none;}
+
+  .sections{margin-top:26px;padding-top:20px;border-top:1px dashed rgba(255,255,255,.1);animation:fadeUp .7s ease .2s both;}
+  .sections-label{font-size:11.5px;color:var(--muted);margin-bottom:12px;letter-spacing:.3px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+  .chip{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:7px 13px;border-radius:11px;font-size:12px;font-weight:600;
+    color:var(--text);background:rgba(255,255,255,.04);
+    border:1px solid var(--border);transition:border-color .2s ease,transform .2s ease;
+  }
+  .chip:hover{border-color:rgba(255,215,0,.4);transform:translateY(-1px);}
+
+  .trust{margin-top:20px;font-size:11.5px;color:var(--muted);line-height:1.8;display:flex;align-items:center;justify-content:center;gap:7px;}
+  .trust svg{width:14px;height:14px;color:#34d399;flex-shrink:0;}
+
+  .status{margin-top:18px;font-size:13.5px;color:var(--muted);line-height:1.9;}
+  .error{margin-top:16px;padding:12px 15px;border-radius:13px;font-size:12.5px;line-height:1.9;
+    color:#fecaca;background:rgba(220,38,38,.12);border:1px solid rgba(248,113,113,.3);text-align:right;}
+  .spinner{margin:20px auto 0;width:32px;height:32px;border-radius:50%;
+    border:3px solid rgba(255,215,0,.2);border-top-color:var(--gold);animation:spin .8s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  .foot{position:relative;z-index:1;margin-top:24px;font-size:12px;color:#6c7694;text-align:center;}
+  .foot a{color:#c4b5fd;text-decoration:none;}
+  .foot a:hover{color:var(--gold);text-decoration:underline;}
+
+  .ok-email{margin-top:12px;font-size:13px;color:var(--gold-light);font-weight:700;word-break:break-all;}
+
+  @media (max-width:480px){
+    .card{padding:30px 20px 24px;border-radius:22px;}
+    .logo .m{font-size:38px;}
+  }
 </style>
 </head>
 <body>
+
+<div class="stars" id="starsContainer"></div>
+
+<div style="position:relative;z-index:1;width:100%;display:flex;flex-direction:column;align-items:center;">
   <div class="card" id="card">
-    <div class="logo-text">مدارك <span class="jo">جو</span></div>
+    <div class="logo"><span class="m">مدارك</span> <span class="jo">جو</span></div>
     <p class="subtitle">أول منصة تعليمية من صنع طالب</p>
     <span class="badge">الدخول الموحّد</span>
-
-    <div id="body-wrap">
-      <!-- يتم تعبئته ديناميكياً حسب الحالة -->
-    </div>
+    <div id="body-wrap"><!-- يُعبّأ ديناميكياً --></div>
   </div>
   <p class="foot" id="foot">
-    <a href="/">العودة للرئيسية</a> · <a href="/chat/">الدردشة</a> · <a href="/achievement/">الإنجاز</a>
+    <a href="/privacy.html">سياسة الخصوصية</a> · <a href="mailto:madrekjo@gmail.com">الدعم</a>
   </p>
+</div>
 
 <script>
 (function () {
@@ -115,11 +224,20 @@
       anon: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNmd25hcnVlYXBhcmpiZXRhZ3BpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg5NzQ5MTQsImV4cCI6MjEwNDU1MDkxNH0.a96Oho0lpnX2Dtpa2q52m8BH1j_1-jr1ws95ET-aIqU" },
     { key: "anon", url: "https://jmucsccdxxizvqtkyieq.supabase.co",
       anon: "sb_publishable_9z430osiEJbuJ2vaENWixw_hHCUGb0L" },
-    // أجر وثواب والتلاوات يتشاركان مشروع Supabase واحد.
     { key: "ajr", url: "https://njdvogvquzofnqqwyvyl.supabase.co",
       anon: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5qZHZvZ3ZxdXpvZm5xcXd5dnlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgxOTIyODQsImV4cCI6MjEwMzc2ODI4NH0.a0zbP1xm8rFuoTFSvbscdWo7HPZR2a9Dq3DEtZf_ua4" },
     { key: "talaawat", url: "https://njdvogvquzofnqqwyvyl.supabase.co",
       anon: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5qZHZvZ3ZxdXpvZm5xcXd5dnlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgxOTIyODQsImV4cCI6MjEwMzc2ODI4NH0.a0zbP1xm8rFuoTFSvbscdWo7HPZR2a9Dq3DEtZf_ua4" }
+  ];
+
+  // الأقسام المعروضة (اسم + أيقونة) لتطابق بطاقات الرئيسية.
+  const SECTION_LABELS = [
+    { icon: "💬", name: "الدردشة الدراسية" },
+    { icon: "🎯", name: "مؤشر الإنجاز" },
+    { icon: "🃏", name: "بين السطور" },
+    { icon: "🫥", name: "أنا مجهول" },
+    { icon: "🕌", name: "أجر وثواب" },
+    { icon: "🎙️", name: "تلاوات" }
   ];
 
   function el(tag, props, children) {
@@ -137,13 +255,188 @@
   }
 
   const GOOGLE_SVG = '<svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6.1 29.4 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6.1 29.4 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.1 5.7l6.2 5.2C39.5 36.3 44 31.5 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>';
+  const SHIELD_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>';
 
-  function card() { return document.getElementById("card"); }
-  function wrap() { return document.getElementById("body-wrap"); }
+  /* ===== الدخول برمز الدعوة ============================================ */
+  const CHAT = SECTIONS.find(function (s) { return s.key === "chat"; });
 
-  function qp(name) {
-    return new URLSearchParams(window.location.search).get(name) || "";
+  const ERR_TEXT = {
+    wrong_code: "رمز غير صحيح — تأكد من الأرقام.",
+    code_expired: "انتهت صلاحية هذا الرمز.",
+    code_used_up: "استُنفدت استخدامات هذا الرمز.",
+    code_invalid: "رمز غير صالح.",
+    too_many_attempts: "محاولات كثيرة — انتظر قليلاً ثم أعد المحاولة.",
+    email_mismatch: "الإيميل لا يطابق صاحب هذا الرمز.",
+    email_exists: "هذا الإيميل مسجّل مسبقاً — استخدم حساب Google أو رمزاً آخر.",
+    invalid_email: "صيغة الإيميل غير صحيحة.",
+    weak_password: "كلمة المرور قصيرة (٦ أحرف على الأقل).",
+    name_required: "أدخل الاسم.",
+    gender_required: "اختر الجنس."
+  };
+  function errText(code) {
+    if (ERR_TEXT[code]) return ERR_TEXT[code];
+    if (typeof code === "string" && /^(db_error|create_failed|link_failed)/.test(code))
+      return "خطأ في الخادم — حاول لاحقاً.";
+    return "تعذّر إكمال العملية — حاول مرة أخرى.";
   }
+
+  function chatClient() {
+    return window.supabase && window.supabase.createClient(CHAT.url, CHAT.anon);
+  }
+
+  async function callFn(name, body) {
+    const res = await fetch(CHAT.url + "/functions/v1/" + name, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: CHAT.anon,
+        Authorization: "Bearer " + CHAT.anon
+      },
+      body: JSON.stringify(body || {})
+    });
+    try { return await res.json(); } catch (e) { return { error: "bad_response" }; }
+  }
+
+  async function finishCode(session) {
+    const from = qp("from") || "/";
+    const payload = {
+      viaCode: true,
+      target: from,
+      chat: { access_token: session.access_token, refresh_token: session.refresh_token }
+    };
+    writeShared(payload);
+    try { await persistSections(payload); } catch (e) {}
+    renderWorking("تم الدخول، جارٍ التحويل...");
+    window.location.replace(from);
+  }
+
+  function setBusy(btn, busy) {
+    if (!btn) return;
+    btn.disabled = !!busy;
+    btn.textContent = busy ? "جارٍ..." : (btn.getAttribute("data-label") || "دخول");
+  }
+
+  function renderCodeEntry(prefill, errMsg) {
+    wrap().innerHTML = "";
+    wrap().appendChild(el("p", { className: "title" }, ["الدخول برمز الدعوة"]));
+    wrap().appendChild(el("p", { className: "desc" }, ["أدخل رمز الدعوة (٦ أرقام) للدخول إلى حسابك مباشرة — بلا كلمة مرور."]));
+    if (errMsg) wrap().appendChild(el("div", { className: "error" }, [errMsg]));
+
+    const input = el("input", { className: "inp", id: "codeInput", inputmode: "numeric",
+      maxlength: "6", placeholder: "000000", autocomplete: "one-time-code", value: prefill || "" });
+    wrap().appendChild(input);
+    const btn = el("button", { className: "btn-primary", "data-label": "دخول", onClick: submit }, ["دخول"]);
+    wrap().appendChild(btn);
+    wrap().appendChild(el("button", { className: "btn-ghost", onClick: function () { renderIdle(); } }, ["رجوع"]));
+    input.addEventListener("keydown", function (e) { if (e.key === "Enter") submit(); });
+    input.focus();
+
+    async function submit() {
+      const code = String(input.value || "").replace(/\D/g, "");
+      if (code.length !== 6) { renderCodeEntry(code, "أدخل ٦ أرقام بالضبط."); return; }
+      setBusy(btn, true);
+      try {
+        const r = await callFn("invite-login", { code: code });
+        if (r.error) { renderCodeEntry(code, errText(r.error)); return; }
+        if (r.mode === "signup") { renderCodeSignup(code); return; }
+        if (r.mode === "choose") { renderChooseEmail(code); return; }
+        if (r.mode === "login") {
+          const c = chatClient();
+          const { data, error } = await c.auth.verifyOtp({ type: "magiclink", token_hash: r.token_hash });
+          if (error || !data || !data.session) { renderCodeEntry(code, "تعذّر إكمال الدخول — أعد المحاولة."); return; }
+          await finishCode(data.session);
+          return;
+        }
+        renderCodeEntry(code, "استجابة غير متوقعة من الخادم.");
+      } catch (e) {
+        renderCodeEntry(code, "تعذّر الاتصال — تحقق من الشبكة وحاول مجدداً.");
+      }
+    }
+  }
+
+  function renderChooseEmail(code, errMsg) {
+    wrap().innerHTML = "";
+    wrap().appendChild(el("p", { className: "title" }, ["أكّد حسابك"]));
+    wrap().appendChild(el("p", { className: "desc" }, ["هذا الرمز مرتبط بأكثر من حساب — أدخل الإيميل الخاص بك."]));
+    if (errMsg) wrap().appendChild(el("div", { className: "error" }, [errMsg]));
+
+    const input = el("input", { className: "inp", type: "email", inputmode: "email",
+      placeholder: "name@example.com", autocomplete: "email" });
+    wrap().appendChild(input);
+    const btn = el("button", { className: "btn-primary", "data-label": "دخول", onClick: submit }, ["دخول"]);
+    wrap().appendChild(btn);
+    wrap().appendChild(el("button", { className: "btn-ghost", onClick: function () { renderCodeEntry(code); } }, ["رجوع"]));
+    input.addEventListener("keydown", function (e) { if (e.key === "Enter") submit(); });
+    input.focus();
+
+    async function submit() {
+      const email = String(input.value || "").trim();
+      if (!email) { renderChooseEmail(code, "أدخل الإيميل."); return; }
+      setBusy(btn, true);
+      try {
+        const r = await callFn("invite-login", { code: code, email: email });
+        if (r.error) { renderChooseEmail(code, errText(r.error)); return; }
+        if (r.mode === "login") {
+          const c = chatClient();
+          const { data, error } = await c.auth.verifyOtp({ type: "magiclink", token_hash: r.token_hash });
+          if (error || !data || !data.session) { renderChooseEmail(code, "تعذّر إكمال الدخول — أعد المحاولة."); return; }
+          await finishCode(data.session);
+          return;
+        }
+        renderChooseEmail(code, "استجابة غير متوقعة من الخادم.");
+      } catch (e) {
+        renderChooseEmail(code, "تعذّر الاتصال — حاول مجدداً.");
+      }
+    }
+  }
+
+  function renderCodeSignup(code, errMsg) {
+    wrap().innerHTML = "";
+    wrap().appendChild(el("p", { className: "title" }, ["إنشاء حسابك"]));
+    wrap().appendChild(el("p", { className: "desc" }, ["هذا الرمز جديد — أكمل بياناتك لإنشاء حسابك والدخول مباشرة."]));
+    if (errMsg) wrap().appendChild(el("div", { className: "error" }, [errMsg]));
+
+    const name = el("input", { className: "inp", placeholder: "الاسم الكامل", autocomplete: "name" });
+    const email = el("input", { className: "inp", type: "email", placeholder: "name@example.com", autocomplete: "email" });
+    const pass = el("input", { className: "inp", type: "password", placeholder: "كلمة مرور (٦ أحرف على الأقل)", autocomplete: "new-password" });
+    const gender = el("select", { className: "sel" }, [
+      el("option", { value: "" }, ["اختر الجنس"]),
+      el("option", { value: "male" }, ["طالب"]),
+      el("option", { value: "female" }, ["طالبة"])
+    ]);
+    wrap().appendChild(el("div", { className: "field" }, [el("label", {}, ["الاسم"]), name]));
+    wrap().appendChild(el("div", { className: "field" }, [el("label", {}, ["الإيميل"]), email]));
+    wrap().appendChild(el("div", { className: "field" }, [el("label", {}, ["كلمة المرور"]), pass]));
+    wrap().appendChild(el("div", { className: "field" }, [el("label", {}, ["الجنس"]), gender]));
+    const btn = el("button", { className: "btn-primary", "data-label": "إنشاء ودخول", onClick: submit }, ["إنشاء ودخول"]);
+    wrap().appendChild(btn);
+    wrap().appendChild(el("button", { className: "btn-ghost", onClick: function () { renderCodeEntry(code); } }, ["رجوع"]));
+
+    async function submit() {
+      const n = name.value.trim();
+      const em = email.value.trim();
+      const pw = pass.value;
+      const g = gender.value;
+      if (!n) { renderCodeSignup(code, "أدخل الاسم."); return; }
+      if (!em) { renderCodeSignup(code, "أدخل الإيميل."); return; }
+      if (pw.length < 6) { renderCodeSignup(code, "كلمة المرور قصيرة (٦ أحرف على الأقل)."); return; }
+      if (!g) { renderCodeSignup(code, "اختر الجنس."); return; }
+      setBusy(btn, true);
+      try {
+        const r = await callFn("invite-signup", { code: code, name: n, email: em, password: pw, gender: g });
+        if (r.error) { renderCodeSignup(code, errText(r.error)); return; }
+        const c = chatClient();
+        const { data, error } = await c.auth.signInWithPassword({ email: em, password: pw });
+        if (error || !data || !data.session) { renderCodeEntry(code, "أُنشئ الحساب — سجّل الدخول برمز الدعوة."); return; }
+        await finishCode(data.session);
+      } catch (e) {
+        renderCodeSignup(code, "تعذّر الاتصال — حاول مجدداً.");
+      }
+    }
+  }
+
+  function wrap() { return document.getElementById("body-wrap"); }
+  function qp(name) { return new URLSearchParams(window.location.search).get(name) || ""; }
 
   function readShared() {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "null"); }
@@ -152,9 +445,26 @@
   function writeShared(payload) {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (e) {}
   }
-
   function loginHref(target) {
     return SSO_BASE + "/login?target=" + encodeURIComponent(target || "/");
+  }
+
+  function chipRow() {
+    const box = el("div", { className: "sections" });
+    box.appendChild(el("div", { className: "sections-label" }, ["حساب واحد يفتح لك:"]));
+    const chips = el("div", { className: "chips" });
+    SECTION_LABELS.forEach(function (s) {
+      chips.appendChild(el("span", { className: "chip" }, [s.icon + " " + s.name]));
+    });
+    box.appendChild(chips);
+    return box;
+  }
+
+  function trustRow() {
+    return el("div", { className: "trust" }, [
+      el("span", { html: SHIELD_SVG }),
+      el("span", {}, ["دخول آمن عبر Google — لا نطّلع على كلمة مرورك أبداً."])
+    ]);
   }
 
   function renderIdle() {
@@ -162,39 +472,40 @@
     var existing = readShared();
     wrap().innerHTML = "";
 
-    var titleEl = el("p", { className: "title" }, [existing ? "أهلاً بعودتك" : "تسجيل الدخول"]);
-    var descEl = el("p", { className: "desc" }, [
+    wrap().appendChild(el("p", { className: "title" }, [existing ? "أهلاً بعودتك 👋" : "تسجيل الدخول"]));
+    wrap().appendChild(el("p", { className: "desc" }, [
       existing
-        ? "أنت مسجّل دخولك بالفعل عبر الدخول الموحّد — تابع الآن أو بدّل الحساب."
+        ? "أنت مسجّل دخولك بالفعل عبر الدخول الموحّد — تابع إلى القسم أو بدّل الحساب."
         : "حساب واحد عبر Google يفتح كل أقسام المنصة: الدردشة، الإنجاز، بين السطور، والمزيد."
-    ]);
-    wrap().appendChild(titleEl);
-    wrap().appendChild(descEl);
-
-    if (existing) {
-      var goBtn = el("a", { className: "btn-ghost", href: from }, ["متابعة إلى القسم"]);
-      wrap().appendChild(goBtn);
-    }
+    ]));
 
     var googleBtn = el("a", {
         className: "btn-google", href: loginHref(from),
-        html: GOOGLE_SVG + "<span>تسجيل الدخول بحساب Google" + (existing ? " — حساب آخر" : "") + "</span>"
+        html: GOOGLE_SVG + "<span>" + (existing ? "الدخول بحساب آخر" : "تسجيل الدخول بحساب Google") + "</span>"
       });
-    googleBtn.addEventListener("click", function (e) {
-      // نربط الدخول بمقصدِ القادم عبر target في الرابط أعلاه.
-    });
     wrap().appendChild(googleBtn);
 
+    wrap().appendChild(el("div", { className: "divider" }, ["أو"]));
+    wrap().appendChild(el("button", { className: "btn-code", onClick: function () { renderCodeEntry(""); } }, ["الدخول برمز الدعوة"]));
+
     if (existing) {
-      var exitBtn = el("button", {
-          className: "btn-ghost",
-          onClick: function () {
-            try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
-            window.location.replace("/login/?from=" + encodeURIComponent(from));
-          }
-        }, ["تسجيل الخروج من هذا الجهاز"]);
-      wrap().appendChild(exitBtn);
+      wrap().appendChild(el("a", { className: "btn-ghost", href: from }, ["متابعة إلى القسم ←"]));
+      wrap().appendChild(el("button", {
+        className: "btn-ghost",
+        onClick: function () {
+          try {
+            localStorage.removeItem(STORAGE_KEY);
+            Object.keys(localStorage).forEach(function (k) {
+              if (/^sb-.*-auth-token$/.test(k)) localStorage.removeItem(k);
+            });
+          } catch (e) {}
+          window.location.replace("/login/?from=" + encodeURIComponent(from));
+        }
+      }, ["تسجيل الخروج من هذا الجهاز"]));
     }
+
+    wrap().appendChild(chipRow());
+    wrap().appendChild(trustRow());
   }
 
   function renderBanned() {
@@ -203,6 +514,8 @@
     wrap().appendChild(el("p", { className: "desc" }, [
       "تم تعليق هذا الحساب من دخول المنصة على جميع الأقسام. إذا كنتَ تعتقد أنّ هذا خطأ، تواصل مع إدارة المنصة."
     ]));
+    var box = el("div", { className: "error" }, ["للاستفسار راسل الإدارة عبر madrekjo@gmail.com"]);
+    wrap().appendChild(box);
     wrap().appendChild(el("button", {
       className: "btn-ghost",
       onClick: function () {
@@ -245,10 +558,7 @@
         try {
           const c = window.supabase && window.supabase.createClient(s.url, s.anon);
           if (!c) return;
-          await c.auth.setSession({
-            access_token: sess.access_token,
-            refresh_token: sess.refresh_token,
-          });
+          await c.auth.setSession({ access_token: sess.access_token, refresh_token: sess.refresh_token });
         } catch (e) { console.warn("[login] persist " + s.key + " failed", e); }
       })());
     }
@@ -290,16 +600,29 @@
     });
   }
 
+  function makeStars() {
+    const c = document.getElementById("starsContainer");
+    if (!c) return;
+    const n = 46;
+    for (let i = 0; i < n; i++) {
+      const s = document.createElement("span");
+      s.className = "star";
+      const size = Math.random() * 2.2 + 0.8;
+      s.style.width = size + "px";
+      s.style.height = size + "px";
+      s.style.left = Math.random() * 100 + "%";
+      s.style.top = Math.random() * 100 + "%";
+      s.style.setProperty("--d", (Math.random() * 3 + 2).toFixed(2) + "s");
+      s.style.setProperty("--delay", (Math.random() * 3).toFixed(2) + "s");
+      c.appendChild(s);
+    }
+  }
+
   function main() {
+    makeStars();
     const ticket = qp("ticket");
-    if (ticket) {
-      handleTicket(ticket);
-      return;
-    }
-    if (qp("banned") === "1") {
-      renderBanned();
-      return;
-    }
+    if (ticket) { handleTicket(ticket); return; }
+    if (qp("banned") === "1") { renderBanned(); return; }
     renderIdle();
   }
 
