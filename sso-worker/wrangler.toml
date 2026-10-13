@@ -28,8 +28,8 @@ main = "sso-worker.js"
 compatibility_date = "2024-12-01"
 
 [vars]
-CHAT_SUPABASE_URL = "https://hvrtzzouasqseyswjcex.supabase.co"
-CHAT_ANON_KEY = "sb_publishable_nJGYgrQQhe8r6ohmmkkCdA_8-ivUaMC"
+CHAT_SUPABASE_URL = "https://romocwtqzdnovfgtmwzb.supabase.co"
+CHAT_ANON_KEY = "sb_publishable_FxIiY1SHBKXkoByvKu0-Jg_msr2Qd45"
 ACHIEVEMENT_SUPABASE_URL = "https://itflhfhsfzrdfpxvlzrv.supabase.co"
 ACHIEVEMENT_ANON_KEY = "sb_publishable_3mypt4J1F0sG5RD6oTSZZg_6PNgwoyY"
 

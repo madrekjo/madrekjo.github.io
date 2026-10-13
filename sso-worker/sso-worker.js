@@ -52,8 +52,8 @@ const MAINTENANCE_URL =
  */
 const SECTIONS = [
   { target: "/chat/", key: "chat", name: "الدردشة", status: "active",
-    supabaseUrl: "https://hvrtzzouasqseyswjcex.supabase.co",
-    anonKey: "sb_publishable_nJGYgrQQhe8r6ohmmkkCdA_8-ivUaMC" },
+    supabaseUrl: "https://romocwtqzdnovfgtmwzb.supabase.co",
+    anonKey: "sb_publishable_FxIiY1SHBKXkoByvKu0-Jg_msr2Qd45" },
   { target: "/achievement/", key: "achievement", name: "الإنجاز", status: "active",
     supabaseUrl: "https://itflhfhsfzrdfpxvlzrv.supabase.co",
     anonKey: "sb_publishable_3mypt4J1F0sG5RD6oTSZZg_6PNgwoyY" },
@@ -85,14 +85,14 @@ const ACTIVE_SECTIONS = SECTIONS.filter(
 
 /* ---------------------------------------------------------------
    الحظر الموحد (مركزي): قائمة المحظورين تعيش في قاعدة الشات
-   (hvrtzzouasqseyswjcex) عبر جدول global_bans + RPC is_global_banned.
+   (romocwtqzdnovfgtmwzb) عبر جدول global_bans + RPC is_global_banned.
    الوركر يفحصها عند كل تسجيل دخول قبل منح الجلسات، فيُحرم
    المحظور من كل الأقسام دفعة واحدة.
    --------------------------------------------------------------- */
 const CENTRAL_BAN_URL =
-  "https://hvrtzzouasqseyswjcex.supabase.co";
+  "https://romocwtqzdnovfgtmwzb.supabase.co";
 const CENTRAL_BAN_KEY =
-  "sb_publishable_nJGYgrQQhe8r6ohmmkkCdA_8-ivUaMC";
+  "sb_publishable_FxIiY1SHBKXkoByvKu0-Jg_msr2Qd45";
 
 /** فحص القائمة المركزية: هل البريد محظور حظراً موحداً؟ فشل الفحص =
  *  عدم تأكيد — يُمرَّر (fail-open) ليُسجَّل في السجلات فقط. */

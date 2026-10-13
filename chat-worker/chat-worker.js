@@ -27,7 +27,7 @@
  *   4) wrangler deploy
  */
 
-const CHAT_URL = "https://hvrtzzouasqseyswjcex.supabase.co";
+const CHAT_URL = "https://romocwtqzdnovfgtmwzb.supabase.co";
 
 const DEFAULT_ALLOWED_ORIGIN = "https://madrekjo.github.io,https://madrekjo.study";
 
