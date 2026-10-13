@@ -1,4 +1,5 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { provisionSections } from "../_shared/provision.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -16,7 +17,8 @@ function json(body: unknown, status = 200) {
 //   - الرمز صالح (نشط: غير منتهٍ ولم تُستهلك كل استخداماته) → لا يُستهلك هنا،
 //     فيبقى الرمز صالحاً حتى انتهاء صلاحيته أو إلغائه، ويمكن لصاحب الحساب
 //     الدخول أكثر من مرة خلال تلك المدة.
-//   - يُرجع رابطاً سحرياً (token_hash) فيسجّل العميل الدخول به بلا كلمة مرور.
+//   - يُجهّز الحساب في كل الأقسام النشطة ويُرجع رمز دخول سحري (token_hash) لكل
+//     قسم، فيسجّل العميل الدخول بالرمز في كل المنصة بلا كلمة مرور.
 //   - إن لم يكن الرمز مربوطاً بأي حساب → mode=signup (ينشئ حساباً جديداً).
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -84,20 +86,39 @@ Deno.serve(async (req) => {
       return json({ ok: true, mode: "choose", count: list.length });
     }
 
-    // --- توليد الرابط السحري ----------------------------------------------
-    const { data: link, error: linkErr } = await adminClient.auth.admin.generateLink({
-      type: "magiclink",
-      email: target.email!,
+    // --- التحقق من الحظر قبل منح أي جلسة (الحظر الموحد أو حظر الدردشة) -------
+    const { data: bannedFlag } = await adminClient.rpc("is_global_banned", {
+      p_email: target.email,
     });
-    if (linkErr || !link?.properties?.hashed_token) {
-      return json({ error: "link_failed:" + (linkErr?.message || "no_token") }, 500);
+    if (bannedFlag === true) return json({ error: "banned" }, 403);
+
+    // --- بيانات البروفايل (لنقل الاسم/الصورة/الجنس إلى بقية الأقسام) --------
+    const { data: prof } = await adminClient
+      .from("profiles")
+      .select("full_name, avatar_url, gender")
+      .eq("user_id", target.user_id)
+      .maybeSingle();
+
+    const metadata = {
+      full_name: prof?.full_name || target.name || "مستخدم جديد",
+      avatar_url: prof?.avatar_url || "",
+      gender: prof?.gender || null,
+      via_invite: true,
+      invited_code: codeStr,
+    };
+
+    // --- تجهيز الحساب في كل الأقسام + توليد جلسة دخول لكل قسم --------------
+    const { map: sections, debug } = await provisionSections(target.email!, metadata);
+
+    if (!sections.chat) {
+      return json({ error: "link_failed:no_chat_session", debug }, 500);
     }
 
     return json({
       ok: true,
       mode: "login",
-      token_hash: link.properties.hashed_token,
       name: target.name,
+      sections,
     });
   } catch (e) {
     console.error("invite-login error:", e);

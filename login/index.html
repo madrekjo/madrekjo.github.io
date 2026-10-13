@@ -261,6 +261,7 @@
   const CHAT = SECTIONS.find(function (s) { return s.key === "chat"; });
 
   const ERR_TEXT = {
+    banned: "حسابك محظور من دخول المنصة.",
     wrong_code: "رمز غير صحيح — تأكد من الأرقام.",
     code_expired: "انتهت صلاحية هذا الرمز.",
     code_used_up: "استُنفدت استخدامات هذا الرمز.",
@@ -297,17 +298,38 @@
     try { return await res.json(); } catch (e) { return { error: "bad_response" }; }
   }
 
-  async function finishCode(session) {
+  // الدخول برمز الدعوة يفتح كل الأقسام: لكل قسم رمز سحري (token_hash) نبادله
+  // بجلسة، ثم نجمع جلسات الأقسام كلها في الحمولة الموحّدة.
+  // الأقسام التي تتشارك نفس مشروع Supabase (أجر وثواب + التلاوات) تُعاد
+  // استخدام جلستها نفسها لأن الجلسة صالحة للمشروع كله.
+  async function linkSections(map) {
     const from = qp("from") || "/";
-    const payload = {
-      viaCode: true,
-      target: from,
-      chat: { access_token: session.access_token, refresh_token: session.refresh_token }
-    };
+    const payload = { viaCode: true, target: from };
+    const byUrl = {};
+    for (const s of SECTIONS) {
+      const ent = map && map[s.key];
+      if (!ent || !ent.token_hash) continue;
+      if (byUrl[s.url]) { payload[s.key] = byUrl[s.url]; continue; }
+      try {
+        const c = window.supabase && window.supabase.createClient(s.url, s.anon);
+        if (!c) continue;
+        const { data, error } = await c.auth.verifyOtp({ type: "magiclink", token_hash: ent.token_hash });
+        if (!error && data && data.session) {
+          const sess = { access_token: data.session.access_token, refresh_token: data.session.refresh_token };
+          payload[s.key] = sess;
+          byUrl[s.url] = sess;
+        }
+      } catch (e) { console.warn("[login] section " + s.key + " login failed", e); }
+    }
+    return payload;
+  }
+
+  async function finishCode(map) {
+    const payload = await linkSections(map);
     writeShared(payload);
     try { await persistSections(payload); } catch (e) {}
     renderWorking("تم الدخول، جارٍ التحويل...");
-    window.location.replace(from);
+    window.location.replace(payload.target || "/");
   }
 
   function setBusy(btn, busy) {
@@ -337,14 +359,13 @@
       setBusy(btn, true);
       try {
         const r = await callFn("invite-login", { code: code });
+        if (r.error === "banned") { renderBanned(); return; }
         if (r.error) { renderCodeEntry(code, errText(r.error)); return; }
         if (r.mode === "signup") { renderCodeSignup(code); return; }
         if (r.mode === "choose") { renderChooseEmail(code); return; }
         if (r.mode === "login") {
-          const c = chatClient();
-          const { data, error } = await c.auth.verifyOtp({ type: "magiclink", token_hash: r.token_hash });
-          if (error || !data || !data.session) { renderCodeEntry(code, "تعذّر إكمال الدخول — أعد المحاولة."); return; }
-          await finishCode(data.session);
+          if (!r.sections || !r.sections.chat) { renderCodeEntry(code, "تعذّر إكمال الدخول — أعد المحاولة."); return; }
+          await finishCode(r.sections);
           return;
         }
         renderCodeEntry(code, "استجابة غير متوقعة من الخادم.");
@@ -375,12 +396,11 @@
       setBusy(btn, true);
       try {
         const r = await callFn("invite-login", { code: code, email: email });
+        if (r.error === "banned") { renderBanned(); return; }
         if (r.error) { renderChooseEmail(code, errText(r.error)); return; }
         if (r.mode === "login") {
-          const c = chatClient();
-          const { data, error } = await c.auth.verifyOtp({ type: "magiclink", token_hash: r.token_hash });
-          if (error || !data || !data.session) { renderChooseEmail(code, "تعذّر إكمال الدخول — أعد المحاولة."); return; }
-          await finishCode(data.session);
+          if (!r.sections || !r.sections.chat) { renderChooseEmail(code, "تعذّر إكمال الدخول — أعد المحاولة."); return; }
+          await finishCode(r.sections);
           return;
         }
         renderChooseEmail(code, "استجابة غير متوقعة من الخادم.");
@@ -425,10 +445,8 @@
       try {
         const r = await callFn("invite-signup", { code: code, name: n, email: em, password: pw, gender: g });
         if (r.error) { renderCodeSignup(code, errText(r.error)); return; }
-        const c = chatClient();
-        const { data, error } = await c.auth.signInWithPassword({ email: em, password: pw });
-        if (error || !data || !data.session) { renderCodeEntry(code, "أُنشئ الحساب — سجّل الدخول برمز الدعوة."); return; }
-        await finishCode(data.session);
+        if (!r.sections || !r.sections.chat) { renderCodeEntry(code, "أُنشئ الحساب — سجّل الدخول برمز الدعوة."); return; }
+        await finishCode(r.sections);
       } catch (e) {
         renderCodeSignup(code, "تعذّر الاتصال — حاول مجدداً.");
       }
