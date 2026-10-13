@@ -30,6 +30,10 @@ const codeErrorMessage = (key: string) => {
     name_required: "أدخل اسمك أولاً.",
     code_required: "أدخل الكود أولاً.",
     gender_required: "اختر الجنس أولاً.",
+    too_many_attempts: "عدد المحاولات كبير جداً، حاول بعد قليل.",
+    email_mismatch: "هذا الإيميل غير مرتبط بهذا الرمز.",
+    link_failed: "تعذر إنشاء رابط الدخول، حاول مجدداً.",
+    code_invalid: "الرمز غير صالح.",
   };
   return map[key] || key || "خطأ غير متوقع";
 };
@@ -39,13 +43,17 @@ const Auth = () => {
 
   // حالة رمز الدعوة (أكواد الـ 6 أرقام)
   const [code, setCode] = useState("");
-  const [checking, setChecking] = useState(false);
   const [codeResult, setCodeResult] = useState<CodeResult | null>(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [gender, setGender] = useState<"male" | "female" | "">("");
   const [creating, setCreating] = useState(false);
+
+  // الدخول المباشر برمز الدعوة (بدون كلمة مرور عبر رابط سحري)
+  const [entering, setEntering] = useState(false);
+  const [chooseEmail, setChooseEmail] = useState(false);
+  const [disambEmail, setDisambEmail] = useState("");
 
   // وضع تسجيل الدخول بالإيميل وكلمة المرور (للمستخدمين الذين أُنشئت حساباتهم برمز دعوة)
   const [mode, setMode] = useState<"login" | "invite">("login");
@@ -165,36 +173,86 @@ const Auth = () => {
     }
   };
 
-  const handleValidate = async () => {
+  const handleCodeEnter = async (withEmail?: string) => {
     const value = code.trim();
     if (!/^\d{6}$/.test(value)) {
       toast.error("أدخل الكود المكوّن من 6 أرقام");
       return;
     }
-    setChecking(true);
-    let rpcOut: any;
+    setEntering(true);
     try {
-      rpcOut = await (supabase.rpc as any)("validate_access_code", { p_code: value });
-    } catch (rpcErr) {
-      setChecking(false);
-      console.error("[AUTH-DIAG] validate rpc THREW", rpcErr);
-      toast.error("تعذر التحقق من الكود (خطأ في الاتصال)");
-      return;
-    }
-    setChecking(false);
+      let res: any;
+      try {
+        res = await supabase.functions.invoke("invite-login", {
+          body: { code: value, email: withEmail ? withEmail.trim() : undefined },
+        });
+      } catch (invokeErr) {
+        console.error("[AUTH-DIAG] invite-login invoke THREW", invokeErr);
+        toast.error("تعذر الاتصال بالخادم، تحقق من اتصالك وأعد المحاولة");
+        return;
+      }
 
-    console.log("[AUTH-DIAG] validate rpc result =", JSON.stringify(rpcOut ?? null));
+      console.log("[AUTH-DIAG] invite-login raw response =", JSON.stringify(res ?? null));
 
-    if (rpcOut?.error) {
-      console.error("[AUTH-DIAG] validate rpc error", rpcOut.error);
-      toast.error("تعذر التحقق من الكود، حاول مجدداً");
-      return;
-    }
+      const parsedRes = (res ?? { data: null, error: null }) as any;
+      let data = parsedRes.data ?? null;
+      const error = parsedRes.error ?? null;
 
-    const result = (rpcOut?.data ?? null) as unknown as CodeResult | null;
-    setCodeResult(result);
-    if (!result?.valid) {
-      toast.error(codeErrorMessage(result?.reason || ""));
+      if (typeof data === "string") {
+        try {
+          data = data.trim() ? JSON.parse(data) : null;
+        } catch {
+          data = null;
+        }
+      }
+
+      if (error) {
+        let serverMsg: string | null = null;
+        try {
+          const ctx = await (error as any)?.context?.json?.();
+          serverMsg = ctx?.error ?? null;
+        } catch { /* ignore */ }
+        toast.error(codeErrorMessage(serverMsg || data?.error || ""));
+        return;
+      }
+
+      if (!data?.ok) {
+        toast.error(codeErrorMessage(data?.error || ""));
+        return;
+      }
+
+      // رمز جديد غير مرتبط بحساب → نموذج إنشاء الحساب (الطريقة الحالية).
+      if (data.mode === "signup") {
+        setCodeResult({ valid: true, message: "" });
+        setChooseEmail(false);
+        return;
+      }
+
+      // الرمز مرتبط بأكثر من حساب → نطلب الإيميل للتمييز.
+      if (data.mode === "choose") {
+        setChooseEmail(true);
+        toast.info("هذا الرمز مرتبط بأكثر من حساب — أدخل إيميلك للمتابعة");
+        return;
+      }
+
+      // الدخول المباشر: تسجيل الدخول بالرابط السحري (بدون كلمة مرور).
+      if (data.mode === "login" && data.token_hash) {
+        const { error: otpErr } = await (supabase.auth as any).verifyOtp({
+          type: "magiclink",
+          token_hash: data.token_hash,
+        });
+        if (otpErr) {
+          console.error("[Auth] verifyOtp failed", otpErr);
+          toast.error("تعذر تسجيل الدخول بالرمز، حاول مجدداً");
+          return;
+        }
+        toast.success("تم تسجيل الدخول بنجاح");
+        return;
+      }
+
+      toast.error("استجابة غير متوقعة من الخادم، حاول مرة أخرى");
+    } finally {
+      setEntering(false);
     }
   };
 
@@ -315,6 +373,8 @@ const Auth = () => {
   const resetCode = () => {
     setCodeResult(null);
     setCode("");
+    setChooseEmail(false);
+    setDisambEmail("");
   };
 
   return (
@@ -416,7 +476,7 @@ const Auth = () => {
                   الدخول برمز الدعوة
                 </Label>
                 <p className="text-xs text-muted-foreground mt-1">
-                  ليس لديك حساب Google؟ أدخل الرمز المكوّن من 6 أرقام الذي أعطاك إياه صديقك أو المشرف لتنشئ حسابك الأول.
+                  أدخل الرمز المكوّن من 6 أرقام الذي أعطاك إياه المشرف للدخول مباشرة إلى حسابك، أو لإنشاء حسابك الأول.
                 </p>
               </div>
               <div className="flex gap-2">
@@ -425,17 +485,47 @@ const Auth = () => {
                   maxLength={6}
                   inputMode="numeric"
                   value={code}
-                  onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
+                  onChange={(e) => {
+                    setCode(e.target.value.replace(/\D/g, ""));
+                    setChooseEmail(false);
+                  }}
                   className="text-center text-lg tracking-[0.5em] font-mono"
                 />
                 <Button
-                  onClick={handleValidate}
-                  disabled={checking || code.length !== 6}
+                  onClick={() => void handleCodeEnter()}
+                  disabled={entering || code.length !== 6}
                   className="shrink-0"
                 >
-                  {checking ? <Loader2 className="w-4 h-4 animate-spin" /> : "تحقق"}
+                  {entering ? <Loader2 className="w-4 h-4 animate-spin" /> : "دخول"}
                 </Button>
               </div>
+              {chooseEmail && (
+                <div className="space-y-2">
+                  <Label>الإيميل</Label>
+                  <Input
+                    type="email"
+                    dir="ltr"
+                    placeholder="example@mail.com"
+                    value={disambEmail}
+                    onChange={(e) => setDisambEmail(e.target.value)}
+                    onKeyDown={(e) => { if (e.key === "Enter") void handleCodeEnter(disambEmail); }}
+                  />
+                  <Button
+                    className="w-full"
+                    onClick={() => void handleCodeEnter(disambEmail)}
+                    disabled={entering}
+                  >
+                    {entering ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        جاري الدخول...
+                      </>
+                    ) : (
+                      "متابعة الدخول"
+                    )}
+                  </Button>
+                </div>
+              )}
             </div>
           )}
 

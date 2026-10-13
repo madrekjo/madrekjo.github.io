@@ -456,6 +456,12 @@ const Admin = () => {
     if (error) toast.error("فشل إلغاء الكود");
     else { toast.success("تم إلغاء الكود"); fetchAccessCodes(); }
   };
+  const reactivateAccessCode = async (id: string) => {
+    if (!confirm("إعادة تفعيل هذا الرمز لمدة 24 ساعة؟ سيصبح صالحاً من جديد ويمكن لصاحبه الدخول به.")) return;
+    const { error } = await (supabase as any).rpc("reactivate_access_code", { p_id: id, p_duration_hours: 24 });
+    if (error) toast.error("فشل إعادة تفعيل الرمز");
+    else { toast.success("تم إعادة تفعيل الرمز لمدة 24 ساعة"); fetchAccessCodes(); }
+  };
   const copyCode = async (text: string) => {
     try { await navigator.clipboard.writeText(text); toast.success("تم نسخ الكود: " + text); }
     catch { toast.error("تعذر النسخ"); }
@@ -1202,10 +1208,26 @@ const Admin = () => {
                         <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${c.active ? "bg-green-100 text-green-700" : "bg-muted text-muted-foreground"}`}>
                           {c.active ? "نشط" : "منتهي / مستنفذ"}
                         </span>
+                        <Button size="sm" variant="outline" onClick={() => reactivateAccessCode(c.id)} title="إعادة تفعيل" className="gap-1">
+                          <RefreshCw className="w-3.5 h-3.5" />
+                          إعادة تفعيل
+                        </Button>
                         <Button size="sm" variant="ghost" onClick={() => revokeAccessCode(c.id)} className="text-destructive">
                           <Trash2 className="w-4 h-4" />
                         </Button>
                       </div>
+                      {Array.isArray(c.accounts) && c.accounts.length > 0 && (
+                        <div className="basis-full w-full border-t pt-2 mt-1 space-y-1">
+                          <span className="text-[11px] text-muted-foreground">الحسابات المرتبطة بهذا الرمز:</span>
+                          {c.accounts.map((a: any) => (
+                            <div key={a.user_id} className="flex items-center gap-2 text-xs">
+                              <Users className="w-3.5 h-3.5 text-primary shrink-0" />
+                              <span className="font-medium text-foreground truncate max-w-[160px]">{a.name || "—"}</span>
+                              <span dir="ltr" className="text-muted-foreground truncate">{a.email}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </CardContent>
                   </Card>
                 ))}
