@@ -104,6 +104,18 @@ const AuthCallback = () => {
 
         const data = await res.json();
 
+        // احفظ الحمولة الموحّدة كاملةً في الجلسة المشتركة (mdk:sso:session)
+        // حتى تلتقط بقية الأقسام (أنا مجهول/بين السطور/أجر وثواب/تلاوات)
+        // جلستها عند فتحها — الدردشة كانت تحفظ جلستها وجلسة الإنجاز فقط.
+        try {
+          localStorage.setItem(
+            "mdk:sso:session",
+            JSON.stringify(data)
+          );
+        } catch {
+          /* تجاهل */
+        }
+
         const chatSession = data?.chat;
         const achievementSession = data?.achievement;
 

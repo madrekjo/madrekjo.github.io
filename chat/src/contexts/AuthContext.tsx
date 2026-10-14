@@ -492,6 +492,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
           const data = await res.json();
 
+          // احفظ الحمولة الموحّدة كاملةً (chat/achievement/anon/sutur/ajr/talaawat)
+          // في الجلسة المشتركة، حتى تلتقط بقية الأقسام جلستها عند فتحها
+          // (كل قسم يقرأ مفتاحه من mdk:sso:session) — بدونها لا يُعرَف
+          // الحساب في «أنا مجهول» وبقية الأقسام عند الدخول من الدردشة.
+          try {
+            localStorage.setItem(
+              "mdk:sso:session",
+              JSON.stringify(data)
+            );
+          } catch {
+            /* تجاهل — فشل التخزين لا يُسقط الدخول */
+          }
+
           const chatSession = data?.chat;
           const achievementSession = data?.achievement;
 
