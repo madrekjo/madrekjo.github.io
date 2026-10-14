@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { isPlatformOwner } from "@/lib/platform-owner";
+import { ssoEmail } from "@/lib/sso-session";
 import type { Session } from "@supabase/supabase-js";
 
 // كاش مشترك بين كل نسخ useAuth (الهيدر + الصفحات) حتى لا تتكرر الطلبات
@@ -51,7 +52,8 @@ async function runCheck(uid: string, attempt = 0) {
   let owner = false;
   try {
     const { data: s } = await supabase.auth.getSession();
-    owner = await isPlatformOwner(s.session?.user?.email);
+    // احتياط: لو تعذّر إيميل الجلسة نقرأه من الجلسة الموحّدة، حتى لا يضيع المالك.
+    owner = await isPlatformOwner(s.session?.user?.email ?? ssoEmail());
   } catch {
     /* تجاهل — لا نمنع الفحص المحلي */
   }
@@ -59,9 +61,30 @@ async function runCheck(uid: string, attempt = 0) {
   commit({ uid, isAdmin: localAdmin || owner, checked: true, error: null, at: Date.now() });
 }
 
+// فحص المالك بلا جلسة قسم: نستخرج الإيميل من الجلسة الموحّدة (mdk:sso:session)
+// فنعرف المالك أدمن حتى لو لم تُثبَّت جلسة القسم بعد (مثلًا موقع مسكّر).
+let inflightNoSession = false;
+async function runNoSessionCheck(force = false) {
+  if (inflightNoSession) return;
+  if (!force && cache.uid === null && cache.checked && Date.now() - cache.at < 30_000) return;
+  inflightNoSession = true;
+  const my = ++checkSeq;
+  const commit = (c: Cache) => { if (my === checkSeq) publish(c); };
+  let owner = false;
+  try {
+    const email = ssoEmail();
+    if (email) owner = await isPlatformOwner(email);
+  } catch {
+    /* تجاهل */
+  } finally {
+    inflightNoSession = false;
+  }
+  commit({ uid: null, isAdmin: owner, checked: true, error: null, at: Date.now() });
+}
+
 function ensureCheck(uid: string | null, force = false) {
   if (!uid) {
-    publish({ uid: null, isAdmin: false, checked: true, error: null, at: Date.now() });
+    void runNoSessionCheck(force);
     return;
   }
   if (!force && cache.uid === uid && cache.checked) return;
@@ -116,7 +139,9 @@ export function useAuth() {
     return () => sub.subscription.unsubscribe();
   }, []);
 
-  const isAdmin = !!uid && st.uid === uid && st.isAdmin;
+  // `st.uid === uid` يقبل الحالتين: حساب مُثبَّت، أو مالك معروف من الجلسة الموحّدة
+  // بلا جلسة قسم (st.uid === uid === null).
+  const isAdmin = st.uid === uid && st.isAdmin;
   const adminChecked = !uid || (st.uid === uid && st.checked);
   return { session, isAdmin, adminChecked, adminError: st.error, loading };
 }

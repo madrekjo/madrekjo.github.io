@@ -3,26 +3,23 @@ import App from "./App.tsx";
 import "./styles.css";
 import { resolveIdentity } from "./lib/device-identity";
 import { supabase } from "./integrations/supabase/client";
+import { sliceForAnonProject, readSsoPayload } from "./lib/sso-session";
 
 // اربط جلسة الدخول الموحّد بعميل القسم قبل الإقلاع (مثل بقية الأقسام)، حتى
 // يُعرف حساب المستخدم مباشرة ويصير المالك أدمن فوراً بلا صفحة دخول منفصلة.
-const SSO_KEY = "mdk:sso:session";
-
 async function linkSsoSession() {
   try {
-    const raw = localStorage.getItem(SSO_KEY);
-    if (!raw) return;
-    const payload = JSON.parse(raw) as Record<
-      string,
-      { access_token?: string; refresh_token?: string } | undefined
-    >;
-    const s = payload?.anon;
-    if (!s?.access_token) return;
+    const slice = sliceForAnonProject(readSsoPayload());
+    if (!slice?.access_token) return;
     const { data } = await supabase.auth.getSession();
-    if (data.session?.access_token) return; // جلسة القسم موجودة أصلاً
+    const cur = data.session;
+    const now = Math.floor(Date.now() / 1000);
+    // نتخطّى فقط إذا كانت الجلسة الحالية صالحة (غير منتهية). أما جلسة منتهية
+    // عالقة في التخزين فتُستبدَل بجلسة الدخول الموحّد (تُجدَّد عبر refresh_token).
+    if (cur?.access_token && (!cur.expires_at || cur.expires_at - 60 > now)) return;
     await supabase.auth.setSession({
-      access_token: s.access_token,
-      refresh_token: s.refresh_token ?? "",
+      access_token: slice.access_token,
+      refresh_token: slice.refresh_token ?? "",
     });
   } catch {
     /* تجاهل — الحارس (auth-gate) يتكفّل ببوابة الدخول */
