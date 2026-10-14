@@ -672,7 +672,7 @@ function Admin() {
                 value={userSearch}
                 onChange={(e) => { setUserSearch(e.target.value); setUserPage(0); }}
                 onKeyDown={(e) => { if (e.key === "Enter") loadUsers(userSearch, 0); }}
-                placeholder="ابحث بالاسم أو المعرّف…"
+                placeholder="ابحث بالاسم أو الإيميل أو المعرّف…"
                 className="h-9 max-w-xs"
               />
               <Button size="sm" variant="outline" onClick={() => loadUsers(userSearch, 0)} disabled={usersLoading}>
@@ -732,6 +732,13 @@ function Admin() {
                       {u.is_admin && <span className="rounded-md bg-emerald-500/15 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700">أدمن</span>}
                     </div>
                   </div>
+                  {Array.isArray(u.emails) && u.emails.length > 0 && (
+                    <div className="flex flex-wrap gap-1" dir="ltr">
+                      {u.emails.map((em: string) => (
+                        <span key={em} className="rounded-md bg-emerald-500/10 px-1.5 py-0.5 font-mono text-[10px] font-semibold text-emerald-700">{em}</span>
+                      ))}
+                    </div>
+                  )}
                   <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-[11px] text-muted-foreground">
                     <span className="font-bold text-foreground">مستخدم #{u.anon_number || "—"}</span>
                     <span>أول ظهور: {u.first_seen ? timeAgo(u.first_seen) : "—"}</span>
