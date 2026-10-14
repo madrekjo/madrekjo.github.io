@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "sonner";
-import { Trash2, Check, X, Ghost, ShieldPlus, Settings, MessageSquare, Ban, UserCircle2, ImagePlus, Loader2, Settings2, Flag, ExternalLink, Users, EyeOff, AlertTriangle } from "lucide-react";
+import { Trash2, Check, X, Ghost, ShieldPlus, Settings, MessageSquare, Ban, UserCircle2, ImagePlus, Loader2, Settings2, Flag, ExternalLink, Users, EyeOff, AlertTriangle, Globe, Plus } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { useSiteSettings } from "@/hooks/use-site-settings";
@@ -24,6 +24,7 @@ import { useDeviceLabel } from "@/lib/device-labels";
 import { useDeviceNames } from "@/lib/device-names";
 import { DeviceNameTag } from "@/components/device-name-tag";
 import { BanDialog } from "@/components/ban-dialog";
+import { listGlobalBans, addGlobalBan, removeGlobalBan, type GlobalBan } from "@/lib/global-bans";
 
 function AdminProfileEditor() {
   const [p, setP] = useState<ChatProfile>({ name: "", avatar_url: null });
@@ -233,6 +234,11 @@ function Admin() {
   const [userSearch, setUserSearch] = useState("");
   const [userPage, setUserPage] = useState(0);
   const [usersLoading, setUsersLoading] = useState(false);
+  const [globalBans, setGlobalBans] = useState<GlobalBan[]>([]);
+  const [globalLoading, setGlobalLoading] = useState(false);
+  const [gbEmail, setGbEmail] = useState("");
+  const [gbReason, setGbReason] = useState("");
+  const [gbBusy, setGbBusy] = useState(false);
   const USER_PAGE = 50;
   const [tab, setTab] = useState("settings");
   const [inspectId, setInspectId] = useState<string | null>(null);
@@ -305,6 +311,52 @@ function Admin() {
     void loadUsers("", 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAdmin]);
+
+  const adminEmail = session?.user?.email ?? "";
+
+  async function loadGlobalBans() {
+    if (!adminEmail) return;
+    setGlobalLoading(true);
+    try {
+      setGlobalBans(await listGlobalBans(adminEmail));
+    } catch (e) {
+      toast.error("تعذر تحميل الحظر الموحّد: " + ((e as Error)?.message || ""));
+    } finally {
+      setGlobalLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    if (!isAdmin || tab !== "global") return;
+    void loadGlobalBans();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAdmin, tab, adminEmail]);
+
+  async function addGlobal() {
+    const em = gbEmail.trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { toast.error("أدخل بريداً صحيحاً"); return; }
+    if (globalBans.some((b) => b.email.toLowerCase() === em)) { toast.error("محظور موحداً بالفعل"); return; }
+    setGbBusy(true);
+    try {
+      await addGlobalBan(adminEmail, em, gbReason);
+      toast.success("تم الحظر الموحّد — لن يدخل هذا الحساب أي قسم");
+      setGbEmail(""); setGbReason("");
+      await loadGlobalBans();
+    } catch (e) {
+      toast.error("فشل الحظر: " + ((e as Error)?.message || ""));
+    } finally { setGbBusy(false); }
+  }
+
+  async function removeGlobal(em: string) {
+    if (!confirm(`إزالة الحظر الموحّد عن ${em}؟`)) return;
+    try {
+      await removeGlobalBan(adminEmail, em);
+      toast.success("تم رفع الحظر الموحّد");
+      await loadGlobalBans();
+    } catch (e) {
+      toast.error("فشل رفع الحظر: " + ((e as Error)?.message || ""));
+    }
+  }
 
   useEffect(() => {
     if (!isAdmin) return;
@@ -452,6 +504,7 @@ function Admin() {
     ]},
     { group: "المستخدمون", items: [
       { v: "users", label: "الحسابات (بالإيميل)", icon: Users, count: usersTotal },
+      { v: "global", label: "الحظر الموحد (مركزي)", icon: Globe, count: globalBans.length },
       { v: "blocks", label: "المحظورون", icon: Ban, count: blocks.length },
       { v: "admins", label: "الأدمن", icon: ShieldPlus, count: admins.length },
     ]},
@@ -745,6 +798,56 @@ function Admin() {
                 </div>
               ))}
             </div>
+          </TabsContent>
+
+          <TabsContent value="global" className="mt-4 space-y-3">
+            <div className="flex items-center gap-2.5 rounded-2xl border border-border bg-card p-4">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
+                <Globe className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="font-bold">الحظر الموحّد (مركزي)</p>
+                <p className="text-xs text-muted-foreground">
+                  قائمة واحدة تشترك فيها كل الأقسام (تعيش في قاعدة الدردشة). المحظور هنا لا يدخل أيّ قسم حتى إزالة حظره — فوراً.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-end gap-2 rounded-2xl border border-border bg-card p-4">
+              <div className="min-w-[200px] flex-1">
+                <label className="text-xs font-semibold text-muted-foreground">البريد الإلكتروني للحساب</label>
+                <Input dir="ltr" placeholder="user@example.com" value={gbEmail} onChange={(e) => setGbEmail(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") void addGlobal(); }} />
+              </div>
+              <div className="min-w-[200px] flex-1">
+                <label className="text-xs font-semibold text-muted-foreground">السبب (اختياري)</label>
+                <Input placeholder="مثال: مخالفة القوانين" value={gbReason} onChange={(e) => setGbReason(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") void addGlobal(); }} />
+              </div>
+              <Button onClick={() => void addGlobal()} disabled={gbBusy}>
+                {gbBusy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />} حظر موحد
+              </Button>
+            </div>
+
+            {globalLoading ? (
+              <p className="py-8 text-center text-muted-foreground">جارٍ التحميل…</p>
+            ) : globalBans.length === 0 ? (
+              <p className="py-8 text-center text-muted-foreground">لا يوجد محظورون موحدون حالياً</p>
+            ) : (
+              <div className="space-y-2">
+                {globalBans.map((b) => (
+                  <div key={b.email} className="flex flex-wrap items-center gap-3 rounded-xl border border-border bg-card p-3 text-sm">
+                    <div className="min-w-[160px] flex-1">
+                      <p className="font-semibold" dir="ltr">{b.email}</p>
+                      <p className="mt-0.5 text-xs text-muted-foreground">
+                        {b.reason ? `السبب: ${b.reason}` : "لا سبب"} · حُظر {b.banned_at ? formatDistanceToNow(new Date(b.banned_at), { addSuffix: true, locale: ar }) : ""}
+                      </p>
+                    </div>
+                    <Button size="sm" variant="outline" onClick={() => void removeGlobal(b.email)}>
+                      <Trash2 className="h-4 w-4" /> رفع الحظر
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            )}
           </TabsContent>
 
           <TabsContent value="blocks" className="mt-4 space-y-4">

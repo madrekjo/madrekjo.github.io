@@ -4,6 +4,7 @@ import { type ReactNode } from "react";
 
 import { Toaster } from "@/components/ui/sonner";
 import { useHeartbeat } from "@/hooks/use-heartbeat";
+import { useCentralBan } from "@/hooks/use-central-ban";
 import { useVisitorGate } from "@/hooks/use-visitor-gate";
 import { BanScreen } from "@/components/ban-screen";
 import { WarningScreen } from "@/components/warning-screen";
@@ -73,6 +74,11 @@ function HeartbeatRunner() {
   return null;
 }
 
+function CentralBanRunner() {
+  useCentralBan();
+  return null;
+}
+
 function VisitorGate({ children }: { children: ReactNode }) {
   const { loading, banned, reason, expires_at, evidence_url, warning, challenge } = useVisitorGate();
   // إشعار التحقق يُعرض مرة واحدة لكل جلسة لكل جهاز
@@ -105,6 +111,7 @@ const App = () => (
       <BrowserRouter basename="/anon">
         <UpdateWatcher />
         <HeartbeatRunner />
+        <CentralBanRunner />
         <VisitorGate>
           <Routes>
             <Route path="/" element={<Index />} />
