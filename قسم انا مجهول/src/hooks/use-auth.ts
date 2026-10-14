@@ -7,7 +7,11 @@ import type { Session } from "@supabase/supabase-js";
 type Cache = { uid: string | null; isAdmin: boolean; checked: boolean; error: string | null; at: number };
 let cache: Cache = { uid: null, isAdmin: false, checked: false, error: null, at: 0 };
 const listeners = new Set<(c: Cache) => void>();
-let inflight: Promise<void> | null = null;
+// كابح لكل حساب على حدة + رقم تسلسلي يمنع نتيجة فحص قديم أن تطمس نتيجة أحدث.
+// (الخلل السابق: كابح عام واحد كان يحجب فحص الحساب الجديد إذا بدأ فحص لحساب
+//  آخر ولم ينتهِ بعد، فيبقى adminChecked=false للأبد وصفحة الإدارة «جاري التحقق».)
+let inflightUid: string | null = null;
+let checkSeq = 0;
 
 function publish(c: Cache) {
   cache = c;
@@ -17,6 +21,10 @@ function publish(c: Cache) {
 /** 1) RPC my_admin_status (يتجاوز RLS)  2) عند فشله: قراءة user_roles  3) إعادة محاولة
  *  ثم: مالكو الدردشة يُعتبرون أدمن هنا (قاعدة موحّدة). */
 async function runCheck(uid: string, attempt = 0) {
+  const my = ++checkSeq;
+  // لا ننشر إلا إذا لم تبدأ عملية فحص أحدث (يمنع طمس نتيجة الحساب الحالي).
+  const commit = (c: Cache) => { if (my === checkSeq) publish(c); };
+
   let localAdmin = false;
   const { data, error } = await (supabase.rpc as any)("my_admin_status");
   if (!error) {
@@ -34,7 +42,7 @@ async function runCheck(uid: string, attempt = 0) {
         setTimeout(() => { void runCheck(uid, attempt + 1); }, 800);
         return;
       }
-      publish({ uid, isAdmin: false, checked: true, error: e2.message, at: Date.now() });
+      commit({ uid, isAdmin: false, checked: true, error: e2.message, at: Date.now() });
       return;
     }
     localAdmin = !!row;
@@ -48,7 +56,7 @@ async function runCheck(uid: string, attempt = 0) {
     /* تجاهل — لا نمنع الفحص المحلي */
   }
 
-  publish({ uid, isAdmin: localAdmin || owner, checked: true, error: null, at: Date.now() });
+  commit({ uid, isAdmin: localAdmin || owner, checked: true, error: null, at: Date.now() });
 }
 
 function ensureCheck(uid: string | null, force = false) {
@@ -57,8 +65,10 @@ function ensureCheck(uid: string | null, force = false) {
     return;
   }
   if (!force && cache.uid === uid && cache.checked) return;
-  if (inflight) return;
-  inflight = runCheck(uid).finally(() => { inflight = null; });
+  // الحساب نفسه يُفحص الآن فقط؛ أما حساب مختلف فيبدأ فحصه بلا انتظار.
+  if (inflightUid === uid) return;
+  inflightUid = uid;
+  runCheck(uid).finally(() => { if (inflightUid === uid) inflightUid = null; });
 }
 
 export function useAuth() {

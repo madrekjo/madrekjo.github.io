@@ -14,16 +14,25 @@ export async function isPlatformOwner(email?: string | null): Promise<boolean> {
     return ownerCache.value;
   }
   try {
-    const res = await fetch(`${CHAT_REST_URL}/rest/v1/rpc/is_platform_owner`, {
-      method: "POST",
-      headers: {
-        apikey: CHAT_PUBLISHABLE_KEY,
-        Authorization: `Bearer ${CHAT_PUBLISHABLE_KEY}`,
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({ p_email: e }),
-    });
+    // مهلة قصوى: لو تأخّرت قاعدة الدردشة أو تعطّل الطلب لا نُعلّق فحص الصلاحية.
+    const ctrl = typeof AbortController !== "undefined" ? new AbortController() : null;
+    const timer = ctrl ? setTimeout(() => ctrl.abort(), 4000) : null;
+    let res: Response;
+    try {
+      res = await fetch(`${CHAT_REST_URL}/rest/v1/rpc/is_platform_owner`, {
+        method: "POST",
+        headers: {
+          apikey: CHAT_PUBLISHABLE_KEY,
+          Authorization: `Bearer ${CHAT_PUBLISHABLE_KEY}`,
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ p_email: e }),
+        signal: ctrl ? ctrl.signal : undefined,
+      });
+    } finally {
+      if (timer) clearTimeout(timer);
+    }
     const value = res.ok ? (await res.json()) === true : false;
     ownerCache = { email: e, value, at: Date.now() };
     return value;

@@ -239,6 +239,15 @@ function Admin() {
   const [userSort, setUserSort] = useState<"new" | "old" | "num">("old");
   const [commentBg, setCommentBg] = useState("#fef3c7");
   const [commentText, setCommentText] = useState("#78350f");
+  const [waitLong, setWaitLong] = useState(false);
+
+  // حماية من التعليق: لو طال التحقق ولم يكتمل، لا نُبقي المستخدم على شاشة
+  // «جاري التحقق» إلى الأبد — نُظهر خيار إعادة المحاولة.
+  useEffect(() => {
+    if (loading || adminChecked) { setWaitLong(false); return; }
+    const t = setTimeout(() => setWaitLong(true), 8000);
+    return () => clearTimeout(t);
+  }, [loading, adminChecked]);
 
   useEffect(() => { setMaintMsg(settings.maintenance_message ?? ""); }, [settings.maintenance_message]);
   useEffect(() => {
@@ -309,6 +318,22 @@ function Admin() {
   }, [isAdmin]);
 
   if (loading || !adminChecked) {
+    if (waitLong) {
+      return (
+        <div className="min-h-screen bg-background">
+          <Header />
+          <div className="mx-auto max-w-md space-y-4 p-10 text-center">
+            <p className="text-muted-foreground">تعذّر إكمال التحقق من الصلاحية.</p>
+            <button
+              onClick={() => location.reload()}
+              className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
+            >
+              إعادة المحاولة
+            </button>
+          </div>
+        </div>
+      );
+    }
     return <div className="min-h-screen bg-background"><Header /><p className="p-10 text-center text-muted-foreground">جاري التحقق...</p></div>;
   }
 
