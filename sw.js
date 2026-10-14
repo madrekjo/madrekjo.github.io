@@ -2,7 +2,7 @@
    مدارك جو — Service Worker
    ======================================== */
 
-const CACHE = 'madrekjo-v40';
+const CACHE = 'madrekjo-v41';
 
 const CORE = [
   '/',
@@ -35,6 +35,21 @@ function offlineResponse() {
       'Content-Type': 'text/plain; charset=utf-8'
     }
   });
+}
+
+/* حفظ آمن في الكاش: لا نحفظ إلا استجابة كاملة ناجحة (200).
+   حفظ استجابة جزئية (206 Partial) أو معتمة كان يرمي
+   "Failed to execute 'put' on 'Cache'" غير ملتقط في الكونسول. */
+function safePut(key, res) {
+  try {
+    if (!res || res.status !== 200) return;
+    var copy = res.clone();
+    caches.open(CACHE).then(function(c) {
+      return c.put(key, copy);
+    }).catch(function() {});
+  } catch (e) {
+    /* تجاهل — فشل الكاش لا يجب أن يُسقط الطلب */
+  }
 }
 
 self.addEventListener('install', function(e) {
@@ -102,11 +117,7 @@ self.addEventListener('fetch', function(e) {
       e.respondWith(
         fetch(req)
           .then(function(res) {
-            var copy = res.clone();
-
-            caches.open(CACHE).then(function(c) {
-              c.put(req, copy);
-            });
+            safePut(req, res);
 
             return res;
           })
@@ -151,11 +162,7 @@ self.addEventListener('fetch', function(e) {
       e.respondWith(
         fetch(indexUrl)
           .then(function(res) {
-            var copy = res.clone();
-
-            caches.open(CACHE).then(function(c) {
-              c.put('/chat/index.html', copy);
-            });
+            safePut('/chat/index.html', res);
 
             return res;
           })
@@ -181,11 +188,7 @@ self.addEventListener('fetch', function(e) {
       e.respondWith(
         fetch(req)
           .then(function(res) {
-            var copy = res.clone();
-
-            caches.open(CACHE).then(function(c) {
-              c.put(req, copy);
-            });
+            safePut(req, res);
 
             return res;
           })
@@ -211,11 +214,7 @@ self.addEventListener('fetch', function(e) {
       e.respondWith(
         fetch(req)
           .then(function(res) {
-            var copy = res.clone();
-
-            caches.open(CACHE).then(function(c) {
-              c.put(req, copy);
-            });
+            safePut(req, res);
 
             return res;
           })
@@ -238,11 +237,7 @@ self.addEventListener('fetch', function(e) {
       e.respondWith(
         fetch(req)
           .then(function(res) {
-            var copy = res.clone();
-
-            caches.open(CACHE).then(function(c) {
-              c.put(req, copy);
-            });
+            safePut(req, res);
 
             return res;
           })
@@ -270,11 +265,7 @@ self.addEventListener('fetch', function(e) {
 
           return fetch(req)
             .then(function(res) {
-              var copy = res.clone();
-
-              caches.open(CACHE).then(function(c) {
-                c.put(req, copy);
-              });
+              safePut(req, res);
 
               return res;
             });
