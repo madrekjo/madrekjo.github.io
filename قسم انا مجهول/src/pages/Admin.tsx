@@ -291,7 +291,7 @@ function Admin() {
 
   async function loadUsers(search = userSearch, page = userPage) {
     setUsersLoading(true);
-    const { data, error } = await (supabase.rpc as any)("admin_list_devices", {
+    const { data, error } = await (supabase.rpc as any)("admin_list_users", {
       p_search: search || null, p_limit: USER_PAGE, p_offset: page * USER_PAGE, p_sort: userSort,
     });
     setUsersLoading(false);
@@ -451,7 +451,7 @@ function Admin() {
       { v: "chat", label: "الشات", icon: MessageSquare, count: 0 },
     ]},
     { group: "المستخدمون", items: [
-      { v: "users", label: "كل المستخدمين", icon: Users, count: usersTotal },
+      { v: "users", label: "الحسابات (بالإيميل)", icon: Users, count: usersTotal },
       { v: "blocks", label: "المحظورون", icon: Ban, count: blocks.length },
       { v: "admins", label: "الأدمن", icon: ShieldPlus, count: admins.length },
     ]},
@@ -469,7 +469,7 @@ function Admin() {
           <div className="flex flex-wrap gap-1.5 text-[11px]">
             <span className="rounded-full bg-muted px-2 py-0.5">مراجعة: {pending.length}</span>
             <span className="rounded-full bg-muted px-2 py-0.5">بلاغات: {openReports}</span>
-            <span className="rounded-full bg-muted px-2 py-0.5">مستخدم: {usersTotal}</span>
+            <span className="rounded-full bg-muted px-2 py-0.5">حساب: {usersTotal}</span>
             <span className="rounded-full bg-muted px-2 py-0.5">محظور: {blocks.length}</span>
           </div>
         </div>
@@ -698,71 +698,50 @@ function Admin() {
               {users.length === 0 && !usersLoading && <p className="text-sm text-muted-foreground">لا يوجد مستخدمون.</p>}
               {users.map((u) => (
                 <div
-                  key={u.device_id}
-                  onClick={() => setInspectId(u.device_id)}
-                  className="cursor-pointer space-y-1 rounded-xl border border-border bg-card p-3 text-sm transition hover:border-primary/60 hover:bg-accent/40"
+                  key={u.user_id}
+                  className="space-y-1 rounded-xl border border-border bg-card p-3 text-sm"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="flex items-center gap-2">
-                      <span className="rounded-lg bg-primary px-2 py-0.5 font-mono text-xs font-black text-primary-foreground">#{u.anon_number || "—"}</span>
-                      <DeviceNameTag name={u.name || null} deviceId={u.device_id} showId />
-                    </span>
+                    <span className="rounded-lg bg-emerald-500/10 px-2 py-0.5 font-mono text-xs font-bold text-emerald-700" dir="ltr">{u.email}</span>
                     <div className="flex flex-wrap items-center gap-1">
-                      {u.label && <span className="rounded-md bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold text-primary">{u.label}</span>}
-                      {u.is_blocked && (
-                        <span className="flex items-center gap-1">
-                          <span className="rounded-md bg-destructive/15 px-1.5 py-0.5 text-[10px] font-bold text-destructive">محظور</span>
-                          {u.ban_score != null && (
-                            <span className="rounded-md bg-destructive/10 px-1.5 py-0.5 font-mono text-[10px] font-bold text-destructive">{u.ban_score}</span>
-                          )}
-                        </span>
-                      )}
-                      {!u.is_blocked && u.ban_status && (
-                        <span className="rounded-md bg-muted px-1.5 py-0.5 text-[10px] font-bold text-muted-foreground">
-                          {u.ban_status === "UNBANNED" ? "حظر مرفوع" : u.ban_status === "EXPIRED" ? "حظر منتهي" : u.ban_status === "REVOKED" ? "حظر ملغى" : u.ban_status}
-                        </span>
-                      )}
-                      {u.is_blocked && u.ban_needs_review && (
-                        <span className="rounded-md bg-amber-500/20 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">يحتاج مراجعة</span>
-                      )}
-                      {u.is_challenged && (
-                        <span className="rounded-md bg-amber-500/15 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">تحت التحقق</span>
-                      )}
-                      {u.warning && <span className="rounded-md bg-amber-500/20 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">مُحذَّر</span>}
+                      {u.is_blocked && <span className="rounded-md bg-destructive/15 px-1.5 py-0.5 text-[10px] font-bold text-destructive">محظور</span>}
                       {u.is_admin && <span className="rounded-md bg-emerald-500/15 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700">أدمن</span>}
                     </div>
                   </div>
-                  {Array.isArray(u.emails) && u.emails.length > 0 && (
-                    <div className="flex flex-wrap gap-1" dir="ltr">
-                      {u.emails.map((em: string) => (
-                        <span key={em} className="rounded-md bg-emerald-500/10 px-1.5 py-0.5 font-mono text-[10px] font-semibold text-emerald-700">{em}</span>
-                      ))}
-                    </div>
-                  )}
                   <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-[11px] text-muted-foreground">
-                    <span className="font-bold text-foreground">مستخدم #{u.anon_number || "—"}</span>
-                    <span>أول ظهور: {u.first_seen ? timeAgo(u.first_seen) : "—"}</span>
+                    <span>التسجيل: {u.created_at ? timeAgo(u.created_at) : "—"}</span>
+                    <span>آخر دخول: {u.last_sign_in_at ? formatDistanceToNow(new Date(u.last_sign_in_at), { addSuffix: true, locale: ar }) : "—"}</span>
                     <span>منشورات: {u.post_count}</span>
                     <span>تعليقات: {u.comment_count}</span>
                     <span>شات: {u.chat_count}</span>
-                    <span>زيارات: {u.visits}</span>
-                    <span>آخر ظهور: {u.last_seen ? formatDistanceToNow(new Date(u.last_seen), { addSuffix: true, locale: ar }) : "—"}</span>
+                    <span>أجهزة: {Array.isArray(u.devices) ? u.devices.length : 0}</span>
                   </div>
-                  {u.warning && <div className="rounded-md bg-amber-500/10 px-2 py-1 text-[11px] text-amber-800">تحذير مُرسَل: {u.warning}</div>}
-                  <div className="flex flex-wrap gap-1.5 pt-1" onClick={(e) => e.stopPropagation()}>
-                    <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => setInspectId(u.device_id)}>
-                      <Settings2 className="h-3 w-3" /> كل المعلومات والأدوات
-                    </Button>
-                    {u.is_blocked ? (
-                      <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => unblock(u.device_id)}>
-                        <Trash2 className="h-3 w-3" /> رفع الحظر
+                  {Array.isArray(u.devices) && u.devices.length > 0 && (
+                    <div className="flex flex-wrap gap-1" dir="ltr">
+                      {u.devices.map((d: string) => (
+                        <button key={d} type="button" onClick={() => setInspectId(d)}
+                          className="rounded-md bg-muted px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground hover:bg-accent">
+                          {d.slice(0, 12)}…
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                  {Array.isArray(u.devices) && u.devices.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => setInspectId(u.devices[0])}>
+                        <Settings2 className="h-3 w-3" /> كل المعلومات والأدوات
                       </Button>
-                    ) : (
-                      <Button size="sm" variant="destructive" className="h-7 text-xs" onClick={() => setBanTarget(u.device_id)}>
-                        <Ban className="h-3 w-3" /> حظر
-                      </Button>
-                    )}
-                  </div>
+                      {u.is_blocked ? (
+                        <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => unblock(u.devices[0])}>
+                          <Trash2 className="h-3 w-3" /> رفع الحظر
+                        </Button>
+                      ) : (
+                        <Button size="sm" variant="destructive" className="h-7 text-xs" onClick={() => setBanTarget(u.devices[0])}>
+                          <Ban className="h-3 w-3" /> حظر
+                        </Button>
+                      )}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
