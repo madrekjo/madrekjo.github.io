@@ -2,7 +2,7 @@
    مدارك جو — Service Worker
    ======================================== */
 
-const CACHE = 'madrekjo-v41';
+const CACHE = 'madrekjo-v42';
 
 const CORE = [
   '/',
@@ -115,7 +115,7 @@ self.addEventListener('fetch', function(e) {
       url.pathname === '/chat/'
     ) {
       e.respondWith(
-        fetch(req)
+        fetch(req, { cache: 'no-cache' })
           .then(function(res) {
             safePut(req, res);
 
@@ -160,7 +160,7 @@ self.addEventListener('fetch', function(e) {
       }
 
       e.respondWith(
-        fetch(indexUrl)
+        fetch(indexUrl, { cache: 'no-cache' })
           .then(function(res) {
             safePut('/chat/index.html', res);
 
@@ -186,7 +186,7 @@ self.addEventListener('fetch', function(e) {
     // ----------------------------------------
     if (req.mode === 'navigate') {
       e.respondWith(
-        fetch(req)
+        fetch(req, { cache: 'no-cache' })
           .then(function(res) {
             safePut(req, res);
 

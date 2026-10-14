@@ -29,8 +29,20 @@ export function UpdateWatcher() {
         const mine = currentBundle();
         if (!latest || !mine || latest === mine || cancelled) return;
         sessionStorage.setItem("anon-update-seen", latest);
+        // حماية من حلقة إعادة التحميل: GitHub Pages يخزّن index.html عشر دقائق،
+        // فقد تعود الصفحة بعد التحديث بنفس الحزمة القديمة فيتكرر التحديث بلا نهاية.
+        // لذلك نعيد التحميل مرة واحدة فقط لكل حزمة جديدة، وبعدها نكتفي بالتنبيه.
+        if (sessionStorage.getItem("anon-update-reloaded") === latest) {
+          toast("⬆️ في نسخة جديدة جاهزة", {
+            description: "حدّث الصفحة عشان تشوف آخر التعديلات",
+            duration: 12_000,
+            action: { label: "تحديث", onClick: () => location.reload() },
+          });
+          return;
+        }
         const typing = !!document.querySelector<HTMLElement>("textarea:focus, input:focus, [contenteditable='true']:focus");
         if (!typing) {
+          sessionStorage.setItem("anon-update-reloaded", latest);
           location.reload();
           return;
         }
