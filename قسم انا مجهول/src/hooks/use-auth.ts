@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { isPlatformOwner } from "@/lib/platform-owner";
 import type { Session } from "@supabase/supabase-js";
 
 // كاش مشترك بين كل نسخ useAuth (الهيدر + الصفحات) حتى لا تتكرر الطلبات
@@ -13,29 +14,41 @@ function publish(c: Cache) {
   listeners.forEach((l) => l(c));
 }
 
-/** 1) RPC my_admin_status (يتجاوز RLS)  2) عند فشله: قراءة user_roles  3) إعادة محاولة */
+/** 1) RPC my_admin_status (يتجاوز RLS)  2) عند فشله: قراءة user_roles  3) إعادة محاولة
+ *  ثم: مالكو الدردشة يُعتبرون أدمن هنا (قاعدة موحّدة). */
 async function runCheck(uid: string, attempt = 0) {
+  let localAdmin = false;
   const { data, error } = await (supabase.rpc as any)("my_admin_status");
   if (!error) {
     const r = (data ?? {}) as { is_admin: boolean };
-    publish({ uid, isAdmin: !!r.is_admin, checked: true, error: null, at: Date.now() });
-    return;
-  }
-  const { data: row, error: e2 } = await supabase
-    .from("user_roles")
-    .select("role")
-    .eq("user_id", uid)
-    .eq("role", "admin")
-    .maybeSingle();
-  if (e2) {
-    if (attempt < 2) {
-      setTimeout(() => { void runCheck(uid, attempt + 1); }, 800);
+    localAdmin = !!r.is_admin;
+  } else {
+    const { data: row, error: e2 } = await supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", uid)
+      .eq("role", "admin")
+      .maybeSingle();
+    if (e2) {
+      if (attempt < 2) {
+        setTimeout(() => { void runCheck(uid, attempt + 1); }, 800);
+        return;
+      }
+      publish({ uid, isAdmin: false, checked: true, error: e2.message, at: Date.now() });
       return;
     }
-    publish({ uid, isAdmin: false, checked: true, error: e2.message, at: Date.now() });
-    return;
+    localAdmin = !!row;
   }
-  publish({ uid, isAdmin: !!row, checked: true, error: null, at: Date.now() });
+
+  let owner = false;
+  try {
+    const { data: s } = await supabase.auth.getSession();
+    owner = await isPlatformOwner(s.session?.user?.email);
+  } catch {
+    /* تجاهل — لا نمنع الفحص المحلي */
+  }
+
+  publish({ uid, isAdmin: localAdmin || owner, checked: true, error: null, at: Date.now() });
 }
 
 function ensureCheck(uid: string | null, force = false) {

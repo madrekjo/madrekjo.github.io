@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
+import { isPlatformOwner } from "@/lib/platformOwner";
 import { getAuthorToken } from "@/lib/authorToken";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -87,7 +88,9 @@ const ContributionsSection = () => {
       } = await supabase.auth.getSession();
       if (session) {
         const { data } = await supabase.rpc("is_ajr_admin");
-        setIsAdmin(data === true);
+        // قاعدة موحّدة: مالكو الدردشة أدمن هنا أيضاً.
+        const owner = await isPlatformOwner(session.user.email);
+        setIsAdmin(data === true || owner);
       } else {
         setIsAdmin(false);
       }

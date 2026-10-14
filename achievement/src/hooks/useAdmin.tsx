@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { achievementSupabase } from "@/integrations/supabase/achievementClient";
+import { isPlatformOwner } from "@/lib/platformOwner";
 import { useAuth } from "./useAuth";
 
 export const useAdmin = () => {
@@ -9,14 +10,16 @@ export const useAdmin = () => {
     queryKey: ["is-admin", user?.id],
     queryFn: async () => {
       if (!user) return false;
+      // قاعدة موحّدة: مالكو الدردشة أدمن هنا أيضاً.
+      const owner = await isPlatformOwner(user.email);
       const { data, error } = await achievementSupabase
         .from("user_roles")
         .select("role")
         .eq("user_id", user.id)
         .eq("role", "admin")
         .maybeSingle();
-      if (error) return false;
-      return !!data;
+      if (error) return owner;
+      return !!data || owner;
     },
     enabled: !!user,
   });

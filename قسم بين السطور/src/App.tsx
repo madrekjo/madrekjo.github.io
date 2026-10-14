@@ -38,6 +38,7 @@ import { downloadBlob, renderCardImage, renderNotebookImage } from "./lib/cardIm
 import { lines as sampleLines } from "./data";
 import { wait } from "./lib/helpers";
 import { logout } from "./lib/sso";
+import { currentEmailIsPlatformOwner } from "./lib/platformOwner";
 import AddLineModal from "./components/AddLineModal";
 import Onboarding from "./components/Onboarding";
 import RecoverAccountModal from "./components/RecoverAccountModal";
@@ -158,12 +159,19 @@ const [readerOpen, setReaderOpen] = useState(false);
 
   // ---------- جهاز الإدارة (زر المؤسسة يظهر لجهازي فقط) ----------
   const [adminDevice, setAdminDevice] = useState<boolean>(false);
+  // قاعدة موحّدة: مالكو الدردشة أدمن هنا أيضاً (بغضّ النظر عن الجهاز).
+  const [ownerAccount, setOwnerAccount] = useState<boolean>(false);
 
   const refreshAdminDevice = useCallback(async () => {
     try {
       setAdminDevice(await isAdminDevice());
     } catch {
       setAdminDevice(false);
+    }
+    try {
+      setOwnerAccount(await currentEmailIsPlatformOwner());
+    } catch {
+      setOwnerAccount(false);
     }
   }, []);
 
@@ -172,7 +180,9 @@ const [readerOpen, setReaderOpen] = useState(false);
   }, [refreshAdminDevice]);
 
   const adminVisible =
-    adminDevice || new URLSearchParams(window.location.search).has("admin");
+    adminDevice ||
+    ownerAccount ||
+    new URLSearchParams(window.location.search).has("admin");
 
   const flash = useCallback((m: string) => {
     setNotice(m);
