@@ -22,6 +22,7 @@ function publish(c: Cache) {
 /** 1) RPC my_admin_status (يتجاوز RLS)  2) عند فشله: قراءة user_roles  3) إعادة محاولة
  *  ثم: مالكو الدردشة يُعتبرون أدمن هنا (قاعدة موحّدة). */
 async function runCheck(uid: string, attempt = 0) {
+  sawSession = true;
   const my = ++checkSeq;
   // لا ننشر إلا إذا لم تبدأ عملية فحص أحدث (يمنع طمس نتيجة الحساب الحالي).
   const commit = (c: Cache) => { if (my === checkSeq) publish(c); };
@@ -63,15 +64,22 @@ async function runCheck(uid: string, attempt = 0) {
 
 // فحص المالك بلا جلسة قسم: نستخرج الإيميل من الجلسة الموحّدة (mdk:sso:session)
 // فنعرف المالك أدمن حتى لو لم تُثبَّت جلسة القسم بعد (مثلًا موقع مسكّر).
+// مهم: لا نطمس أبداً نتيجة جلسة حقيقية. كانت تُنشر النتيجة (uid:null) فوق
+// نتيجة الجلسة فيتبدّل isAdmin ذهاباً وإياباً => حلقة إعادة رسم لا نهائية
+// (نفس الأعراض: تكرار الاستعلامات + وميض صفحة الإدارة).
 let inflightNoSession = false;
+let sawSession = false;
 async function runNoSessionCheck(force = false) {
   if (inflightNoSession) return;
+  if (sawSession || cache.uid !== null) return; // ظهرت جلسة حقيقية — لا شأن لنا
   if (!force && cache.uid === null && cache.checked && Date.now() - cache.at < 30_000) return;
   inflightNoSession = true;
   const my = ++checkSeq;
-  const commit = (c: Cache) => { if (my === checkSeq) publish(c); };
   let owner = false;
   try {
+    // نتأكد فعلاً أنه لا وجود لجلسة قبل نشر نتيجة "بلا جلسة".
+    const { data } = await supabase.auth.getSession();
+    if (data.session?.user?.id || sawSession || cache.uid !== null) return;
     const email = ssoEmail();
     if (email) owner = await isPlatformOwner(email);
   } catch {
@@ -79,7 +87,8 @@ async function runNoSessionCheck(force = false) {
   } finally {
     inflightNoSession = false;
   }
-  commit({ uid: null, isAdmin: owner, checked: true, error: null, at: Date.now() });
+  if (my !== checkSeq || sawSession || cache.uid !== null) return;
+  publish({ uid: null, isAdmin: owner, checked: true, error: null, at: Date.now() });
 }
 
 function ensureCheck(uid: string | null, force = false) {
