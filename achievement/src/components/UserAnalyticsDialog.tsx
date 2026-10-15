@@ -4,6 +4,7 @@ import { Card } from "./ui/card";
 import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
 import { useQuery } from "@tanstack/react-query";
 import { achievementSupabase } from "@/integrations/supabase/achievementClient";
+import { fetchAll } from "@/hooks/useTasks";
 import { Loader2, BarChart3, Trophy, Clock, CheckCircle2 } from "lucide-react";
 import {
   LineChart,
@@ -43,16 +44,20 @@ export const UserAnalyticsDialog = ({ open, onOpenChange, userId, userName, cate
   const { data: tasks = [], isLoading } = useQuery({
     queryKey: ["user-analytics", userId, filter],
     queryFn: async () => {
-      const { data, error } = await (achievementSupabase.rpc as any)("get_user_successful_tasks", {
-        _user_id: userId,
-      });
-      if (error) throw error;
-      const rows = (data ?? []) as Array<{
+      // Paginate past the 1000-row default cap so heavy users' totals stay accurate.
+      const rows = await fetchAll<{
         category: string;
         duration: number;
         updated_at: string;
         created_at: string;
-      }>;
+      }>(async (from, to) => {
+        const r = await (achievementSupabase.rpc as any)("get_user_successful_tasks", {
+          _user_id: userId,
+        })
+          .order("id", { ascending: true })
+          .range(from, to);
+        return r;
+      });
       return filter === "all" ? rows : rows.filter((t) => t.category === filter);
     },
     enabled: open,

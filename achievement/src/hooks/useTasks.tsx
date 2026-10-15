@@ -25,7 +25,7 @@ type SuccessfulTaskWithProfile = PublicSuccessfulTask & {
 const PAGE = 1000;
 
 /** Fetch ALL rows by paginating past the 1000-row default limit */
-async function fetchAll<T>(builder: (from: number, to: number) => Promise<{ data: T[] | null; error: unknown }>): Promise<T[]> {
+export async function fetchAll<T>(builder: (from: number, to: number) => Promise<{ data: T[] | null; error: unknown }>): Promise<T[]> {
   const out: T[] = [];
   let from = 0;
   while (true) {
@@ -69,11 +69,16 @@ export const useTasks = () => {
     queryFn: async () => {
       if (!user) return [];
 
-      const { data: rpcData, error: rpcError } = await (achievementSupabase.rpc as any)(
-        "get_public_successful_tasks",
-      );
-      if (rpcError) throw rpcError;
-      const tasks = (rpcData ?? []) as PublicSuccessfulTask[];
+      // Paginate past PostgREST's 1000-row default cap. Without ordering,
+      // PostgREST returns an arbitrary 1000-row slice, so once the platform
+      // crosses 1000 successful tasks the newest completions (appended last)
+      // get silently dropped and the leaderboard totals freeze.
+      const tasks = await fetchAll<PublicSuccessfulTask>(async (from, to) => {
+        const r = await (achievementSupabase.rpc as any)("get_public_successful_tasks")
+          .order("id", { ascending: true })
+          .range(from, to);
+        return r;
+      });
       if (tasks.length === 0) return [];
 
       const userIds = Array.from(new Set(tasks.map((task) => task.user_id)));

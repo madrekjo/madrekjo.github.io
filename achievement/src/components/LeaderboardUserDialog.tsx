@@ -10,6 +10,7 @@ import { UserAnalyticsDialog } from "./UserAnalyticsDialog";
 import { useAdmin } from "@/hooks/useAdmin";
 import { useQuery } from "@tanstack/react-query";
 import { achievementSupabase } from "@/integrations/supabase/achievementClient";
+import { fetchAll } from "@/hooks/useTasks";
 import { toast } from "sonner";
 import {
   MessageCircle,
@@ -86,11 +87,15 @@ export const LeaderboardUserDialog = ({ open, onOpenChange, userId, userName }: 
         if (error) throw error;
         return (data ?? []) as any[];
       }
-      const { data, error } = await (achievementSupabase.rpc as any)("get_user_successful_tasks", {
-        _user_id: userId,
+      const rows = await fetchAll<any>(async (from, to) => {
+        const r = await (achievementSupabase.rpc as any)("get_user_successful_tasks", {
+          _user_id: userId,
+        })
+          .order("id", { ascending: true })
+          .range(from, to);
+        return r;
       });
-      if (error) throw error;
-      return ((data ?? []) as any[]).map((t) => ({
+      return rows.map((t) => ({
         ...t,
         title: "",
         completed: true,
