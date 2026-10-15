@@ -18,20 +18,36 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://madrekjo.study/support/">
     <meta property="og:image" content="https://madrekjo.study/assets/images/logo.png">
-    <script type="module" crossorigin src="/chat/assets/support-DbEiHg-W.js"></script>
-    <link rel="modulepreload" crossorigin href="/chat/assets/index-DPELv_4x.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/textarea-DgUxvaXn.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/input-Ewt9iNud.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/pen-KNguvxM0.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/ban-BQBWw7UV.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/smartphone-4jVJW6kC.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/Lightbox-B870PLS1.js">
+    <!-- مطابقة ثيم الدردشة قبل أول رسم (منع وميض الثيم الفاتح):
+         نفس منطق ThemeContext — الثيم المحفوظ + وضع النوم الليلي 10م→7ص. -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          var h = new Date().getHours();
+          if (h >= 22 || h < 7) t = "sleep";
+          if (t === "dark" || t === "blue" || t === "pink" || t === "sleep") {
+            document.documentElement.classList.add(t);
+          }
+        } catch (e) {
+          /* تجاهل — الوضع الافتراضي فاتح */
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/chat/assets/support-29-J4QPx.js"></script>
+    <link rel="modulepreload" crossorigin href="/chat/assets/index-CjIYBGe6.js">
+    <link rel="modulepreload" crossorigin href="/chat/assets/textarea-COnrARKF.js">
+    <link rel="modulepreload" crossorigin href="/chat/assets/input-C1ommaqC.js">
+    <link rel="modulepreload" crossorigin href="/chat/assets/pen-HHg_7Rc8.js">
+    <link rel="modulepreload" crossorigin href="/chat/assets/ban-CEEMQQEd.js">
+    <link rel="modulepreload" crossorigin href="/chat/assets/smartphone-Ch9mc5MN.js">
+    <link rel="modulepreload" crossorigin href="/chat/assets/Lightbox-D8pNbjTv.js">
     <link rel="modulepreload" crossorigin href="/chat/assets/mediaCompression-PLSvQL81.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/storage-BKmE6Akl.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/send-D56Ni8X0.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/image-plus--kpeiwa9.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/trash-2-Bwyn4NWE.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/Support-BcU6x2PF.js">
+    <link rel="modulepreload" crossorigin href="/chat/assets/storage-CvZ7n28I.js">
+    <link rel="modulepreload" crossorigin href="/chat/assets/send-DqeUSnDG.js">
+    <link rel="modulepreload" crossorigin href="/chat/assets/image-plus-CjAtiPTP.js">
+    <link rel="modulepreload" crossorigin href="/chat/assets/trash-2-CP2tSTTz.js">
+    <link rel="modulepreload" crossorigin href="/chat/assets/Support-DXFubiYE.js">
     <link rel="stylesheet" crossorigin href="/chat/assets/index-B-1PJ_PC.css">
   </head>
   <body>
