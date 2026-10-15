@@ -1,5 +1,4 @@
 import { createClient } from "@supabase/supabase-js";
-import type { Database } from "./types";
 import { SUPABASE_URL as CONFIG_URL, SUPABASE_PUBLISHABLE_KEY as CONFIG_KEY } from "@/config/supabase-config";
 
 const SUPABASE_URL = CONFIG_URL && !CONFIG_URL.includes("YOUR-PROJECT-REF")
@@ -15,7 +14,10 @@ if (!SUPABASE_URL) {
 
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
-export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
+// ملاحظة: مخطط القاعدة تغيّر (إزالة الجهاز + الهوية بالحساب). الأنواع المولّدة
+// (types.ts) قديمة مؤقتاً، لذا نُبقي العميل بلا وسيط نوعي حتى تُولَّد الأنواع
+// الجديدة بعد تنفيذ الـmigrations.
+export const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
   auth: {
     persistSession: true,
     autoRefreshToken: true,

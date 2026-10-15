@@ -1,7 +1,6 @@
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./styles.css";
-import { resolveIdentity } from "./lib/device-identity";
 import { supabase } from "./integrations/supabase/client";
 import { sliceForAnonProject, readSsoPayload } from "./lib/sso-session";
 
@@ -26,8 +25,6 @@ async function linkSsoSession() {
   }
 }
 
-void linkSsoSession().finally(() =>
-  resolveIdentity().finally(() => {
-    createRoot(document.getElementById("root")!).render(<App />);
-  })
-);
+void linkSsoSession().finally(() => {
+  createRoot(document.getElementById("root")!).render(<App />);
+});

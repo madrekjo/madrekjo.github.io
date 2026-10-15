@@ -6,8 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { getDeviceId } from "@/lib/device";
-import { submitReport } from "@/lib/visitor.functions";
+import { supabase } from "@/integrations/supabase/client";
 
 const REASONS: { code: string; label: string }[] = [
   { code: "spam", label: "سبام / إعلان" },
@@ -34,18 +33,14 @@ export function ReportButton({ contentType, contentId, compact }: Props) {
   async function send() {
     setBusy(true);
     try {
-      const res = await submitReport({
-        data: {
-          device_id: getDeviceId(),
-          content_type: contentType,
-          content_id: contentId,
-          reason_code: code,
-          reason_text: text.trim() || undefined,
-        },
+      const { error } = await supabase.rpc("submit_report", {
+        p_content_type: contentType,
+        p_content_id: contentId,
+        p_reason_code: code,
+        p_reason_text: text.trim() || null,
       });
-      if (!res.ok) {
-        if (res.reason === "banned") toast.error("لا يمكنك إرسال بلاغ لأنك محظور");
-        else toast.error("تعذر إرسال البلاغ");
+      if (error) {
+        toast.error(error.message.includes("not authenticated") ? "سجّل الدخول للإبلاغ" : "تعذر إرسال البلاغ");
         return;
       }
       toast.success("تم إرسال البلاغ. شكراً لك.");

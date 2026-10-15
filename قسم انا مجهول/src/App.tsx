@@ -3,12 +3,7 @@ import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import { type ReactNode } from "react";
 
 import { Toaster } from "@/components/ui/sonner";
-import { useHeartbeat } from "@/hooks/use-heartbeat";
 import { useCentralBan } from "@/hooks/use-central-ban";
-import { useVisitorGate } from "@/hooks/use-visitor-gate";
-import { BanScreen } from "@/components/ban-screen";
-import { WarningScreen } from "@/components/warning-screen";
-import { ChallengeDialog } from "@/components/challenge-dialog";
 import Index from "@/pages/Index.tsx";
 import Login from "@/pages/Login.tsx";
 import Admin from "@/pages/Admin.tsx";
@@ -69,40 +64,9 @@ function ErrorBoundary({ children }: { children: ReactNode }) {
   return <>{children}</>;
 }
 
-function HeartbeatRunner() {
-  useHeartbeat();
-  return null;
-}
-
 function CentralBanRunner() {
   useCentralBan();
   return null;
-}
-
-function VisitorGate({ children }: { children: ReactNode }) {
-  const { loading, banned, reason, expires_at, evidence_url, warning, challenge } = useVisitorGate();
-  // إشعار التحقق يُعرض مرة واحدة لكل جلسة لكل جهاز
-  const [challengeDismissed, setChallengeDismissed] = useState(false);
-  useEffect(() => {
-    if (!challenge) setChallengeDismissed(false);
-  }, [challenge]);
-  if (loading) return <>{children}</>;
-  if (banned) return <BanScreen reason={reason} expiresAt={expires_at} evidenceUrl={evidence_url} />;
-  return (
-    <>
-      {children}
-      {warning && <WarningScreen warning={warning} />}
-      {challenge && !challengeDismissed && (
-        <ChallengeDialog
-          challenge={challenge}
-          open
-          onOpenChange={(o) => {
-            if (!o) setChallengeDismissed(true);
-          }}
-        />
-      )}
-    </>
-  );
 }
 
 const App = () => (
@@ -110,16 +74,13 @@ const App = () => (
     <ErrorBoundary>
       <BrowserRouter basename="/anon">
         <UpdateWatcher />
-        <HeartbeatRunner />
         <CentralBanRunner />
-        <VisitorGate>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="*" element={<NotFoundComponent />} />
-          </Routes>
-        </VisitorGate>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="*" element={<NotFoundComponent />} />
+        </Routes>
         <Toaster />
       </BrowserRouter>
     </ErrorBoundary>

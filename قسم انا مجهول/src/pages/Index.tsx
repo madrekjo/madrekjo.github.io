@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Header } from "@/components/header";
 import { PostComposer } from "@/components/post-composer";
-import { PostCard } from "@/components/post-card";
+import { PostCard, POST_COLS } from "@/components/post-card";
 import { ChatRoom } from "@/components/chat-room";
 import { useSiteSettings } from "@/hooks/use-site-settings";
 import { useAuth } from "@/hooks/use-auth";
@@ -77,7 +77,7 @@ function Index() {
   async function load() {
     let q = supabase
       .from("posts")
-      .select("*")
+      .select(POST_COLS)
       .eq("status", "approved")
       .order("pinned", { ascending: false })
       .order("created_at", { ascending: false })

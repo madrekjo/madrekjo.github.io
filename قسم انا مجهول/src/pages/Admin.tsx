@@ -11,19 +11,14 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "sonner";
-import { Trash2, Check, X, Ghost, ShieldPlus, Settings, MessageSquare, Ban, UserCircle2, ImagePlus, Loader2, Settings2, Flag, ExternalLink, Users, EyeOff, AlertTriangle, Globe, Plus } from "lucide-react";
+import { Trash2, Check, X, Ghost, Settings, MessageSquare, Loader2, Flag, ExternalLink, Users, EyeOff, AlertTriangle, Globe, Plus, UserCircle2, ImagePlus } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { useSiteSettings } from "@/hooks/use-site-settings";
 import { getProfile, setProfile, type ChatProfile } from "@/lib/profile";
 import { uploadFile } from "@/lib/upload";
-import { getDeviceId } from "@/lib/device";
 import { cn } from "@/lib/utils";
-import { DeviceInspector } from "@/components/device-inspector";
-import { useDeviceLabel } from "@/lib/device-labels";
-import { useDeviceNames } from "@/lib/device-names";
-import { DeviceNameTag } from "@/components/device-name-tag";
-import { BanDialog } from "@/components/ban-dialog";
+import { POST_COLS } from "@/components/post-card";
 import { listGlobalBans, addGlobalBan, removeGlobalBan, type GlobalBan } from "@/lib/global-bans";
 
 function AdminProfileEditor() {
@@ -52,8 +47,7 @@ function AdminProfileEditor() {
     const next = { name, avatar_url: p.avatar_url };
     setProfile(next);
     setP(next);
-    const { error } = await supabase.from("admin_devices").upsert({ device_id: getDeviceId(), note: "admin profile" });
-    if (error) toast.error("فشل: " + error.message); else toast.success("تم الحفظ");
+    toast.success("تم الحفظ");
   }
 
   if (!loaded) return null;
@@ -87,19 +81,12 @@ function timeAgo(d: string) {
 }
 
 function PendingCard({ p, onApprove, onReject }: { p: any; onApprove: (id: string, allowComments: boolean) => void; onReject: (id: string) => void }) {
-  const [inspect, setInspect] = useState(false);
   const [allowComments, setAllowComments] = useState(true);
-  const label = useDeviceLabel(p.device_id, true);
-  const { names } = useDeviceNames(true);
   return (
     <div className="rounded-2xl border border-border bg-card p-4">
       <div className="flex items-center justify-between text-xs text-muted-foreground">
         <span className="flex items-center gap-1">
           <Ghost className="h-3 w-3" /> مجهول {p.anon_number ?? "?"}
-          {label && <span className="rounded-full bg-purple-500/15 px-1.5 py-0.5 text-[9px] font-semibold text-purple-600 dark:text-purple-300">🔖 {label}</span>}
-          <button onClick={() => setInspect(true)} className="rounded-full p-1 hover:bg-accent hover:text-foreground" title="ملف الجهاز">
-            <Settings2 className="h-3 w-3" />
-          </button>
         </span>
         <span>{timeAgo(p.created_at)}</span>
       </div>
@@ -118,19 +105,15 @@ function PendingCard({ p, onApprove, onReject }: { p: any; onApprove: (id: strin
         </div>
       )}
       <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
-        <div className="flex flex-wrap items-center gap-2">
-          <DeviceNameTag name={names.get(p.device_id)} deviceId={p.device_id} showId />
-          <label className="flex cursor-pointer items-center gap-1.5 rounded-md border border-border bg-muted px-2 py-1 text-xs">
-            <Switch checked={allowComments} onCheckedChange={setAllowComments} className="h-4 w-7" />
-            {allowComments ? "التعليقات مسموحة" : "التعليقات ممنوعة"}
-          </label>
-        </div>
+        <label className="flex cursor-pointer items-center gap-1.5 rounded-md border border-border bg-muted px-2 py-1 text-xs">
+          <Switch checked={allowComments} onCheckedChange={setAllowComments} className="h-4 w-7" />
+          {allowComments ? "التعليقات مسموحة" : "التعليقات ممنوعة"}
+        </label>
         <div className="flex gap-2">
           <Button size="sm" onClick={() => onApprove(p.id, allowComments)} className="gap-1"><Check className="h-4 w-4" /> قبول</Button>
           <Button size="sm" variant="destructive" onClick={() => onReject(p.id)} className="gap-1"><X className="h-4 w-4" /> رفض</Button>
         </div>
       </div>
-      <DeviceInspector deviceId={p.device_id} open={inspect} onOpenChange={setInspect} />
     </div>
   );
 }
@@ -145,9 +128,7 @@ const REASON_LABELS: Record<string, string> = {
   other: "أخرى",
 };
 
-function ReportCard({ r, onResolve }: { r: any; onResolve: (id: string, action: "dismissed" | "resolved" | "content_deleted" | "ban_owner", note?: string) => void }) {
-  const { names } = useDeviceNames(true);
-  const [inspect, setInspect] = useState(false);
+function ReportCard({ r, onResolve, onBan }: { r: any; onResolve: (id: string, action: "dismissed" | "resolved" | "content_deleted", note?: string) => void; onBan: (email: string, note?: string) => void }) {
   const statusColor =
     r.status === "open" ? "bg-yellow-500/15 text-yellow-700 dark:text-yellow-400"
     : r.status === "content_deleted" ? "bg-red-500/15 text-red-700 dark:text-red-400"
@@ -180,20 +161,16 @@ function ReportCard({ r, onResolve }: { r: any; onResolve: (id: string, action: 
         <div className="mt-1 whitespace-pre-wrap">{r.content_snapshot || <span className="text-muted-foreground italic">فارغ</span>}</div>
       </div>
       <div className="grid grid-cols-1 gap-1 text-[11px] text-muted-foreground sm:grid-cols-2">
-        <div><span className="font-semibold">المبلّغ:</span> <DeviceNameTag name={names.get(r.reporter_device_id)} deviceId={r.reporter_device_id} showId /></div>
-        <div className="flex items-center gap-1">
-          <span className="font-semibold">صاحب المحتوى:</span>
-          <DeviceNameTag name={names.get(r.content_owner_device_id)} deviceId={r.content_owner_device_id} showId />
-          {r.content_owner_device_id && (
-            <button onClick={() => setInspect(true)} className="rounded p-0.5 hover:bg-accent" title="ملف الجهاز"><Settings2 className="h-3 w-3" /></button>
-          )}
-        </div>
+        <div><span className="font-semibold">المبلّغ:</span> <span dir="ltr" className="font-mono">{r.reporter_email || "—"}</span></div>
+        <div><span className="font-semibold">صاحب المحتوى:</span> <span dir="ltr" className="font-mono">{r.owner_email || "—"}</span></div>
       </div>
       <div className="flex flex-wrap gap-2 pt-1">
         {r.status === "open" && (
           <>
             <Button size="sm" variant="destructive" onClick={() => onResolve(r.id, "content_deleted")} className="gap-1"><Trash2 className="h-3 w-3" /> حذف المحتوى</Button>
-            <Button size="sm" variant="destructive" onClick={() => onResolve(r.id, "ban_owner", "report:" + r.reason_code)} className="gap-1"><Ban className="h-3 w-3" /> حظر الجهاز</Button>
+            {r.owner_email && (
+              <Button size="sm" variant="destructive" onClick={() => onBan(r.owner_email, "report:" + r.reason_code)} className="gap-1"><Ghost className="h-3 w-3" /> حظر موحد للحساب</Button>
+            )}
             <Button size="sm" variant="outline" onClick={() => onResolve(r.id, "dismissed")}>تجاهل</Button>
             <Button size="sm" variant="ghost" onClick={() => onResolve(r.id, "resolved")}>إغلاق</Button>
           </>
@@ -204,27 +181,18 @@ function ReportCard({ r, onResolve }: { r: any; onResolve: (id: string, action: 
           </a>
         )}
       </div>
-      {r.content_owner_device_id && <DeviceInspector deviceId={r.content_owner_device_id} open={inspect} onOpenChange={setInspect} />}
     </div>
   );
 }
 
 function Admin() {
-  const { names } = useDeviceNames(true);
   const { isAdmin, adminChecked, loading, session } = useAuth();
   const navigate = useNavigate();
   const { settings, reload: reloadSettings } = useSiteSettings();
   const [pending, setPending] = useState<any[]>([]);
-  const [blocks, setBlocks] = useState<any[]>([]);
-  const [admins, setAdmins] = useState<any[]>([]);
-  const [chat, setChat] = useState<any[]>([]);
   const [hiddenPosts, setHiddenPosts] = useState<any[]>([]);
   const [reports, setReports] = useState<any[]>([]);
   const [reportFilter, setReportFilter] = useState<"open" | "all">("open");
-  const [newBlockId, setNewBlockId] = useState("");
-  const [banTarget, setBanTarget] = useState<string | null>(null);
-  const [newAdminId, setNewAdminId] = useState("");
-  const [newAdminNote, setNewAdminNote] = useState("");
   const [maintMsg, setMaintMsg] = useState("");
   const [reopenLocal, setReopenLocal] = useState("");
   const [postBg, setPostBg] = useState("#fef3c7");
@@ -241,8 +209,7 @@ function Admin() {
   const [gbBusy, setGbBusy] = useState(false);
   const USER_PAGE = 50;
   const [tab, setTab] = useState("settings");
-  const [inspectId, setInspectId] = useState<string | null>(null);
-  const [userSort, setUserSort] = useState<"new" | "old" | "num">("old");
+  const [userSort, setUserSort] = useState<"new" | "old">("old");
   const [commentBg, setCommentBg] = useState("#fef3c7");
   const [commentText, setCommentText] = useState("#78350f");
   const [waitLong, setWaitLong] = useState(false);
@@ -275,30 +242,24 @@ function Admin() {
   }, [loading, session, navigate]);
 
   async function loadAll() {
-    const [{ data: p, error: postsError }, { data: b, error: blocksError }, { data: a, error: adminsError }, { data: cm }, { data: hp }, { data: rp }] = await Promise.all([
-      supabase.from("posts").select("*").eq("status", "pending").order("created_at", { ascending: false }),
-      supabase.from("blocked_devices").select("*").order("created_at", { ascending: false }),
-      supabase.from("admin_devices").select("*").order("created_at", { ascending: false }),
-      supabase.from("chat_messages").select("*").order("created_at", { ascending: false }).limit(50),
-      (supabase.from("posts") as any).select("*").eq("hidden", true).order("created_at", { ascending: false }).limit(100),
+    const [{ data: p, error: postsError }, { data: hp }, { data: rp }] = await Promise.all([
+      supabase.from("posts").select(POST_COLS).eq("status", "pending").order("created_at", { ascending: false }),
+      (supabase.from("posts") as any).select(POST_COLS).eq("hidden", true).order("created_at", { ascending: false }).limit(100),
       (supabase.from("reports") as any).select("*").order("created_at", { ascending: false }).limit(200),
     ]);
-    if (postsError || blocksError || adminsError) {
-      toast.error(postsError?.message || blocksError?.message || adminsError?.message || "تعذر تحميل لوحة الإدارة");
+    if (postsError) {
+      toast.error(postsError.message || "تعذر تحميل لوحة الإدارة");
       return;
     }
     setPending(p ?? []);
-    setBlocks(b ?? []);
-    setAdmins(a ?? []);
-    setChat(cm ?? []);
     setHiddenPosts(hp ?? []);
     setReports(rp ?? []);
   }
 
-  async function loadUsers(search = userSearch, page = userPage) {
+  async function loadUsers(search = userSearch, page = userPage, sort = userSort) {
     setUsersLoading(true);
     const { data, error } = await (supabase.rpc as any)("admin_list_users", {
-      p_search: search || null, p_limit: USER_PAGE, p_offset: page * USER_PAGE, p_sort: userSort,
+      p_search: search || null, p_limit: USER_PAGE, p_offset: page * USER_PAGE, p_sort: sort,
     });
     setUsersLoading(false);
     if (error) { toast.error("تعذر تحميل المستخدمين: " + error.message); return; }
@@ -308,7 +269,7 @@ function Admin() {
 
   useEffect(() => {
     if (!isAdmin) return;
-    void loadUsers("", 0);
+    void loadUsers("", 0, "old");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAdmin]);
 
@@ -358,12 +319,22 @@ function Admin() {
     }
   }
 
+  async function banByEmail(email: string, note?: string) {
+    if (!confirm(`حظر ${email} موحداً (من كل الأقسام)؟`)) return;
+    try {
+      await addGlobalBan(adminEmail, email, note || "حظر من الإدارة");
+      toast.success("تم الحظر الموحّد");
+      await loadGlobalBans();
+    } catch (e) {
+      toast.error("فشل الحظر: " + ((e as Error)?.message || ""));
+    }
+  }
+
   useEffect(() => {
     if (!isAdmin) return;
     loadAll();
     const ch = supabase.channel("admin-feed")
       .on("postgres_changes", { event: "*", schema: "public", table: "posts" }, loadAll)
-      .on("postgres_changes", { event: "*", schema: "public", table: "chat_messages" }, loadAll)
       .on("postgres_changes", { event: "*", schema: "public", table: "reports" }, loadAll)
       .subscribe();
     return () => { supabase.removeChannel(ch); };
@@ -409,39 +380,6 @@ function Admin() {
     if (error) toast.error("فشل: " + error.message); else { toast.success("تم الرفض"); loadAll(); }
   }
 
-  function addBlock() {
-    if (!newBlockId.trim()) return;
-    setBanTarget(newBlockId.trim());
-  }
-
-  async function unblock(id: string) {
-    if (!confirm("رفع الحظر عن هذا الجهاز؟\n\nسيتحوّل الحظر إلى «مرفوع» (لا يُحذف السجل)،\nوتُعطَّل بصمة الحظر حتى لا يُعاد احتسابه.")) return;
-    // الرفع = تغيير حالة وليس حذف: يبقى سجل التدقيق ولا يفقد النظام تاريخه
-    const { error } = await supabase.rpc("admin_unban_device", {
-      p_device_id: id,
-      p_status: "UNBANNED",
-    });
-    if (error) toast.error("فشل: " + error.message); else { toast.success("تم رفع الحظر"); loadAll(); }
-  }
-
-  async function addAdmin() {
-    if (!newAdminId.trim()) return;
-    const { error } = await supabase.from("admin_devices").upsert({
-      device_id: newAdminId.trim(),
-      note: newAdminNote.trim() || null,
-    });
-    if (error) toast.error("فشل: " + error.message); else {
-      toast.success("تمت إضافة الأدمن المساعد");
-      setNewAdminId(""); setNewAdminNote(""); loadAll();
-    }
-  }
-
-  async function removeAdmin(id: string) {
-    if (!confirm("إزالة هذا الأدمن المساعد؟")) return;
-    const { error } = await supabase.from("admin_devices").delete().eq("device_id", id);
-    if (error) toast.error("فشل: " + error.message); else { toast.success("تم"); loadAll(); }
-  }
-
   async function updateSettings(patch: Record<string, any>) {
     const { error } = await (supabase.from("site_settings") as any).update({ ...patch, updated_at: new Date().toISOString() }).eq("id", 1);
     if (error) toast.error("فشل: " + error.message); else { toast.success("تم"); reloadSettings(); }
@@ -470,22 +408,7 @@ function Admin() {
     if (error) toast.error("فشل: " + error.message); else { toast.success("تم الإظهار"); loadAll(); }
   }
 
-  async function delChatMsg(id: string) {
-    if (!confirm("حذف الرسالة؟")) return;
-    const { error } = await supabase.from("chat_messages").delete().eq("id", id);
-    if (error) toast.error("فشل: " + error.message); else loadAll();
-  }
-
-  function blockFromChat(deviceId: string) {
-    setBanTarget(deviceId);
-  }
-
-  async function resolveReport(id: string, action: "dismissed" | "resolved" | "content_deleted" | "ban_owner", note?: string) {
-    if (action === "ban_owner") {
-      const r = reports.find((x) => x.id === id);
-      if (r?.content_owner_device_id) { setBanTarget(r.content_owner_device_id); }
-      return;
-    }
+  async function resolveReport(id: string, action: "dismissed" | "resolved" | "content_deleted", note?: string) {
     const label = action === "content_deleted" ? "حذف المحتوى نهائياً؟" : null;
     if (label && !confirm(label)) return;
     const { error } = await (supabase.rpc as any)("admin_resolve_report", { p_report_id: id, p_action: action, p_note: note || null });
@@ -500,13 +423,10 @@ function Admin() {
       { v: "pending", label: "بانتظار المراجعة", icon: Flag, count: pending.length },
       { v: "reports", label: "البلاغات", icon: AlertTriangle, count: openReports },
       { v: "hidden", label: "المحتوى المخفي", icon: EyeOff, count: hiddenPosts.length },
-      { v: "chat", label: "الشات", icon: MessageSquare, count: 0 },
     ]},
     { group: "المستخدمون", items: [
       { v: "users", label: "الحسابات (بالإيميل)", icon: Users, count: usersTotal },
       { v: "global", label: "الحظر الموحد (مركزي)", icon: Globe, count: globalBans.length },
-      { v: "blocks", label: "المحظورون", icon: Ban, count: blocks.length },
-      { v: "admins", label: "الأدمن", icon: ShieldPlus, count: admins.length },
     ]},
     { group: "النظام", items: [
       { v: "settings", label: "الإعدادات", icon: Settings, count: 0 },
@@ -523,7 +443,6 @@ function Admin() {
             <span className="rounded-full bg-muted px-2 py-0.5">مراجعة: {pending.length}</span>
             <span className="rounded-full bg-muted px-2 py-0.5">بلاغات: {openReports}</span>
             <span className="rounded-full bg-muted px-2 py-0.5">حساب: {usersTotal}</span>
-            <span className="rounded-full bg-muted px-2 py-0.5">محظور: {blocks.length}</span>
           </div>
         </div>
 
@@ -671,29 +590,6 @@ function Admin() {
             ))}
           </TabsContent>
 
-
-          <TabsContent value="chat" className="mt-4 space-y-3">
-            {chat.length === 0 && <p className="py-8 text-center text-sm text-muted-foreground">لا رسائل شات.</p>}
-            {chat.map((m) => (
-              <div key={m.id} className="rounded-xl border border-border bg-card p-3">
-                <div className="flex items-center justify-between text-xs text-muted-foreground">
-                  <span className="font-semibold text-foreground">{m.display_name}</span>
-                  <span>{timeAgo(m.created_at)}</span>
-                </div>
-                <p className="mt-1 whitespace-pre-wrap text-sm">{m.content}</p>
-                <div className="mt-2 flex items-center justify-between">
-                  <DeviceNameTag name={names.get(m.device_id)} deviceId={m.device_id} showId onClick={() => setInspectId(m.device_id)} />
-                  <div className="flex gap-2">
-                    <Button size="sm" variant="ghost" onClick={() => delChatMsg(m.id)}><Trash2 className="h-3 w-3" /></Button>
-                    <Button size="sm" variant="ghost" onClick={() => setInspectId(m.device_id)} title="ملف الجهاز"><Settings2 className="h-3 w-3" /></Button>
-                    <Button size="sm" variant="destructive" onClick={() => blockFromChat(m.device_id)}><Ban className="h-3 w-3 ml-1" />حظر</Button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </TabsContent>
-
-
           <TabsContent value="pending" className="mt-4 space-y-3">
             {pending.length === 0 && <p className="py-8 text-center text-sm text-muted-foreground">لا منشورات بانتظار المراجعة.</p>}
             {pending.map((p) => (
@@ -712,39 +608,36 @@ function Admin() {
             </div>
             {visibleReports.length === 0 && <p className="py-8 text-center text-sm text-muted-foreground">لا بلاغات.</p>}
             {visibleReports.map((r) => (
-              <ReportCard key={r.id} r={r} onResolve={resolveReport} />
+              <ReportCard key={r.id} r={r} onResolve={resolveReport} onBan={banByEmail} />
             ))}
           </TabsContent>
-
-
-
 
           <TabsContent value="users" className="mt-4 space-y-3">
             <div className="flex flex-wrap items-center gap-2">
               <Input
                 value={userSearch}
                 onChange={(e) => { setUserSearch(e.target.value); setUserPage(0); }}
-                onKeyDown={(e) => { if (e.key === "Enter") loadUsers(userSearch, 0); }}
-                placeholder="ابحث بالاسم أو الإيميل أو المعرّف…"
+                onKeyDown={(e) => { if (e.key === "Enter") loadUsers(userSearch, 0, userSort); }}
+                placeholder="ابحث بالإيميل…"
                 className="h-9 max-w-xs"
               />
-              <Button size="sm" variant="outline" onClick={() => loadUsers(userSearch, 0)} disabled={usersLoading}>
+              <Button size="sm" variant="outline" onClick={() => loadUsers(userSearch, 0, userSort)} disabled={usersLoading}>
                 {usersLoading ? <Loader2 className="h-3 w-3 animate-spin" /> : <UserCircle2 className="h-3 w-3" />} بحث
               </Button>
               <div className="flex items-center gap-1 rounded-lg bg-muted p-0.5 text-xs">
-                {([["old", "الأقدم أولاً"], ["num", "حسب الرقم"], ["new", "الأحدث"]] as const).map(([v, lbl]) => (
+                {([["old", "الأقدم أولاً"], ["new", "الأحدث"]] as const).map(([v, lbl]) => (
                   <button
                     key={v}
-                    onClick={() => { setUserSort(v); setUserPage(0); setTimeout(() => loadUsers(userSearch, 0), 0); }}
+                    onClick={() => { setUserSort(v); setUserPage(0); setTimeout(() => loadUsers(userSearch, 0, v), 0); }}
                     className={cn("rounded-md px-2 py-1 font-semibold transition", userSort === v ? "bg-background shadow-sm" : "text-muted-foreground")}
                   >{lbl}</button>
                 ))}
               </div>
               <span className="text-xs text-muted-foreground">المجموع: {usersTotal}</span>
               <div className="ms-auto flex items-center gap-1">
-                <Button size="sm" variant="ghost" disabled={userPage === 0 || usersLoading} onClick={() => { const p = userPage - 1; setUserPage(p); void loadUsers(userSearch, p); }}>السابق</Button>
+                <Button size="sm" variant="ghost" disabled={userPage === 0 || usersLoading} onClick={() => { const p = userPage - 1; setUserPage(p); void loadUsers(userSearch, p, userSort); }}>السابق</Button>
                 <span className="text-xs">{userPage + 1} / {Math.max(1, Math.ceil(usersTotal / USER_PAGE))}</span>
-                <Button size="sm" variant="ghost" disabled={(userPage + 1) * USER_PAGE >= usersTotal || usersLoading} onClick={() => { const p = userPage + 1; setUserPage(p); void loadUsers(userSearch, p); }}>التالي</Button>
+                <Button size="sm" variant="ghost" disabled={(userPage + 1) * USER_PAGE >= usersTotal || usersLoading} onClick={() => { const p = userPage + 1; setUserPage(p); void loadUsers(userSearch, p, userSort); }}>التالي</Button>
               </div>
             </div>
             <div className="space-y-2">
@@ -757,8 +650,10 @@ function Admin() {
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <span className="rounded-lg bg-emerald-500/10 px-2 py-0.5 font-mono text-xs font-bold text-emerald-700" dir="ltr">{u.email}</span>
                     <div className="flex flex-wrap items-center gap-1">
-                      {u.is_blocked && <span className="rounded-md bg-destructive/15 px-1.5 py-0.5 text-[10px] font-bold text-destructive">محظور</span>}
                       {u.is_admin && <span className="rounded-md bg-emerald-500/15 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700">أدمن</span>}
+                      {globalBans.some((b) => b.email.toLowerCase() === String(u.email).toLowerCase()) && (
+                        <span className="rounded-md bg-destructive/15 px-1.5 py-0.5 text-[10px] font-bold text-destructive">محظور موحداً</span>
+                      )}
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-[11px] text-muted-foreground">
@@ -767,34 +662,12 @@ function Admin() {
                     <span>منشورات: {u.post_count}</span>
                     <span>تعليقات: {u.comment_count}</span>
                     <span>شات: {u.chat_count}</span>
-                    <span>أجهزة: {Array.isArray(u.devices) ? u.devices.length : 0}</span>
                   </div>
-                  {Array.isArray(u.devices) && u.devices.length > 0 && (
-                    <div className="flex flex-wrap gap-1" dir="ltr">
-                      {u.devices.map((d: string) => (
-                        <button key={d} type="button" onClick={() => setInspectId(d)}
-                          className="rounded-md bg-muted px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground hover:bg-accent">
-                          {d.slice(0, 12)}…
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                  {Array.isArray(u.devices) && u.devices.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5 pt-1">
-                      <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => setInspectId(u.devices[0])}>
-                        <Settings2 className="h-3 w-3" /> كل المعلومات والأدوات
-                      </Button>
-                      {u.is_blocked ? (
-                        <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => unblock(u.devices[0])}>
-                          <Trash2 className="h-3 w-3" /> رفع الحظر
-                        </Button>
-                      ) : (
-                        <Button size="sm" variant="destructive" className="h-7 text-xs" onClick={() => setBanTarget(u.devices[0])}>
-                          <Ban className="h-3 w-3" /> حظر
-                        </Button>
-                      )}
-                    </div>
-                  )}
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    <Button size="sm" variant="destructive" className="h-7 text-xs" onClick={() => void banByEmail(u.email)}>
+                      <Ghost className="h-3 w-3" /> حظر موحد
+                    </Button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -849,96 +722,9 @@ function Admin() {
               </div>
             )}
           </TabsContent>
-
-          <TabsContent value="blocks" className="mt-4 space-y-4">
-            <section className="rounded-2xl border border-border bg-card p-4">
-              <h2 className="font-semibold">حظر يدوي</h2>
-              <div className="mt-3 flex gap-2">
-                <Input value={newBlockId} onChange={(e) => setNewBlockId(e.target.value)} placeholder="معرف الجهاز" />
-                <Button onClick={addBlock}>حظر</Button>
-              </div>
-            </section>
-            <section className="rounded-2xl border border-border bg-card p-4">
-              <h2 className="font-semibold">الأجهزة المحظورة</h2>
-              <div className="mt-3 space-y-2">
-                {blocks.length === 0 && <p className="text-sm text-muted-foreground">لا يوجد.</p>}
-                {blocks.map((b) => {
-                  const expired = b.expires_at && new Date(b.expires_at).getTime() <= Date.now();
-                  return (
-                    <div key={b.device_id} className="space-y-1 rounded-lg bg-muted/40 p-2 text-sm">
-                      <div className="flex items-center justify-between gap-2">
-                        <DeviceNameTag name={names.get(b.device_id)} deviceId={b.device_id} showId />
-                        <Button size="sm" variant="ghost" onClick={() => unblock(b.device_id)} title="رفع الحظر">
-                          <Trash2 className="h-4 w-4" />
-                        </Button>
-                      </div>
-                      {b.reason && <div className="text-xs text-muted-foreground"><b>السبب:</b> {b.reason}</div>}
-                      {b.expires_at && (
-                        <div className={`text-[10px] ${expired ? "text-emerald-600" : "text-amber-600"}`}>
-                          {expired ? "انتهت المدة" : `ينتهي: ${new Date(b.expires_at).toLocaleString("ar")}`}
-                        </div>
-                      )}
-                      {b.evidence_url && (
-                        <a href={b.evidence_url} target="_blank" rel="noreferrer" className="inline-block">
-                          <img src={b.evidence_url} alt="دليل" className="mt-1 h-16 rounded border border-border object-cover" />
-                        </a>
-                      )}
-                      <div className="text-[10px] text-muted-foreground">
-                        الصورة {b.evidence_visible === false ? "مخفية عن المحظور" : "ظاهرة للمحظور"}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </section>
-          </TabsContent>
-
-          <TabsContent value="admins" className="mt-4 space-y-4">
-            <section className="rounded-2xl border border-border bg-card p-4">
-              <h2 className="flex items-center gap-1 font-semibold"><ShieldPlus className="h-4 w-4" /> إضافة أدمن مساعد بمعرف جهاز</h2>
-              <p className="mt-1 text-xs text-muted-foreground">
-                منشورات الجهاز المضاف ستُنشر مباشرة دون مراجعة. يمكنه أيضاً اختيار اسم ظاهر له.
-              </p>
-              <div className="mt-3 space-y-2">
-                <Input value={newAdminId} onChange={(e) => setNewAdminId(e.target.value)} placeholder="معرف الجهاز" />
-                <Input value={newAdminNote} onChange={(e) => setNewAdminNote(e.target.value)} placeholder="ملاحظة (اختياري)" />
-                <Button onClick={addAdmin} className="w-full">إضافة</Button>
-              </div>
-            </section>
-            <section className="rounded-2xl border border-border bg-card p-4">
-              <h2 className="font-semibold">الأدمن المساعدون</h2>
-              <div className="mt-3 space-y-2">
-                {admins.length === 0 && <p className="text-sm text-muted-foreground">لا يوجد.</p>}
-                {admins.map((a) => (
-                  <div key={a.device_id} className="flex items-center justify-between rounded-lg bg-muted/40 p-2 text-sm">
-                    <div className="min-w-0">
-                      <DeviceNameTag name={names.get(a.device_id)} deviceId={a.device_id} showId />
-                      {a.note && <div className="text-xs text-muted-foreground">{a.note}</div>}
-                    </div>
-                    <Button size="sm" variant="ghost" onClick={() => removeAdmin(a.device_id)}>
-                      <Trash2 className="h-4 w-4" />
-                    </Button>
-                  </div>
-                ))}
-              </div>
-              <p className="mt-3 text-xs text-muted-foreground">
-                لمعرفة معرف الجهاز: اطلب من الشخص فتح الموقع، ثم في الصفحة الرئيسية يجد معرفه أسفل المنشور إذا كنت أنت مسؤول، أو افتح أدوات المطور وانسخ قيمة <code className="font-mono">anon_device_id</code> من localStorage.
-              </p>
-            </section>
-          </TabsContent>
           </div>
           </div>
         </Tabs>
-        <DeviceInspector deviceId={inspectId} open={!!inspectId} onOpenChange={(o) => { if (!o) setInspectId(null); }} />
-
-        {banTarget && (
-          <BanDialog
-            deviceId={banTarget}
-            open={!!banTarget}
-            onOpenChange={(o) => { if (!o) setBanTarget(null); }}
-            onBanned={() => { setNewBlockId(""); loadAll(); void loadUsers(userSearch, userPage); }}
-          />
-        )}
       </main>
     </div>
   );

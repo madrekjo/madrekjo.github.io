@@ -1,6 +1,5 @@
 import { useState, type ChangeEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { getDeviceId } from "@/lib/device";
 import { getProfile } from "@/lib/profile";
 import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
@@ -56,7 +55,6 @@ export function PostComposer({ onPosted }: { onPosted?: () => void }) {
       const row: any = {
         content: content.trim(),
         attachments,
-        device_id: getDeviceId(),
       };
       if (isAdmin) {
         row.post_mode = postAs;
@@ -68,12 +66,6 @@ export function PostComposer({ onPosted }: { onPosted?: () => void }) {
           const name = authorName.trim() || prof.name || "المسؤول";
           row.author_name = name;
           row.author_avatar_url = prof.avatar_url ?? null;
-          await supabase.from("admin_devices").upsert({
-            device_id: getDeviceId(),
-            display_name: name,
-            avatar_url: prof.avatar_url ?? null,
-            note: "auto",
-          });
         } else {
           // posting as anonymous
           const n = parseInt(anonNumber, 10);
@@ -90,7 +82,7 @@ export function PostComposer({ onPosted }: { onPosted?: () => void }) {
     } catch (e: any) {
       console.error("post insert failed", e);
       const msg = e?.message || "";
-      if (msg.includes("blocked") || e?.code === "42501") toast.error("تم حظرك من النشر");
+      if (e?.code === "42501") toast.error("سجّل الدخول للنشر");
       else toast.error("فشل النشر: " + (msg || "خطأ غير معروف"));
     } finally {
       setBusy(false);

@@ -2,18 +2,20 @@ import { useEffect, useState } from "react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { supabase } from "@/integrations/supabase/client";
-import { getDeviceId } from "@/lib/device";
 import { getProfile } from "@/lib/profile";
 import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Ghost, MessageCircle, Trash2, Ban, Loader2, Reply, Pin, PinOff, ShieldCheck, Heart, Pencil, Settings2, History, MessageCircleOff } from "lucide-react";
+import { Ghost, MessageCircle, Trash2, Loader2, Reply, Pin, PinOff, ShieldCheck, Heart, Pencil, History, MessageCircleOff } from "lucide-react";
 import { toast } from "sonner";
-import { DeviceInspector } from "@/components/device-inspector";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { useDeviceLabel } from "@/lib/device-labels";
 import { ReportButton } from "@/components/report-dialog";
+
+export const POST_COLS =
+  "id, content, attachments, created_at, edited_at, status, pinned, is_admin, author_name, author_avatar_url, user_id, anon_number, bg_color, text_color, post_mode, allow_comments, hidden";
+const COMMENT_COLS =
+  "id, post_id, parent_id, content, created_at, edited_at, anon_number, is_admin, author_name, author_avatar_url, user_id, bg_color, text_color";
 
 type EditRow = { id: string; previous_content: string; new_content: string; edited_at: string };
 
@@ -51,14 +53,11 @@ function EditHistoryDialog({ kind, id, open, onOpenChange }: { kind: "post" | "c
   );
 }
 
-
-
 type Attachment = { url: string; name: string; type: string };
 type Post = {
   id: string;
   content: string;
   attachments: Attachment[];
-  device_id: string;
   created_at: string;
   edited_at?: string | null;
   status?: string;
@@ -72,23 +71,23 @@ type Post = {
   text_color?: string | null;
   post_mode?: string | null;
   allow_comments?: boolean;
+  hidden?: boolean;
 };
 type Comment = {
   id: string;
   post_id: string;
   parent_id: string | null;
   content: string;
-  device_id: string;
   created_at: string;
   edited_at?: string | null;
   anon_number?: number | null;
   is_admin?: boolean;
   author_name?: string | null;
   author_avatar_url?: string | null;
+  user_id?: string | null;
   bg_color?: string | null;
   text_color?: string | null;
 };
-
 
 function isImage(a: Attachment) { return a.type?.startsWith("image/"); }
 function isVideo(a: Attachment) { return a.type?.startsWith("video/"); }
@@ -119,36 +118,31 @@ function anonLabel(n?: number | null) {
   return n ? `مجهول ${n}` : "مجهول";
 }
 
-function CommentNode({ c, all, postId, postAuthorDeviceId, allowComments, onChanged }: { c: Comment; all: Comment[]; postId: string; postAuthorDeviceId: string; allowComments: boolean; onChanged: () => void }) {
-  const { isAdmin } = useAuth();
+function CommentNode({ c, all, postId, postAuthorUserId, allowComments, onChanged }: { c: Comment; all: Comment[]; postId: string; postAuthorUserId: string | null; allowComments: boolean; onChanged: () => void }) {
+  const { isAdmin, session } = useAuth();
+  const uid = session?.user?.id ?? null;
   const [replying, setReplying] = useState(false);
   const [editing, setEditing] = useState(false);
   const [editText, setEditText] = useState(c.content);
   const [text, setText] = useState("");
   const [busy, setBusy] = useState(false);
-  const [inspect, setInspect] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
-  const label = useDeviceLabel(c.device_id, isAdmin);
   const children = all.filter((x) => x.parent_id === c.id);
-  const isMine = typeof window !== "undefined" && c.device_id === getDeviceId();
+  const isMine = !!uid && c.user_id === uid;
   const isAdminComment = !!c.is_admin;
-  const isPostAuthor = !isAdminComment && c.device_id === postAuthorDeviceId;
+  const isPostAuthor = !isAdminComment && !!postAuthorUserId && c.user_id === postAuthorUserId;
 
   async function submit() {
     if (!text.trim() || !allowComments) return;
+    if (!uid) { toast.error("سجّل الدخول للرد"); return; }
     setBusy(true);
+    const payload: Record<string, unknown> = { post_id: postId, parent_id: c.id, content: text.trim() };
     if (isAdmin) {
       const prof = getProfile();
-      await supabase.from("admin_devices").upsert({
-        device_id: getDeviceId(),
-        display_name: prof.name || "الادمن",
-        avatar_url: prof.avatar_url ?? null,
-        note: "auto",
-      });
+      payload.author_name = prof.name || "الادمن";
+      payload.author_avatar_url = prof.avatar_url ?? null;
     }
-    const { error } = await supabase.from("comments").insert({
-      post_id: postId, parent_id: c.id, content: text.trim(), device_id: getDeviceId(),
-    });
+    const { error } = await supabase.from("comments").insert(payload);
     setBusy(false);
     if (error) { toast.error("فشل الرد"); return; }
     setText(""); setReplying(false); onChanged();
@@ -157,7 +151,7 @@ function CommentNode({ c, all, postId, postAuthorDeviceId, allowComments, onChan
   async function saveEdit() {
     const v = editText.trim();
     if (!v) return;
-    const { error } = await supabase.rpc("edit_comment", { p_id: c.id, p_device_id: getDeviceId(), p_content: v });
+    const { error } = await supabase.rpc("edit_comment", { p_id: c.id, p_content: v });
     if (error) { toast.error("فشل التعديل"); return; }
     setEditing(false); onChanged();
   }
@@ -178,7 +172,6 @@ function CommentNode({ c, all, postId, postAuthorDeviceId, allowComments, onChan
     <span className="flex items-center gap-1">
       <Ghost className="h-3 w-3" /> {anonLabel(c.anon_number)}
       {isPostAuthor && <span className="mr-1 rounded-full bg-primary/15 px-1.5 py-0.5 text-[9px] font-semibold text-primary">صاحب المنشور</span>}
-      {isAdmin && label && <span className="mr-1 rounded-full bg-purple-500/15 px-1.5 py-0.5 text-[9px] font-semibold text-purple-600 dark:text-purple-300">🔖 {label}</span>}
     </span>
   );
 
@@ -191,11 +184,6 @@ function CommentNode({ c, all, postId, postAuthorDeviceId, allowComments, onChan
         <div className="flex items-center justify-between text-xs text-muted-foreground">
           <span className="flex items-center gap-1">
             {labelEl}
-            {isAdmin && !isAdminComment && (
-              <button onClick={() => setInspect(true)} className="mr-1 inline-flex items-center rounded-full p-1 text-muted-foreground hover:bg-accent hover:text-foreground" title="خيارات الجهاز">
-                <Settings2 className="h-3 w-3" />
-              </button>
-            )}
           </span>
           <span>{timeAgo(c.created_at)}{c.edited_at ? " (معدّل)" : ""}</span>
         </div>
@@ -242,11 +230,10 @@ function CommentNode({ c, all, postId, postAuthorDeviceId, allowComments, onChan
           </div>
         )}
       </div>
-      {isAdmin && <DeviceInspector deviceId={c.device_id} open={inspect} onOpenChange={setInspect} />}
       {isAdmin && <EditHistoryDialog kind="comment" id={c.id} open={showHistory} onOpenChange={setShowHistory} />}
       {children.length > 0 && (
         <div className="mt-2 space-y-2">
-          {children.map((ch) => <CommentNode key={ch.id} c={ch} all={all} postId={postId} postAuthorDeviceId={postAuthorDeviceId} allowComments={allowComments} onChanged={onChanged} />)}
+          {children.map((ch) => <CommentNode key={ch.id} c={ch} all={all} postId={postId} postAuthorUserId={postAuthorUserId} allowComments={allowComments} onChanged={onChanged} />)}
         </div>
       )}
     </div>
@@ -254,7 +241,8 @@ function CommentNode({ c, all, postId, postAuthorDeviceId, allowComments, onChan
 }
 
 export function PostCard({ post, onDeleted, onChanged }: { post: Post; onDeleted: () => void; onChanged?: () => void }) {
-  const { isAdmin } = useAuth();
+  const { isAdmin, session } = useAuth();
+  const uid = session?.user?.id ?? null;
   const [comments, setComments] = useState<Comment[]>([]);
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
@@ -264,27 +252,24 @@ export function PostCard({ post, onDeleted, onChanged }: { post: Post; onDeleted
   const [likeBusy, setLikeBusy] = useState(false);
   const [editing, setEditing] = useState(false);
   const [editText, setEditText] = useState(post.content);
-  const [inspect, setInspect] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
-  const label = useDeviceLabel(post.device_id, isAdmin);
 
   const isAdminPost = !!post.is_admin;
   const allowComments = post.allow_comments !== false;
-  const isMine = typeof window !== "undefined" && post.device_id === getDeviceId();
+  const isMine = !!uid && post.user_id === uid;
   const hasCustomStyle = !!(post.bg_color || post.text_color);
   const articleStyle = hasCustomStyle ? { backgroundColor: post.bg_color ?? undefined, color: post.text_color ?? undefined } : undefined;
 
   async function loadComments() {
-    const { data } = await supabase.from("comments").select("*").eq("post_id", post.id).order("created_at", { ascending: true });
+    const { data } = await supabase.from("comments").select(COMMENT_COLS).eq("post_id", post.id).order("created_at", { ascending: true });
     setComments((data as Comment[]) ?? []);
   }
 
   async function loadLikes() {
-    const did = getDeviceId();
-    const { data } = await supabase.from("post_likes").select("device_id").eq("post_id", post.id);
+    const { data } = await supabase.from("post_likes").select("user_id").eq("post_id", post.id);
     const list = data ?? [];
     setLikeCount(list.length);
-    setLiked(list.some((l: any) => l.device_id === did));
+    setLiked(!!uid && list.some((l: any) => l.user_id === uid));
   }
 
   useEffect(() => {
@@ -296,18 +281,18 @@ export function PostCard({ post, onDeleted, onChanged }: { post: Post; onDeleted
       .subscribe();
     return () => { supabase.removeChannel(ch); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [post.id]);
+  }, [post.id, uid]);
 
   async function toggleLike() {
     if (likeBusy) return;
+    if (!uid) { toast.error("سجّل الدخول للإعجاب"); return; }
     setLikeBusy(true);
-    const did = getDeviceId();
     if (liked) {
-      const { error } = await supabase.rpc("unlike_post", { p_post_id: post.id, p_device_id: did });
+      const { error } = await supabase.rpc("unlike_post", { p_post_id: post.id });
       if (error) toast.error("فشل");
     } else {
-      const { error } = await supabase.from("post_likes").insert({ post_id: post.id, device_id: did });
-      if (error && !error.message.includes("duplicate")) toast.error(error.message.includes("blocked") ? "تم حظرك" : "فشل الإعجاب");
+      const { error } = await supabase.from("post_likes").insert({ post_id: post.id, user_id: uid });
+      if (error && !error.message.includes("duplicate")) toast.error("فشل الإعجاب");
     }
     await loadLikes();
     setLikeBusy(false);
@@ -315,21 +300,17 @@ export function PostCard({ post, onDeleted, onChanged }: { post: Post; onDeleted
 
   async function comment() {
     if (!text.trim() || !allowComments) return;
+    if (!uid) { toast.error("سجّل الدخول للتعليق"); return; }
     setBusy(true);
+    const payload: Record<string, unknown> = { post_id: post.id, content: text.trim(), parent_id: null };
     if (isAdmin) {
       const prof = getProfile();
-      await supabase.from("admin_devices").upsert({
-        device_id: getDeviceId(),
-        display_name: prof.name || "الادمن",
-        avatar_url: prof.avatar_url ?? null,
-        note: "auto",
-      });
+      payload.author_name = prof.name || "الادمن";
+      payload.author_avatar_url = prof.avatar_url ?? null;
     }
-    const { error } = await supabase.from("comments").insert({
-      post_id: post.id, content: text.trim(), device_id: getDeviceId(), parent_id: null,
-    });
+    const { error } = await supabase.from("comments").insert(payload);
     setBusy(false);
-    if (error) { toast.error(error.message?.includes("blocked") ? "تم حظرك" : "فشل التعليق"); return; }
+    if (error) { toast.error("فشل التعليق"); return; }
     setText("");
   }
 
@@ -337,12 +318,6 @@ export function PostCard({ post, onDeleted, onChanged }: { post: Post; onDeleted
     if (!confirm("حذف المنشور؟")) return;
     const { error } = await supabase.from("posts").delete().eq("id", post.id);
     if (error) toast.error("فشل الحذف: " + error.message); else { toast.success("تم الحذف"); onDeleted(); }
-  }
-
-  async function block() {
-    if (!confirm("حظر جهاز صاحب المنشور؟")) return;
-    const { error } = await supabase.from("blocked_devices").upsert({ device_id: post.device_id, reason: "from post" });
-    if (error) toast.error("فشل الحظر: " + error.message); else toast.success("تم الحظر");
   }
 
   async function togglePin() {
@@ -360,7 +335,7 @@ export function PostCard({ post, onDeleted, onChanged }: { post: Post; onDeleted
   async function saveEdit() {
     const v = editText.trim();
     if (!v) return;
-    const { error } = await supabase.rpc("edit_post", { p_id: post.id, p_device_id: getDeviceId(), p_content: v });
+    const { error } = await supabase.rpc("edit_post", { p_id: post.id, p_content: v });
     if (error) toast.error("فشل التعديل");
     else { toast.success("تم"); setEditing(false); onChanged?.(); }
   }
@@ -398,14 +373,6 @@ export function PostCard({ post, onDeleted, onChanged }: { post: Post; onDeleted
           <span className="flex items-center gap-1.5 font-medium">
             {isAdminPost ? post.author_name : anonLabel(post.anon_number)}
             {isAdminPost && <span className="rounded-full bg-amber-500 px-2 py-0.5 text-[10px] font-bold text-white">ادمن</span>}
-            {isAdmin && !isAdminPost && label && (
-              <span className="rounded-full bg-purple-500/15 px-1.5 py-0.5 text-[10px] font-semibold text-purple-600 dark:text-purple-300">🔖 {label}</span>
-            )}
-            {isAdmin && (
-              <button onClick={() => setInspect(true)} className="rounded-full p-1 text-muted-foreground hover:bg-accent hover:text-foreground" title="خيارات الجهاز">
-                <Settings2 className="h-3.5 w-3.5" />
-              </button>
-            )}
           </span>
         </span>
         <span className="text-xs">{timeAgo(post.created_at)}{post.edited_at ? " (معدّل)" : ""}</span>
@@ -465,17 +432,11 @@ export function PostCard({ post, onDeleted, onChanged }: { post: Post; onDeleted
                 <History className="h-4 w-4" /> سجل التعديلات
               </button>
             )}
-            {!isAdminPost && (
-              <button onClick={() => setInspect(true)} className="flex items-center gap-1 text-muted-foreground hover:text-foreground">
-                <Settings2 className="h-4 w-4" /> ملف الجهاز
-              </button>
-            )}
           </>
         )}
         {!isMine && !isAdminPost && <ReportButton contentType="post" contentId={post.id} />}
       </div>
 
-      {isAdmin && <DeviceInspector deviceId={post.device_id} open={inspect} onOpenChange={setInspect} />}
       {isAdmin && <EditHistoryDialog kind="post" id={post.id} open={showHistory} onOpenChange={setShowHistory} />}
 
       {open && (
@@ -491,7 +452,7 @@ export function PostCard({ post, onDeleted, onChanged }: { post: Post; onDeleted
             <p className="rounded-lg bg-muted/50 px-3 py-2 text-center text-xs text-muted-foreground">التعليقات مغلقة على هذا المنشور</p>
           )}
           <div className="space-y-2">
-            {roots.map((c) => <CommentNode key={c.id} c={c} all={comments} postId={post.id} postAuthorDeviceId={post.device_id} allowComments={allowComments} onChanged={loadComments} />)}
+            {roots.map((c) => <CommentNode key={c.id} c={c} all={comments} postId={post.id} postAuthorUserId={post.user_id ?? null} allowComments={allowComments} onChanged={loadComments} />)}
           </div>
         </div>
       )}
