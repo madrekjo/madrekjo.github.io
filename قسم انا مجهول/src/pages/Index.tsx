@@ -3,6 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Header } from "@/components/header";
 import { PostComposer } from "@/components/post-composer";
 import { PostCard, POST_COLS } from "@/components/post-card";
+import { UserInspector } from "@/components/user-inspector";
 import { ChatRoom } from "@/components/chat-room";
 import { useSiteSettings } from "@/hooks/use-site-settings";
 import { useAuth } from "@/hooks/use-auth";
@@ -73,6 +74,10 @@ function Index() {
   const [loading, setLoading] = useState(true);
   const [selectMode, setSelectMode] = useState(false);
   const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [userInfoId, setUserInfoId] = useState<string | null>(null);
+  const [userInfoOpen, setUserInfoOpen] = useState(false);
+
+  function openUser(uid: string) { setUserInfoId(uid); setUserInfoOpen(true); }
 
   async function load() {
     let q = supabase
@@ -153,8 +158,9 @@ function Index() {
             <h1 className="text-2xl font-bold">الشات التفاعلي</h1>
             <p className="mt-1 text-sm text-muted-foreground">اختر اسماً وصورة وابدأ الدردشة. بدون تسجيل.</p>
           </div>
-          <ChatRoom />
+          <ChatRoom onOpenUser={openUser} />
         </main>
+        <UserInspector userId={userInfoId} open={userInfoOpen} onOpenChange={setUserInfoOpen} />
       </div>
     );
   }
@@ -224,11 +230,12 @@ function Index() {
                   </Button>
                 </div>
               )}
-              <PostCard post={p} onDeleted={load} onChanged={load} />
+              <PostCard post={p} onDeleted={load} onChanged={load} onOpenUser={openUser} />
             </div>
           ))
         )}
       </main>
+      <UserInspector userId={userInfoId} open={userInfoOpen} onOpenChange={setUserInfoOpen} onChanged={load} />
     </div>
   );
 }

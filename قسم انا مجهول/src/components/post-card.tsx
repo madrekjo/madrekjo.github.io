@@ -118,7 +118,7 @@ function anonLabel(n?: number | null) {
   return n ? `مجهول ${n}` : "مجهول";
 }
 
-function CommentNode({ c, all, postId, postAuthorUserId, allowComments, onChanged }: { c: Comment; all: Comment[]; postId: string; postAuthorUserId: string | null; allowComments: boolean; onChanged: () => void }) {
+function CommentNode({ c, all, postId, postAuthorUserId, allowComments, onChanged, onOpenUser }: { c: Comment; all: Comment[]; postId: string; postAuthorUserId: string | null; allowComments: boolean; onChanged: () => void; onOpenUser?: (uid: string) => void }) {
   const { isAdmin, session } = useAuth();
   const uid = session?.user?.id ?? null;
   const [replying, setReplying] = useState(false);
@@ -162,15 +162,25 @@ function CommentNode({ c, all, postId, postAuthorUserId, allowComments, onChange
     if (error) toast.error("فشل الحذف: " + error.message); else { toast.success("تم"); onChanged(); }
   }
 
+  const canOpenUser = isAdmin && !!c.user_id && !!onOpenUser;
   const labelEl = isAdminComment ? (
     <span className="flex items-center gap-1.5">
       <Avatar className="h-5 w-5 ring-1 ring-amber-400"><AvatarImage src={c.author_avatar_url ?? undefined} /><AvatarFallback><ShieldCheck className="h-3 w-3" /></AvatarFallback></Avatar>
-      <span className="font-semibold text-amber-600">{c.author_name || "الادمن"}</span>
+      {canOpenUser ? (
+        <button type="button" onClick={() => onOpenUser!(c.user_id!)} title="عرض ملف الحساب" className="font-semibold text-amber-600 underline decoration-dotted underline-offset-2 hover:opacity-80">{c.author_name || "الادمن"}</button>
+      ) : (
+        <span className="font-semibold text-amber-600">{c.author_name || "الادمن"}</span>
+      )}
       <span className="rounded-full bg-amber-500 px-1.5 py-0.5 text-[9px] font-bold text-white">ادمن</span>
     </span>
   ) : (
     <span className="flex items-center gap-1">
-      <Ghost className="h-3 w-3" /> {anonLabel(c.anon_number)}
+      <Ghost className="h-3 w-3" />
+      {canOpenUser ? (
+        <button type="button" onClick={() => onOpenUser!(c.user_id!)} title="عرض ملف الحساب" className="underline decoration-dotted underline-offset-2 hover:text-primary">{anonLabel(c.anon_number)}</button>
+      ) : (
+        anonLabel(c.anon_number)
+      )}
       {isPostAuthor && <span className="mr-1 rounded-full bg-primary/15 px-1.5 py-0.5 text-[9px] font-semibold text-primary">صاحب المنشور</span>}
     </span>
   );
@@ -233,14 +243,14 @@ function CommentNode({ c, all, postId, postAuthorUserId, allowComments, onChange
       {isAdmin && <EditHistoryDialog kind="comment" id={c.id} open={showHistory} onOpenChange={setShowHistory} />}
       {children.length > 0 && (
         <div className="mt-2 space-y-2">
-          {children.map((ch) => <CommentNode key={ch.id} c={ch} all={all} postId={postId} postAuthorUserId={postAuthorUserId} allowComments={allowComments} onChanged={onChanged} />)}
+          {children.map((ch) => <CommentNode key={ch.id} c={ch} all={all} postId={postId} postAuthorUserId={postAuthorUserId} allowComments={allowComments} onChanged={onChanged} onOpenUser={onOpenUser} />)}
         </div>
       )}
     </div>
   );
 }
 
-export function PostCard({ post, onDeleted, onChanged }: { post: Post; onDeleted: () => void; onChanged?: () => void }) {
+export function PostCard({ post, onDeleted, onChanged, onOpenUser }: { post: Post; onDeleted: () => void; onChanged?: () => void; onOpenUser?: (uid: string) => void }) {
   const { isAdmin, session } = useAuth();
   const uid = session?.user?.id ?? null;
   const [comments, setComments] = useState<Comment[]>([]);
@@ -257,6 +267,7 @@ export function PostCard({ post, onDeleted, onChanged }: { post: Post; onDeleted
   const isAdminPost = !!post.is_admin;
   const allowComments = post.allow_comments !== false;
   const isMine = !!uid && post.user_id === uid;
+  const canOpenUser = isAdmin && !!post.user_id && !!onOpenUser;
   const hasCustomStyle = !!(post.bg_color || post.text_color);
   const articleStyle = hasCustomStyle ? { backgroundColor: post.bg_color ?? undefined, color: post.text_color ?? undefined } : undefined;
 
@@ -371,7 +382,13 @@ export function PostCard({ post, onDeleted, onChanged }: { post: Post; onDeleted
             </span>
           )}
           <span className="flex items-center gap-1.5 font-medium">
-            {isAdminPost ? post.author_name : anonLabel(post.anon_number)}
+            {canOpenUser ? (
+              <button type="button" onClick={() => onOpenUser!(post.user_id!)} title="عرض ملف الحساب" className="underline decoration-dotted underline-offset-2 hover:text-primary">
+                {isAdminPost ? post.author_name : anonLabel(post.anon_number)}
+              </button>
+            ) : (
+              isAdminPost ? post.author_name : anonLabel(post.anon_number)
+            )}
             {isAdminPost && <span className="rounded-full bg-amber-500 px-2 py-0.5 text-[10px] font-bold text-white">ادمن</span>}
           </span>
         </span>

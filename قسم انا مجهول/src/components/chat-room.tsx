@@ -159,9 +159,10 @@ function Composer({ profile, onPosted }: { profile: ChatProfile; onPosted: () =>
   );
 }
 
-function CommentNode({ c, all, profile }: { c: ChatComment; all: ChatComment[]; profile: ChatProfile }) {
+function CommentNode({ c, all, profile, onOpenUser }: { c: ChatComment; all: ChatComment[]; profile: ChatProfile; onOpenUser?: (uid: string) => void }) {
   const { isAdmin, session } = useAuth();
   const uid = session?.user?.id ?? null;
+  const canOpenUser = isAdmin && !!c.user_id && !!onOpenUser;
   const [replying, setReplying] = useState(false);
   const [editing, setEditing] = useState(false);
   const [text, setText] = useState("");
@@ -201,7 +202,11 @@ function CommentNode({ c, all, profile }: { c: ChatComment; all: ChatComment[]; 
       <div className="rounded-lg bg-muted/40 p-3">
         <div className="flex items-center gap-2">
           <Avatar className="h-7 w-7"><AvatarImage src={c.avatar_url ?? undefined} /><AvatarFallback>{c.display_name.slice(0,1)}</AvatarFallback></Avatar>
-          <span className="text-sm font-semibold">{c.display_name}</span>
+          {canOpenUser ? (
+            <button type="button" onClick={() => onOpenUser!(c.user_id!)} title="عرض ملف الحساب" className="text-sm font-semibold underline decoration-dotted underline-offset-2 hover:text-primary">{c.display_name}</button>
+          ) : (
+            <span className="text-sm font-semibold">{c.display_name}</span>
+          )}
           <span className="text-xs text-muted-foreground">{timeAgo(c.created_at)}{c.edited_at ? " (معدّل)" : ""}</span>
         </div>
         {editing ? (
@@ -224,20 +229,22 @@ function CommentNode({ c, all, profile }: { c: ChatComment; all: ChatComment[]; 
           </div>
         )}
       </div>
-      {children.length > 0 && <div className="mt-2 space-y-2">{children.map((ch) => <CommentNode key={ch.id} c={ch} all={all} profile={profile} />)}</div>}
+      {children.length > 0 && <div className="mt-2 space-y-2">{children.map((ch) => <CommentNode key={ch.id} c={ch} all={all} profile={profile} onOpenUser={onOpenUser} />)}</div>}
     </div>
   );
 }
 
 type PostRealtimeReg = { postId: string; refreshComments: () => void; refreshLikes: () => void };
 
-function PostCard({ post, profile, onRegister }: {
+function PostCard({ post, profile, onRegister, onOpenUser }: {
   post: ChatPost; profile: ChatProfile;
   onRegister: (postId: string, reg: PostRealtimeReg | null) => void;
+  onOpenUser?: (uid: string) => void;
 }) {
   const isAdminPost = post.is_admin;
   const { isAdmin, session } = useAuth();
   const uid = session?.user?.id ?? null;
+  const canOpenUser = isAdmin && !!post.user_id && !!onOpenUser;
   const [comments, setComments] = useState<ChatComment[]>([]);
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
@@ -329,7 +336,11 @@ function PostCard({ post, profile, onRegister }: {
           <Avatar className={`h-9 w-9 ${isAdminPost ? "ring-2 ring-amber-400" : ""}`}><AvatarImage src={post.avatar_url ?? undefined} /><AvatarFallback>{post.display_name.slice(0,1)}</AvatarFallback></Avatar>
           <div>
             <div className="flex items-center gap-1.5">
-              <div className="text-sm font-semibold">{post.display_name}</div>
+              {canOpenUser ? (
+                <button type="button" onClick={() => onOpenUser!(post.user_id!)} title="عرض ملف الحساب" className="text-sm font-semibold underline decoration-dotted underline-offset-2 hover:text-primary">{post.display_name}</button>
+              ) : (
+                <div className="text-sm font-semibold">{post.display_name}</div>
+              )}
               {isAdminPost && <span className="rounded-full bg-amber-500 px-2 py-0.5 text-[10px] font-bold text-white">ادمن</span>}
             </div>
             <div className="text-xs text-muted-foreground">{timeAgo(post.created_at)}{post.edited_at ? " (معدّل)" : ""}</div>
@@ -378,7 +389,7 @@ function PostCard({ post, profile, onRegister }: {
   );
 }
 
-export function ChatRoom() {
+export function ChatRoom({ onOpenUser }: { onOpenUser?: (uid: string) => void } = {}) {
   const [profile, setProfileState] = useState<ChatProfile>({ name: "", avatar_url: null });
   const [posts, setPosts] = useState<ChatPost[]>([]);
   const [loading, setLoading] = useState(true);
@@ -436,7 +447,7 @@ export function ChatRoom() {
       ) : posts.length === 0 ? (
         <p className="py-10 text-center text-muted-foreground">لا منشورات بعد. كن أول من يشارك!</p>
       ) : (
-        posts.map((p) => <PostCard key={p.id} post={p} profile={profile} onRegister={onRegister} />)
+        posts.map((p) => <PostCard key={p.id} post={p} profile={profile} onRegister={onRegister} onOpenUser={onOpenUser} />)
       )}
 
     </div>
