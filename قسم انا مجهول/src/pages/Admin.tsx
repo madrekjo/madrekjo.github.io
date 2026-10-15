@@ -19,6 +19,7 @@ import { getProfile, setProfile, type ChatProfile } from "@/lib/profile";
 import { uploadFile } from "@/lib/upload";
 import { cn } from "@/lib/utils";
 import { POST_COLS } from "@/components/post-card";
+import { UserInspector } from "@/components/user-inspector";
 import { listGlobalBans, addGlobalBan, removeGlobalBan, type GlobalBan } from "@/lib/global-bans";
 
 function AdminProfileEditor() {
@@ -128,7 +129,7 @@ const REASON_LABELS: Record<string, string> = {
   other: "أخرى",
 };
 
-function ReportCard({ r, onResolve, onBan }: { r: any; onResolve: (id: string, action: "dismissed" | "resolved" | "content_deleted", note?: string) => void; onBan: (email: string, note?: string) => void }) {
+function ReportCard({ r, onResolve, onBan, onOpenUser }: { r: any; onResolve: (id: string, action: "dismissed" | "resolved" | "content_deleted", note?: string) => void; onBan: (email: string, note?: string) => void; onOpenUser: (uid: string) => void }) {
   const statusColor =
     r.status === "open" ? "bg-yellow-500/15 text-yellow-700 dark:text-yellow-400"
     : r.status === "content_deleted" ? "bg-red-500/15 text-red-700 dark:text-red-400"
@@ -175,6 +176,9 @@ function ReportCard({ r, onResolve, onBan }: { r: any; onResolve: (id: string, a
             <Button size="sm" variant="ghost" onClick={() => onResolve(r.id, "resolved")}>إغلاق</Button>
           </>
         )}
+        {r.owner_user_id && (
+          <Button size="sm" variant="outline" onClick={() => onOpenUser(r.owner_user_id)} className="gap-1"><Users className="h-3 w-3" /> ملف صاحب المحتوى</Button>
+        )}
         {canDeepLink && r.content_type === "post" && (
           <a href={`/#post-${r.content_id}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 rounded-md border border-border px-2 py-1 text-xs hover:bg-accent">
             <ExternalLink className="h-3 w-3" /> فتح
@@ -213,6 +217,10 @@ function Admin() {
   const [commentBg, setCommentBg] = useState("#fef3c7");
   const [commentText, setCommentText] = useState("#78350f");
   const [waitLong, setWaitLong] = useState(false);
+  const [userInfoId, setUserInfoId] = useState<string | null>(null);
+  const [userInfoOpen, setUserInfoOpen] = useState(false);
+
+  function openUser(uid: string) { setUserInfoId(uid); setUserInfoOpen(true); }
 
   // حماية من التعليق: لو طال التحقق ولم يكتمل، لا نُبقي المستخدم على شاشة
   // «جاري التحقق» إلى الأبد — نُظهر خيار إعادة المحاولة.
@@ -608,7 +616,7 @@ function Admin() {
             </div>
             {visibleReports.length === 0 && <p className="py-8 text-center text-sm text-muted-foreground">لا بلاغات.</p>}
             {visibleReports.map((r) => (
-              <ReportCard key={r.id} r={r} onResolve={resolveReport} onBan={banByEmail} />
+              <ReportCard key={r.id} r={r} onResolve={resolveReport} onBan={banByEmail} onOpenUser={openUser} />
             ))}
           </TabsContent>
 
@@ -664,6 +672,9 @@ function Admin() {
                     <span>شات: {u.chat_count}</span>
                   </div>
                   <div className="flex flex-wrap gap-1.5 pt-1">
+                    <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => openUser(u.user_id)}>
+                      <Users className="h-3 w-3" /> عرض الملف
+                    </Button>
                     <Button size="sm" variant="destructive" className="h-7 text-xs" onClick={() => void banByEmail(u.email)}>
                       <Ghost className="h-3 w-3" /> حظر موحد
                     </Button>
@@ -726,6 +737,12 @@ function Admin() {
           </div>
         </Tabs>
       </main>
+      <UserInspector
+        userId={userInfoId}
+        open={userInfoOpen}
+        onOpenChange={setUserInfoOpen}
+        onChanged={() => { void loadUsers(userSearch, userPage, userSort); loadAll(); }}
+      />
     </div>
   );
 }
