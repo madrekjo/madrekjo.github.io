@@ -13,7 +13,7 @@ import { ar } from "date-fns/locale";
 import UserActionsDialog from "@/components/UserActionsDialog";
 import Lightbox from "@/components/Lightbox";
 import { compressImage } from "@/lib/mediaCompression";
-import { uploadToCloudinary } from "@/lib/cloudinary";
+import { uploadMedia } from "@/lib/storage";
 
 interface SupportMessage {
   id: string;
@@ -95,7 +95,7 @@ const Support = () => {
     for (const file of files) {
       try {
         const compressed = await compressImage(file);
-        const cdnUrl = await uploadToCloudinary(compressed);
+        const cdnUrl = await uploadMedia(compressed);
         urls.push(cdnUrl);
       } catch (e) {
         console.error("support upload failed", e);

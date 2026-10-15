@@ -16,7 +16,7 @@ import { toast } from "sonner";
 import { Send, Image as ImageIcon, Video, Loader2, Lock, RefreshCw, X, BarChart3, Plus, Trash2 } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { compressMedia, MAX_IMAGE_BYTES } from "@/lib/mediaCompression";
-import { uploadToCloudinary } from "@/lib/cloudinary";
+import { uploadMedia } from "@/lib/storage";
 import { createPoll, fetchPollsForPosts, votePoll, applyVote, type PollData } from "@/lib/polls";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 
@@ -519,7 +519,7 @@ const Chat = () => {
           return;
         }
         try {
-          const cdnUrl = await uploadToCloudinary(compressed);
+          const cdnUrl = await uploadMedia(compressed);
           urls.push(cdnUrl);
         } catch {
           toast.error("فشل رفع الملف"); setPosting(false); return;

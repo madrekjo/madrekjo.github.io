@@ -12,7 +12,7 @@ import { Camera, Save, FileText, Users as UsersIcon, Clock } from "lucide-react"
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { compressImage } from "@/lib/mediaCompression";
-import { uploadToCloudinary } from "@/lib/cloudinary";
+import { uploadMedia } from "@/lib/storage";
 import { FIELD_LABEL_AR, FIELD_PREFIX, FIELD_ADMIN_ONLY, formatDisplayName } from "@/lib/displayName";
 import { useTheme, type Theme } from "@/contexts/ThemeContext";
 
@@ -108,7 +108,7 @@ const Profile = () => {
     const file = await compressImage(original, { maxWidth: 512, maxHeight: 512, quality: 0.85 });
     let avatarUrl: string;
     try {
-      avatarUrl = await uploadToCloudinary(file);
+      avatarUrl = await uploadMedia(file);
     } catch {
       toast.error("فشل رفع الصورة");
       setLoading(false);

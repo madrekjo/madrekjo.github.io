@@ -12,7 +12,7 @@ import { CalendarDays, Plus, Loader2, Trash2, Pin, Send, ImageIcon, RefreshCw } 
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { compressImage } from "@/lib/mediaCompression";
-import { uploadToCloudinary } from "@/lib/cloudinary";
+import { uploadMedia } from "@/lib/storage";
 
 interface Schedule {
   id: string; user_id: string; title: string | null; image_url: string;
@@ -92,7 +92,7 @@ const Schedules = () => {
     const compressed = await compressImage(file);
     let imageUrl: string;
     try {
-      imageUrl = await uploadToCloudinary(compressed);
+      imageUrl = await uploadMedia(compressed);
     } catch {
       toast.error("فشل رفع الصورة"); setUploading(false); return;
     }

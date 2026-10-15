@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Heart, MessageCircle, Trash2, Edit2, Send, CornerDownLeft, Pin, PinOff, Flag, Loader2, Image as ImageIcon, X } from "lucide-react";
-import { uploadToCloudinary } from "@/lib/cloudinary";
+import { uploadMedia } from "@/lib/storage";
 import { compressMedia, MAX_IMAGE_BYTES } from "@/lib/mediaCompression";
 import { usePoints } from "@/contexts/PointsContext";
 import { formatDistanceToNow } from "date-fns";
@@ -295,7 +295,7 @@ const PostCard = forwardRef<HTMLDivElement, PostProps>(({ post, onRefresh, onLik
   const uploadCommentImage = async (file: File): Promise<string> => {
     const compressed = await compressMedia(file);
     if (compressed.size > MAX_IMAGE_BYTES) throw new Error("too_large");
-    return await uploadToCloudinary(compressed);
+    return await uploadMedia(compressed);
   };
 
   const pickCommentImage = (file: File | undefined, kind: "comment" | "reply") => {

@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "sonner";
 import { Send, Trash2, CheckCircle2, Loader2, MessageSquareText, ClipboardCheck, ChevronDown, ImagePlus, X, Undo2, Image as ImageIcon } from "lucide-react";
-import { uploadToCloudinary } from "@/lib/cloudinary";
+import { uploadMedia } from "@/lib/storage";
 import {
   fetchOwnerComms,
   sendOwnerComms,
@@ -71,7 +71,7 @@ const ReplyComposer = ({ rootId, onSent, isTask }: { rootId: string; onSent: () 
     setBusy(true);
     try {
       let url: string | null = null;
-      if (image) url = await uploadToCloudinary(image);
+      if (image) url = await uploadMedia(image);
       await replyOwnerComms(rootId, content.trim(), url);
       setContent(""); setImage(null); setPreview(null);
       toast.success("تم إرسال الردّ للمالك ✓");
@@ -233,7 +233,7 @@ const StaffCommsPanel = () => {
     setSending(true);
     try {
       let url: string | null = null;
-      if (image) url = await uploadToCloudinary(image);
+      if (image) url = await uploadMedia(image);
       await sendOwnerComms(kind, content.trim(), target, url);
       setContent(""); setImage(null); setPreview(null);
       toast.success(kind === "task" ? "أُرسلت المهمة مع إشعار للفريق" : "أُرسلت الرسالة مع إشعار للفريق");

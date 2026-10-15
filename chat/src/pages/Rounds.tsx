@@ -29,7 +29,7 @@ import RoundSessionScreen from "@/components/rounds/RoundSessionScreen";
 import InviteDialog from "@/components/rounds/InviteDialog";
 import type { Round, Meeting } from "@/components/rounds/types";
 import { compressImage, MAX_IMAGE_BYTES } from "@/lib/mediaCompression";
-import { uploadToCloudinary } from "@/lib/cloudinary";
+import { uploadMedia } from "@/lib/storage";
 import {
   roundStateAt,
   roundTotalSeconds,
@@ -360,7 +360,7 @@ const Rounds = () => {
       let cover_image_url: string | null = null;
       if (coverFile) {
         const compressed = await compressImage(coverFile);
-        cover_image_url = await uploadToCloudinary(compressed);
+        cover_image_url = await uploadMedia(compressed);
       }
       const { error } = await (supabase as any).from("study_rounds").insert({
         user_id: user.id,
@@ -419,7 +419,7 @@ const Rounds = () => {
       let cover_image_url: string | null = coverPreview;
       if (coverFile) {
         const compressed = await compressImage(coverFile);
-        cover_image_url = await uploadToCloudinary(compressed);
+        cover_image_url = await uploadMedia(compressed);
       }
       const { error } = await (supabase as any).from("study_rounds").update({
         title: title.trim(),

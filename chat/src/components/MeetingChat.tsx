@@ -10,7 +10,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Input } from "@/components/ui/input";
 import Lightbox from "@/components/Lightbox";
 import { compressImage } from "@/lib/mediaCompression";
-import { uploadToCloudinary } from "@/lib/cloudinary";
+import { uploadMedia } from "@/lib/storage";
 
 interface Msg {
   id: string; user_id: string; content: string | null; image_url: string | null; created_at: string;
@@ -71,7 +71,7 @@ const MeetingChat = ({ meetingId, ownerId, title, onClose }: { meetingId: string
     if (file) {
       const compressed = await compressImage(file);
       try {
-        imageUrl = await uploadToCloudinary(compressed);
+        imageUrl = await uploadMedia(compressed);
       } catch {
         toast.error("فشل رفع الصورة"); setSending(false); return;
       }
