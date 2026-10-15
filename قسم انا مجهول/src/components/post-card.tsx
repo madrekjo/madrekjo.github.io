@@ -165,7 +165,7 @@ function CommentNode({ c, all, postId, postAuthorUserId, allowComments, onChange
   const canOpenUser = isAdmin && !!c.user_id && !!onOpenUser;
   const userBtn = canOpenUser ? (
     <button type="button" onClick={() => onOpenUser!(c.user_id!)} title="معلومات الشخص" className="text-muted-foreground hover:text-primary">
-      <Users className="h-3 w-3" />
+      <Users className="h-3.5 w-3.5" />
     </button>
   ) : null;
   const labelEl = isAdminComment ? (
@@ -466,7 +466,7 @@ export function PostCard({ post, onDeleted, onChanged, onOpenUser }: { post: Pos
             <p className="rounded-lg bg-muted/50 px-3 py-2 text-center text-xs text-muted-foreground">التعليقات مغلقة على هذا المنشور</p>
           )}
           <div className="space-y-2">
-            {roots.map((c) => <CommentNode key={c.id} c={c} all={comments} postId={post.id} postAuthorUserId={post.user_id ?? null} allowComments={allowComments} onChanged={loadComments} />)}
+            {roots.map((c) => <CommentNode key={c.id} c={c} all={comments} postId={post.id} postAuthorUserId={post.user_id ?? null} allowComments={allowComments} onChanged={loadComments} onOpenUser={onOpenUser} />)}
           </div>
         </div>
       )}

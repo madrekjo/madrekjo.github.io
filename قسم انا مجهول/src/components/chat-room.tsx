@@ -382,7 +382,7 @@ function PostCard({ post, profile, onRegister, onOpenUser }: {
             <Button onClick={sendComment} disabled={busy || !text.trim()}>{busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}</Button>
           </div>
           <div className="space-y-2">
-            {roots.map((c) => <CommentNode key={c.id} c={c} all={comments} profile={profile} />)}
+            {roots.map((c) => <CommentNode key={c.id} c={c} all={comments} profile={profile} onOpenUser={onOpenUser} />)}
           </div>
         </div>
       )}
