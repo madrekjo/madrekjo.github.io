@@ -81,7 +81,7 @@ function timeAgo(d: string) {
   try { return formatDistanceToNow(new Date(d), { addSuffix: true, locale: ar }); } catch { return ""; }
 }
 
-function PendingCard({ p, onApprove, onReject }: { p: any; onApprove: (id: string, allowComments: boolean) => void; onReject: (id: string) => void }) {
+function PendingCard({ p, onApprove, onReject, onOpenUser }: { p: any; onApprove: (id: string, allowComments: boolean) => void; onReject: (id: string) => void; onOpenUser: (uid: string) => void }) {
   const [allowComments, setAllowComments] = useState(true);
   return (
     <div className="rounded-2xl border border-border bg-card p-4">
@@ -90,6 +90,15 @@ function PendingCard({ p, onApprove, onReject }: { p: any; onApprove: (id: strin
           <Ghost className="h-3 w-3" /> مجهول {p.anon_number ?? "?"}
         </span>
         <span>{timeAgo(p.created_at)}</span>
+      </div>
+      <div className="mt-1.5 flex flex-wrap items-center gap-2 text-xs">
+        <span className="text-muted-foreground">صاحب المنشور:</span>
+        <span className="rounded-md bg-emerald-500/10 px-1.5 py-0.5 font-mono font-semibold text-emerald-700" dir="ltr">{p.author_email || "—"}</span>
+        {p.user_id && (
+          <Button size="sm" variant="outline" className="h-6 gap-1 px-2 text-[11px]" onClick={() => onOpenUser(p.user_id)}>
+            <Users className="h-3 w-3" /> ملف الحساب
+          </Button>
+        )}
       </div>
       <p className="mt-2 whitespace-pre-wrap text-sm">{p.content}</p>
       {p.attachments?.length > 0 && (
@@ -251,7 +260,7 @@ function Admin() {
 
   async function loadAll() {
     const [{ data: p, error: postsError }, { data: hp }, { data: rp }] = await Promise.all([
-      supabase.from("posts").select(POST_COLS).eq("status", "pending").order("created_at", { ascending: false }),
+      supabase.from("posts").select(POST_COLS + ", author_email").eq("status", "pending").order("created_at", { ascending: false }),
       (supabase.from("posts") as any).select(POST_COLS).eq("hidden", true).order("created_at", { ascending: false }).limit(100),
       (supabase.from("reports") as any).select("*").order("created_at", { ascending: false }).limit(200),
     ]);
@@ -601,7 +610,7 @@ function Admin() {
           <TabsContent value="pending" className="mt-4 space-y-3">
             {pending.length === 0 && <p className="py-8 text-center text-sm text-muted-foreground">لا منشورات بانتظار المراجعة.</p>}
             {pending.map((p) => (
-              <PendingCard key={p.id} p={p} onApprove={approve} onReject={reject} />
+              <PendingCard key={p.id} p={p} onApprove={approve} onReject={reject} onOpenUser={openUser} />
             ))}
           </TabsContent>
 
