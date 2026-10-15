@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
+import { CircularTimer } from "./CircularTimer";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription } from "./ui/dialog";
@@ -66,6 +67,18 @@ const formatCountdown = (totalSeconds: number) => {
     return { labels: ["يوم", "ساعة", "دقيقة", "ثانية"], parts: [String(days), pad(hours), pad(minutes), pad(seconds)] };
   }
   return { labels: ["ساعة", "دقيقة", "ثانية"], parts: [pad(hours), pad(minutes), pad(seconds)] };
+};
+
+/** وقت جاهز للعرض داخل الحلقة: HH:MM:SS أو D:HH:MM */
+const formatClock = (totalSeconds: number) => {
+  const s = Math.max(0, Math.floor(totalSeconds));
+  const days = Math.floor(s / 86400);
+  const hours = Math.floor((s % 86400) / 3600);
+  const minutes = Math.floor((s % 3600) / 60);
+  const seconds = s % 60;
+  const pad = (n: number) => String(n).padStart(2, "0");
+  if (days > 0) return `${days}:${pad(hours)}:${pad(minutes)}`;
+  return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
 };
 
 /** Format elapsed time as readable string */
@@ -301,7 +314,12 @@ export const TaskCard = ({ task, showActions = false, showUser = false, userName
 
   return (
     <>
-      <div className="rounded-lg border bg-card p-4 shadow-sm transition-all hover:shadow-md">
+      <div className="surface surface-hover relative overflow-hidden p-4 ps-5">
+        <span
+          className={`absolute inset-y-4 start-0 w-1 rounded-full ${
+            task.completed ? "bg-success/60" : "bg-primary/45"
+          }`}
+        />
         <div className="flex items-start justify-between">
           <div className="flex-1">
             {showUser && userName && (
@@ -316,8 +334,8 @@ export const TaskCard = ({ task, showActions = false, showUser = false, userName
                 )}
               </div>
             )}
-            <h4 className="font-medium text-foreground">{task.title}</h4>
-            <div className="mt-2 flex flex-wrap items-center gap-2">
+            <h4 className="text-[15px] font-semibold leading-snug text-foreground">{task.title}</h4>
+            <div className="mt-2.5 flex flex-wrap items-center gap-2">
               <Badge variant="secondary" className="gap-1">
                 <Icon className="h-3 w-3" />
                 {config.label}
@@ -348,48 +366,41 @@ export const TaskCard = ({ task, showActions = false, showUser = false, userName
 
         {/* Timer (countdown or stopwatch) */}
         {!task.completed && (
-          <div className="mt-3 border-t pt-3">
+          <div className="mt-4 border-t border-border/70 pt-4">
             {isStopwatch ? (
               (() => {
                 const capReached = elapsed >= STOPWATCH_MAX_SECONDS;
+                const pad = (n: number) => String(n).padStart(2, "0");
                 const hh = Math.floor(elapsed / 3600);
                 const mm = Math.floor((elapsed % 3600) / 60);
                 const ss = Math.floor(elapsed % 60);
-                const pad = (n: number) => String(n).padStart(2, "0");
                 return (
-                  <div className="flex flex-col items-center gap-2">
+                  <div className="flex flex-col items-center gap-3">
+                    <CircularTimer
+                      progress={elapsed / STOPWATCH_MAX_SECONDS}
+                      value={`${pad(hh)}:${pad(mm)}:${pad(ss)}`}
+                      label="منقضٍ"
+                      tone={capReached ? "danger" : isPaused ? "amber" : "primary"}
+                      muted={isPaused}
+                      size={188}
+                      caption={
+                        capReached
+                          ? "وصلت الحد الأقصى (5 ساعات)"
+                          : "⏱️ عدّاد توقيف • الحد الأقصى 5 ساعات"
+                      }
+                    />
                     {isPaused && (
-                      <span className="rounded-full bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-600 dark:text-amber-400">
+                      <span className="rounded-full bg-amber-500/10 px-2.5 py-1 text-[11px] font-semibold text-amber-600 dark:text-amber-400">
                         ⏸ موقوف مؤقتاً
                       </span>
                     )}
-                    {capReached && (
-                      <span className="rounded-full bg-destructive/10 px-2 py-0.5 text-[10px] font-semibold text-destructive">
-                        وصلت الحد الأقصى (5 ساعات)
-                      </span>
-                    )}
-                    <div className={`flex items-center justify-center gap-1 ${isPaused ? "opacity-60" : ""}`}>
-                      {[pad(hh), pad(mm), pad(ss)].map((part, i) => (
-                        <div key={i} className="flex items-center gap-1">
-                          <div className="flex flex-col items-center">
-                            <span className="rounded-md bg-primary/10 px-2 py-1 font-mono text-lg font-bold text-primary tabular-nums">
-                              {part}
-                            </span>
-                            <span className="mt-0.5 text-[10px] text-muted-foreground">
-                              {["ساعة", "دقيقة", "ثانية"][i]}
-                            </span>
-                          </div>
-                          {i < 2 && <span className="mb-3 text-lg font-bold text-muted-foreground">:</span>}
-                        </div>
-                      ))}
-                    </div>
                     {showActions && (
                       <div className="flex flex-wrap items-center justify-center gap-2">
                         {!capReached && (
                           <Button
                             size="sm"
                             variant={isPaused ? "default" : "secondary"}
-                            className="gap-1.5 text-xs"
+                            className="gap-1.5"
                             onClick={handlePauseToggle}
                             disabled={pauseTask.isPending || resumeTask.isPending}
                           >
@@ -400,7 +411,7 @@ export const TaskCard = ({ task, showActions = false, showUser = false, userName
                         <Button
                           size="sm"
                           variant="outline"
-                          className="gap-1.5 text-xs"
+                          className="gap-1.5"
                           onClick={handleEarlyFinish}
                           disabled={completeTask.isPending || elapsed < 60}
                         >
@@ -410,65 +421,67 @@ export const TaskCard = ({ task, showActions = false, showUser = false, userName
                       </div>
                     )}
                     {elapsed < 60 && !capReached && (
-                      <p className="text-[10px] text-muted-foreground">يجب مرور دقيقة على الأقل قبل الإنهاء</p>
+                      <p className="text-[11px] text-muted-foreground">يجب مرور دقيقة على الأقل قبل الإنهاء</p>
                     )}
                   </div>
                 );
               })()
             ) : timeExpired ? (
-              <p className="text-center text-sm font-semibold text-destructive">⏰ انتهى الوقت!</p>
-            ) : countdown && (
-              <div className="flex flex-col items-center gap-2">
-                {isPaused && (
-                  <span className="rounded-full bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-600 dark:text-amber-400">
-                    ⏸ موقوف مؤقتاً
-                  </span>
-                )}
-                <div className={`flex items-center justify-center gap-1 ${isPaused ? "opacity-60" : ""}`}>
-                  {countdown.parts.map((part, i) => (
-                    <div key={i} className="flex items-center gap-1">
-                      <div className="flex flex-col items-center">
-                        <span className="rounded-md bg-primary/10 px-2 py-1 font-mono text-lg font-bold text-primary tabular-nums">
-                          {part}
-                        </span>
-                        <span className="mt-0.5 text-[10px] text-muted-foreground">{countdown.labels[i]}</span>
-                      </div>
-                      {i < countdown.parts.length - 1 && (
-                        <span className="mb-3 text-lg font-bold text-muted-foreground">:</span>
-                      )}
-                    </div>
-                  ))}
-                </div>
-                {/* Action buttons */}
-                {showActions && (
-                  <div className="flex flex-wrap items-center justify-center gap-2">
-                    <Button
-                      size="sm"
-                      variant={isPaused ? "default" : "secondary"}
-                      className="gap-1.5 text-xs"
-                      onClick={handlePauseToggle}
-                      disabled={pauseTask.isPending || resumeTask.isPending}
-                    >
-                      {isPaused ? <Play className="h-3.5 w-3.5" /> : <Pause className="h-3.5 w-3.5" />}
-                      {isPaused ? "استئناف" : "إيقاف مؤقت"}
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="gap-1.5 text-xs"
-                      onClick={handleEarlyFinish}
-                      disabled={completeTask.isPending}
-                    >
-                      <Flag className="h-3.5 w-3.5" />
-                      إنهاء المهمة الآن
-                    </Button>
-                  </div>
-                )}
+              <div className="flex flex-col items-center gap-2 py-2">
+                <span className="icon-tile h-12 w-12 bg-destructive/10 text-destructive ring-destructive/20">
+                  <Clock className="h-6 w-6" />
+                </span>
+                <p className="text-sm font-semibold text-destructive">⏰ انتهى الوقت!</p>
+                <p className="text-[11px] text-muted-foreground">أكمل المهمة لتُسجّل في إنجازاتك</p>
               </div>
+            ) : (
+              countdown &&
+              (() => {
+                const totalSeconds = Math.max(
+                  1,
+                  (new Date(task.ends_at).getTime() - new Date(task.started_at).getTime()) / 1000,
+                );
+                return (
+                  <div className="flex flex-col items-center gap-3">
+                    <CircularTimer
+                      progress={remaining / totalSeconds}
+                      value={formatClock(remaining)}
+                      label="متبقٍ"
+                      tone={isPaused ? "amber" : "primary"}
+                      muted={isPaused}
+                      size={188}
+                      caption={isPaused ? "⏸ موقوف مؤقتاً" : `المدة المخطّطة ${getDurationDisplay(task)}`}
+                    />
+                    {showActions && (
+                      <div className="flex flex-wrap items-center justify-center gap-2">
+                        <Button
+                          size="sm"
+                          variant={isPaused ? "default" : "secondary"}
+                          className="gap-1.5"
+                          onClick={handlePauseToggle}
+                          disabled={pauseTask.isPending || resumeTask.isPending}
+                        >
+                          {isPaused ? <Play className="h-3.5 w-3.5" /> : <Pause className="h-3.5 w-3.5" />}
+                          {isPaused ? "استئناف" : "إيقاف مؤقت"}
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="gap-1.5"
+                          onClick={handleEarlyFinish}
+                          disabled={completeTask.isPending}
+                        >
+                          <Flag className="h-3.5 w-3.5" />
+                          إنهاء المهمة الآن
+                        </Button>
+                      </div>
+                    )}
+                  </div>
+                );
+              })()
             )}
           </div>
         )}
-
         {showActions && !task.completed && !isStopwatch && timeExpired && (
           <div className="mt-3 flex flex-wrap items-center gap-2 border-t pt-3">
             <p className="w-full text-sm text-muted-foreground mb-1">هل أتممت المهمة؟</p>

@@ -14,6 +14,7 @@ import AdminMessages from "./pages/AdminMessages";
 import Rounds from "./pages/Rounds";
 import AuthCallback from "./pages/AuthCallback";
 import NotFound from "./pages/NotFound";
+import Preview from "./pages/Preview";
 
 
 const queryClient = new QueryClient({
@@ -47,6 +48,7 @@ const App = () => (
             <Route path="/profile" element={<Profile />} />
             <Route path="/admin/messages" element={<AdminMessages />} />
             <Route path="/rounds" element={<Rounds />} />
+            {import.meta.env.DEV && <Route path="/preview" element={<Preview />} />}
             <Route path="*" element={<NotFound />} />
 
           </Routes>

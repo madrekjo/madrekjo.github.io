@@ -4,7 +4,7 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { useTasks } from "@/hooks/useTasks";
 import { toast } from "sonner";
-import { Send, Timer, TimerReset } from "lucide-react";
+import { Send, Timer, TimerReset, Plus } from "lucide-react";
 import type { Database } from "@/integrations/supabase/types";
 
 type TaskCategory = Database["public"]["Enums"]["task_category"];
@@ -118,11 +118,19 @@ export const CreateTaskForm = ({ fixedCategory }: CreateTaskFormProps) => {
 
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-xl border bg-card p-5 shadow-sm">
-      <h3 className="mb-4 text-lg font-semibold text-foreground">أضف مهمة جديدة</h3>
+    <form onSubmit={handleSubmit} className="surface p-5 sm:p-6">
+      <div className="mb-5 flex items-center gap-3">
+        <span className="icon-tile">
+          <Plus className="h-5 w-5" />
+        </span>
+        <div>
+          <h3 className="text-lg font-semibold text-foreground">أضف مهمة جديدة</h3>
+          <p className="text-xs text-muted-foreground">حدّد المدة وابدأ الدراسة فوراً</p>
+        </div>
+      </div>
 
       {limitReached && (
-        <div className="mb-4 rounded-lg border border-amber-500/40 bg-amber-500/10 px-3 py-2 text-sm text-amber-700 dark:text-amber-300">
+        <div className="mb-4 rounded-xl border border-amber-500/40 bg-amber-500/10 px-3.5 py-2.5 text-sm leading-relaxed text-amber-700 dark:text-amber-300">
           {activeCategory === "daily"
             ? "⚠️ عندك مهمة قيد الإنجاز في القسم اليومي. أنهِها أولاً قبل ما تبدأ مهمة جديدة."
             : `⚠️ وصلت للحد الأقصى (${maxActive}) من المهام قيد الإنجاز في هذا القسم. أنهِ واحدة قبل ما تبدأ غيرها.`}
@@ -137,7 +145,7 @@ export const CreateTaskForm = ({ fixedCategory }: CreateTaskFormProps) => {
             placeholder="مثال: دراسة مادة التاريخ"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="mt-1"
+            className="mt-1.5"
           />
         </div>
 
@@ -145,14 +153,14 @@ export const CreateTaskForm = ({ fixedCategory }: CreateTaskFormProps) => {
           <div className="space-y-3">
             <div>
               <Label>نوع العدّاد</Label>
-              <div className="mt-1 grid grid-cols-2 gap-2">
+              <div className="mt-1.5 grid grid-cols-2 gap-2">
                 <button
                   type="button"
                   onClick={() => setMode("countdown")}
-                  className={`flex items-center justify-center gap-2 rounded-lg border p-2.5 text-sm font-medium transition ${
+                  className={`flex items-center justify-center gap-2 rounded-xl border p-3 text-sm font-medium transition ${
                     mode === "countdown"
-                      ? "border-primary bg-primary/10 text-primary"
-                      : "border-border bg-background text-muted-foreground hover:bg-muted"
+                      ? "border-primary bg-primary/10 text-primary shadow-sm"
+                      : "border-border bg-background/60 text-muted-foreground hover:border-primary/30 hover:bg-muted"
                   }`}
                 >
                   <TimerReset className="h-4 w-4" />
@@ -161,10 +169,10 @@ export const CreateTaskForm = ({ fixedCategory }: CreateTaskFormProps) => {
                 <button
                   type="button"
                   onClick={() => setMode("stopwatch")}
-                  className={`flex items-center justify-center gap-2 rounded-lg border p-2.5 text-sm font-medium transition ${
+                  className={`flex items-center justify-center gap-2 rounded-xl border p-3 text-sm font-medium transition ${
                     mode === "stopwatch"
-                      ? "border-primary bg-primary/10 text-primary"
-                      : "border-border bg-background text-muted-foreground hover:bg-muted"
+                      ? "border-primary bg-primary/10 text-primary shadow-sm"
+                      : "border-border bg-background/60 text-muted-foreground hover:border-primary/30 hover:bg-muted"
                   }`}
                 >
                   <Timer className="h-4 w-4" />
@@ -176,7 +184,7 @@ export const CreateTaskForm = ({ fixedCategory }: CreateTaskFormProps) => {
             {mode === "countdown" ? (
               <div>
                 <Label>المدة</Label>
-                <div className="mt-1 flex items-center justify-center gap-2">
+                <div className="mt-1.5 flex items-center justify-center gap-2">
                   <div className="flex flex-col items-center">
                     <Input
                       type="number"
@@ -184,11 +192,11 @@ export const CreateTaskForm = ({ fixedCategory }: CreateTaskFormProps) => {
                       max="5"
                       value={timerHours}
                       onChange={(e) => handleHoursChange(e.target.value)}
-                      className="w-20 text-center text-2xl font-mono font-bold h-14"
+                      className="h-16 w-20 text-center font-mono text-2xl font-bold"
                     />
                     <span className="mt-1 text-xs text-muted-foreground">ساعة</span>
                   </div>
-                  <span className="text-3xl font-bold text-muted-foreground mb-4">:</span>
+                  <span className="mb-4 text-3xl font-bold text-muted-foreground">:</span>
                   <div className="flex flex-col items-center">
                     <Input
                       type="number"
@@ -196,7 +204,7 @@ export const CreateTaskForm = ({ fixedCategory }: CreateTaskFormProps) => {
                       max={parseInt(timerHours) >= 5 ? 0 : 59}
                       value={timerMinutes}
                       onChange={(e) => handleMinutesChange(e.target.value)}
-                      className="w-20 text-center text-2xl font-mono font-bold h-14"
+                      className="h-16 w-20 text-center font-mono text-2xl font-bold"
                     />
                     <span className="mt-1 text-xs text-muted-foreground">دقيقة</span>
                   </div>
@@ -206,7 +214,7 @@ export const CreateTaskForm = ({ fixedCategory }: CreateTaskFormProps) => {
                 </p>
               </div>
             ) : (
-              <div className="rounded-lg border border-dashed border-primary/40 bg-primary/5 p-3 text-center text-xs text-muted-foreground">
+              <div className="rounded-xl border border-dashed border-primary/40 bg-primary/5 p-3.5 text-center text-xs leading-relaxed text-muted-foreground">
                 <p className="mb-1 font-medium text-foreground">⏱️ عدّاد توقيف</p>
                 <p>ابدأ العدّاد وأنهِه متى شئت. يتوقف تلقائياً عند الخروج من الموقع ويكمل عند العودة. الحد الأقصى: 5 ساعات.</p>
               </div>
@@ -223,12 +231,12 @@ export const CreateTaskForm = ({ fixedCategory }: CreateTaskFormProps) => {
               placeholder="1"
               value={duration}
               onChange={(e) => setDuration(e.target.value)}
-              className="mt-1"
+              className="mt-1.5"
             />
           </div>
         )}
 
-        <Button type="submit" className="w-full gap-2" disabled={createTask.isPending || limitReached}>
+        <Button type="submit" size="lg" className="w-full gap-2" disabled={createTask.isPending || limitReached}>
           <Send className="h-4 w-4" />
           {createTask.isPending ? "جاري الإنشاء..." : "أنشئ المهمة"}
         </Button>

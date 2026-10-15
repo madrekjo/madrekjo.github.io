@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 import { toast } from "sonner";
-import { Loader2, Camera, Save, KeyRound } from "lucide-react";
+import { Loader2, Camera, Save, KeyRound, UserRound } from "lucide-react";
 
 const Profile = () => {
   const { user, loading } = useAuth();
@@ -117,18 +117,23 @@ const Profile = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="container max-w-lg py-8">
-        <h1 className="mb-6 text-2xl font-bold text-foreground">الملف الشخصي</h1>
+        <div className="mb-6 animate-fade-up">
+          <p className="section-label">حسابك</p>
+          <h1 className="mt-1 text-2xl font-bold text-foreground">الملف الشخصي</h1>
+        </div>
 
         {/* Avatar */}
         <div className="mb-8 flex flex-col items-center">
           <div className="relative">
-            <Avatar className="h-24 w-24">
-              <AvatarImage src={profile?.avatar_url || ""} />
-              <AvatarFallback className="bg-primary text-primary-foreground text-2xl">
-                {(profile?.display_name || "؟")[0]}
-              </AvatarFallback>
-            </Avatar>
-            <label className="absolute -bottom-1 -left-1 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md hover:bg-primary/90">
+            <div className="rounded-full brand-gradient p-1 shadow-glow">
+              <Avatar className="h-24 w-24 ring-4 ring-card">
+                <AvatarImage src={profile?.avatar_url || ""} />
+                <AvatarFallback className="bg-primary text-2xl text-primary-foreground">
+                  {(profile?.display_name || "؟")[0]}
+                </AvatarFallback>
+              </Avatar>
+            </div>
+            <label className="absolute -bottom-1 -left-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md ring-2 ring-card transition-transform hover:scale-105 hover:bg-primary/90">
               {uploading ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
               ) : (
@@ -143,13 +148,20 @@ const Profile = () => {
               />
             </label>
           </div>
+          <p className="mt-3 text-base font-semibold text-foreground">
+            {profile?.display_name?.trim() || "مستخدم"}
+          </p>
+          <p className="text-xs text-muted-foreground">{user?.email}</p>
         </div>
 
         {/* Name */}
-        <div className="space-y-6">
-          <div className="rounded-xl border bg-card p-5">
-            <Label htmlFor="name">الاسم</Label>
-            <div className="mt-2 flex gap-2">
+        <div className="space-y-5">
+          <div className="surface p-5">
+            <div className="mb-3 flex items-center gap-2">
+              <span className="icon-tile h-9 w-9"><UserRound className="h-4 w-4" /></span>
+              <Label htmlFor="name" className="text-base font-semibold">الاسم</Label>
+            </div>
+            <div className="flex gap-2">
               <Input
                 id="name"
                 value={displayName}
@@ -159,7 +171,7 @@ const Profile = () => {
               <Button
                 onClick={handleSaveName}
                 disabled={updateProfile.isPending || nameUnchanged || !canChangeName}
-                className="gap-1"
+                className="gap-1.5"
               >
                 <Save className="h-4 w-4" />
                 حفظ
@@ -173,9 +185,12 @@ const Profile = () => {
           </div>
 
           {/* Password */}
-          <div className="rounded-xl border bg-card p-5">
-            <Label htmlFor="password">تغيير كلمة المرور</Label>
-            <div className="mt-2 flex gap-2">
+          <div className="surface p-5">
+            <div className="mb-3 flex items-center gap-2">
+              <span className="icon-tile h-9 w-9"><KeyRound className="h-4 w-4" /></span>
+              <Label htmlFor="password" className="text-base font-semibold">تغيير كلمة المرور</Label>
+            </div>
+            <div className="flex gap-2">
               <Input
                 id="password"
                 type="password"
@@ -183,7 +198,7 @@ const Profile = () => {
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
               />
-              <Button onClick={handleChangePassword} variant="secondary" className="gap-1">
+              <Button onClick={handleChangePassword} variant="secondary" className="gap-1.5">
                 <KeyRound className="h-4 w-4" />
                 تغيير
               </Button>

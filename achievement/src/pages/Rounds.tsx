@@ -49,24 +49,29 @@ const Rounds = () => {
   return (
     <div className="min-h-screen bg-background" dir="rtl">
       <Header />
-      <main className="container py-6 max-w-5xl">
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-2">
-            <Sparkles className="h-6 w-6 text-primary" />
-            <h1 className="text-2xl font-bold text-foreground">الجولات</h1>
+      <main className="container max-w-5xl py-8">
+        <div className="surface mb-6 flex flex-wrap items-center justify-between gap-4 p-5 animate-fade-up">
+          <div className="flex items-center gap-3">
+            <span className="icon-tile">
+              <Sparkles className="h-5 w-5" />
+            </span>
+            <div>
+              <p className="section-label">جلسات جماعية</p>
+              <h1 className="text-xl font-bold text-foreground sm:text-2xl">الجولات</h1>
+            </div>
           </div>
           {canCreate && (
-            <Button onClick={() => setCreateOpen(true)} className="gap-1">
+            <Button onClick={() => setCreateOpen(true)} className="gap-1.5">
               <Plus className="h-4 w-4" />
               إنشاء جولة
             </Button>
           )}
         </div>
 
-        <Alert className="mb-6 border-amber-500/40 bg-amber-500/10">
+        <Alert className="mb-6 rounded-2xl border-amber-500/40 bg-amber-500/10">
           <AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-400" />
           <AlertTitle className="text-amber-700 dark:text-amber-300">تنبيه</AlertTitle>
-          <AlertDescription className="text-foreground/80 text-sm leading-relaxed">
+          <AlertDescription className="text-sm leading-relaxed text-foreground/80">
             لو طلعت من الموقع وأنت داخل بجولة، رح تنطرد منها فوراً وما رح تتحسب لك ساعات الدراسة.
             وكذلك أي مهمة شغّالة رح تتوقف وتنحذف. خلّيك بالصفحة لين تخلص الجولة أو المهمة.
           </AlertDescription>
@@ -77,7 +82,7 @@ const Rounds = () => {
           <div className="flex justify-center py-12"><Loader2 className="h-6 w-6 animate-spin text-primary" /></div>
         ) : (
           <Tabs defaultValue="active" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 max-w-xs">
+            <TabsList className="grid w-full max-w-xs grid-cols-2">
               <TabsTrigger value="active">نشطة ({active.length})</TabsTrigger>
               <TabsTrigger value="ended">منتهية ({ended.length})</TabsTrigger>
             </TabsList>

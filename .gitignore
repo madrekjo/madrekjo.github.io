@@ -47,6 +47,8 @@ ops-worker/.wrangler/
 
 # Nested git/workspace dirs (never commit)
 قسم انا مجهول/.workspace/
+# نسخة احتياطية للتصميم القديم لقسم الإنجاز (لا تُرفع)
+achievement-واجهة-قديمة/
 sso-worker/.wrangler/
 chat-worker/.wrangler/
 .wrangler/

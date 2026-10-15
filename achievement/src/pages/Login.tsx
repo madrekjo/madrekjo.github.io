@@ -64,22 +64,25 @@ const Login = () => {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="mx-4 w-full max-w-sm space-y-8 text-center">
-        <div className="space-y-3">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10">
-            <Trophy className="h-9 w-9 text-primary" />
-          </div>
-          <h1 className="text-3xl font-bold text-foreground">الإنجاز</h1>
-          <p className="text-muted-foreground">
-            منصة تتبع إنجازاتك الدراسية وتنافس مع زملائك
-          </p>
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden px-4">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -top-20 right-1/4 h-72 w-72 animate-float rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute bottom-0 left-1/4 h-64 w-64 rounded-full bg-accent/15 blur-3xl" />
+      </div>
+
+      <div className="surface w-full max-w-sm animate-fade-up p-8 text-center">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl brand-gradient text-primary-foreground shadow-glow">
+          <Trophy className="h-8 w-8" />
         </div>
+        <h1 className="mt-5 text-3xl font-bold text-foreground">الإنجاز</h1>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          منصة تتبّع إنجازاتك الدراسية وتنافس مع زملائك
+        </p>
 
         <Button
           onClick={startGoogleLogin}
           variant="outline"
-          className="w-full gap-3 py-6 text-base"
+          className="mt-8 w-full gap-3 py-6 text-base"
           disabled={authLoading}
         >
           <svg className="h-5 w-5" viewBox="0 0 24 24">
@@ -90,6 +93,10 @@ const Login = () => {
           </svg>
           {authLoading ? "جاري فتح نافذة تسجيل الدخول..." : "تسجيل الدخول باستخدام Google"}
         </Button>
+
+        <p className="mt-6 text-xs text-muted-foreground">
+          بالمتابعة أنت توافق على قوانين المنصة وسياسة الاستخدام
+        </p>
       </div>
     </div>
   );
