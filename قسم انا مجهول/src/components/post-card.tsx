@@ -7,7 +7,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Ghost, MessageCircle, Trash2, Loader2, Reply, Pin, PinOff, ShieldCheck, Heart, Pencil, History, MessageCircleOff } from "lucide-react";
+import { Ghost, MessageCircle, Trash2, Loader2, Reply, Pin, PinOff, ShieldCheck, Heart, Pencil, History, MessageCircleOff, Users } from "lucide-react";
 import { toast } from "sonner";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ReportButton } from "@/components/report-dialog";
@@ -163,24 +163,22 @@ function CommentNode({ c, all, postId, postAuthorUserId, allowComments, onChange
   }
 
   const canOpenUser = isAdmin && !!c.user_id && !!onOpenUser;
+  const userBtn = canOpenUser ? (
+    <button type="button" onClick={() => onOpenUser!(c.user_id!)} title="معلومات الشخص" className="text-muted-foreground hover:text-primary">
+      <Users className="h-3 w-3" />
+    </button>
+  ) : null;
   const labelEl = isAdminComment ? (
     <span className="flex items-center gap-1.5">
       <Avatar className="h-5 w-5 ring-1 ring-amber-400"><AvatarImage src={c.author_avatar_url ?? undefined} /><AvatarFallback><ShieldCheck className="h-3 w-3" /></AvatarFallback></Avatar>
-      {canOpenUser ? (
-        <button type="button" onClick={() => onOpenUser!(c.user_id!)} title="عرض ملف الحساب" className="font-semibold text-amber-600 underline decoration-dotted underline-offset-2 hover:opacity-80">{c.author_name || "الادمن"}</button>
-      ) : (
-        <span className="font-semibold text-amber-600">{c.author_name || "الادمن"}</span>
-      )}
+      <span className="font-semibold text-amber-600">{c.author_name || "الادمن"}</span>
       <span className="rounded-full bg-amber-500 px-1.5 py-0.5 text-[9px] font-bold text-white">ادمن</span>
+      {userBtn}
     </span>
   ) : (
     <span className="flex items-center gap-1">
-      <Ghost className="h-3 w-3" />
-      {canOpenUser ? (
-        <button type="button" onClick={() => onOpenUser!(c.user_id!)} title="عرض ملف الحساب" className="underline decoration-dotted underline-offset-2 hover:text-primary">{anonLabel(c.anon_number)}</button>
-      ) : (
-        anonLabel(c.anon_number)
-      )}
+      <Ghost className="h-3 w-3" /> {anonLabel(c.anon_number)}
+      {userBtn}
       {isPostAuthor && <span className="mr-1 rounded-full bg-primary/15 px-1.5 py-0.5 text-[9px] font-semibold text-primary">صاحب المنشور</span>}
     </span>
   );
@@ -382,14 +380,13 @@ export function PostCard({ post, onDeleted, onChanged, onOpenUser }: { post: Pos
             </span>
           )}
           <span className="flex items-center gap-1.5 font-medium">
-            {canOpenUser ? (
-              <button type="button" onClick={() => onOpenUser!(post.user_id!)} title="عرض ملف الحساب" className="underline decoration-dotted underline-offset-2 hover:text-primary">
-                {isAdminPost ? post.author_name : anonLabel(post.anon_number)}
-              </button>
-            ) : (
-              isAdminPost ? post.author_name : anonLabel(post.anon_number)
-            )}
+            {isAdminPost ? post.author_name : anonLabel(post.anon_number)}
             {isAdminPost && <span className="rounded-full bg-amber-500 px-2 py-0.5 text-[10px] font-bold text-white">ادمن</span>}
+            {canOpenUser && (
+              <button type="button" onClick={() => onOpenUser!(post.user_id!)} title="معلومات الشخص" className="text-muted-foreground hover:text-primary">
+                <Users className="h-3.5 w-3.5" />
+              </button>
+            )}
           </span>
         </span>
         <span className="text-xs">{timeAgo(post.created_at)}{post.edited_at ? " (معدّل)" : ""}</span>

@@ -10,7 +10,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "sonner";
 import {
   Loader2, Send, Trash2, ImagePlus, UserCircle2, Heart, MessageCircle,
-  Paperclip, X, Pencil, Pin, PinOff, Reply,
+  Paperclip, X, Pencil, Pin, PinOff, Reply, Users,
 } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
@@ -203,7 +203,7 @@ function CommentNode({ c, all, profile, onOpenUser }: { c: ChatComment; all: Cha
         <div className="flex items-center gap-2">
           <Avatar className="h-7 w-7"><AvatarImage src={c.avatar_url ?? undefined} /><AvatarFallback>{c.display_name.slice(0,1)}</AvatarFallback></Avatar>
           {canOpenUser ? (
-            <button type="button" onClick={() => onOpenUser!(c.user_id!)} title="عرض ملف الحساب" className="text-sm font-semibold underline decoration-dotted underline-offset-2 hover:text-primary">{c.display_name}</button>
+            <button type="button" onClick={() => onOpenUser!(c.user_id!)} title="عرض ملف الحساب" className="flex items-center gap-1 text-sm font-semibold hover:text-primary">{c.display_name}<Users className="h-3 w-3 text-muted-foreground" /></button>
           ) : (
             <span className="text-sm font-semibold">{c.display_name}</span>
           )}
@@ -336,12 +336,13 @@ function PostCard({ post, profile, onRegister, onOpenUser }: {
           <Avatar className={`h-9 w-9 ${isAdminPost ? "ring-2 ring-amber-400" : ""}`}><AvatarImage src={post.avatar_url ?? undefined} /><AvatarFallback>{post.display_name.slice(0,1)}</AvatarFallback></Avatar>
           <div>
             <div className="flex items-center gap-1.5">
-              {canOpenUser ? (
-                <button type="button" onClick={() => onOpenUser!(post.user_id!)} title="عرض ملف الحساب" className="text-sm font-semibold underline decoration-dotted underline-offset-2 hover:text-primary">{post.display_name}</button>
-              ) : (
-                <div className="text-sm font-semibold">{post.display_name}</div>
-              )}
+              <div className="text-sm font-semibold">{post.display_name}</div>
               {isAdminPost && <span className="rounded-full bg-amber-500 px-2 py-0.5 text-[10px] font-bold text-white">ادمن</span>}
+              {canOpenUser && (
+                <button type="button" onClick={() => onOpenUser!(post.user_id!)} title="معلومات الشخص" className="text-muted-foreground hover:text-primary">
+                  <Users className="h-3.5 w-3.5" />
+                </button>
+              )}
             </div>
             <div className="text-xs text-muted-foreground">{timeAgo(post.created_at)}{post.edited_at ? " (معدّل)" : ""}</div>
           </div>
