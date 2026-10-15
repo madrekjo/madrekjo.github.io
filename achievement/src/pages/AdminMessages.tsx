@@ -9,9 +9,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Loader2, Send, ArrowRight, MessageCircle, UserCog, Trash2 } from "lucide-react";
+import { Loader2, Send, ArrowRight, MessageCircle, UserCog, Trash2, Search, X } from "lucide-react";
 import { toast } from "sonner";
 import { LeaderboardUserDialog } from "@/components/LeaderboardUserDialog";
+import { matchesSearchFields } from "@/lib/search";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -67,6 +68,7 @@ const AdminMessages = () => {
   const [confirmDeleteOpen, setConfirmDeleteOpen] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [activeEmail, setActiveEmail] = useState<string | null>(null);
+  const [convSearch, setConvSearch] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
   const channelNameRef = useRef(crypto.randomUUID());
 
@@ -168,6 +170,15 @@ const AdminMessages = () => {
       (a, b) => new Date(b.lastMsg.created_at).getTime() - new Date(a.lastMsg.created_at).getTime()
     );
   }, [messages, user, adminIdSet]);
+
+  // تصفية المحادثات حسب البحث في الاسم أو نص آخر رسالة
+  const filteredConversations = useMemo(() => {
+    if (!convSearch.trim()) return conversations;
+    return conversations.filter((c) => {
+      const p = profileMap.get(c.userId);
+      return matchesSearchFields([p?.display_name, c.lastMsg.content], convSearch);
+    });
+  }, [conversations, convSearch, profileMap]);
 
   // Active conversation: all messages between selected user and ANY admin, deduped
   const activeConversation = useMemo(() => {
@@ -305,21 +316,51 @@ const AdminMessages = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-[calc(100vh-12rem)]">
           {/* Conversation list */}
           <aside
-            className={`md:col-span-1 rounded-xl border bg-card overflow-y-auto ${
-              activeUserId ? "hidden md:block" : "block"
+            className={`md:col-span-1 flex-col overflow-hidden rounded-2xl border bg-card ${
+              activeUserId ? "hidden md:flex" : "flex"
             }`}
           >
-            {loadingMsgs ? (
-              <div className="flex justify-center py-8">
-                <Loader2 className="h-5 w-5 animate-spin text-primary" />
+            {/* بحث في المحادثات */}
+            <div className="shrink-0 border-b p-2.5">
+              <div className="relative">
+                <Search className="pointer-events-none absolute start-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                <Input
+                  value={convSearch}
+                  onChange={(e) => setConvSearch(e.target.value)}
+                  placeholder="ابحث بالاسم أو نص الرسالة..."
+                  aria-label="بحث في المحادثات"
+                  className="h-10 ps-10 text-sm"
+                />
+                {convSearch.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => setConvSearch("")}
+                    aria-label="مسح البحث"
+                    className="absolute end-2.5 top-1/2 -translate-y-1/2 rounded-full p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  >
+                    <X className="h-3.5 w-3.5" />
+                  </button>
+                )}
               </div>
-            ) : conversations.length === 0 ? (
-              <p className="text-center text-sm text-muted-foreground py-8 px-4">
-                لا توجد محادثات بعد
-              </p>
-            ) : (
-              <ul className="divide-y">
-                {conversations.map((c) => {
+              {convSearch.trim().length > 0 && !loadingMsgs && (
+                <p className="px-1 pt-2 text-[11px] text-muted-foreground">
+                  {filteredConversations.length} من {conversations.length} محادثة
+                </p>
+              )}
+            </div>
+
+            <div className="min-h-0 flex-1 overflow-y-auto">
+              {loadingMsgs ? (
+                <div className="flex justify-center py-8">
+                  <Loader2 className="h-5 w-5 animate-spin text-primary" />
+                </div>
+              ) : filteredConversations.length === 0 ? (
+                <p className="text-center text-sm text-muted-foreground py-8 px-4">
+                  {convSearch.trim() ? "لا توجد نتائج مطابقة" : "لا توجد محادثات بعد"}
+                </p>
+              ) : (
+                <ul className="divide-y">
+                  {filteredConversations.map((c) => {
                   const p = profileMap.get(c.userId);
                   const name = p?.display_name?.trim() || "مستخدم";
                   const isActive = c.userId === activeUserId;
@@ -354,13 +395,14 @@ const AdminMessages = () => {
                     </li>
                   );
                 })}
-              </ul>
-            )}
+                </ul>
+              )}
+            </div>
           </aside>
 
           {/* Conversation view */}
           <section
-            className={`md:col-span-2 rounded-xl border bg-card flex flex-col ${
+            className={`md:col-span-2 rounded-2xl border bg-card flex flex-col ${
               activeUserId ? "flex" : "hidden md:flex"
             }`}
           >

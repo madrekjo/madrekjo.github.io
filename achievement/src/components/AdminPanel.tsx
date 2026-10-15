@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAdmin } from "@/hooks/useAdmin";
 import { useAuth } from "@/hooks/useAuth";
@@ -8,8 +8,11 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription } from "./ui/dialog";
-import { Loader2, Trash2, Users, MessageCircle, RotateCcw, Inbox, Shield, ShieldOff, Sparkles, Pencil } from "lucide-react";
+import { Loader2, Trash2, Users, MessageCircle, RotateCcw, Inbox, Shield, ShieldOff, Sparkles, Pencil, Search, X, UserRoundSearch } from "lucide-react";
 import { toast } from "sonner";
+import { matchesSearch } from "@/lib/search";
+
+type RoleFilter = "all" | "admin" | "creator";
 
 export const AdminPanel = () => {
   const { allUsers, loadingUsers, deleteUser, resetAllTasks, refetchUsers } = useAdmin();
@@ -24,6 +27,8 @@ export const AdminPanel = () => {
   const [renameTarget, setRenameTarget] = useState<{ id: string; name: string } | null>(null);
   const [renameValue, setRenameValue] = useState("");
   const [renaming, setRenaming] = useState(false);
+  const [userSearch, setUserSearch] = useState("");
+  const [roleFilter, setRoleFilter] = useState<RoleFilter>("all");
 
   // Load all admin user_ids
   const { data: adminIds = [] } = useQuery({
@@ -157,6 +162,24 @@ export const AdminPanel = () => {
     }
   };
 
+  // البحث + التصفية حسب الصلاحية
+  const filteredUsers = useMemo(() => {
+    const adminIdsSet = new Set(adminIds);
+    const creatorIdsSet = new Set(roundCreatorIds);
+    return allUsers.filter((user) => {
+      if (roleFilter === "admin" && !adminIdsSet.has(user.user_id)) return false;
+      if (roleFilter === "creator" && !creatorIdsSet.has(user.user_id)) return false;
+      return matchesSearch(user.display_name?.trim() || "بدون اسم", userSearch);
+    });
+  }, [allUsers, userSearch, roleFilter, adminIds, roundCreatorIds]);
+
+  const roleFilters: { key: RoleFilter; label: string; count: number }[] = [
+    { key: "all", label: "الكل", count: allUsers.length },
+    { key: "admin", label: "المسؤولون", count: adminIds.length },
+    { key: "creator", label: "منشئو الجولات", count: roundCreatorIds.length },
+  ];
+  const isFiltering = userSearch.trim().length > 0 || roleFilter !== "all";
+
   if (loadingUsers) {
     return (
       <div className="flex justify-center py-12">
@@ -167,7 +190,7 @@ export const AdminPanel = () => {
 
   return (
     <div>
-      <div className="mb-4 flex items-center justify-between gap-2">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <Users className="h-5 w-5 text-primary" />
           <h3 className="text-lg font-semibold">المستخدمين ({allUsers.length})</h3>
@@ -194,8 +217,79 @@ export const AdminPanel = () => {
         </div>
       </div>
 
-      <div className="rounded-xl border bg-card p-4 shadow-sm space-y-2">
-        {allUsers.map((user) => {
+      {/* شريط البحث والتصفية */}
+      <div className="mb-4 space-y-2">
+        <div className="relative">
+          <Search className="pointer-events-none absolute start-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <Input
+            value={userSearch}
+            onChange={(e) => setUserSearch(e.target.value)}
+            placeholder="ابحث باسم المستخدم..."
+            aria-label="بحث في المستخدمين"
+            className="ps-10"
+          />
+          {userSearch.length > 0 && (
+            <button
+              type="button"
+              onClick={() => setUserSearch("")}
+              aria-label="مسح البحث"
+              className="absolute end-2.5 top-1/2 -translate-y-1/2 rounded-full p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            >
+              <X className="h-3.5 w-3.5" />
+            </button>
+          )}
+        </div>
+
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="flex flex-wrap items-center gap-1.5">
+            {roleFilters.map((f) => {
+              const active = roleFilter === f.key;
+              return (
+                <button
+                  key={f.key}
+                  type="button"
+                  onClick={() => setRoleFilter(f.key)}
+                  aria-pressed={active}
+                  className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
+                    active
+                      ? "border-primary/40 bg-primary/10 text-primary"
+                      : "border-border/70 bg-background/70 text-muted-foreground hover:border-primary/30 hover:text-foreground"
+                  }`}
+                >
+                  {f.label}
+                  <span className="ms-1.5 text-[10px] opacity-70">{f.count}</span>
+                </button>
+              );
+            })}
+          </div>
+          {isFiltering && (
+            <p className="text-xs text-muted-foreground">
+              يظهر {filteredUsers.length} من {allUsers.length}
+            </p>
+          )}
+        </div>
+      </div>
+
+      <div className="rounded-2xl border bg-card p-3 shadow-sm space-y-2">
+        {filteredUsers.length === 0 ? (
+          <div className="flex flex-col items-center gap-2 py-10 text-center">
+            <UserRoundSearch className="h-8 w-8 text-muted-foreground/60" />
+            <p className="text-sm font-medium text-foreground">لا يوجد مستخدم مطابق</p>
+            <p className="text-xs text-muted-foreground">جرّب اسمًا آخر أو أزل التصفية.</p>
+            <Button
+              size="sm"
+              variant="outline"
+              className="mt-1"
+              onClick={() => {
+                setUserSearch("");
+                setRoleFilter("all");
+              }}
+            >
+              إزالة الفلترة
+            </Button>
+          </div>
+        ) : (
+          filteredUsers.map((user) => {
           const isUserAdmin = adminSet.has(user.user_id);
           const isRoundCreator = roundCreatorSet.has(user.user_id);
           const isSelf = user.user_id === currentUser?.id;
@@ -203,7 +297,7 @@ export const AdminPanel = () => {
           return (
             <div
               key={user.id}
-              className="flex items-center justify-between rounded-lg border px-4 py-3"
+              className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-border/70 px-4 py-3 transition-colors hover:border-primary/30 hover:bg-muted/30"
             >
               <div className="flex items-center gap-2">
                 <div>
@@ -228,7 +322,7 @@ export const AdminPanel = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-1 flex-wrap justify-end">
+              <div className="flex flex-wrap justify-end gap-1.5">
                 <Button
                   size="sm"
                   variant="outline"
@@ -296,7 +390,8 @@ export const AdminPanel = () => {
               </div>
             </div>
           );
-        })}
+        })
+        )}
       </div>
 
       <Dialog open={!!deleteUserId} onOpenChange={() => setDeleteUserId(null)}>
