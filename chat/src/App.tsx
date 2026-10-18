@@ -13,6 +13,7 @@ import Onboarding from "@/components/Onboarding";
 import GenerationOnboardingDialog from "@/components/GenerationOnboardingDialog";
 import GenderOnboardingDialog from "@/components/GenderOnboardingDialog";
 import SectionGate from "@/components/SectionGate";
+import { CHAT_BARRIER_UNTIL, CHAT_BARRIER_MESSAGE } from "@/lib/temporaryClose";
 import WarningNotice from "@/components/WarningNotice";
 import NightGreeting from "@/components/NightGreeting";
 import MorningGreeting from "@/components/MorningGreeting";
@@ -89,7 +90,12 @@ function AppRoutes() {
                 ? <Navigate to={homeRoute} replace />
                 : (
                   <RestrictedRoute>
-                    <SectionGate section="chat" title="الدردشة">
+                    <SectionGate
+                      section="chat"
+                      title="الدردشة"
+                      barrierUntil={CHAT_BARRIER_UNTIL}
+                      barrierMessage={CHAT_BARRIER_MESSAGE}
+                    >
                       <Chat />
                     </SectionGate>
                   </RestrictedRoute>
