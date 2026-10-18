@@ -17,39 +17,12 @@ interface LockData {
   locked_until: string | null;
 }
 
-function Countdown({ until }: { until: string }) {
-  const [now, setNow] = useState(Date.now());
-  useEffect(() => {
-    const t = setInterval(() => setNow(Date.now()), 1000);
-    return () => clearInterval(t);
-  }, []);
-  const diff = Math.max(0, new Date(until).getTime() - now);
-  const d = Math.floor(diff / 86400000);
-  const h = Math.floor((diff % 86400000) / 3600000);
-  const m = Math.floor((diff % 3600000) / 60000);
-  const s = Math.floor((diff % 60000) / 1000);
-  if (diff === 0) return <p className="text-sm text-muted-foreground mt-2">انتهى الوقت — سيُفتح القسم قريباً</p>;
-  return (
-    <div className="flex justify-center gap-2 mt-3 text-center" dir="ltr">
-      {[
-        { v: d, l: "يوم" },
-        { v: h, l: "ساعة" },
-        { v: m, l: "دقيقة" },
-        { v: s, l: "ثانية" },
-      ].map((x, i) => (
-        <div key={i} className="bg-primary/10 rounded-lg px-3 py-2 min-w-[60px]">
-          <p className="text-2xl font-bold text-primary tabular-nums">{x.v}</p>
-          <p className="text-[10px] text-muted-foreground">{x.l}</p>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 const SectionGate = ({ section, title, children }: Props) => {
-  const { isAdmin } = useAuth();
+  // المالك (owner) يمرّ دائماً — الإغلاق للمستخدمين العاديين فقط.
+  const { isAdmin, isOwner } = useAuth();
   const [lock, setLock] = useState<LockData | null>(null);
   const [checking, setChecking] = useState(false);
+  const [now, setNow] = useState(() => Date.now());
 
   const refresh = useCallback(async () => {
     // يقرأ من كاش section_locks المشترك — لا يضرب القاعدة إلا عند انتهاء TTL.
@@ -66,19 +39,32 @@ const SectionGate = ({ section, title, children }: Props) => {
     return () => document.removeEventListener("visibilitychange", onVis);
   }, [refresh]);
 
+  /**
+   * فتح تلقائي «صامت»: مؤقت واحد يعيد الحساب عند ميعاد الفتح بالضبط،
+   * فتختفي الرسالة ويفتح القسم من نفسه — بدون أي عدّاد يراه المستخدم.
+   */
+  useEffect(() => {
+    const until = lock?.locked_until ? new Date(lock.locked_until).getTime() : 0;
+    const diff = until - Date.now();
+    if (!until || diff <= 0) return;
+    const t = setTimeout(() => setNow(Date.now()), Math.min(diff, 2147483647));
+    return () => clearTimeout(t);
+  }, [lock?.locked_until]);
+
   const forceCheck = async () => {
     setChecking(true);
     try {
       const fresh = await getSectionLockData(section, true);
       setLock(fresh || null);
+      setNow(Date.now());
     } finally {
       setChecking(false);
     }
   };
 
-  const isLocked = lock?.locked && (!lock.locked_until || new Date(lock.locked_until) > new Date());
+  const isLocked = !!lock?.locked && (!lock.locked_until || new Date(lock.locked_until).getTime() > now);
 
-  if (isLocked && !isAdmin) {
+  if (isLocked && !isAdmin && !isOwner) {
     return (
       <div className="container mx-auto px-4 py-10 max-w-lg">
         <Card>
@@ -86,7 +72,6 @@ const SectionGate = ({ section, title, children }: Props) => {
             <Lock className="w-12 h-12 text-destructive mx-auto" />
             <h2 className="text-xl font-bold">{title} مغلق مؤقتاً</h2>
             {lock?.message && <p className="text-muted-foreground whitespace-pre-wrap">{lock.message}</p>}
-            {lock?.locked_until && <Countdown until={lock.locked_until} />}
             <Button variant="outline" size="sm" className="gap-1 mt-2" disabled={checking} onClick={() => void forceCheck()}>
               {checking ? <Loader2 className="w-3 h-3 animate-spin" /> : <RefreshCw className="w-3 h-3" />} تحقق الآن
             </Button>
