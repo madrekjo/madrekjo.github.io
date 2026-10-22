@@ -704,23 +704,25 @@ async function handleLogin(
     "/";
 
   // "/" = الرئيسية: وجهة دخول صالحة دون أن تكون قسماً.
+  // أي مسار داخلي آمن يُقبل كوجهة حتى لو لم يكن قسماً (مثل /2009/engineering.html)
+  // لأن المستخدم قد يكون موجَّهاً للدخول من صفحة داخلية، والجلسات تُمنح
+  // لكل الأقسام النشطة بغضّ النظر عن الوجهة.
+  const safeTarget =
+    typeof target === "string" &&
+    target.startsWith("/") &&
+    !target.startsWith("//") &&
+    !target.startsWith("/\\") &&
+    !target.includes("\\");
+
+  // وجهة غير آمنة → الرئيسية (لا نمنع الدخول بسبب رابط غير صالح).
+  const finalTarget = safeTarget ? target : "/";
+
   const section =
-    target === "/"
+    finalTarget === "/"
       ? null
       : SECTIONS.find(
-          (s) => s.target === target
+          (s) => s.target === finalTarget
         );
-
-  if (!section && target !== "/") {
-    return new Response(
-      `Unknown target "${target}". Select one of: / ${SECTIONS.map(
-        (s) => s.target
-      ).join(" ")}`,
-      {
-        status: 400,
-      }
-    );
-  }
 
   // القسم المؤجل (لم يُربط بالدخول الموحد بعد) → صفحة تحت الصيانة.
   if (section && section.status !== "active") {
@@ -740,7 +742,7 @@ async function handleLogin(
   const statePayload =
     b64urlEncode(
       JSON.stringify({
-        target,
+        target: finalTarget,
         nonce:
           crypto.randomUUID(),
       })
@@ -943,23 +945,19 @@ async function handleCallback(
     );
   }
 
-  const target =
+  const rawTarget =
     parsed &&
     parsed.target;
 
-  if (
-    target !== "/" &&
-    !SECTIONS.some(
-      (s) => s.target === target
-    )
-  ) {
-    return new Response(
-      "Invalid state",
-      {
-        status: 400,
-      }
-    );
-  }
+  // نفس شرط الأمان في /login: مسار داخلي فقط (يمنع أي تحويل مفتوح لخارج الموقع).
+  const target =
+    typeof rawTarget === "string" &&
+    rawTarget.startsWith("/") &&
+    !rawTarget.startsWith("//") &&
+    !rawTarget.startsWith("/\\") &&
+    !rawTarget.includes("\\")
+      ? rawTarget
+      : "/";
 
   console.log(
     "[sso][callback] Target:",

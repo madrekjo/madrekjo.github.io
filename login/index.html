@@ -340,7 +340,7 @@
   // الأقسام التي تتشارك نفس مشروع Supabase (أجر وثواب + التلاوات) تُعاد
   // استخدام جلستها نفسها لأن الجلسة صالحة للمشروع كله.
   async function linkSections(map) {
-    const from = qp("from") || "/";
+    const from = safePath(qp("from") || "/");
     const payload = { viaCode: true, target: from };
     const byUrl = {};
     for (const s of SECTIONS) {
@@ -500,6 +500,11 @@
   function writeShared(payload) {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (e) {}
   }
+  /* مسار داخلي آمن فقط (يمنع تحويلاً مفتوحاً إلى موقع خارجي عبر //host أو \\host). */
+  function safePath(p) {
+    return (typeof p === "string" && p.charAt(0) === "/" && p.charAt(1) !== "/" && p.charAt(1) !== "\\")
+      ? p : "/";
+  }
   function loginHref(target) {
     return SSO_BASE + "/login?target=" + encodeURIComponent(target || "/");
   }
@@ -523,7 +528,7 @@
   }
 
   function renderIdle() {
-    var from = qp("from") || "/";
+    var from = safePath(qp("from") || "/");
     var existing = readShared();
     wrap().innerHTML = "";
 
@@ -648,7 +653,7 @@
       return persistSections(payload || {}).then(function () { return payload; });
     }).then(function (payload) {
       renderWorking("تم الدخول، جارٍ التحويل...");
-      const dest = (payload && payload.target) || qp("from") || "/";
+      const dest = safePath((payload && payload.target) || qp("from") || "/");
       window.location.replace(dest);
     }).catch(function (err) {
       console.error("[login] consume failed", err);
