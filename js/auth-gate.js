@@ -53,7 +53,9 @@
   }
 
   function goLogin(banned) {
-    var from = location.pathname + location.search + location.hash;
+    /* الوجهة تُطبَّع: "/index.html" → "/" (وإلا وصلت وجهة غير معروفة
+       للوركر). الاستعلام والجزء يُحفظان ليعود المستخدم لنفس الموضع. */
+    var from = pathNow() + location.search + location.hash;
     var url = LOGIN_PATH + "?from=" + encodeURIComponent(from);
     if (banned) url += "&banned=1";
     location.replace(url);

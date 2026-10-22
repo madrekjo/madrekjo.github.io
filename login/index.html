@@ -340,7 +340,7 @@
   // الأقسام التي تتشارك نفس مشروع Supabase (أجر وثواب + التلاوات) تُعاد
   // استخدام جلستها نفسها لأن الجلسة صالحة للمشروع كله.
   async function linkSections(map) {
-    const from = qp("from") || "/";
+    const from = safeLocalPath(qp("from")) || "/";
     const payload = { viaCode: true, target: from };
     const byUrl = {};
     for (const s of SECTIONS) {
@@ -366,7 +366,11 @@
     writeShared(payload);
     try { await persistSections(payload); } catch (e) {}
     renderWorking("تم الدخول، جارٍ التحويل...");
-    window.location.replace(payload.target || "/");
+    window.location.replace(
+      safeLocalPath(payload && payload.target) ||
+      safeLocalPath(qp("from")) ||
+      "/"
+    );
   }
 
   function setBusy(btn, busy) {
@@ -500,8 +504,24 @@
   function writeShared(payload) {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (e) {}
   }
+
+  /* وجهة العودة: مسار داخلي فقط (يمنع //evil.com و /\evil.com). */
+  function safeLocalPath(raw) {
+    var s = String(raw == null ? "" : raw).trim();
+    if (!s) return null;
+    if (s.charAt(0) !== "/") return null;
+    if (s.slice(0, 2) === "//") return null;
+    if (s.slice(0, 2) === "/\\") return null;
+    if (s.indexOf("\\") !== -1) return null;
+    if (s.length > 2048) return null;
+    return s;
+  }
+
   function loginHref(target) {
-    return SSO_BASE + "/login?target=" + encodeURIComponent(target || "/");
+    /* نرسل المسار كما هو (داخلي فقط): الوركر يقنّنه ويحوّله إلى قسم
+       معروف، فلا تظهر رسالة «Unknown target» ولا تفشل صفحة الدخول. */
+    var safe = safeLocalPath(target) || "/";
+    return SSO_BASE + "/login?target=" + encodeURIComponent(safe);
   }
 
   function chipRow() {
@@ -523,7 +543,7 @@
   }
 
   function renderIdle() {
-    var from = qp("from") || "/";
+    var from = safeLocalPath(qp("from")) || "/";
     var existing = readShared();
     wrap().innerHTML = "";
 
@@ -648,7 +668,13 @@
       return persistSections(payload || {}).then(function () { return payload; });
     }).then(function (payload) {
       renderWorking("تم الدخول، جارٍ التحويل...");
-      const dest = (payload && payload.target) || qp("from") || "/";
+      /* وجهة العودة: كما طلبها المستخدم (returnTo) ثم الوجهة المُقنَّنة
+         من الوركر ثم صفحة الدخول. كلها مسارات داخلية آمنة فقط. */
+      const dest =
+        safeLocalPath(payload && payload.returnTo) ||
+        safeLocalPath(payload && payload.target) ||
+        safeLocalPath(qp("from")) ||
+        "/";
       window.location.replace(dest);
     }).catch(function (err) {
       console.error("[login] consume failed", err);

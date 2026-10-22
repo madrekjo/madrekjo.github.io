@@ -84,6 +84,68 @@ const ACTIVE_SECTIONS = SECTIONS.filter(
 );
 
 /* ---------------------------------------------------------------
+   تطبيع وجهة العودة (target)
+   ---------------------------------------------------------------
+   كانت الوركر ترفض أي وجهة غير موجودة حرفياً في SECTIONS وتُعيد
+   400 «Unknown target "..."» — فأي رابط داخلي مثل /index.html أو
+   /2009/index.html أو /sutur/?v=63 كان يُفشل تسجيل الدخول برسالة
+   خام أمام المستخدم.
+
+   الآن: أي مسار داخلي مقبول، ونُقرنه إلى قسم معروف (أو "/")،
+   مع منع التحويل إلى موقع خارجي (open redirect).
+   --------------------------------------------------------------- */
+
+/**
+ * يقبل المسار الداخلي فقط.
+ * يرجع null إن كان المسار خارجياً أو مشبوهاً (//evil.com أو /\evil.com).
+ */
+function safeLocalPath(raw) {
+  if (typeof raw !== "string") return null;
+
+  const value = raw.trim();
+
+  if (!value) return null;
+  if (!value.startsWith("/")) return null;   /* رابط كامل أو بروتوكول */
+  if (value.startsWith("//")) return null;   /* //evil.com */
+  if (value.startsWith("/\\")) return null;  /* /\evil.com */
+  if (value.includes("\\")) return null;      /* /\ أو \ */
+  if (value.includes("\n") || value.includes("\r")) return null;
+  if (value.length > 2048) return null;
+
+  return value;
+}
+
+/**
+ * يقنّن المسار إلى وجهة معروفة: "/" أو مسار قسم في SECTIONS.
+ * أي مسار آخر (صفحة عميقة مثل /2009/engineering.html) → "/".
+ */
+function canonicalTarget(raw) {
+  const safe = safeLocalPath(raw);
+
+  if (!safe) return "/";
+
+  let path = safe.split("#")[0].split("?")[0];
+
+  path = path.replace(/\/{2,}/g, "/");
+  path = path.replace(/\/index\.html$/i, "/");
+
+  if (!path || path === "/") return "/";
+
+  const dir = path.endsWith("/") ? path : `${path}/`;
+
+  const section = SECTIONS.find(
+    (s) => dir === s.target || dir.startsWith(s.target)
+  );
+
+  return section ? section.target : "/";
+}
+
+/** وجهة العودة الكاملة (مع الاستعلام والجزء) بعد نجاح الدخول. */
+function safeReturnPath(raw) {
+  return safeLocalPath(raw) || "/";
+}
+
+/* ---------------------------------------------------------------
    الحظر الموحد (مركزي): قائمة المحظورين تعيش في قاعدة الشات
    (romocwtqzdnovfgtmwzb) عبر جدول global_bans + RPC is_global_banned.
    الوركر يفحصها عند كل تسجيل دخول قبل منح الجلسات، فيُحرم
@@ -697,11 +759,24 @@ async function handleLogin(
   const url =
     new URL(request.url);
 
-  const target =
+  // الوجهة كما طلبها الموقع: نقبل أي مسار داخلي، ونُرجع "/" لغير الآمن.
+  const requestedTarget =
     url.searchParams.get(
       "target"
     ) ||
     "/";
+
+  // الوجهة المُقنَّنة (قسم معروف أو "/") — تُستعمل لاختيار القسم.
+  const target =
+    canonicalTarget(
+      requestedTarget
+    );
+
+  // وجهة العودة الكاملة (مسار داخلي آمن) — تُحفظ في التذكرة.
+  const returnTo =
+    safeReturnPath(
+      requestedTarget
+    );
 
   // "/" = الرئيسية: وجهة دخول صالحة دون أن تكون قسماً.
   const section =
@@ -711,18 +786,7 @@ async function handleLogin(
           (s) => s.target === target
         );
 
-  if (!section && target !== "/") {
-    return new Response(
-      `Unknown target "${target}". Select one of: / ${SECTIONS.map(
-        (s) => s.target
-      ).join(" ")}`,
-      {
-        status: 400,
-      }
-    );
-  }
-
-  // القسم المؤجل (لم يُربط بالدخول الموحد بعد) → صفحة تحت الصيانة.
+  // الأقسام المؤجلة (لم يُربط بالدخول الموحد بعد) → صفحة تحت الصيانة.
   if (section && section.status !== "active") {
     console.log(
       "[sso][login] Section deferred (maintenance):",
@@ -741,6 +805,7 @@ async function handleLogin(
     b64urlEncode(
       JSON.stringify({
         target,
+        returnTo,
         nonce:
           crypto.randomUUID(),
       })
@@ -943,23 +1008,19 @@ async function handleCallback(
     );
   }
 
+  // نقنّن الوجهة: "/" أو قسم معروف. لا نرفض الطلب أبداً — الرفض كان
+  // يُظهر «Invalid state» أمام المستخدم.
   const target =
-    parsed &&
-    parsed.target;
-
-  if (
-    target !== "/" &&
-    !SECTIONS.some(
-      (s) => s.target === target
-    )
-  ) {
-    return new Response(
-      "Invalid state",
-      {
-        status: 400,
-      }
+    canonicalTarget(
+      parsed &&
+        parsed.target
     );
-  }
+
+  const returnTo =
+    safeReturnPath(
+      parsed &&
+        parsed.returnTo
+    );
 
   console.log(
     "[sso][callback] Target:",
@@ -1249,6 +1310,7 @@ async function handleCallback(
           ...sessions,
 
           target,
+          returnTo,
         }),
         now,
         now +
