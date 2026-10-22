@@ -44,6 +44,12 @@ import type { RoundLeaderboardRow } from "@/lib/points";
 const ROUND_COLUMNS =
   "id, user_id, title, description, duration_minutes, break_enabled, break_interval_minutes, break_duration_minutes, alarm_muted, started_at, ended_at, scheduled_end_at, settled, status, created_at, capacity, cover_image_url";
 
+/** حدود مدة الجولة (صافي وقت العمل): 5 دقائق كحد أدنى و4 ساعات كحد أقصى. */
+const MIN_ROUND_MINUTES = 5;
+const MAX_ROUND_MINUTES = 240;
+const clampRoundMinutes = (n: number) =>
+  Math.max(MIN_ROUND_MINUTES, Math.min(MAX_ROUND_MINUTES, Math.round(Number(n) || MIN_ROUND_MINUTES)));
+
 /** وقت انتهاء الجولة بالمللي — من جدول الخادم إن وُجد، وإلا من نفس رياضة الجدولة */
 const roundEndMs = (r: Round) => {
   if (r.scheduled_end_at) return new Date(r.scheduled_end_at).getTime();
@@ -366,7 +372,7 @@ const Rounds = () => {
         user_id: user.id,
         title: title.trim(),
         description: description.trim() || null,
-        duration_minutes: duration,
+        duration_minutes: clampRoundMinutes(duration),
         break_enabled: breakEnabled,
         break_interval_minutes: breakEnabled ? breakInterval : null,
         break_duration_minutes: breakEnabled ? breakDuration : null,
@@ -402,7 +408,7 @@ const Rounds = () => {
     setEditingRound(r);
     setTitle(r.title);
     setDescription(r.description || "");
-    setDuration(r.duration_minutes);
+    setDuration(clampRoundMinutes(r.duration_minutes));
     setBreakEnabled(r.break_enabled);
     setBreakInterval(r.break_interval_minutes || 25);
     setBreakDuration(r.break_duration_minutes || 5);
@@ -424,7 +430,7 @@ const Rounds = () => {
       const { error } = await (supabase as any).from("study_rounds").update({
         title: title.trim(),
         description: description.trim() || null,
-        duration_minutes: duration,
+        duration_minutes: clampRoundMinutes(duration),
         break_enabled: breakEnabled,
         break_interval_minutes: breakEnabled ? breakInterval : null,
         break_duration_minutes: breakEnabled ? breakDuration : null,
@@ -1244,8 +1250,14 @@ const RoundForm = (p: any) => (
     </div>
     <div>
       <label className="text-sm font-medium">مدة العمل الصافية (دقائق)</label>
-      <Input type="number" min={5} max={480} value={p.duration} onChange={e => p.setDuration(Number(e.target.value))} />
-      <p className="text-xs text-muted-foreground mt-1">البريكات تُضاف فوق هذه المدة ولا تُحتسب عملاً.</p>
+      <Input
+        type="number"
+        min={MIN_ROUND_MINUTES}
+        max={MAX_ROUND_MINUTES}
+        value={p.duration}
+        onChange={e => p.setDuration(clampRoundMinutes(Number(e.target.value)))}
+      />
+      <p className="text-xs text-muted-foreground mt-1">البريكات تُضاف فوق هذه المدة ولا تُحتسب عملاً. الحد الأقصى 4 ساعات (240 دقيقة).</p>
     </div>
     <div className="flex items-center justify-between rounded-lg border p-3">
       <div>
