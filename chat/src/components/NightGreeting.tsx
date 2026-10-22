@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Clock, Moon, Volume2, VolumeX } from "lucide-react";
+import { Clock, Moon, Volume2, VolumeX, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 
@@ -92,7 +92,16 @@ const STARS = Array.from({ length: 46 }, (_, i) => ({
 }));
 
 export default function NightGreeting() {
-  const { isOwner } = useAuth();
+  const { isOwner, isAdmin } = useAuth();
+  /* المالك والأدمن يقدروا يسكّروا نافذة النوم عندهم فقط (ما تأثر على غيرهم). */
+  const canCloseNight = isOwner || isAdmin;
+  const [closedNightId, setClosedNightId] = useState<string | null>(() => {
+    try {
+      return localStorage.getItem("mdk_night_closed_id");
+    } catch {
+      return null;
+    }
+  });
   const [bcast, setBcast] = useState<Broadcast | null>(null);
   /* هل لقينا النافذة؟ بيمنع الفحص الزايد بالتبويبات المخفية */
   const loadedRef = useRef(false);
@@ -136,8 +145,13 @@ export default function NightGreeting() {
       : bcast ?? fallback;
 
   // المعاينة والاختبار وحدهم بسكروا؛ النافذة الحقيقية ثابتة لحد 3 فجراً
+  // إلا للمالك/الأدمن إذا سكّروها من عندهم (تبقى ظاهرة لبقية المستخدمين).
+  const closedByMe = canCloseNight && !!active && closedNightId === active.id;
   const showOverlay =
-    forced || (!!active && (isPreview || nightTest ? active.id !== dismissed : true));
+    forced ||
+    (!!active &&
+      !closedByMe &&
+      (isPreview || nightTest ? active.id !== dismissed : true));
 
   /* ---- عدّاد تنازلي لحد الساعة 3:00 فجراً (= 00:00 UTC بتوقيتنا UTC+3) ---- */
   const endAt = active?.expires_at
@@ -359,14 +373,29 @@ export default function NightGreeting() {
     return () => window.removeEventListener("keydown", onKey);
   }, [isOwner]);
 
+  /* إعادة فتح النافذة من زر 🌙 (للمالك/الأدمن إذا كانوا سكّروها). */
+  const reopen = () => {
+    if (active) {
+      try {
+        localStorage.removeItem("mdk_night_closed_id");
+      } catch {
+        /* ignore */
+      }
+      setClosedNightId(null);
+      setDismissed(active.id);
+    } else {
+      setForced(true);
+    }
+  };
+
   if (!showOverlay) {
     /* نافذة التنبيه ما زالت مفتوحة (لحد 3 فجراً) → نعرض زراً للجميع يعيد فتحها */
     const inWindow = !!(active && (!active.expires_at || new Date(active.expires_at).getTime() > Date.now()));
-    if (!inWindow && !isOwner) return null;
+    if (!inWindow && !canCloseNight) return null;
 
     return (
       <button
-        onClick={() => (active ? setDismissed(active.id) : setForced(true))}
+        onClick={reopen}
         className="night-fab fixed bottom-16 left-3 z-40 rounded-full h-12 w-12 text-xl font-bold backdrop-blur flex items-center justify-center transition-colors"
         aria-label="تنبيه وقت النوم"
         title={inWindow ? "تنبيه وقت النوم — اضغط للعرض" : "تجربة ما قبل النوم (Ctrl+Shift+N)"}
@@ -380,7 +409,16 @@ export default function NightGreeting() {
     e?.stopPropagation();
     dismissRef.current = true;
     if (!forced) {
-      sessionStorage.setItem("mdk_night_preview_done", "1");
+      if (isPreview || nightTest) {
+        sessionStorage.setItem("mdk_night_preview_done", "1");
+      } else if (canCloseNight) {
+        try {
+          localStorage.setItem("mdk_night_closed_id", active.id);
+        } catch {
+          /* التخزين محجوب — يكفي إغلاق الجلسة الحالية */
+        }
+        setClosedNightId(active.id);
+      }
     }
     snd?.pause();
     setSndOn(false);
@@ -470,6 +508,17 @@ export default function NightGreeting() {
 
   return (
     <div className="night-overlay" onClick={startOnTap}>
+      {canCloseNight && !forced && !isPreview && (
+        <button
+          data-silent
+          onClick={dismiss}
+          aria-label="إغلاق نافذة النوم عندي فقط"
+          title="إغلاق عندي فقط (يبقى ظاهراً للبقية)"
+          className="night-btn-ghost fixed top-4 left-4 z-20 h-10 w-10 rounded-full flex items-center justify-center"
+        >
+          <X className="w-5 h-5" />
+        </button>
+      )}
       <div className="night-sky">
         <div className="night-moon" />
         {stars.map((s) => (
@@ -535,6 +584,20 @@ export default function NightGreeting() {
                 <p className="night-muted text-center text-[10px] leading-relaxed">
                   النافذة بتفضل ظاهرة لحد الساعة 3:00 فجراً — بعدها يفتح الشات
                 </p>
+              )}
+              {canCloseNight && !forced && !isPreview && (
+                <>
+                  <button
+                    data-silent
+                    onClick={dismiss}
+                    className="night-btn-primary w-full rounded-xl py-3 font-bold transition-colors"
+                  >
+                    إغلاق نافذة النوم عندي
+                  </button>
+                  <p className="night-muted text-center text-[10px] leading-relaxed">
+                    أنت مالك/أدمن — الإغلاق يخصّك فقط، والنافذة تبقى ظاهرة لبقية المستخدمين.
+                  </p>
+                </>
               )}
               {inWindowHint && (forced || isPreview) && (
                 <p className="night-muted text-center text-[10px] leading-relaxed">
