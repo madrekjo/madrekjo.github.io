@@ -10,7 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { MessageCircle, Sun, Moon, LogOut, User, Shield, Lightbulb, MessageSquare, Users, CalendarDays, Lock, EyeOff, Eye, ClipboardList } from "lucide-react";
+import { MessageCircle, Sun, Moon, LogOut, User, Shield, Lightbulb, Users, CalendarDays, Lock, EyeOff, Eye, ClipboardList } from "lucide-react";
 import NotificationBell from "@/components/NotificationBell";
 import PointsBadge from "@/components/PointsBadge";
 import { useEffect, useState } from "react";
@@ -38,8 +38,6 @@ const Navbar = () => {
     : <Moon className="w-5 h-5" />;
 
   const [unreadSuggestions, setUnreadSuggestions] = useState(0);
-  const [unreadSupport, setUnreadSupport] = useState(0);
-  const [userUnreadSupport, setUserUnreadSupport] = useState(0);
   const [chatHidden, setChatHidden] = useState<boolean>(() => localStorage.getItem("chat_hidden") === "1");
 
   const isActive = (path: string) => location.pathname === path;
@@ -54,34 +52,7 @@ const Navbar = () => {
   useEffect(() => {
     if (!isStaff) return;
     if (location.pathname === "/suggestions") setUnreadSuggestions(0);
-    if (location.pathname === "/support") setUnreadSupport(0);
   }, [location.pathname, isStaff]);
-
-  // Regular user: reset their own reply badge when visiting support
-  useEffect(() => {
-    if (isStaff) return;
-    if (location.pathname === "/support") setUserUnreadSupport(0);
-  }, [location.pathname, isStaff]);
-
-  const fetchSupportCounts = async () => {
-    if (isStaff) {
-      if (location.pathname !== "/support") {
-        const { count: supCount } = await supabase
-          .from("support_messages")
-          .select("id", { count: "exact", head: true })
-          .eq("is_read", false);
-        setUnreadSupport(supCount || 0);
-      }
-    } else if (user && location.pathname !== "/support") {
-      const { count } = await supabase
-        .from("support_messages")
-        .select("id", { count: "exact", head: true })
-        .eq("user_id", user.id)
-        .neq("sender_id", user.id)
-        .eq("is_read", false);
-      setUserUnreadSupport(count || 0);
-    }
-  };
 
   const fetchCounts = async () => {
     if (isStaff && location.pathname !== "/suggestions") {
@@ -92,7 +63,6 @@ const Navbar = () => {
         .gte("created_at", oneDayAgo);
       setUnreadSuggestions(sugCount || 0);
     }
-    await fetchSupportCounts();
   };
 
   useEffect(() => {
@@ -165,13 +135,6 @@ const Navbar = () => {
                   </Link>
                 </>
               )}
-              <a href="/support/" data-tour="support">
-                <Button variant="ghost" size="sm" className="gap-1 relative">
-                  <MessageSquare className="w-4 h-4" />
-                  <span className="hidden sm:inline">الدعم</span>
-                  {isStaff ? <Badge count={unreadSupport} /> : <Badge count={userUnreadSupport} />}
-                </Button>
-              </a>
               {(isAdmin || isModerator || isSocialAdmin) && (
                 <Link to="/admin">
                   <Button variant={isActive("/admin") ? "secondary" : "ghost"} size="sm" className="gap-1">

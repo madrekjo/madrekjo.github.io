@@ -21,7 +21,6 @@ const steps: Step[] = [
   { selector: "[data-tour='schedules']", title: "📅 الجداول", body: "ارفع جدولك أو شاهد جداول الباقي وعلّق عليها." },
   { selector: "[data-tour='changes']", title: "✨ التغيير", body: "قسمان: شو المنصة غيرت فيك، وتحفيز للجميع." },
   { selector: "[data-tour='suggestions']", title: "💡 الاقتراحات", body: "اقترح أي تحسين على المنصة." },
-  { selector: "[data-tour='support']", title: "📞 الدعم", body: "تواصل مع الإدارة لأي مشكلة." },
   { selector: "[data-tour='notifications']", title: "🛎️ الإشعارات", body: "تابع التفاعلات على منشوراتك من جرس الإشعارات." },
   { selector: "[data-tour='profile']", title: "👤 ملفك الشخصي", body: "غيّر صورتك، اسمك، كلمة مرورك، وشاهد منشوراتك وجولاتك." },
   { title: "🚀 يلا نبدأ!", body: "أنت جاهز الآن. بالتوفيق!" },
