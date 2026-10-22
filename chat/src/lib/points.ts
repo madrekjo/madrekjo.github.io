@@ -137,7 +137,11 @@ export async function startRound(
 
   if (error || !data) {
     console.error("[Points] startRound error:", error);
-    return { success: false, startedAt: null, scheduledEndAt: null, errorMessage: "خطأ في الخادم" };
+    const em = String((error as any)?.message || "");
+    const msg = /too_many_active_rounds/.test(em)
+      ? "توجد 3 جولات نشطة الآن — انتظر انتهاء إحداها ثم ابدأ جولتك"
+      : "خطأ في الخادم";
+    return { success: false, startedAt: null, scheduledEndAt: null, errorMessage: msg };
   }
   const row = data as any;
   return {

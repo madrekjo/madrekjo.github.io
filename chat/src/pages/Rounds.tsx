@@ -44,11 +44,16 @@ import type { RoundLeaderboardRow } from "@/lib/points";
 const ROUND_COLUMNS =
   "id, user_id, title, description, duration_minutes, break_enabled, break_interval_minutes, break_duration_minutes, alarm_muted, started_at, ended_at, scheduled_end_at, settled, status, created_at, capacity, cover_image_url";
 
-/** حدود مدة الجولة (صافي وقت العمل): 5 دقائق كحد أدنى و3 ساعات كحد أقصى. */
+/** حدود مدة الجولة (صافي وقت العمل): 5 دقائق كحد أدنى و4 ساعات كحد أقصى. */
 const MIN_ROUND_MINUTES = 5;
-const MAX_ROUND_MINUTES = 180;
+const MAX_ROUND_MINUTES = 240;
 const clampRoundMinutes = (n: number) =>
   Math.max(MIN_ROUND_MINUTES, Math.min(MAX_ROUND_MINUTES, Math.round(Number(n) || MIN_ROUND_MINUTES)));
+
+/** أقصى عدد جولات نشطة على المنصة في وقت واحد. */
+const MAX_ACTIVE_ROUNDS = 3;
+const TOO_MANY_ACTIVE_ROUNDS_MSG =
+  "توجد 3 جولات نشطة الآن — انتظر انتهاء إحداها ثم أنشئ جولتك";
 
 /** وقت انتهاء الجولة بالمللي — من جدول الخادم إن وُجد، وإلا من نفس رياضة الجدولة */
 const roundEndMs = (r: Round) => {
@@ -363,6 +368,15 @@ const Rounds = () => {
     if (!user || !title.trim() || creating) return;
     setCreating(true);
     try {
+      const { count } = await supabase
+        .from("study_rounds")
+        .select("id", { count: "exact", head: true })
+        .eq("status", "active")
+        .gt("scheduled_end_at", new Date().toISOString());
+      if ((count ?? 0) >= MAX_ACTIVE_ROUNDS) {
+        toast.error(TOO_MANY_ACTIVE_ROUNDS_MSG);
+        return;
+      }
       let cover_image_url: string | null = null;
       if (coverFile) {
         const compressed = await compressImage(coverFile);
@@ -389,6 +403,8 @@ const Rounds = () => {
           toast.error((error as any)?.hint || "لديك جولة نشطة أو معلّقة بالفعل — أنهِها أو احذفها أولاً");
         } else if (/round_full/.test(msg)) {
           toast.error("الجولة ممتلئة");
+        } else if (/too_many_active_rounds/.test(msg)) {
+          toast.error(TOO_MANY_ACTIVE_ROUNDS_MSG);
         } else {
           toast.error("فشل إنشاء الجولة");
         }
@@ -1257,7 +1273,7 @@ const RoundForm = (p: any) => (
         value={p.duration}
         onChange={e => p.setDuration(clampRoundMinutes(Number(e.target.value)))}
       />
-      <p className="text-xs text-muted-foreground mt-1">البريكات تُضاف فوق هذه المدة ولا تُحتسب عملاً. الحد الأقصى 3 ساعات (180 دقيقة).</p>
+      <p className="text-xs text-muted-foreground mt-1">البريكات تُضاف فوق هذه المدة ولا تُحتسب عملاً. الحد الأقصى 4 ساعات (240 دقيقة).</p>
     </div>
     <div className="flex items-center justify-between rounded-lg border p-3">
       <div>
