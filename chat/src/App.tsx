@@ -18,6 +18,7 @@ import WarningNotice from "@/components/WarningNotice";
 import NightGreeting from "@/components/NightGreeting";
 import MorningGreeting from "@/components/MorningGreeting";
 import PrizeWheel from "@/components/PrizeWheel";
+import ChatClosedOverlay from "@/components/ChatClosedOverlay";
 
 const Landing = lazy(() => import("@/pages/Landing"));
 const Auth = lazy(() => import("@/pages/Auth"));
@@ -96,7 +97,7 @@ function AppRoutes() {
                       barrierUntil={CHAT_BARRIER_UNTIL}
                       barrierMessage={CHAT_BARRIER_MESSAGE}
                     >
-                      <Chat />
+                      <ChatClosedOverlay />
                     </SectionGate>
                   </RestrictedRoute>
                 )
