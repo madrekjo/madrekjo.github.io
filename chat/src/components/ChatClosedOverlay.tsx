@@ -4,22 +4,13 @@ import { Volume2, VolumeX } from "lucide-react";
 const BG_URL = import.meta.env.BASE_URL + "chat-closed-bg.png";
 const AUDIO_URL = import.meta.env.BASE_URL + "audio/chat-closed.mp3";
 
-function isChatPath() {
-  if (typeof window === "undefined") return false;
-  const path = window.location.pathname || "";
-  const href = window.location.href || "";
-  return path.startsWith("/chat") || href.includes("/chat/") || path === "/chat" || href.includes("madrekjo") && href.includes("/chat");
-}
-
 export default function ChatClosedOverlay() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
   const [started, setStarted] = useState(false);
   const [showHint, setShowHint] = useState(true);
-  const [inChat, setInChat] = useState(false);
 
   const tryPlay = async () => {
-    if (!inChat) return;
     const el = audioRef.current;
     if (!el) return;
     try {
@@ -34,7 +25,6 @@ export default function ChatClosedOverlay() {
   };
 
   const toggleSound = () => {
-    if (!inChat) return;
     const el = audioRef.current;
     if (!el) return;
     if (playing) {
@@ -46,19 +36,18 @@ export default function ChatClosedOverlay() {
   };
 
   useEffect(() => {
-    const allowed = isChatPath();
-    setInChat(allowed);
-    if (!allowed) return;
+    if (typeof window === "undefined") return;
+    if (!window.location.pathname.startsWith("/chat")) return;
 
     const el = new Audio(AUDIO_URL);
     el.loop = true;
-    el.preload = "none";
+    el.preload = "auto";
     el.volume = 0.7;
     audioRef.current = el;
     void tryPlay();
 
     const unlock = () => {
-      if (!started && allowed) void tryPlay();
+      if (!started) void tryPlay();
     };
     document.addEventListener("click", unlock, { once: true });
     document.addEventListener("touchstart", unlock, { once: true });
@@ -77,8 +66,6 @@ export default function ChatClosedOverlay() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  if (!inChat) return null;
 
   return (
     <div className="relative min-h-[calc(100dvh-56px)] w-full overflow-hidden">
