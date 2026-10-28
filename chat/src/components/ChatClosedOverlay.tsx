@@ -41,27 +41,15 @@ export default function ChatClosedOverlay() {
     el.preload = "auto";
     el.volume = 0.7;
     audioRef.current = el;
-    void tryPlay();
 
-    const unlock = () => {
-      if (!started) void tryPlay();
-    };
-    document.addEventListener("click", unlock, { once: true });
-    document.addEventListener("touchstart", unlock, { once: true });
-    document.addEventListener("keydown", unlock, { once: true });
-
-    const hintTimer = setTimeout(() => setShowHint(false), 6000);
+    const hintTimer = setTimeout(() => setShowHint(false), 8000);
 
     return () => {
       clearTimeout(hintTimer);
-      document.removeEventListener("click", unlock);
-      document.removeEventListener("touchstart", unlock);
-      document.removeEventListener("keydown", unlock);
       el.pause();
       el.src = "";
       audioRef.current = null;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
