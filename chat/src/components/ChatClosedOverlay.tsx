@@ -36,9 +36,6 @@ export default function ChatClosedOverlay() {
   };
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (!window.location.pathname.startsWith("/chat")) return;
-
     const el = new Audio(AUDIO_URL);
     el.loop = true;
     el.preload = "auto";
