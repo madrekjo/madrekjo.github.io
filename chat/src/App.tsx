@@ -77,7 +77,6 @@ function AppRoutes() {
     <>
       <Navbar />
       {user && <MorningGreeting />}
-      {user && <NightGreeting />}
       {user && <GenerationOnboardingDialog />}
       {user && <GenderOnboardingDialog />}
       {user && <Onboarding />}
