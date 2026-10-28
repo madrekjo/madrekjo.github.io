@@ -15,7 +15,6 @@ import GenderOnboardingDialog from "@/components/GenderOnboardingDialog";
 import SectionGate from "@/components/SectionGate";
 import { CHAT_BARRIER_UNTIL, CHAT_BARRIER_MESSAGE } from "@/lib/temporaryClose";
 import WarningNotice from "@/components/WarningNotice";
-import NightGreeting from "@/components/NightGreeting";
 import MorningGreeting from "@/components/MorningGreeting";
 import PrizeWheel from "@/components/PrizeWheel";
 import ChatClosedOverlay from "@/components/ChatClosedOverlay";
