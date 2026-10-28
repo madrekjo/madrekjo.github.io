@@ -9,10 +9,8 @@ export default function ChatClosedOverlay() {
   const [playing, setPlaying] = useState(false);
   const [started, setStarted] = useState(false);
   const [showHint, setShowHint] = useState(true);
-  const [allowed, setAllowed] = useState(false);
 
   const tryPlay = async () => {
-    if (!allowed) return;
     const el = audioRef.current;
     if (!el) return;
     try {
@@ -27,7 +25,6 @@ export default function ChatClosedOverlay() {
   };
 
   const toggleSound = () => {
-    if (!allowed) return;
     const el = audioRef.current;
     if (!el) return;
     if (playing) {
@@ -39,12 +36,6 @@ export default function ChatClosedOverlay() {
   };
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const path = window.location.pathname;
-    const inChat = path.startsWith("/chat");
-    setAllowed(inChat);
-    if (!inChat) return;
-
     const el = new Audio(AUDIO_URL);
     el.loop = true;
     el.preload = "auto";
@@ -72,8 +63,6 @@ export default function ChatClosedOverlay() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  if (!allowed) return null;
 
   return (
     <div className="relative min-h-[calc(100dvh-56px)] w-full overflow-hidden">
