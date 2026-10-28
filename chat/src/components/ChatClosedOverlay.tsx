@@ -36,19 +36,28 @@ export default function ChatClosedOverlay() {
   };
 
   useEffect(() => {
-    const el = new Audio(AUDIO_URL);
-    el.loop = true;
-    el.preload = "auto";
-    el.volume = 0.7;
-    audioRef.current = el;
+    try {
+      const el = new Audio(AUDIO_URL);
+      el.loop = true;
+      el.preload = "auto";
+      el.volume = 0.7;
+      audioRef.current = el;
+    } catch {
+      audioRef.current = null;
+    }
 
     const hintTimer = setTimeout(() => setShowHint(false), 8000);
 
     return () => {
       clearTimeout(hintTimer);
-      el.pause();
-      el.src = "";
-      audioRef.current = null;
+      const el = audioRef.current;
+      if (el) {
+        try {
+          el.pause();
+          el.src = "";
+        } catch {}
+        audioRef.current = null;
+      }
     };
   }, []);
 
