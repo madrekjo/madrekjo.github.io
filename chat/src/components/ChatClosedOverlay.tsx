@@ -1,66 +1,6 @@
-import { useEffect, useRef, useState } from "react";
-import { Volume2, VolumeX } from "lucide-react";
-
 const BG_URL = import.meta.env.BASE_URL + "chat-closed-bg.png";
-const AUDIO_URL = import.meta.env.BASE_URL + "audio/chat-closed.mp3";
 
 export default function ChatClosedOverlay() {
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [playing, setPlaying] = useState(false);
-  const [started, setStarted] = useState(false);
-  const [showHint, setShowHint] = useState(true);
-
-  const tryPlay = async () => {
-    const el = audioRef.current;
-    if (!el) return;
-    try {
-      el.volume = 0.7;
-      await el.play();
-      setPlaying(true);
-      setStarted(true);
-      setShowHint(false);
-    } catch {
-      setPlaying(false);
-    }
-  };
-
-  const toggleSound = () => {
-    const el = audioRef.current;
-    if (!el) return;
-    if (playing) {
-      el.pause();
-      setPlaying(false);
-    } else {
-      tryPlay();
-    }
-  };
-
-  useEffect(() => {
-    try {
-      const el = new Audio(AUDIO_URL);
-      el.loop = true;
-      el.preload = "auto";
-      el.volume = 0.7;
-      audioRef.current = el;
-    } catch {
-      audioRef.current = null;
-    }
-
-    const hintTimer = setTimeout(() => setShowHint(false), 8000);
-
-    return () => {
-      clearTimeout(hintTimer);
-      const el = audioRef.current;
-      if (el) {
-        try {
-          el.pause();
-          el.src = "";
-        } catch {}
-        audioRef.current = null;
-      }
-    };
-  }, []);
-
   return (
     <div className="relative min-h-[calc(100dvh-56px)] w-full overflow-hidden">
       <div
@@ -96,26 +36,10 @@ export default function ChatClosedOverlay() {
           </p>
         </div>
 
-        <div className="mt-12 flex flex-col items-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
-          <button
-            onClick={toggleSound}
-            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-white/20 bg-black/40 px-6 py-2.5 text-sm text-white/80 backdrop-blur-xl transition-all hover:border-cyan-300/60 hover:text-white"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/0 via-cyan-400/10 to-cyan-400/0 opacity-0 transition-opacity group-hover:opacity-100" />
-            {playing ? <VolumeX className="relative h-4 w-4" /> : <Volume2 className="relative h-4 w-4" />}
-            <span className="relative">{playing ? "إيقاف الموسيقى" : "تشغيل الموسيقى"}</span>
-          </button>
-          {showHint && !playing && (
-            <p className="text-xs text-white/40 animate-pulse">اضغط في أي مكان لتشغيل الموسيقى</p>
-          )}
-        </div>
-
         <div className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 text-center text-[11px] text-white/30">
           مدارك جو
         </div>
       </div>
-
-      <audio ref={audioRef} src={AUDIO_URL} loop preload="auto" playsInline />
     </div>
   );
 }
