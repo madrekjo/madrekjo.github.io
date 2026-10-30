@@ -2,8 +2,8 @@ import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 import { SIBLING_SUPABASE_URL, SIBLING_SUPABASE_ANON_KEY } from '@/config/sso-config';
 
-// Supabase client مستقل لمشروع الإنجاز (achievement)
-// `supabase` الرئيسي = مشروع الدردشة (الجلسة)، أما هذا = مشروع الإنجاز (البيانات).
+// Supabase client لمشروع الإنجاز (achievement) — المصدر الأساسي لجلسة الدخول والبيانات.
+// الدردشة قسم اختياري ولا تُشترط لجلسة الإنجاز.
 // Import the achievement client like this:
 // import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 
