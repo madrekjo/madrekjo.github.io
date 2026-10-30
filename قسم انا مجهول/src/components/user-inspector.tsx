@@ -3,11 +3,13 @@ import { supabase } from "@/integrations/supabase/client";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { Loader2, Ban, ShieldPlus, ShieldMinus, Trash2, Copy, Ghost, MessageCircle, FileText, Heart } from "lucide-react";
+import { Loader2, Ban, ShieldPlus, ShieldMinus, Trash2, Copy, Ghost, MessageCircle, FileText, Heart, TriangleAlert } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import { useAuth } from "@/hooks/use-auth";
 import { addGlobalBan } from "@/lib/global-bans";
+import { adminUserWarning } from "@/lib/warnings";
+import { WarnDialog } from "@/components/warn-dialog";
 
 type PostRow = { id: string; content: string; created_at: string; status: string; hidden: boolean; pinned: boolean };
 type CommentRow = { id: string; post_id: string; content: string; created_at: string };
@@ -31,6 +33,8 @@ type Dossier = {
   recent_chat_comments: ChatCommentRow[];
 };
 
+type WarningInfo = { message: string; at: string | null; seen_at: string | null };
+
 function timeAgo(d: string) {
   try { return formatDistanceToNow(new Date(d), { addSuffix: true, locale: ar }); } catch { return ""; }
 }
@@ -48,14 +52,20 @@ export function UserInspector({
   const [data, setData] = useState<Dossier | null>(null);
   const [loading, setLoading] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [warn, setWarn] = useState<WarningInfo | null>(null);
+  const [warnOpen, setWarnOpen] = useState(false);
 
   async function load() {
     if (!userId) return;
     setLoading(true);
-    const { data: d, error } = await (supabase.rpc as any)("admin_user_dossier", { p_user_id: userId });
+    const [{ data: d, error }, w] = await Promise.all([
+      (supabase.rpc as any)("admin_user_dossier", { p_user_id: userId }),
+      adminUserWarning(userId).catch(() => null),
+    ]);
     setLoading(false);
     if (error) { toast.error("فشل تحميل الملف: " + error.message); return; }
     setData(d as Dossier);
+    setWarn(w);
   }
 
   useEffect(() => {
@@ -101,7 +111,15 @@ export function UserInspector({
   }
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <>
+    <Dialog
+      open={open}
+      onOpenChange={(o) => {
+        // لا نغلق ملف الحساب إذا كان حوار التحذير مفتوحاً فوقه
+        if (!o && warnOpen) return;
+        onOpenChange(o);
+      }}
+    >
       <DialogContent className="max-h-[90vh] max-w-lg overflow-y-auto">
         <DialogHeader><DialogTitle>ملف الحساب</DialogTitle></DialogHeader>
         {loading && <div className="flex justify-center p-6"><Loader2 className="h-5 w-5 animate-spin" /></div>}
@@ -130,7 +148,26 @@ export function UserInspector({
                 {data.is_admin ? <ShieldMinus className="h-3 w-3 ml-1" /> : <ShieldPlus className="h-3 w-3 ml-1" />}
                 {data.is_admin ? "إزالة أدمن" : "تعيين أدمن"}
               </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setWarnOpen(true)}
+                className="col-span-2 border-red-500/50 text-red-600 hover:bg-red-500/10 dark:text-red-400"
+              >
+                <TriangleAlert className="h-3 w-3 ml-1" /> {warn ? "تعديل التحذير / إلغاؤه" : "إرسال تحذير"}
+              </Button>
             </div>
+
+            {warn && (
+              <div className="rounded-lg border border-red-500/40 bg-red-500/10 p-2 text-xs">
+                <div className="font-bold text-red-600 dark:text-red-400">التحذير الحالي</div>
+                <p className="mt-1 whitespace-pre-wrap">{warn.message}</p>
+                <div className="mt-1 text-[10px] text-muted-foreground">
+                  {warn.seen_at ? "قرأه المستخدم" : "لم يقرأه بعد"}
+                  {warn.at ? ` · ${new Date(warn.at).toLocaleString("ar")}` : ""}
+                </div>
+              </div>
+            )}
 
             <div className="grid grid-cols-2 gap-2 rounded-lg bg-muted/40 p-3 text-xs">
               <div>التسجيل: <b>{data.created_at ? timeAgo(data.created_at) : "—"}</b></div>
@@ -219,5 +256,13 @@ export function UserInspector({
         )}
       </DialogContent>
     </Dialog>
+    <WarnDialog
+      userId={userId}
+      email={data?.email ?? null}
+      open={warnOpen}
+      onOpenChange={setWarnOpen}
+      onSent={() => { void load(); onChanged?.(); }}
+    />
+    </>
   );
 }

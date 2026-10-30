@@ -9,6 +9,7 @@ import Login from "@/pages/Login.tsx";
 import Admin from "@/pages/Admin.tsx";
 import { useEffect, useState } from "react";
 import { UpdateWatcher } from "@/components/update-watcher";
+import { WarningGate } from "@/components/warning-gate";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -75,6 +76,7 @@ const App = () => (
       <BrowserRouter basename="/anon">
         <UpdateWatcher />
         <CentralBanRunner />
+        <WarningGate />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
