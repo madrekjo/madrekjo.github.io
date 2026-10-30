@@ -60,7 +60,7 @@ CREATE POLICY "Admins can delete guest support"
   ON public.support_guest_messages FOR DELETE TO authenticated
   USING (public.has_role(auth.uid(), 'admin'::public.app_role));
 
-GRANT SELECT, UPDATE, DELETE ON public.support_guest_messages TO authenticated;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.support_guest_messages TO authenticated;
 
 -- ---------------------------------------------------------------------------
 -- [3] إرسال الزائر (RAINT: الرمز = إثبات ملكية المحادثة)
