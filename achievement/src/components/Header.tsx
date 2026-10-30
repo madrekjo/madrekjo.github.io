@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { useProfile } from "@/hooks/useProfile";
 import { useAdmin } from "@/hooks/useAdmin";
@@ -7,7 +6,6 @@ import { Button } from "./ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { LogOut, User, Trophy, LifeBuoy, Sparkles, LayoutDashboard } from "lucide-react";
 import { UserNotifications } from "./UserNotifications";
-import { SupportDialog } from "./SupportDialog";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import {
@@ -47,7 +45,6 @@ export const Header = () => {
   const { isAdmin } = useAdmin();
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const [supportOpen, setSupportOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-card/70 backdrop-blur-xl">
@@ -95,18 +92,19 @@ export const Header = () => {
             </Button>
           )}
 
-          {user && !isAdmin && (
-            <Button
-              variant="outline"
-              size="sm"
-              className="gap-1.5 rounded-full"
-              onClick={() => setSupportOpen(true)}
-              data-tour="support"
-            >
+          <Button
+            asChild
+            variant="outline"
+            size="sm"
+            className="gap-1.5 rounded-full"
+            data-tour="support"
+            title="الدعم والمساعدة"
+          >
+            <a href="/support/" target="_blank" rel="noopener noreferrer">
               <LifeBuoy className="h-4 w-4 text-primary" />
               <span className="hidden sm:inline">الدعم</span>
-            </Button>
-          )}
+            </a>
+          </Button>
 
           <ThemeToggle />
           {user && <UserNotifications isAdmin={isAdmin} />}
@@ -141,7 +139,6 @@ export const Header = () => {
           )}
         </div>
       </div>
-      <SupportDialog open={supportOpen} onOpenChange={setSupportOpen} />
     </header>
   );
 };
