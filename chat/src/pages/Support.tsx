@@ -14,10 +14,12 @@ import {
   ChevronUp,
   Trash2,
   RefreshCw,
-  LogOut,
   ShieldCheck,
   ImagePlus,
   X,
+  ArrowRight,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
@@ -46,6 +48,38 @@ const SUPPORT_BUCKET = "support-media";
 
 const MAX_IMAGES = 3;
 const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
+const SUPPORT_THEME_KEY = "mdk:support:theme";
+
+type SupportTheme = "light" | "dark";
+
+/** الوضع الحالي للصفحة (يأتي من الثيم المحفوظ أو من كلاس html الذي يضبطه رأس الصفحة). */
+const readSupportTheme = (): SupportTheme => {
+  try {
+    const saved = localStorage.getItem(SUPPORT_THEME_KEY);
+    if (saved === "light" || saved === "dark") return saved;
+    const hostTheme = localStorage.getItem("theme");
+    if (hostTheme === "dark" || hostTheme === "blue" || hostTheme === "pink" || hostTheme === "sleep") {
+      return "dark";
+    }
+    if (hostTheme === "light") return "light";
+  } catch {
+    /* تجاهل */
+  }
+  return document.documentElement.classList.contains("dark") ? "dark" : "light";
+};
+
+/** تطبيق الوضع داخل صفحة الدعم فقط، مع حفظ اختيار الزائر/المستخدم محليًا. */
+const applySupportTheme = (theme: SupportTheme, persist = true) => {
+  const root = document.documentElement;
+  root.classList.remove("light", "dark", "blue", "pink", "sleep");
+  if (theme === "dark") root.classList.add("dark");
+  if (!persist) return;
+  try {
+    localStorage.setItem(SUPPORT_THEME_KEY, theme);
+  } catch {
+    /* تجاهل */
+  }
+};
 
 const supportDb = createClient(ACHIEVEMENT_SUPABASE_URL, ACHIEVEMENT_SUPABASE_KEY, {
   auth: {
@@ -204,6 +238,16 @@ const Support = () => {
   const [replyingTo, setReplyingTo] = useState<string | null>(null);
 
   const [lightbox, setLightbox] = useState<{ images: string[]; index: number } | null>(null);
+
+  // الوضع الداكن/الفاتح داخل صفحة الدعم (مستقل عن بقية الأقسام).
+  const [theme, setTheme] = useState<SupportTheme>(readSupportTheme);
+  const themeInitializedRef = useRef(false);
+
+  useEffect(() => {
+    // لا نحفظ الاختيار عند أول تحميل حتى يبقى وضع النوم الليلي يعمل لمن لم يختر بعد.
+    applySupportTheme(theme, themeInitializedRef.current);
+    themeInitializedRef.current = true;
+  }, [theme]);
 
   // ---- الزائر ----
   const [guestToken] = useState<string>(() => {
@@ -389,13 +433,18 @@ const Support = () => {
     popupCleanupRef.current = cleanup;
   };
 
-  const signOut = async () => {
-    await supportDb.auth.signOut();
-    setUser(null);
-    setMessages([]);
-    setGuestRows([]);
-    setProfiles({});
-    setIsStaff(false);
+  /** رجوع: إلى الصفحة السابقة داخل الموقع، وإلا إلى الرئيسية. */
+  const goBack = () => {
+    try {
+      const ref = document.referrer ? new URL(document.referrer) : null;
+      if (ref && ref.origin === window.location.origin) {
+        window.location.href = ref.href;
+        return;
+      }
+    } catch {
+      /* تجاهل */
+    }
+    window.location.href = "/";
   };
 
   /* ---------------- تحميل بيانات المستخدم/الإدارة ---------------- */
@@ -1005,9 +1054,29 @@ const Support = () => {
 
   const header = (title: string) => (
     <div className="flex items-center gap-2 mb-6">
-      <MessageSquare className="w-6 h-6 text-primary" />
-      <h1 className="text-2xl font-bold">{title}</h1>
+      <Button
+        variant="ghost"
+        size="sm"
+        className="gap-1 -mr-2 shrink-0"
+        onClick={goBack}
+        title="رجوع"
+      >
+        <ArrowRight className="w-4 h-4" />
+        <span className="hidden sm:inline">رجوع</span>
+      </Button>
+      <MessageSquare className="w-6 h-6 text-primary shrink-0" />
+      <h1 className="text-xl sm:text-2xl font-bold truncate">{title}</h1>
       <div className="mr-auto flex items-center gap-1">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="h-8 w-8 text-muted-foreground"
+          title={theme === "dark" ? "الوضع الفاتح" : "الوضع الداكن"}
+          aria-label={theme === "dark" ? "التبديل إلى الوضع الفاتح" : "التبديل إلى الوضع الداكن"}
+          onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
+        >
+          {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+        </Button>
         <Button
           variant="ghost"
           size="sm"
@@ -1016,17 +1085,6 @@ const Support = () => {
         >
           <RefreshCw className="w-3 h-3" /> تحديث
         </Button>
-        {user && (
-          <Button
-            variant="ghost"
-            size="icon"
-            className="h-8 w-8 text-muted-foreground"
-            title="تسجيل خروج"
-            onClick={() => void signOut()}
-          >
-            <LogOut className="w-4 h-4" />
-          </Button>
-        )}
       </div>
     </div>
   );

@@ -18,14 +18,20 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://madrekjo.study/support/">
     <meta property="og:image" content="https://madrekjo.study/assets/images/logo.png">
-    <!-- مطابقة ثيم الدردشة قبل أول رسم (منع وميض الثيم الفاتح):
-         نفس منطق ThemeContext — الثيم المحفوظ + وضع النوم الليلي 10م→7ص. -->
+    <!-- ضبط الثيم قبل أول رسم (منع وميض الثيم الخاطئ):
+         أولوية لاختيار صفحة الدعم (mdk:support:theme) ثم ثيم الدردشة المحفوظ + وضع النوم الليلي 10م→7ص. -->
     <script>
       (function () {
         try {
-          var t = localStorage.getItem("theme");
-          var h = new Date().getHours();
-          if (h >= 22 || h < 7) t = "sleep";
+          var saved = localStorage.getItem("mdk:support:theme");
+          var t;
+          if (saved === "dark" || saved === "light") {
+            t = saved;
+          } else {
+            t = localStorage.getItem("theme");
+            var h = new Date().getHours();
+            if (h >= 22 || h < 7) t = "sleep";
+          }
           if (t === "dark" || t === "blue" || t === "pink" || t === "sleep") {
             document.documentElement.classList.add(t);
           }
@@ -34,18 +40,18 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/chat/assets/support-DeovwzMT.js"></script>
-    <link rel="modulepreload" crossorigin href="/chat/assets/index-r1ee9xpM.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/textarea-BMOWM3kj.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/input-DfrrB-Wp.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/Lightbox-CksmpR2X.js">
+    <script type="module" crossorigin src="/chat/assets/support-18wMm3GG.js"></script>
+    <link rel="modulepreload" crossorigin href="/chat/assets/index-CiD22ZD_.js">
+    <link rel="modulepreload" crossorigin href="/chat/assets/textarea-cwSbALW1.js">
+    <link rel="modulepreload" crossorigin href="/chat/assets/input-jqiTX4rH.js">
+    <link rel="modulepreload" crossorigin href="/chat/assets/Lightbox-BHCvF16J.js">
     <link rel="modulepreload" crossorigin href="/chat/assets/mediaCompression-PLSvQL81.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/shield-check-C6PuTnE0.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/send-BC0IBfJB.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/image-plus-DwGHySdz.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/trash-2-jYVDvdkE.js">
-    <link rel="modulepreload" crossorigin href="/chat/assets/Support-ZE99CZ0k.js">
-    <link rel="stylesheet" crossorigin href="/chat/assets/index-DJ2dA1nv.css">
+    <link rel="modulepreload" crossorigin href="/chat/assets/shield-check-BbD4wl8M.js">
+    <link rel="modulepreload" crossorigin href="/chat/assets/send-BSmfR7RI.js">
+    <link rel="modulepreload" crossorigin href="/chat/assets/image-plus-eaheiY0l.js">
+    <link rel="modulepreload" crossorigin href="/chat/assets/trash-2-C8C0KYxy.js">
+    <link rel="modulepreload" crossorigin href="/chat/assets/Support-1slrRn_h.js">
+    <link rel="stylesheet" crossorigin href="/chat/assets/index-BkzH42md.css">
   </head>
   <body>
     <div id="root"></div>
