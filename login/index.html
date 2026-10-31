@@ -297,6 +297,9 @@
   /* ===== الدخول برمز الدعوة ============================================ */
   const CHAT = SECTIONS.find(function (s) { return s.key === "chat"; });
 
+  const ACH = { url: "https://itflhfhsfzrdfpxvlzrv.supabase.co",
+    anon: "sb_publishable_3mypt4J1F0sG5RD6oTSZZg_6PNgwoyY" };
+
   const ERR_TEXT = {
     banned: "حسابك محظور من دخول المنصة.",
     wrong_code: "رمز غير صحيح — تأكد من الأرقام.",
@@ -309,6 +312,8 @@
     invalid_email: "صيغة الإيميل غير صحيحة.",
     weak_password: "كلمة المرور قصيرة (٦ أحرف على الأقل).",
     name_required: "أدخل الاسم.",
+    account_missing_email: "تعذّر العثور على بريد الحساب.",
+    link_failed: "تعذّر إكمال الدخول — أعد المحاولة.",
     gender_required: "اختر الجنس."
   };
   function errText(code) {
@@ -329,6 +334,19 @@
         "Content-Type": "application/json",
         apikey: CHAT.anon,
         Authorization: "Bearer " + CHAT.anon
+      },
+      body: JSON.stringify(body || {})
+    });
+    try { return await res.json(); } catch (e) { return { error: "bad_response" }; }
+  }
+
+  async function callAch(name, body) {
+    const res = await fetch(ACH.url + "/functions/v1/" + name, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: ACH.anon,
+        Authorization: "Bearer " + ACH.anon
       },
       body: JSON.stringify(body || {})
     });
@@ -399,14 +417,14 @@
       if (code.length !== 6) { renderCodeEntry(code, "أدخل ٦ أرقام بالضبط."); return; }
       setBusy(btn, true);
       try {
-        const r = await callFn("invite-login", { code: code });
+        const r = await callAch("code-login", { code: code });
         if (r.error === "banned") { renderBanned(); return; }
         if (r.error) { renderCodeEntry(code, errText(r.error)); return; }
         if (r.mode === "signup") { renderCodeSignup(code); return; }
         if (r.mode === "choose") { renderChooseEmail(code); return; }
         if (r.mode === "login") {
-          if (!r.sections || !r.sections.chat) { renderCodeEntry(code, "تعذّر إكمال الدخول — أعد المحاولة."); return; }
-          await finishCode(r.sections);
+          if (!r.token_hash) { renderCodeEntry(code, "تعذّر إكمال الدخول — أعد المحاولة."); return; }
+          await finishCodeAch(r.token_hash);
           return;
         }
         renderCodeEntry(code, "استجابة غير متوقعة من الخادم.");
@@ -436,12 +454,12 @@
       if (!email) { renderChooseEmail(code, "أدخل الإيميل."); return; }
       setBusy(btn, true);
       try {
-        const r = await callFn("invite-login", { code: code, email: email });
+        const r = await callAch("code-login", { code: code, email: email });
         if (r.error === "banned") { renderBanned(); return; }
         if (r.error) { renderChooseEmail(code, errText(r.error)); return; }
         if (r.mode === "login") {
-          if (!r.sections || !r.sections.chat) { renderChooseEmail(code, "تعذّر إكمال الدخول — أعد المحاولة."); return; }
-          await finishCode(r.sections);
+          if (!r.token_hash) { renderChooseEmail(code, "تعذّر إكمال الدخول — أعد المحاولة."); return; }
+          await finishCodeAch(r.token_hash);
           return;
         }
         renderChooseEmail(code, "استجابة غير متوقعة من الخادم.");
@@ -460,15 +478,9 @@
     const name = el("input", { className: "inp", placeholder: "الاسم الكامل", autocomplete: "name" });
     const email = el("input", { className: "inp", type: "email", placeholder: "name@example.com", autocomplete: "email" });
     const pass = el("input", { className: "inp", type: "password", placeholder: "كلمة مرور (٦ أحرف على الأقل)", autocomplete: "new-password" });
-    const gender = el("select", { className: "sel" }, [
-      el("option", { value: "" }, ["اختر الجنس"]),
-      el("option", { value: "male" }, ["طالب"]),
-      el("option", { value: "female" }, ["طالبة"])
-    ]);
     wrap().appendChild(el("div", { className: "field" }, [el("label", {}, ["الاسم"]), name]));
     wrap().appendChild(el("div", { className: "field" }, [el("label", {}, ["الإيميل"]), email]));
     wrap().appendChild(el("div", { className: "field" }, [el("label", {}, ["كلمة المرور"]), pass]));
-    wrap().appendChild(el("div", { className: "field" }, [el("label", {}, ["الجنس"]), gender]));
     const btn = el("button", { className: "btn-primary", "data-label": "إنشاء ودخول", onClick: submit }, ["إنشاء ودخول"]);
     wrap().appendChild(btn);
     wrap().appendChild(el("button", { className: "btn-ghost", onClick: function () { renderCodeEntry(code); } }, ["رجوع"]));
@@ -477,20 +489,46 @@
       const n = name.value.trim();
       const em = email.value.trim();
       const pw = pass.value;
-      const g = gender.value;
       if (!n) { renderCodeSignup(code, "أدخل الاسم."); return; }
       if (!em) { renderCodeSignup(code, "أدخل الإيميل."); return; }
       if (pw.length < 6) { renderCodeSignup(code, "كلمة المرور قصيرة (٦ أحرف على الأقل)."); return; }
-      if (!g) { renderCodeSignup(code, "اختر الجنس."); return; }
       setBusy(btn, true);
       try {
-        const r = await callFn("invite-signup", { code: code, name: n, email: em, password: pw, gender: g });
+        const r = await callAch("code-signup", { code: code, name: n, email: em, password: pw });
         if (r.error) { renderCodeSignup(code, errText(r.error)); return; }
-        if (!r.sections || !r.sections.chat) { renderCodeEntry(code, "أُنشئ الحساب — سجّل الدخول برمز الدعوة."); return; }
-        await finishCode(r.sections);
+        if (r.token_hash) {
+          await finishCodeAch(r.token_hash);
+          return;
+        }
+        // fallback: sign in with password
+        const c = window.supabase && window.supabase.createClient(ACH.url, ACH.anon);
+        if (c) {
+          const { error } = await c.auth.signInWithPassword({ email: em, password: pw });
+          if (!error) {
+            try { localStorage.setItem("sb-" + ACH.url.split("//")[1].split(".")[0] + "-auth-token", JSON.stringify({})); } catch (e) {}
+            window.location.replace("/achievement/dashboard/");
+            return;
+          }
+        }
+        renderCodeEntry(code, "أُنشئ الحساب — سجّل الدخول برمز الدعوة.");
       } catch (e) {
         renderCodeSignup(code, "تعذّر الاتصال — حاول مجدداً.");
       }
+    }
+  }
+
+  async function finishCodeAch(tokenHash) {
+    try {
+      const c = window.supabase && window.supabase.createClient(ACH.url, ACH.anon);
+      if (!c) throw new Error("no client");
+      const { data, error } = await c.auth.verifyOtp({ type: "magiclink", token_hash: tokenHash });
+      if (error || !data || !data.session) throw new Error(error ? error.message : "no session");
+      try { await c.auth.setSession({ access_token: data.session.access_token, refresh_token: data.session.refresh_token }); } catch (e) {}
+      try { writeShared({ achievement: { access_token: data.session.access_token, refresh_token: data.session.refresh_token }, target: "/", returnTo: "/" }); } catch (e) {}
+      renderWorking("تم الدخول، جارٍ التحويل...");
+      window.location.replace("/achievement/dashboard/");
+    } catch (e) {
+      renderError("تعذّر إكمال الدخول: " + (e instanceof Error ? e.message : "خطأ") + ". أعد المحاولة.");
     }
   }
 
@@ -705,6 +743,8 @@
     const ticket = qp("ticket");
     if (ticket) { handleTicket(ticket); return; }
     if (qp("banned") === "1") { renderBanned(); return; }
+    const qCode = qp("code");
+    if (qCode && /^\d{6}$/.test(qCode)) { renderCodeEntry(qCode); return; }
     renderIdle();
   }
 

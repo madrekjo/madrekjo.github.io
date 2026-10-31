@@ -156,7 +156,7 @@ function goCodeLogin() {
   var inp = document.getElementById('main-code-input');
   var code = (inp && inp.value || '').replace(/\D/g,'').slice(0,6);
   if (!/^\d{6}$/.test(code)) { alert('أدخل رمز 6 أرقام'); return; }
-  window.location.href = '/achievement/login?code=' + encodeURIComponent(code);
+  window.location.href = '/login/?code=' + encodeURIComponent(code);
 }
 </script>
 

@@ -1529,37 +1529,146 @@ async function handleSession(
    Main
    ========================================================= */
 
-export default {
-  async fetch(
-    request,
-    env
-  ) {
-    const url =
-      new URL(request.url);
+async function handleCodeLogin(request, env) {
+  const url = new URL(request.url);
 
-    const path =
-      url.pathname;
+  const code = (url.searchParams.get("code") || "").replace(/\D/g, "").padStart(6, "0");
+  const email = url.searchParams.get("email") || undefined;
+  const requestedTarget = url.searchParams.get("target") || "/achievement/";
+  const target = canonicalTarget(requestedTarget);
+  const returnTo = safeReturnPath(requestedTarget);
+
+  const appOrigin = (env.APP_ORIGIN || DEFAULT_APP_ORIGIN).split(",")[0].trim();
+
+  // كود غير صالح → صفحة الدخول (التي تقرأ ?code=)
+  if (code.length !== 6) {
+    return Response.redirect(
+      `${appOrigin}/achievement/login/?code=${encodeURIComponent(code)}`,
+      302
+    );
+  }
+
+  // تحقق من الرمز عبر دالة الإنجاز (Edge Function)
+  let data = null;
+  try {
+    const res = await fetch(
+      `${env.ACHIEVEMENT_SUPABASE_URL}/functions/v1/code-login`,
+      {
+        method: "POST",
+        headers: {
+          apikey: env.ACHIEVEMENT_ANON_KEY,
+          Authorization: `Bearer ${env.ACHIEVEMENT_ANON_KEY}`,
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ code, email }),
+      }
+    );
+    data = await res.json().catch(() => null);
+  } catch (err) {
+    console.error("[sso][code-login] edge function call failed:", err);
+  }
+
+  // رمز جديد (لا حساب) أو اختيار إيميل → صفحة الدخول (signup/disambiguation)
+  if (!data || data.mode === "signup" || data.mode === "choose" || data.error) {
+    const qs = new URLSearchParams({ code });
+    if (data?.error) qs.set("err", data.error);
+    return Response.redirect(
+      `${appOrigin}/achievement/login/?${qs.toString()}`,
+      302
+    );
+  }
+
+  // mode=login → تحقق من magic link للحصول على access/refresh tokens
+  const tokenHash = data.token_hash;
+  if (!tokenHash) {
+    return Response.redirect(
+      `${appOrigin}/achievement/login/?code=${encodeURIComponent(code)}`,
+      302
+    );
+  }
+
+  let session = null;
+  try {
+    const verifyRes = await fetch(
+      `${env.ACHIEVEMENT_SUPABASE_URL}/auth/v1/verify`,
+      {
+        method: "POST",
+        headers: {
+          apikey: env.ACHIEVEMENT_ANON_KEY,
+          Authorization: `Bearer ${env.ACHIEVEMENT_ANON_KEY}`,
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          type: "magiclink",
+          token_hash: tokenHash,
+        }),
+      }
+    );
+    session = await verifyRes.json().catch(() => null);
+    if (!verifyRes.ok || !session?.access_token) {
+      console.error("[sso][code-login] verify failed:", verifyRes.status, session);
+      return Response.redirect(
+        `${appOrigin}/achievement/login/?code=${encodeURIComponent(code)}`,
+        302
+      );
+    }
+  } catch (err) {
+    console.error("[sso][code-login] verify threw:", err);
+    return Response.redirect(
+      `${appOrigin}/achievement/login/?code=${encodeURIComponent(code)}`,
+      302
+    );
+  }
+
+  // تخزين تذكرة (D1) — جلسة الإنجاز فقط (الأقسام الأخرى ملغاة/صيانة)
+  const ticket = crypto.randomUUID();
+  const now = Date.now();
+  try {
+    await env.madrekjo_sso_db
+      .prepare(
+        "INSERT INTO tickets (id, payload, created_at, expires_at) VALUES (?, ?, ?, ?)"
+      )
+      .bind(
+        ticket,
+        JSON.stringify({
+          achievement: {
+            access_token: session.access_token,
+            refresh_token: session.refresh_token,
+          },
+          target,
+          returnTo,
+        }),
+        now,
+        now + TICKET_TTL_SECONDS * 1000
+      )
+      .run();
+  } catch (err) {
+    console.error("[sso][code-login] D1 ticket insert failed:", err);
+    return new Response("Failed to store login ticket", { status: 502 });
+  }
+
+  const destination = `${appOrigin}/login?ticket=${encodeURIComponent(ticket)}`;
+  return Response.redirect(destination, 302);
+}
+
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    const path = url.pathname;
 
     try {
-      if (
-        request.method ===
-        "OPTIONS"
-      ) {
-        return handleSession(
-          request,
-          env
-        );
+      if (request.method === "OPTIONS") {
+        return handleSession(request, env);
       }
 
-      if (
-        path === "/login" &&
-        request.method ===
-          "GET"
-      ) {
-        return await handleLogin(
-          request,
-          env
-        );
+      if (path === "/code-login" && request.method === "GET") {
+        return await handleCodeLogin(request, env);
+      }
+
+      if (path === "/login" && request.method === "GET") {
+        return await handleLogin(request, env);
       }
 
       if (
