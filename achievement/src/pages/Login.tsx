@@ -1,5 +1,5 @@
 ﻿import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 import { Button } from "@/components/ui/button";
@@ -72,6 +72,7 @@ const callFunction = async (name: string, body: Record<string, unknown>) => {
 const Login = () => {
   const { user, loading } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [authLoading, setAuthLoading] = useState(false);
 
   const [step, setStep] = useState<CodeStep>("closed");
@@ -85,6 +86,15 @@ const Login = () => {
   useEffect(() => {
     if (user && !loading) navigate("/dashboard");
   }, [user, loading, navigate]);
+
+  // دعم رابط ?code=XXXXXX (مثلاً من الصفحة الرئيسية / الدخول الموحد)
+  useEffect(() => {
+    const qCode = searchParams.get("code");
+    if (qCode && /^\d{6}$/.test(qCode)) {
+      setCode(qCode);
+      setStep("code");
+    }
+  }, [searchParams]);
 
   const startGoogleLogin = () => {
     setAuthLoading(true);
