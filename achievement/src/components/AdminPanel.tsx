@@ -8,11 +8,17 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription } from "./ui/dialog";
-import { Loader2, Trash2, Users, MessageCircle, RotateCcw, Inbox, Shield, ShieldOff, Sparkles, Pencil, Search, X, UserRoundSearch } from "lucide-react";
+import { Loader2, Trash2, Users, MessageCircle, RotateCcw, Inbox, Shield, ShieldOff, Pencil, Search, X, UserRoundSearch, Ban, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
 import { matchesSearch } from "@/lib/search";
 
-type RoleFilter = "all" | "admin" | "creator";
+type RoleFilter = "all" | "admin" | "blocked";
+
+interface BlockRow {
+  user_id: string;
+  blocked_until: string;
+  reason: string | null;
+}
 
 export const AdminPanel = () => {
   const { allUsers, loadingUsers, deleteUser, resetAllTasks, refetchUsers } = useAdmin();
@@ -23,12 +29,15 @@ export const AdminPanel = () => {
   const [confirmReset, setConfirmReset] = useState(false);
   const [resetting, setResetting] = useState(false);
   const [togglingId, setTogglingId] = useState<string | null>(null);
-  const [togglingRoundId, setTogglingRoundId] = useState<string | null>(null);
   const [renameTarget, setRenameTarget] = useState<{ id: string; name: string } | null>(null);
   const [renameValue, setRenameValue] = useState("");
   const [renaming, setRenaming] = useState(false);
   const [userSearch, setUserSearch] = useState("");
   const [roleFilter, setRoleFilter] = useState<RoleFilter>("all");
+  const [blockTarget, setBlockTarget] = useState<{ id: string; name: string } | null>(null);
+  const [blockMinutes, setBlockMinutes] = useState("60");
+  const [blockReason, setBlockReason] = useState("");
+  const [blocking, setBlocking] = useState(false);
 
   // Load all admin user_ids
   const { data: adminIds = [] } = useQuery({
@@ -44,38 +53,77 @@ export const AdminPanel = () => {
   });
   const adminSet = new Set(adminIds);
 
-  // Load round-creator ids
-  const { data: roundCreatorIds = [] } = useQuery({
-    queryKey: ["all-round-creator-ids"],
+  // حالات المنع الإداري (تايم أوت)
+  const { data: blocks = [], refetch: refetchBlocks } = useQuery<BlockRow[]>({
+    queryKey: ["admin-blocks"],
     queryFn: async () => {
-      const { data, error } = await (achievementSupabase as unknown as { from: (t: string) => ReturnType<typeof achievementSupabase.from> })
-        .from("round_creators")
-        .select("user_id" as never);
-      if (error) throw error;
-      return ((data ?? []) as { user_id: string }[]).map((r) => r.user_id);
+      const { data, error } = await (achievementSupabase as unknown as {
+        from: (t: string) => ReturnType<typeof achievementSupabase.from>;
+      })
+        .from("achievement_blocks")
+        .select("user_id, blocked_until, reason");
+      if (error) return []; // الجدول غير منفّذ بعد
+      return (data ?? []) as unknown as BlockRow[];
     },
   });
-  const roundCreatorSet = new Set(roundCreatorIds);
 
-  const toggleRoundCreator = async (userId: string, makeCreator: boolean) => {
-    setTogglingRoundId(userId);
+  const blockedMap = useMemo(() => {
+    const map = new Map<string, BlockRow>();
+    const now = Date.now();
+    blocks.forEach((b) => {
+      if (new Date(b.blocked_until).getTime() > now) map.set(b.user_id, b);
+    });
+    return map;
+  }, [blocks]);
+
+  const openBlock = (target: { user_id: string; display_name?: string | null }) => {
+    setBlockTarget({ id: target.user_id, name: target.display_name?.trim() || "بدون اسم" });
+    setBlockMinutes("60");
+    setBlockReason("");
+  };
+
+  const handleBlock = async () => {
+    if (!blockTarget) return;
+    const minutes = parseInt(blockMinutes);
+    if (!minutes || minutes < 1) {
+      toast.error("اختر مدة صحيحة");
+      return;
+    }
+    setBlocking(true);
     try {
-      const db = achievementSupabase as unknown as { from: (t: string) => ReturnType<typeof achievementSupabase.from> };
-      if (makeCreator) {
-        const { error } = await db.from("round_creators").insert({ user_id: userId } as never);
-        if (error) throw error;
-        toast.success("تم منح صلاحية إنشاء الجولات");
-      } else {
-        const { error } = await db.from("round_creators").delete().eq("user_id" as never, userId);
-        if (error) throw error;
-        toast.success("تم إزالة صلاحية إنشاء الجولات");
-      }
-      queryClient.invalidateQueries({ queryKey: ["all-round-creator-ids"] });
-      queryClient.invalidateQueries({ queryKey: ["can-create-round"] });
+      const db = achievementSupabase as unknown as {
+        from: (t: string) => ReturnType<typeof achievementSupabase.from>;
+      };
+      const { error } = await db.from("achievement_blocks").upsert({
+        user_id: blockTarget.id,
+        blocked_until: new Date(Date.now() + minutes * 60_000).toISOString(),
+        reason: blockReason.trim() || null,
+        created_by: currentUser?.id ?? null,
+        updated_at: new Date().toISOString(),
+      });
+      if (error) throw error;
+      toast.success(`تم منع ${blockTarget.name} مؤقتًا`);
+      setBlockTarget(null);
+      await refetchBlocks();
     } catch {
-      toast.error("تعذّر تحديث الصلاحية");
+      toast.error("تعذّر تنفيذ المنع — تأكد من تنفيذ ملف SQL أولًا");
     } finally {
-      setTogglingRoundId(null);
+      setBlocking(false);
+    }
+  };
+
+  const handleUnblock = async (userId: string) => {
+    try {
+      const db = achievementSupabase as unknown as {
+        from: (t: string) => ReturnType<typeof achievementSupabase.from>;
+      };
+      const { error } = await db.from("achievement_blocks").delete().eq("user_id", userId);
+      if (error) throw error;
+      toast.success("تم إلغاء المنع");
+      await refetchBlocks();
+      queryClient.invalidateQueries({ queryKey: ["my-block"] });
+    } catch {
+      toast.error("تعذّر إلغاء المنع");
     }
   };
 
@@ -165,18 +213,17 @@ export const AdminPanel = () => {
   // البحث + التصفية حسب الصلاحية
   const filteredUsers = useMemo(() => {
     const adminIdsSet = new Set(adminIds);
-    const creatorIdsSet = new Set(roundCreatorIds);
     return allUsers.filter((user) => {
       if (roleFilter === "admin" && !adminIdsSet.has(user.user_id)) return false;
-      if (roleFilter === "creator" && !creatorIdsSet.has(user.user_id)) return false;
+      if (roleFilter === "blocked" && !blockedMap.has(user.user_id)) return false;
       return matchesSearch(user.display_name?.trim() || "بدون اسم", userSearch);
     });
-  }, [allUsers, userSearch, roleFilter, adminIds, roundCreatorIds]);
+  }, [allUsers, userSearch, roleFilter, adminIds, blockedMap]);
 
   const roleFilters: { key: RoleFilter; label: string; count: number }[] = [
     { key: "all", label: "الكل", count: allUsers.length },
     { key: "admin", label: "المسؤولون", count: adminIds.length },
-    { key: "creator", label: "منشئو الجولات", count: roundCreatorIds.length },
+    { key: "blocked", label: "الموقوفون", count: blockedMap.size },
   ];
   const isFiltering = userSearch.trim().length > 0 || roleFilter !== "all";
 
@@ -291,7 +338,7 @@ export const AdminPanel = () => {
         ) : (
           filteredUsers.map((user) => {
           const isUserAdmin = adminSet.has(user.user_id);
-          const isRoundCreator = roundCreatorSet.has(user.user_id);
+          const block = blockedMap.get(user.user_id);
           const isSelf = user.user_id === currentUser?.id;
 
           return (
@@ -310,15 +357,16 @@ export const AdminPanel = () => {
                         مسؤول
                       </span>
                     )}
-                    {isRoundCreator && !isUserAdmin && (
-                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-accent/30 text-accent-foreground border border-accent/40">
-                        منشئ جولات
+                    {block && (
+                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-destructive/15 text-destructive border border-destructive/30">
+                        موقوف حتى {new Date(block.blocked_until).toLocaleString("ar", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}
                       </span>
                     )}
                   </div>
 
                   <p className="text-xs text-muted-foreground">
                     {new Date(user.created_at).toLocaleDateString("ar")}
+                    {block?.reason ? ` · سبب المنع: ${block.reason}` : ""}
                   </p>
                 </div>
               </div>
@@ -362,17 +410,18 @@ export const AdminPanel = () => {
                 {!isSelf && !isUserAdmin && (
                   <Button
                     size="sm"
-                    variant={isRoundCreator ? "outline" : "secondary"}
+                    variant={block ? "outline" : "secondary"}
                     className="gap-1"
-                    disabled={togglingRoundId === user.user_id}
-                    onClick={() => toggleRoundCreator(user.user_id, !isRoundCreator)}
+                    onClick={() =>
+                      block ? void handleUnblock(user.user_id) : openBlock(user)
+                    }
                   >
-                    {togglingRoundId === user.user_id ? (
-                      <Loader2 className="h-4 w-4 animate-spin" />
+                    {block ? (
+                      <ShieldCheck className="h-4 w-4" />
                     ) : (
-                      <Sparkles className="h-4 w-4" />
+                      <Ban className="h-4 w-4" />
                     )}
-                    {isRoundCreator ? "إلغاء صلاحية الجولات" : "صلاحية إنشاء جولات"}
+                    {block ? "إلغاء المنع" : "منع مؤقت"}
                   </Button>
                 )}
 
@@ -449,6 +498,63 @@ export const AdminPanel = () => {
             <Button onClick={handleRename} disabled={renaming} className="gap-1">
               {renaming && <Loader2 className="h-4 w-4 animate-spin" />}
               حفظ
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={!!blockTarget} onOpenChange={(o) => !o && setBlockTarget(null)}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>منع مؤقت{blockTarget ? ` — ${blockTarget.name}` : ""}</DialogTitle>
+            <DialogDescription>
+              لن يستطيع إنشاء أي مهمة أو جولة خلال المدة المحددة. يمكنك إلغاء المنع في أي وقت.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-3">
+            <div>
+              <Label>المدة</Label>
+              <div className="mt-1.5 flex flex-wrap gap-1.5">
+                {[
+                  { label: "ساعة", value: "60" },
+                  { label: "6 ساعات", value: "360" },
+                  { label: "24 ساعة", value: "1440" },
+                  { label: "3 أيام", value: "4320" },
+                  { label: "7 أيام", value: "10080" },
+                ].map((option) => (
+                  <button
+                    key={option.value}
+                    type="button"
+                    onClick={() => setBlockMinutes(option.value)}
+                    aria-pressed={blockMinutes === option.value}
+                    className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
+                      blockMinutes === option.value
+                        ? "border-destructive/40 bg-destructive/10 text-destructive"
+                        : "border-border/70 bg-background/70 text-muted-foreground hover:border-destructive/30 hover:text-foreground"
+                    }`}
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div>
+              <Label htmlFor="block-reason">السبب (اختياري)</Label>
+              <Input
+                id="block-reason"
+                value={blockReason}
+                onChange={(e) => setBlockReason(e.target.value)}
+                maxLength={120}
+                placeholder="مثال: مخالفة قواعد المهام"
+                className="mt-1"
+              />
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setBlockTarget(null)} disabled={blocking}>إلغاء</Button>
+            <Button variant="destructive" onClick={() => void handleBlock()} disabled={blocking} className="gap-1">
+              {blocking ? <Loader2 className="h-4 w-4 animate-spin" /> : <Ban className="h-4 w-4" />}
+              تنفيذ المنع
             </Button>
           </DialogFooter>
         </DialogContent>

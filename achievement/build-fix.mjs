@@ -49,7 +49,7 @@ for (const name of readdirSync(dist)) {
 // يبقى ثابتاً ويُدار يدوياً لأنه لا يعتمد على هاشات البناء.
 // ============================================================
 const builtIndex = path.join(root, "index.html");
-const routeDirs = ["auth/callback", "dashboard", "login", "profile", "rounds", "admin/messages"];
+const routeDirs = ["auth/callback", "dashboard", "login", "profile", "rounds", "meetings", "admin/messages"];
 for (const dir of routeDirs) {
   const dirPath = path.join(root, dir);
   if (!existsSync(dirPath)) mkdirSync(dirPath, { recursive: true });

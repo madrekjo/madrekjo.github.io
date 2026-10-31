@@ -8,15 +8,27 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { RoundCard } from "@/components/RoundCard";
 import { RoundView } from "@/components/RoundView";
 import { CreateRoundDialog } from "@/components/CreateRoundDialog";
-import { Loader2, Plus, Sparkles, AlertTriangle } from "lucide-react";
+import { Loader2, Plus, Sparkles, AlertTriangle, ShieldAlert } from "lucide-react";
 import { Navigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { formatRemaining } from "@/hooks/useRestriction";
 
 
 const Rounds = () => {
   const { user, loading } = useAuth();
-  const { rounds, participants, isLoading, canCreate, joinRound, deleteRound } = useRounds();
+  const {
+    rounds,
+    participants,
+    isLoading,
+    canCreate,
+    limits,
+    blocked,
+    blockedUntil,
+    blockReason,
+    joinRound,
+    deleteRound,
+  } = useRounds();
   const { isAdmin } = useAdmin();
   const [createOpen, setCreateOpen] = useState(false);
   const [activeRoundId, setActiveRoundId] = useState<string | null>(null);
@@ -60,13 +72,53 @@ const Rounds = () => {
               <h1 className="text-xl font-bold text-foreground sm:text-2xl">الجولات</h1>
             </div>
           </div>
-          {canCreate && (
-            <Button onClick={() => setCreateOpen(true)} className="gap-1.5">
-              <Plus className="h-4 w-4" />
-              إنشاء جولة
-            </Button>
-          )}
+          <Button
+            onClick={() => setCreateOpen(true)}
+            className="gap-1.5"
+            disabled={!canCreate}
+            title={
+              !canCreate
+                ? blocked
+                  ? "أنت ممنوع من إنشاء الجولات مؤقتًا"
+                  : limits.dailyRemaining === 0
+                    ? "وصلت للحد اليومي (3 جولات كل 24 ساعة)"
+                    : "لديك 3 جولات نشطة بالفعل"
+                : "إنشاء جولة جديدة"
+            }
+          >
+            <Plus className="h-4 w-4" />
+            إنشاء جولة
+          </Button>
         </div>
+
+        {blocked && (
+          <Alert variant="destructive" className="mb-4 rounded-2xl">
+            <ShieldAlert className="h-4 w-4" />
+            <AlertTitle>تم منعك من إنشاء المهام والجولات</AlertTitle>
+            <AlertDescription className="text-sm leading-relaxed">
+              {blockReason ? `السبب: ${blockReason}. ` : ""}
+              ينتهي المنع بعد {formatRemaining(blockedUntil)}
+              {blockedUntil ? ` (${new Date(blockedUntil).toLocaleString("ar")})` : ""}.
+            </AlertDescription>
+          </Alert>
+        )}
+
+        <Alert className="mb-4 rounded-2xl border-primary/30 bg-primary/5">
+          <Sparkles className="h-4 w-4 text-primary" />
+          <AlertTitle>حدود الجولات</AlertTitle>
+          <AlertDescription className="text-sm leading-relaxed text-foreground/80">
+            لكل شخص {limits.activeLimit} جولات نشطة كحد أقصى، و{limits.dailyLimit} جولات كل 24 ساعة.
+            <span className="block mt-1">
+              المتبقي لك اليوم: <b>{limits.dailyRemaining}</b> · جولاتك النشطة:{" "}
+              <b>
+                {limits.myActive}/{limits.activeLimit}
+              </b>
+              {limits.nextSlotAt && (
+                <> — يمكنك إنشاء جولة جديدة بعد {formatRemaining(limits.nextSlotAt)}</>
+              )}
+            </span>
+          </AlertDescription>
+        </Alert>
 
         <Alert className="mb-6 rounded-2xl border-amber-500/40 bg-amber-500/10">
           <AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-400" />

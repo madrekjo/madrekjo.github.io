@@ -1,6 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { achievementSupabase } from "@/integrations/supabase/achievementClient";
 import { useAuth } from "./useAuth";
+import { useRestriction } from "./useRestriction";
 
 // Tables are added in a pending migration; types regenerate after approval.
 // Until then, use a loose client alias for the new tables.
@@ -68,18 +69,39 @@ export const useRounds = () => {
     staleTime: 30_000,
   });
 
-  const { data: canCreate = false } = useQuery({
-    queryKey: ["can-create-round", user?.id],
-    queryFn: async () => {
-      if (!user) return false;
-      const [roleRes, creatorRes] = await Promise.all([
-        achievementSupabase.from("user_roles").select("role").eq("user_id", user.id).eq("role", "admin").maybeSingle(),
-        db.from("round_creators").select("user_id" as never).eq("user_id" as never, user.id).maybeSingle(),
-      ]);
-      return !!roleRes.data || !!creatorRes.data;
-    },
-    enabled: !!user,
-  });
+  // ------- حدود الجولات -------
+  // كل شخص: 3 جولات نشطة كحد أقصى + 3 جولات كل 24 ساعة (يُفرَض أيضًا في القاعدة).
+  const DAILY_LIMIT = 3;
+  const ACTIVE_LIMIT = 3;
+  const { blocked, blockedUntil, reason } = useRestriction();
+
+  const myRecentRounds = user
+    ? rounds.filter(
+        (r) =>
+          r.creator_id === user.id &&
+          Date.now() - new Date(r.created_at).getTime() < 24 * 60 * 60 * 1000,
+      )
+    : [];
+  const myActiveRounds = user
+    ? rounds.filter(
+        (r) =>
+          r.creator_id === user.id &&
+          r.status === "active" &&
+          new Date(r.ends_at).getTime() > Date.now(),
+      )
+    : [];
+
+  const dailyRemaining = Math.max(0, DAILY_LIMIT - myRecentRounds.length);
+  const activeRemaining = Math.max(0, ACTIVE_LIMIT - myActiveRounds.length);
+  const nextSlotAt =
+    myRecentRounds.length >= DAILY_LIMIT
+      ? new Date(
+          Math.min(...myRecentRounds.map((r) => new Date(r.created_at).getTime())) +
+            24 * 60 * 60 * 1000,
+        ).toISOString()
+      : null;
+
+  const canCreate = !!user && !blocked && dailyRemaining > 0 && activeRemaining > 0;
 
   const joinRound = useMutation({
     mutationFn: async (roundId: string) => {
@@ -179,6 +201,18 @@ export const useRounds = () => {
     participants,
     isLoading,
     canCreate,
+    limits: {
+      dailyLimit: DAILY_LIMIT,
+      activeLimit: ACTIVE_LIMIT,
+      dailyRemaining,
+      activeRemaining,
+      myActive: myActiveRounds.length,
+      myRecent: myRecentRounds.length,
+      nextSlotAt,
+    },
+    blocked,
+    blockedUntil,
+    blockReason: reason,
     joinRound,
     createRound,
     deleteRound,

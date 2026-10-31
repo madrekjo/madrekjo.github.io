@@ -11,6 +11,7 @@ import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import AdminMessages from "./pages/AdminMessages";
 import Rounds from "./pages/Rounds";
+import Meetings from "./pages/Meetings";
 import AuthCallback from "./pages/AuthCallback";
 import NotFound from "./pages/NotFound";
 import Preview from "./pages/Preview";
@@ -47,6 +48,7 @@ const App = () => (
             <Route path="/profile" element={<Profile />} />
             <Route path="/admin/messages" element={<AdminMessages />} />
             <Route path="/rounds" element={<Rounds />} />
+            <Route path="/meetings" element={<Meetings />} />
             {import.meta.env.DEV && <Route path="/preview" element={<Preview />} />}
             <Route path="*" element={<NotFound />} />
 

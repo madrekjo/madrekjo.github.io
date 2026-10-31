@@ -3,8 +3,9 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { useTasks } from "@/hooks/useTasks";
+import { useRestriction, formatRemaining } from "@/hooks/useRestriction";
 import { toast } from "sonner";
-import { Send, Timer, TimerReset, Plus } from "lucide-react";
+import { Send, Timer, TimerReset, Plus, ShieldAlert } from "lucide-react";
 import type { Database } from "@/integrations/supabase/types";
 
 type TaskCategory = Database["public"]["Enums"]["task_category"];
@@ -22,6 +23,7 @@ export const CreateTaskForm = ({ fixedCategory }: CreateTaskFormProps) => {
   const [timerMinutes, setTimerMinutes] = useState("0");
   const [mode, setMode] = useState<"countdown" | "stopwatch">("countdown");
   const { createTask, inProgressTasks } = useTasks();
+  const { blocked, blockedUntil, reason } = useRestriction();
 
   const activeCategory = fixedCategory ?? "daily";
   const activeCountInCategory = inProgressTasks.filter((t) => t.category === activeCategory).length;
@@ -71,6 +73,12 @@ export const CreateTaskForm = ({ fixedCategory }: CreateTaskFormProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title.trim()) return;
+    if (blocked) {
+      toast.error(
+        `تم منعك من إنشاء المهام${blockedUntil ? ` حتى ${new Date(blockedUntil).toLocaleString("ar")}` : ""}`,
+      );
+      return;
+    }
     if (limitReached) {
       toast.error(
         activeCategory === "daily"
@@ -111,8 +119,13 @@ export const CreateTaskForm = ({ fixedCategory }: CreateTaskFormProps) => {
       setTimerHours("0");
       setTimerMinutes("0");
       toast.success(isStopwatch ? "بدأ عداد التوقيف! ⏱️" : "تم إنشاء المهمة بنجاح! 🏆");
-    } catch {
-      toast.error("حدث خطأ أثناء إنشاء المهمة");
+    } catch (error) {
+      const message = (error as Error)?.message ?? "";
+      toast.error(
+        /تم منعك|block/i.test(message)
+          ? "تم منعك من إنشاء المهام حتى انتهاء مدة المنع"
+          : "حدث خطأ أثناء إنشاء المهمة",
+      );
     }
   };
 
@@ -128,6 +141,17 @@ export const CreateTaskForm = ({ fixedCategory }: CreateTaskFormProps) => {
           <p className="text-xs text-muted-foreground">حدّد المدة وابدأ الدراسة فوراً</p>
         </div>
       </div>
+
+      {blocked && (
+        <div className="mb-4 flex items-start gap-2 rounded-xl border border-destructive/40 bg-destructive/10 px-3.5 py-2.5 text-sm leading-relaxed text-destructive">
+          <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0" />
+          <span>
+            تم منعك من إنشاء المهام مؤقتًا.
+            {reason ? ` السبب: ${reason}.` : ""} ينتهي المنع بعد {formatRemaining(blockedUntil)}
+            {blockedUntil ? ` (${new Date(blockedUntil).toLocaleString("ar")})` : ""}.
+          </span>
+        </div>
+      )}
 
       {limitReached && (
         <div className="mb-4 rounded-xl border border-amber-500/40 bg-amber-500/10 px-3.5 py-2.5 text-sm leading-relaxed text-amber-700 dark:text-amber-300">
@@ -236,9 +260,9 @@ export const CreateTaskForm = ({ fixedCategory }: CreateTaskFormProps) => {
           </div>
         )}
 
-        <Button type="submit" size="lg" className="w-full gap-2" disabled={createTask.isPending || limitReached}>
+        <Button type="submit" size="lg" className="w-full gap-2" disabled={createTask.isPending || limitReached || blocked}>
           <Send className="h-4 w-4" />
-          {createTask.isPending ? "جاري الإنشاء..." : "أنشئ المهمة"}
+          {createTask.isPending ? "جاري الإنشاء..." : blocked ? "أنت ممنوع مؤقتًا" : "أنشئ المهمة"}
         </Button>
       </div>
     </form>

@@ -15,6 +15,7 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { useTasks } from "@/hooks/useTasks";
 import { useScheduledTasks, type ScheduledTask } from "@/hooks/useScheduledTasks";
+import { useRestriction } from "@/hooks/useRestriction";
 import type { Database } from "@/integrations/supabase/types";
 
 type TaskCategory = Database["public"]["Enums"]["task_category"];
@@ -494,6 +495,7 @@ interface UpcomingTasksProps {
 export const UpcomingTasks = ({ category }: UpcomingTasksProps) => {
   const { pending, isLoading, needsSetup, scheduleTask, removeScheduled, markScheduledStarted } = useScheduledTasks();
   const { createTask, inProgressTasks } = useTasks();
+  const { blocked, blockedUntil } = useRestriction();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [startingId, setStartingId] = useState<string | null>(null);
   const [now, setNow] = useState(() => Date.now());
@@ -531,6 +533,12 @@ export const UpcomingTasks = ({ category }: UpcomingTasksProps) => {
   }, [items.map((i) => i.id).join(",")]);
 
   const handleStart = async (item: ScheduledViewItem) => {
+    if (blocked) {
+      toast.error(
+        `تم منعك من إنشاء المهام${blockedUntil ? ` حتى ${new Date(blockedUntil).toLocaleString("ar")}` : ""}`,
+      );
+      return;
+    }
     const activeCount = inProgressTasks.filter((t) => t.category === item.category).length;
     const maxActive = item.category === "daily" ? 1 : 4;
     if (activeCount >= maxActive) {
@@ -587,8 +595,18 @@ export const UpcomingTasks = ({ category }: UpcomingTasksProps) => {
         category={category}
         pending={scheduleTask.isPending}
         onSubmit={async ({ title, duration, scheduledAt }) => {
-          await scheduleTask.mutateAsync({ title, category, duration, scheduledAt });
-          toast.success("تمت جدولة المهمة ✅");
+          if (blocked) {
+            toast.error(
+              `تم منعك من جدولة المهام${blockedUntil ? ` حتى ${new Date(blockedUntil).toLocaleString("ar")}` : ""}`,
+            );
+            return;
+          }
+          try {
+            await scheduleTask.mutateAsync({ title, category, duration, scheduledAt });
+            toast.success("تمت جدولة المهمة ✅");
+          } catch {
+            toast.error("تعذّر جدولة المهمة");
+          }
         }}
       />
     </>

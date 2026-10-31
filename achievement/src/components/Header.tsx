@@ -1,10 +1,11 @@
 import { useAuth } from "@/hooks/useAuth";
 import { useProfile } from "@/hooks/useProfile";
 import { useAdmin } from "@/hooks/useAdmin";
+import { useMeetings } from "@/hooks/useMeetings";
 import { ThemeToggle } from "./ThemeToggle";
 import { Button } from "./ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { LogOut, User, Trophy, LifeBuoy, Sparkles, LayoutDashboard } from "lucide-react";
+import { LogOut, User, Trophy, LifeBuoy, Sparkles, LayoutDashboard, UsersRound } from "lucide-react";
 import { UserNotifications } from "./UserNotifications";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -43,6 +44,7 @@ export const Header = () => {
   const { user, signOut } = useAuth();
   const { profile } = useProfile();
   const { isAdmin } = useAdmin();
+  const { hasAccess: meetingsAccess } = useMeetings();
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -76,6 +78,14 @@ export const Header = () => {
               label="الجولات"
               data-tour="rounds"
             />
+            {meetingsAccess && (
+              <NavPill
+                to="/meetings"
+                active={pathname.startsWith("/meetings")}
+                icon={UsersRound}
+                label="الاجتماعات"
+              />
+            )}
           </nav>
         )}
 
@@ -89,6 +99,17 @@ export const Header = () => {
               title="الجولات"
             >
               <Sparkles className="h-4 w-4 text-primary" />
+            </Button>
+          )}
+          {user && meetingsAccess && (
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => navigate("/meetings")}
+              title="الاجتماعات"
+            >
+              <UsersRound className="h-4 w-4 text-primary" />
             </Button>
           )}
 

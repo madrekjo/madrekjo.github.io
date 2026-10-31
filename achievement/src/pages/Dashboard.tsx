@@ -4,12 +4,13 @@ import { useAuth } from "@/hooks/useAuth";
 import { useTasks } from "@/hooks/useTasks";
 import { useProfile } from "@/hooks/useProfile";
 import { useAdmin } from "@/hooks/useAdmin";
+import { useRestriction, formatRemaining } from "@/hooks/useRestriction";
 import { Header } from "@/components/Header";
 import { CategorySection } from "@/components/CategorySection";
 import { AdminPanel } from "@/components/AdminPanel";
 import { OnboardingDialog } from "@/components/OnboardingDialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Loader2, Clock, Calendar, CalendarDays, Shield, ListTodo, CheckCircle2, Flame } from "lucide-react";
+import { Loader2, Clock, Calendar, CalendarDays, Shield, ListTodo, CheckCircle2, Flame, ShieldAlert } from "lucide-react";
 
 const formatMinutes = (minutes: number) => {
   const h = Math.floor(minutes / 60);
@@ -23,6 +24,7 @@ const Dashboard = () => {
   const { loadingMyTasks, inProgressTasks, myCompletedTasks } = useTasks();
   const { profile } = useProfile();
   const { isAdmin } = useAdmin();
+  const { blocked, blockedUntil, reason } = useRestriction();
 
   useEffect(() => {
     if (!loading && !user) navigate("/login");
@@ -69,6 +71,21 @@ const Dashboard = () => {
             <p className="mt-1 text-sm text-muted-foreground">{today}</p>
           </div>
         </div>
+
+        {/* تنبيه المنع الإداري */}
+        {blocked && (
+          <div className="mb-6 flex items-start gap-3 rounded-2xl border border-destructive/40 bg-destructive/10 p-4 text-sm leading-relaxed text-destructive animate-fade-up">
+            <ShieldAlert className="mt-0.5 h-5 w-5 shrink-0" />
+            <div>
+              <p className="font-semibold">تم منعك من إنشاء المهام والجولات مؤقتًا</p>
+              <p className="mt-1">
+                {reason ? `السبب: ${reason}. ` : ""}
+                ينتهي المنع بعد {formatRemaining(blockedUntil)}
+                {blockedUntil ? ` (${new Date(blockedUntil).toLocaleString("ar")})` : ""}.
+              </p>
+            </div>
+          </div>
+        )}
 
         {/* Stats */}
         <div className="mb-6 grid grid-cols-3 gap-3 sm:gap-4">
