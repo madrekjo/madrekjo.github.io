@@ -372,6 +372,11 @@ export const AdminPanel = () => {
                     <span className="font-medium text-foreground">
                       {user.display_name?.trim() || "بدون اسم"}
                     </span>
+                    {(user as { via_invite?: boolean }).via_invite && (
+                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-amber-500/15 text-amber-600 border border-amber-500/30">
+                        🔑 رمز الدعوة
+                      </span>
+                    )}
                     {isUserAdmin && (
                       <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-primary/15 text-primary border border-primary/30">
                         مسؤول
