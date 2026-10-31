@@ -8,7 +8,9 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription } from "./ui/dialog";
-import { Loader2, Trash2, Users, MessageCircle, RotateCcw, Inbox, Shield, ShieldOff, Pencil, Search, X, UserRoundSearch, Ban, ShieldCheck } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
+import { AdminAccessCodes } from "./AdminAccessCodes";
+import { Loader2, Trash2, Users, MessageCircle, RotateCcw, Inbox, Shield, ShieldOff, Pencil, Search, X, UserRoundSearch, Ban, ShieldCheck, KeyRound } from "lucide-react";
 import { toast } from "sonner";
 import { matchesSearch } from "@/lib/search";
 
@@ -38,6 +40,7 @@ export const AdminPanel = () => {
   const [blockMinutes, setBlockMinutes] = useState("60");
   const [blockReason, setBlockReason] = useState("");
   const [blocking, setBlocking] = useState(false);
+  const [adminTab, setAdminTab] = useState<"users" | "codes">("users");
 
   // Load all admin user_ids
   const { data: adminIds = [] } = useQuery({
@@ -237,6 +240,23 @@ export const AdminPanel = () => {
 
   return (
     <div>
+      <Tabs
+        value={adminTab}
+        onValueChange={(value) => setAdminTab(value as "users" | "codes")}
+        className="w-full"
+      >
+        <TabsList className="mb-4 grid w-full max-w-xs grid-cols-2">
+          <TabsTrigger value="users" className="gap-1.5">
+            <Users className="h-4 w-4" />
+            المستخدمون
+          </TabsTrigger>
+          <TabsTrigger value="codes" className="gap-1.5">
+            <KeyRound className="h-4 w-4" />
+            أكواد الدخول
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="users" className="mt-0">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <Users className="h-5 w-5 text-primary" />
@@ -442,6 +462,12 @@ export const AdminPanel = () => {
         })
         )}
       </div>
+        </TabsContent>
+
+        <TabsContent value="codes" className="mt-0">
+          <AdminAccessCodes />
+        </TabsContent>
+      </Tabs>
 
       <Dialog open={!!deleteUserId} onOpenChange={() => setDeleteUserId(null)}>
         <DialogContent className="sm:max-w-md">

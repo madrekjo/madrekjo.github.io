@@ -1,1 +1,8 @@
 project_id = "itflhfhsfzrdfpxvlzrv"
+
+# دخول الزوار برمز الدعوة (بدون جلسة مسبقة)
+[functions.code-login]
+verify_jwt = false
+
+[functions.code-signup]
+verify_jwt = false

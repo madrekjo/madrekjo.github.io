@@ -57,8 +57,8 @@ export const useMeetings = () => {
       if (queryError) throw queryError;
       return (data ?? []) as unknown as Meeting[];
     },
-    refetchInterval: 45_000,
-    staleTime: 30_000,
+    refetchInterval: 20_000,
+    staleTime: 15_000,
   });
 
   const meetingIds = meetings.map((m) => m.id);
@@ -75,8 +75,8 @@ export const useMeetings = () => {
       if (queryError) throw queryError;
       return (data ?? []) as unknown as MeetingMember[];
     },
-    refetchInterval: 45_000,
-    staleTime: 30_000,
+    refetchInterval: 20_000,
+    staleTime: 15_000,
   });
 
   const memberUserIds = Array.from(new Set(members.map((m) => m.user_id))).sort();
