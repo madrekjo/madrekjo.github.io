@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { useAuth } from "@/hooks/useAuth";
 import { useAdmin } from "@/hooks/useAdmin";
 import { useMeetings } from "@/hooks/useMeetings";
+import { MeetingChat } from "@/components/MeetingChat";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -55,7 +56,6 @@ const Meetings = () => {
     isLoading,
     needsSetup,
     isAdmin,
-    hasAccess,
     createMeeting,
     deleteMeeting,
     addMember,
@@ -154,7 +154,6 @@ const Meetings = () => {
               <UsersRound className="h-5 w-5" />
             </span>
             <div>
-              <p className="section-label">قسم خاص</p>
               <h1 className="text-xl font-bold text-foreground sm:text-2xl">الاجتماعات</h1>
             </div>
           </div>
@@ -180,14 +179,6 @@ const Meetings = () => {
         {isLoading ? (
           <div className="flex justify-center py-12">
             <Loader2 className="h-6 w-6 animate-spin text-primary" />
-          </div>
-        ) : !hasAccess ? (
-          <div className="rounded-2xl border border-dashed border-border py-14 text-center">
-            <ShieldAlert className="mx-auto mb-3 h-8 w-8 text-muted-foreground/60" />
-            <p className="text-sm font-medium text-foreground">هذا القسم خاص</p>
-            <p className="mt-1 text-xs text-muted-foreground">
-              يظهر فقط لمن يضيفه المسؤول إلى اجتماع.
-            </p>
           </div>
         ) : meetings.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-border py-14 text-center">
@@ -284,6 +275,8 @@ const Meetings = () => {
                     </div>
                   )}
                 </div>
+
+                <MeetingChat meetingId={meeting.id} />
               </div>
             ))}
           </div>
