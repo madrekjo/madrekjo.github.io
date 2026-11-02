@@ -3,14 +3,23 @@
  * 2) إن كان المستخدم مسجّلاً، يتحقق من قائمة الحظر المركزية (global_bans)
  *    عبر RPC is_global_banned، ويطرد المحظور فوراً (مع مسح جلسته).
  *
+ * مبدأ التصميم: الفحص الأمني لا يجوز أن يُعلّق الموقع.
+ *   - لا نُخفي الصفحة أثناء الفحص (كان يسبّب شاشة فارغة/«الموقع معلّق»
+ *     حين تتعطّل قاعدة الدردشة).
+ *   - مهلة قصيرة (3.5 ثانية) بدل 5.
+ *   - عند تعذّر الفحص نسمح بالمرور ونسجّل فشلاً مؤقتاً (دقيقتان) حتى لا
+ *     يتكرر الطلب الميت مع كل صفحة.
+ *
  * الجلسة تُكتب في localStorage بصيغة:
  *   mdk:sso:session = { chat: {access_token, refresh_token}, ... , target, viaCode? }
  * ويكتبها: مسار Google عبر الوركر ومسار رمز الدعوة في /login/.
+ * ومن يسجّل الدخول من داخل قسم (sb-<ref>-auth-token) يُعتبر مسجّلاً أيضاً.
  */
 (function () {
   "use strict";
 
   var GATE_ON = true;                    /* مفتاح التشغيل العام للدرع */
+  var REQUIRE_LOGIN = true;              /* هل نُحوّل الزائر غير المسجّل إلى /login/ ؟ */
   var SESSION_KEY = "mdk:sso:session";   /* جلسة الدخول الموحّد */
   var LOGIN_PATH = "/login/";            /* صفحة الدخول الموحّد (عامة) */
 
@@ -18,12 +27,12 @@
   var BAN_URL = "https://romocwtqzdnovfgtmwzb.supabase.co/rest/v1/rpc/is_global_banned";
   var BAN_KEY = "sb_publishable_FxIiY1SHBKXkoByvKu0-Jg_msr2Qd45";
   var BAN_CACHE_KEY = "mdk:ban:cache";
+  var BAN_FAIL_KEY = "mdk:ban:fail";
   var BAN_TTL = 5 * 60 * 1000;           /* مهلة صلاحية نتيجة الفحص */
-  var BAN_TIMEOUT = 5000;                /* أقصى انتظار لفحص الحظر */
+  var BAN_FAIL_TTL = 2 * 60 * 1000;      /* لا نعيد محاولة فاشلة قبل دقيقتين */
+  var BAN_TIMEOUT = 3500;                /* أقصى انتظار لفحص الحظر */
 
   if (!GATE_ON) return;
-
-  var docEl = document.documentElement;
 
   function pathNow() {
     return location.pathname.replace(/\/index\.html$/, "/");
@@ -50,6 +59,28 @@
     try { raw = localStorage.getItem(SESSION_KEY); } catch (e) { return undefined; }
     if (!raw) return null;
     try { return JSON.parse(raw); } catch (e) { return null; }
+  }
+
+  /* جلسة قسم مباشرة (تسجيل دخول من داخل القسم نفسه):
+     Supabase يحفظها في sb-<ref>-auth-token بصيغتين — {access_token...}
+     أو {session:{access_token...}} — وبعض الإصدارات تُقسّمها إلى أجزاء. */
+  function readSectionSession() {
+    try {
+      var keys = [];
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        if (k && /^sb-.*-auth-token$/.test(k)) keys.push(k);
+      }
+      for (var j = 0; j < keys.length; j++) {
+        var raw = localStorage.getItem(keys[j]);
+        if (!raw) continue;
+        var v = JSON.parse(raw);
+        var s = (v && v.session) ? v.session : v;
+        if (s && s.access_token) return { access_token: s.access_token };
+        if (v && v.access_token) return { access_token: v.access_token };
+      }
+    } catch (e) { /* تجاهل */ }
+    return null;
   }
 
   function goLogin(banned) {
@@ -113,8 +144,22 @@
     } catch (e) {}
   }
 
-  function hide() { try { docEl.style.visibility = "hidden"; } catch (e) {} }
-  function show() { try { docEl.style.visibility = ""; } catch (e) {} }
+  function failedRecently(email) {
+    try {
+      var c = JSON.parse(localStorage.getItem(BAN_FAIL_KEY) || "null");
+      return !!(c && c.email === email && Date.now() - (c.t || 0) < BAN_FAIL_TTL);
+    } catch (e) { return false; }
+  }
+
+  function markFailed(email) {
+    try {
+      localStorage.setItem(BAN_FAIL_KEY, JSON.stringify({ email: email, t: Date.now() }));
+    } catch (e) {}
+  }
+
+  function clearFailed() {
+    try { localStorage.removeItem(BAN_FAIL_KEY); } catch (e) {}
+  }
 
   function fetchBanned(email) {
     var ctrl = ("AbortController" in window) ? new AbortController() : null;
@@ -148,14 +193,16 @@
     if (cached === true) { wipeAndGoBanned(); return; }
     if (cached === false) return;     /* سليم خلال المهلة */
 
-    /* فحص طازج: نُخفي المحتوى ريثما ينتهي حتى لا يرى المحظور شيئاً. */
-    hide();
+    /* تعذّر الفحص حديثاً: لا نُكرر الطلب ولا نُعلّق الصفحة. */
+    if (failedRecently(email)) return;
+
+    /* فحص طازج في الخلفية — الصفحة تظهر فوراً، والحظر يُطبَّق عند وصول الرد. */
     fetchBanned(email).then(function (banned) {
+      clearFailed();
       writeCache(email, banned);
-      if (banned) { wipeAndGoBanned(); return; }
-      show();
+      if (banned) { wipeAndGoBanned(); }
     }).catch(function () {
-      show();                          /* تعذّر الفحص: نسمح (fail-open) */
+      markFailed(email);              /* تعذّر الفحص: نسمح (fail-open) */
     });
   }
 
@@ -165,7 +212,11 @@
 
     var session = readSession();
     if (session === undefined) return;   /* تعذّر قراءة المخزن: fail-open */
-    if (!session) { goLogin(false); return; }
+    if (!session) session = readSectionSession();  /* مسجّل من داخل قسم */
+    if (!session) {
+      if (REQUIRE_LOGIN) goLogin(false);
+      return;
+    }
 
     checkBan(session);
   } catch (e) { /* لا نمنع التحميل عند أي خطأ غير متوقع */ }
