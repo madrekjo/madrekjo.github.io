@@ -2,7 +2,7 @@
    مدارك جو — Service Worker
    ======================================== */
 
-const CACHE = 'madrekjo-v70';
+const CACHE = 'madrekjo-v71';
 
 const CORE = [
   '/',
@@ -12,7 +12,7 @@ const CORE = [
   '/css/chatbot.css?v=3',
   '/js/main.js?v=4',
   '/js/chatbot.js?v=3',
-  '/js/auth-gate.js?v=4',
+  '/js/auth-gate.js?v=5',
   '/exam.html',
   '/privacy.html',
   '/2009/index.html',

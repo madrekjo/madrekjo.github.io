@@ -1,8 +1,24 @@
+# مدارك جو — https://madrekjo.study
+# الأقسام العامة (المذكورة في sitemap.xml) مسموح بفهرستها
 User-agent: *
 Allow: /
+Allow: /2009/
+Allow: /2010/
+Allow: /chat/
+Allow: /achievement/
+Allow: /sutur/
+Allow: /anon/
+Allow: /talaawat/
+Allow: /ajr/
+Allow: /mazraa/
+Allow: /prog/
+
+# مناطق خاصة أو داخلية — لا تُفهرس
 Disallow: /ops/
 Disallow: /k7-x9mz4-ops/
 Disallow: /question-factory/
 Disallow: /report/
+Disallow: /supabase/
+Disallow: /tools/
 
 Sitemap: https://madrekjo.study/sitemap.xml

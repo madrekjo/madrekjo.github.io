@@ -54,6 +54,16 @@
     return false;
   }
 
+  /* محركات البحث وأدوات المعاينة: لا تُحوَّل إلى /login/ (التي تحمل noindex)
+     حتى تقرأ الصفحة نفسها التي يراها الزائر المسجّل بدل تسجيل «استُبعدت
+     بوسم noindex» في Search Console. لا يمنح هذا أي وصول لبيانات خاصة:
+     المحتوى المحمي في Supabase يبقى محكوماً بسياسات RLS. */
+  var CRAWLER_RE = /bot|crawler|spider|crawling|facebookexternalhit|twitterbot|slackbot|telegrambot|whatsapp|linkedinbot|discordbot|embedly|pinterest|redditbot|applebot|bingpreview|google-inspectiontool|chrome-lighthouse|headlesschrome/i;
+
+  function isCrawler() {
+    try { return CRAWLER_RE.test(navigator.userAgent || ""); } catch (e) { return false; }
+  }
+
   function readSession() {
     var raw = null;
     try { raw = localStorage.getItem(SESSION_KEY); } catch (e) { return undefined; }
@@ -209,6 +219,7 @@
   /* -------- التنفيذ -------- */
   try {
     if (isPublic()) return;
+    if (isCrawler()) return;          /* محرك بحث/معاينة: اعرض الصفحة كما هي */
 
     var session = readSession();
     if (session === undefined) return;   /* تعذّر قراءة المخزن: fail-open */
