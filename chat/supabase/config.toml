@@ -1,1 +1,6 @@
 project_id = "romocwtqzdnovfgtmwzb"
+
+# الدالة تتحقق من توكن الإنجاز بنفسها (لا JWT من مشروع الدردشة)، لذا تُستدعى
+# بمفتاح publishable فقط.
+[functions.provision-sections]
+verify_jwt = false

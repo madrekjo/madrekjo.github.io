@@ -391,6 +391,51 @@
     );
   }
 
+  // بعد التحقق من رمز الدعوة (يتم في مشروع الإنجاز) نطلب من مشروع الدردشة
+  // تجهيز جلسات كل الأقسام: الدالة provision-sections تتحقق من توكن الإنجاز
+  // ثم تعيد token_hash لكل قسم، ونبادله هنا بجلسة حقيقية.
+  // بهذا يصبح الدخول بالرمز دخولاً كاملاً على كل المنصة (لا الإنجاز فقط).
+  async function provisionAllSections(achSession, dest) {
+    const payload = { viaCode: true, target: dest || "/", returnTo: dest || "/" };
+    try {
+      const res = await fetch(CHAT.url + "/functions/v1/provision-sections", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: CHAT.anon,
+          Authorization: "Bearer " + achSession.access_token
+        },
+        body: "{}"
+      });
+      const data = await res.json().catch(function () { return null; });
+      if (!res.ok || !data || data.error) {
+        console.warn("[login] provision-sections failed", res.status, data && data.error);
+      } else {
+        const map = {};
+        const got = data.sections || {};
+        for (const key in got) {
+          // جلسة الإنجاز عندنا أصلاً من verifyOtp فلا نطلب رمزاً آخر لها.
+          if (key === "achievement") continue;
+          map[key] = got[key];
+        }
+        const linked = await linkSections(map);
+        for (const key in linked) {
+          if (key === "viaCode" || key === "target" || key === "returnTo") continue;
+          payload[key] = linked[key];
+        }
+        if (data.debug) console.info("[login] provision debug", data.debug);
+      }
+    } catch (e) {
+      console.warn("[login] provision-sections threw", e);
+    }
+    // جلسة الإنجاز المتحقَّق منها هي المصدر الرسمي لهذا القسم.
+    payload.achievement = {
+      access_token: achSession.access_token,
+      refresh_token: achSession.refresh_token
+    };
+    return payload;
+  }
+
   function setBusy(btn, busy) {
     if (!btn) return;
     btn.disabled = !!busy;
@@ -503,10 +548,12 @@
         // fallback: sign in with password
         const c = window.supabase && window.supabase.createClient(ACH.url, ACH.anon);
         if (c) {
-          const { error } = await c.auth.signInWithPassword({ email: em, password: pw });
-          if (!error) {
-            try { localStorage.setItem("sb-" + ACH.url.split("//")[1].split(".")[0] + "-auth-token", JSON.stringify({})); } catch (e) {}
-            window.location.replace("/achievement/dashboard/");
+          const { data, error } = await c.auth.signInWithPassword({ email: em, password: pw });
+          if (!error && data && data.session) {
+            await completeLogin({
+              access_token: data.session.access_token,
+              refresh_token: data.session.refresh_token
+            });
             return;
           }
         }
@@ -517,16 +564,33 @@
     }
   }
 
+  // يُكمل الدخول بجلسة إنجاز صالحة: يجهّز بقية الأقسام، يكتب الحمولة الموحّدة
+  // ويثبّت الجلسات، ثم يحوّل إلى وجهة العودة.
+  async function completeLogin(achSession) {
+    const from = safeLocalPath(qp("from"));
+    const dest = from && from !== "/" ? from : "/achievement/dashboard/";
+    renderWorking("تم الدخول، جارٍ تجهيز بقية الأقسام...");
+    const payload = await provisionAllSections(achSession, dest);
+    writeShared(payload);
+    try { await persistSections(payload); } catch (e) {}
+    renderWorking("تم الدخول، جارٍ التحويل...");
+    window.location.replace(dest);
+  }
+
   async function finishCodeAch(tokenHash) {
     try {
       const c = window.supabase && window.supabase.createClient(ACH.url, ACH.anon);
       if (!c) throw new Error("no client");
       const { data, error } = await c.auth.verifyOtp({ type: "magiclink", token_hash: tokenHash });
       if (error || !data || !data.session) throw new Error(error ? error.message : "no session");
-      try { await c.auth.setSession({ access_token: data.session.access_token, refresh_token: data.session.refresh_token }); } catch (e) {}
-      try { writeShared({ achievement: { access_token: data.session.access_token, refresh_token: data.session.refresh_token }, target: "/", returnTo: "/" }); } catch (e) {}
-      renderWorking("تم الدخول، جارٍ التحويل...");
-      window.location.replace("/achievement/dashboard/");
+      const achSession = {
+        access_token: data.session.access_token,
+        refresh_token: data.session.refresh_token
+      };
+      try { await c.auth.setSession(achSession); } catch (e) {}
+      // نُثبّت جلسة الإنجاز أولاً حتى لا تضيع إن فشل تجهيز بقية الأقسام.
+      writeShared({ achievement: achSession, viaCode: true, target: "/", returnTo: "/" });
+      await completeLogin(achSession);
     } catch (e) {
       renderError("تعذّر إكمال الدخول: " + (e instanceof Error ? e.message : "خطأ") + ". أعد المحاولة.");
     }
