@@ -4,12 +4,13 @@ import "./styles.css";
 import { supabase } from "./integrations/supabase/client";
 import { sliceForAnonProject, readSsoPayload, SSO_KEY, type SsoPayload } from "./lib/sso-session";
 
-// مشروع الدردشة يملك دالة provision-sections: تتحقق من توكن الإنجاز ثم تعيد
-// token_hash لكل الأقسام. نستعملها كمعالجة ذاتية حين يصل القسم بلا جلسة anon
-// (مثل الدخول برمز الدعوة من تطبيق الإنجاز مباشرة أو من /login/ قبل تجهيز
-// الأقسام) حتى لا يُطلب من المستخدم «سجّل الدخول» عند التعليق أو الإعجاب.
-const CHAT_FUNCTIONS_URL = "https://romocwtqzdnovfgtmwzb.supabase.co/functions/v1";
-const CHAT_PUBLISHABLE_KEY = "sb_publishable_FxIiY1SHBKXkoByvKu0-Jg_msr2Qd45";
+// دالة provision-sections داخل مشروع الإنجاز (المصدر الموحّد للدخول) تتحقق من
+// توكن الإنجاز ثم تعيد token_hash لكل الأقسام. نستعملها كمعالجة ذاتية حين يصل
+// القسم بلا جلسة anon (مثل الدخول برمز الدعوة من تطبيق الإنجاز مباشرة أو من
+// /login/ قبل تجهيز الأقسام) حتى لا يُطلب من المستخدم «سجّل الدخول» عند
+// التعليق أو الإعجاب.
+const ACH_URL = "https://itflhfhsfzrdfpxvlzrv.supabase.co";
+const ACH_PUBLISHABLE_KEY = "sb_publishable_3mypt4J1F0sG5RD6oTSZZg_6PNgwoyY";
 const ACH_PROJECT_REF = "itflhfhsfzrdfpxvlzrv";
 
 async function hasValidSession(): Promise<boolean> {
@@ -53,11 +54,11 @@ function writeAnonSlice(slice: { access_token: string; refresh_token: string }) 
 async function healAnonSession(): Promise<void> {
   const token = achievementToken(readSsoPayload());
   if (!token) return;
-  const res = await fetch(`${CHAT_FUNCTIONS_URL}/provision-sections`, {
+  const res = await fetch(`${ACH_URL}/functions/v1/provision-sections`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      apikey: CHAT_PUBLISHABLE_KEY,
+      apikey: ACH_PUBLISHABLE_KEY,
       Authorization: `Bearer ${token}`,
     },
     body: "{}",

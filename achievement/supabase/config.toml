@@ -6,3 +6,8 @@ verify_jwt = false
 
 [functions.code-signup]
 verify_jwt = false
+
+# تتحقق الدالة من توكن الإنجاز بنفسها (لا تحتاج JWT من بوابة الدوال)،
+# فتُستدعى بمفتاح publishable فقط.
+[functions.provision-sections]
+verify_jwt = false

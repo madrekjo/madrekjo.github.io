@@ -1,14 +1,16 @@
 import { provisionSections } from "../_shared/provision.ts";
 
 // ============================================================================
-// تجهيز جلسات كل الأقسام لمستخدم يملك جلسة صالحة في مشروع الإنجاز.
+// تجهيز جلسات أقسام المنصة لمستخدم يملك جلسة صالحة في مشروع الإنجاز.
 //
-// يستخدمه /login/ بعد الدخول برمز الدعوة (الرمز يُتحقَّق منه في مشروع الإنجاز)،
-// وكذلك قسم «أنا مجهول» لمعالجة نفسه إن وصل بلا جلسة anon.
+// مشروع الإنجاز هو مصدر الدخول الموحّد (رمز الدعوة + Google)، ولا يوجد مشروع
+// دردشة منفصل. يستخدمه:
+//   - /login/ بعد التحقق من رمز الدعوة (verifyOtp) ليفتح بقية الأقسام.
+//   - «أنا مجهول» لمعالجة نفسه إن وصل بلا جلسة anon.
 //
 // الأمان:
-//   - لا نثق بأي إيميل يرسله العميل: نتحقق من توكن الإنجاز عند مشروع الإنجاز
-//     عبر /auth/v1/user ونستخرج الإيميل من الاستجابة الموثوقة.
+//   - لا نثق بأي إيميل يرسله العميل: نتحقق من التوكن عند /auth/v1/user في
+//     مشروع الإنجاز ونستخرج الإيميل من الاستجابة الموثوقة.
 //   - مفاتيح service_role تبقى في أسرار الدالة ولا تعود للعميل أبداً.
 //   - نعيد token_hash (استخدام لمرة واحدة) لا جلسات جاهزة.
 // ============================================================================
@@ -25,9 +27,7 @@ function json(body: unknown, status = 200) {
   });
 }
 
-const ACH_URL = "https://itflhfhsfzrdfpxvlzrv.supabase.co";
-
-// مفتاح عام (publishable) — آمن للنشر. يمكن تجاوزه بسرّ إن رغبت.
+// مفتاح عام (publishable) لمشروع الإنجاز — آمن للنشر.
 function achAnonKey(): string {
   try {
     return Deno.env.get("ACHIEVEMENT_ANON_KEY") ||
@@ -43,33 +43,11 @@ interface AchUser {
   user_metadata?: Record<string, unknown>;
 }
 
-// الحظر الموحّد يعيش في مشروع الدردشة (is_global_banned). نتحقق منه قبل منح أي
-// جلسة حتى لا يفتح الرمز الأقسام لحساب محظور. وإن تعذّر الفحص لا نُفشل الدخول
-// (نفس سلوك بقية المسارات)، فالحارس في كل قسم يبقى خط الدفاع الأخير.
-async function isBanned(email: string): Promise<boolean> {
-  try {
-    const base = Deno.env.get("SUPABASE_URL")!;
-    const service = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-    const res = await fetch(`${base}/rest/v1/rpc/is_global_banned`, {
-      method: "POST",
-      headers: {
-        apikey: service,
-        Authorization: `Bearer ${service}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ p_email: email }),
-    });
-    if (!res.ok) return false;
-    return (await res.json()) === true;
-  } catch {
-    return false;
-  }
-}
-
 // يتحقق من توكن الإنجاز ويعيد المستخدم (أو null إن كان التوكن غير صالح).
 async function verifyAchievementToken(token: string): Promise<AchUser | null> {
   try {
-    const res = await fetch(`${ACH_URL}/auth/v1/user`, {
+    const base = Deno.env.get("SUPABASE_URL")!;
+    const res = await fetch(`${base}/auth/v1/user`, {
       headers: {
         apikey: achAnonKey(),
         Authorization: `Bearer ${token}`,
@@ -97,8 +75,6 @@ Deno.serve(async (req) => {
   const user = await verifyAchievementToken(token);
   if (!user?.email) return json({ error: "invalid_token" }, 401);
 
-  if (await isBanned(user.email)) return json({ error: "banned" }, 403);
-
   try {
     const meta = user.user_metadata || {};
     const metadata = {
@@ -112,7 +88,7 @@ Deno.serve(async (req) => {
     const { map: sections, debug } = await provisionSections(user.email, metadata);
 
     // لا نكشف تفاصيل حسّاسة؛ debug يحتوي حالات فقط (ok/no_key/...).
-    return json({ ok: true, email: user.email, sections, debug });
+    return json({ ok: true, sections, debug });
   } catch (e) {
     console.error("provision-sections error:", e);
     return json({ error: String(e) }, 500);

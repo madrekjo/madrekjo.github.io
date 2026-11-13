@@ -252,9 +252,8 @@
   const STORAGE_KEY = "mdk:sso:session";
 
   // الأقسام النشطة في الدخول الموحد (القيم عامة قابلة للنشر).
+  // ملاحظة: الدردشة أُزيلت من المنصة، ومشروعها لم يعد قائماً.
   const SECTIONS = [
-    { key: "chat", url: "https://romocwtqzdnovfgtmwzb.supabase.co",
-      anon: "sb_publishable_FxIiY1SHBKXkoByvKu0-Jg_msr2Qd45" },
     { key: "achievement", url: "https://itflhfhsfzrdfpxvlzrv.supabase.co",
       anon: "sb_publishable_3mypt4J1F0sG5RD6oTSZZg_6PNgwoyY" },
     { key: "sutur", url: "https://cfwnarueaparjbetagpi.supabase.co",
@@ -269,10 +268,9 @@
 
   // الأقسام المعروضة (اسم + أيقونة) لتطابق بطاقات الرئيسية.
   const SECTION_LABELS = [
-    { icon: "💬", name: "الدردشة الدراسية" },
     { icon: "🎯", name: "مؤشر الإنجاز" },
-    { icon: "🃏", name: "بين السطور" },
     { icon: "🫥", name: "أنا مجهول" },
+    { icon: "🃏", name: "بين السطور" },
     { icon: "🕌", name: "أجر وثواب" },
     { icon: "🎙️", name: "تلاوات" }
   ];
@@ -295,8 +293,6 @@
   const SHIELD_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>';
 
   /* ===== الدخول برمز الدعوة ============================================ */
-  const CHAT = SECTIONS.find(function (s) { return s.key === "chat"; });
-
   const ACH = { url: "https://itflhfhsfzrdfpxvlzrv.supabase.co",
     anon: "sb_publishable_3mypt4J1F0sG5RD6oTSZZg_6PNgwoyY" };
 
@@ -321,23 +317,6 @@
     if (typeof code === "string" && /^(db_error|create_failed|link_failed)/.test(code))
       return "خطأ في الخادم — حاول لاحقاً.";
     return "تعذّر إكمال العملية — حاول مرة أخرى.";
-  }
-
-  function chatClient() {
-    return window.supabase && window.supabase.createClient(CHAT.url, CHAT.anon);
-  }
-
-  async function callFn(name, body) {
-    const res = await fetch(CHAT.url + "/functions/v1/" + name, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        apikey: CHAT.anon,
-        Authorization: "Bearer " + CHAT.anon
-      },
-      body: JSON.stringify(body || {})
-    });
-    try { return await res.json(); } catch (e) { return { error: "bad_response" }; }
   }
 
   async function callAch(name, body) {
@@ -391,18 +370,18 @@
     );
   }
 
-  // بعد التحقق من رمز الدعوة (يتم في مشروع الإنجاز) نطلب من مشروع الدردشة
-  // تجهيز جلسات كل الأقسام: الدالة provision-sections تتحقق من توكن الإنجاز
-  // ثم تعيد token_hash لكل قسم، ونبادله هنا بجلسة حقيقية.
+  // بعد التحقق من رمز الدعوة (يتم في مشروع الإنجاز) نطلب تجهيز جلسات بقية
+  // الأقسام من دالة provision-sections داخل مشروع الإنجاز نفسه: تتحقق من
+  // التوكن ثم تعيد token_hash لكل قسم، ونبادله هنا بجلسة حقيقية.
   // بهذا يصبح الدخول بالرمز دخولاً كاملاً على كل المنصة (لا الإنجاز فقط).
   async function provisionAllSections(achSession, dest) {
     const payload = { viaCode: true, target: dest || "/", returnTo: dest || "/" };
     try {
-      const res = await fetch(CHAT.url + "/functions/v1/provision-sections", {
+      const res = await fetch(ACH.url + "/functions/v1/provision-sections", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          apikey: CHAT.anon,
+          apikey: ACH.anon,
           Authorization: "Bearer " + achSession.access_token
         },
         body: "{}"
@@ -653,7 +632,7 @@
     wrap().appendChild(el("p", { className: "desc" }, [
       existing
         ? "أنت مسجّل دخولك بالفعل عبر الدخول الموحّد — تابع إلى القسم أو بدّل الحساب."
-        : "حساب واحد عبر Google يفتح كل أقسام المنصة: الدردشة، الإنجاز، بين السطور، والمزيد."
+        : "حساب واحد عبر Google يفتح كل أقسام المنصة: الإنجاز، أنا مجهول، بين السطور، أجر وثواب، والتلاوات."
     ]));
 
     var googleBtn = el("a", {
@@ -744,7 +723,7 @@
   }
 
   function handleTicket(ticket) {
-    // وضع النافذة المنبثقة (Popup): chat/achievement تفعّلان التذاكر بأنفسهما.
+    // وضع النافذة المنبثقة (Popup): الأقسام تفعّل التذاكر بنفسها.
     if (window.opener && !window.opener.closed) {
       renderWorking("تم تسجيل الدخول، جاري الإغلاق...");
       const targetOrigin = window.location.origin;
