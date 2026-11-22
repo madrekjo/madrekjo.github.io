@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فيديو الأسبوع — مدارك جو</title>
+  <meta name="description" content="فيديو الأسبوع على منصة مدارك جو — شاهد فيديو مختار أسبوعياً واقترح الفيديو القادم.">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/logo.png?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <style>
+    :root{
+      --bg:#0a0a0f; --bg2:#111118; --bg3:#1a1a24; --card:#14141d;
+      --text:#f0f0f5; --muted:#888899; --border:rgba(255,255,255,.08);
+      --gold:#FFD700; --gold2:#FFF3B0; --gold-dark:#B8860B;
+      --accent:#7c3aed; --accent2:#4f46e5; --green:#22c55e; --red:#ef4444;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+    a{color:inherit}
+    .bg{position:fixed;inset:0;pointer-events:none;z-index:0;
+      background:radial-gradient(ellipse at 20% 20%, rgba(124,58,237,.14), transparent 45%),
+                 radial-gradient(ellipse at 80% 70%, rgba(255,215,0,.08), transparent 45%);}
+    .wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:24px 16px 60px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:28px;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand .logo{font-family:'Tajawal',sans-serif;font-weight:800;font-size:28px;background:linear-gradient(135deg,#FFD700,#FFF3B0,#B8860B);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .brand span{color:var(--muted);font-size:13px;font-weight:600}
+    .top-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .btn{border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--text);padding:10px 14px;border-radius:12px;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:.15s}
+    .btn:hover{border-color:rgba(255,215,0,.35);transform:translateY(-1px)}
+    .btn.primary{background:linear-gradient(135deg,#FFD700,#FFB300);color:#1c1400;border-color:transparent}
+    .btn.danger{border-color:rgba(239,68,68,.35);color:#fca5a5}
+    .btn:disabled{opacity:.55;cursor:default;transform:none}
+    .hero{background:linear-gradient(180deg,rgba(20,20,29,.9),rgba(13,13,20,.95));border:1px solid rgba(255,215,0,.16);border-radius:24px;padding:28px 20px;margin-bottom:20px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.25);color:var(--gold2);font-size:12px;font-weight:700;margin-bottom:14px}
+    h1{font-size:clamp(28px,5vw,42px);line-height:1.2;margin-bottom:10px;font-weight:900}
+    h1 .gold{background:linear-gradient(135deg,#FFD700,#FFF3B0,#B8860B);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .lead{color:var(--muted);font-size:15px;line-height:1.9;max-width:720px}
+    .grid{display:grid;grid-template-columns:1.5fr 1fr;gap:18px}
+    @media (max-width:860px){.grid{grid-template-columns:1fr}}
+    .card{background:linear-gradient(180deg,rgba(20,20,29,.88),rgba(13,13,20,.92));border:1px solid var(--border);border-radius:20px;padding:20px}
+    .card h2{font-size:18px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+    .player{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.06)}
+    .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .empty{aspect-ratio:16/9;border-radius:16px;border:1px dashed rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--muted);line-height:1.9;background:rgba(255,255,255,.02)}
+    .meta{margin-top:14px}
+    .meta .title{font-size:18px;font-weight:800;margin-bottom:4px}
+    .meta .sub{color:var(--muted);font-size:13px}
+    .field{margin-bottom:12px}
+    .field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px;font-weight:600}
+    .input,.textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--text);font-family:'Cairo',sans-serif;font-size:14px;outline:none}
+    .input:focus,.textarea:focus{border-color:rgba(255,215,0,.45)}
+    .textarea{min-height:96px;resize:vertical}
+    .status{margin-top:10px;font-size:13px;color:var(--muted);line-height:1.8}
+    .status.ok{color:#86efac}.status.err{color:#fca5a5}
+    .list{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+    .item{padding:12px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+    .item .u{font-size:12px;color:var(--muted);margin-bottom:4px}
+    .item .n{font-size:14px;line-height:1.8;word-break:break-word}
+    .item .actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+    .pill{display:inline-flex;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid var(--border);color:var(--muted)}
+    .pill.pending{color:#fcd34d;border-color:rgba(252,211,77,.3);background:rgba(252,211,77,.08)}
+    .pill.approved{color:#86efac;border-color:rgba(134,239,172,.3);background:rgba(134,239,172,.08)}
+    .pill.rejected{color:#fca5a5;border-color:rgba(252,165,165,.3);background:rgba(252,165,165,.08)}
+    .admin-box{margin-top:18px;padding-top:18px;border-top:1px dashed rgba(255,255,255,.12)}
+    .note{font-size:12px;color:var(--muted);line-height:1.8;margin-top:8px}
+    .hidden{display:none !important}
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="/">
+        <div class="logo">مدارك جو</div>
+        <span>فيديو الأسبوع</span>
+      </a>
+      <div class="top-actions">
+        <a class="btn" href="/">الرئيسية</a>
+        <a class="btn" href="/achievement/">منصة الإنجاز</a>
+        <button class="btn" id="authBtn">تسجيل الدخول</button>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="eyebrow">🎬 محتوى أسبوعي مختار</div>
+      <h1><span class="gold">فيديو الأسبوع</span></h1>
+      <p class="lead">كل أسبوع بنختار فيديو قوي يستاهل وقتك — بتشوفه هون مباشرة داخل المنصة، وبتقدر تقترح فيديو الأسبوع الجاي.</p>
+    </section>
+
+    <div class="grid">
+      <section class="card">
+        <h2>▶️ الفيديو الحالي</h2>
+        <div id="playerWrap" class="empty">جاري تحميل فيديو الأسبوع...</div>
+        <div class="meta">
+          <div class="title" id="videoTitle">—</div>
+          <div class="sub" id="videoSub"></div>
+        </div>
+      </section>
+
+      <aside class="card">
+        <h2>💡 اقترح فيديو الأسبوع الجاي</h2>
+        <div id="suggestAuth" class="status">سجّل دخولك عشان تقدر ترسل اقتراح.</div>
+        <form id="suggestForm" class="hidden">
+          <div class="field">
+            <label for="suggestUrl">رابط فيديو يوتيوب</label>
+            <input class="input" id="suggestUrl" type="url" placeholder="https://www.youtube.com/watch?v=..." required>
+          </div>
+          <div class="field">
+            <label for="suggestNote">ليش تقترحه؟ (اختياري)</label>
+            <textarea class="textarea" id="suggestNote" maxlength="300" placeholder="اكتب ملاحظة قصيرة..."></textarea>
+          </div>
+          <button class="btn primary" type="submit" id="suggestBtn">إرسال الاقتراح</button>
+          <div class="status" id="suggestStatus"></div>
+        </form>
+
+        <div class="admin-box hidden" id="adminBox">
+          <h2>🛠️ إدارة الأدمن</h2>
+          <div class="field">
+            <label for="adminUrl">رابط فيديو الأسبوع (يوتيوب)</label>
+            <input class="input" id="adminUrl" type="url" placeholder="https://www.youtube.com/watch?v=...">
+          </div>
+          <div class="field">
+            <label for="adminTitle">عنوان الفيديو</label>
+            <input class="input" id="adminTitle" type="text" placeholder="عنوان يظهر تحت الفيديو">
+          </div>
+          <div class="field">
+            <label for="adminWeek">وصف الأسبوع (اختياري)</label>
+            <input class="input" id="adminWeek" type="text" placeholder="مثلاً: أسبوع ١ - تحفيز">
+          </div>
+          <button class="btn primary" id="adminSaveBtn" type="button">نشر/تحديث فيديو الأسبوع</button>
+          <div class="status" id="adminStatus"></div>
+
+          <h2 style="margin-top:18px;font-size:16px">📥 اقتراحات المستخدمين</h2>
+          <div id="adminSuggestions" class="list"><div class="status">جاري التحميل...</div></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+<script>
+(() => {
+  const AJR_URL = "https://njdvogvquzofnqqwyvyl.supabase.co";
+  const AJR_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5qZHZvZ3ZxdXpvZm5xcXd5dnlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgxOTIyODQsImV4cCI6MjEwMzc2ODI4NH0.a0zbP1xm8rFuoTFSvbscdWo7HPZR2a9Dq3DEtZf_ua4";
+  const CHAT_REST = "https://romocwtqzdnovfgtmwzb.supabase.co";
+  const CHAT_KEY = "sb_publishable_FxIiY1SHBKXkoByvKu0-Jg_msr2Qd45";
+  const sb = window.supabase.createClient(AJR_URL, AJR_KEY, { auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true } });
+
+  const $ = (id) => document.getElementById(id);
+  const playerWrap = $("playerWrap");
+  const videoTitle = $("videoTitle");
+  const videoSub = $("videoSub");
+  const authBtn = $("authBtn");
+  const suggestAuth = $("suggestAuth");
+  const suggestForm = $("suggestForm");
+  const suggestStatus = $("suggestStatus");
+  const suggestBtn = $("suggestBtn");
+  const adminBox = $("adminBox");
+  const adminStatus = $("adminStatus");
+  const adminSuggestions = $("adminSuggestions");
+
+  let currentUser = null;
+  let isAdmin = false;
+
+  function esc(s) { return String(s ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+  function extractYoutubeId(input) {
+    if (!input) return null;
+    const s = String(input).trim();
+    if (/^[a-zA-Z0-9_-]{11}$/.test(s)) return s;
+    let m = s.match(/[?&]v=([a-zA-Z0-9_-]{11})/);
+    if (m) return m[1];
+    m = s.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
+    if (m) return m[1];
+    m = s.match(/youtube\.com\/(?:embed|shorts|live)\/([a-zA-Z0-9_-]{11})/);
+    if (m) return m[1];
+    return null;
+  }
+
+  function toEmbedUrl(id) { return `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1`; }
+
+  async function isPlatformOwner(email) {
+    if (!email) return false;
+    try {
+      const res = await fetch(`${CHAT_REST}/rest/v1/rpc/is_platform_owner`, {
+        method: "POST",
+        headers: { apikey: CHAT_KEY, Authorization: `Bearer ${CHAT_KEY}`, "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ p_email: email.trim().toLowerCase() })
+      });
+      return res.ok ? (await res.json()) === true : false;
+    } catch { return false; }
+  }
+
+  async function checkAdmin(user) {
+    if (!user) return false;
+    try {
+      const [{ data: ajrAdmin }, owner] = await Promise.all([
+        sb.rpc("is_ajr_admin"),
+        isPlatformOwner(user.email)
+      ]);
+      return ajrAdmin === true || owner === true;
+    } catch { return false; }
+  }
+
+  function renderVideo(video) {
+    if (!video || !video.youtube_id) {
+      playerWrap.className = "empty";
+      playerWrap.innerHTML = "لا يوجد فيديو أسبوع حالياً — ترقبوا الاختيار القادم 🎬";
+      videoTitle.textContent = "لا يوجد فيديو حالياً";
+      videoSub.textContent = "";
+      return;
+    }
+    playerWrap.className = "player";
+    playerWrap.innerHTML = `<iframe src="${toEmbedUrl(video.youtube_id)}" title="${esc(video.title || 'فيديو الأسبوع')}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>`;
+    videoTitle.textContent = video.title || "فيديو الأسبوع";
+    videoSub.textContent = video.week_label || "";
+  }
+
+  async function loadVideo() {
+    const { data, error } = await sb.from("weekly_videos").select("*").eq("is_active", true).order("created_at", { ascending: false }).limit(1).maybeSingle();
+    if (error) {
+      console.error(error);
+      playerWrap.className = "empty";
+      playerWrap.innerHTML = "تعذر تحميل الفيديو حالياً. تأكد من تنفيذ migration قاعدة البيانات.";
+      return;
+    }
+    renderVideo(data);
+  }
+
+  async function loadSuggestions() {
+    if (!isAdmin) return;
+    adminSuggestions.innerHTML = '<div class="status">جاري التحميل...</div>';
+    const { data, error } = await sb.from("weekly_video_suggestions").select("*").order("created_at", { ascending: false }).limit(50);
+    if (error) { adminSuggestions.innerHTML = `<div class="status err">تعذر تحميل الاقتراحات: ${esc(error.message)}</div>`; return; }
+    if (!data || !data.length) { adminSuggestions.innerHTML = '<div class="status">لا توجد اقتراحات بعد.</div>'; return; }
+    adminSuggestions.innerHTML = data.map(s => `
+      <div class="item">
+        <div class="u">${esc(s.user_email || s.user_id)} · ${new Date(s.created_at).toLocaleString('ar-JO')} <span class="pill ${esc(s.status)}">${s.status === 'approved' ? 'مقبول' : s.status === 'rejected' ? 'مرفوض' : 'قيد المراجعة'}</span></div>
+        <div class="n"><a href="${esc(s.youtube_url)}" target="_blank" rel="noopener" style="color:#93c5fd;word-break:break-all">${esc(s.youtube_url)}</a>${s.note ? `<div style="margin-top:6px;color:#cbd5e1">${esc(s.note)}</div>` : ''}</div>
+        <div class="actions">
+          <button class="btn" data-act="approve" data-id="${s.id}">قبول</button>
+          <button class="btn" data-act="reject" data-id="${s.id}">رفض</button>
+          <button class="btn danger" data-act="delete" data-id="${s.id}">حذف</button>
+        </div>
+      </div>`).join('');
+    adminSuggestions.querySelectorAll('[data-act]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id = btn.dataset.id; const act = btn.dataset.act;
+        btn.disabled = true;
+        let err = null;
+        if (act === 'delete') ({ error: err } = await sb.from('weekly_video_suggestions').delete().eq('id', id));
+        else ({ error: err } = await sb.from('weekly_video_suggestions').update({ status: act === 'approve' ? 'approved' : 'rejected' }).eq('id', id));
+        if (err) alert('خطأ: ' + err.message);
+        await loadSuggestions();
+      });
+    });
+  }
+
+  async function refreshAuthUI() {
+    const { data: { session } } = await sb.auth.getSession();
+    currentUser = session?.user || null;
+    isAdmin = await checkAdmin(currentUser);
+
+    if (currentUser) {
+      authBtn.textContent = "تسجيل الخروج";
+      authBtn.onclick = async () => { await sb.auth.signOut(); location.reload(); };
+      suggestAuth.classList.add("hidden");
+      suggestForm.classList.remove("hidden");
+    } else {
+      authBtn.textContent = "تسجيل الدخول";
+      authBtn.onclick = () => { location.href = "/login/?next=" + encodeURIComponent(location.pathname); };
+      suggestAuth.classList.remove("hidden");
+      suggestForm.classList.add("hidden");
+    }
+
+    if (isAdmin) {
+      adminBox.classList.remove("hidden");
+      await loadSuggestions();
+    } else {
+      adminBox.classList.add("hidden");
+    }
+  }
+
+  suggestForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    suggestStatus.textContent = ""; suggestStatus.className = "status";
+    if (!currentUser) { suggestStatus.textContent = "لازم تسجل دخول أولاً."; suggestStatus.classList.add("err"); return; }
+    const url = $("suggestUrl").value.trim();
+    const note = $("suggestNote").value.trim();
+    if (!extractYoutubeId(url)) { suggestStatus.textContent = "حط رابط يوتيوب صحيح."; suggestStatus.classList.add("err"); return; }
+    suggestBtn.disabled = true;
+    const { error } = await sb.from("weekly_video_suggestions").insert({
+      user_id: currentUser.id,
+      user_email: currentUser.email || null,
+      youtube_url: url,
+      note: note || null,
+      status: "pending"
+    });
+    suggestBtn.disabled = false;
+    if (error) { suggestStatus.textContent = "تعذر إرسال الاقتراح: " + error.message; suggestStatus.classList.add("err"); return; }
+    suggestStatus.textContent = "تم إرسال اقتراحك، شكراً لك!"; suggestStatus.classList.add("ok");
+    suggestForm.reset();
+    if (isAdmin) loadSuggestions();
+  });
+
+  $("adminSaveBtn").addEventListener("click", async () => {
+    adminStatus.textContent = ""; adminStatus.className = "status";
+    if (!isAdmin) return;
+    const url = $("adminUrl").value.trim();
+    const title = $("adminTitle").value.trim();
+    const week = $("adminWeek").value.trim();
+    const ytId = extractYoutubeId(url);
+    if (!ytId) { adminStatus.textContent = "رابط اليوتيوب غير صحيح."; adminStatus.classList.add("err"); return; }
+    $("adminSaveBtn").disabled = true;
+    const { error: offErr } = await sb.from("weekly_videos").update({ is_active: false }).eq("is_active", true);
+    if (offErr) { $("adminSaveBtn").disabled = false; adminStatus.textContent = "خطأ: " + offErr.message; adminStatus.classList.add("err"); return; }
+    const { error } = await sb.from("weekly_videos").insert({
+      youtube_url: url, youtube_id: ytId, title: title || "فيديو الأسبوع", week_label: week || null, is_active: true, created_by: currentUser.id
+    });
+    $("adminSaveBtn").disabled = false;
+    if (error) { adminStatus.textContent = "تعذر النشر: " + error.message; adminStatus.classList.add("err"); return; }
+    adminStatus.textContent = "تم نشر فيديو الأسبوع ✅"; adminStatus.classList.add("ok");
+    await loadVideo();
+  });
+
+  sb.auth.onAuthStateChange(() => { refreshAuthUI(); });
+  loadVideo();
+  refreshAuthUI();
+})();
+</script>
+</body>
+</html>

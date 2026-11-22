@@ -754,6 +754,7 @@
       const dest =
         safeLocalPath(payload && payload.returnTo) ||
         safeLocalPath(payload && payload.target) ||
+        safeLocalPath(qp("next")) ||
         safeLocalPath(qp("from")) ||
         "/";
       window.location.replace(dest);
