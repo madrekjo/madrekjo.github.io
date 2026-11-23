@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>غرفة دراسة جماعية (تجربة) — مدارك جو</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://meet.jit.si/external_api.js"></script>
+  <style>
+    :root{--bg:#0a0a0f;--card:#14141d;--text:#f0f0f5;--muted:#9aa0aa;--blue:#60a5fa;--blue2:#3b82f6;--border:rgba(96,165,250,.22)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Cairo',sans-serif;background:radial-gradient(ellipse at top,rgba(59,130,246,.12),transparent 45%),var(--bg);color:var(--text);min-height:100vh}
+    .wrap{max-width:1200px;margin:0 auto;padding:20px 16px 40px}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+    .brand{font-size:24px;font-weight:900;color:#fff;text-decoration:none}.brand span{color:var(--blue)}
+    .btn{border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--text);padding:10px 14px;border-radius:12px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none}
+    .btn.primary{background:linear-gradient(135deg,var(--blue2),var(--blue));color:#071225;border-color:transparent}
+    .card{background:linear-gradient(180deg,rgba(20,20,29,.92),rgba(12,14,22,.95));border:1px solid var(--border);border-radius:20px;padding:20px;margin-bottom:16px}
+    h1{margin:0 0 8px;font-size:clamp(24px,4vw,36px)} h1 .b{color:var(--blue)}
+    p{margin:0;color:var(--muted);line-height:1.9}
+    .controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .input{flex:1;min-width:220px;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--text);font-family:inherit;font-size:14px}
+    .input:focus{outline:none;border-color:rgba(96,165,250,.55)}
+    #meet{width:100%;height:min(72vh,760px);min-height:480px;border-radius:18px;overflow:hidden;border:1px solid var(--border);background:#0b0f18}
+    .note{font-size:13px;color:#93c5fd;margin-top:10px}
+    .warn{font-size:12px;color:#fca5a5;margin-top:8px}
+    @media (max-width:640px){#meet{min-height:420px;height:65vh}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="/">مدارك <span>جو</span></a>
+      <a class="btn" href="/">الرئيسية</a>
+    </div>
+
+    <div class="card">
+      <h1>غرفة دراسة <span class="b">جماعية</span> (تجربة Jitsi)</h1>
+      <p>ادخل اسم غرفة وابدأ. الإعداد الافتراضي: المايك والكاميرا مقفولين، وتقدر تستخدم مشاركة الشاشة.</p>
+      <div class="controls">
+        <input id="roomName" class="input" type="text" placeholder="اسم الغرفة" maxlength="80" />
+        <button id="joinBtn" class="btn primary">دخول / إنشاء الغرفة</button>
+        <button id="copyBtn" class="btn">نسخ رابط الغرفة</button>
+      </div>
+      <div class="note">نصيحة: استخدم اسم غرفة طويل وفريد عشان ما يدخل حدا بالغلط.</div>
+      <div class="warn">تجريبي على meet.jit.si العام — مجاني بس مش مخصص للتحكم الإداري الكامل.</div>
+    </div>
+
+    <div id="meet"></div>
+  </div>
+
+<script>
+(function(){
+  const roomInput = document.getElementById('roomName');
+  const joinBtn = document.getElementById('joinBtn');
+  const copyBtn = document.getElementById('copyBtn');
+  const meetEl = document.getElementById('meet');
+  let api = null;
+
+  function randomRoom() {
+    return 'MadarekJo-Study-' + Math.random().toString(36).slice(2, 8) + '-' + Date.now().toString(36).slice(-4);
+  }
+  function cleanRoom(name) {
+    return (name || '').trim().replace(/[^a-zA-Z0-9_-]/g, '-').replace(/-+/g, '-').slice(0, 80);
+  }
+  function currentRoom() {
+    const v = cleanRoom(roomInput.value);
+    if (v) return v;
+    const r = randomRoom();
+    roomInput.value = r;
+    return r;
+  }
+
+  roomInput.value = randomRoom();
+
+  function join() {
+    const room = currentRoom();
+    if (api) { try { api.dispose(); } catch(e){} api = null; }
+    meetEl.innerHTML = '';
+    const domain = 'meet.jit.si';
+    const options = {
+      roomName: room,
+      parentNode: meetEl,
+      width: '100%',
+      height: '100%',
+      lang: 'ar',
+      configOverwrite: {
+        startWithAudioMuted: true,
+        startWithVideoMuted: true,
+        prejoinConfig: { enabled: true },
+        disableDeepLinking: true
+      },
+      interfaceConfigOverwrite: {
+        MOBILE_APP_PROMO: false,
+        SHOW_JITSI_WATERMARK: false,
+        SHOW_WATERMARK_FOR_GUESTS: false
+      },
+      userInfo: {
+        displayName: 'طالب مدارك'
+      }
+    };
+    api = new JitsiMeetExternalAPI(domain, options);
+  }
+
+  joinBtn.addEventListener('click', join);
+  copyBtn.addEventListener('click', async () => {
+    const room = currentRoom();
+    const url = 'https://meet.jit.si/' + encodeURIComponent(room);
+    try {
+      await navigator.clipboard.writeText(url);
+      copyBtn.textContent = 'تم النسخ ✓';
+      setTimeout(() => copyBtn.textContent = 'نسخ رابط الغرفة', 1500);
+    } catch(e) {
+      prompt('انسخ الرابط:', url);
+    }
+  });
+
+  // auto join for quick test
+  join();
+})();
+</script>
+</body>
+</html>
