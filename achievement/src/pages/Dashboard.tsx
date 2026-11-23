@@ -10,6 +10,7 @@ import { CategorySection } from "@/components/CategorySection";
 import { AdminPanel } from "@/components/AdminPanel";
 import { OnboardingDialog } from "@/components/OnboardingDialog";
 import { WeeklyCompareCard } from "@/components/WeeklyCompareCard";
+import { ShadowRaceCard } from "@/components/ShadowRaceCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Loader2, Clock, Calendar, CalendarDays, Shield, ListTodo, CheckCircle2, Flame, ShieldAlert } from "lucide-react";
 
@@ -106,6 +107,7 @@ const Dashboard = () => {
         </div>
 
         <WeeklyCompareCard tasks={myCompletedTasks} />
+        <ShadowRaceCard tasks={myCompletedTasks} />
 
         <Tabs defaultValue="daily" className="w-full">
           <TabsList
