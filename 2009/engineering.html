@@ -147,7 +147,7 @@ body::before {
 .exam-countdown .ec-grid{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;max-width:760px;margin:0 auto}
 .exam-countdown .ec-unit{background:linear-gradient(180deg,rgba(255,215,0,.07),rgba(255,255,255,.02));border:1px solid rgba(255,215,0,.14);border-radius:18px;padding:16px 10px;text-align:center;backdrop-filter:blur(2px)}
 .exam-countdown .ec-num{display:block;font-variant-numeric:tabular-nums;font-size:clamp(30px,6vw,56px);line-height:1;font-weight:900;color:#FFD700;text-shadow:0 0 24px rgba(255,215,0,.16)}
-.exam-countdown .ec-unit.days .ec-num{color:#FFD700}
+.exam-countdown .ec-unit.days .ec-num{color:#ff3b3b;text-shadow:0 0 28px rgba(255,50,50,.35)}
 .exam-countdown .ec-unit.hours .ec-num{color:#FFCC33}
 .exam-countdown .ec-unit.minutes .ec-num{color:#FFE082}
 .exam-countdown .ec-unit.seconds .ec-num{color:#FFF3B0}
@@ -156,6 +156,7 @@ body::before {
 .exam-countdown .ec-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:12px;background:linear-gradient(135deg,#FFD700,#FFB300);color:#1a1400;font-size:14px;font-weight:900;text-decoration:none;box-shadow:0 8px 24px rgba(255,215,0,.22);transition:transform .15s ease,filter .15s ease}
 .exam-countdown .ec-cta:hover{transform:translateY(-2px);filter:brightness(1.03)}
 .exam-countdown .ec-note{color:#FFE082;font-size:13px;font-weight:700}
+.exam-countdown .ec-elapsed{position:relative;margin-top:14px;text-align:center;color:#ffb4b4;font-size:13px;font-weight:700}
 .exam-countdown .ec-done{display:none;position:relative;text-align:center;color:#FFD700;font-size:clamp(22px,4vw,34px);font-weight:900;padding:20px 0}
 @keyframes ecPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,215,0,0)}50%{box-shadow:0 0 0 6px rgba(255,215,0,.06)}}
 @keyframes ecDot{0%{box-shadow:0 0 0 0 rgba(255,215,0,.7)}70%{box-shadow:0 0 0 8px rgba(255,215,0,0)}100%{box-shadow:0 0 0 0 rgba(255,215,0,0)}}
@@ -174,7 +175,8 @@ body::before {
       <div class="ec-unit minutes"><span class="ec-num" id="ec-minutes">--</span><span class="ec-label">دقيقة</span></div>
       <div class="ec-unit seconds"><span class="ec-num" id="ec-seconds">--</span><span class="ec-label">ثانية</span></div>
     </div>
-    <div class="ec-done" id="ec-done">🔥 وصلنا لشهر الامتحانات — بالتوفيق! 🔥</div>
+    <div class="ec-elapsed" id="ec-elapsed"></div>
+      <div class="ec-done" id="ec-done">🔥 وصلنا لشهر الامتحانات — بالتوفيق! 🔥</div>
     <div class="ec-footer" id="ec-footer">
       <a class="ec-cta" href="#year-section" onclick="event.preventDefault();var el=document.getElementById('year-section');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});">ابدأ الدراسة الآن</a>
       <span class="ec-note">الوقت ما برجع... ابدأ من اليوم.</span>
@@ -188,6 +190,7 @@ body::before {
       function pad(n){return String(n).padStart(2,'0');}
       function tick(){
         var now=Date.now(); var diff=target-now;
+          var start=new Date('2026-09-01T00:00:00+03:00').getTime(); var elapsed=Math.max(0,Math.floor((now-start)/86400000)); var elEl=document.getElementById('ec-elapsed'); if(elEl) elEl.textContent='مرّ '+elapsed+' يوم من بداية الدراسة (1 أيلول) — لا تضيع الباقي';
         if(diff<=0){grid.style.display='none';footer.style.display='none';done.style.display='block';return;}
         var sec=Math.floor(diff/1000);
         var days=Math.floor(sec/86400); sec%=86400;
