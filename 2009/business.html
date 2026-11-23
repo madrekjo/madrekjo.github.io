@@ -131,6 +131,75 @@ body::before {
   <p class="hero-hint" style="margin-top:20px;">📂 روح ع القائمة الجانبية عشان تفتح موادك</p>
 </div>
 
+<section class="exam-countdown" id="exam-countdown" aria-label="العد التنازلي للامتحانات">
+  <style>
+    .exam-countdown{position:relative;margin:28px auto 0;max-width:980px;padding:0 16px;font-family:'Cairo','Tajawal',sans-serif}
+    .exam-countdown .ec-card{position:relative;overflow:hidden;border-radius:22px;padding:24px 20px;background:linear-gradient(145deg,rgba(35,8,10,.96),rgba(18,10,12,.96) 45%,rgba(20,14,8,.96));border:1px solid rgba(255,90,90,.35);box-shadow:0 0 0 1px rgba(255,120,60,.08),0 18px 50px rgba(0,0,0,.45),0 0 40px rgba(255,60,60,.08)}
+    .exam-countdown .ec-card::before{content:"";position:absolute;inset:-2px;background:radial-gradient(ellipse at top,rgba(255,70,70,.22),transparent 55%),radial-gradient(ellipse at bottom right,rgba(255,170,0,.12),transparent 45%);pointer-events:none}
+    .exam-countdown .ec-top{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+    .exam-countdown .ec-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(255,60,60,.14);border:1px solid rgba(255,90,90,.35);color:#ffb4b4;font-size:12px;font-weight:800;letter-spacing:.2px;animation:ecPulse 2s ease-in-out infinite}
+    .exam-countdown .ec-badge .dot{width:8px;height:8px;border-radius:50%;background:#ff4d4d;box-shadow:0 0 0 0 rgba(255,77,77,.8);animation:ecDot 1.4s infinite}
+    .exam-countdown .ec-date{color:#ffd7a0;font-size:13px;font-weight:700;opacity:.95}
+    .exam-countdown .ec-title{position:relative;margin:0 0 8px;font-size:clamp(24px,4.8vw,40px);line-height:1.25;font-weight:900;color:#fff;text-align:center}
+    .exam-countdown .ec-title .fire{color:#ff5a5a;text-shadow:0 0 18px rgba(255,70,70,.35)}
+    .exam-countdown .ec-sub{position:relative;margin:0 auto 22px;max-width:720px;text-align:center;color:#f3d7c3;font-size:clamp(14px,2.4vw,18px);line-height:1.9;font-weight:600}
+    .exam-countdown .ec-sub strong{color:#ffd166}
+    .exam-countdown .ec-grid{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;max-width:760px;margin:0 auto}
+    .exam-countdown .ec-unit{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:16px 10px;text-align:center;backdrop-filter:blur(2px)}
+    .exam-countdown .ec-num{display:block;font-variant-numeric:tabular-nums;font-size:clamp(30px,6vw,56px);line-height:1;font-weight:900;color:#fff;text-shadow:0 0 24px rgba(255,90,90,.18)}
+    .exam-countdown .ec-unit.days .ec-num{color:#ff6b6b}
+    .exam-countdown .ec-unit.hours .ec-num{color:#ffb347}
+    .exam-countdown .ec-unit.minutes .ec-num{color:#ffd166}
+    .exam-countdown .ec-unit.seconds .ec-num{color:#fff3bf}
+    .exam-countdown .ec-label{display:block;margin-top:8px;font-size:13px;font-weight:700;color:#d9c2b8}
+    .exam-countdown .ec-footer{position:relative;margin-top:18px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;text-align:center}
+    .exam-countdown .ec-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:12px;background:linear-gradient(135deg,#ff4d4d,#ff8a00);color:#1a0900;font-size:14px;font-weight:900;text-decoration:none;box-shadow:0 8px 24px rgba(255,77,77,.28);transition:transform .15s ease,filter .15s ease}
+    .exam-countdown .ec-cta:hover{transform:translateY(-2px);filter:brightness(1.03)}
+    .exam-countdown .ec-note{color:#ffb4b4;font-size:13px;font-weight:700}
+    .exam-countdown .ec-done{display:none;position:relative;text-align:center;color:#fff;font-size:clamp(22px,4vw,34px);font-weight:900;padding:20px 0}
+    @keyframes ecPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,77,77,.0)}50%{box-shadow:0 0 0 6px rgba(255,77,77,.06)}}
+    @keyframes ecDot{0%{box-shadow:0 0 0 0 rgba(255,77,77,.8)}70%{box-shadow:0 0 0 8px rgba(255,77,77,0)}100%{box-shadow:0 0 0 0 rgba(255,77,77,0)}}
+    @media (max-width:640px){.exam-countdown .ec-card{padding:20px 14px;border-radius:18px}.exam-countdown .ec-grid{gap:8px}.exam-countdown .ec-unit{padding:14px 6px;border-radius:14px}.exam-countdown .ec-label{font-size:12px}.exam-countdown .ec-top{justify-content:center}.exam-countdown .ec-date{width:100%;text-align:center}}
+  </style>
+  <div class="ec-card">
+    <div class="ec-top">
+      <div class="ec-badge"><span class="dot"></span> الوقت بيمر — لا تأجل</div>
+      <div class="ec-date">الهدف: 1 حزيران 2027</div>
+    </div>
+    <h2 class="ec-title">الامتحانات <span class="fire">بتقرب</span>... جاهز؟</h2>
+    <p class="ec-sub">كل ثانية بتعدي هي فرصة يا بتستغلها يا بتضيع. <strong>افتح كتابك الآن</strong> وخلي مستقبلِك يشكرك.</p>
+    <div class="ec-grid" id="ec-grid">
+      <div class="ec-unit days"><span class="ec-num" id="ec-days">--</span><span class="ec-label">يوم</span></div>
+      <div class="ec-unit hours"><span class="ec-num" id="ec-hours">--</span><span class="ec-label">ساعة</span></div>
+      <div class="ec-unit minutes"><span class="ec-num" id="ec-minutes">--</span><span class="ec-label">دقيقة</span></div>
+      <div class="ec-unit seconds"><span class="ec-num" id="ec-seconds">--</span><span class="ec-label">ثانية</span></div>
+    </div>
+    <div class="ec-done" id="ec-done">🔥 وصلنا لشهر الامتحانات — بالتوفيق! 🔥</div>
+    <div class="ec-footer" id="ec-footer">
+      <a class="ec-cta" href="#year-section" onclick="event.preventDefault();var el=document.getElementById('year-section');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});">ابدأ الدراسة الآن</a>
+      <span class="ec-note">الوقت ما برجع... ابدأ من اليوم.</span>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var target = new Date('2027-06-01T00:00:00+03:00').getTime();
+      var dEl=document.getElementById('ec-days'),hEl=document.getElementById('ec-hours'),mEl=document.getElementById('ec-minutes'),sEl=document.getElementById('ec-seconds');
+      var grid=document.getElementById('ec-grid'),done=document.getElementById('ec-done'),footer=document.getElementById('ec-footer');
+      function pad(n){return String(n).padStart(2,'0');}
+      function tick(){
+        var now=Date.now(); var diff=target-now;
+        if(diff<=0){grid.style.display='none';footer.style.display='none';done.style.display='block';return;}
+        var sec=Math.floor(diff/1000);
+        var days=Math.floor(sec/86400); sec%=86400;
+        var hrs=Math.floor(sec/3600); sec%=3600;
+        var mins=Math.floor(sec/60); sec%=60;
+        dEl.textContent=String(days); hEl.textContent=pad(hrs); mEl.textContent=pad(mins); sEl.textContent=pad(sec);
+      }
+      tick(); setInterval(tick,1000);
+    })();
+  </script>
+</section>
+
 <div id="chatDisabledModal" class="chat-disabled-modal">
   <div class="chat-disabled-card">
     <div class="icon">🔒</div>
