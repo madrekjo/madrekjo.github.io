@@ -66,33 +66,34 @@
 
 <section class="exam-countdown" id="exam-countdown" aria-label="العد التنازلي للامتحانات">
   <style>
-    .exam-countdown{position:relative;margin:28px auto 0;max-width:980px;padding:0 16px;font-family:'Cairo','Tajawal',sans-serif}
-    .exam-countdown .ec-card{position:relative;overflow:hidden;border-radius:22px;padding:24px 20px;background:linear-gradient(145deg,rgba(35,8,10,.96),rgba(18,10,12,.96) 45%,rgba(20,14,8,.96));border:1px solid rgba(255,90,90,.35);box-shadow:0 0 0 1px rgba(255,120,60,.08),0 18px 50px rgba(0,0,0,.45),0 0 40px rgba(255,60,60,.08)}
-    .exam-countdown .ec-card::before{content:"";position:absolute;inset:-2px;background:radial-gradient(ellipse at top,rgba(255,70,70,.22),transparent 55%),radial-gradient(ellipse at bottom right,rgba(255,170,0,.12),transparent 45%);pointer-events:none}
-    .exam-countdown .ec-top{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
-    .exam-countdown .ec-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(255,60,60,.14);border:1px solid rgba(255,90,90,.35);color:#ffb4b4;font-size:12px;font-weight:800;letter-spacing:.2px;animation:ecPulse 2s ease-in-out infinite}
-    .exam-countdown .ec-badge .dot{width:8px;height:8px;border-radius:50%;background:#ff4d4d;box-shadow:0 0 0 0 rgba(255,77,77,.8);animation:ecDot 1.4s infinite}
-    .exam-countdown .ec-date{color:#ffd7a0;font-size:13px;font-weight:700;opacity:.95}
-    .exam-countdown .ec-title{position:relative;margin:0 0 8px;font-size:clamp(24px,4.8vw,40px);line-height:1.25;font-weight:900;color:#fff;text-align:center}
-    .exam-countdown .ec-title .fire{color:#ff5a5a;text-shadow:0 0 18px rgba(255,70,70,.35)}
-    .exam-countdown .ec-sub{position:relative;margin:0 auto 22px;max-width:720px;text-align:center;color:#f3d7c3;font-size:clamp(14px,2.4vw,18px);line-height:1.9;font-weight:600}
-    .exam-countdown .ec-sub strong{color:#ffd166}
-    .exam-countdown .ec-grid{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;max-width:760px;margin:0 auto}
-    .exam-countdown .ec-unit{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:16px 10px;text-align:center;backdrop-filter:blur(2px)}
-    .exam-countdown .ec-num{display:block;font-variant-numeric:tabular-nums;font-size:clamp(30px,6vw,56px);line-height:1;font-weight:900;color:#fff;text-shadow:0 0 24px rgba(255,90,90,.18)}
-    .exam-countdown .ec-unit.days .ec-num{color:#ff6b6b}
-    .exam-countdown .ec-unit.hours .ec-num{color:#ffb347}
-    .exam-countdown .ec-unit.minutes .ec-num{color:#ffd166}
-    .exam-countdown .ec-unit.seconds .ec-num{color:#fff3bf}
-    .exam-countdown .ec-label{display:block;margin-top:8px;font-size:13px;font-weight:700;color:#d9c2b8}
-    .exam-countdown .ec-footer{position:relative;margin-top:18px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;text-align:center}
-    .exam-countdown .ec-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:12px;background:linear-gradient(135deg,#ff4d4d,#ff8a00);color:#1a0900;font-size:14px;font-weight:900;text-decoration:none;box-shadow:0 8px 24px rgba(255,77,77,.28);transition:transform .15s ease,filter .15s ease}
-    .exam-countdown .ec-cta:hover{transform:translateY(-2px);filter:brightness(1.03)}
-    .exam-countdown .ec-note{color:#ffb4b4;font-size:13px;font-weight:700}
-    .exam-countdown .ec-done{display:none;position:relative;text-align:center;color:#fff;font-size:clamp(22px,4vw,34px);font-weight:900;padding:20px 0}
-    @keyframes ecPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,77,77,.0)}50%{box-shadow:0 0 0 6px rgba(255,77,77,.06)}}
-    @keyframes ecDot{0%{box-shadow:0 0 0 0 rgba(255,77,77,.8)}70%{box-shadow:0 0 0 8px rgba(255,77,77,0)}100%{box-shadow:0 0 0 0 rgba(255,77,77,0)}}
-    @media (max-width:640px){.exam-countdown .ec-card{padding:20px 14px;border-radius:18px}.exam-countdown .ec-grid{gap:8px}.exam-countdown .ec-unit{padding:14px 6px;border-radius:14px}.exam-countdown .ec-label{font-size:12px}.exam-countdown .ec-top{justify-content:center}.exam-countdown .ec-date{width:100%;text-align:center}}
+    
+.exam-countdown{position:relative;margin:28px auto 0;max-width:980px;padding:0 16px;font-family:'Cairo','Tajawal',sans-serif}
+.exam-countdown .ec-card{position:relative;overflow:hidden;border-radius:22px;padding:24px 20px;background:linear-gradient(145deg,rgba(20,18,10,.96),rgba(14,14,18,.96) 45%,rgba(18,16,10,.96));border:1px solid rgba(255,215,0,.28);box-shadow:0 0 0 1px rgba(255,215,0,.06),0 18px 50px rgba(0,0,0,.45),0 0 40px rgba(255,215,0,.06)}
+.exam-countdown .ec-card::before{content:"";position:absolute;inset:-2px;background:radial-gradient(ellipse at top,rgba(255,215,0,.16),transparent 55%),radial-gradient(ellipse at bottom right,rgba(184,134,11,.12),transparent 45%);pointer-events:none}
+.exam-countdown .ec-top{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.exam-countdown .ec-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.28);color:#FFF3B0;font-size:12px;font-weight:800;letter-spacing:.2px;animation:ecPulse 2s ease-in-out infinite}
+.exam-countdown .ec-badge .dot{width:8px;height:8px;border-radius:50%;background:#FFD700;box-shadow:0 0 0 0 rgba(255,215,0,.7);animation:ecDot 1.4s infinite}
+.exam-countdown .ec-date{color:#FFE082;font-size:13px;font-weight:700;opacity:.95}
+.exam-countdown .ec-title{position:relative;margin:0 0 8px;font-size:clamp(24px,4.8vw,40px);line-height:1.25;font-weight:900;color:#fff;text-align:center}
+.exam-countdown .ec-title .fire{color:#FFD700;text-shadow:0 0 18px rgba(255,215,0,.3)}
+.exam-countdown .ec-sub{position:relative;margin:0 auto 22px;max-width:720px;text-align:center;color:#ddd0b0;font-size:clamp(14px,2.4vw,18px);line-height:1.9;font-weight:600}
+.exam-countdown .ec-sub strong{color:#FFD700}
+.exam-countdown .ec-grid{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;max-width:760px;margin:0 auto}
+.exam-countdown .ec-unit{background:linear-gradient(180deg,rgba(255,215,0,.07),rgba(255,255,255,.02));border:1px solid rgba(255,215,0,.14);border-radius:18px;padding:16px 10px;text-align:center;backdrop-filter:blur(2px)}
+.exam-countdown .ec-num{display:block;font-variant-numeric:tabular-nums;font-size:clamp(30px,6vw,56px);line-height:1;font-weight:900;color:#FFD700;text-shadow:0 0 24px rgba(255,215,0,.16)}
+.exam-countdown .ec-unit.days .ec-num{color:#FFD700}
+.exam-countdown .ec-unit.hours .ec-num{color:#FFCC33}
+.exam-countdown .ec-unit.minutes .ec-num{color:#FFE082}
+.exam-countdown .ec-unit.seconds .ec-num{color:#FFF3B0}
+.exam-countdown .ec-label{display:block;margin-top:8px;font-size:13px;font-weight:700;color:#cfc29a}
+.exam-countdown .ec-footer{position:relative;margin-top:18px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;text-align:center}
+.exam-countdown .ec-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:12px;background:linear-gradient(135deg,#FFD700,#FFB300);color:#1a1400;font-size:14px;font-weight:900;text-decoration:none;box-shadow:0 8px 24px rgba(255,215,0,.22);transition:transform .15s ease,filter .15s ease}
+.exam-countdown .ec-cta:hover{transform:translateY(-2px);filter:brightness(1.03)}
+.exam-countdown .ec-note{color:#FFE082;font-size:13px;font-weight:700}
+.exam-countdown .ec-done{display:none;position:relative;text-align:center;color:#FFD700;font-size:clamp(22px,4vw,34px);font-weight:900;padding:20px 0}
+@keyframes ecPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,215,0,0)}50%{box-shadow:0 0 0 6px rgba(255,215,0,.06)}}
+@keyframes ecDot{0%{box-shadow:0 0 0 0 rgba(255,215,0,.7)}70%{box-shadow:0 0 0 8px rgba(255,215,0,0)}100%{box-shadow:0 0 0 0 rgba(255,215,0,0)}}
+@media (max-width:640px){.exam-countdown .ec-card{padding:20px 14px;border-radius:18px}.exam-countdown .ec-grid{gap:8px}.exam-countdown .ec-unit{padding:14px 6px;border-radius:14px}.exam-countdown .ec-label{font-size:12px}.exam-countdown .ec-top{justify-content:center}.exam-countdown .ec-date{width:100%;text-align:center}}
   </style>
   <div class="ec-card">
     <div class="ec-top">
