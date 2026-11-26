@@ -42,6 +42,20 @@ export const AdminPanel = () => {
       return (data ?? []).map((r) => r.user_id as string);
     },
   });
+  // المشرف الأعلى المحمي - لا يمكن إزالته أو حذفه
+  const PROTECTED_SUPER_ADMIN_EMAIL = "abdalrahmanjarrah94@gmail.com";
+  const { data: protectedSuperAdminId = null } = useQuery({
+    queryKey: ["protected-super-admin-id"],
+    queryFn: async () => {
+      const res = await achievementSupabase.functions.invoke("admin-user-actions", {
+        body: { action: "get_protected_super_admin" },
+      });
+      if (res.error) return null;
+      return (res.data?.userId as string | null) ?? null;
+    },
+    staleTime: 5 * 60 * 1000,
+  });
+
   const effectiveAdminIds = protectedSuperAdminId && !adminIds.includes(protectedSuperAdminId)
     ? [...adminIds, protectedSuperAdminId]
     : adminIds;
@@ -59,20 +73,6 @@ export const AdminPanel = () => {
     },
   });
   const roundCreatorSet = new Set(roundCreatorIds);
-
-  // المشرف الأعلى المحمي - لا يمكن إزالته أو حذفه
-  const PROTECTED_SUPER_ADMIN_EMAIL = "abdalrahmanjarrah94@gmail.com";
-  const { data: protectedSuperAdminId = null } = useQuery({
-    queryKey: ["protected-super-admin-id"],
-    queryFn: async () => {
-      const res = await achievementSupabase.functions.invoke("admin-user-actions", {
-        body: { action: "get_protected_super_admin" },
-      });
-      if (res.error) return null;
-      return (res.data?.userId as string | null) ?? null;
-    },
-    staleTime: 5 * 60 * 1000,
-  });
 
   const toggleRoundCreator = async (userId: string, makeCreator: boolean) => {
     setTogglingRoundId(userId);
