@@ -1,13 +1,12 @@
--- حماية المشرف الأعلى لقسم الإنجاز: شاهين شاه (abdalrahmanjarrah94@gmail.com)
--- 1) تثبيت الاسم
--- 2) ضمان دور admin
--- 3) منع إزالة دور admin عنه على مستوى قاعدة البيانات
+-- حماية المشرف الأعلى لقسم الإنجاز: abdalrahmanjarrah94@gmail.com (رتبة shahin shah)
+-- 1) ضمان دور admin
+-- 2) منع إزالة دور admin عنه على مستوى قاعدة البيانات
+-- 3) منع حذف بروفايله
 
 DO $$
 DECLARE
   v_uid uuid;
   v_email text := 'abdalrahmanjarrah94@gmail.com';
-  v_name  text := 'شاهين شاه';
 BEGIN
   SELECT id INTO v_uid FROM auth.users WHERE lower(email) = lower(v_email) LIMIT 1;
 
@@ -15,11 +14,6 @@ BEGIN
     RAISE NOTICE 'المستخدم % غير موجود في auth.users - تخطي التثبيت الآن. شغّل الملف بعد تسجيل دخوله أول مرة.', v_email;
     RETURN;
   END IF;
-
-  -- تثبيت الاسم في البروفايل
-  UPDATE public.profiles
-  SET display_name = v_name, updated_at = now()
-  WHERE user_id = v_uid;
 
   -- ضمان دور الأدمن
   INSERT INTO public.user_roles (user_id, role)
@@ -85,30 +79,4 @@ BEFORE DELETE ON public.profiles
 FOR EACH ROW
 EXECUTE FUNCTION public.protect_super_admin_profile();
 
--- تثبيت اسم المشرف الأعلى (منع تغييره من أي واجهة)
-CREATE OR REPLACE FUNCTION public.protect_super_admin_name()
-RETURNS trigger
-LANGUAGE plpgsql
-SECURITY DEFINER
-SET search_path = public
-AS $$
-DECLARE
-  v_email text;
-BEGIN
-  SELECT lower(u.email) INTO v_email
-  FROM auth.users u
-  WHERE u.id = NEW.user_id;
-
-  IF v_email = lower('abdalrahmanjarrah94@gmail.com') THEN
-    NEW.display_name := 'شاهين شاه';
-  END IF;
-
-  RETURN NEW;
-END;
-$$;
-
-DROP TRIGGER IF EXISTS trg_protect_super_admin_name ON public.profiles;
-CREATE TRIGGER trg_protect_super_admin_name
-BEFORE INSERT OR UPDATE ON public.profiles
-FOR EACH ROW
-EXECUTE FUNCTION public.protect_super_admin_name();
+-- ملاحظة: الرتبة المعروضة في الواجهة هي "shahin shah" (لا نفرض اسم العرض في البروفايل).
