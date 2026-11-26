@@ -99,6 +99,12 @@ Deno.serve(async (req) => {
       const { data, error } = await adminClient.auth.admin.getUserById(userId);
       if (error) throw error;
       return new Response(JSON.stringify({ success: true, email: data.user?.email ?? null, created_at: data.user?.created_at ?? null }), { headers: { ...corsHeaders, "Content-Type": "application/json" } });
+    } else if (action === "get_protected_super_admin") {
+      const PROTECTED_SUPER_ADMIN_EMAIL = "abdalrahmanjarrah94@gmail.com";
+      const { data, error } = await adminClient.auth.admin.listUsers({ perPage: 1000 });
+      if (error) throw error;
+      const match = (data?.users ?? []).find((u) => (u.email ?? "").toLowerCase() === PROTECTED_SUPER_ADMIN_EMAIL);
+      return new Response(JSON.stringify({ success: true, userId: match?.id ?? null, email: PROTECTED_SUPER_ADMIN_EMAIL }), { headers: { ...corsHeaders, "Content-Type": "application/json" } });
     } else {
       return new Response(JSON.stringify({ error: "Unknown action", received: action ?? null }), { status: 400, headers: corsHeaders });
     }

@@ -46,6 +46,13 @@ Deno.serve(async (req) => {
       return new Response(JSON.stringify({ error: "Missing userId" }), { status: 400, headers: corsHeaders });
     }
 
+    // حماية المشرف الأعلى: لا يمكن حذف حسابه
+    const PROTECTED_SUPER_ADMIN_EMAIL = "abdalrahmanjarrah94@gmail.com";
+    const { data: targetUser } = await adminClient.auth.admin.getUserById(userId);
+    if (targetUser?.user?.email?.toLowerCase() === PROTECTED_SUPER_ADMIN_EMAIL) {
+      return new Response(JSON.stringify({ error: "لا يمكن حذف حساب المشرف الأعلى" }), { status: 403, headers: corsHeaders });
+    }
+
     // Delete user data first (no FK cascade from auth.users)
     await adminClient.from("tasks").delete().eq("user_id", userId);
     await adminClient.from("user_roles").delete().eq("user_id", userId);
