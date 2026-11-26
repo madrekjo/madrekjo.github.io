@@ -45,8 +45,12 @@ export const AdminPanel = () => {
   // المشرف الأعلى المحمي - لا يمكن إزالته أو حذفه
   const PROTECTED_SUPER_ADMIN_EMAIL = "abdalrahmanjarrah94@gmail.com";
   const { data: protectedSuperAdminId = null } = useQuery({
-    queryKey: ["protected-super-admin-id"],
+    queryKey: ["protected-super-admin-id", currentUser?.id, currentUser?.email],
     queryFn: async () => {
+      // fallback سريع من جلسة المستخدم الحالي
+      if (currentUser?.email?.toLowerCase() === PROTECTED_SUPER_ADMIN_EMAIL) {
+        return currentUser.id;
+      }
       const res = await achievementSupabase.functions.invoke("admin-user-actions", {
         body: { action: "get_protected_super_admin" },
       });
